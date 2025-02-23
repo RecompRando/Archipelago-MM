@@ -526,6 +526,18 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Southern Swamp",
         address=0x3469420000043
     ),
+    "Southern Swamp Tour Guide Winning Picture": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694200701C5
+    ),
+    "Southern Swamp Tour Guide Good Picture": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420071C54
+    ),
+    "Southern Swamp Tour Guide Okay Picture": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420071C52
+    ),
     "Southern Swamp Witch Shop Item 1": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420090002,
@@ -1188,6 +1200,14 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Zora Hall Torches Reward": MMRLocationData(
         region="Zora Hall",
         address=0x3469420072802
+    ),
+    "Zora Hall Good Picture of Lulu": MMRLocationData(
+        region="Zora Hall",
+        address=0x3469420082284
+    ),
+    "Zora Hall Bad Picture of Lulu": MMRLocationData(
+        region="Zora Hall",
+        address=0x3469420082282
     ),
     "Pirates' Fortress Sewers Cage HP": MMRLocationData(
         region="Pirates' Fortress Sewers",

@@ -324,6 +324,12 @@ def get_location_rules(player):
             lambda state: state.has("Land Title Deed", player) and state.has("Deku Mask", player),
         "Southern Swamp Tour Witch Gift":
             lambda state: state.has("Bottle of Red Potion", player),
+        "Southern Swamp Tour Guide Winning Picture":
+            lambda state: state.has("Pictograph Box", player),
+        "Southern Swamp Tour Guide Good Picture":
+            lambda state: state.has("Pictograph Box", player),
+        "Southern Swamp Tour Guide Okay Picture":
+            lambda state: state.has("Pictograph Box", player),
         "Southern Swamp Near Swamp Spider House Grotto Chest":
             lambda state: (state.has("Deku Mask", player) and has_projectiles(state, player)) or state.has("Zora Mask", player),
         "Southern Swamp Song Tablet":
@@ -747,6 +753,10 @@ def get_location_rules(player):
             lambda state: state.has("Zora Mask", player),
         "Zora Hall Torches Reward":
             lambda state: can_use_fire_arrows(state, player),
+        "Zora Hall Good Picture of Lulu":
+           lambda state: state.has("Pictograph Box", player) and state.has("Zora Mask", player),
+        "Zora Hall Bad Picture of Lulu":
+           lambda state: state.has("Pictograph Box", player) and state.has("Zora Mask", player),
         "Zora Hall Deku Scrub Purchase Green Potion":
             lambda state: state.has("Zora Mask", player) and has_bottle(state, player),
         "Zora Hall Goron Scrub Trade":
