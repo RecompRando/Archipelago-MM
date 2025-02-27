@@ -190,7 +190,7 @@ class MMRWorld(World):
             mw.get_location("Woodfall Temple Final Room Bubble SF", player).place_locked_item(self.create_item("Stray Fairy (Woodfall)"))
             
             mw.get_location("Snowhead Temple Bottom Floor Switch Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
-            mw.get_location("Snowhead Temple Elevator Room Upper Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
+            mw.get_location("Snowhead Temple Elevator Room Invisible Platform Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Orange Door Upper Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Green Door Ice Blowers Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Light Blue Door Upper Chest", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
@@ -201,7 +201,7 @@ class MMRWorld(World):
             mw.get_location("Snowhead Temple Elevator Freestanding SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Grey Door Near Bombable Stairs Box SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Timed Switch Room Bubble SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
-            mw.get_location("Snowhead Temple Snowman Bubble SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
+            mw.get_location("Snowhead Temple Snowmen Bubble SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Dinolfos Room First SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
             mw.get_location("Snowhead Temple Dinolfos Room Second SF", player).place_locked_item(self.create_item("Stray Fairy (Snowhead)"))
 
