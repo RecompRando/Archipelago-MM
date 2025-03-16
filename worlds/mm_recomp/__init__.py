@@ -69,6 +69,9 @@ class MMRWorld(World):
         if self.options.start_with_soaring.value:
             mw.push_precollected(self.create_item("Song of Soaring"))
             self.create_and_add_filler_items();
+        
+        if self.options.shuffle_spiderhouse_reward.value:
+            mw.itempool.append(self.create_item("Progressive Wallet"))
 
         if self.options.shuffle_regional_maps.value == 1:
             mw.push_precollected(self.create_item("Clock Town Map"))
@@ -150,7 +153,7 @@ class MMRWorld(World):
             mw.get_location("Great Bay Temple Gyorg's Remains", player).place_locked_item(self.create_item(remains_list.pop(self.random.randint(0, 1))))
             mw.get_location("Stone Tower Temple Inverted Twinmold's Remains", player).place_locked_item(self.create_item(remains_list[0]))
 
-        if not self.options.shuffle_swamphouse_reward.value:
+        if not self.options.shuffle_spiderhouse_reward.value:
             mw.get_location("Swamp Spider House Reward", player).place_locked_item(self.create_item("Mask of Truth"))
             mw.get_location("Ocean Spider House Reward", player).place_locked_item(self.create_item("Progressive Wallet"))
 

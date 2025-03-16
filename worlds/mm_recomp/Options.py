@@ -74,8 +74,8 @@ class ShuffleBossRemains(Choice):
     default = 0
 
 
-class ShuffleSwamphouseReward(Toggle):
-    """Choose whether to shuffle the Mask of Truth given at the end of the Southern Swamphouse."""
+class ShuffleSpiderHouseReward(Toggle):
+    """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
     display_name = "Shuffle Swamphouse Reward"
 
 
@@ -186,7 +186,7 @@ class MMROptions(PerGameCommonOptions):
     starting_hearts_are_containers_or_pieces: StartingHeartsAreContainersOrPieces
     shuffle_regional_maps: ShuffleRegionalMaps
     shuffle_boss_remains: ShuffleBossRemains
-    shuffle_swamphouse_reward: ShuffleSwamphouseReward
+    shuffle_spiderhouse_reward: ShuffleSpiderHouseReward
     skullsanity: Skullsanity
     shopsanity: Shopsanity
     scrubsanity: Scrubsanity
