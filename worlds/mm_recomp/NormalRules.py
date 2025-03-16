@@ -5,7 +5,7 @@ def can_get_magic_beans(state, player):
     return state.has("Magic Bean", player) and state.has("Deku Mask", player) and state.can_reach("Deku Palace", 'Region', player)
 
 def has_bombchus(state, player):
-    return state.has("Bombchu (1)", player) or state.has("Bombchu (5)", player) or state.has("Bombchu (10)", player)
+    return state.has("Progressive Bombchu Bag", player)
 
 def has_explosives(state, player):
     return state.has("Progressive Bomb Bag", player) or has_bombchus(state, player) or state.has("Blast Mask", player)

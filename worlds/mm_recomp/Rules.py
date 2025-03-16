@@ -5,7 +5,7 @@ from BaseClasses import CollectionState, MultiWorld
 
 
 def baby_has_bombchus(state, player):
-    return state.has("Bombchu (1)", player) and state.has("Bombchu (5)", player) and state.has("Bombchu (10)", player)
+    return state.has("Progressive Bombchu Bag", player) and state.has("Bombchu (1)", player) and state.has("Bombchu (5)", player) and state.has("Bombchu (10)", player)
 
 def baby_has_explosives(state, player):
     return state.has("Progressive Bomb Bag", player) and baby_has_bombchus(state, player) and state.has("Blast Mask", player),
