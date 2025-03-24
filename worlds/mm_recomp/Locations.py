@@ -1613,10 +1613,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ikana Castle",
         address=0x3469420051D0A
     ),
-    # ~ "Ikana Castle King Song" MMRLocationData(
-        # ~ region="Ikana Castle",
-        # ~ address=0x34694200xxxx
-    # ~ ),
+    "Ikana Castle King Song": MMRLocationData(
+        region="Ikana Castle",
+        address=0x3469420040064
+    ),
     # ~ "Stone Tower Temple 1F Bridge Room Underwater Switch Chest Glitched": MMRLocationData(
         # ~ region="Stone Tower Temple",
         # ~ address=0x346942006160E
