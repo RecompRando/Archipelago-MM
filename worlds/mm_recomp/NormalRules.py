@@ -193,9 +193,9 @@ def get_location_rules(player):
             lambda state: True,
         "Bomb Bag Purchase":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
-         "Curiosity Shop Night 3 (Stop Thief)":
+        "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: can_purchase(state, player, 500) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
-         "Curiosity Shop Night 3 Thief Stolen Item":
+        "Curiosity Shop Night 3 Thief Stolen Item":
             lambda state: can_purchase(state, player, 100),
         "Laundry Pool Kafei's Request":
             lambda state: state.has("Letter to Kafei", player),
@@ -875,7 +875,7 @@ def get_location_rules(player):
             lambda state: state.can_reach("Secret Shrine Left Chest", 'Location', player) and state.can_reach("Secret Shrine Middle-Left Chest", 'Location', player) and state.can_reach("Secret Shrine Middle-Right Chest", 'Location', player) and state.can_reach("Secret Shrine Right Chest", 'Location', player),
             
         # Recommend 2-3 bottles for Well in logic
-        "Ikana Well Torch Chest":
+        "Ikana Well Rightside Torch Chest":
             lambda state: (state.has("Gibdo Mask", player) and has_bottle(state, player) and can_plant_beans(state, player) or (can_use_light_arrows(state, player) and has_bottle(state, player))),
         "Ikana Well Invisible Chest":
             lambda state: (state.has("Gibdo Mask", player) and (has_bottle(state, player) and state.has("Progressive Wallet", player) or state.has("Mask of Scents", player))),
