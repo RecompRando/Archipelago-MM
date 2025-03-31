@@ -36,6 +36,10 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.useful,
         can_create=lambda options: options.shuffle_great_fairy_rewards.value
     ),
+    "Bomber's Notebook": MMRItemData(
+        code=0x3469420000050,
+        type=ItemClassification.useful
+    ),
     "Moon's Tear": MMRItemData(
         code=0x3469420000096,
         type=ItemClassification.progression
@@ -493,7 +497,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
         type=ItemClassification.filler,
-        num_exist=44
+        num_exist=43
         # ~ num_exist=29
     ),
     "Purple Rupee": MMRItemData(
