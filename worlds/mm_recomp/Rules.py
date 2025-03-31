@@ -531,7 +531,7 @@ def get_baby_location_rules(player):
         "Twin Islands Ramp Grotto Chest":
             lambda state: baby_has_explosives(state, player) and state.has("Goron Mask", player) and state.has("Hookshot", player),
         "Twin Islands Hot Water Grotto Chest":
-            lambda state: baby_has_explosives(state, player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_clear_snowhead(state, player) and baby_has_explosive(state, player),
+            lambda state: baby_has_explosives(state, player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_clear_snowhead(state, player),
         "Twin Islands Spring Underwater Cave Chest":
             lambda state: state.has("Zora Mask", player) and can_clear_snowhead(state, player),
         "Twin Islands Spring Underwater Near Ramp Chest":
@@ -550,12 +550,12 @@ def get_baby_location_rules(player):
             lambda state: can_use_lens(state, player),
         "Goron Village Deku Scrub Purchase Bomb Bag":
             lambda state: state.has("Goron Mask", player) and state.has("Progressive Wallet", player),
+        "Goron Village Deku Trade":
+            lambda state: state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
         "Goron Village Deku Trade Freestanding HP":
             lambda state: state.can_reach("Goron Village Deku Trade", 'Location', player),
         "Powder Keg Goron Reward":
             lambda state: state.has("Powder Keg", player) and can_clear_snowhead(state, player) and can_use_fire_arrows(state, player),
-        "Goron Village Deku Scrub Purchase Bomb Bag":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Wallet", player), 
         "Goron Village Baby Goron Lullaby":
             lambda state: state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player) and state.can_reach("Twin Islands Goron Elder Request", 'Location', player),
         "Goron Village Shop Item 1":
@@ -658,7 +658,7 @@ def get_baby_location_rules(player):
             lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player),
         # ~ maybe require 3 bottles for eggs
         "Great Bay Marine Research Lab Zora Egg Delivery Song":
-            lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player, 2) and baby_has_hard_projectiles(state, player) and state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player),
+            lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player) and baby_has_hard_projectiles(state, player) and state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player),
         "Great Bay Marine Research Lab Feeding Fish":
             lambda state: baby_has_bottle(state, player) and state.has("Zora Mask", player),
         "Great Bay (Cleared) Fisherman Island Game HP":
