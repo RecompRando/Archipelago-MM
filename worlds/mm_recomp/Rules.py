@@ -149,7 +149,7 @@ def get_baby_region_rules(player):
         "Clock Town -> The Moon":
             lambda state: state.has("Ocarina of Time", player) and state.has("Oath to Order", player) and state.has("Odolwa's Remains", player) and state.has("Goht's Remains", player) and state.has("Gyorg's Remains", player) and state.has("Twinmold's Remains", player),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
-            lambda state: state.has("Bottle of Red Potion", player) and baby_has_hard_projectiles(state, player) and state.has("Deku Mask", player), # and state.has("Pictograph Box", player),
+            lambda state: state.has("Bottle of Red Potion", player) and baby_has_hard_projectiles(state, player) and state.has("Deku Mask", player) and state.has("Pictograph Box", player),
         "Southern Swamp (Deku Palace) -> Swamp Spider House":
             lambda state: state.has("Deku Mask", player) and can_use_fire_arrows(state, player),
         "Southern Swamp (Deku Palace) -> Deku Palace":
@@ -529,15 +529,15 @@ def get_baby_location_rules(player):
        "Tingle Snowhead Map Purchase":
             lambda state: baby_has_projectiles(state, player) and state.can_reach("Southern Swamp", 'Region', player),
         "Twin Islands Ramp Grotto Chest":
-            lambda state: baby_has_explosives(state, player) and (state.has("Goron Mask", player) and state.has("Hookshot", player)),
+            lambda state: baby_has_explosives(state, player) and state.has("Goron Mask", player) and state.has("Hookshot", player),
         "Twin Islands Hot Water Grotto Chest":
-            lambda state: baby_has_explosives(state, player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_clear_snowhead(state, player),
+            lambda state: baby_has_explosives(state, player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_clear_snowhead(state, player) and baby_has_explosive(state, player),
         "Twin Islands Spring Underwater Cave Chest":
             lambda state: state.has("Zora Mask", player) and can_clear_snowhead(state, player),
         "Twin Islands Spring Underwater Near Ramp Chest":
             lambda state: state.has("Zora Mask", player) and can_clear_snowhead(state, player),
         "Twin Islands Goron Elder Request":
-            lambda state: state.has("Goron Mask", player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and has_bottle(state, player),
+            lambda state: state.has("Goron Mask", player) and can_use_fire_arrows(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and baby_has_bottle(state, player),
         "Goron Racetrack Bottle Prize":
              lambda state: state.has("Powder Keg", player) and can_clear_snowhead(state, player),
             
@@ -550,16 +550,14 @@ def get_baby_location_rules(player):
             lambda state: can_use_lens(state, player),
         "Goron Village Deku Scrub Purchase Bomb Bag":
             lambda state: state.has("Goron Mask", player) and state.has("Progressive Wallet", player),
-        "Goron Village Deku Trade":
-            lambda state: state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
         "Goron Village Deku Trade Freestanding HP":
             lambda state: state.can_reach("Goron Village Deku Trade", 'Location', player),
         "Powder Keg Goron Reward":
             lambda state: state.has("Powder Keg", player) and can_clear_snowhead(state, player) and can_use_fire_arrows(state, player),
-        "Goron Village Deku Scrub Bomb Bag":
+        "Goron Village Deku Scrub Purchase Bomb Bag":
             lambda state: state.has("Goron Mask", player) and state.has("Progressive Wallet", player), 
         "Goron Village Baby Goron Lullaby":
-            lambda state: state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and state.can_reach("Twin Islands Goron Elder Request", 'Location', player),
+            lambda state: state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player) and state.can_reach("Twin Islands Goron Elder Request", 'Location', player),
         "Goron Village Shop Item 1":
             lambda state: state.has("Goron Mask", player),
         "Goron Village Shop Item 2":
@@ -660,7 +658,7 @@ def get_baby_location_rules(player):
             lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player),
         # ~ maybe require 3 bottles for eggs
         "Great Bay Marine Research Lab Zora Egg Delivery Song":
-            lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player) and baby_has_hard_projectiles(state, player) and state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player),
+            lambda state: baby_can_reach_seahorse(state, player) and state.has("Progressive Magic", player) and baby_has_bottle(state, player, 2) and baby_has_hard_projectiles(state, player) and state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player),
         "Great Bay Marine Research Lab Feeding Fish":
             lambda state: baby_has_bottle(state, player) and state.has("Zora Mask", player),
         "Great Bay (Cleared) Fisherman Island Game HP":
@@ -820,7 +818,7 @@ def get_baby_location_rules(player):
         "Great Bay Temple Red-Green Pipe First Room Chest":
             lambda state: can_use_ice_arrows(state, player) and state.has("Zora Mask", player) and state.has("Progressive Bow", player) and state.has("Hookshot", player),
         "Great Bay Temple Red-Green Pipe First Room Pot SF":
-            lambda state: can_use_ice_arrows(state, player) and state.has("Zora Mask", player) and state.has("Progressive Bow", player),
+            lambda state: can_use_ice_arrows(state, player) and state.has("Zora Mask", player) and state.has("Progressive Bow", player) and state.has("Great Fairy Mask", player),
         "Great Bay Temple Bio-Baba Hall Chest":
             lambda state: state.has("Zora Mask", player) and state.has("Progressive Bow", player) and state.has("Hookshot", player),
         "Great Bay Temple Froggy Entrance Room Pot SF":
@@ -848,9 +846,9 @@ def get_baby_location_rules(player):
         "Great Bay Temple Before Boss Room Exit Tunnel Bubble SF":
             lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
-            lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Progressive Bow", player),
+            lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player),
         "Great Bay Temple Gyorg's Remains":
-            lambda state: state.has("Zora Mask", player) and can_use_ice_arrows(state, player) and state.has("Great Fairy Mask", player) and can_use_fire_arrows(state, player) and state.has("Progressive Bow", player),
+            lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player),
         
 
         "Road to Ikana Pillar Chest":
@@ -985,9 +983,9 @@ def get_baby_location_rules(player):
         "Stone Tower Temple Inverted Eyegore Chest":
             lambda state: state.has("Deku Mask", player) and can_use_light_arrows(state, player) and can_use_ice_arrows(state, player) and state.has("Hookshot", player),
         "Stone Tower Temple Inverted Heart Container":
-            lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player),
+            lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player) and state.has("Fierce Deity's Mask", player),
         "Stone Tower Temple Inverted Twinmold's Remains":
-            lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player),
+            lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player) and state.has("Fierce Deity's Mask", player),
 
 
         "Moon Deku Trial HP":
