@@ -488,7 +488,7 @@ def get_location_rules(player):
         "Twin Islands Goron Elder Request":
             lambda state: state.has("Goron Mask", player) and (can_use_fire_arrows(state, player) or ((state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) or (state.can_reach("Ikana Well Invisible Chest", 'Location', player) and can_play_song("Song of Soaring", state, player))) and has_bottle(state, player))),
         "Twin Islands Hot Water Grotto Chest":
-            lambda state: (has_explosives(state, player) and can_use_fire_arrows(state, player)) or (state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and has_bottle(state, player) and state.has("Goron Mask", player) and can_use_explosives(state, player)) or (can_clear_snowhead(state, player) or (state.can_reach("Ikana Well Invisible Chest", 'Location', player) and can_play_song("Song of Soaring", player)),
+            lambda state: (has_explosives(state, player) and can_use_fire_arrows(state, player)) or (state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and has_bottle(state, player) and state.has("Goron Mask", player) and has_explosives(state, player)) or (can_clear_snowhead(state, player) or (state.can_reach("Ikana Well Invisible Chest", 'Location', player) and can_play_song("Song of Soaring", state, player))),
         "Twin Islands Spring Underwater Cave Chest":
             lambda state: state.has("Zora Mask", player) and can_clear_snowhead(state, player),
         "Twin Islands Spring Underwater Near Ramp Chest":
