@@ -26,7 +26,7 @@ def baby_has_paper(state, player):
     return state.has("Land Title Deed", player) and state.has("Swamp Title Deed", player) and state.has("Mountain Title Deed", player) or state.has("Ocean Title Deed", player) or state.has("Letter to Kafei", player) or state.has("Priority Mail", player)
 
 def baby_has_bottle(state, player):
-    return state.has("Bottle of Red Potion", player) and state.has("Bottle of Chateau Romani", player) and state.has("Bottle of Milk", player)
+    return state.has("Bottle", player) and state.has("Bottle of Red Potion", player) and state.has("Bottle of Chateau Romani", player) and state.has("Bottle of Milk", player)
 
 def baby_can_plant_beans(state, player):
     return can_get_magic_beans(state, player) and baby_has_bottle(state, player) and can_play_song("Song of Storms", state, player)

@@ -1161,6 +1161,14 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Zora Cape",
         address=0x3469420060715
     ),
+    "Beaver Bros. Race Bottle Reward": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942009018D
+    ),
+    "Beaver Bros. Race HP": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942007018D
+    ),
     "Great Bay Great Fairy Reward": MMRLocationData(
         region="Zora Cape",
         address=0x3469420030003
