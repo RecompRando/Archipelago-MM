@@ -164,7 +164,8 @@ class DeathBehavior(Choice):
     display_name = "Death Behavior"
     option_vanilla = 0
     option_fast = 1
-    option_moon_crash = 2
+    option_instant = 2
+    option_moon_crash = 3
     default = 0
 
 

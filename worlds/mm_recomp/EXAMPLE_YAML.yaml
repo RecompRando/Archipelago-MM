@@ -200,6 +200,7 @@ Majora's Mask Recompiled:
     # moon_crash: Triggers a moon crash and restarts the current cycle.
     vanilla: 50
     fast: 0
+    instant: 0
     moon_crash: 0
 
   link_tunic_color:
