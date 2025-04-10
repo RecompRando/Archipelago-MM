@@ -848,7 +848,7 @@ def get_location_rules(player):
         "Tingle Stone Tower Map Purchase":
             lambda state: has_projectiles(state, player) and state.can_reach("Great Bay", 'Region', player),
         "Ikana Canyon Spirit House":
-            lambda state: can_use_ice_arrows(state, player) and (state.has("Progressive Bow", player) or state.has("Hookshot", player)),
+            lambda state: can_use_ice_arrows(state, player) and state.has("Hookshot", player),
         "Ikana Canyon Music Box Mummy":
             lambda state: can_use_ice_arrows(state, player) and can_play_song("Song of Healing", state, player) and can_play_song("Song of Storms", state, player),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
