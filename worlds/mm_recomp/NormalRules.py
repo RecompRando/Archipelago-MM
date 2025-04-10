@@ -191,6 +191,8 @@ def get_location_rules(player):
             lambda state: True,
         "Clock Town Bomb Shop Item 3":
             lambda state: True,
+        "Clock Town Bomb Shop Powder Keg Goron":
+            lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
         "Bomb Bag Purchase":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Night 3 (Stop Thief)":

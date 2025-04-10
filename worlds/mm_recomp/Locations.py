@@ -188,6 +188,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420090017,
         can_create=lambda options: options.shopsanity.value != 0
     ),
+    "Clock Town Bomb Shop Powder Keg Goron": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420024234
+    ),
     "Bomb Bag Purchase": MMRLocationData(
         region="Clock Town",
         address=0x3469420090018,
@@ -946,6 +950,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Goron Village",
         address=0x346942005481E,
         can_create=lambda options: options.shopsanity.value == 2
+    ),
+    "Powder Keg Goron Reward": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420000034
     ),
     "Path to Snowhead Grotto Chest": MMRLocationData(
         region="Path to Snowhead",
