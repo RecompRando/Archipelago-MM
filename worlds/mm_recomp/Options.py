@@ -52,6 +52,7 @@ class StartingHeartsAreContainersOrPieces(Choice):
     option_pieces = 1
     default = 0
 
+
 class ShuffleRegionalMaps(Choice):
     """Choose whether to shuffle every regional map from Tingle."""
     display_name = "Shuffle Regional Maps"
@@ -145,6 +146,14 @@ class ReceiveFilledWallets(DefaultOnToggle):
     display_name = "Receive Filled Wallets"
 
 
+class MagicIsATrap(DefaultOnToggle):
+    """Set whether to preserve the vanilla bug where you are able to use certain magic items and abilities without magic.
+    Once you receive magic, those items and abilities will begin to reduce magic normally.
+    
+    (No logical implications)"""
+    display_name = "Magic Is a Trap"
+
+
 class DamageMultiplier(Choice):
     """Adjust the amount of damage taken."""
     display_name = "Damage Multiplier"
@@ -198,6 +207,7 @@ class MMROptions(PerGameCommonOptions):
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
+    magic_is_a_trap: MagicIsATrap
     damage_multiplier: DamageMultiplier
     death_behavior: DeathBehavior
     death_link: DeathLink

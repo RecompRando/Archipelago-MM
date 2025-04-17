@@ -184,6 +184,14 @@ Majora's Mask Recompiled:
     'false': 0
     'true': 50
 
+  magic_is_a_trap:
+    # Set whether to preserve the vanilla bug where you are able to use certain magic items and abilities without magic.
+    # Once you receive magic, those items and abilities will begin to reduce magic normally.
+    # 
+    # (No logical implications)
+    'false': 50
+    'true': 0
+
   damage_multiplier:
     # Adjust the amount of damage taken.
     half: 0
