@@ -65,6 +65,20 @@ Majora's Mask Recompiled:
     easy: 50
     no_logic: 0
 
+  majora_remains_required:
+    # Set the amount of boss remains required to fight Majora.
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+  
+  moon_remains_required:
+    # Set the amount of boss remains required to reach the Moon after playing Oath to Order.
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
   camc:
     # Set whether chest appearance matches contents.
     'false': 0

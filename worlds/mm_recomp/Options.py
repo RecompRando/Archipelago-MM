@@ -16,6 +16,22 @@ class LogicDifficulty(Choice):
     default = 0
 
 
+class MajoraRemainsRequired(Range):
+    """Set the amount of boss remains required to fight Majora."""
+    display_name = "Majora Boss Remains Required"
+    range_start = 0
+    range_end = 4
+    default = 4
+
+
+class MoonRemainsRequired(Range):
+    """Set the amount of boss remains required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Boss Remains Required"
+    range_start = 0
+    range_end = 4
+    default = 4
+
+
 class CAMC(DefaultOnToggle):
     """Set whether chest appearance matches contents."""
     display_name = "CAMC"
@@ -188,6 +204,8 @@ class LinkTunicColor(OptionList):
 class MMROptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     logic_difficulty: LogicDifficulty
+    majora_remains_required: MajoraRemainsRequired
+    moon_remains_required: MoonRemainsRequired
     camc: CAMC
     swordless: Swordless
     shieldless: Shieldless
