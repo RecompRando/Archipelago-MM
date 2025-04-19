@@ -132,6 +132,12 @@ Majora's Mask Recompiled:
     anywhere: 0
     bosses: 0
 
+  remains_allow_boss_warps:
+    # Choose whether to retain the vanilla ability to warp the boss of dungeons by having their vanilla remains.
+    # Getting the remains check for a dungeon will open its warp regardless.
+    'false': 0
+    'true': 50
+
   shuffle_spiderhouse_reward:
     # Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House.
     'false': 50

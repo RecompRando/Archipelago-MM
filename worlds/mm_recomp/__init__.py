@@ -341,6 +341,7 @@ class MMRWorld(World):
             "permanent_chateau_romani": self.options.permanent_chateau_romani.value,
             "start_with_inverted_time": self.options.start_with_inverted_time.value,
             "receive_filled_wallets": self.options.receive_filled_wallets.value,
+            "remains_allow_boss_warps": self.options.remains_allow_boss_warps.value,
             "magic_is_a_trap": self.options.magic_is_a_trap.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF)
         }

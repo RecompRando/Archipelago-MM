@@ -91,6 +91,12 @@ class ShuffleBossRemains(Choice):
     default = 0
 
 
+class BossWarpsWithRemains(DefaultOnToggle):
+    """Choose whether to retain the vanilla ability to warp the boss of dungeons by having their vanilla remains.
+    Getting the remains check for a dungeon will open its warp regardless."""
+    display_name = "Warp to Bosses Using Remains"
+
+
 class ShuffleSpiderHouseReward(Toggle):
     """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
     display_name = "Shuffle Swamphouse Reward"
@@ -214,6 +220,7 @@ class MMROptions(PerGameCommonOptions):
     starting_hearts_are_containers_or_pieces: StartingHeartsAreContainersOrPieces
     shuffle_regional_maps: ShuffleRegionalMaps
     shuffle_boss_remains: ShuffleBossRemains
+    remains_allow_boss_warps: BossWarpsWithRemains
     shuffle_spiderhouse_reward: ShuffleSpiderHouseReward
     skullsanity: Skullsanity
     shopsanity: Shopsanity
