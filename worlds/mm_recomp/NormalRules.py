@@ -960,6 +960,9 @@ def get_location_rules(player):
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and state.has("Boss Key (Stone Tower)", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) or state.has("Twinmold's Remains", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))),
 
+        "Oath to Order":
+            lambda state: can_clear_woodfall(state, player) or can_clear_snowhead(state, player) or can_clear_greatbay(state, player) or can_clear_stonetower(state, player),
+
         "Moon Deku Trial HP":
             lambda state: state.has("Deku Mask", player),
         "Moon Goron Trial HP":

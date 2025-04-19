@@ -1753,6 +1753,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Stone Tower Temple (Inverted)",
         address=0x3469420000058
     ),
+    "Oath to Order": MMRLocationData(
+        region="Clock Town", # there isn't really a set location for this
+        address=0x3469420040065
+    ),
     "Moon Deku Trial HP": MMRLocationData(
         region="The Moon",
         address=0x3469420052A01

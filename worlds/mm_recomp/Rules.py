@@ -988,6 +988,10 @@ def get_baby_location_rules(player):
             lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player) and state.has("Fierce Deity's Mask", player),
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: state.has("Deku Mask", player) and state.has("Giant's Mask", player) and state.has("Boss Key (Stone Tower)", player) and baby_can_smack_hard(state, player) and state.has("Fierce Deity's Mask", player),
+        
+        
+        "Oath to Order":
+            lambda state: can_clear_woodfall(state, player) and can_clear_snowhead(state, player) and can_clear_greatbay(state, player) and can_clear_stonetower(state, player),
 
 
         "Moon Deku Trial HP":
