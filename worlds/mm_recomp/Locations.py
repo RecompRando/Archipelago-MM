@@ -1713,7 +1713,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Stone Tower Temple",
         address=0x346942006160C
     ),
-    "Stone Tower Temple Inverted Entrance Room Sun Face": MMRLocationData(
+    "Stone Tower Temple Inverted Entrance Room Sun Face Chest": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x3469420061810
     ),
