@@ -294,6 +294,7 @@ class MMRWorld(World):
     def set_rules(self) -> None:
         player = self.player
         mw = self.multiworld
+        options = self.options
 
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
@@ -305,8 +306,8 @@ class MMRWorld(World):
             region_rules = get_baby_region_rules(player)
             location_rules = get_baby_location_rules(player)
         if (self.options.logic_difficulty == 1):
-            region_rules = get_region_rules(player)
-            location_rules = get_location_rules(player)
+            region_rules = get_region_rules(player, options)
+            location_rules = get_location_rules(player, options)
 
         for entrance_name, rule in region_rules.items():
             entrance = mw.get_entrance(entrance_name, player)

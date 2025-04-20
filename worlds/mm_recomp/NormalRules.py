@@ -93,12 +93,23 @@ def can_purchase(state, player, price):
     elif price > 99:
         return state.has("Progressive Wallet", player)
     return True
+
+def has_enough_remains(state, player, need_count):
+    remains_count = 0
+    if state.has("Odolwa's Remains", player):
+        remains_count += 1
+    if state.has("Goht's Remains", player):
+        remains_count += 1
+    if state.has("Gyorg's Remains", player):
+        remains_count += 1
+    if state.has("Twinmold's Remains", player):
+        remains_count += 1
+    return remains_count >= need_count
     
-    
-def get_region_rules(player):
+def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
-            lambda state: state.has("Ocarina of Time", player) and state.has("Oath to Order", player) and state.has("Odolwa's Remains", player) and state.has("Goht's Remains", player) and state.has("Gyorg's Remains", player) and state.has("Twinmold's Remains", player),
+            lambda state: state.has("Ocarina of Time", player) and state.has("Oath to Order", player) and has_enough_remains(state, player, options.moon_remains_required.value),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: state.has("Bottle of Red Potion", player) or (has_hard_projectiles(state, player) and state.has("Deku Mask", player)) or (state.has("Pictograph Box", player) and state.has("Deku Mask", player)),
         "Southern Swamp (Deku Palace) -> Swamp Spider House":
@@ -141,7 +152,7 @@ def get_region_rules(player):
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and can_use_light_arrows(state, player) and can_play_song("Elegy of Emptiness", state, player),
     }
 
-def get_location_rules(player):
+def get_location_rules(player, options):
     return {
         "Keaton Quiz":
             lambda state: state.has("Keaton Mask", player),
@@ -459,9 +470,9 @@ def get_location_rules(player):
         "Woodfall Temple Final Room Bubble SF":
             lambda state: state.has("Progressive Bow", player) or can_use_fire_arrows(state, player),
         "Woodfall Temple Heart Container":
-            lambda state: can_smack(state, player) and state.has("Progressive Bow", player) and (state.has("Boss Key (Woodfall)", player) or state.has("Odolwa's Remains", player)),
+            lambda state: can_smack(state, player) and state.has("Progressive Bow", player) and (state.has("Boss Key (Woodfall)", player) or (state.has("Odolwa's Remains", player) and options.remains_allow_boss_warps.value)),
         "Woodfall Temple Odolwa's Remains":
-            lambda state: can_smack(state, player) and state.has("Progressive Bow", player) and (state.has("Boss Key (Woodfall)", player) or state.has("Odolwa's Remains", player)),
+            lambda state: can_smack(state, player) and state.has("Progressive Bow", player) and (state.has("Boss Key (Woodfall)", player) or (state.has("Odolwa's Remains", player) and options.remains_allow_boss_warps.value)),
             
             
         "Tour Witch Target Shooting":
@@ -587,9 +598,9 @@ def get_location_rules(player):
         "Snowhead Temple 2nd Wizzrobe Chest":
             lambda state: state.has("Small Key (Snowhead)", player, 3) and can_use_fire_arrows(state, player) and has_explosives(state, player) and can_smack(state, player) or (state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player) and can_reach_scarecrow(state, player) and state.has("Deku Mask", player)),
         "Snowhead Temple Heart Container":
-            lambda state: can_use_fire_arrows(state, player) and ((state.has("Small Key (Snowhead)", player, 1) and state.has("Boss Key (Snowhead)", player)) or state.has("Goht's Remains", player)),
+            lambda state: can_use_fire_arrows(state, player) and ((state.has("Small Key (Snowhead)", player, 1) and state.has("Boss Key (Snowhead)", player)) or (state.has("Goht's Remains", player) and options.remains_allow_boss_warps.value)),
         "Snowhead Temple Goht's Remains":
-            lambda state: can_use_fire_arrows(state, player) and ((state.has("Small Key (Snowhead)", player, 1) and state.has("Boss Key (Snowhead)", player)) or state.has("Goht's Remains", player)),
+            lambda state: can_use_fire_arrows(state, player) and ((state.has("Small Key (Snowhead)", player, 1) and state.has("Boss Key (Snowhead)", player)) or (state.has("Goht's Remains", player) and options.remains_allow_boss_warps.value)),
 
 
         "Romani Ranch Bremen Mask March Baby Cuccos":
@@ -818,9 +829,9 @@ def get_location_rules(player):
         "Great Bay Temple Before Boss Room Exit Tunnel Bubble SF":
             lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
-            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or state.has("Gyorg's Remains", player),
+            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
         "Great Bay Temple Gyorg's Remains":
-            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or state.has("Gyorg's Remains", player),
+            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
         
 
         "Road to Ikana Pillar Chest":
@@ -956,9 +967,9 @@ def get_location_rules(player):
         "Stone Tower Temple Inverted Eyegore Chest":
             lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player) and state.has("Small Key (Stone Tower)", player, 4),
         "Stone Tower Temple Inverted Heart Container":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and state.has("Boss Key (Stone Tower)", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) or state.has("Twinmold's Remains", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
         "Stone Tower Temple Inverted Twinmold's Remains":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and state.has("Boss Key (Stone Tower)", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) or state.has("Twinmold's Remains", player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
 
         "Oath to Order":
             lambda state: can_clear_woodfall(state, player) or can_clear_snowhead(state, player) or can_clear_greatbay(state, player) or can_clear_stonetower(state, player),
@@ -976,5 +987,5 @@ def get_location_rules(player):
         "Moon Link Trial HP":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) or can_smack_hard(state, player) and has_bombchus(state, player) and state.has("Progressive Bow", player),
         "Defeat Majora":
-            lambda state: can_smack_hard(state, player) and (((state.has("Zora Mask", player) or has_mirror_shield(state, player)) and can_use_light_arrows(state, player)) or (state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player))),
+            lambda state: can_smack_hard(state, player) and (((state.has("Zora Mask", player) or has_mirror_shield(state, player)) and can_use_light_arrows(state, player)) or (state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player))) and has_enough_remains(state, player, options.majora_remains_required.value),
     }
