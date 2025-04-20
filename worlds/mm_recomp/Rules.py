@@ -40,6 +40,9 @@ def baby_can_reach_scarecrow(state, player):
 def baby_can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and state.has("Zora Mask", player) and state.has("Hookshot", player) and state.has("Goron Mask", player) and state.has("Pictograph Box", player)
 
+def baby_can_get_cow_milk(state, player):
+    return has_bottle(state, player) and can_play_song("Epona's Song", state, player) and state.can_reach("Termina Log Bombable Grotto Left Cow", 'Location', player) and state.can_reach("Romani Ranch Barn Free Cow", 'Location', player) and state.can_reach("Great Bay Ledge Grotto Left Cow", 'Location', player) and state.can_reach("Ikana Well Cow", 'Location', player)
+
 
 
 def universal_item_rule(item):
@@ -244,9 +247,17 @@ def get_baby_location_rules(player):
             lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
         "Bomb Bag Purchase":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
-         "Curiosity Shop Night 3 (Stop Thief)":
+        "Curiosity Shop Blue Rupee Trade":
+            lambda state: has_bottle(state, player) and state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) and baby_can_get_cow_milk(state, player),
+        "Curiosity Shop Red Rupee Trade":
+            lambda state: has_bottle(state, player),
+        "Curiosity Shop Purple Rupee Trade":
+            lambda state: has_bottle(state, player) and state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+        "Curiosity Shop Gold Rupee Trade":
+            lambda state: has_bottle(state, player) and state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) and state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player),
+        "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: can_purchase(state, player, 500) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
-         "Curiosity Shop Night 3 Thief Stolen Item":
+        "Curiosity Shop Night 3 Thief Stolen Item":
             lambda state: can_purchase(state, player, 100),
         "Laundry Pool Kafei's Request":
             lambda state: state.has("Letter to Kafei", player),

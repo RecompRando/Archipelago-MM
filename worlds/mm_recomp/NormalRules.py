@@ -37,6 +37,9 @@ def can_clear_stonetower(state, player):
 def has_paper(state, player):
     return state.has("Land Title Deed", player) or state.has("Swamp Title Deed", player) or state.has("Mountain Title Deed", player) or state.has("Ocean Title Deed", player) or state.has("Letter to Kafei", player) or state.has("Priority Mail", player)
 
+def can_get_cow_milk(state, player):
+    return has_bottle(state, player) and can_play_song("Epona's Song", state, player) and (state.can_reach("Termina Log Bombable Grotto Left Cow", 'Location', player) or state.can_reach("Romani Ranch Barn Free Cow", 'Location', player) or state.can_reach("Great Bay Ledge Grotto Left Cow", 'Location', player) or state.can_reach("Ikana Well Cow", 'Location', player))
+
 def has_bottle(state, player, need_count=1):
     bottle_count = 0
     if state.has("Bottle", player, 2):
@@ -206,6 +209,14 @@ def get_location_rules(player, options):
             lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
         "Bomb Bag Purchase":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
+        "Curiosity Shop Blue Rupee Trade":
+            lambda state: has_bottle(state, player) and (state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) or can_get_cow_milk(state, player)),
+        "Curiosity Shop Red Rupee Trade":
+            lambda state: has_bottle(state, player),
+        "Curiosity Shop Purple Rupee Trade":
+            lambda state: has_bottle(state, player) and state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+        "Curiosity Shop Gold Rupee Trade":
+            lambda state: has_bottle(state, player) and (state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) or (state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player))),
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: can_purchase(state, player, 500) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Night 3 Thief Stolen Item":
