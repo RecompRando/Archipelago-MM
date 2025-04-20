@@ -238,7 +238,7 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Air Gust Room Goron Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Eyegore Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Eastern Water Room Underwater Chest", "Stray Fairy (Stone Tower)")
-            self.place("Stone Tower Temple Inverted Entrance Room Sun Face", "Stray Fairy (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Entrance Room Sun Face Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Wizzrobe Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")

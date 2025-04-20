@@ -81,7 +81,7 @@ def can_clear_greatbay(state, player):
     return state.can_reach("Great Bay Temple Gyorg's Remains", 'Location', player)
     
 def can_clear_stonetower(state, player):
-    return state.can_reach("Stone Tower Temple Twinmold's Remains", 'Location', player)
+    return state.can_reach("Stone Tower Temple Inverted Twinmold's Remains", 'Location', player)
 
 def has_paper(state, player):
     return state.has("Land Title Deed", player) or state.has("Swamp Title Deed", player) or state.has("Mountain Title Deed", player) or state.has("Ocean Title Deed", player) or state.has("Letter to Kafei", player) or state.has("Priority Mail", player)
