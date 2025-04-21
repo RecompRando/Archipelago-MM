@@ -245,7 +245,7 @@ def get_baby_location_rules(player):
             lambda state: True,
         "Clock Town Bomb Shop Powder Keg Goron":
             lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
-        "Bomb Bag Purchase":
+        "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Blue Rupee Trade":
             lambda state: has_bottle(state, player) and state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) and baby_can_get_cow_milk(state, player),

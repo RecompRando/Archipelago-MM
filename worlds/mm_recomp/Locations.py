@@ -188,14 +188,14 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420090017,
         can_create=lambda options: options.shopsanity.value != 0
     ),
-    "Clock Town Bomb Shop Powder Keg Goron": MMRLocationData(
-        region="Clock Town",
-        address=0x3469420024234
-    ),
-    "Bomb Bag Purchase": MMRLocationData(
+    "Clock Town Bomb Shop Item 3 (Stop Thief)": MMRLocationData(
         region="Clock Town",
         address=0x3469420090018,
         can_create=lambda options: options.shopsanity.value != 0
+    ),
+    "Clock Town Bomb Shop Powder Keg Goron": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420024234
     ),
     "Curiosity Shop Blue Rupee Trade": MMRLocationData(
         region="Clock Town",
