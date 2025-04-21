@@ -328,6 +328,7 @@ class MMRWorld(World):
         shuffled_pieces = (12 - shp) % 4
         return {
             "skullsanity": self.options.skullsanity.value,
+            "fairysanity": self.options.fairysanity.value,
             "shopsanity": self.options.shopsanity.value,
             "scrubsanity": self.options.scrubsanity.value,
             "cowsanity": self.options.cowsanity.value,
@@ -344,5 +345,8 @@ class MMRWorld(World):
             "receive_filled_wallets": self.options.receive_filled_wallets.value,
             "remains_allow_boss_warps": self.options.remains_allow_boss_warps.value,
             "magic_is_a_trap": self.options.magic_is_a_trap.value,
+            "shuffle_regional_maps": self.options.shuffle_regional_maps.value,
+            "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
+            "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF)
         }
