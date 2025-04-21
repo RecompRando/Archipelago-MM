@@ -63,6 +63,7 @@ Majora's Mask Recompiled:
   logic_difficulty:
     # Set the logic difficulty used when generating.
     easy: 50
+    normal: 0
     no_logic: 0
 
   majora_remains_required:
@@ -128,7 +129,7 @@ Majora's Mask Recompiled:
     # vanilla: Boss Remains are placed in their vanilla locations.
     # anything: Any item can be given by any of the Boss Remains, and Boss Remains can be found anywhere in any world.
     # bosses: Boss Remains are shuffled amongst themselves as the rewards for defeating bosses.
-    vanila: 50
+    vanilla: 50
     anywhere: 0
     bosses: 0
 
