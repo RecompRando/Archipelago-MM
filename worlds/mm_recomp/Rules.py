@@ -876,6 +876,8 @@ def get_baby_location_rules(player):
             lambda state: baby_has_explosives(state, player),
         "Graveyard Day 1 Bats Chest":
             lambda state: state.has("Captain's Hat", player) and baby_can_smack_hard(state, player) and state.has("Progressive Magic", player),
+        "Graveyard Day 2 Dampe Bats":
+            lambda state: baby_has_projectiles(state, player) and baby_can_smack(state, player) and baby_has_explosives(state, player),
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: state.has("Captain's Hat", player) and baby_can_smack_hard(state, player) and baby_has_explosives(state, player),
         "Graveyard Day 3 Dampe Big Poe Chest":

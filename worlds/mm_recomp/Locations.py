@@ -1551,6 +1551,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ikana Graveyard",
         address=0x34694200000A2
     ),
+    "Graveyard Day 2 Dampe Bats": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x34694200043CA
+    ),
     "Graveyard Day 2 Iron Knuckle Chest": MMRLocationData(
         region="Ikana Graveyard",
         address=0x3469420060C00

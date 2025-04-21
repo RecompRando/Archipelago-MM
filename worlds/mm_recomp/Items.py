@@ -507,7 +507,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Purple Rupee": MMRItemData(
         code=0x3469420000005,
         type=ItemClassification.filler,
-        num_exist=9
+        num_exist=10
     ),
     "Silver Rupee": MMRItemData(
         code=0x3469420000006,

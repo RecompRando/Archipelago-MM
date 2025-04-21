@@ -857,6 +857,8 @@ def get_location_rules(player, options):
             lambda state: has_explosives(state, player),
         "Graveyard Day 1 Bats Chest":
             lambda state: state.has("Captain's Hat", player) and can_smack(state, player),
+        "Graveyard Day 2 Dampe Bats":
+            lambda state: has_projectiles(state, player), # has_explosives does work, but seems unintuitive
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: state.has("Captain's Hat", player) and can_smack_hard(state, player) and has_explosives(state, player),
         "Graveyard Day 3 Dampe Big Poe Chest":
