@@ -892,8 +892,8 @@ def get_baby_location_rules(player):
         "Ikana Canyon Music Box Mummy":
             lambda state: can_use_ice_arrows(state, player) and state.has("Gibdo Mask", player) and state.has("Garo Mask", player) and can_play_song("Song of Healing", state, player) and can_play_song("Song of Storms", state, player) and baby_has_explosives(state, player) and state.has("Stone Mask", player),
         # If so this and HP can be acquired without Ice Arrows 
-        # ~ "Ikana Canyon Zora Scrub Trade":
-            # ~ lambda state: can_use_ice_arrows(state, player) and state.has("Hookshot", player) and state.has("Gibdo Mask", player) and state.has("Garo Mask", player) and state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
+        "Ikana Canyon Zora Scrub Trade":
+            lambda state: can_use_ice_arrows(state, player) and state.has("Hookshot", player) and state.has("Gibdo Mask", player) and state.has("Garo Mask", player) and state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
             lambda state: state.has("Zora Mask", player) and baby_has_bottle(state, player) and state.has("Progressive Wallet", player),
         "Ikana Canyon Zora Trade Freestanding HP":

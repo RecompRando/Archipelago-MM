@@ -517,7 +517,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Gold Rupee": MMRItemData(
         code=0x3469420000007,
         type=ItemClassification.filler,
-        num_exist=1
+        num_exist=2
     ),
     "Victory": MMRItemData(
         type=ItemClassification.progression,

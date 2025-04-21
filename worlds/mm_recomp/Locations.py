@@ -1592,6 +1592,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942009015D,
         can_create=lambda options: options.scrubsanity.value
     ),
+    "Ikana Canyon Zora Scrub Trade": MMRLocationData(
+        region="Ikana Canyon",
+        address=0x3469420001307
+    ),
     "Ikana Canyon Zora Trade Freestanding HP": MMRLocationData(
         region="Ikana Canyon",
         address=0x346942005131E
