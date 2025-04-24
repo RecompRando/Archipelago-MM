@@ -38,7 +38,7 @@ def has_paper(state, player):
     return state.has("Land Title Deed", player) or state.has("Swamp Title Deed", player) or state.has("Mountain Title Deed", player) or state.has("Ocean Title Deed", player) or state.has("Letter to Kafei", player) or state.has("Priority Mail", player)
 
 def can_get_cow_milk(state, player):
-    return has_bottle(state, player) and can_play_song("Epona's Song", state, player) and (state.can_reach("Termina Log Bombable Grotto Left Cow", 'Location', player) or state.can_reach("Romani Ranch Barn Free Cow", 'Location', player) or state.can_reach("Great Bay Ledge Grotto Left Cow", 'Location', player) or state.can_reach("Ikana Well Cow", 'Location', player))
+    return has_bottle(state, player) and can_play_song("Epona's Song", state, player) and (has_explosives(state, player) or can_use_powder_keg(state, player) or state.has("Hookshot", player) or (state.has("Gibdo Mask", player) and has_bottle(state, player) and can_plant_beans(state, player) and state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or can_use_light_arrows(state, player) and (state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) or state.can_reach("Ikana Well Invisible Chest", 'Location', player))))
 
 def has_bottle(state, player, need_count=1):
     bottle_count = 0
@@ -88,7 +88,7 @@ def can_reach_scarecrow(state, player):
     return state.can_reach("Astral Observatory", 'Region', player) or state.can_reach("Trading Post", 'Region', player),
 
 def can_reach_seahorse(state, player):
-    return state.can_reach("Fisherman's House", 'Region', player) and (state.has("Zora Mask", player) and state.has("Pictograph Box", player) and state.has("Hookshot", player) or state.has("Goron Mask", player))
+    return state.can_reach("Fisherman's House", 'Region', player) and state.has("Zora Mask", player) and state.has("Pictograph Box", player) and (state.has("Hookshot", player) or state.has("Goron Mask", player))
 
 def can_purchase(state, player, price):
     if price > 200:
@@ -210,7 +210,7 @@ def get_location_rules(player, options):
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Blue Rupee Trade":
-            lambda state: has_bottle(state, player) and (state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) or can_get_cow_milk(state, player)),
+            lambda state: has_bottle(state, player) and (state.has("Mask of Scents", player) or can_get_cow_milk(state, player)),
         "Curiosity Shop Red Rupee Trade":
             lambda state: has_bottle(state, player),
         "Curiosity Shop Purple Rupee Trade":
@@ -568,18 +568,18 @@ def get_location_rules(player, options):
         "Snowhead Temple Initial Runway Tower Bubble SF":
             lambda state: state.has("Progressive Bow", player) and state.has("Great Fairy Mask", player),
         "Snowhead Temple Grey Door Near Bombable Stairs Box SF":
-            lambda state: state.has("Small Key (Snowhead)", player) and state.has("Great Fairy Mask", player) and has_explosives(state, player) or (state.has("Hookshot", player) and state.can_reach("Snowhead Temple Initial Runway Tower Bubble SF", 'Location', player) and has_explosives(state, player)),
+            lambda state: (state.has("Small Key (Snowhead)", player) and state.has("Great Fairy Mask", player) and has_explosives(state, player)) or (state.has("Hookshot", player) and state.can_reach("Snowhead Temple Initial Runway Tower Bubble SF", 'Location', player) and has_explosives(state, player)),
         # "Snowhead Temple Timed Switch Room Bubble SF" needs 2 small keys following the 'vanilla path' \/
         "Snowhead Temple Timed Switch Room Bubble SF":
-            lambda state: state.has("Small Key (Snowhead)", player, 2) and state.has("Great Fairy Mask", player) and state.has("Progressive Bow", player) and can_use_lens(state, player) and has_explosives(state, player) or (can_use_fire_arrows(state, player) and can_reach_scarecrow(state, player) and state.has("Hookshot", player) and state.has("Great Fairy Mask", player) and state.has("Progressive Bow", player) and can_use_lens(state, player)),
+            lambda state: state.has("Small Key (Snowhead)", player, 2) and state.has("Great Fairy Mask", player) and state.has("Progressive Bow", player) and can_use_lens(state, player) and has_explosives(state, player) or (can_reach_scarecrow(state, player) and state.has("Hookshot", player) and state.has("Great Fairy Mask", player) and state.has("Progressive Bow", player) and can_use_lens(state, player)) or (can_use_fire_arrows(state, player) and state.has("Great Fairy's Mask", player) and can_use_lens(state, player)),
         # "Snowhead Temple Snowmen Bubble SF" needs 3 small keys following the 'vanilla' path' - this is the final small key too. \/
         "Snowhead Temple Snowmen Bubble SF":
-            lambda state: state.has("Small Key (Snowhead)", player, 3) and state.has("Great Fairy Mask", player) and state.has("Progressive Bow", player) and has_explosives(state, player) or (state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player) and state.has("Great Fairy Mask", player)),
+            lambda state: state.has("Small Key (Snowhead)", player, 3) and state.has("Great Fairy Mask", player) and can_use_fire_arrows(state, player) and has_explosives(state, player) or (state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player) and state.has("Great Fairy Mask", player)),
         # Both Dinolfos checks require 3 small keys following vanilla path
         "Snowhead Temple Dinolfos Room First SF":
-            lambda state: state.has("Small Key (Snowhead)", player, 3) and has_explosives(state, player) and can_use_fire_arrows(state, player) or (state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player)),
+            lambda state: state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player),
         "Snowhead Temple Dinolfos Room Second SF":
-            lambda state: state.has("Small Key (Snowhead)", player, 3) and has_explosives(state, player) and can_use_fire_arrows(state, player) or (state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player)),
+            lambda state: state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player),
         "Snowhead Temple Initial Runway Ice Blowers Chest":
             lambda state: can_use_fire_arrows(state, player) or state.has("Hookshot", player),
         "Snowhead Temple Green Door Ice Blowers Chest":
@@ -588,26 +588,26 @@ def get_location_rules(player, options):
         "Snowhead Temple Orange Door Upper Chest":
             lambda state: state.has("Hookshot", player) or state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player),
         "Snowhead Temple Orange Door Behind Block Chest":
-            lambda state: state.can_reach("Snowhead Temple Initial Runway Tower Bubble SF", 'Location', player),
+            lambda state: True,
         #  "Snowhead Temple Grey Door Center Chest" requires one key (either im colour blind or you are but that door is like, light blue)
         "Snowhead Temple Light Blue Door Center Chest":
             lambda state: state.has("Small Key (Snowhead)", player) or state.has("Hookshot", player),
         "Snowhead Temple Light Blue Door Upper Chest":
-            lambda state: state.has("Small Key (Snowhead)", player) and can_use_fire_arrows(state, player) or (state.has("Hookshot", player) and can_use_fire_arrows(state, player)),
+            lambda state: can_use_fire_arrows(state, player) and (state.has("Small Key (Snowhead)", player) or state.has("Hookshot", player)),
         "Snowhead Temple Upstairs 2F Icicle Room Hidden Chest":
-            lambda state: (state.has("Small Key (Snowhead)", player) and can_use_lens(state, player) and has_explosives(state, player) and state.has("Progressive Bow", player)) or (state.has("Hookshot", player) and state.has("Progressive Bow", player) and can_use_lens(state, player) and has_explosives(state, player)),
+            lambda state: can_use_lens(state, player) and has_explosives(state, player) and state.has("Progressive Bow", player) and ((state.has("Small Key (Snowhead)", player) or state.has("Hookshot", player)),
         "Snowhead Temple Upstairs 2F Icicle Room Snowball Chest":
-            lambda state: state.has("Small Key (Snowhead)", player) and state.has("Progressive Bow", player) and has_explosives(state, player) or (state.has("Hookshot", player) and has_explosives(state, player)),
+            lambda state: has_explosives(state, player) and state.has("Progressive Bow", player) and (state.has("Hookshot", player) or state.has("Small Key (Snowhead)", player)),
         "Snowhead Temple Elevator Room Invisible Platform Chest":
-            lambda state: can_use_lens(state, player) and state.has("Small Key (Snowhead)", player, 2) and has_explosives(state, player) or can_use_lens(state, player) and can_use_fire_arrows(state, player),
+            lambda state: can_use_lens(state, player) and state.has("Small Key (Snowhead)", player, 2) and has_explosives(state, player) or (can_use_lens(state, player) and can_use_fire_arrows(state, player)) or (can_use_lens(state, player) and state.has("Hookshot", player)),
         "Snowhead Temple Elevator Room Lower Chest":
-            lambda state: state.can_reach("Snowhead Temple Initial Runway Tower Bubble SF", 'Location', player),
+            lambda state: True,
         "Snowhead Temple 1st Wizzrobe Chest":
-            lambda state: state.has("Small Key (Snowhead)", player, 2) and has_explosives(state, player) and has_projectiles(state, player) and can_smack(state, player) or can_use_fire_arrows(state, player),
+            lambda state: state.has("Small Key (Snowhead)", player, 2) and has_explosives(state, player) or can_use_fire_arrows(state, player),
         "Snowhead Temple Column Room 2F Hidden Chest":
-            lambda state: state.has("Small Key (Snowhead)", player, 3) and can_use_lens(state, player) and has_explosives(state, player) and state.has("Deku Mask", player) or (can_use_fire_arrows(state, player) and can_reach_scarecrow(state, player) and state.has("Hookshot", player) and can_use_lens(state, player)),
+            lambda state: state.has("Small Key (Snowhead)", player, 3) and can_use_fire_arrows(state, player) and can_use_lens(state, player) and has_explosives(state, player) and state.has("Deku Mask", player) or (can_use_fire_arrows(state, player) and can_reach_scarecrow(state, player) and state.has("Hookshot", player) and can_use_lens(state, player)),
         "Snowhead Temple 2nd Wizzrobe Chest":
-            lambda state: state.has("Small Key (Snowhead)", player, 3) and can_use_fire_arrows(state, player) and has_explosives(state, player) and can_smack(state, player) or (state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player) and can_reach_scarecrow(state, player) and state.has("Deku Mask", player)),
+            lambda state: state.has("Small Key (Snowhead)", player, 3) and can_use_fire_arrows(state, player) and has_explosives(state, player) or (state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player) and state.has("Deku Mask", player)),
         "Snowhead Temple Heart Container":
             lambda state: can_use_fire_arrows(state, player) and ((state.has("Small Key (Snowhead)", player, 1) and state.has("Boss Key (Snowhead)", player)) or (state.has("Goht's Remains", player) and options.remains_allow_boss_warps.value)),
         "Snowhead Temple Goht's Remains":
@@ -796,9 +796,9 @@ def get_location_rules(player, options):
 
 
         "Great Bay Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Great Bay)", player, 15),
+            lambda state: state.has("Stray Fairy (Great Bay)", player, 15) and state.has("Hookshot", player),
             
-            
+            #Hookshot is a region requirement for GBT, unnecessary adding it to the rules.
         "Great Bay Temple Four Torches Chest":
             lambda state: True,
         "Great Bay Temple Waterwheel Room Skulltula SF":
@@ -812,7 +812,7 @@ def get_location_rules(player, options):
         "Great Bay Temple Red-Green Pipe First Room Chest":
             lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Red-Green Pipe First Room Pot SF":
-            lambda state: can_use_ice_arrows(state, player) or (has_projectiles(state, player) and state.has("Great Fairy Mask", player)),
+            lambda state: can_use_ice_arrows(state, player) or (has_projectiles(state, player) and state.has("Great Fairy Mask", player)) or state.has("Deku Mask", player),
         "Great Bay Temple Bio-Baba Hall Chest":
             lambda state: True,
         "Great Bay Temple Froggy Entrance Room Pot SF":
@@ -836,13 +836,13 @@ def get_location_rules(player, options):
         "Great Bay Temple Seesaw Room Chest":
             lambda state: can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
         "Great Bay Temple Before Boss Room Underneath Platform Bubble SF":
-            lambda state: can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
+            lambda state: can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player), # can just shoot ice arrows and stand on the platform
         "Great Bay Temple Before Boss Room Exit Tunnel Bubble SF":
             lambda state: state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
-            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
+            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
         "Great Bay Temple Gyorg's Remains":
-            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player) and can_use_fire_arrows(state, player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
+            lambda state: (state.can_reach("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", 'Location', player) and state.has("Boss Key (Great Bay)", player)) or (state.has("Gyorg's Remains", player) and options.remains_allow_boss_warps.value),
         
 
         "Road to Ikana Pillar Chest":
@@ -906,10 +906,9 @@ def get_location_rules(player, options):
         "Ikana Well Invisible Chest":
             lambda state: state.has("Gibdo Mask", player) and has_bottle(state, player) and (state.has("Progressive Wallet", player) or state.has("Mask of Scents", player)),
         "Ikana Well Final Chest":
-            lambda state: (state.has("Gibdo Mask", player) and has_bottle(state, player) and ((can_plant_beans(state, player) and state.has("Progressive Bomb Bag", player)) or can_use_light_arrows(state, player))) or (can_use_light_arrows(state, player) and can_use_fire_arrows(state, player)),
+            lambda state: (state.has("Gibdo Mask", player) and has_bottle(state, player) and can_plant_beans(state, player) and (state.has("Progressive Bomb Bag", player) or (state.has("Captain's Hat", player) and state.has("Progressive Bow", player)))) or (can_use_light_arrows(state, player) and can_use_fire_arrows(state, player)),
         "Ikana Well Cow":
-            lambda state: (state.has("Gibdo Mask", player) and has_bottle(state, player) and can_plant_beans(state, player) and state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or can_use_light_arrows(state, player) and (state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) or state.can_reach("Ikana Well Invisible Chest", 'Location', player))),
-            
+            lambda state: state.has("Gibdo Mask", player) and has_bottle(state, player) and (can_play_song("Epona's Song", state, player) and (can_plant_beans(state, player) or can_use_light_arrows(state, player)) and ((can_play_song("Song of Soaring", state, player) and ((state.can_reach("Twin Islands", 'Region', player) and can_use_fire_arrows(state, player)) or (state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and state.has("Goron Mask", player)))) or state.can_reach("Ikana Well Invisible Chest", 'Location', player)),            
             
         "Ikana Castle Pillar Freestanding HP":
             lambda state: state.has("Deku Mask", player) and can_use_lens(state, player) and can_use_fire_arrows(state, player),
@@ -922,18 +921,18 @@ def get_location_rules(player, options):
             lambda state: can_plant_beans(state, player),
         "Stone Tower Inverted Outside Right Chest":
             lambda state: can_plant_beans(state, player),
-
+        #Stone Tower region access rules require all 'heavy' transforms and hookshot, hence why they're removed from the rules.
         # Stone Tower has 4 keys total
         "Stone Tower Temple Entrance Room Eye Switch Chest":
             lambda state: state.has("Progressive Bow", player),
         "Stone Tower Temple Entrance Room Lower Chest":
             lambda state: state.has("Small Key (Stone Tower)", player, 4) and state.has("Deku Mask", player) and can_use_light_arrows(state, player),
         "Stone Tower Temple Armos Room Back Chest":
-            lambda state: has_explosives(state, player) and has_mirror_shield(state, player) or can_use_light_arrows(state, player),
+            lambda state: has_explosives(state, player) and (has_mirror_shield(state, player) or can_use_light_arrows(state, player)),
         "Stone Tower Temple Armos Room Upper Chest":
             lambda state: state.has("Hookshot", player),
         "Stone Tower Temple Armos Room Lava Chest":
-            lambda state: has_explosives(state, player) and has_mirror_shield(state, player) or can_use_light_arrows(state, player),
+            lambda state: has_explosives(state, player) and (has_mirror_shield(state, player) or can_use_light_arrows(state, player)),
         "Stone Tower Temple Eyegore Room Switch Chest":
             lambda state: can_use_light_arrows(state, player),
         # "Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest" Vanilla route requires 1 small key
@@ -964,7 +963,7 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Entrance Room Sun Face Chest":
             lambda state: can_use_light_arrows(state, player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest":
-            lambda state: state.can_reach("Stone Tower Temple Entrance Room Eye Switch Chest", 'Location', player) and state.has("Small Key (Stone Tower)", player) and state.has("Deku Mask", player) and can_use_light_arrows(state, player),
+            lambda state: state.has("Deku Mask", player) and can_use_light_arrows(state, player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest":
             lambda state: can_use_light_arrows(state, player) and state.has("Deku Mask", player) and can_use_fire_arrows(state, player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Hall Floor Switch Chest":
@@ -980,9 +979,9 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Eyegore Chest":
             lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player) and state.has("Small Key (Stone Tower)", player, 4),
         "Stone Tower Temple Inverted Heart Container":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Magic", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
         "Stone Tower Temple Inverted Twinmold's Remains":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and (state.has("Progressive Bow", player) or state.has("Fierce Deity's Mask", player) or (state.has("Giant's Mask", player) and state.has("Progressive Magic", player) and state.has("Progressive Sword", player))) and (state.has("Boss Key (Stone Tower)", player) or (state.has("Twinmold's Remains", player) and options.remains_allow_boss_warps.value)),
 
         "Oath to Order":
             lambda state: can_clear_woodfall(state, player) or can_clear_snowhead(state, player) or can_clear_greatbay(state, player) or can_clear_stonetower(state, player),
@@ -998,7 +997,7 @@ def get_location_rules(player, options):
         "Moon Link Trial Iron Knuckle Lower Chest":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
         "Moon Link Trial HP":
-            lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) or can_smack_hard(state, player) and has_bombchus(state, player) and state.has("Progressive Bow", player),
+            lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and has_bombchus(state, player) and state.has("Progressive Bow", player),
         "Defeat Majora":
             lambda state: can_smack_hard(state, player) and (((state.has("Zora Mask", player) or has_mirror_shield(state, player)) and can_use_light_arrows(state, player)) or (state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player))) and has_enough_remains(state, player, options.majora_remains_required.value),
     }
