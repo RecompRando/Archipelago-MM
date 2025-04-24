@@ -1281,6 +1281,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pinnacle Rock",
         address=0x3469420062501
     ),
+    "Pinnacle Rock HP": MMRLocationData(
+        region="Pinnacle Rock",
+        address=0x3469420070205
+    ),
     "Ocean Spider House Ramp Upper Token": MMRLocationData(
         region="Ocean Spider House",
         address=0x346942006280C,
