@@ -243,8 +243,14 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Bow", player) or (state.has("Progressive Bomb Bag", player) or has_bombchus(state, player)) or (state.has("Deku Mask", player) and state.has("Progressive Magic", player)),
         "East Clock Town Honey and Darling All Days":
             lambda state: state.has("Progressive Bow", player) and state.has("Progressive Bomb Bag", player) and has_bombchus(state, player),
+        "East Clock Town Treasure Game Chest (Human)":
+            lambda state: True,
+        "East Clock Town Treasure Game Chest (Deku)":
+            lambda state: state.has("Deku Mask", player),
         "East Clock Town Treasure Game Chest (Goron)":
             lambda state: state.has("Goron Mask", player),
+        "East Clock Town Treasure Game Chest (Zora)":
+            lambda state: state.has("Zora Mask", player),
         "Bomber's Hideout Chest":
             lambda state: state.can_reach("Clock Town Hide-and-Seek", 'Location', player) and has_explosives(state, player),
         "Bomber's Hideout Astral Observatory":
