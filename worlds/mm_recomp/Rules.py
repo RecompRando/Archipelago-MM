@@ -539,10 +539,10 @@ def get_baby_location_rules(player):
         "Don Gero Mask Frog Song HP":
             lambda state: state.has("Don Gero Mask", player) and can_clear_snowhead(state, player) and state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and state.can_reach("Great Bay Temple", 'Region', player) and can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
         "Mountain Village Smithy Day 1":
-            lambda state: can_purchase(state, player, 100) and can_clear_snowhead(state, player) and baby_has_bottle(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_use_fire_arrows(state, player),
+            lambda state: can_purchase(state, player, 0) and can_clear_snowhead(state, player) and baby_has_bottle(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_use_fire_arrows(state, player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
         "Mountain Village Smithy Day 2":
             # lambda state: state.has("Bottle of Gold Dust", player) and state.can_reach("Mountain Village Smithy Upgrade", 'Location', player),
-            lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Bottle Prize", 'Location', player),
+            lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
             
             
        "Tingle Snowhead Map Purchase":

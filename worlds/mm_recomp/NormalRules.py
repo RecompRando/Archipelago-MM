@@ -512,10 +512,10 @@ def get_location_rules(player, options):
         "Don Gero Mask Frog Song HP":
             lambda state: state.has("Don Gero Mask", player) and can_clear_snowhead(state, player) and state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and state.can_reach("Great Bay Temple", 'Region', player) and can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
         "Mountain Village Smithy Upgrade":
-            lambda state: can_purchase(state, player, 100) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player)),
+            lambda state: can_purchase(state, player, 0) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player)),
         "Mountain Village Smithy Gold Dust Upgrade":
-            # gold dust is not shuffled, so its received with "Goron Racetrack Bottle Prize"
-            lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Bottle Prize", 'Location', player),
+            # gold dust is not shuffled, so its received with "Goron Racetrack Prize"
+            lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
             
         "Tingle Snowhead Map Purchase":
             lambda state: has_projectiles(state, player) and state.can_reach("Southern Swamp", 'Region', player),    
