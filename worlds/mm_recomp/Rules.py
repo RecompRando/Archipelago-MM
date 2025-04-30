@@ -1,8 +1,6 @@
-from typing import Callable, Dict
+from .Locations import prices_ints
 
-from BaseClasses import CollectionState, MultiWorld
-
-
+from .Enums import *
 
 def baby_has_bombchus(state, player):
     return state.has("Progressive Bombchu Bag", player) and state.has("Bombchu (1)", player) and state.has("Bombchu (5)", player) and state.has("Bombchu (10)", player)
@@ -139,7 +137,8 @@ def can_reach_scarecrow(state, player):
 def can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and state.has("Zora Mask", player) and (state.has("Hookshot", player) or state.has("Goron Mask", player)) #and state.has("Pictograph Box", player)
 
-def can_purchase(state, player, price):
+def can_purchase(state, player, price_index):
+    price = prices_ints[price_index]
     if price > 200:
         return state.has("Progressive Wallet", player, 2)
     elif price > 99:
@@ -256,9 +255,9 @@ def get_baby_location_rules(player):
         "Curiosity Shop Gold Rupee Trade":
             lambda state: has_bottle(state, player) and state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) and state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player),
         "Curiosity Shop Night 3 (Stop Thief)":
-            lambda state: can_purchase(state, player, 500) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
+            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Night 3 Thief Stolen Item":
-            lambda state: can_purchase(state, player, 100),
+            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
         "Laundry Pool Kafei's Request":
             lambda state: state.has("Letter to Kafei", player),
         "Laundry Pool Curiosity Shop Salesman #1":
@@ -340,9 +339,9 @@ def get_baby_location_rules(player):
         "Milk Bar Priority Mail to Aroma":
             lambda state: state.has("Romani Mask", player) and state.has("Kafei's Mask", player) and state.has("Priority Mail", player),
         "East Clock Town Milk Bar Milk Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 40),
+            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
         "East Clock Town Milk Bar Chateau Romani Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 200),
+            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
 
         "Termina Tall Grass Chest":
             lambda state: True,

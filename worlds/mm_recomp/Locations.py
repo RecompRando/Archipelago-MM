@@ -24,6 +24,8 @@ def can_create_heart_location(shp, c_or_p, loc_index):
     else:
         return True
 
+prices_ints = []
+
 location_data_table: Dict[str, MMRLocationData] = {
     "Link's Inventory (Kokiri Sword)": MMRLocationData(
         region="Clock Town",

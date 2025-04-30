@@ -1,3 +1,7 @@
+from .Locations import prices_ints
+
+from .Enums import *
+
 def can_play_song(song, state, player):
     return state.has(song, player) and state.has("Ocarina of Time", player)
 
@@ -90,7 +94,8 @@ def can_reach_scarecrow(state, player):
 def can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and (state.has("Zora Mask", player) and state.has("Pictograph Box", player) and state.has("Hookshot", player) or state.has("Goron Mask", player))
 
-def can_purchase(state, player, price):
+def can_purchase(state, player, price_index):
+    price = prices_ints[price_index]
     if price > 200:
         return state.has("Progressive Wallet", player, 2)
     elif price > 99:
@@ -218,9 +223,9 @@ def get_location_rules(player, options):
         "Curiosity Shop Gold Rupee Trade":
             lambda state: has_bottle(state, player) and (state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) or (state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player))),
         "Curiosity Shop Night 3 (Stop Thief)":
-            lambda state: can_purchase(state, player, 500) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
+            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Night 3 Thief Stolen Item":
-            lambda state: can_purchase(state, player, 100),
+            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
         "Laundry Pool Kafei's Request":
             lambda state: state.has("Letter to Kafei", player),
         "Laundry Pool Curiosity Shop Salesman #1":
@@ -302,9 +307,9 @@ def get_location_rules(player, options):
         "Milk Bar Priority Mail to Aroma":
             lambda state: state.has("Romani Mask", player) and state.has("Kafei's Mask", player) and state.has("Priority Mail", player),
         "East Clock Town Milk Bar Milk Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 40),
+            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
         "East Clock Town Milk Bar Chateau Romani Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 200),
+            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
 
         "Termina Tall Grass Chest":
             lambda state: True,
@@ -535,7 +540,7 @@ def get_location_rules(player, options):
         "Goron Village Lens Cave Center Chest":
             lambda state: True,
         "Goron Village Deku Scrub Purchase Bomb Bag":
-            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, 200) or (state.can_reach("Goron Village Deku Trade Freestanding HP", 'Location', player) and state.can_reach("Southern Swamp Deku Trade Freestanding HP", 'Location', player) and state.has("Moon's Tear", player) and can_purchase(state, player, 200)),
+            lambda state: can_purchase(state, player, 0) and (state.has("Goron Mask", player) or (state.can_reach("Goron Village Deku Trade Freestanding HP", 'Location', player) and state.can_reach("Southern Swamp Deku Trade Freestanding HP", 'Location', player) and state.has("Moon's Tear", player))),
         "Goron Village Deku Trade":
             lambda state: state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
         "Goron Village Deku Trade Freestanding HP":
@@ -883,7 +888,7 @@ def get_location_rules(player, options):
         "Ikana Canyon Music Box Mummy":
             lambda state: can_use_ice_arrows(state, player) and can_play_song("Song of Healing", state, player) and can_play_song("Song of Storms", state, player),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
-            lambda state: state.has("Zora Mask", player) and has_bottle(state, player) and can_purchase(state, player, 100),
+            lambda state: state.has("Zora Mask", player) and has_bottle(state, player) and can_purchase(state, player, 0),
         "Ikana Canyon Zora Scrub Trade":
             lambda state: state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
         "Ikana Canyon Zora Trade Freestanding HP":

@@ -4,7 +4,7 @@ from typing import Dict
 from BaseClasses import Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, prices_ints
 from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
@@ -36,6 +36,7 @@ class MMRWorld(World):
     options = MMROptions
     location_name_to_id = location_table
     item_name_to_id = item_table
+    prices = ""
 
     def generate_early(self):
         pass
@@ -113,6 +114,25 @@ class MMRWorld(World):
     def create_regions(self) -> None:
         player = self.player
         mw = self.multiworld
+
+        # Create shop prices.
+        if self.options.shopsanity.value != 0:
+            price_max = 0
+
+            if self.options.shop_prices.value == 1:
+                price_max = 99
+            elif self.options.shop_prices.value == 2:
+                price_max = 200
+            elif self.options.shop_prices.value == 3:
+                price_max = 500
+
+            # There are 34 shop locations that need prices
+            for i in range(0, 34):
+                price = self.random.randint(0, price_max)
+                prices_ints.append(price)
+                self.prices += str(price) + " "
+
+            self.prices = self.prices[:-1]
 
         # Create regions.
         for region_name in region_data_table.keys():
@@ -331,6 +351,7 @@ class MMRWorld(World):
             "fairysanity": self.options.fairysanity.value,
             "shopsanity": self.options.shopsanity.value,
             "scrubsanity": self.options.scrubsanity.value,
+            "shop_prices": self.prices,
             "cowsanity": self.options.cowsanity.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
