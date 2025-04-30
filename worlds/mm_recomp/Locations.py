@@ -1207,17 +1207,17 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Zora Cape",
         address=0x3469420030003
     ),
-    "Zora Hall Shop 1": MMRLocationData(
+    "Zora Hall Shop Item 1": MMRLocationData(
         region="Zora Hall",
         address=0x346942009001B,
         can_create=lambda options: options.shopsanity.value != 0
     ),
-    "Zora Hall Shop 2": MMRLocationData(
+    "Zora Hall Shop Item 2": MMRLocationData(
         region="Zora Hall",
         address=0x346942009001C,
         can_create=lambda options: options.shopsanity.value != 0
     ),
-    "Zora Hall Shop 3": MMRLocationData(
+    "Zora Hall Shop Item 3": MMRLocationData(
         region="Zora Hall",
         address=0x346942009001D,
         can_create=lambda options: options.shopsanity.value != 0

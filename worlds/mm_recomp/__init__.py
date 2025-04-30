@@ -9,7 +9,7 @@ from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
 from .NormalRules import *
-
+from .Constants import default_shop_prices
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
@@ -119,16 +119,19 @@ class MMRWorld(World):
         if self.options.shopsanity.value != 0:
             price_max = 0
 
-            if self.options.shop_prices.value == 1:
+            if self.options.shop_prices.value == 2:
                 price_max = 99
-            elif self.options.shop_prices.value == 2:
-                price_max = 200
             elif self.options.shop_prices.value == 3:
+                price_max = 200
+            elif self.options.shop_prices.value == 4:
                 price_max = 500
 
-            # There are 34 shop locations that need prices
-            for i in range(0, 34):
-                price = self.random.randint(0, price_max)
+            # There are 34 (+2 fake) shop locations that need prices
+            for i in range(0, 36):
+                if self.options.shop_prices.value == 0:
+                    price = default_shop_prices[i]
+                else:
+                    price = self.random.randint(0, price_max)
                 prices_ints.append(price)
                 self.prices += str(price) + " "
 
@@ -369,5 +372,6 @@ class MMRWorld(World):
             "shuffle_regional_maps": self.options.shuffle_regional_maps.value,
             "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
-            "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF)
+            "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
+            "logic_difficulty": self.options.logic_difficulty.value
         }

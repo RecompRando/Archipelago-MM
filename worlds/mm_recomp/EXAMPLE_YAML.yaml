@@ -165,6 +165,21 @@ Majora's Mask Recompiled:
     enabled: 0
     advanced: 0
 
+  shop_prices:
+    # Choose how expensive shop items are.
+    # This has no effect if shopsanity is disabled.
+    #
+    # vanilla: Shop items have their normal prices.
+    # free: All shop items are free and cost 0 Rupees.
+    # cheap: Shop items vary in price but can all be purchased with the starting wallet.
+    # expensive: Shop items vary in price but may require the Adult's Wallet. No shop items will require the Giant's Wallet.
+    # offensive: Shop items vary in price but may require the Adult's Wallet and sometimes even the Giant's Wallet.
+    vanilla: 50
+    free: 0
+    cheap: 0
+    expensive: 0
+    offensive: 0
+
   scrubsanity:
     # Choose whether to shuffle Business Scrub purchases.
     'false': 50

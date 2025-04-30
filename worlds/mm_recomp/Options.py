@@ -137,16 +137,18 @@ class ShopPrices(Choice):
     """Choose how expensive shop items are.
     This has no effect if shopsanity is disabled.
     
+    vanilla: Shop items have their normal prices.
     free: All shop items are free and cost 0 Rupees.
     cheap: Shop items vary in price but can all be purchased with the starting wallet.
     expensive: Shop items vary in price but may require the Adult's Wallet. No shop items will require the Giant's Wallet.
     offensive: Shop items vary in price but may require the Adult's Wallet and sometimes even the Giant's Wallet."""
     display_name = "Shop Prices"
-    option_free = 0
-    option_cheap = 1
-    option_expensive = 2
-    option_offensive = 3
-    default = 1
+    option_vanilla = 0
+    option_free = 1
+    option_cheap = 2
+    option_expensive = 3
+    option_offensive = 4
+    default = 0
 
 
 class Cowsanity(Toggle):

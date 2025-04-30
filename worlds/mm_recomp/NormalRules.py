@@ -1,6 +1,6 @@
 from .Locations import prices_ints
 
-from .Enums import *
+from .Constants import *
 
 def can_play_song(song, state, player):
     return state.has(song, player) and state.has("Ocarina of Time", player)
@@ -173,47 +173,47 @@ def get_location_rules(player, options):
         "Clock Town Hide-and-Seek":
             lambda state: has_projectiles(state, player),
         "Clock Town Trading Post Shop Item 1":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_1),
         "Clock Town Trading Post Shop Item 2":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_2),
         "Clock Town Trading Post Shop Item 3":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_3),
         "Clock Town Trading Post Shop Item 4":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_4),
         "Clock Town Trading Post Shop Item 5":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_5),
         "Clock Town Trading Post Shop Item 6":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_6),
         "Clock Town Trading Post Shop Item 7":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_7),
         "Clock Town Trading Post Shop Item 8":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_8),
         "Clock Town Trading Post Shop (Night) Item 1":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_1),
         "Clock Town Trading Post Shop (Night) Item 2":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_2),
         "Clock Town Trading Post Shop (Night) Item 3":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_3),
         "Clock Town Trading Post Shop (Night) Item 4":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_4),
         "Clock Town Trading Post Shop (Night) Item 5":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_5),
         "Clock Town Trading Post Shop (Night) Item 6":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_6),
         "Clock Town Trading Post Shop (Night) Item 7":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_7),
         "Clock Town Trading Post Shop (Night) Item 8":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_8),
         "Clock Town Bomb Shop Item 1":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_1),
         "Clock Town Bomb Shop Item 2":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_2),
         "Clock Town Bomb Shop Item 3":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_3),
         "Clock Town Bomb Shop Powder Keg Goron":
             lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
-            lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
+            lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player) and can_purchase(state, player, SHOP_ID_BOMB_SHOP_3_UPGRADE),
         "Curiosity Shop Blue Rupee Trade":
             lambda state: has_bottle(state, player) and (state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) or can_get_cow_milk(state, player)),
         "Curiosity Shop Red Rupee Trade":
@@ -372,11 +372,11 @@ def get_location_rules(player, options):
         "Southern Swamp Mystery Woods Day 2 Grotto Chest":
             lambda state: True,
         "Southern Swamp Witch Shop Item 1":
-            lambda state: state.has("Mask of Scents", player) and has_bottle(state, player),
+            lambda state: state.has("Mask of Scents", player) and has_bottle(state, player) and can_purchase(state, player, SHOP_ID_WITCH_POTION_1),
         "Southern Swamp Witch Shop Item 2":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_2),
         "Southern Swamp Witch Shop Item 3":
-            lambda state: True,
+            lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_3),
 
 
         "Swamp Spider House First Room Pot Near Entrance Token":
@@ -550,17 +550,17 @@ def get_location_rules(player, options):
         "Goron Village Baby Goron Lullaby":
             lambda state: state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player),
         "Goron Village Shop Item 1":
-            lambda state: True or state.has("Goron Mask", player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_1),
         "Goron Village Shop Item 2":
-            lambda state: True or state.has("Goron Mask", player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_2),
         "Goron Village Shop Item 3":
-            lambda state: True or state.has("Goron Mask", player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_3),
         "Goron Village Shop (Spring) Item 1":
-            lambda state: state.has("Goron Mask", player) and can_clear_snowhead(state, player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_1) and can_clear_snowhead(state, player),
         "Goron Village Shop (Spring) Item 2":
-            lambda state: state.has("Goron Mask", player) and can_clear_snowhead(state, player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_2) and can_clear_snowhead(state, player),
         "Goron Village Shop (Spring) Item 3":
-            lambda state: state.has("Goron Mask", player) and can_clear_snowhead(state, player),
+            lambda state: state.has("Goron Mask", player) and can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_3) and can_clear_snowhead(state, player),
         "Goron Village Deku Trade Freestanding HP (Spring)":
             lambda state: can_clear_snowhead(state, player) and state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
 
@@ -799,12 +799,12 @@ def get_location_rules(player, options):
             lambda state: state.has("Zora Mask", player) and state.has("Mountain Title Deed", player) and state.has("Goron Mask", player),
         "Zora Hall Goron Scrub Trade Freestanding HP":
             lambda state: state.has("Deku Mask", player) and state.can_reach("Zora Hall Goron Scrub Trade", 'Location', player),
-         "Zora Hall Shop 1":
-            lambda state: state.has("Zora Mask", player),
-         "Zora Hall Shop 2":
-            lambda state: state.has("Zora Mask", player),
-         "Zora Hall Shop 3":
-            lambda state: state.has("Zora Mask", player),
+        "Zora Hall Shop Item 1":
+            lambda state: state.has("Zora Mask", player) and can_purchase(state, player, SHOP_ID_ZORA_SHOP_1),
+        "Zora Hall Shop Item 2":
+            lambda state: state.has("Zora Mask", player) and can_purchase(state, player, SHOP_ID_ZORA_SHOP_2),
+        "Zora Hall Shop Item 3":
+            lambda state: state.has("Zora Mask", player) and can_purchase(state, player, SHOP_ID_ZORA_SHOP_3),
 
 
         "Great Bay Great Fairy Reward":
