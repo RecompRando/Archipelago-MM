@@ -252,7 +252,8 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Bottle": MMRItemData(
         code=0x346942000005A,
-        type=ItemClassification.progression
+        type=ItemClassification.progression,
+        num_exist=2
     ),
     "Bottle of Milk": MMRItemData(
         code=0x3469420000060,
@@ -501,13 +502,13 @@ item_data_table: Dict[str, MMRItemData] = {
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
         type=ItemClassification.filler,
-        num_exist=50
+        num_exist=52
         # ~ num_exist=29
     ),
     "Purple Rupee": MMRItemData(
         code=0x3469420000005,
         type=ItemClassification.filler,
-        num_exist=11
+        num_exist=12
     ),
     "Silver Rupee": MMRItemData(
         code=0x3469420000006,

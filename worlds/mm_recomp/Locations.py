@@ -875,6 +875,14 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Mountain Village",
         address=0x3469420000088
     ),
+    "Mountain Village Smithy Upgrade": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420000038
+    ),
+    "Mountain Village Smithy Gold Dust Upgrade": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420000039
+    ),
     "Don Gero Mask Frog Song HP": MMRLocationData(
         region="Mountain Village",
         address=0x3469420070022
@@ -898,6 +906,10 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Twin Islands Hot Water Grotto Chest": MMRLocationData(
         region="Twin Islands",
         address=0x3469420060702
+    ),
+    "Goron Racetrack Prize": MMRLocationData(
+        region="Twin Islands",
+        address=0x346942000006A
     ),
     "Goron Village Lens Cave Rock Chest": MMRLocationData(
         region="Goron Village",
