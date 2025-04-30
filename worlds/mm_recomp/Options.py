@@ -13,6 +13,7 @@ class LogicDifficulty(Choice):
     #option_obscure_glitchless = 2
     #option_glitched = 3
     option_no_logic = 4
+    alias_baby = option_easy
     default = 0
 
 
@@ -128,10 +129,25 @@ class Shopsanity(Choice):
     option_advanced = 2
     default = 0
 
-
 class Scrubsanity(Toggle):
     """Choose whether to shuffle Business Scrub purchases."""
     display_name = "Shuffle Business Scrub Purchases"
+
+class ShopPrices(Choice):
+    """Choose how expensive shop items are.
+    This has no effect if shopsanity is disabled.
+    
+    free: All shop items are free and cost 0 Rupees.
+    cheap: Shop items vary in price but can all be purchased with the starting wallet.
+    expensive: Shop items vary in price but may require the Adult's Wallet. No shop items will require the Giant's Wallet.
+    offensive: Shop items vary in price but may require the Adult's Wallet and sometimes even the Giant's Wallet."""
+    display_name = "Shop Prices"
+    option_free = 0
+    option_cheap = 1
+    option_expensive = 2
+    option_offensive = 3
+    default = 1
+
 
 class Cowsanity(Toggle):
     """Choose whether to shuffle Cows."""
@@ -225,6 +241,7 @@ class MMROptions(PerGameCommonOptions):
     skullsanity: Skullsanity
     shopsanity: Shopsanity
     scrubsanity: Scrubsanity
+    shop_prices: ShopPrices
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     fairysanity: Fairysanity
