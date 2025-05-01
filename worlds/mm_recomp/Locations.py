@@ -197,7 +197,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Clock Town Bomb Shop Powder Keg Goron": MMRLocationData(
         region="Clock Town",
-        address=0x3469420024234
+        address=0x3469420024234,
+        can_create=lambda options: options.shopsanity.value != 0
     ),
     "Curiosity Shop Blue Rupee Trade": MMRLocationData(
         region="Clock Town",
@@ -217,11 +218,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Curiosity Shop Night 3 (Stop Thief)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420090013
+        address=0x3469420090013,
+        can_create=lambda options: options.shopsanity.value != 0
     ),
     "Curiosity Shop Night 3 Thief Stolen Item": MMRLocationData(
         region="Clock Town",
-        address=0x3469420090015
+        address=0x3469420090015,
+        can_create=lambda options: options.shopsanity.value != 0
     ),
     "Laundry Pool Stray Fairy (Clock Town)": MMRLocationData(
         region="Clock Town",
