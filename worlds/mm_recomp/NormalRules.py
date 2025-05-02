@@ -347,7 +347,7 @@ def get_location_rules(player, options):
         "Milk Road Gorman Ranch Purchase":
             lambda state: True,
         "Tingle Romani Ranch Map Purchase":
-            lambda state: has_projectiles(state, player) or state.can_reach("Twin Islands", 'Region', player),   
+            lambda state: has_projectiles(state, player) or state.can_reach("Twin Islands", 'Region', player),
         "Road to Swamp Tree HP":
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
