@@ -137,6 +137,13 @@ def can_reach_scarecrow(state, player):
 def can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and state.has("Zora Mask", player) and (state.has("Hookshot", player) or state.has("Goron Mask", player)) #and state.has("Pictograph Box", player)
 
+def can_afford_price(state, player, price):
+    if price > 200:
+        return state.has("Progressive Wallet", player, 2)
+    elif price > 99:
+        return state.has("Progressive Wallet", player)
+    return True
+
 def can_purchase(state, player, price_index):
     price = prices_ints[price_index]
     if price > 200:
@@ -339,9 +346,9 @@ def get_baby_location_rules(player):
         "Milk Bar Priority Mail to Aroma":
             lambda state: state.has("Romani Mask", player) and state.has("Kafei's Mask", player) and state.has("Priority Mail", player),
         "East Clock Town Milk Bar Milk Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
+            lambda state: state.has("Romani Mask", player) and can_afford_price(state, player, 40),
         "East Clock Town Milk Bar Chateau Romani Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
+            lambda state: state.has("Romani Mask", player) and can_afford_price(state, player, 200),
 
         "Termina Tall Grass Chest":
             lambda state: True,
@@ -538,14 +545,14 @@ def get_baby_location_rules(player):
             lambda state: can_clear_snowhead(state, player),
         "Don Gero Mask Frog Song HP":
             lambda state: state.has("Don Gero Mask", player) and can_clear_snowhead(state, player) and state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and state.can_reach("Great Bay Temple", 'Region', player) and can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
-        "Mountain Village Smithy Day 1":
-            lambda state: can_purchase(state, player, 0) and can_clear_snowhead(state, player) and baby_has_bottle(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_use_fire_arrows(state, player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
-        "Mountain Village Smithy Day 2":
+        "Mountain Village Smithy Upgrade":
+            lambda state: can_afford_price(state, player, 100) and can_clear_snowhead(state, player) and baby_has_bottle(state, player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and can_use_fire_arrows(state, player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
+        "Mountain Village Smithy Gold Dust Upgrade":
             # lambda state: state.has("Bottle of Gold Dust", player) and state.can_reach("Mountain Village Smithy Upgrade", 'Location', player),
             lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
             
             
-       "Tingle Snowhead Map Purchase":
+        "Tingle Snowhead Map Purchase":
             lambda state: baby_has_projectiles(state, player) and state.can_reach("Southern Swamp", 'Region', player),
         "Twin Islands Ramp Grotto Chest":
             lambda state: baby_has_explosives(state, player) and state.has("Goron Mask", player) and state.has("Hookshot", player),
@@ -568,7 +575,7 @@ def get_baby_location_rules(player):
         "Goron Village Lens Cave Center Chest":
             lambda state: can_use_lens(state, player),
         "Goron Village Deku Scrub Purchase Bomb Bag":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Wallet", player),
+            lambda state: state.has("Goron Mask", player) and can_afford_price(state, player, 200),
         "Goron Village Deku Trade":
             lambda state: state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
         "Goron Village Deku Trade Freestanding HP":
@@ -903,7 +910,7 @@ def get_baby_location_rules(player):
         "Ikana Canyon Zora Scrub Trade":
             lambda state: can_use_ice_arrows(state, player) and state.has("Hookshot", player) and state.has("Gibdo Mask", player) and state.has("Garo Mask", player) and state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
-            lambda state: state.has("Zora Mask", player) and baby_has_bottle(state, player) and state.has("Progressive Wallet", player),
+            lambda state: state.has("Zora Mask", player) and baby_has_bottle(state, player) and can_afford_price(state, player, 100),
         "Ikana Canyon Zora Trade Freestanding HP":
             lambda state: state.has("Deku Mask", player) and state.has("Hookshot", player) and state.has("Gibdo Mask", player) and state.has("Garo Mask", player) and state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
         "Ikana Canyon Grotto Chest":

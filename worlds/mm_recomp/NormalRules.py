@@ -94,6 +94,13 @@ def can_reach_scarecrow(state, player):
 def can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and (state.has("Zora Mask", player) and state.has("Pictograph Box", player) and state.has("Hookshot", player) or state.has("Goron Mask", player))
 
+def can_afford_price(state, player, price):
+    if price > 200:
+        return state.has("Progressive Wallet", player, 2)
+    elif price > 99:
+        return state.has("Progressive Wallet", player)
+    return True
+
 def can_purchase(state, player, price_index):
     price = prices_ints[price_index]
     if price > 200:
@@ -307,9 +314,9 @@ def get_location_rules(player, options):
         "Milk Bar Priority Mail to Aroma":
             lambda state: state.has("Romani Mask", player) and state.has("Kafei's Mask", player) and state.has("Priority Mail", player),
         "East Clock Town Milk Bar Milk Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
+            lambda state: state.has("Romani Mask", player) and can_afford_price(state, player, 40),
         "East Clock Town Milk Bar Chateau Romani Purchase":
-            lambda state: state.has("Romani Mask", player) and can_purchase(state, player, 0),
+            lambda state: state.has("Romani Mask", player) and can_afford_price(state, player, 200),
 
         "Termina Tall Grass Chest":
             lambda state: True,
@@ -512,7 +519,7 @@ def get_location_rules(player, options):
         "Don Gero Mask Frog Song HP":
             lambda state: state.has("Don Gero Mask", player) and can_clear_snowhead(state, player) and state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and state.can_reach("Great Bay Temple", 'Region', player) and can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
         "Mountain Village Smithy Upgrade":
-            lambda state: can_purchase(state, player, 0) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player)),
+            lambda state: can_afford_price(state, player, 100) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player)),
         "Mountain Village Smithy Gold Dust Upgrade":
             # gold dust is not shuffled, so its received with "Goron Racetrack Prize"
             lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player),
@@ -540,7 +547,7 @@ def get_location_rules(player, options):
         "Goron Village Lens Cave Center Chest":
             lambda state: True,
         "Goron Village Deku Scrub Purchase Bomb Bag":
-            lambda state: can_purchase(state, player, 0) and (state.has("Goron Mask", player) or (state.can_reach("Goron Village Deku Trade Freestanding HP", 'Location', player) and state.can_reach("Southern Swamp Deku Trade Freestanding HP", 'Location', player) and state.has("Moon's Tear", player))),
+            lambda state: can_afford_price(state, player, 200) and (state.has("Goron Mask", player) or (state.can_reach("Goron Village Deku Trade Freestanding HP", 'Location', player) and state.can_reach("Southern Swamp Deku Trade Freestanding HP", 'Location', player) and state.has("Moon's Tear", player))),
         "Goron Village Deku Trade":
             lambda state: state.has("Deku Mask", player) and state.has("Swamp Title Deed", player),
         "Goron Village Deku Trade Freestanding HP":
@@ -888,7 +895,7 @@ def get_location_rules(player, options):
         "Ikana Canyon Music Box Mummy":
             lambda state: can_use_ice_arrows(state, player) and can_play_song("Song of Healing", state, player) and can_play_song("Song of Storms", state, player),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
-            lambda state: state.has("Zora Mask", player) and has_bottle(state, player) and can_purchase(state, player, 0),
+            lambda state: state.has("Zora Mask", player) and has_bottle(state, player) and can_afford_price(state, player, 100),
         "Ikana Canyon Zora Scrub Trade":
             lambda state: state.has("Zora Mask", player) and state.has("Ocean Title Deed", player),
         "Ikana Canyon Zora Trade Freestanding HP":
