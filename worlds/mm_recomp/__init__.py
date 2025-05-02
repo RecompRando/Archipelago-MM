@@ -201,6 +201,20 @@ class MMRWorld(World):
             self.place("Great Bay Great Fairy Reward", "Double Defense")
             self.place("Stone Tower Great Fairy Reward", "Great Fairy Sword")
 
+        if not self.options.keysanity.value:
+            self.place("Woodfall Temple Moving Flower Platform Room Chest", "Small Key (Woodfall)")
+
+            self.place("Snowhead Temple Orange Door Behind Block Chest", "Small Key (Snowhead)")
+            self.place("Snowhead Temple Upstairs 2F Icicle Room Snowball Chest", "Small Key (Snowhead)")
+            self.place("Snowhead Temple Initial Runway Ice Blowers Chest", "Small Key (Snowhead)")
+
+            self.place("Great Bay Temple Froggy Entrance Room Underwater Chest", "Small Key (Great Bay)")
+
+            self.place("Stone Tower Temple Armos Room Lava Chest", "Small Key (Stone Tower)")
+            self.place("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest", "Small Key (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Hall Floor Switch Chest", "Small Key (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Death Armos Maze Chest", "Small Key (Stone Tower)")
+
         if not self.options.fairysanity.value:
             self.place("Laundry Pool Stray Fairy (Clock Town)", "Stray Fairy (Clock Town)")
 

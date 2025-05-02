@@ -379,22 +379,26 @@ item_data_table: Dict[str, MMRItemData] = {
     "Small Key (Woodfall)": MMRItemData(
         code=0x3469420090078,
         type=ItemClassification.progression,
-        num_exist=1
+        num_exist=1,
+        can_create=lambda options: options.keysanity.value
     ),
     "Small Key (Snowhead)": MMRItemData(
         code=0x3469420090178,
         type=ItemClassification.progression,
-        num_exist=3
+        num_exist=3,
+        can_create=lambda options: options.keysanity.value
     ),
     "Small Key (Great Bay)": MMRItemData(
         code=0x3469420090278,
         type=ItemClassification.progression,
-        num_exist=1
+        num_exist=1,
+        can_create=lambda options: options.keysanity.value
     ),
     "Small Key (Stone Tower)": MMRItemData(
         code=0x3469420090378,
         type=ItemClassification.progression,
-        num_exist=4
+        num_exist=4,
+        can_create=lambda options: options.keysanity.value
     ),
     "Dungeon Map (Woodfall)": MMRItemData(
         code=0x3469420090076,

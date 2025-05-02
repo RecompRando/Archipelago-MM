@@ -161,6 +161,11 @@ class ShuffleGreatFairyRewards(Toggle):
     display_name = "Shuffle Great Fairy Rewards"
 
 
+class Keysanity(Toggle):
+    """Choose whether Small Keys are shuffled into the pool."""
+    display_name = "Keysanity"
+
+
 class Fairysanity(Toggle):
     """Choose whether Stray Fairies are shuffled into the pool."""
     display_name = "Fairysanity"
@@ -246,6 +251,7 @@ class MMROptions(PerGameCommonOptions):
     shop_prices: ShopPrices
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
+    keysanity: Keysanity
     fairysanity: Fairysanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
