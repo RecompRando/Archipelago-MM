@@ -75,7 +75,7 @@ class MMRWorld(World):
             
         if self.options.start_with_soaring.value:
             mw.push_precollected(self.create_item("Song of Soaring"))
-            self.create_and_add_filler_items();
+            self.create_and_add_filler_items()
         
         if self.options.shuffle_spiderhouse_reward.value:
             mw.itempool.append(self.create_item("Progressive Wallet"))
@@ -87,19 +87,19 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Romani Ranch Map"))
             mw.push_precollected(self.create_item("Great Bay Map"))
             mw.push_precollected(self.create_item("Stone Tower Map"))
-            self.create_and_add_filler_items(6);
+            self.create_and_add_filler_items(6)
             
         if self.options.scrubsanity.value != 0:
-            self.create_and_add_filler_items(4);
+            self.create_and_add_filler_items(4)
         
         if self.options.shopsanity.value != 0:
-            self.create_and_add_filler_items(24);
+            self.create_and_add_filler_items(27)
 
         if self.options.shopsanity.value == 2:
-            self.create_and_add_filler_items(12);
+            self.create_and_add_filler_items(12)
         
         if self.options.cowsanity.value != 0:
-            self.create_and_add_filler_items(8);
+            self.create_and_add_filler_items(8)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
