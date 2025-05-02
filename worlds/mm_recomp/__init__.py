@@ -336,13 +336,13 @@ class MMRWorld(World):
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
 
-        if (self.options.logic_difficulty == 4):
+        if (self.options.logic_difficulty.value == 4):
             return
 
-        if (self.options.logic_difficulty == 0):
-            region_rules = get_baby_region_rules(player)
-            location_rules = get_baby_location_rules(player)
-        if (self.options.logic_difficulty == 1):
+        # ~ if (self.options.logic_difficulty.value == 0):
+            # ~ region_rules = get_baby_region_rules(player, options)
+            # ~ location_rules = get_baby_location_rules(player, options)
+        if (self.options.logic_difficulty.value == 1):
             region_rules = get_region_rules(player, options)
             location_rules = get_location_rules(player, options)
 
@@ -386,6 +386,6 @@ class MMRWorld(World):
             "shuffle_regional_maps": self.options.shuffle_regional_maps.value,
             "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
-            "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
+            # ~ "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
             "logic_difficulty": self.options.logic_difficulty.value
         }

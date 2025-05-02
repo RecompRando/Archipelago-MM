@@ -39,7 +39,7 @@ def baby_can_reach_seahorse(state, player):
     return state.can_reach("Fisherman's House", 'Region', player) and state.has("Zora Mask", player) and state.has("Hookshot", player) and state.has("Goron Mask", player) and state.has("Pictograph Box", player)
 
 def baby_can_get_cow_milk(state, player):
-    return baby_has_bottle(state, player) and can_play_song("Epona's Song", state, player) and state.can_reach("Termina Log Bombable Grotto Left Cow", 'Location', player) and state.can_reach("Romani Ranch Barn Free Cow", 'Location', player) and state.can_reach("Great Bay Ledge Grotto Left Cow", 'Location', player) and state.can_reach("Ikana Well Cow", 'Location', player)
+    return baby_has_bottle(state, player) and can_play_song("Epona's Song", state, player) and baby_has_explosives(state, player) and can_use_powder_keg(state, player) and state.has("Hookshot", player) and state.has("Gibdo Mask", player) and can_plant_beans(state, player) and state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) and can_use_light_arrows(state, player) and state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) and state.has("Goron Mask", player) and state.can_reach("Mountain Village Invisible Ladder Cave Healing Invisible Goron", 'Location', player) and state.can_reach("Ikana Well Invisible Chest", 'Location', player)
 
 
 
@@ -153,7 +153,14 @@ def can_purchase(state, player, price_index):
     return True
 
 
-def get_baby_region_rules(player):
+def can_afford_witch_shop_item_1(state, player, options):
+    if options.shopsanity.value == 0:
+        return state.has("Mask of Scents", player) and baby_has_bottle(state, player) and can_afford_price(state, player, 60)
+    else:
+        return state.has("Mask of Scents", player) and baby_has_bottle(state, player) and can_purchase(state, player, SHOP_ID_WITCH_POTION_1)
+
+
+def get_baby_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
             lambda state: state.has("Ocarina of Time", player) and state.has("Oath to Order", player) and state.has("Odolwa's Remains", player) and state.has("Goht's Remains", player) and state.has("Gyorg's Remains", player) and state.has("Twinmold's Remains", player),
@@ -199,7 +206,7 @@ def get_baby_region_rules(player):
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and can_use_light_arrows(state, player) and can_play_song("Elegy of Emptiness", state, player) and ("Small Key (Stone Tower)", player, 4) and state.has("Boss Key (Stone Tower)", player),
     }
 
-def get_baby_location_rules(player):
+def get_baby_location_rules(player, options):
     return {
         "Keaton Quiz":
             lambda state: state.has("Keaton Mask", player),
@@ -255,7 +262,7 @@ def get_baby_location_rules(player):
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player) and can_purchase(state, player, SHOP_ID_BOMB_SHOP_3_UPGRADE),
         "Curiosity Shop Blue Rupee Trade":
-            lambda state: baby_has_bottle(state, player) and state.can_reach("Southern Swamp Witch Shop Item 1", 'Location', player) and baby_can_get_cow_milk(state, player),
+            lambda state: baby_has_bottle(state, player) and state.can_reach("Southern Swamp", 'Region', player) and can_afford_witch_shop_item_1(state, player, options) and baby_can_get_cow_milk(state, player),
         "Curiosity Shop Red Rupee Trade":
             lambda state: baby_has_bottle(state, player),
         "Curiosity Shop Purple Rupee Trade":
@@ -416,7 +423,7 @@ def get_baby_location_rules(player):
         "Southern Swamp Mystery Woods Day 2 Grotto Chest":
             lambda state: True,
         "Southern Swamp Witch Shop Item 1":
-            lambda state: state.has("Mask of Scents", player) and baby_has_bottle(state, player) and can_purchase(state, player, SHOP_ID_WITCH_POTION_1),
+            lambda state: can_afford_witch_shop_item_1(state, player, options),
         "Southern Swamp Witch Shop Item 2":
             lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_2),
         "Southern Swamp Witch Shop Item 3":
@@ -1044,5 +1051,5 @@ def get_baby_location_rules(player):
         "Moon Link Trial HP":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and can_play_song("Song of Healing", state, player) and can_play_song("Epona's Song", state, player),
         "Defeat Majora":
-            lambda state: state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player) and state.has("Great Fairy Sword", player) and has_gilded_sword(state, player) and state.has("Progressive Bow", player) and state.has("Light Arrow", player)
+            lambda state: state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player) and state.has("Great Fairy Sword", player) and has_gilded_sword(state, player) and state.has("Progressive Bow", player) and can_use_light_arrows(state, player)
     }

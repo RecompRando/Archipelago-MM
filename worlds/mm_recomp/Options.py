@@ -8,13 +8,13 @@ from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, 
 class LogicDifficulty(Choice):
     """Set the logic difficulty used when generating."""
     display_name = "Logic Difficulty"
-    option_easy = 0
+    # ~ option_easy = 0
     option_normal = 1
     #option_obscure_glitchless = 2
     #option_glitched = 3
     option_no_logic = 4
-    alias_baby = option_easy
-    default = 0
+    # ~ alias_baby = option_easy
+    default = 1
 
 
 class MajoraRemainsRequired(Range):
