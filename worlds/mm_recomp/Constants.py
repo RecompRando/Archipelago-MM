@@ -59,7 +59,7 @@ default_shop_prices = [
     80,     # SI_SHIELD_HERO_2
     30,     # SI_POTION_RED_3
     500,    # SI_MASK_ALL_NIGHT
-	100,    # SI_BOMB_BAG_20_1 (unused)
+    100,    # SI_BOMB_BAG_20_1 (unused)
     100,    # SI_BOMB_BAG_30_1
     100,    # SI_BOMB_BAG_40 (unused)
     50,     # SI_BOMB_BAG_20_2
@@ -80,6 +80,6 @@ default_shop_prices = [
     50,     # SI_SWORD_KOKIRI (curiosity shop)
     50,     # SI_SWORD_RAZOR (curiosity shop)
     50,     # SI_SWORD_GILDED (curiosity shop)
-	0,      # SI_SHIELD_HERO_4 (curiosity shop, unused)
+    0,      # SI_SHIELD_HERO_4 (curiosity shop, unused)
     0,      # SI_SHIELD_MIRROR (curiosity shop, unused)
 ]
