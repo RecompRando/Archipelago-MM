@@ -486,22 +486,25 @@ item_data_table: Dict[str, MMRItemData] = {
     "Bombchu (1)": MMRItemData(
         code=0x3469420000036,
         type=ItemClassification.progression,
-        num_exist=4
+        num_exist=4,
+        can_create=lambda options: False
     ),
     "Bombchu (5)": MMRItemData(
         code=0x346942000003A,
         type=ItemClassification.progression,
-        num_exist=2
+        num_exist=2,
+        can_create=lambda options: False
     ),
     "Bombchu (10)": MMRItemData(
         code=0x346942000001A,
         type=ItemClassification.progression,
-        num_exist=2
+        num_exist=2,
+        can_create=lambda options: False
     ),
     "Blue Rupee": MMRItemData(
         code=0x3469420000002,
         type=ItemClassification.filler,
-        num_exist=6
+        num_exist=14
     ),
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
