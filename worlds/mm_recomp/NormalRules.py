@@ -335,7 +335,7 @@ def get_location_rules(player, options):
         "Termina Northern Midnight Dancer":
             lambda state: state.has("Ocarina of Time", player) and state.has("Song of Healing", player),
         "Termina Gossip Stones HP":
-            lambda state: (state.has("Deku Mask", player) and can_play_song("Sonata of Awakening", state, player)) or (state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player)) or (state.has("Zora Mask", player) and can_play_song("New Wave Bossa Nova", state, player)),
+            lambda state: (has_explosives(state, player) or state.has("Goron Mask", player)) and ((state.has("Deku Mask", player) and can_play_song("Sonata of Awakening", state, player)) or (state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player)) or (state.has("Zora Mask", player) and can_play_song("New Wave Bossa Nova", state, player))),
         "Termina Moon's Tear Scrub HP":
             lambda state: (state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and state.has("Ocarina of Time", player) and can_afford_price(state, player, 100)) or (state.has("Deku Mask", player) and state.has("Ocarina of Time", player) and can_afford_price(state, player, 100)),
         "Termina Log Bombable Grotto Left Cow":
@@ -519,7 +519,7 @@ def get_location_rules(player, options):
         "Don Gero Mask Frog Song HP":
             lambda state: state.has("Don Gero Mask", player) and can_clear_snowhead(state, player) and state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and state.can_reach("Great Bay Temple", 'Region', player) and can_use_ice_arrows(state, player) and can_use_fire_arrows(state, player),
         "Mountain Village Smithy Upgrade":
-            lambda state: can_afford_price(state, player, 100) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player)),
+            lambda state: can_afford_price(state, player, 100) and (can_use_fire_arrows(state, player) or state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or can_clear_snowhead(state, player)),
         "Mountain Village Smithy Gold Dust Upgrade":
             # gold dust is not shuffled, so its received with "Goron Racetrack Prize"
             lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player) and has_bottle(state, player),
