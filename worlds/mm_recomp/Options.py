@@ -122,7 +122,7 @@ class Shopsanity(Choice):
     
     vanilla: Shop items are not shuffled.
     enabled: Every item in shops are shuffled, with alternate shops sharing the same items.
-    advanced: Every single item in shops are shuffled, including the alternate Night Trading Post and Spring Goron Shop. Also adds an extra Heart Piece to Spring Goron Village."""
+    advanced: Every single item in shops are shuffled, including the alternate Night Trading Post and Spring Goron Shop."""
     display_name = "Shopsanity"
     option_vanilla = 0
     option_enabled = 1
@@ -135,6 +135,7 @@ class Scrubsanity(Toggle):
 
 class ShopPrices(Choice):
     """Choose how expensive shop items are.
+    These only apply to the main shops of the game.
     This has no effect if shopsanity is disabled.
     
     vanilla: Shop items have their normal prices.

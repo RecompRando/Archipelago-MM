@@ -62,8 +62,7 @@ Majora's Mask Recompiled:
 
   logic_difficulty:
     # Set the logic difficulty used when generating.
-    easy: 50
-    normal: 0
+    normal: 50
     no_logic: 0
 
   majora_remains_required:
@@ -160,7 +159,7 @@ Majora's Mask Recompiled:
     #
     # vanilla: Shop items are not shuffled.
     # enabled: Every item in shops are shuffled, with alternate shops sharing the same items.
-    # advanced: Every single item in shops are shuffled, including the alternate Night Trading Post and Spring Goron Shop. Also adds an extra Heart Piece to Spring Goron Village.
+    # advanced: Every single item in shops are shuffled, including the alternate Night Trading Post and Spring Goron Shop.
     vanilla: 50
     enabled: 0
     advanced: 0

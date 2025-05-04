@@ -975,11 +975,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Goron Village",
         address=0x3469420054D1E
     ),
-    "Goron Village Deku Trade Freestanding HP (Spring)": MMRLocationData(
-        region="Goron Village",
-        address=0x346942005481E,
-        can_create=lambda options: options.shopsanity.value == 2
-    ),
+    # "Goron Village Deku Trade Freestanding HP (Spring)": MMRLocationData(
+    #     region="Goron Village",
+    #     address=0x346942005481E,
+    #     can_create=lambda options: options.shopsanity.value == 2
+    # ),
     "Powder Keg Goron Reward": MMRLocationData(
         region="Goron Village",
         address=0x3469420000034
