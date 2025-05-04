@@ -192,7 +192,7 @@ class ReceiveFilledWallets(DefaultOnToggle):
     display_name = "Receive Filled Wallets"
 
 
-class MagicIsATrap(DefaultOnToggle):
+class MagicIsATrap(Toggle):
     """Set whether to preserve the vanilla bug where you are able to use certain magic items and abilities without magic.
     Once you receive magic, those items and abilities will begin to reduce magic normally.
     
