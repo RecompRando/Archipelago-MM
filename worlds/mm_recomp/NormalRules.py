@@ -228,7 +228,7 @@ def get_location_rules(player, options):
         "Curiosity Shop Purple Rupee Trade":
             lambda state: has_bottle(state, player) and state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Curiosity Shop Gold Rupee Trade":
-            lambda state: has_bottle(state, player) and ((state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) or (state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player))) or state.can_reach("Goron Racetrack Prize", 'Location', player)),
+            lambda state: has_bottle(state, player) and ((state.can_reach("Graveyard Day 3 Dampe Big Poe Chest", 'Location', player) or (state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player) and state.has("Progressive Bomb Bag", player))) or (state.has("Romani Mask", player) and can_afford_price(state, player, 200)) or state.can_reach("Goron Racetrack Prize", 'Location', player)),
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Curiosity Shop Night 3 Thief Stolen Item":
