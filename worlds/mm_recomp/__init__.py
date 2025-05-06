@@ -96,7 +96,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(27)
 
         if self.options.shopsanity.value == 2:
-            self.create_and_add_filler_items(11)
+            self.create_and_add_filler_items(15)
         
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
