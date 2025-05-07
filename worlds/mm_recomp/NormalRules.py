@@ -373,7 +373,7 @@ def get_location_rules(player, options):
         "Southern Swamp Tour Guide Okay Picture":
             lambda state: state.has("Pictograph Box", player),
         "Southern Swamp Near Swamp Spider House Grotto Chest":
-            lambda state: (state.has("Deku Mask", player) and has_projectiles(state, player)) or state.has("Zora Mask", player),
+            lambda state: state.has("Deku Mask", player),
         "Southern Swamp Song Tablet":
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp Mystery Woods Day 2 Grotto Chest":
