@@ -539,7 +539,7 @@ def get_location_rules(player, options):
         "Twin Islands Spring Underwater Near Ramp Chest":
             lambda state: state.has("Zora Mask", player) and can_clear_snowhead(state, player),
         "Goron Racetrack Prize":
-            lambda state: can_use_powder_keg(state, player) and can_clear_snowhead(state, player),
+            lambda state: (can_use_powder_keg(state, player) or state.can_reach("Powder Keg Goron Reward", 'Location', player)) and can_clear_snowhead(state, player),
             
             
         "Goron Village Lens Cave Rock Chest":
