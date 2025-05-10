@@ -797,7 +797,7 @@ def get_location_rules(player, options):
         "Zora Hall Piano Zora Song":
             lambda state: state.has("Zora Mask", player),
         "Zora Hall Torches Reward":
-            lambda state: can_use_fire_arrows(state, player),
+            lambda state: state.has("Zora Mask", player) and can_use_fire_arrows(state, player),
         "Zora Hall Good Picture of Lulu":
            lambda state: state.has("Pictograph Box", player) and state.has("Zora Mask", player),
         "Zora Hall Bad Picture of Lulu":
