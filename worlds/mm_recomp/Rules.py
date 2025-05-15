@@ -188,6 +188,8 @@ def get_baby_region_rules(player, options):
             lambda state: state.has("Zora Mask", player),
         "Pirates' Fortress -> Pirates' Fortress (Interior)":
             lambda state: state.has("Goron Mask", player) and state.has("Hookshot", player),
+        "Zora Cape -> Zora Hall":
+            lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Great Bay Temple":
             lambda state: can_play_song("New Wave Bossa Nova", state, player) and state.has("Hookshot", player) and state.has("Zora Mask", player) and state.has("Small Key (Great Bay)", player) and state.has("Boss Key (Great Bay)", player),
         "Road to Ikana -> Ikana Graveyard":
@@ -823,7 +825,7 @@ def get_baby_location_rules(player, options):
             
             
         "Zora Hall Piano Zora Song":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: state.has("Zora Mask", player) and state.has("Hookshot", player),
         "Zora Hall Torches Reward":
            lambda state: state.has("Zora Mask", player) and can_use_fire_arrows(state, player),
         "Zora Hall Good Picture of Lulu":
