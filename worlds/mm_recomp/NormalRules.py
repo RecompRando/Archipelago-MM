@@ -487,7 +487,7 @@ def get_location_rules(player, options):
         "Woodfall Temple Wooden Flower Bubble SF":
             lambda state: (state.has("Progressive Bow", player) and state.has("Great Fairy Mask", player)) or can_use_fire_arrows(state, player),
         "Woodfall Temple Moving Flower Platform Room Beehive SF":
-            lambda state: has_projectiles(state, player) or state.has("Progressive Bow", player),
+            lambda state: (state.has("Progressive Bow", player) or (state.has("Deku Mask") and state.has("Progressive Magic"))) or (state.has("Great Fairy Mask") and (state.has("Hookshot") or state.has("Zora Mask"))),
         "Woodfall Temple Push Block Skulltula SF":
             lambda state: (state.has("Small Key (Woodfall)", player) and can_smack(state, player)) or state.has("Progressive Bow", player),
         "Woodfall Temple Push Block Bubble SF":
