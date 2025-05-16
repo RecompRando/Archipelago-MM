@@ -1022,6 +1022,8 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
         "Moon Link Trial HP":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and has_bombchus(state, player) and state.has("Progressive Bow", player),
+        "Moon Trade All Masks":
+            lambda state: state.has("Captain's Hat", player) and state.has("Giant's Mask", player) and state.has("All-Night Mask", player) and state.has("Bunny Hood", player) and state.has("Keaton Mask", player) and state.has("Garo Mask", player) and state.has("Romani Mask", player) and state.has("Circus Leader's Mask", player) and state.has("Postman's Hat", player) and state.has("Couple's Mask", player) and state.has("Great Fairy Mask", player) and state.has("Gibdo Mask", player) and state.has("Don Gero Mask", player) and state.has("Kamaro Mask", player) and state.has("Mask of Truth", player) and state.has("Stone Mask", player) and state.has("Bremen Mask", player) and state.has("Blast Mask", player) and state.has("Mask of Scents", player) and state.has("Kafei's Mask", player),
         "Defeat Majora":
             lambda state: can_smack_hard(state, player) and (((state.has("Zora Mask", player) or has_mirror_shield(state, player)) and can_use_light_arrows(state, player)) or (state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player))) and has_enough_remains(state, player, options.majora_remains_required.value),
     }
