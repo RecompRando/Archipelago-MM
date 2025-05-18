@@ -282,7 +282,7 @@ def get_location_rules(player, options):
         "North Clock Town Great Fairy Reward":
             lambda state: state.has("Stray Fairy (Clock Town)", player),
         "Tingle Clock Town Map Purchase":
-            lambda state: has_projectiles(state, player),
+            lambda state: has_projectiles(state, player), # could also check for upper ikana, but you literally get this in clock town lmao
         "West Clock Town Swordsman Expert Course":
             lambda state: state.has("Progressive Sword", player),
         "West Clock Town Postman Counting":
@@ -351,11 +351,11 @@ def get_location_rules(player, options):
         "Milk Road Gorman Ranch Purchase":
             lambda state: True,
         "Tingle Romani Ranch Map Purchase":
-            lambda state: has_projectiles(state, player) or state.can_reach("Twin Islands", 'Region', player),
+            lambda state: has_projectiles(state, player) or (state.can_reach("Milk Road", 'Region', player) or state.can_reach("Twin Islands", 'Region', player)),
         "Road to Swamp Tree HP":
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
-            lambda state: has_projectiles(state, player),
+            lambda state: has_projectiles(state, player) or (state.can_reach("Southern Swamp", 'Region', player) or state.can_reach("Clock Town", 'Region', player)),
         "Swamp Shooting Gallery 2120 Points":
             lambda state: state.has("Progressive Bow", player),
         "Swamp Shooting Gallery 2180 Points":
@@ -529,7 +529,7 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and state.can_reach("Goron Racetrack Prize", 'Location', player) and has_bottle(state, player),
             
         "Tingle Snowhead Map Purchase":
-            lambda state: has_projectiles(state, player) and state.can_reach("Southern Swamp", 'Region', player),    
+            lambda state: has_projectiles(state, player) and (state.can_reach("Twin Islands", 'Region', player) or state.can_reach("Southern Swamp", 'Region', player)),
         "Twin Islands Ramp Grotto Chest":
             lambda state: has_explosives(state, player) and (state.has("Goron Mask", player) or state.has("Hookshot", player)),
         "Twin Islands Goron Elder Request":
@@ -662,7 +662,7 @@ def get_location_rules(player, options):
         "Great Bay Scarecrow Ledge HP":
             lambda state: can_plant_beans(state, player) and can_reach_scarecrow(state, player) and state.has("Hookshot", player),
         "Tingle Great Bay Map Purchase":
-            lambda state: has_projectiles(state, player) and state.can_reach("Clock Town", 'Region', player),
+            lambda state: has_projectiles(state, player) and (state.can_reach("Great Bay", 'Region', player) or state.can_reach("Milk Road", 'Region', player)),
         "Great Bay Ledge Grotto Left Cow":
             lambda state: state.has("Hookshot", player) and can_play_song("Epona's Song", state, player),
         "Great Bay Ledge Grotto Right Cow":
@@ -893,7 +893,7 @@ def get_location_rules(player, options):
 
 
         "Tingle Stone Tower Map Purchase":
-            lambda state: has_projectiles(state, player) and state.can_reach("Great Bay", 'Region', player),
+            lambda state: has_projectiles(state, player) and ((state.can_reach("Ikana Canyon", 'Region', player) and can_use_ice_arrows(state, player) and state.has("Hookshot", player)) or state.can_reach("Great Bay", 'Region', player)),
         "Ikana Canyon Spirit House":
             lambda state: can_use_ice_arrows(state, player) and state.has("Hookshot", player),
         "Ikana Canyon Music Box Mummy":

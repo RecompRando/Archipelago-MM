@@ -437,23 +437,23 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694200000B4
     ),
     "Tingle Woodfall Map Purchase": MMRLocationData(
-        region="Southern Swamp",
+        region="Clock Town",
         address=0x34694200000B5
     ),
     "Tingle Snowhead Map Purchase": MMRLocationData(
-        region="Twin Islands",
+        region="Clock Town",
         address=0x34694200000B6
     ),
     "Tingle Romani Ranch Map Purchase": MMRLocationData(
-        region="Milk Road",
+        region="Clock Town",
         address=0x34694200000B7
     ),
     "Tingle Great Bay Map Purchase": MMRLocationData(
-        region="Great Bay",
+        region="Clock Town",
         address=0x34694200000B8
     ),
     "Tingle Stone Tower Map Purchase": MMRLocationData(
-        region="Ikana Canyon",
+        region="Clock Town",
         address=0x34694200000B9
     ),
     "Termina Stump Chest": MMRLocationData(
