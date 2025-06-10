@@ -1018,7 +1018,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Zora Mask", player),
         "Moon Link Trial Garo Master Chest":
             lambda state: can_smack_hard(state, player) and state.has("Hookshot", player),
-        "Moon Link Trial Iron Knuckle Lower Chest":
+        "Moon Link Trial Iron Knuckle Chest":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
         "Moon Link Trial HP":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and has_bombchus(state, player) and state.has("Progressive Bow", player),

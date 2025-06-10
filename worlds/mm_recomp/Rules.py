@@ -1048,7 +1048,7 @@ def get_baby_location_rules(player, options):
             lambda state: state.has("Zora Mask", player),
         "Moon Link Trial Garo Master Chest":
             lambda state: state.has("Fierce Deity's Mask", player) and state.has("Progressive Magic", player) and state.has("Great Fairy Sword", player) and has_gilded_sword(state, player) and state.has("Progressive Bow", player) and state.has("Hookshot", player),
-        "Moon Link Trial Iron Knuckle Lower Chest":
+        "Moon Link Trial Iron Knuckle Chest":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
         "Moon Link Trial HP":
             lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and can_play_song("Song of Healing", state, player) and can_play_song("Epona's Song", state, player),
