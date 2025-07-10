@@ -1841,895 +1841,895 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Laundry Pool Grass (0)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127001,
+        address=0x3469420127001
     ),
     "Laundry Pool Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127002,
+        address=0x3469420127002
     ),
     "Laundry Pool Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127003,
+        address=0x3469420127003
     ),
     # North Clock Town Keaton Grass
     "North Clock Town Keaton Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E00,
+        address=0x3469420136E00
     ),
     "North Clock Town Keaton Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E01,
+        address=0x3469420136E01
     ),
     "North Clock Town Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E02,
+        address=0x3469420136E02
     ),
     "North Clock Town Keaton Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E03,
+        address=0x3469420136E03
     ),
     "North Clock Town Keaton Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E04,
+        address=0x3469420136E04
     ),
     "North Clock Town Keaton Grass (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E05,
+        address=0x3469420136E05
     ),
     "North Clock Town Keaton Grass (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E06,
+        address=0x3469420136E06
     ),
     "North Clock Town Keaton Grass (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E07,
+        address=0x3469420136E07
     ),
     "North Clock Town Keaton Grass (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420136E08,
+        address=0x3469420136E08
     ),
 
     # Termina Field 
 
     "Termina Field Grass Group 0 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D0,
+        address=0x34694201002D0
     ),
     "Termina Field Grass Group 0 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D1,
+        address=0x34694201002D1
     ),
     "Termina Field Grass Group 0 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D2,
+        address=0x34694201002D2
     ),
     "Termina Field Grass Group 0 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D3,
+        address=0x34694201002D3
     ),
     "Termina Field Grass Group 0 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D4,
+        address=0x34694201002D4
     ),
     "Termina Field Grass Group 0 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D5,
+        address=0x34694201002D5
     ),
     "Termina Field Grass Group 0 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D6,
+        address=0x34694201002D6
     ),
     "Termina Field Grass Group 0 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D7,
+        address=0x34694201002D7
     ),
     "Termina Field Grass Group 0 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D8,
+        address=0x34694201002D8
     ),
     "Termina Field Grass Group 0 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002D9,
+        address=0x34694201002D9
     ),
     "Termina Field Grass Group 0 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002DA,
+        address=0x34694201002DA
     ),
     "Termina Field Grass Group 0 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201002DB,
+        address=0x34694201002DB
     ),
     "Termina Field Grass Group 1 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D0,
+        address=0x34694201012D0
     ),
     "Termina Field Grass Group 1 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D1,
+        address=0x34694201012D1
     ),
     "Termina Field Grass Group 1 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D2,
+        address=0x34694201012D2
     ),
     "Termina Field Grass Group 1 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D3,
+        address=0x34694201012D3
     ),
     "Termina Field Grass Group 1 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D4,
+        address=0x34694201012D4
     ),
     "Termina Field Grass Group 1 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D5,
+        address=0x34694201012D5
     ),
     "Termina Field Grass Group 1 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D6,
+        address=0x34694201012D6
     ),
     "Termina Field Grass Group 1 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D7,
+        address=0x34694201012D7
     ),
     "Termina Field Grass Group 1 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D8,
+        address=0x34694201012D8
     ),
     "Termina Field Grass Group 1 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012D9,
+        address=0x34694201012D9
     ),
     "Termina Field Grass Group 1 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012DA,
+        address=0x34694201012DA
     ),
     "Termina Field Grass Group 1 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201012DB,
+        address=0x34694201012DB
     ),
     "Termina Field Grass Group 2 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D0,
+        address=0x34694201022D0
     ),
     "Termina Field Grass Group 2 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D1,
+        address=0x34694201022D1
     ),
     "Termina Field Grass Group 2 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D2,
+        address=0x34694201022D2
     ),
     "Termina Field Grass Group 2 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D3,
+        address=0x34694201022D3
     ),
     "Termina Field Grass Group 2 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D4,
+        address=0x34694201022D4
     ),
     "Termina Field Grass Group 2 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D5,
+        address=0x34694201022D5
     ),
     "Termina Field Grass Group 2 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D6,
+        address=0x34694201022D6
     ),
     "Termina Field Grass Group 2 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D7,
+        address=0x34694201022D7
     ),
     "Termina Field Grass Group 2 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D8,
+        address=0x34694201022D8
     ),
     "Termina Field Grass Group 2 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022D9,
+        address=0x34694201022D9
     ),
     "Termina Field Grass Group 2 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022DA,
+        address=0x34694201022DA
     ),
     "Termina Field Grass Group 2 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201022DB,
+        address=0x34694201022DB
     ),
     "Termina Field Grass Group 3 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D0,
+        address=0x34694201032D0
     ),
     "Termina Field Grass Group 3 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D1,
+        address=0x34694201032D1
     ),
     "Termina Field Grass Group 3 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D2,
+        address=0x34694201032D2
     ),
     "Termina Field Grass Group 3 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D3,
+        address=0x34694201032D3
     ),
     "Termina Field Grass Group 3 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D4,
+        address=0x34694201032D4
     ),
     "Termina Field Grass Group 3 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D5,
+        address=0x34694201032D5
     ),
     "Termina Field Grass Group 3 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D6,
+        address=0x34694201032D6
     ),
     "Termina Field Grass Group 3 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D7,
+        address=0x34694201032D7
     ),
     "Termina Field Grass Group 3 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D8,
+        address=0x34694201032D8
     ),
     "Termina Field Grass Group 3 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032D9,
+        address=0x34694201032D9
     ),
     "Termina Field Grass Group 3 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032DA,
+        address=0x34694201032DA
     ),
     "Termina Field Grass Group 3 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201032DB,
+        address=0x34694201032DB
     ),
     "Termina Field Grass Group 4 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D0,
+        address=0x34694201042D0
     ),
     "Termina Field Grass Group 4 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D1,
+        address=0x34694201042D1
     ),
     "Termina Field Grass Group 4 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D2,
+        address=0x34694201042D2
     ),
     "Termina Field Grass Group 4 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D3,
+        address=0x34694201042D3
     ),
     "Termina Field Grass Group 4 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D4,
+        address=0x34694201042D4
     ),
     "Termina Field Grass Group 4 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D5,
+        address=0x34694201042D5
     ),
     "Termina Field Grass Group 4 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D6,
+        address=0x34694201042D6
     ),
     "Termina Field Grass Group 4 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D7,
+        address=0x34694201042D7
     ),
     "Termina Field Grass Group 4 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D8,
+        address=0x34694201042D8
     ),
     "Termina Field Grass Group 4 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042D9,
+        address=0x34694201042D9
     ),
     "Termina Field Grass Group 4 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042DA,
+        address=0x34694201042DA
     ),
     "Termina Field Grass Group 4 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201042DB,
+        address=0x34694201042DB
     ),
     "Termina Field Grass Group 5 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D0,
+        address=0x34694201052D0
     ),
     "Termina Field Grass Group 5 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D1,
+        address=0x34694201052D1
     ),
     "Termina Field Grass Group 5 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D2,
+        address=0x34694201052D2
     ),
     "Termina Field Grass Group 5 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D3,
+        address=0x34694201052D3
     ),
     "Termina Field Grass Group 5 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D4,
+        address=0x34694201052D4
     ),
     "Termina Field Grass Group 5 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D5,
+        address=0x34694201052D5
     ),
     "Termina Field Grass Group 5 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D6,
+        address=0x34694201052D6
     ),
     "Termina Field Grass Group 5 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D7,
+        address=0x34694201052D7
     ),
     "Termina Field Grass Group 5 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D8,
+        address=0x34694201052D8
     ),
     "Termina Field Grass Group 5 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052D9,
+        address=0x34694201052D9
     ),
     "Termina Field Grass Group 5 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052DA,
+        address=0x34694201052DA
     ),
     "Termina Field Grass Group 5 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201052DB,
+        address=0x34694201052DB
     ),
     "Termina Field Grass Group 6 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D0,
+        address=0x34694201062D0
     ),
     "Termina Field Grass Group 6 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D1,
+        address=0x34694201062D1
     ),
     "Termina Field Grass Group 6 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D2,
+        address=0x34694201062D2
     ),
     "Termina Field Grass Group 6 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D3,
+        address=0x34694201062D3
     ),
     "Termina Field Grass Group 6 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D4,
+        address=0x34694201062D4
     ),
     "Termina Field Grass Group 6 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D5,
+        address=0x34694201062D5
     ),
     "Termina Field Grass Group 6 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D6,
+        address=0x34694201062D6
     ),
     "Termina Field Grass Group 6 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D7,
+        address=0x34694201062D7
     ),
     "Termina Field Grass Group 6 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D8,
+        address=0x34694201062D8
     ),
     "Termina Field Grass Group 6 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062D9,
+        address=0x34694201062D9
     ),
     "Termina Field Grass Group 6 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062DA,
+        address=0x34694201062DA
     ),
     "Termina Field Grass Group 6 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201062DB,
+        address=0x34694201062DB
     ),
     "Termina Field Grass Group 7 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D0,
+        address=0x34694201072D0
     ),
     "Termina Field Grass Group 7 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D1,
+        address=0x34694201072D1
     ),
     "Termina Field Grass Group 7 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D2,
+        address=0x34694201072D2
     ),
     "Termina Field Grass Group 7 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D3,
+        address=0x34694201072D3
     ),
     "Termina Field Grass Group 7 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D4,
+        address=0x34694201072D4
     ),
     "Termina Field Grass Group 7 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D5,
+        address=0x34694201072D5
     ),
     "Termina Field Grass Group 7 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D6,
+        address=0x34694201072D6
     ),
     "Termina Field Grass Group 7 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D7,
+        address=0x34694201072D7
     ),
     "Termina Field Grass Group 7 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D8,
+        address=0x34694201072D8
     ),
     "Termina Field Grass Group 7 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072D9,
+        address=0x34694201072D9
     ),
     "Termina Field Grass Group 7 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072DA,
+        address=0x34694201072DA
     ),
     "Termina Field Grass Group 7 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201072DB,
+        address=0x34694201072DB
     ),
     "Termina Field Grass Group 8 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D0,
+        address=0x34694201082D0
     ),
     "Termina Field Grass Group 8 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D1,
+        address=0x34694201082D1
     ),
     "Termina Field Grass Group 8 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D2,
+        address=0x34694201082D2
     ),
     "Termina Field Grass Group 8 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D3,
+        address=0x34694201082D3
     ),
     "Termina Field Grass Group 8 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D4,
+        address=0x34694201082D4
     ),
     "Termina Field Grass Group 8 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D5,
+        address=0x34694201082D5
     ),
     "Termina Field Grass Group 8 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D6,
+        address=0x34694201082D6
     ),
     "Termina Field Grass Group 8 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D7,
+        address=0x34694201082D7
     ),
     "Termina Field Grass Group 8 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D8,
+        address=0x34694201082D8
     ),
     "Termina Field Grass Group 8 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082D9,
+        address=0x34694201082D9
     ),
     "Termina Field Grass Group 8 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082DA,
+        address=0x34694201082DA
     ),
     "Termina Field Grass Group 8 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201082DB,
+        address=0x34694201082DB
     ),
     "Termina Field Grass Group 9 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D0,
+        address=0x34694201092D0
     ),
     "Termina Field Grass Group 9 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D1,
+        address=0x34694201092D1
     ),
     "Termina Field Grass Group 9 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D2,
+        address=0x34694201092D2
     ),
     "Termina Field Grass Group 9 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D3,
+        address=0x34694201092D3
     ),
     "Termina Field Grass Group 9 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D4,
+        address=0x34694201092D4
     ),
     "Termina Field Grass Group 9 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D5,
+        address=0x34694201092D5
     ),
     "Termina Field Grass Group 9 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D6,
+        address=0x34694201092D6
     ),
     "Termina Field Grass Group 9 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D7,
+        address=0x34694201092D7
     ),
     "Termina Field Grass Group 9 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D8,
+        address=0x34694201092D8
     ),
     "Termina Field Grass Group 9 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092D9,
+        address=0x34694201092D9
     ),
     "Termina Field Grass Group 9 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092DA,
+        address=0x34694201092DA
     ),
     "Termina Field Grass Group 9 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201092DB,
+        address=0x34694201092DB
     ),
     "Termina Field Grass Group 10 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D0,
+        address=0x346942010A2D0
     ),
     "Termina Field Grass Group 10 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D1,
+        address=0x346942010A2D1
     ),
     "Termina Field Grass Group 10 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D2,
+        address=0x346942010A2D2
     ),
     "Termina Field Grass Group 10 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D3,
+        address=0x346942010A2D3
     ),
     "Termina Field Grass Group 10 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D4,
-       ),
+        address=0x346942010A2D4
+    ),
     "Termina Field Grass Group 10 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D5,
+        address=0x346942010A2D5
     ),
     "Termina Field Grass Group 10 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D6,
+        address=0x346942010A2D6
     ),
     "Termina Field Grass Group 10 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D7,
+        address=0x346942010A2D7
     ),
     "Termina Field Grass Group 10 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D8,
+        address=0x346942010A2D8
     ),
     "Termina Field Grass Group 10 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2D9,
+        address=0x346942010A2D9
     ),
     "Termina Field Grass Group 10 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2DA,
+        address=0x346942010A2DA
     ),
     "Termina Field Grass Group 10 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010A2DB,
+        address=0x346942010A2DB
     ),
     "Termina Field Grass Group 11 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D0,
+        address=0x346942010B2D0
     ),
     "Termina Field Grass Group 11 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D1,
+        address=0x346942010B2D1
     ),
     "Termina Field Grass Group 11 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D2,
+        address=0x346942010B2D2
     ),
     "Termina Field Grass Group 11 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D3,
+        address=0x346942010B2D3
     ),
     "Termina Field Grass Group 11 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D4,
+        address=0x346942010B2D4
     ),
     "Termina Field Grass Group 11 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D5,
+        address=0x346942010B2D5
     ),
     "Termina Field Grass Group 11 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D6,
+        address=0x346942010B2D6
     ),
     "Termina Field Grass Group 11 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D7,
+        address=0x346942010B2D7
     ),
     "Termina Field Grass Group 11 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D8,
+        address=0x346942010B2D8
     ),
     "Termina Field Grass Group 11 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2D9,
+        address=0x346942010B2D9
     ),
     "Termina Field Grass Group 11 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2DA,
+        address=0x346942010B2DA
     ),
     "Termina Field Grass Group 11 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010B2DB,
+        address=0x346942010B2DB
     ),
     "Termina Field Grass Group 12 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D0,
+        address=0x346942010C2D0
     ),
     "Termina Field Grass Group 12 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D1,
+        address=0x346942010C2D1
     ),
     "Termina Field Grass Group 12 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D2,
+        address=0x346942010C2D2
     ),
     "Termina Field Grass Group 12 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D3,
+        address=0x346942010C2D3
     ),
     "Termina Field Grass Group 12 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D4,
+        address=0x346942010C2D4
     ),
     "Termina Field Grass Group 12 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D5,
+        address=0x346942010C2D5
     ),
     "Termina Field Grass Group 12 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D6,
+        address=0x346942010C2D6
     ),
     "Termina Field Grass Group 12 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D7,
+        address=0x346942010C2D7
     ),
     "Termina Field Grass Group 12 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D8,
+        address=0x346942010C2D8
     ),
     "Termina Field Grass Group 12 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2D9,
+        address=0x346942010C2D9
     ),
     "Termina Field Grass Group 12 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2DA,
+        address=0x346942010C2DA
     ),
     "Termina Field Grass Group 12 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010C2DB,
+        address=0x346942010C2DB
     ),
     "Termina Field Grass Group 13 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D0,
+        address=0x346942010D2D0
     ),
     "Termina Field Grass Group 13 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D1,
+        address=0x346942010D2D1
     ),
     "Termina Field Grass Group 13 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D2,
+        address=0x346942010D2D2
     ),
     "Termina Field Grass Group 13 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D3,
+        address=0x346942010D2D3
     ),
     "Termina Field Grass Group 13 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D4,
+        address=0x346942010D2D4
     ),
     "Termina Field Grass Group 13 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D5,
+        address=0x346942010D2D5
     ),
     "Termina Field Grass Group 13 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D6,
+        address=0x346942010D2D6
     ),
     "Termina Field Grass Group 13 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D7,
+        address=0x346942010D2D7
     ),
     "Termina Field Grass Group 13 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D8,
+        address=0x346942010D2D8
     ),
     "Termina Field Grass Group 13 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2D9,
+        address=0x346942010D2D9
     ),
     "Termina Field Grass Group 13 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2DA,
+        address=0x346942010D2DA
     ),
     "Termina Field Grass Group 13 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010D2DB,
+        address=0x346942010D2DB
     ),
     "Termina Field Grass Group 14 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D0,
+        address=0x346942010E2D0
     ),
     "Termina Field Grass Group 14 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D1,
+        address=0x346942010E2D1
     ),
     "Termina Field Grass Group 14 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D2,
+        address=0x346942010E2D2
     ),
     "Termina Field Grass Group 14 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D3,
+        address=0x346942010E2D3
     ),
     "Termina Field Grass Group 14 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D4,
+        address=0x346942010E2D4
     ),
     "Termina Field Grass Group 14 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D5,
+        address=0x346942010E2D5
     ),
     "Termina Field Grass Group 14 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D6,
+        address=0x346942010E2D6
     ),
     "Termina Field Grass Group 14 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D7,
+        address=0x346942010E2D7
     ),
     "Termina Field Grass Group 14 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D8,
+        address=0x346942010E2D8
     ),
     "Termina Field Grass Group 14 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2D9,
+        address=0x346942010E2D9
     ),
     "Termina Field Grass Group 14 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2DA,
+        address=0x346942010E2DA
     ),
     "Termina Field Grass Group 14 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010E2DB,
+        address=0x346942010E2DB
     ),
     "Termina Field Grass Group 15 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D0,
+        address=0x346942010F2D0
     ),
     "Termina Field Grass Group 15 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D1,
+        address=0x346942010F2D1
     ),
     "Termina Field Grass Group 15 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D2,
+        address=0x346942010F2D2
     ),
     "Termina Field Grass Group 15 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D3,
+        address=0x346942010F2D3
     ),
     "Termina Field Grass Group 15 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D4,
+        address=0x346942010F2D4
     ),
     "Termina Field Grass Group 15 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D5,
+        address=0x346942010F2D5
     ),
     "Termina Field Grass Group 15 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D6,
+        address=0x346942010F2D6
     ),
     "Termina Field Grass Group 15 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D7,
+        address=0x346942010F2D7
     ),
     "Termina Field Grass Group 15 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D8,
+        address=0x346942010F2D8
     ),
     "Termina Field Grass Group 15 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2D9,
+        address=0x346942010F2D9
     ),
     "Termina Field Grass Group 15 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2DA,
+        address=0x346942010F2DA
     ),
     "Termina Field Grass Group 15 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942010F2DB,
+        address=0x346942010F2DB
     ),
     "Termina Field Grass Group 16 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D0,
-       ),
+        address=0x34694201102D0
+    ),
     "Termina Field Grass Group 16 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D1,
+        address=0x34694201102D1
     ),
     "Termina Field Grass Group 16 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D2,
+        address=0x34694201102D2
     ),
     "Termina Field Grass Group 16 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D3,
+        address=0x34694201102D3
     ),
     "Termina Field Grass Group 16 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D4,
+        address=0x34694201102D4
     ),
     "Termina Field Grass Group 16 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D5,
+        address=0x34694201102D5
     ),
     "Termina Field Grass Group 16 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D6,
+        address=0x34694201102D6
     ),
     "Termina Field Grass Group 16 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D7,
+        address=0x34694201102D7
     ),
     "Termina Field Grass Group 16 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D8,
+        address=0x34694201102D8
     ),
     "Termina Field Grass Group 16 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102D9,
+        address=0x34694201102D9
     ),
     "Termina Field Grass Group 16 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102DA,
+        address=0x34694201102DA
     ),
     "Termina Field Grass Group 16 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201102DB,
+        address=0x34694201102DB
     ),
     "Termina Field Grass Group 17 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D0,
+        address=0x34694201112D0
     ),
     "Termina Field Grass Group 17 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D1,
+        address=0x34694201112D1
     ),
     "Termina Field Grass Group 17 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D2,
+        address=0x34694201112D2
     ),
     "Termina Field Grass Group 17 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D3,
+        address=0x34694201112D3
     ),
     "Termina Field Grass Group 17 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D4,
+        address=0x34694201112D4
     ),
     "Termina Field Grass Group 17 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D5,
+        address=0x34694201112D5
     ),
     "Termina Field Grass Group 17 (6)": MMRLocationData(
         region="Termina Field",
@@ -2737,1827 +2737,1877 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Termina Field Grass Group 17 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D7,
+        address=0x34694201112D7
     ),
     "Termina Field Grass Group 17 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D8,
+        address=0x34694201112D8
     ),
     "Termina Field Grass Group 17 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D9,
+        address=0x34694201112D9
     ),
     "Termina Field Grass Group 17 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112DA,
+        address=0x34694201112DA
     ),
     "Termina Field Grass Group 17 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112DB,
+        address=0x34694201112DB
     ),
     "Termina Field Grass Group 18 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D0,
-    ),
-    "Termina Field Grass Group 18 (1)": MMRLocationData(
-        region="Termina Field",
-        address=0x34694201112D0,
+        address=0x34694201122D0
     ),
     "Termina Field Grass Group 18 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D1,
+        address=0x34694201122D1
     ),
     "Termina Field Grass Group 18 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D2,
+        address=0x34694201122D2
     ),
     "Termina Field Grass Group 18 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D3,
+        address=0x34694201122D3
     ),
     "Termina Field Grass Group 18 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D4,
+        address=0x34694201122D4
     ),
     "Termina Field Grass Group 18 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D5,
+        address=0x34694201122D5
     ),
     "Termina Field Grass Group 18 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D6,
+        address=0x34694201122D6
     ),
     "Termina Field Grass Group 18 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D7,
+        address=0x34694201122D7
     ),
     "Termina Field Grass Group 18 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D8,
+        address=0x34694201122D8
     ),
     "Termina Field Grass Group 18 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112D9,
+        address=0x34694201122D9
     ),
     "Termina Field Grass Group 18 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112DA,
+        address=0x34694201122DA
     ),
     "Termina Field Grass Group 18 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201112DB,
+        address=0x34694201122DB
     ),
     # Termina Field Grass Grotto Grass
 
     "Termina Field Grass Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B000,
+        address=0x346942012B000
     ),
     "Termina Field Grass Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B001,
+        address=0x346942012B001
     ),
     "Termina Field Grass Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B002,
+        address=0x346942012B002
     ),
     "Termina Field Grass Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B003,
+        address=0x346942012B003
     ),
     "Termina Field Grass Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B004,
+        address=0x346942012B004
     ),
     "Termina Field Grass Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B005,
+        address=0x346942012B005
     ),
     "Termina Field Grass Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B006,
+        address=0x346942012B006
     ),
     "Termina Field Grass Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B007,
+        address=0x346942012B007
     ),
     "Termina Field Grass Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B008,
+        address=0x346942012B008
     ),
     "Termina Field Grass Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B009,
+        address=0x346942012B009
     ),
     "Termina Field Grass Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B00A,
+        address=0x346942012B00A
     ),
     "Termina Field Grass Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B00B,
+        address=0x346942012B00B
     ),
     "Termina Field Grass Grotto Grass (13)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B00C,
+        address=0x346942012B00C
     ),
     "Termina Field Grass Grotto Grass (14)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012B00D,
+        address=0x346942012B00D
     ),
     # Termina Field Cow Grotto Grass
 
     "Termina Field Cow Grotto Grass Group 1 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD0,
+        address=0x3469420100AD0
     ),
     "Termina Field Cow Grotto Grass Group 1 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD1,
+        address=0x3469420100AD1
     ),
     "Termina Field Cow Grotto Grass Group 1 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD2,
+        address=0x3469420100AD2
     ),
     "Termina Field Cow Grotto Grass Group 1 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD3,
+        address=0x3469420100AD3
     ),
     "Termina Field Cow Grotto Grass Group 1 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD4,
+        address=0x3469420100AD4
     ),
     "Termina Field Cow Grotto Grass Group 1 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD5,
+        address=0x3469420100AD5
     ),
     "Termina Field Cow Grotto Grass Group 1 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD6,
+        address=0x3469420100AD6
     ),
     "Termina Field Cow Grotto Grass Group 1 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD7,
+        address=0x3469420100AD7
     ),
     "Termina Field Cow Grotto Grass Group 1 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD8,
+        address=0x3469420100AD8
     ),
     "Termina Field Cow Grotto Grass Group 1 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100AD9,
+        address=0x3469420100AD9
     ),
     "Termina Field Cow Grotto Grass Group 1 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100ADA,
+        address=0x3469420100ADA
     ),
     "Termina Field Cow Grotto Grass Group 1 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100ADB,
+        address=0x3469420100ADB
     ),
     "Termina Field Cow Grotto Grass Group 2 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD0,
+        address=0x3469420101AD0
     ),
     "Termina Field Cow Grotto Grass Group 2 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD1,
+        address=0x3469420101AD1
     ),
     "Termina Field Cow Grotto Grass Group 2 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD2,
+        address=0x3469420101AD2
     ),
     "Termina Field Cow Grotto Grass Group 2 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD3,
+        address=0x3469420101AD3
     ),
     "Termina Field Cow Grotto Grass Group 2 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD4,
+        address=0x3469420101AD4
     ),
     "Termina Field Cow Grotto Grass Group 2 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD5,
+        address=0x3469420101AD5
     ),
     "Termina Field Cow Grotto Grass Group 2 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD6,
+        address=0x3469420101AD6
     ),
     "Termina Field Cow Grotto Grass Group 2 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD7,
+        address=0x3469420101AD7
     ),
     "Termina Field Cow Grotto Grass Group 2 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD8,
+        address=0x3469420101AD8
     ),
     "Termina Field Cow Grotto Grass Group 2 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101AD9,
+        address=0x3469420101AD9
     ),
     "Termina Field Cow Grotto Grass Group 2 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101ADA,
+        address=0x3469420101ADA
     ),
     "Termina Field Cow Grotto Grass Group 2 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101ADB,
+        address=0x3469420101ADB
     ),
     "Termina Field Cow Grotto Grass Group 3 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD0,
+        address=0x3469420102AD0
     ),
     "Termina Field Cow Grotto Grass Group 3 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD1,
+        address=0x3469420102AD1
     ),
     "Termina Field Cow Grotto Grass Group 3 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD2,
+        address=0x3469420102AD2
     ),
     "Termina Field Cow Grotto Grass Group 3 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD3,
+        address=0x3469420102AD3
     ),
     "Termina Field Cow Grotto Grass Group 3 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD4,
+        address=0x3469420102AD4
     ),
     "Termina Field Cow Grotto Grass Group 3 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD5,
+        address=0x3469420102AD5
     ),
     "Termina Field Cow Grotto Grass Group 3 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD6,
+        address=0x3469420102AD6
     ),
     "Termina Field Cow Grotto Grass Group 3 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD7,
+        address=0x3469420102AD7
     ),
     "Termina Field Cow Grotto Grass Group 3 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD8,
+        address=0x3469420102AD8
     ),
     "Termina Field Cow Grotto Grass Group 3 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102AD9,
+        address=0x3469420102AD9
     ),
     "Termina Field Cow Grotto Grass Group 3 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102ADA,
+        address=0x3469420102ADA
     ),
     "Termina Field Cow Grotto Grass Group 3 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420102ADB,
+        address=0x3469420102ADB
     ),
     "Termina Field Cow Grotto Grass Group 4 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD0,
+        address=0x3469420103AD0
     ),
     "Termina Field Cow Grotto Grass Group 4 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD1,
+        address=0x3469420103AD1
     ),
     "Termina Field Cow Grotto Grass Group 4 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD2,
+        address=0x3469420103AD2
     ),
     "Termina Field Cow Grotto Grass Group 4 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD3,
+        address=0x3469420103AD3
     ),
     "Termina Field Cow Grotto Grass Group 4 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD4,
+        address=0x3469420103AD4
     ),
     "Termina Field Cow Grotto Grass Group 4 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD5,
+        address=0x3469420103AD5
     ),
     "Termina Field Cow Grotto Grass Group 4 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD6,
+        address=0x3469420103AD6
     ),
     "Termina Field Cow Grotto Grass Group 4 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD7,
+        address=0x3469420103AD7
     ),
     "Termina Field Cow Grotto Grass Group 4 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD8,
+        address=0x3469420103AD8
     ),
     "Termina Field Cow Grotto Grass Group 4 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103AD9,
+        address=0x3469420103AD9
     ),
     "Termina Field Cow Grotto Grass Group 4 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103ADA,
+        address=0x3469420103ADA
     ),
     "Termina Field Cow Grotto Grass Group 4 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420103ADB,
+        address=0x3469420103ADB
     ),
     "Termina Field Cow Grotto Grass Group 5 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD0,
+        address=0x3469420104AD0
     ),
     "Termina Field Cow Grotto Grass Group 5 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD1,
+        address=0x3469420104AD1
     ),
     "Termina Field Cow Grotto Grass Group 5 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD2,
+        address=0x3469420104AD2
     ),
     "Termina Field Cow Grotto Grass Group 5 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD3,
+        address=0x3469420104AD3
     ),
     "Termina Field Cow Grotto Grass Group 5 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD4,
+        address=0x3469420104AD4
     ),
     "Termina Field Cow Grotto Grass Group 5 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD5,
+        address=0x3469420104AD5
     ),
     "Termina Field Cow Grotto Grass Group 5 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD6,
+        address=0x3469420104AD6
     ),
     "Termina Field Cow Grotto Grass Group 5 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD7,
+        address=0x3469420104AD7
     ),
     "Termina Field Cow Grotto Grass Group 5 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD8,
+        address=0x3469420104AD8
     ),
     "Termina Field Cow Grotto Grass Group 5 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104AD9,
+        address=0x3469420104AD9
     ),
     "Termina Field Cow Grotto Grass Group 5 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104ADA,
+        address=0x3469420104ADA
     ),
     "Termina Field Cow Grotto Grass Group 5 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420104ADB,
+        address=0x3469420104ADB
     ),
     "Termina Field Cow Grotto Grass Group 6 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD0,
+        address=0x3469420105AD0
     ),
     "Termina Field Cow Grotto Grass Group 6 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD1,
+        address=0x3469420105AD1
     ),
     "Termina Field Cow Grotto Grass Group 6 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD2,
+        address=0x3469420105AD2
     ),
     "Termina Field Cow Grotto Grass Group 6 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD3,
+        address=0x3469420105AD3
     ),
     "Termina Field Cow Grotto Grass Group 6 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD4,
+        address=0x3469420105AD4
     ),
     "Termina Field Cow Grotto Grass Group 6 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD5,
+        address=0x3469420105AD5
     ),
     "Termina Field Cow Grotto Grass Group 6 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD6,
+        address=0x3469420105AD6
     ),
     "Termina Field Cow Grotto Grass Group 6 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD7,
+        address=0x3469420105AD7
     ),
     "Termina Field Cow Grotto Grass Group 6 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD8,
+        address=0x3469420105AD8
     ),
     "Termina Field Cow Grotto Grass Group 6 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105AD9,
+        address=0x3469420105AD9
     ),
     "Termina Field Cow Grotto Grass Group 6 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105ADA,
+        address=0x3469420105ADA
     ),
     "Termina Field Cow Grotto Grass Group 6 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420105ADB,
+        address=0x3469420105ADB
     ),
     # Termina Field Peahat Grotto Grass
 
     "Termina Field Peahat Grotto Grass Group 1 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D0,
+        address=0x34694201008D0
     ),
     "Termina Field Peahat Grotto Grass Group 1 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D1,
+        address=0x34694201008D1
     ),
     "Termina Field Peahat Grotto Grass Group 1 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D2,
+        address=0x34694201008D2
     ),
     "Termina Field Peahat Grotto Grass Group 1 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D3,
+        address=0x34694201008D3
     ),
     "Termina Field Peahat Grotto Grass Group 1 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D4,
+        address=0x34694201008D4
     ),
     "Termina Field Peahat Grotto Grass Group 1 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D5,
+        address=0x34694201008D5
     ),
     "Termina Field Peahat Grotto Grass Group 1 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D6,
+        address=0x34694201008D6
     ),
     "Termina Field Peahat Grotto Grass Group 1 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D7,
+        address=0x34694201008D7
     ),
     "Termina Field Peahat Grotto Grass Group 1 (9)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D8,
+        address=0x34694201008D8
     ),
     "Termina Field Peahat Grotto Grass Group 1 (10)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008D9,
+        address=0x34694201008D9
     ),
     "Termina Field Peahat Grotto Grass Group 1 (11)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008DA,
+        address=0x34694201008DA
     ),
     "Termina Field Peahat Grotto Grass Group 1 (12)": MMRLocationData(
         region="Termina Field",
-        address=0x34694201008DB,
+        address=0x34694201008DB
     ),
     # Termina Field Bio Baba Grotto Grass
 
     "Termina Field Bio Baba Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128B00,
+        address=0x3469420128B00
     ),
     "Termina Field Bio Baba Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128B01,
+        address=0x3469420128B01
     ),
     # Termina Field Eastern Gossip Grotto Grass
 
     "Termina Field Eastern Gossip Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128200,
+        address=0x3469420128200
     ),
     "Termina Field Eastern Gossip Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128201,
+        address=0x3469420128201
     ),
     "Termina Field Eastern Gossip Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128202,
+        address=0x3469420128202
     ),
     "Termina Field Eastern Gossip Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128203,
+        address=0x3469420128203
     ),
     "Termina Field Eastern Gossip Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128204,
+        address=0x3469420128204
     ),
     # Termina Field Eastern Pillar Grotto Grass
     "Termina Field Eastern Pillar Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB00,
+        address=0x346942012AB00
     ),
     "Termina Field Eastern Pillar Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB01,
+        address=0x346942012AB01
     ),
     "Termina Field Eastern Pillar Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB02,
+        address=0x346942012AB02
     ),
     "Termina Field Eastern Pillar Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB03,
+        address=0x346942012AB03
     ),
     "Termina Field Eastern Pillar Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB04,
+        address=0x346942012AB04
     ),
     "Termina Field Eastern Pillar Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB05,
+        address=0x346942012AB05
     ),
     "Termina Field Eastern Pillar Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB06,
+        address=0x346942012AB06
     ),
     "Termina Field Eastern Pillar Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB07,
+        address=0x346942012AB07
     ),
     "Termina Field Eastern Pillar Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB08,
+        address=0x346942012AB08
     ),
     "Termina Field Eastern Pillar Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB09,
+        address=0x346942012AB09
     ),
     "Termina Field Eastern Pillar Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB0A,
+        address=0x346942012AB0A
     ),
     "Termina Field Eastern Pillar Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB0B,
+        address=0x346942012AB0B
     ),
     "Termina Field Eastern Pillar Grotto Grass (13)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB0C,
+        address=0x346942012AB0C
     ),
     "Termina Field Eastern Pillar Grotto Grass (14)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AB0D,
+        address=0x346942012AB0D
     ),
     # Termina Field Bombable Rock Grass
 
     "Termina Field Bombable Rock Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128000,
+        address=0x3469420128000
     ),
     "Termina Field Bombable Rock Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128001,
+        address=0x3469420128001
     ),
     "Termina Field Bombable Rock Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128002,
+        address=0x3469420128002
     ),
     "Termina Field Bombable Rock Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128003,
+        address=0x3469420128003
     ),
     "Termina Field Bombable Rock Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420128004,
+        address=0x3469420128004
     ),
     # Road to Southern Swamp
      
     "Road to Southern Swamp Outside Archery Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420124000,
+        address=0x3469420124000
     ),
     "Road to Southern Swamp Outside Archery Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420124001,
+        address=0x3469420124001
     ),
     "Road to Southern Swamp Grass Group 0 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100400,
+        address=0x3469420100400
     ),
     "Road to Southern Swamp Grass Group 0 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100401,
+        address=0x3469420100401
     ),
     "Road to Southern Swamp Grass Group 0 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100402,
+        address=0x3469420100402
     ),
     "Road to Southern Swamp Grass Group 0 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100403,
+        address=0x3469420100403
     ),
     "Road to Southern Swamp Grass Group 0 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100404,
+        address=0x3469420100404
     ),
     "Road to Southern Swamp Grass Group 0 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100405,
+        address=0x3469420100405
     ),
     "Road to Southern Swamp Grass Group 0 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100406,
+        address=0x3469420100406
     ),
     "Road to Southern Swamp Grass Group 0 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100407,
+        address=0x3469420100407
     ),
     "Road to Southern Swamp Grass Group 0 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420100408,
+        address=0x3469420100408
     ),
     "Road to Southern Swamp Grass Group 1 (0)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101400,
+        address=0x3469420101400
     ),
     "Road to Southern Swamp Grass Group 1 (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101401,
+        address=0x3469420101401
     ),
     "Road to Southern Swamp Grass Group 1 (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101402,
+        address=0x3469420101402
     ),
     "Road to Southern Swamp Grass Group 1 (3)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101403,
+        address=0x3469420101403
     ),
     "Road to Southern Swamp Grass Group 1 (4)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101404,
+        address=0x3469420101404
     ),
     "Road to Southern Swamp Grass Group 1 (5)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101405,
+        address=0x3469420101405
     ),
     "Road to Southern Swamp Grass Group 1 (6)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101406,
+        address=0x3469420101406
     ),
     "Road to Southern Swamp Grass Group 1 (7)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101407,
+        address=0x3469420101407
     ),
     "Road to Southern Swamp Grass Group 1 (8)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420101408,
+        address=0x3469420101408
     ),
     # Road To Southern Swamp Grotto
     "Road to Southern Swamp Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF00,
+        address=0x346942012AF00
     ),
     "Road to Southern Swamp Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF01,
+        address=0x346942012AF01
     ),
     "Road to Southern Swamp Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF02,
+        address=0x346942012AF02
     ),
     "Road to Southern Swamp Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF03,
+        address=0x346942012AF03
     ),
     "Road to Southern Swamp Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF04,
+        address=0x346942012AF04
     ),
     "Road to Southern Swamp Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF05,
+        address=0x346942012AF05
     ),
     "Road to Southern Swamp Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF06,
+        address=0x346942012AF06
     ),
     "Road to Southern Swamp Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF07,
+        address=0x346942012AF07
     ),
     "Road to Southern Swamp Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF08,
+        address=0x346942012AF08
     ),
     "Road to Southern Swamp Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF09,
+        address=0x346942012AF09
     ),
     "Road to Southern Swamp Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF0A,
+        address=0x346942012AF0A
     ),
     "Road to Southern Swamp Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF0B,
+        address=0x346942012AF0B
     ),
     "Road to Southern Swamp Grotto Grass (13)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF0C,
+        address=0x346942012AF0C
     ),
     "Road to Southern Swamp Grotto Grass (14)": MMRLocationData(
         region="Termina Field",
-        address=0x346942012AF0D,
+        address=0x346942012AF0D
     ),
     # Southern Swamp
 
     "Southern Swamp Grass (1)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420124500,
+        address=0x3469420124500
     ),
     "Southern Swamp Grass (2)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420124501,
+        address=0x3469420124501
     ),
     "Southern Swamp Grass Group 0 (0)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100450,
+        address=0x3469420100450
     ),
     "Southern Swamp Grass Group 0 (1)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100451,
+        address=0x3469420100451
     ),
     "Southern Swamp Grass Group 0 (2)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100452,
+        address=0x3469420100452
     ),
     "Southern Swamp Grass Group 0 (3)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100453,
+        address=0x3469420100453
     ),
     "Southern Swamp Grass Group 0 (4)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100454,
+        address=0x3469420100454
     ),
     "Southern Swamp Grass Grass Group 0 (5)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100455,
+        address=0x3469420100455
     ),
     "Southern Swamp Grass Grass Group 0 (6)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100456,
+        address=0x3469420100456
     ),
     "Southern Swamp Grass Grass Group 0 (7)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100457,
+        address=0x3469420100457
     ),
     "Southern Swamp Grass Grass Group 0 (8)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100458,
+        address=0x3469420100458
     ),
     "Southern Swamp Grass Grass Group 0 (9)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420100459,
+        address=0x3469420100459
     ),
     "Southern Swamp Grass Grass Group 0 (10)": MMRLocationData(
         region="Southern Swamp",
-        address=0x346942010045A,
+        address=0x346942010045A
     ),
     "Southern Swamp Grass Grass Group 0 (11)": MMRLocationData(
         region="Southern Swamp",
-        address=0x346942010045B,
+        address=0x346942010045B
     ),
 
     # Woods of Mystery
 
     "Woods of Mystery Grass (0)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126410,
+        address=0x3469420126410
     ),
     "Woods of Mystery Grass (1)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126412,
+        address=0x3469420126412
     ),
     "Woods of Mystery Grass (2)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126411,
+        address=0x3469420126411
     ),
     "Woods of Mystery Grass (3)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126400,
+        address=0x3469420126400
     ),
     "Woods of Mystery Grass (4)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126401,
+        address=0x3469420126401
     ),
     "Woods of Mystery Grass (5)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126431,
+        address=0x3469420126431
     ),
     "Woods of Mystery Grass (6)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126430,
+        address=0x3469420126430
     ),
     "Woods of Mystery Grass (7)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126442,
+        address=0x3469420126442
     ),
     "Woods of Mystery Grass (8)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126440,
+        address=0x3469420126440
     ),
     "Woods of Mystery Grass (9)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126441,
+        address=0x3469420126441
     ),
     "Woods of Mystery Grass (10)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126443,
+        address=0x3469420126443
     ),
     "Woods of Mystery Grass (11)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126450,
+        address=0x3469420126450
     ),
     "Woods of Mystery Grass (12)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126451,
+        address=0x3469420126451
     ),
     "Woods of Mystery Grass (13)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126482,
+        address=0x3469420126482
     ),
     "Woods of Mystery Grass (14)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126484,
+        address=0x3469420126484
     ),
     "Woods of Mystery Grass (15)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126481,
+        address=0x3469420126481
     ),
     "Woods of Mystery Grass (16)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126480,
+        address=0x3469420126480
     ),
     "Woods of Mystery Grass (17)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126483,
+        address=0x3469420126483
     ),
     "Woods of Mystery Grass (18)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126471,
+        address=0x3469420126471
     ),
     "Woods of Mystery Grass (19)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126470,
+        address=0x3469420126470
     ),
     "Woods of Mystery Day 2 Unique Grass": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126420,
+        address=0x3469420126420
     ),
     "Woods of Mystery Day 3 Unique Grass (0)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126460,
+        address=0x3469420126460
     ),
     "Woods of Mystery Day 3 Unique Grass (1)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420126461,
+        address=0x3469420126461
     ),
-        
-    # Woods of Mystery Day 2 Grotto grass missing?
+    "Woods of Mystery Day 2 Grotto Grass (0)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD48
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD49
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD4D
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD4B
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (4)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD44
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (5)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD42
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (6)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD45
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (7)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD47
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (8)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD43
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (9)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD41
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (10)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD4A
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (11)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD40
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (12)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD46
+    ),
+    "Woods of Mystery Day 2 Grotto Grass (13)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942012AD4C
+    ),
 
     # Southern Swamp Grotto
     "Southern Swamp Grotto Grass (1)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE00,
+        address=0x346942012AE00
     ),
     "Southern Swamp Grotto Grass (2)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE01,
+        address=0x346942012AE01
     ),
     "Southern Swamp Grotto Grass (3)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE02,
+        address=0x346942012AE02
     ),
     "Southern Swamp Grotto Grass (4)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE03,
+        address=0x346942012AE03
     ),
     "Southern Swamp Grotto Grass (5)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE04,
+        address=0x346942012AE04
     ),
     "Southern Swamp Grotto Grass (6)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE05,
+        address=0x346942012AE05
     ),
     "Southern Swamp Grotto Grass (7)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE06,
+        address=0x346942012AE06
     ),
     "Southern Swamp Grotto Grass (8)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE07,
+        address=0x346942012AE07
     ),
     "Southern Swamp Grotto Grass (9)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE08,
+        address=0x346942012AE08
     ),
     "Southern Swamp Grotto Grass (10)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE09,
+        address=0x346942012AE09
     ),
     "Southern Swamp Grotto Grass (11)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE0A,
+        address=0x346942012AE0A
     ),
     "Southern Swamp Grotto Grass (12)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE0B,
+        address=0x346942012AE0B
     ),
     "Southern Swamp Grotto Grass (13)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE0C,
+        address=0x346942012AE0C
     ),
     "Southern Swamp Grotto Grass (14)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
-        address=0x346942012AE0D,
+        address=0x346942012AE0D
     ),
 
     #Deku Palace Bean Grotto Grass
     "Deku Palace Bean Grotto Grass Group 0 (0)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C0,
+        address=0x34694201008C0
     ),
     "Deku Palace Bean Grotto Grass Group 0 (1)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C1,
+        address=0x34694201008C1
     ),
     "Deku Palace Bean Grotto Grass Group 0 (2)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C2,
+        address=0x34694201008C2
     ),
     "Deku Palace Bean Grotto Grass Group 0 (3)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C3,
+        address=0x34694201008C3
     ),
     "Deku Palace Bean Grotto Grass Group 0 (4)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C4,
+        address=0x34694201008C4
     ),
     "Deku Palace Bean Grotto Grass Group 0 (5)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C5,
+        address=0x34694201008C5
     ),
     "Deku Palace Bean Grotto Grass Group 0 (6)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C6,
+        address=0x34694201008C6
     ),
     "Deku Palace Bean Grotto Grass Group 0 (7)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C7,
+        address=0x34694201008C7
     ),
     "Deku Palace Bean Grotto Grass Group 0 (8)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C8,
+        address=0x34694201008C8
     ),
     "Deku Palace Bean Grotto Grass Group 0 (9)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008C9,
+        address=0x34694201008C9
     ),
     "Deku Palace Bean Grotto Grass Group 0 (10)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008CA,
+        address=0x34694201008CA
     ),
     "Deku Palace Bean Grotto Grass Group 0 (11)": MMRLocationData(
         region="Deku Palace",
-        address=0x34694201008CB,
+        address=0x34694201008CB
     ),
 
     # Woodfall Grass
     "Woodfall Grass (1)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124600,
+        address=0x3469420124600
         # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (2)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124601,
+        address=0x3469420124601
         # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (3)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124602,
+        address=0x3469420124602
         # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (4)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124603,
+        address=0x3469420124603
         # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (5)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124604,
+        address=0x3469420124604
         # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (6)": MMRLocationData(
         region="Woodfall",
-        address=0x3469420124605,
+        address=0x3469420124605
     ),
     # Southern Swamp After Dungeon Clear
     "Southern Swamp Owl Post Dungeon Grass (1)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420120000,
+        address=0x3469420120000
     ),
     "Southern Swamp Owl Post Dungeon Grass (2)": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420120001,
+        address=0x3469420120001
     ),
 
     # Milk Road Owl Grass
     "Milk Road Owl Grass (1)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420122200,
+        address=0x3469420122200
         # can_create=lamda options: options.grasssanity.value
     ),
     "Milk Road Owl Grass (2)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420122201,
+        address=0x3469420122201
         # can_create=lamda options: options.grasssanity.value
     ),
     "Milk Road Owl Grass (3)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420122202,
+        address=0x3469420122202
         # can_create=lamda options: options.grasssanity.value
     ),
     # Milk Road Keaton Grass
     "Milk Road Keaton Grass (1)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132200,
+        address=0x3469420132200
     ),
     "Milk Road Keaton Grass (2)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132201,
+        address=0x3469420132201
     ),
     "Milk Road Keaton Grass (3)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132202,
+        address=0x3469420132202
     ),
     "Milk Road Keaton Grass (4)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132203,
+        address=0x3469420132203
     ),
     "Milk Road Keaton Grass (5)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132204,
+        address=0x3469420132204
     ),
     "Milk Road Keaton Grass (6)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132205,
+        address=0x3469420132205
     ),
     "Milk Road Keaton Grass (7)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132206,
+        address=0x3469420132206
     ),
     "Milk Road Keaton Grass (8)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132207,
+        address=0x3469420132207
     ),
     "Milk Road Keaton Grass (9)": MMRLocationData(
         region="Milk Road",
-        address=0x3469420132208,
+        address=0x3469420132208
     ),
     # Milk Road Gorman Racetrack Grass
     "Milk Road Gorman Racetrack Grass Group 1 (1)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A0,
+        address=0x34694201006A0
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (2)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A1,
+        address=0x34694201006A1
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (3)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A2,
+        address=0x34694201006A2
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (4)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A3,
+        address=0x34694201006A3
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (5)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A4,
+        address=0x34694201006A4
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (6)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A5,
+        address=0x34694201006A5
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (7)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A6,
+        address=0x34694201006A6
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (8)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A7,
+        address=0x34694201006A7
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (9)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A8,
+        address=0x34694201006A8
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (10)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006A9,
+        address=0x34694201006A9
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (11)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006AA,
+        address=0x34694201006AA
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (12)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201006AB,
+        address=0x34694201006AB
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (1)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A0,
+        address=0x34694201016A0
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (2)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A1,
+        address=0x34694201016A1
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (3)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A2,
+        address=0x34694201016A2
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (4)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A3,
+        address=0x34694201016A3
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (5)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A4,
+        address=0x34694201016A4
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (6)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A5,
+        address=0x34694201016A5
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (7)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A6,
+        address=0x34694201016A6
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (8)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A7,
+        address=0x34694201016A7
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (9)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A8,
+        address=0x34694201016A8
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (10)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016A9,
+        address=0x34694201016A9
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (11)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016AA,
+        address=0x34694201016AA
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (12)": MMRLocationData(
         region="Gorman Brothers Track",
-        address=0x34694201016AB,
+        address=0x34694201016AB
     ),
     # Romani Ranch Grass
     "Romani Ranch Grass Group 1 (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100350,
+        address=0x3469420100350
     ),
     "Romani Ranch Grass Group 1 (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100351,
+        address=0x3469420100351
     ),
     "Romani Ranch Grass Group 1 (3)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100352,
+        address=0x3469420100352
     ),
     "Romani Ranch Grass Group 1 (4)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100353,
+        address=0x3469420100353
     ),
     "Romani Ranch Grass Group 1 (5)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100354,
+        address=0x3469420100354
     ),
     "Romani Ranch Grass Group 1 (6)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100355,
+        address=0x3469420100355
     ),
     "Romani Ranch Grass Group 1 (7)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100356,
+        address=0x3469420100356
     ),
     "Romani Ranch Grass Group 1 (8)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100357,
+        address=0x3469420100357
     ),
     "Romani Ranch Grass Group 1 (9)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100358,
+        address=0x3469420100358
     ),
     "Romani Ranch Grass Group 1 (10)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420100359,
+        address=0x3469420100359
     ),
     "Romani Ranch Grass Group 1 (11)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010035A,
+        address=0x346942010035A
     ),
     "Romani Ranch Grass Group 1 (12)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010035B,
+        address=0x346942010035B
     ),
     "Romani Ranch Grass Group 2 (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101350,
+        address=0x3469420101350
     ),
     "Romani Ranch Grass Group 2 (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101351,
+        address=0x3469420101351
     ),
     "Romani Ranch Grass Group 2 (3)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101352,
+        address=0x3469420101352
     ),
     "Romani Ranch Grass Group 2 (4)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101353,
+        address=0x3469420101353
     ),
     "Romani Ranch Grass Group 2 (5)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101354,
+        address=0x3469420101354
     ),
     "Romani Ranch Grass Group 2 (6)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101355,
+        address=0x3469420101355
     ),
     "Romani Ranch Grass Group 2 (7)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101356,
+        address=0x3469420101356
     ),
     "Romani Ranch Grass Group 2 (8)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101357,
+        address=0x3469420101357
     ),
     "Romani Ranch Grass Group 2 (9)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101358,
+        address=0x3469420101358
     ),
     "Romani Ranch Grass Group 2 (10)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420101359,
+        address=0x3469420101359
     ),
     "Romani Ranch Grass Group 2 (11)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010135A,
+        address=0x346942010135A
     ),
     "Romani Ranch Grass Group 2 (12)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010135B,
+        address=0x346942010135B
     ),
     "Romani Ranch Grass Group 3 (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102350,
+        address=0x3469420102350
     ),
     "Romani Ranch Grass Group 3 (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102351,
+        address=0x3469420102351
     ),
     "Romani Ranch Grass Group 3 (3)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102352,
+        address=0x3469420102352
     ),
     "Romani Ranch Grass Group 3 (4)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102353,
+        address=0x3469420102353
     ),
     "Romani Ranch Grass Group 3 (5)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102354,
+        address=0x3469420102354
     ),
     "Romani Ranch Grass Group 3 (6)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102355,
+        address=0x3469420102355
     ),
     "Romani Ranch Grass Group 3 (7)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102356,
+        address=0x3469420102356
     ),
     "Romani Ranch Grass Group 3 (8)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102357,
+        address=0x3469420102357
     ),
     "Romani Ranch Grass Group 3 (9)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102358,
+        address=0x3469420102358
     ),
     "Romani Ranch Grass Group 3 (10)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420102359,
+        address=0x3469420102359
     ),
     "Romani Ranch Grass Group 3 (11)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010235A,
+        address=0x346942010235A
     ),
     "Romani Ranch Grass Group 3 (12)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010235B,
+        address=0x346942010235B
     ),
     "Romani Ranch Grass Group 4 (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103350,
+        address=0x3469420103350
     ),
     "Romani Ranch Grass Group 4 (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103351,
+        address=0x3469420103351
     ),
     "Romani Ranch Grass Group 4 (3)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103352,
+        address=0x3469420103352
     ),
     "Romani Ranch Grass Group 4 (4)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103353,
+        address=0x3469420103353
     ),
     "Romani Ranch Grass Group 4 (5)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103354,
+        address=0x3469420103354
     ),
     "Romani Ranch Grass Group 4 (6)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103355,
+        address=0x3469420103355
     ),
     "Romani Ranch Grass Group 4 (7)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103356,
+        address=0x3469420103356
     ),
     "Romani Ranch Grass Group 4 (8)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103357,
+        address=0x3469420103357
     ),
     "Romani Ranch Grass Group 4 (9)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103358,
+        address=0x3469420103358
     ),
     "Romani Ranch Grass Group 4 (10)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420103359,
+        address=0x3469420103359
     ),
     "Romani Ranch Grass Group 4 (11)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010335A,
+        address=0x346942010335A
     ),
     "Romani Ranch Grass Group 4 (12)": MMRLocationData(
         region="Romani Ranch",
-        address=0x346942010335B,
+        address=0x346942010335B
     ),
     "Romani Ranch Grass Group 5 (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104350,
+        address=0x3469420104350
     ),
     "Romani Ranch Grass Group 5 (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104351,
+        address=0x3469420104351
     ),
     "Romani Ranch Grass Group 5 (3)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104352,
+        address=0x3469420104352
     ),
     "Romani Ranch Grass Group 5 (4)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104353,
+        address=0x3469420104353
     ),
     "Romani Ranch Grass Group 5 (5)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104354,
+        address=0x3469420104354
     ),
     "Romani Ranch Grass Group 5 (6)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104355,
+        address=0x3469420104355
     ),
     "Romani Ranch Grass Group 5 (7)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104356,
+        address=0x3469420104356
     ),
     "Romani Ranch Grass Group 5 (8)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104357,
+        address=0x3469420104357
     ),
     "Romani Ranch Grass Group 5 (9)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420104358,
+        address=0x3469420104358
     ),
 
     # Twin Isles Grotto Grass
 
     "Twin Isles Grotto Grass (1)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA00,
+        address=0x346942012AA00
     ),
     "Twin Isles Grotto Grass (2)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA01,
+        address=0x346942012AA01
     ),
     "Twin Isles Grotto Grass (3)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA02,
+        address=0x346942012AA02
     ),
     "Twin Isles Grotto Grass (4)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA03,
+        address=0x346942012AA03
     ),
     "Twin Isles Grotto Grass (5)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA04,
+        address=0x346942012AA04
     ),
     "Twin Isles Grotto Grass (6)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA05,
+        address=0x346942012AA05
     ),
     "Twin Isles Grotto Grass (7)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA06,
+        address=0x346942012AA06
     ),
     "Twin Isles Grotto Grass (8)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA07,
+        address=0x346942012AA07
     ),
     "Twin Isles Grotto Grass (9)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA08,
+        address=0x346942012AA08
     ),
     "Twin Isles Grotto Grass (10)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA09,
+        address=0x346942012AA09
     ),
     "Twin Isles Grotto Grass (11)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA0A,
+        address=0x346942012AA0A
     ),
     "Twin Isles Grotto Grass (12)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA0B,
+        address=0x346942012AA0B
     ),
     "Twin Isles Grotto Grass (13)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA0C,
+        address=0x346942012AA0C
     ),
     "Twin Isles Grotto Grass (14)": MMRLocationData(
         region="Twin Islands",
-        address=0x346942012AA0D,
+        address=0x346942012AA0D
     ),
     # Goron Village Lens Cave Grass
     "Goron Village Lens Cave Grass Group 1 (1)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100900,
+        address=0x3469420100900
     ),
     "Goron Village Lens Cave Grass Group 1 (2)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100901,
+        address=0x3469420100901
     ),
     "Goron Village Lens Cave Grass Group 1 (3)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100902,
+        address=0x3469420100902
     ),
     "Goron Village Lens Cave Grass Group 1 (4)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100903,
+        address=0x3469420100903
     ),
     "Goron Village Lens Cave Grass Group 1 (5)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100904,
+        address=0x3469420100904
     ),
     "Goron Village Lens Cave Grass Group 1 (6)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100905,
+        address=0x3469420100905
     ),
     "Goron Village Lens Cave Grass Group 1 (7)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100906,
+        address=0x3469420100906
     ),
     "Goron Village Lens Cave Grass Group 1 (8)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100907,
+        address=0x3469420100907
     ),
     "Goron Village Lens Cave Grass Group 1 (9)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100908,
+        address=0x3469420100908
     ),
     "Goron Village Lens Cave Grass Group 1 (10)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420100909,
+        address=0x3469420100909
     ),
     "Goron Village Lens Cave Grass Group 1 (11)": MMRLocationData(
         region="Goron Village",
-        address=0x346942010090A,
+        address=0x346942010090A
     ),
     "Goron Village Lens Cave Grass Group 1 (12)": MMRLocationData(
         region="Goron Village",
-        address=0x346942010090B,
+        address=0x346942010090B
     ),
     "Goron Village Lens Cave Grass Group 2 (1)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101900,
+        address=0x3469420101900
     ),
     "Goron Village Lens Cave Grass Group 2 (2)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101901,
+        address=0x3469420101901
     ),
     "Goron Village Lens Cave Grass Group 2 (3)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101902,
+        address=0x3469420101902
     ),
     "Goron Village Lens Cave Grass Group 2 (4)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101903,
+        address=0x3469420101903
     ),
     "Goron Village Lens Cave Grass Group 2 (5)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101904,
+        address=0x3469420101904
     ),
     "Goron Village Lens Cave Grass Group 2 (6)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101905,
+        address=0x3469420101905
     ),
     "Goron Village Lens Cave Grass Group 2 (7)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101906,
+        address=0x3469420101906
     ),
     "Goron Village Lens Cave Grass Group 2 (8)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101907,
+        address=0x3469420101907
     ),
     "Goron Village Lens Cave Grass Group 2 (9)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101908,
+        address=0x3469420101908
     ),
     "Goron Village Lens Cave Grass Group 2 (10)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420101909,
+        address=0x3469420101909
     ),
     "Goron Village Lens Cave Grass Group 2 (11)": MMRLocationData(
         region="Goron Village",
-        address=0x346942010190A,
+        address=0x346942010190A
     ),
     "Goron Village Lens Cave Grass Group 2 (12)": MMRLocationData(
         region="Goron Village",
-        address=0x346942010190B,
+        address=0x346942010190B
     ),
 
     # Path To Snowhead Grotto Grass
 
     "Path To Snowhead Grotto Grass (1)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A400,
+        address=0x346942012A400
     ),
     "Path To Snowhead Grotto Grass (2)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A401,
+        address=0x346942012A401
     ),
     "Path To Snowhead Grotto Grass (3)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A402,
+        address=0x346942012A402
     ),
     "Path To Snowhead Grotto Grass (4)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A403,
+        address=0x346942012A403
     ),
     "Path To Snowhead Grotto Grass (5)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A404,
+        address=0x346942012A404
     ),
     "Path To Snowhead Grotto Grass (6)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A405,
+        address=0x346942012A405
     ),
     "Path To Snowhead Grotto Grass (7)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A406,
+        address=0x346942012A406
     ),
     "Path To Snowhead Grotto Grass (8)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A407,
+        address=0x346942012A407
     ),
     "Path To Snowhead Grotto Grass (9)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A408,
+        address=0x346942012A408
     ),
     "Path To Snowhead Grotto Grass (10)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A409,
+        address=0x346942012A409
     ),
     "Path To Snowhead Grotto Grass (11)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A40A,
+        address=0x346942012A40A
     ),
     "Path To Snowhead Grotto Grass (12)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A40B,
+        address=0x346942012A40B
     ),
     "Path To Snowhead Grotto Grass (13)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A40C,
+        address=0x346942012A40C
     ),
     "Path To Snowhead Grotto Grass (14)": MMRLocationData(
         region="Path to Snowhead",
-        address=0x346942012A40D,
+        address=0x346942012A40D
     ),
 
     # Mountain Village Spring Grass
 
     "Mountain Village Springtime Grass (1)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A00,
+        address=0x3469420125A00
     ),
     "Mountain Village Springtime Grass (2)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A01,
+        address=0x3469420125A01
     ),
     "Mountain Village Springtime Grass (3)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A02,
+        address=0x3469420125A02
     ),
     "Mountain Village Springtime Keaton Grass (1)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A00,
+        address=0x3469420135A00
     ),
     "Mountain Village Springtime Keaton Grass (2)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A01,
+        address=0x3469420135A01
     ),
     "Mountain Village Springtime Keaton Grass (3)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A02,
+        address=0x3469420135A02
     ),
     "Mountain Village Springtime Keaton Grass (4)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A03,
+        address=0x3469420135A03
     ),
     "Mountain Village Springtime Keaton Grass (5)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A04,
+        address=0x3469420135A04
     ),
     "Mountain Village Springtime Keaton Grass (6)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A05,
+        address=0x3469420135A05
     ),
     "Mountain Village Springtime Keaton Grass (7)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A06,
+        address=0x3469420135A06
     ),
     "Mountain Village Springtime Keaton Grass (8)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A07,
+        address=0x3469420135A07
     ),
     "Mountain Village Springtime Keaton Grass (9)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A08,
+        address=0x3469420135A08
     ),
     "Mountain Village Springtime Grass (4)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A03,
+        address=0x3469420125A03
     ),
     "Mountain Village Springtime Grass (5)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A04,
+        address=0x3469420125A04
     ),
     "Mountain Village Springtime Grass (6)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A05,
+        address=0x3469420125A05
     ),
     "Mountain Village Springtime Grass (7)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A06,
+        address=0x3469420125A06
     ),
     "Mountain Village Springtime Grass (8)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A07,
+        address=0x3469420125A07
     ),
     "Mountain Village Springtime Grass (9)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A08,
+        address=0x3469420125A08
     ),
     "Mountain Village Springtime Grass (10)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A09,
+        address=0x3469420125A09
     ),
     "Mountain Village Springtime Grass (11)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0A,
+        address=0x3469420125A0A
     ),
     "Mountain Village Springtime Grass (12)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0B,
+        address=0x3469420125A0B
     ),
     "Mountain Village Springtime Grass (13)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0C,
+        address=0x3469420125A0C
     ),
     "Mountain Village Springtime Grass (14)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0D,
+        address=0x3469420125A0D
     ),
     "Mountain Village Springtime Grass (15)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0E,
+        address=0x3469420125A0E
     ),
     "Mountain Village Springtime Grass (16)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0F,
+        address=0x3469420125A0F
     ),
     "Mountain Village Springtime Grass (17)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A10,
+        address=0x3469420125A10
     ),
     "Mountain Village Springtime Grass (18)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A11,
+        address=0x3469420125A11
     ),
     "Mountain Village Springtime Grass (19)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A12,
+        address=0x3469420125A12
     ),
     "Mountain Village Springtime Grass (20)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A13,
+        address=0x3469420125A13
     ),
     "Mountain Village Springtime Grass (21)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A14,
+        address=0x3469420125A14
     ),
     "Mountain Village Springtime Grass (22)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A15,
+        address=0x3469420125A15
     ),
     "Mountain Village Springtime Grass (23)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A16,
+        address=0x3469420125A16
     ),
     "Mountain Village Springtime Grass (24)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A17,
+        address=0x3469420125A17
     ),
     "Mountain Village Springtime Grass (25)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A18,
+        address=0x3469420125A18
     ),
     "Mountain Village Springtime Grass (26)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A19,
+        address=0x3469420125A19
     ),
     "Mountain Village Springtime Grass (27)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1A,
+        address=0x3469420125A1A
     ),
     "Mountain Village Springtime Grass (28)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1B,
+        address=0x3469420125A1B
     ),
     "Mountain Village Springtime Grass (29)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1C,
+        address=0x3469420125A1C
     ),
     "Mountain Village Springtime Grass (30)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1D,
+        address=0x3469420125A1D
     ),
 
     # Mountain Village Keaton Grass (These ID's aren't shared anywhere else, must be fine?)
 
     "Mountain Village Keaton Grass (28)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1B,
+        address=0x3469420135A1B
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (29)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1C,
+        address=0x3469420135A1C
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (30)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1D,
+        address=0x3469420135A1D
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (31)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1E,
+        address=0x3469420135A1E
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (32)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1F,
+        address=0x3469420135A1F
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (33)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A20,
+        address=0x3469420135A20
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (34)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A21,
+        address=0x3469420135A21
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (35)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A22,
+        address=0x3469420135A22
         # can_create=lamda options: options.grasssanity.value
     ),
     "Mountain Village Keaton Grass (36)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A23,
+        address=0x3469420135A23
         # can_create=lamda options: options.grasssanity.value
     ),
 
@@ -4565,985 +4615,966 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Mountain Village Spring Grotto Grass (1)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC00,
+        address=0x346942012AC00
     ),
     "Mountain Village Spring Grotto Grass (2)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC01,
+        address=0x346942012AC01
     ),
     "Mountain Village Spring Grotto Grass (3)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC02,
+        address=0x346942012AC02
     ),
     "Mountain Village Spring Grotto Grass (4)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC03,
+        address=0x346942012AC03
     ),
     "Mountain Village Spring Grotto Grass (5)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC04,
+        address=0x346942012AC04
     ),
     "Mountain Village Spring Grotto Grass (6)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC05,
+        address=0x346942012AC05
     ),
     "Mountain Village Spring Grotto Grass (7)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC06,
+        address=0x346942012AC06
     ),
     "Mountain Village Spring Grotto Grass (8)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC07,
+        address=0x346942012AC07
     ),
     "Mountain Village Spring Grotto Grass (9)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC08,
+        address=0x346942012AC08
     ),
     "Mountain Village Spring Grotto Grass (10)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC09,
+        address=0x346942012AC09
     ),
     "Mountain Village Spring Grotto Grass (11)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC0A,
+        address=0x346942012AC0A
     ),
     "Mountain Village Spring Grotto Grass (12)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC0B,
+        address=0x346942012AC0B
     ),
     "Mountain Village Spring Grotto Grass (13)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC0C,
+        address=0x346942012AC0C
     ),
     "Mountain Village Spring Grotto Grass (14)": MMRLocationData(
         region="Mountain Village",
-        address=0x346942012AC0D,
+        address=0x346942012AC0D
     ),
 
     # Twin Isles Spring Grass
 
     "Twin Islands Springtime Grass Group 1 (1)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E0,
+        address=0x34694201005E0
     ),
     "Twin Islands Springtime Grass Group 1 (2)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E1,
+        address=0x34694201005E1
     ),
     "Twin Islands Springtime Grass Group 1 (3)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E2,
+        address=0x34694201005E2
     ),
     "Twin Islands Springtime Grass Group 1 (4)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E3,
+        address=0x34694201005E3
     ),
     "Twin Islands Springtime Grass Group 1 (5)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E4,
+        address=0x34694201005E4
     ),
     "Twin Islands Springtime Grass Group 1 (6)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E5,
+        address=0x34694201005E5
     ),
     "Twin Islands Springtime Grass Group 1 (7)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E6,
+        address=0x34694201005E6
     ),
     "Twin Islands Springtime Grass Group 1 (8)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E7,
+        address=0x34694201005E7
     ),
     "Twin Islands Springtime Grass Group 1 (9)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E8,
+        address=0x34694201005E8
     ),
     "Twin Islands Springtime Grass Group 1 (10)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005E9,
+        address=0x34694201005E9
     ),
     "Twin Islands Springtime Grass Group 1 (11)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005EA,
+        address=0x34694201005EA
     ),
     "Twin Islands Springtime Grass Group 1 (12)": MMRLocationData(
         region="Twin Islands",
-        address=0x34694201005EB,
+        address=0x34694201005EB
     ),
 
     # Great Bay Coast Grass
 
     "Great Bay Coast Grass (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420123700,
+        address=0x3469420123700
     ),
     "Great Bay Coast Grass (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420123701,
+        address=0x3469420123701
     ),
     "Great Bay Coast Grass (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420123702,
+        address=0x3469420123702
     ),
     "Great Bay Coast Grass (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420123703,
+        address=0x3469420123703
     ),
     "Great Bay Coast Grass (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420123704,
+        address=0x3469420123704
     ),
 
     # Great Bay Coast Cow Grotto Grass
 
     "Great Bay Coast Cow Grotto Grass Group 1 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B70,
+        address=0x3469420100B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B71,
+        address=0x3469420100B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B72,
+        address=0x3469420100B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B73,
+        address=0x3469420100B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B74,
+        address=0x3469420100B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B75,
+        address=0x3469420100B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B76,
+        address=0x3469420100B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B77,
+        address=0x3469420100B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B78,
+        address=0x3469420100B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B79,
+        address=0x3469420100B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B7A,
+        address=0x3469420100B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420100B7B,
+        address=0x3469420100B7B
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B70,
+        address=0x3469420101B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B71,
+        address=0x3469420101B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B72,
+        address=0x3469420101B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B73,
+        address=0x3469420101B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B74,
+        address=0x3469420101B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B75,
+        address=0x3469420101B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B76,
+        address=0x3469420101B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B77,
+        address=0x3469420101B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B78,
+        address=0x3469420101B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B79,
+        address=0x3469420101B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B7A,
+        address=0x3469420101B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420101B7B,
+        address=0x3469420101B7B
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B70,
+        address=0x3469420102B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B71,
+        address=0x3469420102B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B72,
+        address=0x3469420102B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B73,
+        address=0x3469420102B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B74,
+        address=0x3469420102B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B75,
+        address=0x3469420102B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B76,
+        address=0x3469420102B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B77,
+        address=0x3469420102B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B78,
+        address=0x3469420102B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B79,
+        address=0x3469420102B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B7A,
+        address=0x3469420102B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420102B7B,
+        address=0x3469420102B7B
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B70,
+        address=0x3469420103B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B71,
+        address=0x3469420103B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B72,
+        address=0x3469420103B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B73,
+        address=0x3469420103B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B74,
+        address=0x3469420103B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B75,
+        address=0x3469420103B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B76,
+        address=0x3469420103B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B77,
+        address=0x3469420103B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B78,
+        address=0x3469420103B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B79,
+        address=0x3469420103B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B7A,
+        address=0x3469420103B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420103B7B,
+        address=0x3469420103B7B
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B70,
+        address=0x3469420104B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B71,
+        address=0x3469420104B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B72,
+        address=0x3469420104B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B73,
+        address=0x3469420104B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B74,
+        address=0x3469420104B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B75,
+        address=0x3469420104B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B76,
+        address=0x3469420104B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B77,
+        address=0x3469420104B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B78,
+        address=0x3469420104B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B79,
+        address=0x3469420104B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B7A,
+        address=0x3469420104B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420104B7B,
+        address=0x3469420104B7B
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (1)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B70,
+        address=0x3469420105B70
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (2)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B71,
+        address=0x3469420105B71
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (3)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B72,
+        address=0x3469420105B72
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (4)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B73,
+        address=0x3469420105B73
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (5)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B74,
+        address=0x3469420105B74
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (6)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B75,
+        address=0x3469420105B75
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (7)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B76,
+        address=0x3469420105B76
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (8)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B77,
+        address=0x3469420105B77
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (9)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B78,
+        address=0x3469420105B78
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (10)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B79,
+        address=0x3469420105B79
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (11)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B7A,
+        address=0x3469420105B7A
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (12)": MMRLocationData(
         region="Great Bay",
-        address=0x3469420105B7B,
+        address=0x3469420105B7B
     ),
 
     # Zora Cape Grotto Grass
 
     "Zora Cape Grotto Grass (0)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A601,
+        address=0x346942012A601
     ),
     "Zora Cape Grotto Grass (1)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A602,
+        address=0x346942012A602
     ),
     "Zora Cape Grotto Grass (2)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A603,
+        address=0x346942012A603
     ),
     "Zora Cape Grotto Grass (3)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A604,
+        address=0x346942012A604
     ),
     "Zora Cape Grotto Grass (4)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A605,
+        address=0x346942012A605
     ),
     "Zora Cape Grotto Grass (5)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A606,
+        address=0x346942012A606
     ),
     "Zora Cape Grotto Grass (6)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A607,
+        address=0x346942012A607
     ),
     "Zora Cape Grotto Grass (7)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A608,
+        address=0x346942012A608
     ),
     "Zora Cape Grotto Grass (8)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A609,
+        address=0x346942012A609
     ),
     "Zora Cape Grotto Grass (9)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A60A,
+        address=0x346942012A60A
     ),
     "Zora Cape Grotto Grass (10)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A60B,
+        address=0x346942012A60B
     ),
     "Zora Cape Grotto Grass (11)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A60C,
+        address=0x346942012A60C
     ),
     "Zora Cape Grotto Grass (12)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A60D,
+        address=0x346942012A60D
     ),
 
     # Road To Ikana Grotto Grass
 
     "Road To Ikana Grotto Grass (1)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A700,
+        address=0x346942012A700
     ),
     "Road To Ikana Grotto Grass (2)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A701,
+        address=0x346942012A701
     ),
     "Road To Ikana Grotto Grass (3)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A702,
+        address=0x346942012A702
     ),
     "Road To Ikana Grotto Grass (4)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A703,
+        address=0x346942012A703
     ),
     "Road To Ikana Grotto Grass (5)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A704,
+        address=0x346942012A704
     ),
     "Road To Ikana Grotto Grass (6)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A705,
+        address=0x346942012A705
     ),
     "Road To Ikana Grotto Grass (7)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A706,
+        address=0x346942012A706
     ),
     "Road To Ikana Grotto Grass (8)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A707,
+        address=0x346942012A707
     ),
     "Road To Ikana Grotto Grass (9)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A708,
+        address=0x346942012A708
     ),
     "Road To Ikana Grotto Grass (10)": MMRLocationData(
-        region="TRoad to Ikana",
-        address=0x346942012A709,
+        region="Road to Ikana",
+        address=0x346942012A709
     ),
     "Road To Ikana Grotto Grass (11)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A70A,
+        address=0x346942012A70A
     ),
     "Road To Ikana Grotto Grass (12)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A70B,
+        address=0x346942012A70B
     ),
     "Road To Ikana Grotto Grass (13)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A70C,
+        address=0x346942012A70C
     ),
     "Road To Ikana Grotto Grass (14)": MMRLocationData(
         region="Road to Ikana",
-        address=0x346942012A70D,
+        address=0x346942012A70D
     ),
 
     # Ikana Graveyard Lower Region Grass
 
     "Ikana Graveyard Lower Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124300,
+        address=0x3469420124300
     ),
     "Ikana Graveyard Lower Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124301,
+        address=0x3469420124301
     ),
     "Ikana Graveyard Lower Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124302,
+        address=0x3469420124302
     ),
     "Ikana Graveyard Lower Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124303,
+        address=0x3469420124303
     ),
     "Ikana Graveyard Lower Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124304,
+        address=0x3469420124304
     ),
 
     # Ikana Graveyard Upper Region Grass
 
     "Ikana Graveyard Upper Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124300,
+        address=0x3469420124310
     ),
     "Ikana Graveyard Upper Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124301,
+        address=0x3469420124311
     ),
     "Ikana Graveyard Upper Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124302,
+        address=0x3469420124312
     ),
     "Ikana Graveyard Upper Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124303,
+        address=0x3469420124313
     ),
     "Ikana Graveyard Upper Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124304,
+        address=0x3469420124314
     ),
     "Ikana Graveyard Upper Grass (6)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124305,
+        address=0x3469420124315
     ),
     "Ikana Graveyard Upper Grass (7)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124306,
+        address=0x3469420124316
     ),
     "Ikana Graveyard Upper Grass (8)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124307,
+        address=0x3469420124317
     ),
     "Ikana Graveyard Upper Grass (9)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124308,
+        address=0x3469420124318
     ),
 
     # Ikana Graveyard Bombable Grotto Grass
 
     "Ikana Graveyard Bombable Grotto Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A900,
+        address=0x346942012A900
     ),
     "Ikana Graveyard Bombable Grotto Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A901,
+        address=0x346942012A901
     ),
     "Ikana Graveyard Bombable Grotto Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A902,
+        address=0x346942012A902
     ),
     "Ikana Graveyard Bombable Grotto Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A903,
+        address=0x346942012A903
     ),
     "Ikana Graveyard Bombable Grotto Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A904,
+        address=0x346942012A904
     ),
     "Ikana Graveyard Bombable Grotto Grass (6)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A905,
+        address=0x346942012A905
     ),
     "Ikana Graveyard Bombable Grotto Grass (7)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A906,
+        address=0x346942012A906
     ),
     "Ikana Graveyard Bombable Grotto Grass (8)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A907,
+        address=0x346942012A907
     ),
     "Ikana Graveyard Bombable Grotto Grass (9)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A908,
+        address=0x346942012A908
     ),
     "Ikana Graveyard Bombable Grotto Grass (10)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A909,
+        address=0x346942012A909
     ),
     "Ikana Graveyard Bombable Grotto Grass (11)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A90A,
+        address=0x346942012A90A
     ),
     "Ikana Graveyard Bombable Grotto Grass (12)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A90B,
+        address=0x346942012A90B
     ),
     "Ikana Graveyard Bombable Grotto Grass (13)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A90C,
+        address=0x346942012A90C
     ),
     "Ikana Graveyard Bombable Grotto Grass (14)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x346942012A90D,
+        address=0x346942012A90D
     ),
 
     # Ikana Canyon Grass
 
     "Ikana Canyon Grass (1)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420121300,
+        address=0x3469420121300
     ),
     "Ikana Canyon Grass (2)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420121301,
+        address=0x3469420121301
     ),
     "Ikana Canyon Grass (3)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420121302,
+        address=0x3469420121302
     ),
     "Ikana Canyon Grass (4)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420121303,
+        address=0x3469420121303
     ),
 
     # Ikana Canyon Grotto Grass
 
     "Ikana Canyon Grotto Grass (1)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A500,
+        address=0x346942012A500
     ),
     "Ikana Canyon Grotto Grass (2)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A501,
+        address=0x346942012A501
     ),
     "Ikana Canyon Grotto Grass (3)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A502,
+        address=0x346942012A502
     ),
     "Ikana Canyon Grotto Grass (4)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A503,
+        address=0x346942012A503
     ),
     "Ikana Canyon Grotto Grass (5)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A504,
+        address=0x346942012A504
     ),
     "Ikana Canyon Grotto Grass (6)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A505,
+        address=0x346942012A505
     ),
     "Ikana Canyon Grotto Grass (7)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A506,
+        address=0x346942012A506
     ),
     "Ikana Canyon Grotto Grass (8)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A507,
+        address=0x346942012A507
     ),
     "Ikana Canyon Grotto Grass (9)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A508,
+        address=0x346942012A508
     ),
     "Ikana Canyon Grotto Grass (10)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A509,
+        address=0x346942012A509
     ),
     "Ikana Canyon Grotto Grass (11)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A50A,
+        address=0x346942012A50A
     ),
     "Ikana Canyon Grotto Grass (12)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A50B,
+        address=0x346942012A50B
     ),
     "Ikana Canyon Grotto Grass (13)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A50C,
+        address=0x346942012A50C
     ),
     "Ikana Canyon Grotto Grass (14)": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942012A50D,
+        address=0x346942012A50D
     ),
 
     # Secret Shrine Grass
 
     "Secret Shrine Entrance Grass (1)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126000,
+        address=0x3469420126000
     ),
     "Secret Shrine Entrance Grass (2)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126001,
+        address=0x3469420126001
     ),
     "Secret Shrine Entrance Grass (3)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126002,
+        address=0x3469420126002
     ),
     "Secret Shrine Entrance Grass (4)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126003,
+        address=0x3469420126003
     ),
     "Secret Shrine Entrance Grass (5)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126004,
+        address=0x3469420126004
     ),
     "Secret Shrine Entrance Grass (6)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126005,
+        address=0x3469420126005
     ),
     "Secret Shrine Dinolfos Grass (0)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126020,
+        address=0x3469420126020
     ),
     "Secret Shrine Dinolfos Grass (1)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126021,
+        address=0x3469420126021
     ),
     "Secret Shrine Dinolfos Grass (2)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126022,
+        address=0x3469420126022
     ),
     "Secret Shrine Dinolfos Grass (3)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126023,
+        address=0x3469420126023
     ),
     "Secret Shrine Wizzrobe Grass (0)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126033,
+        address=0x3469420126033
     ),
     "Secret Shrine Wizzrobe Grass (1)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126032,
+        address=0x3469420126032
     ),
     "Secret Shrine Wizzrobe Grass (2)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126030,
+        address=0x3469420126030
     ),
     "Secret Shrine Wizzrobe Grass (3)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126031,
+        address=0x3469420126031
     ),
     "Secret Shrine Wizzrobe Grass (4)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126034,
+        address=0x3469420126034
     ),
     "Secret Shrine Wart Grass (0)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126042,
+        address=0x3469420126042
     ),
     "Secret Shrine Wart Grass (1)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126043,
+        address=0x3469420126043
     ),
     "Secret Shrine Wart Grass (2)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126045,
+        address=0x3469420126045
     ),
     "Secret Shrine Wart Grass (3)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126044,
+        address=0x3469420126044
     ),
     "Secret Shrine Wart Grass (4)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126047,
+        address=0x3469420126047
     ),
     "Secret Shrine Wart Grass (5)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126046,
+        address=0x3469420126046
     ),
     "Secret Shrine Wart Grass (6)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126040,
+        address=0x3469420126040
     ),
     "Secret Shrine Wart Grass (7)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126041,
+        address=0x3469420126041
     ),
     "Secret Shrine Garo Master Grass (0)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126055,
+        address=0x3469420126055
     ),
     "Secret Shrine Garo Master Grass (1)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126052,
+        address=0x3469420126052
     ),
     "Secret Shrine Garo Master Grass (2)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126051,
+        address=0x3469420126051
     ),
     "Secret Shrine Garo Master Grass (3)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126050,
+        address=0x3469420126050
     ),
     "Secret Shrine Garo Master Grass (4)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126054,
+        address=0x3469420126054
     ),
     "Secret Shrine Garo Master Grass (5)": MMRLocationData(
         region="Secret Shrine",
-        address=0x3469420126053,
+        address=0x3469420126053
     ),
 
     # Beneath the Well Grass
 
     "Beneath the Well Left Side Back Room Grass (0)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B51,
+        address=0x3469420124B51
     ),
     "Beneath the Well Left Side Back Room Grasss (1)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B50,
+        address=0x3469420124B50
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (0)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B30,
+        address=0x3469420124B30
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (1)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B31,
+        address=0x3469420124B31
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (2)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B32,
+        address=0x3469420124B32
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (3)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B33,
+        address=0x3469420124B33
     ),
     "Beneath the Well Right Side Cow Grass (0)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B92,
+        address=0x3469420124B92
     ),
     "Beneath the Well Right Side Cow Grass (1)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B91,
+        address=0x3469420124B91
     ),
     "Beneath the Well Right Side Cow Grass (2)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B90,
+        address=0x3469420124B90
     ),
     "Beneath the Well Right Side Back Room Grass (0)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B71,
+        address=0x3469420124B71
     ),
     "Beneath the Well Right Side Back Room Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420124B72,
+        address=0x3469420124B72
     ),
     "Beneath the Well Right Side Back Room Grass (2)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B74,
+        address=0x3469420124B74
     ),
     "Beneath the Well Right Side Back Room Grass (3)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B73,
+        address=0x3469420124B73
     ),
     "Beneath the Well Right Side Back Room Grass (4)": MMRLocationData(
         region="Beneath the Well",
-        address=0x3469420124B70,
+        address=0x3469420124B70
     ),
 
     # Ikana Castle Grass
 
     "Ikana Castle Grass (1)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D00,
+        address=0x3469420121D00
     ),
     "Ikana Castle Grass (2)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D01,
+        address=0x3469420121D01
     ),
     "Ikana Castle Grass (3)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D02,
+        address=0x3469420121D02
     ),
     "Ikana Castle Grass (4)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D03,
+        address=0x3469420121D03
     ),
     "Ikana Castle Grass (5)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D04,
+        address=0x3469420121D04
     ),
     "Ikana Castle Grass (6)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D05,
+        address=0x3469420121D05
     ),
     "Ikana Castle Grass (7)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D06,
+        address=0x3469420121D06
     ),
     "Ikana Castle Grass (8)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D07,
+        address=0x3469420121D07
     ),
     "Ikana Castle Grass (9)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D08,
+        address=0x3469420121D08
     ),
     "Ikana Castle Grass (10)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D09,
+        address=0x3469420121D09
     ),
     "Ikana Castle Grass (11)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D0A,
+        address=0x3469420121D0A
     ),
     "Ikana Castle Grass (12)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D0B,
-    ),
-
-    # Ikana Canyon Post Dungeon
-
-    "Ikana Canyon Post Dungeon Grass (1)": MMRLocationData(
-        region="Ikana Canyon",
-        address=0x3469420121300,
-    ),
-    "Ikana Canyon Post Dungeon Grass (2)": MMRLocationData(
-        region="Ikana Canyon",
-        address=0x3469420121301,
-    ),
-    "Ikana Canyon Post Dungeon Grass (3)": MMRLocationData(
-        region="Ikana Canyon",
-        address=0x3469420121302,
-    ),
-    "Ikana Canyon Post Dungeon Grass (4)": MMRLocationData(
-        region="Ikana Canyon",
-        address=0x3469420121303,
+        address=0x3469420121D0B
     ),
 
     # Dungeon Grass
@@ -5551,35 +5582,35 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Woodfall Temple Entrance Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B24,
+        address=0x3469420121B24
     ),
     "Woodfall Temple Entrance Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B21,
+        address=0x3469420121B21
     ),
     "Woodfall Temple Entrance Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B20,
+        address=0x3469420121B20
     ),
     "Woodfall Temple Entrance Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B22,
+        address=0x3469420121B22
     ),
     "Woodfall Temple Entrance Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B23,
+        address=0x3469420121B23
     ),
     "Woodfall Temple Main Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B11,
+        address=0x3469420121B11
     ),
     "Woodfall Temple Main Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B10,
+        address=0x3469420121B10
     ),
     "Woodfall Temple Main Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B12,
+        address=0x3469420121B12
     ),
     "Woodfall Temple Deku Elevator Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
@@ -5591,243 +5622,243 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Snapping Turtle Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B61,
+        address=0x3469420121B61
     ),
     "Woodfall Temple Snapping Turtle Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B64,
+        address=0x3469420121B64
     ),
     "Woodfall Temple Snapping Turtle Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B63,
+        address=0x3469420121B63
     ),
     "Woodfall Temple Snapping Turtle Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B62,
+        address=0x3469420121B62
     ),
     "Woodfall Temple Snapping Turtle Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B60,
+        address=0x3469420121B60
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B40,
+        address=0x3469420121B40
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B41,
+        address=0x3469420121B41
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B42,
+        address=0x3469420121B42
     ),
     "Woodfall Temple 2F Moving Flower Platform Room (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA1,
+        address=0x3469420121BA1
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA3,
+        address=0x3469420121BA3
     ),
     "Woodfall Temple2F Moving Flower Platform Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA5,
+        address=0x3469420121BA5
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA4,
+        address=0x3469420121BA4
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA9,
+        address=0x3469420121BA9
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (5)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA7,
+        address=0x3469420121BA7
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (6)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA0,
+        address=0x3469420121BA0
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (7)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA2,
+        address=0x3469420121BA2
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (8)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BAA,
+        address=0x3469420121BAA
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (9)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA8,
+        address=0x3469420121BA8
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (10)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121BA6,
+        address=0x3469420121BA6
     ),
     "Woodfall Temple Pre Boss Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B00,
+        address=0x3469420121B00
     ),
     "Woodfall Temple Pre Boss Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B04,
+        address=0x3469420121B04
     ),
     "Woodfall Temple Pre Boss Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B02,
+        address=0x3469420121B02
     ),
     "Woodfall Temple Pre Boss Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B01,
+        address=0x3469420121B01
     ),
     "Woodfall Temple Pre Boss Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B03,
+        address=0x3469420121B03
     ),
     "Woodfall Temple Odolwas Lair Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0E,
+        address=0x3469420121F0E
     ),
     "Woodfall Temple Odolwas Lair Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0C,
+        address=0x3469420121F0C
     ),
     "Woodfall Temple Odolwas Lair Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0B,
+        address=0x3469420121F0B
     ),
     "Woodfall Temple Odolwas Lair Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F09,
+        address=0x3469420121F09
     ),
     "Woodfall Temple Odolwas Lair Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F07,
+        address=0x3469420121F07
     ),
     "Woodfall Temple Odolwas Lair Grass (5)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F05,
+        address=0x3469420121F05
     ),
     "Woodfall Temple Odolwas Lair Grass (6)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F03,
+        address=0x3469420121F03
     ),
     "Woodfall Temple Odolwas Lair Grass (7)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F01,
+        address=0x3469420121F01
     ),
     "Woodfall Temple Odolwas Lair Grass (8)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F00,
+        address=0x3469420121F00
     ),
     "Woodfall Temple Odolwas Lair Grass (9)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F02,
+        address=0x3469420121F02
     ),
     "Woodfall Temple Odolwas Lair Grass (10)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F04,
+        address=0x3469420121F04
     ),
     "Woodfall Temple Odolwas Lair Grass (11)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F06,
+        address=0x3469420121F06
     ),
     "Woodfall Temple Odolwas Lair Grass (12)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F08,
+        address=0x3469420121F08
     ),
     "Woodfall Temple Odolwas Lair Grass (13)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0A,
+        address=0x3469420121F0A
     ),
     "Woodfall Temple Odolwas Lair (14)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0D,
+        address=0x3469420121F0D
     ),
     "Woodfall Temple Odolwas Lair (15)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0F,
+        address=0x3469420121F0F
     ),
         # Snowhead Temple Grass
     "Snowhead Temple Basement Grass (0)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122149,
+        address=0x3469420122149
     ),
     "Snowhead Temple Basement Grass (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122147,
+        address=0x3469420122147
     ),
     "Snowhead Temple Basement Grass (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122148,
+        address=0x3469420122148
     ),
     "Snowhead Temple Basement Grass (3)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122142,
+        address=0x3469420122142
     ),
     "Snowhead Temple Basement Grass (4)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122145,
+        address=0x3469420122145
     ),
     "Snowhead Temple Basement Grass (5)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122146,
+        address=0x3469420122146
     ),
     "Snowhead Temple Basement Grass (6)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122141,
+        address=0x3469420122141
     ),
     "Snowhead Temple Basement Grass (7)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122144,
+        address=0x3469420122144
     ),
     "Snowhead Temple Basement Grass (8)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122143,
+        address=0x3469420122143
     ),
     "Snowhead Temple Basement Grass (9)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122140,
+        address=0x3469420122140
     ),
         # Stone Tower Temple Grass
 
     "Stone Tower Temple Entrance Room Grass (0)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121600,
+        address=0x3469420121600
     ),
 
     "Stone Tower Temple Entrance Room Grass (1)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121601,
+        address=0x3469420121601
     ),
     "Stone Tower Temple Entrance Room Grass (2)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121602,
+        address=0x3469420121602
     ),
     "Stone Tower Temple Elegy Maze Grass (0)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121623,
+        address=0x3469420121623
     ),
     "Stone Tower Temple Elegy Maze Grass (1)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121621,
+        address=0x3469420121621
     ),
     "Stone Tower Temple Elegy Maze Grass (2)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121624,
+        address=0x3469420121624
     ),
     "Stone Tower Temple Elegy Maze Grass (3)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121620,
+        address=0x3469420121620
     ),
     "Stone Tower Temple Elegy Maze Grass (4)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121622,
+        address=0x3469420121622
     ),
     "Stone Tower Temple Elegy Maze Grass (5)":MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420121625,
+        address=0x3469420121625
     ),
       # Clock Town Pots
     "Sword School Night 3 Midnight Pots (0)": MMRLocationData(
@@ -6535,7 +6566,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Romani Ranch Doggy Racetrack Pots (0)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420001020
+        address=0x3469420204102
     ),
     "Romani Ranch Doggy Racetrack Pots (1)": MMRLocationData(
         region="Romani Ranch",
@@ -6549,67 +6580,66 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Romani Ranch",
         address=0x3469420204103
     ),
-    
     # Great Bay Coast Pots
     
     "Great Bay Coast Behind Marine Lab Pots (0)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203707
     ),
     "Great Bay Coast Behind Marine Lab Pots (1)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203709
     ),
     "Great Bay Coast Behind Marine Lab Pots (2)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203708
     ),
     "Great Bay Coast Behind Marine Lab Pots (3)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x346942020370E
     ),
     "Great Bay Coast Rock Pools Pots (0)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203704
     ),
     "Great Bay Coast Rock Pools Pots (1)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x346942020370B
     ),
     "Great Bay Coast Lower Rock Wall Pots (0)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x346942020370D
     ),
     "Great Bay Coast Lower Rock Wall Pots (1)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203706
     ),
     "Great Bay Coast Lower Rock Wall Pots (2)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203705
     ),
     "Great Bay Coast Lower Rock Wall Pots (3)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x346942020370C
     ),
     "Great Bay Coast Upper Rock Wall Pots (0)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203702
     ),
     "Great Bay Coast Upper Rock Wall Pots (1)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203701
     ),
     "Great Bay Coast Upper Rock Wall Pots (2)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203700
     ),
     "Great Bay Coast Beside Pirates Fortress Pots (0)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x3469420203703
     ),
     "Great Bay Coast Beside Pirates Fortress Pots (1)": MMRLocationData(
-        region="Great Bay Coast",
+        region="Great Bay",
         address=0x346942020370A
     ),
     
@@ -6724,15 +6754,15 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (0)": MMRLocationData(
         region="Pirates' Fortress",
-        address=0x3469420202362
+        address=0x3469420202360
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress",
-        address=0x3469420202362
+        address=0x3469420202361
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress",
-        address=0x3469420202361
+        address=0x3469420202362
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (0)": MMRLocationData(
         region="Pirates' Fortress",
@@ -6814,11 +6844,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     
     "Zora Cape Like Like Pool Pots (0)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203801
+        address=0x3469420203800
     ),
     "Zora Cape Like Like Pool Pots (1)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203805
+        address=0x3469420203801
     ),
     "Zora Cape Owl Pots (0)": MMRLocationData(
         region="Zora Cape",
@@ -7285,83 +7315,83 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Ikana Castle
     
     "Ikana Castle Frozen Eyes Room Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D11
     ),
     "Ikana Castle Frozen Eyes Room Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D10
     ),
     "Ikana Castle Left Side Falling Ceiling Room Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D20
     ),
     "Ikana Castle Left Side Falling Ceiling Room Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D21
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D42
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D41
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (2)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D40
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (3)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D43
     ),
     "Ikana Castle Left Side Staircase Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D60
     ),
     "Ikana Castle Left Side Staircase Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D61
     ),
     "Ikana Castle Right Side Staircase Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D71
     ),
     "Ikana Castle Right Side Staircase Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420201D70
     ),
     "Ikana Castle Throne Room Pots (0)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205601
     ),
     "Ikana Castle Throne Room Pots (1)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205600
     ),
     "Ikana Castle Throne Room Pots (2)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205603
     ),
     "Ikana Castle Throne Room Pots (3)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205602
     ),
     "Ikana Castle Throne Room Pots (4)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205611
     ),
     "Ikana Castle Throne Room Pots (5)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205612
     ),
     "Ikana Castle Throne Room Pots (6)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205613
     ),
     "Ikana Castle Throne Room Pots (7)": MMRLocationData(
-        region="Ancient Castle of Ikana",
+        region="Ikana Castle",
         address=0x3469420205610
     ),
     
@@ -7697,138 +7727,139 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420205902
     ),
     "Inverted Stone Tower Temple Updraft Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple",
         address=0x3469420201832
     ),
     "Inverted Stone Tower Temple Updraft Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201833
     ),
     "Inverted Stone Tower Temple Updraft Pots (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201835
     ),
     "Inverted Stone Tower Temple Updraft Pots (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201834
     ),
     "Inverted Stone Tower Temple Updraft Pots (4)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201831
     ),
     "Inverted Stone Tower Temple Updraft Pots (5)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201830
     ),
     "Inverted Stone Tower Temple Miniboss Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x34694202018B3
     ),
     "Inverted Stone Tower Temple Miniboss Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x34694202018B0
     ),
     "Inverted Stone Tower Temple Miniboss Pots (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x34694202018B1
     ),
     "Inverted Stone Tower Temple Miniboss Pots (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x34694202018B2
     ),
     "Inverted Stone Tower Temple Lower Bridge Room Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201811
     ),
     "Inverted Stone Tower Temple Lower Bridge Room Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201810
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201822
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201820
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201821
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201823
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201840
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201843
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201844
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201841
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (4)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201842
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x346942020188A
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x346942020188B
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201889
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201888
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (0)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201883
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (1)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201881
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (2)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201885
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (3)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201887
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (4)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201884
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (5)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201886
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (6)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201880
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (7)": MMRLocationData(
-        region="Stone Tower Temple Inverted",
+        region="Stone Tower Temple (Inverted)",
         address=0x3469420201882
     ),
 
+    
     # Moon Trial Pots
     
     "Moon Goron Trial Pots (0)": MMRLocationData(
@@ -7923,6 +7954,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="The Moon",
         address=0x3469420206607
     ),
+    "Majora Arena Pots (0)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420200B00
+    ),
+    "Majora Arena Pots (1)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420200B01
+    ),
+
 }
 
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}
