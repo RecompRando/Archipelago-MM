@@ -110,6 +110,12 @@ class MMRWorld(World):
         if self.options.intro_checks.value:
             self.create_and_add_filler_items(1)
 
+        if self.options.grasssanity.value != 0:
+            self.create_and_add_filler_items(984)
+
+        if self.options.potsanity.value != 0:
+            self.create_and_add_filler_items(517)
+
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
             for i in range(0, int((12 - shp)/4)):

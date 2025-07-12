@@ -187,6 +187,15 @@ class IntroChecks(Toggle):
     A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
     display_name = "Enable Intro Checks"
 
+class Grasssanity(Toggle):
+    """Choose whether grass is shuffled into the pool."""
+    display_name = "Grasssanity"
+
+
+class Potsanity(Toggle):
+    """Choose whether pots are shuffled into the pool."""
+    display_name = "Potsanity"
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -273,6 +282,8 @@ class MMROptions(PerGameCommonOptions):
     fairysanity: Fairysanity
     curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
+    grasssanity: Grasssanity
+    potsanity: Potsanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
