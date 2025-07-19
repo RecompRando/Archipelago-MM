@@ -176,11 +176,49 @@ class Grasssanity(Toggle):
     """Choose whether grass is shuffled into the pool."""
     display_name = "Grasssanity"
 
-
 class Potsanity(Toggle):
     """Choose whether pots are shuffled into the pool."""
     display_name = "Potsanity"
 
+class Hitsanity(Toggle):
+    """Choose whether hit spot items are shuffled into the pool."""
+    display_name = "Hitsanity"
+
+class Rocksanity(Toggle):
+    """Choose whether rock items are shuffled into the pool."""
+    display_name = "Rocksanity"
+
+class Soilsanity(Toggle):
+    """Choose whether soil items are shuffled into the pool."""
+    display_name = "Soilsanity"
+
+class Rupeesanity(Toggle):
+    """Choose whether freestanding rupees are shuffled into the pool."""
+    display_name = "Rupeesanity"
+
+class Invisisanity(Toggle):
+    """Choose whether invisible rupees are shuffled into the pool."""
+    display_name = "Invisisanity"    
+
+class Snowsanity(Toggle):
+    """Choose whether snowball items are shuffled into the pool."""
+    display_name = "Snowsanity"
+
+class Woodsanity(Toggle):
+    """Choose whether wooden items are shuffled into the pool."""
+    display_name = "Woodsanity"
+
+class Realfairysanity(Toggle):
+    """Choose whether gossip, butterfly and freestanding fairies are shuffled."""
+    display_name = "Realfairysanity"
+
+class Iciclesanity(Toggle):
+    """Choose whether Icicle items are shuffled into the pool."""
+    display_name = "Hivesanity" 
+
+class Hivesanity(Toggle):
+    """Choose whether Hive items are shuffled into the pool."""
+    display_name = "Hivesanity"    
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -266,6 +304,16 @@ class MMROptions(PerGameCommonOptions):
     fairysanity: Fairysanity
     grasssanity: Grasssanity
     potsanity: Potsanity
+    hitsanity: Hitsanity
+    rocksanity: Rocksanity
+    soilsanity: Soilsanity
+    rupeesanity: Rupeesanity
+    invisisanity: Invisisanity
+    snowsanity: Snowsanity
+    woodsanity: Woodsanity
+    realfairysanity: Realfairysanity
+    iciclesanity: Iciclesanity
+    hivesanity: Hivesanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
