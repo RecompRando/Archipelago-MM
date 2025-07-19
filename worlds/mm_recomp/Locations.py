@@ -240,7 +240,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Laundry Pool Kafei's Request": MMRLocationData(
         region="Clock Town",
-        address=0x34694200000AB
+        address=0x3469420250790
     ),
     "Laundry Pool Curiosity Shop Salesman #1": MMRLocationData(
         region="Clock Town",
@@ -1835,23 +1835,23 @@ location_data_table: Dict[str, MMRLocationData] = {
         locked_item="Victory"
     ),
     
-    # Grass/Pots/Hitspots/Hidden Rupees 'wonder items' past this point
+    # Grass/Pots/Hitspots/Hidden Rupees etc past this point
 
     # Laundry Pool Grass
 
     "Laundry Pool Grass (0)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127001,
+        address=0x3469420127000,
         can_create=lambda options: options.grasssanity.value
     ),
     "Laundry Pool Grass (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127002,
+        address=0x3469420127001,
         can_create=lambda options: options.grasssanity.value
     ),
     "Laundry Pool Grass (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420127003,
+        address=0x3469420127002,
         can_create=lambda options: options.grasssanity.value
     ),
     # North Clock Town Keaton Grass
@@ -4337,19 +4337,16 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Milk Road",
         address=0x3469420122200,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Milk Road Owl Grass (2)": MMRLocationData(
         region="Milk Road",
         address=0x3469420122201,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Milk Road Owl Grass (3)": MMRLocationData(
         region="Milk Road",
         address=0x3469420122202,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     # Milk Road Keaton Grass
     "Milk Road Keaton Grass (1)": MMRLocationData(
@@ -5089,245 +5086,191 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420125A02,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Mountain Village Springtime Keaton Grass (1)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A00,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (2)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A01,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (3)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A02,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (4)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A03,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (5)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A04,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (6)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A05,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (7)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A06,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (8)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A07,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Mountain Village Springtime Keaton Grass (9)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420135A08,
-        can_create=lambda options: options.grasssanity.value
-    ),
     "Mountain Village Springtime Grass (4)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A03,
+        address=0x3469420145A00,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (5)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A04,
+        address=0x3469420145A01,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (6)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A05,
+        address=0x3469420145A02,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (7)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A06,
+        address=0x3469420145A03,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (8)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A07,
+        address=0x3469420145A04,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (9)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A08,
+        address=0x3469420145A05,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (10)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A09,
+        address=0x3469420145A06,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (11)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0A,
+        address=0x3469420145A07,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (12)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0B,
+        address=0x3469420145A08,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (13)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0C,
+        address=0x3469420145A10,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (14)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0D,
+        address=0x3469420145A11,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (15)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0E,
+        address=0x3469420145A12,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (16)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A0F,
+        address=0x3469420145A13,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (17)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A10,
+        address=0x3469420145A14,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (18)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A11,
+        address=0x3469420145A15,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (19)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A12,
+        address=0x3469420145A16,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (20)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A13,
+        address=0x3469420145A17,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (21)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A14,
+        address=0x3469420145A18,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (22)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A15,
+        address=0x3469420145A20,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (23)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A16,
+        address=0x3469420145A21,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (24)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A17,
+        address=0x3469420145A22,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (25)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A18,
+        address=0x3469420145A23,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (26)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A19,
+        address=0x3469420145A24,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (27)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1A,
+        address=0x3469420145A25,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (28)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1B,
+        address=0x3469420145A26,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (29)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1C,
+        address=0x3469420145A27,
         can_create=lambda options: options.grasssanity.value
     ),
     "Mountain Village Springtime Grass (30)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420125A1D,
+        address=0x3469420145A28,
         can_create=lambda options: options.grasssanity.value
     ),
 
-    # Mountain Village Keaton Grass (These ID's aren't shared anywhere else, must be fine?)
+    # Mountain Village Keaton Grass 
 
-    "Mountain Village Keaton Grass (28)": MMRLocationData(
+    "Mountain Village Keaton Grass (0)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1B,
+        address=0x3469420135A00,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (29)": MMRLocationData(
+    "Mountain Village Keaton Grass (1)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1C,
+        address=0x3469420135A01,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (30)": MMRLocationData(
+    "Mountain Village Keaton Grass (2)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1D,
+        address=0x3469420135A02,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (31)": MMRLocationData(
+    "Mountain Village Keaton Grass (3)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1E,
+        address=0x3469420135A03,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (32)": MMRLocationData(
+    "Mountain Village Keaton Grass (4)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A1F,
+        address=0x3469420135A04,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (33)": MMRLocationData(
+    "Mountain Village Keaton Grass (5)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A20,
+        address=0x3469420135A05,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (34)": MMRLocationData(
+    "Mountain Village Keaton Grass (6)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A21,
+        address=0x3469420135A06,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (35)": MMRLocationData(
+    "Mountain Village Keaton Grass (7)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A22,
+        address=0x3469420135A07,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
-    "Mountain Village Keaton Grass (36)": MMRLocationData(
+    "Mountain Village Keaton Grass (8)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420135A23,
+        address=0x3469420135A08,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
 
-    # Mountain Village Spring Grotto Grass (also not shared anywhere, must also be okay? Testing req.)
+    # Mountain Village Spring Grotto Grass 
 
     "Mountain Village Spring Grotto Grass (1)": MMRLocationData(
         region="Mountain Village",
@@ -5462,8 +5405,80 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694201005EB,
         can_create=lambda options: options.grasssanity.value
     ),
-    # Great Bay Coast Grass
+    # Great Bay Coast Grotto Grass
 
+    "Great Bay Coast Grotto Grass (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A840,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A841,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (2)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A842,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A843,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (4)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A844,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (5)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A845,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (6)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A846,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (7)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A847,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (8)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A848,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Great Bay Coast Grotto Grass (9)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A849,
+        can_create=lambda options: options.grasssanity.value
+    ), 
+    "Great Bay Coast Grotto Grass (10)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A84A,
+        can_create=lambda options: options.grasssanity.value
+    ), 
+    "Great Bay Coast Grotto Grass (11)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A84B,
+        can_create=lambda options: options.grasssanity.value
+    ), 
+    "Great Bay Coast Grotto Grass (12)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A84C,
+        can_create=lambda options: options.grasssanity.value
+    ), 
+    "Great Bay Coast Grotto Grass (13)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942012A84D,
+        can_create=lambda options: options.grasssanity.value
+    ), 
+
+    # Great Bay Coast Grass - Requires Epona's Song
     "Great Bay Coast Grass (1)": MMRLocationData(
         region="Great Bay",
         address=0x3469420123700,
@@ -5857,65 +5872,70 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Zora Cape Grotto Grass (0)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A641,
+        address=0x346942012A640,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (1)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A642,
+        address=0x346942012A641,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (2)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A643,
+        address=0x346942012A642,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (3)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A644,
+        address=0x346942012A643,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (4)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A645,
+        address=0x346942012A644,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (5)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A646,
+        address=0x346942012A645,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (6)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A647,
+        address=0x346942012A646,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (7)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A648,
+        address=0x346942012A647,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (8)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A649,
+        address=0x346942012A648,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (9)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A64A,
+        address=0x346942012A649,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (10)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A64B,
+        address=0x346942012A64A,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (11)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942012A64C,
+        address=0x346942012A64B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Zora Cape Grotto Grass (12)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942012A64C,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Zora Cape Grotto Grass (13)": MMRLocationData(
         region="Zora Cape",
         address=0x346942012A64D,
         can_create=lambda options: options.grasssanity.value
@@ -6026,47 +6046,47 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Ikana Graveyard Upper Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124310,
+        address=0x3469420124320,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124311,
+        address=0x3469420124321,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124312,
+        address=0x3469420124322,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124313,
+        address=0x3469420124323,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124314,
+        address=0x3469420124324,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (6)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124315,
+        address=0x3469420124325,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (7)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124316,
+        address=0x3469420124326,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (8)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124317,
+        address=0x3469420124327,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Graveyard Upper Grass (9)": MMRLocationData(
         region="Ikana Graveyard",
-        address=0x3469420124318,
+        address=0x3469420124328,
         can_create=lambda options: options.grasssanity.value
     ),
 
@@ -6528,7 +6548,7 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Woodfall Temple Entrance Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B24,
+        address=0x3469420121B20,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Entrance Room Grass (1)": MMRLocationData(
@@ -6538,27 +6558,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Entrance Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B20,
+        address=0x3469420121B22,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Entrance Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B22,
+        address=0x3469420121B23,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Entrance Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B23,
+        address=0x3469420121B24,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Main Room Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B11,
+        address=0x3469420121B10,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Main Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B10,
+        address=0x3469420121B11,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Main Room Grass (2)": MMRLocationData(
@@ -6578,27 +6598,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Snapping Turtle Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B61,
+        address=0x3469420121B60,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Snapping Turtle Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B64,
+        address=0x3469420121B61,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Snapping Turtle Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B63,
+        address=0x3469420121B62,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Snapping Turtle Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B62,
+        address=0x3469420121B63,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Snapping Turtle Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B60,
+        address=0x3469420121B64,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (0)": MMRLocationData(
@@ -6678,7 +6698,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Pre Boss Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B04,
+        address=0x3469420121B01,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Pre Boss Room Grass (2)": MMRLocationData(
@@ -6688,37 +6708,37 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Pre Boss Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B01,
+        address=0x3469420121B03,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Pre Boss Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121B03,
+        address=0x3469420121B04,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0E,
+        address=0x3469420121F00,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0C,
+        address=0x3469420121F01,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (2)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0B,
+        address=0x3469420121F02,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F09,
+        address=0x3469420121F03,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F07,
+        address=0x3469420121F04,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (5)": MMRLocationData(
@@ -6728,50 +6748,50 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Odolwas Lair Grass (6)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F03,
+        address=0x3469420121F06,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (7)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F01,
+        address=0x3469420121F07,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (8)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F00,
+        address=0x3469420121F08,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (9)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F02,
+        address=0x3469420121F09,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (10)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F04,
+        address=0x3469420121F0A,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (11)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F06,
+        address=0x3469420121F0B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (12)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F08,
+        address=0x3469420121F0C,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (13)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420121F0A,
-        can_create=lambda options: options.grasssanity.value
-    ),
-    "Woodfall Temple Odolwas Lair (14)": MMRLocationData(
-        region="Woodfall Temple",
         address=0x3469420121F0D,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Woodfall Temple Odolwas Lair (15)": MMRLocationData(
+    "Woodfall Temple Odolwas Lair Grass (14)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420121F0E,
+        can_create=lambda options: options.grasssanity.value
+    ),
+    "Woodfall Temple Odolwas Lair Grass (15)": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420121F0F,
         can_create=lambda options: options.grasssanity.value
@@ -6779,52 +6799,52 @@ location_data_table: Dict[str, MMRLocationData] = {
         # Snowhead Temple Grass
     "Snowhead Temple Basement Grass (0)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122149,
+        address=0x3469420122140,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122147,
+        address=0x3469420122141,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122148,
+        address=0x3469420122142,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (3)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122142,
+        address=0x3469420122143,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (4)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122145,
+        address=0x3469420122144,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (5)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122146,
+        address=0x3469420122145,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (6)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122141,
+        address=0x3469420122146,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (7)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122144,
+        address=0x3469420122147,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (8)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122143,
+        address=0x3469420122148,
         can_create=lambda options: options.grasssanity.value
     ),
     "Snowhead Temple Basement Grass (9)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420122140,
+        address=0x3469420122149,
         can_create=lambda options: options.grasssanity.value
     ),
         # Stone Tower Temple Grass
@@ -6876,6 +6896,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.grasssanity.value
     ),
       # Clock Town Pots
+    "Trading Post Pot": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420203400,
+        can_create=lambda options: options.potsanity.value
+    ),
     "Sword School Night 3 Midnight Pots (0)": MMRLocationData(
         region="Clock Town",
         address=0x3469420205403,
@@ -6899,6 +6924,26 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Sword School Night 3 Midnight Pots (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420205400,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Top Of Clock Tower Pots (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420201900,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Top Of Clock Tower Pots (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420201901,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Top Of Clock Tower Pots (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420201902,
+        can_create=lambda options: options.potsanity.value
+    ), 
+    "Top Of Clock Tower Pots (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420201903,
         can_create=lambda options: options.potsanity.value
     ),
     "Bombers Hideout Pots (0)": MMRLocationData(
@@ -6982,27 +7027,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     
     "Swamp Spider House Main Room Pots (0)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420202712,
+        address=0x3469420202710,
         can_create=lambda options: options.potsanity.value
     ),
     "Swamp Spider House Main Room Pots (1)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420202713,
+        address=0x3469420202711,
         can_create=lambda options: options.potsanity.value
     ),
     "Swamp Spider House Main Room Pots (2)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420202714,
+        address=0x3469420202712,
         can_create=lambda options: options.potsanity.value
     ),
     "Swamp Spider House Main Room Pots (3)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420202711,
+        address=0x3469420202713,
         can_create=lambda options: options.potsanity.value
     ),
     "Swamp Spider House Main Room Pots (4)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420202710,
+        address=0x3469420202714,
         can_create=lambda options: options.potsanity.value
     ),
     "Swamp Spider House Main Room Pots (5)": MMRLocationData(
@@ -7015,7 +7060,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420202716,
         can_create=lambda options: options.potsanity.value
     ),
-    "Swamp Spider House Main Room Pots (6)": MMRLocationData(
+    "Swamp Spider House Main Room Pots (7)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420202717,
         can_create=lambda options: options.potsanity.value
@@ -7273,6 +7318,16 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Pots (2)": MMRLocationData(
         region="Mountain Village",
         address=0x34694202050F0,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Mountain Smithy Pots (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420202CF0,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Mountain Smithy Pots (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420202CF1,
         can_create=lambda options: options.potsanity.value
     ),
     
@@ -8152,7 +8207,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     
     # Zora Cape Pots
-    
+
+
     "Zora Cape Like Like Pool Pots (0)": MMRLocationData(
         region="Zora Cape",
         address=0x3469420203800,
@@ -8183,6 +8239,31 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420203804,
         can_create=lambda options: options.potsanity.value
     ),
+    "Zora Cape Jar Game Pots (0)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420203806,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Zora Cape Jar Game Pots (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420203807,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Zora Cape Jar Game Pots (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420203808,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Zora Cape Jar Game Pots (3)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420203809,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Zora Cape Jar Game Pots (4)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942020380A,
+        can_create=lambda options: options.potsanity.value
+    ),        
 
     # Great Bay Temple Pots
     
@@ -8939,8 +9020,19 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),
 
-    # Stone Tower Pots
-    
+
+    # Stone Tower Climb Pots
+    "Stone Tower Climb Pots (0)": MMRLocationData(
+        region="Stone Tower",
+        address=0x3469420205815,
+        can_create=lambda options: options.potsanity.value    
+     ),
+    "Stone Tower Climb Pots (1)": MMRLocationData(
+        region="Stone Tower",
+        address=0x3469420205816,
+        can_create=lambda options: options.potsanity.value    
+    ),  
+    # Stone Tower Lower Scarecrow Pots
     "Stone Tower Lower Scarecrow Pots (0)": MMRLocationData(
         region="Stone Tower",
         address=0x3469420205805,
@@ -9546,9 +9638,3975 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420200B01,
         can_create=lambda options: options.potsanity.value
     ),
+        # Rocks
 
+
+        # South Clock Town Targets Hitspot
+    "South Clock Town Targets Hitspot (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156F02,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "South Clock Town Targets Hitspot (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156F00,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "South Clock Town Targets Hitspot (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156F01,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # East Clock Town Targets And Basket Hitspots
+    "East Clock Town Targets And Basket Hitspots (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C22,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C21,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C20,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C02,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C10,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C00,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C01,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C11,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "East Clock Town Targets And Basket Hitspots (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156C12,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Sword School Gong
+    "Sword School Gong": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420165400,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Termina Field West Wall Hitspot
+    "Termina Field West Wall Hitspot (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D11,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Termina Field West Wall Hitspot (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D10,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Termina Field West Wall Hitspot (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D12,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Termina Field Above West Clock Town Entry Hitspot
+    "Termina Field Above West Clock Town Entry Hitspot (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D02,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Termina Field Above West Clock Town Entry Hitspot (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D00,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Termina Field Above West Clock Town Entry Hitspot (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D01,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Stock Pot Inn Mask Hitspot
+    "Stock Pot Inn Mask Hitspot (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156102,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Stock Pot Inn Mask Hitspot (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156101,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Stock Pot Inn Mask Hitspot (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420156100,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Skull Kid Drawing Hitspot
+    "Skull Kid Drawing Hitspot (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D22,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Skull Kid Drawing Hitspot (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D21,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Skull Kid Drawing Hitspot (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420152D20,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Romani Ranch Baby Cuccoos Hitspots
+    "Romani Ranch Baby Cuccoos Hitspots (0)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154202,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Hitspots (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154201,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Hitspots (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154211,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Hitspots (3)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154212,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Hitspots (4)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154210,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Hitspots (5)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420154200,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Swamp Spiderhouse Totem Eye Hitspots
+    "Swamp Spiderhouse Totem Eye Hitspots (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152710,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152711,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152712,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (3)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152720,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (4)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152721,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (5)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152722,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (6)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152730,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (7)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152731,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (8)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152732,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (9)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152800,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (10)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152801,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Swamp Spiderhouse Totem Eye Hitspots (11)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420152802,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Ocean Spiderhouse Mask Hitspots
+    "Ocean Spiderhouse Mask Hitspots (0)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152900,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152901,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (2)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152902,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (3)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152910,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (4)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152911,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (5)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152912,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (6)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152920,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (7)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152921,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ocean Spiderhouse Mask Hitspots (8)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420152922,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151410,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151402,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151412,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151411,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151400,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420151401,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot
+    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420152301,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420152302,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (2)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420152300,
+        can_create=lambda options: options.hitsanity.value
+    ),
+
+    # Ikana Graveyard Lantern Hitspots - NOTE: DUPLICATES FOUND!
+    "Ikana Graveyard Lantern Hitspots (0)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154310,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (1)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154311,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (2)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154312,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    # Duplicate addresses removed: 0x154302, 0x154301, 0x154300 appear twice
+    "Ikana Graveyard Lantern Hitspots (3)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154321,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (4)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154320,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (5)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154322,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (6)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154300,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (7)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154301,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (8)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154302,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (9)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154400,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (10)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154401,
+        can_create=lambda options: options.hitsanity.value
+    ),
+    "Ikana Graveyard Lantern Hitspots (11)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420154402,
+        can_create=lambda options: options.hitsanity.value
+    ),            
+
+    # INVISIBLE RUPEES
+
+    # Termina Field Invisible Rupee Over Ramp Near Fountains
+    "Termina Field Invisible Rupee Over Ramp Near Fountains": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D09,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Termina Field Fountain Rupees
+    "Termina Field Fountain Rupees (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D06,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Termina Field Fountain Rupees (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D07,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Termina Field Invisible Rupee Over Water
+    "Termina Field Invisible Rupee Over Water": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D0A,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Termina Field Invisible Rupee Over Stump
+    "Termina Field Invisible Rupee Over Stump": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D05,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Termina Field Invisible Rupees In Long Grass
+    # Duplicate removed
+    "Termina Field Invisible Rupees In Long Grass (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D00,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Termina Field Invisible Rupees In Long Grass (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D01,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Termina Field Invisible Rupees In Long Grass (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D02,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Termina Field Invisible Rupees In Long Grass (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D03,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Termina Field Invisible Rupees In Long Grass (4)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D04,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Termina Field Invisible Rupee Over Northern Ramp
+    "Termina Field Invisible Rupee Over Northern Ramp": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420162D08,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Romani Ranch Invisible Fence Rupees
+    "Romani Ranch Invisible Fence Rupees (0)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163505,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Romani Ranch Invisible Fence Rupees (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163504,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Romani Ranch Invisible Fence Rupees (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163501,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Romani Ranch Invisible Fence Rupees (3)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163500,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Romani Ranch Invisible Fence Rupees (4)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163503,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Romani Ranch Invisible Fence Rupees (5)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420163502,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # Swamp Spiderhouse Invisible Rupees Above Giant Jars
+    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420162744,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420162743,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420162742,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420162741,
+        can_create=lambda options: options.invisisanity.value
+    ),
+    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420162740,
+        can_create=lambda options: options.invisisanity.value
+    ),
+
+    # FREESTANDING RUPEES
+
+    # Laundry Pool Night 2 Rupees
+    "Laundry Pool Night 2 Rupees (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420177003,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Laundry Pool Night 2 Rupees (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420177004,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Laundry Pool Night 2 Rupees (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420177005,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Termina Field Eastern Pillar Rupees
+    "Termina Field Eastern Pillar Rupees": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420172D00,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Termina Field Tree Rupees
+    "Termina Field Tree Rupees (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420172DE1,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Tree Rupees (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420172DE2,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Termina Field Song Guay Rupees
+    "Termina Field Song Guay Rupees (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF00,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF01,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF02,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF03,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (4)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF04,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (5)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF05,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (6)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF06,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (7)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF07,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (8)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF08,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (9)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF09,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (10)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0A,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (11)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0B,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (12)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0C,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (13)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0D,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (14)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0E,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (15)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF0F,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (16)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF10,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (17)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF11,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (18)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF12,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Rupees (19)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF13,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Termina Field Song Guay Goron/Epona Rupees
+    "Termina Field Song Guay Goron/Epona Rupees (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF18,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Goron/Epona Rupees (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF1D,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Termina Field Song Guay Goron/Epona Rupees (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x346942017FF22,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Deku PlayGround Day 1 Rupees
+    "Deku PlayGround Day 1 Rupees (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E13,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 1 Rupees (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E10,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 1 Rupees (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E14,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 1 Rupees (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E12,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 1 Rupees (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E11,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 1 Rupees (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E15,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Deku PlayGround Day 2 Rupees
+    "Deku PlayGround Day 2 Rupees (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E25,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 2 Rupees (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E21,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 2 Rupees (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E20,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 2 Rupees (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E23,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 2 Rupees (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E24,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 2 Rupees (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E22,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Deku PlayGround Day 3 Rupees
+    "Deku PlayGround Day 3 Rupees (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E32,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 3 Rupees (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E31,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 3 Rupees (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E30,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 3 Rupees (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E33,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 3 Rupees (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E35,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku PlayGround Day 3 Rupees (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420171E34,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Southern Swamp Flower Rupees
+    "Southern Swamp Flower Rupees (0)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420174500,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Southern Swamp Flower Rupees (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420174501,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Southern Swamp Witch Shop Rupee (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420170A00,
+        can_create=lambda options: options.rupeesanity.value    
+    ),
+
+    # Deku Palace Right Side Rupees
+    "Deku Palace Right Side Rupees (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF2,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF1,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF6,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF0,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (4)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF5,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (5)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF4,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (6)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172BF3,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (7)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B10,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (8)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B11,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (9)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B15,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (10)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B14,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (11)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B13,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Right Side Rupees (12)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B12,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Deku Palace Left Side Rupees
+    "Deku Palace Left Side Rupees (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B24,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B25,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B26,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B21,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (4)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B20,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (5)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B22,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (6)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B2A,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (7)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B2B,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (8)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B27,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (9)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B28,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Palace Left Side Rupees (10)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420172B29,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Deku Butler Rupees
+    "Deku Butler Rupees (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175225,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175224,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175221,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175220,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (4)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175222,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (5)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175223,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (6)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175227,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (7)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175226,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (8)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175230,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (9)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175231,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (10)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175232,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (11)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175233,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (12)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175234,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (13)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175235,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (14)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175240,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (15)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175241,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (16)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175242,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (17)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175244,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (18)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175245,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (19)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175243,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (20)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175289,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (21)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175288,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (22)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175287,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (23)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175286,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (24)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175285,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (25)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175282,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (26)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175281,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (27)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175280,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (28)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175283,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Deku Butler Rupees (29)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420175284,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Woodfall Stump Rupee
+    "Woodfall Stump Rupee": MMRLocationData(
+        region="Woodfall",
+        address=0x3469420174600,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Romani Ranch Haystack Rupees
+    "Romani Ranch Haystack Rupees (0)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420171001,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Romani Ranch Haystack Rupees (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420171000,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Woodfall Temple Pre Boss Rupees
+    "Woodfall Temple Pre Boss Rupees (0)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B03,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Woodfall Temple Pre Boss Rupees (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B05,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Woodfall Temple Pre Boss Rupees (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B04,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Woodfall Temple Pre Boss Rupees (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B02,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Woodfall Temple Pre Boss Rupees (4)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B00,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Woodfall Temple Pre Boss Rupees (5)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420171B01,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Snowhead Temple Icicle Rupees
+    "Snowhead Temple Icicle Rupees (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420172170,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Snowhead Temple Icicle Rupees (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420172172,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Snowhead Temple Icicle Rupees (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420172171,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Mountain Village Spring Boulder Under Smithy Rupee
+    "Mountain Village Spring Boulder Under Smithy Rupee": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420175A00,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Twin Islands Spring Underwater Rupees
+    "Twin Islands Spring Underwater Rupees (0)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420175E02,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Twin Islands Spring Underwater Rupees (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420175E03,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Twin Islands Spring Underwater Rupees (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420175E00,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Twin Islands Spring Underwater Rupees (3)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420175E01,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    # Pirates' Fortress Sewers Rupees (Under Barrels)
+    "Pirates' Fortress Sewers Rupees Under Barrel (0)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172B0,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates' Fortress Sewers Rupees Under Barrel (1)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172B1,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates' Fortress Sewers Rupees Under Barrel (2)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172B2,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates' Fortress Sewers Rupees Under Barrel (4)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172B4,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Sewers Exit Barrel Rupee (0)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172390,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Sewers Exit Barrel Rupee (1)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172391,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Sewers Exit Barrel Rupee (2)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420172392,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Interior Ledge Recovery Hearts (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420171400,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Interior Ledge Recovery Hearts (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420171401,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Pirates Fortress' Interior Ledge Recovery Hearts (2)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420171402,
+        can_create=lambda options: options.rupeesanity.value
+    ),           
+    # Great Bay Temple Waterwheel Rupees
+    "Great Bay Temple Waterwheel Rupees (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174982,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Waterwheel Rupees (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174984,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Waterwheel Rupees (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174983,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Waterwheel Rupees (3)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174980,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Waterwheel Rupees (4)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174981,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Great Bay Temple Caged Chest Room Underwater Rupees
+    "Great Bay Temple Caged Chest Room Underwater Rupees (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174941,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Caged Chest Room Underwater Rupees (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420174940,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Ikana Graveyard Day 2 Rupees
+    "Ikana Graveyard Day 2 Rupees (0)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF0,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (1)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF5,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (2)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF6,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (3)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF1,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (4)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF2,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (5)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF3,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Ikana Graveyard Day 2 Rupees (6)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420170CF4,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Secret Shrine Rupees
+    "Secret Shrine Rupees (0)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600A,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (1)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600B,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (2)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176004,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (3)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176002,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (4)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176009,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (5)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176000,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (6)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176001,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (7)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176010,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (8)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600F,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (9)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600E,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (10)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600D,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (11)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x346942017600C,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (12)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176008,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (13)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176007,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (14)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176006,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (15)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176005,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Secret Shrine Rupees (16)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420176003,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Stone Tower Bridge Room Rupees
+    "Stone Tower Bridge Room Rupees (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171687,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171685,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (2)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171683,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (3)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171681,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (4)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171682,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (5)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171680,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (6)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171684,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Bridge Room Rupees (7)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171686,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Stone Tower Eyegore Room Light Block Rupees
+    "Stone Tower Eyegore Room Light Block Rupees (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171611,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Stone Tower Eyegore Room Light Block Rupees (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420171610,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Inverted Stone Tower Right Side Light Block Rupees
+    "Inverted Stone Tower Right Side Light Block Rupees (0)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171832,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Right Side Light Block Rupees (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171831,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Inverted Stone Tower Dexihand Rupees
+    "Inverted Stone Tower Dexihand Rupees (0)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171811,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Dexihand Rupees (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171810,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Dexihand Rupees (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171812,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Inverted Stone Tower Pre Boss Rupees
+    "Inverted Stone Tower Pre Boss Rupees (0)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171881,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171880,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171882,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (3)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171886,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (4)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171883,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (5)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171889,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (6)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x346942017188A,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (7)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171888,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (8)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171887,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (9)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171885,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Inverted Stone Tower Pre Boss Rupees (10)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420171884,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+
+    # Termina Field Kamaro Rock Circle
+    "Termina Field Kamaro Rock Circle (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D00,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D01,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D02,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D03,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (4)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D04,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (5)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D05,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (6)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D06,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field Kamaro Rock Circle (7)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420262D07,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Termina Field North West Rock Wall
+    "Termina Field North West Rock Wall (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D07,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field North West Rock Wall (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D03,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field North West Rock Wall (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D01,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field North West Rock Wall (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D04,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Termina Field North West Rock Wall (4)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D0C,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Termina Field Rock Behind Coast Wall
+    "Termina Field Rock Behind Coast Wall": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D00,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    # Termina Field Bio Baba Rock
+    "Termina Field Bio Baba Rock": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201827B0,
+        can_create=lambda options: options.rocksanity.value
+    ),    
+    # South West Rock Wall
+    "South West Rock Wall (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D0B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "South West Rock Wall (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D05,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "South West Rock Wall (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D06,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "South West Rock Wall (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420182D02,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Swamp Spider Entry Rocks
+    "Swamp Spider Entry Rocks (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420182701,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Swamp Spider Entry Rocks (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420182700,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Swamp Spider Large Pots Rock
+    "Swamp Spider Large Pots Rock": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420182740,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Goron Shrine Rocks
+    "Goron Shrine Rocks (0)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183202,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (1)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183201,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (2)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183203,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (3)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183200,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (4)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183206,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (5)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183207,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (6)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183205,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (7)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183204,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (8)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320D,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (9)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320C,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (10)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320E,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (11)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320F,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (12)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320A,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (13)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942018320B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (14)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183208,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Goron Shrine Rocks (15)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420183209,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Mountain Village Spring Rock Triangle
+    "Mountain Village Spring Rock Triangle (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A05,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Mountain Village Spring Rock Triangle (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A06,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Mountain Village Spring Rock Triangle (2)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A07,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Mountain Village Spring Rock Triangle (3)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A08,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Mountain Village Spring Rock Triangle (4)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A09,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+     # Mountain Village Spring Outside Goron Graveyard
+    "Mountain Village Spring Outside Goron Graveyard Rocks (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A00,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Mountain Village Spring Outside Goron Graveyard Rocks (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420185A01,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Twin Isles Spring Above Grotto Rocks
+    "Twin Isles Spring Above Grotto Rocks (0)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420185E00,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Twin Isles Spring Above Grotto Rocks (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420185E01,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Twin Isles Spring Above Grotto Rocks (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420185E02,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+
+    # Great Bay Coast Scattered Beach Rocks
+    "Great Bay Coast Scattered Beach Rocks (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183727,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Scattered Beach Rocks (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183728,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Scattered Beach Rocks (2)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183729,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Scattered Beach Rocks (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183726,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Scattered Beach Rocks (4)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018372A,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Great Bay Coast Rock Wall Rocks
+    "Great Bay Coast Rock Wall Rocks (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018372D,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Rock Wall Rocks (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018372B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Great Bay Coast Underwater Rocks (Bombchus only)
+    "Great Bay Coast Underwater Rocks (Bombchus only) (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018371C,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Underwater Rocks (Bombchus only) (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018372E,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Underwater Rocks (Bombchus only) (2)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018371B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Great Bay Coast Underwater Rocks (Bombchus only) (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018371A,
+        can_create=lambda options: options.rocksanity.value
+    ),    
+    # Rocks Underwater Easy to get
+    "Rocks Underwater Easy to get (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018370A,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Rocks Underwater Easy to get (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183724,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Rocks Underwater Easy to get (2)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420183723,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Rocks Underwater Easy to get (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018370B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Zora Cape Beach Rocks
+    "Zora Cape Beach Rocks (0)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942018380B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942018380A,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942018380C,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (3)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942018380D,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (4)": MMRLocationData(
+        region="Zora Cape",
+        address=0x346942018380E,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (5)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183806,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (6)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183807,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (7)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183805,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (8)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183808,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Beach Rocks (9)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183809,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Zora Cape Island Rocks (Req Hook)
+    "Zora Cape Island Rocks (0)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183801,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Island Rocks (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183803,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Island Rocks (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183802,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Island Rocks (3)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183804,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Zora Cape Island Rocks (4)": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420183800,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Road To Ikana Rock Circle
+    "Road To Ikana Rock Circle (0)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265300,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (1)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265301,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (2)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265302,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (3)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265303,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (4)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265304,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (5)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265305,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (6)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265306,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Road To Ikana Rock Circle (7)": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420265307,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Ikana Graveyard Rock Circle
+    "Ikana Graveyard Rock Circle (0)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420264315,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (1)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420264316,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (2)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420264317,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (3)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420264318,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (4)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420264319,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (5)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x346942026431A,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (6)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x346942026431B,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Rock Circle (7)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x346942026431C,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Ikana Graveyard Captain Rockwall - NOTE: DUPLICATES!
+    "Ikana Graveyard Captain Rockwall (0)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420184310,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Captain Rockwall (1)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420184311,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Captain Rockwall (2)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420184312,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Captain Rockwall (3)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420184313,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Ikana Graveyard Captain Rockwall (4)": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x3469420184314,
+        can_create=lambda options: options.rocksanity.value
+    ),
+
+    # Inverted Stone Lower Tower Rocks
+    "Inverted Stone Tower Rocks (0)": MMRLocationData(
+        region="Stone Tower (Inverted)",
+        address=0x3469420185900,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Inverted Stone Tower Rocks (1)": MMRLocationData(
+        region="Stone Tower (Inverted)",
+        address=0x3469420185901,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    # SOILS
+
+    # Termina Field Stump Soil
+    "Termina Field Stump Soil": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192DE3,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Termina Field Wall Soil
+    "Termina Field Wall Soil (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D42,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Termina Field Wall Soil (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D40,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Termina Field Wall Soil (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D41,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Termina Field Eastern Soil
+    "Termina Field Eastern Soil": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192DB3,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Termina Field Observatory Soil
+    "Termina Field Observatory Soil (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D50,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Termina Field Observatory Soil (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D51,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Termina Field Observatory Soil (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420192D52,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Swamp Spider House Rock Soil
+    "Swamp Spider House Rock Soil (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420192760,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Swamp Spider House Rock Soil (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420192762,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Swamp Spider House Rock Soil (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420192761,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Swamp Spider House Gold Room Soil
+    "Swamp Spider House Gold Room Soil": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420192723,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Deku Palace Bean Seller Soil
+    "Deku Palace Bean Seller Soil (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201907D0,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Deku Palace Bean Seller Soil (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201907D1,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Deku Palace Bean Seller Soil (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201907D2,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Deku Palace Exterior Soil
+    "Deku Palace Exterior Soil (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420192B30,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Deku Palace Exterior Soil (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420192B32,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Deku Palace Exterior Soil (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420192B31,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Romani Ranch Day 1 Soil
+    "Romani Ranch Day 1 Soil": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420193543,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Romani Ranch Day 2/3 Soil
+    "Romani Ranch Day 2/3 Soil (0)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420193540,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Romani Ranch Day 2/3 Soil (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420193542,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Romani Ranch Day 2/3 Soil (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420193541,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Romani Ranch Doggy Racetrack Soil
+    "Romani Ranch Doggy Racetrack Soil": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420194100,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Great Bay Coast Soil
+    "Great Bay Coast Soil": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420193793,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Secret Shrine Soil
+    "Secret Shrine Soil (0)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420196000,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Secret Shrine Soil (1)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420196001,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Secret Shrine Soil (2)": MMRLocationData(
+        region="Secret Shrine",
+        address=0x3469420196002,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # Stone Tower Inverted Soils
+    "Stone Tower Inverted Soils (0)": MMRLocationData(
+        region="Stone Tower (Inverted)",
+        address=0x3469420195903,
+        can_create=lambda options: options.soilsanity.value
+    ),
+    "Stone Tower Inverted Soils (1)": MMRLocationData(
+        region="Stone Tower (Inverted)",
+        address=0x3469420195933,
+        can_create=lambda options: options.soilsanity.value
+    ),
+
+    # SNOWBALLS
+
+    # Path to Mountains Snowballs
+    "Path to Mountains Snowballs (0)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C00,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (1)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C0C,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (2)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C07,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (3)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (4)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C09,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (5)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (6)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C08,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (7)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (8)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C05,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (9)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C06,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (10)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (11)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C0A,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (12)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C0E,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (13)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C0B,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Mountains Snowballs (14)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x3469420211C0D,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Mountain Village Day 1 Snowballs
+    "Mountain Village Day 1 Snowballs (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215000,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215001,
+        can_create=lambda options: options.snowsanity.value
+    ),    
+    "Mountain Village Day 1 Snowballs (2)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215002,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (3)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215003,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (4)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215004,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (5)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215005,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (6)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215006,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (7)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215007,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (8)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215008,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (9)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500B,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (10)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500C,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (11)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500D,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (12)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500E,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Day 1 Snowballs (13)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500F,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Snowballs Outside Goron Graveyard
+    "Snowballs Outside Goron Graveyard (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x346942021500A,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowballs Outside Goron Graveyard (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215009,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Twin Islands Day 1 Snowballs
+    "Twin Islands Day 1 Snowballs (0)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0D,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0E,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D05,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (3)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (4)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D07,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (5)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (6)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0B,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (7)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D06,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (8)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D08,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (9)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D09,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (10)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (11)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0C,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (12)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (13)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0A,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Islands Day 1 Snowballs (14)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D0F,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Twin Isles Snowballs Near Grotto
+    "Twin Isles Snowballs Near Grotto (0)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D11,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Isles Snowballs Near Grotto (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D12,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Twin Isles Snowballs Near Grotto (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D10,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Goron Village Snowballs
+    "Goron Village Snowballs (0)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D00,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (1)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0B,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (2)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D14,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (3)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0D,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (4)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D10,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (5)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0E,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (6)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D13,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (7)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D11,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (8)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0C,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (9)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (10)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0F,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (11)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D05,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (12)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D12,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (13)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D07,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (14)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D09,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (15)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (16)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (17)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D06,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (18)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D08,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Goron Village Snowballs (19)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D0A,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Path to Snowhead Snowballs
+    "Path to Snowhead Snowballs (0)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B06,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (1)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B05,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (2)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (3)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B00,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (4)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (5)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Path to Snowhead Snowballs (6)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420215B03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Outside Snowhead Temple Snowballs
+    "Outside Snowhead Temple Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C00,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (5)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C06,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (6)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C07,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (7)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C08,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (8)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C09,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Outside Snowhead Temple Snowballs (9)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420215C05,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Snowhead Temple Lower Runway Room Snowballs
+    "Snowhead Temple Lower Runway Room Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212121,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Lower Runway Room Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212120,
+        can_create=lambda options: options.snowsanity.value
+    ),    
+    "Snowhead Temple Icicle Room Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212172,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Icicle Room Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212171,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Icicle Room Snowballs (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212175,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Icicle Room Snowballs (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212170,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Icicle Room Snowballs (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212174,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Icicle Room Snowballs (5)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212173,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Snowhead Temple Main Room 2nd Floor Snowballs
+    "Snowhead Temple Main Room 2nd Floor Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212145,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Main Room 2nd Floor Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212141,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Main Room 2nd Floor Snowballs (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212140,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Main Room 2nd Floor Snowballs (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212142,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Main Room 2nd Floor Snowballs (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212143,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple Main Room 2nd Floor Snowballs (5)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212144,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Snowhead Temple 3rd Floor Bridge Snowballs
+    "Snowhead Temple 3rd Floor Bridge Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212147,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Bridge Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212146,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Bridge Snowballs (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212148,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Bridge Snowballs (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420212149,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Snowhead Temple 3rd Floor Behind Locked Door Snowballs
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A0,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A3,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A2,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A4,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A1,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (5)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A7,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (6)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A5,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (7)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202121A6,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
+    # Mountain Village Spring Snowballs
+    "Mountain Village Spring Snowballs (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215A03,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Spring Snowballs (1)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215A02,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Spring Snowballs (2)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215A01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Spring Snowballs (3)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215A04,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    "Mountain Village Spring Snowballs (4)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420215A00,
+        can_create=lambda options: options.snowsanity.value
+    ),
+    
+    # Crates/ Barrels Woodsanity
+    "Laundry Pool Crate (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420257000,
+        can_create=lambda options: options.woodsanity.value
+    ),    
+    "East Clock Town Crates (0)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420256C00,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "East Clock Town Crates (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420256C01,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Termina Field Business Scrub Grotto Crate (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420270790,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Romani Ranch Crates
+    "Romani Ranch Crate Next To Romani (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420253500,
+        can_create=lambda options: options.woodsanity.value
+    ), 
+    "Romani Ranch Baby Cuccoo Crates (0)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420254200,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Romani Ranch Baby Cuccoo Crates (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420254201,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Romani Ranch Baby Cuccoo Crates (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420254202,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Swamp Spider House 
+    "Swamp Spider House Monument Room Crates (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252730,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Swamp Spider House Monument Room Crates (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252731,
+        can_create=lambda options: options.woodsanity.value
+    ),                  
+    "Swamp Spider House Monument Room Crates (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252732,
+        can_create=lambda options: options.woodsanity.value
+    ),                  
+    "Swamp Spider House Monument Room Crates (3)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252733,
+        can_create=lambda options: options.woodsanity.value
+    ),                  
+    "Swamp Spider House Monument Room Crates (4)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252734,
+        can_create=lambda options: options.woodsanity.value
+    ),                  
+    "Swamp Spider House Monument Room Crates (5)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252735,
+        can_create=lambda options: options.woodsanity.value
+    ),                          
+    "Swamp Spider House Gold Room Crates (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252720,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Swamp Spider House Gold Room Crates (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420252721,
+        can_create=lambda options: options.woodsanity.value
+    ),
+
+    # Goron Village Keg Goron Crate
+    "Goron Village Keg Goron Crate (1)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420254D10,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Ocean Spiderhouse Basement Crate (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x3469420252850,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Pirates' Fortress Sewers Barrels/Crates
+    "Pirates' Fortress Sewers Barrel (0)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B0,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (1)": MMRLocationData(
+        region="Pirates' Fortress Sewers", 
+        address=0x3469420222B1,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (2)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B2,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (3)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B3,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (4)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B4,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (5)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B5,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (6)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B6,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (7)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B7,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (8)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B8,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (9)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222B9,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (10)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222BA,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (11)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222BB,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates' Fortress Sewers Barrel (12)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x3469420222BC,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Pirates Fortress Interior Crates
+    "Pirates Fortress' Interior Crates (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420251400,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates Fortress' Interior Crates (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420251401,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Pirates Fortress' Interior Crates (2)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420251402,
+        can_create=lambda options: options.woodsanity.value
+    ), 
+    "Pirates Fortress' Exterior Balcony Barrel (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420223B00,
+        can_create=lambda options: options.woodsanity.value
+    ),         
+    "Pirates' Fortress Leader's Room Crate (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420222330,
+        can_create=lambda options: options.woodsanity.value        
+    ),
+    "Pirates' Fortress Leader's Room Crate (1)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420222331,
+        can_create=lambda options: options.woodsanity.value        
+    ),
+    "Pirates' Fortress Guarded Bridge Barrel (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x3469420221400,
+        can_create=lambda options: options.woodsanity.value        
+    ),
+    "Pirates Fortress Interior Room Past Pink Guard Barrel (0)": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
+        address=0x34694202223D0,
+        can_create=lambda options: options.woodsanity.value        
+    ),           
+    #Dungeon Woodsanity
+    #Snowhead Temple
+    "Snowhead Temple Elevator Room Crates (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420252190,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Snowhead Temple Elevator Room Crates (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420252191,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Snowhead Temple Elevator Room Crates (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420252192,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Snowhead Temple Elevator Room Crates (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420252193,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Snowhead Temple Elevator Room Crates (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420252194,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Great Bay Temple Crates/Barrels
+    "Great Bay Temple Entrance Barrels (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D0,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D1,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D2,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (3)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D3,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (4)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D4,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (5)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D5,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (6)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D6,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Entrance Barrels (7)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249D7,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Room Behind 1F Waterfall Barrels (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249C0,
+        can_create=lambda options: options.woodsanity.value
+    ),
+
+    "Great Bay Temple Room Behind 1F Waterfall Barrels (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249C1,
+        can_create=lambda options: options.woodsanity.value
+    ),
+
+    "Great Bay Temple Room Behind 1F Waterfall Barrels (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202249C2,
+        can_create=lambda options: options.woodsanity.value
+    ),    
+   #Icicles
+    "Great Bay Temple 1F Red Valve Room Barrels (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224920,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Barrels (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224921,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Barrels (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224922,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Barrels (3)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224923,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Barrels (4)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224924,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Crates (5)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254920,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Crates (6)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254921,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Crates (7)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254922,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Crates (8)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254923,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Red Valve Room Crates (9)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254924,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254950,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254951,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254952,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (3)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254953,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (4)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254954,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (5)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254955,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (6)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254956,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (7)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254957,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (8)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254958,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (9)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420254959,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (10)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495A,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (11)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495B,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (12)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495C,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (13)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495D,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (14)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495E,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple 1F Frog Miniboss Crates (15)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x346942025495F,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A0,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A1,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A2,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (3)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A3,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (4)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A4,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (5)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A5,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Seesaw Room Crates (6)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694202549A6,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Green Pipe Frozen Waterwheel Crates (0)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224990,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Great Bay Temple Green Pipe Frozen Waterwheel Crates (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420224991,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    # Stone Tower Temple Crates
+    "Stone Tower Temple Mirror Room Crates (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251670,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Mirror Room Crates (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251671,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Eyegore Room Crates (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251610,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Eyegore Room Crates (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251611,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Eyegore Room Crates (2)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251612,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420271620,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420271621,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (2)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420271622,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (3)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420271623,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (4)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420271624,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (5)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251620,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Behind Bombable Wall Crates (6)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251621,
+        can_create=lambda options: options.woodsanity.value
+    ),         
+    # Stone Tower Temple Inverted Crates
+    "Stone Tower Temple Inverted Entry Crates (0)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251800,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Entry Crates (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251801,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Entry Crates (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251802,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Entry Crates (3)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251803,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Entry Crates (4)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251804,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (0)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251830,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251831,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251832,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (3)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251833,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (4)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251834,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Inverted Thin Hallway Crates (5)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x3469420251835,
+        can_create=lambda options: options.woodsanity.value
+    ),                            
+    # Icicles
+    #Snowhead Temple
+    "Snowhead Temple Entry Block Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232100,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Entry Block Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232101,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Entry Block Icicles (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232104,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Entry Block Icicles (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232105,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Entry Block Icicles (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232106,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Grey Door Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232102,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Grey Door Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232103,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple 3F Behind Locked Door Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202321A0,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple 3F Behind Locked Door Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202321A1,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple 3F Behind Locked Door Icicles (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202321A2,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple 4F Outside Wizzrobe Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232140,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple 4F Outside Wizzrobe Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232144,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+     # Snowhead Temple Outside Boss Icicles
+    "Snowhead Temple Outside Boss Door Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232141,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Outside Boss Door Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232142,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Outside Boss Door Icicles (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232143,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Snowhead Temple Outside Boss Door Icicles (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420232145,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Goron Trial Icicles (0)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420233F00,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Goron Trial Icicles (1)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420233F01,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Goron Trial Icicles (2)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420233F02,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Goron Trial Icicles (3)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420233F03,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+
+    # Hivesanity
+    # Termina Field
+    "Termina Field Bombable Rock Grotto Hive (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420240700,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Termina Field Bio Baba Grotto Hive (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x34694202407B1,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Termina Field Bio Baba Grotto Hive (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x34694202407B2,
+        can_create=lambda options: options.hivesanity.value
+    ),        
+    #Southern Swamp Hives
+    "Southern Swamp Hive Near Frog (0)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420244500,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    #Swamp Spider House Hives
+    "Swamp Spider House Giant Pot Room Hives (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242740,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider House Giant Pot Room Hives (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242741,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider House Giant Pot Room Hives (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242744,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider House Gold Room Hives (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242720,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider House Gold Room Hives (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242722,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider Tree Room Hives (0)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242750,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider Tree Room Hives (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242751,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Swamp Spider Tree Room Hives (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x3469420242753,
+        can_create=lambda options: options.hivesanity.value
+    ),            
+    #Woodfall Temple Hives
+    "Woodfall Temple Entrance Hive (0)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420241B20,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Woodfall Temple Push Block Hive (0)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420241B31,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    # Mountain Village Spring Hives   
+    "Mountain Village Spring Tree Hive (0)": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420245A00,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    #RealFairySanity Gossips/Butterfly Fairies
+    
+    # Termina Field Gossip Fairies
+    "Termina Field Southern Tree Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F2D30,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Near Thieving Bird Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F2D38,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Near Bombable Rock Grotto Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F2D39,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Gossip Grotto Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F0710,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Near Songwall Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F2D3A,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Eastern Corner Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F2D3B,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Road To Southern Swamp Gossip Fairy
+    "Road To Southern Swamp Gossip Fairy": MMRLocationData(
+        region="Termina Field",
+        address=0x34694201F4030,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Southern Swamp Gossip Fairies
+    "Southern Swamp Near Witch Gossip Fairy": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694201F4531,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Swamp Spider House Gossip Fairy": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694201F2737,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Milk Road Gossip Fairy
+    "Milk Road Gossip Fairy": MMRLocationData(
+        region="Milk Road",
+        address=0x34694201F003E,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Romani Ranch Gossip Fairies
+    "Romani Ranch Entry Gossip Fairy": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694201F3534,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Romani Ranch Tree Gossip Fairy": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694201F353C,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Romani Ranch Near Barn Gossip Fairy": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694201F353D,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Romani Ranch Baby Cuccoos Gossip Fairy": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694201F3532,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Romani Ranch Doggy Racetrack Gossip Fairy": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694201F3533,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Path To Mountain Village Gossip Fairy
+    "Path To Mountain Village Gossip Fairy": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x34694201F1C33,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Mountain Village Gossip Fairies
+    "Mountain Village Spring Waterfall Gossip Fairy": MMRLocationData(
+        region="Mountain Village",
+        address=0x34694201F5A36,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy": MMRLocationData(
+        region="Mountain Village",
+        address=0x34694201F5A32,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Great Bay Gossip Fairy
+    "Great Bay Coast Rock Wall Gossip Fairy": MMRLocationData(
+        region="Great Bay",
+        address=0x34694201F373F,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Zora Cape Gossip Fairy
+    "Zora Cape Gossip Fairy": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694201F3834,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Road To Ikana Gossip Fairy
+    "Road To Ikana Gossip Fairy": MMRLocationData(
+        region="Road to Ikana",
+        address=0x34694201F5335,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Ikana Canyon Gossip Fairies
+    "Ikana Canyon Near Octoroks Gossip Fairy": MMRLocationData(
+        region="Ikana Canyon",
+        address=0x34694201F1336,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy": MMRLocationData(
+        region="Ikana Canyon",
+        address=0x34694201F1335,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Ikana Canyon Near Ghost House Gossip Fairy": MMRLocationData(
+        region="Ikana Canyon",
+        address=0x34694201F1337,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # The Moon Gossip Fairies
+    
+    # Goron Trial Gossip Fairies
+    "Goron Trial 1st Gazebo Gossip (0)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F3F0F,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Goron Trial 1st Gazebo Gossip (1)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F3F0E,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Goron Trial 2nd Gazebo Gossip (0)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F3F0C,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Goron Trial 2nd Gazebo Gossip (1)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F000D,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Goron Trial Near Heart Piece Gossip (1)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F3F0B,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Zora Trial Gossip Fairies
+    "Zora Trial RRR Path Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F4714,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Zora Trial RRL Path Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F4713,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Zora Trial LRR Path Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F4712,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Zora Trial LRLL Path Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F4711,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Zora Trial LLL Path Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F4710,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Deku Trial Gossip Fairies
+    "Deku Trial Front Left Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F2A06,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Deku Trial Back Left Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F2A08,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Deku Trial Front Right Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F2A07,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Deku Trial Back Right Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F2A09,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Deku Trial Furthest Back Gossip": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F000A,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    
+    # Link Trial Gossip Fairies
+    "Link Trial Gossip (1)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F6601,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Link Trial Gossip (2)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F6602,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Link Trial Gossip (3)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F6603,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Link Trial Gossip (4)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F6604,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Link Trial Gossip (5)": MMRLocationData(
+        region="The Moon",
+        address=0x34694201F6605,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    #Butterfly Fairies
+    #Termina Field Butterflies
+    "Termina Field Near Peahat Grotto Butterfly Fairy (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420BF2D00,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Termina Field Cow Grotto Butterfly Fairy (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420BFADA0,
+        can_create=lambda options: options.realfairysanity.value
+    ),    
+    "Termina Field Bombable Rock Grotto Butterfly Fairy (0)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420BF0700,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    #Deku Palace Butterfly
+    "Deku Palace Bean Seller Butterfly Fairy (0)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420BF8CC0,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    #Great Bay Coast Butterflies
+    "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420BF3700,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+
+    #Moon Butterflies
+    "Moon Butterfly Fairy (0)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6700,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (1)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6701,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (2)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6702,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (3)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6703,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (4)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6704,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (5)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6705,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (6)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6706,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (7)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6707,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (8)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6708,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (9)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF6709,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (10)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF670A,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (11)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF670B,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Moon Butterfly Fairy (12)": MMRLocationData(
+        region="The Moon",
+        address=0x3469420BF670C,
+        can_create=lambda options: options.realfairysanity.value
+    ),                
 }
 
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}
+
 code_to_location_table = {data.address: name for name, data in location_data_table.items() if data.address is not None}
 locked_locations = {name: data for name, data in location_data_table.items() if data.locked_item}
