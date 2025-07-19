@@ -111,10 +111,40 @@ class MMRWorld(World):
             self.create_and_add_filler_items(1)
 
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(984)
+            self.create_and_add_filler_items(1003)
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(517)
+            self.create_and_add_filler_items(534)
+        
+        if self.options.rocksanity.value != 0:
+            self.create_and_add_filler_items(101)
+
+        if self.options.soilsanity.value != 0:
+            self.create_and_add_filler_items(29)                          
+
+        if self.options.hitsanity.value != 0:
+            self.create_and_add_filler_items(73)  
+
+        if self.options.invisisanity.value != 0:
+            self.create_and_add_filler_items(22) 
+
+        if self.options.rupeesanity.value != 0:
+            self.create_and_add_filler_items(188)
+
+        if self.options.snowsanity.value != 0:
+            self.create_and_add_filler_items(117)
+
+        if self.options.woodsanity.value != 0:
+            self.create_and_add_filler_items(116)
+                                 
+        if self.options.realfairysanity.value != 0:
+            self.create_and_add_filler_items(62)
+
+        if self.options.iciclesanity.value != 0:
+            self.create_and_add_filler_items(20)
+
+        if self.options.hivesanity.value != 0:
+            self.create_and_add_filler_items(15)   
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -344,7 +374,9 @@ class MMRWorld(World):
             self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
 
     def get_filler_item_name(self) -> str:
-        filler_items = ["Blue Rupee", "Red Rupee", "Purple Rupee", "Silver Rupee", "Gold Rupee"]
+        filler_items = ["Blue Rupee", "Red Rupee", "Purple Rupee", "Silver Rupee", "Gold Rupee", 
+                        "Bundle of 30 Arrows", "Bomb Refill 10", "Bomb Refill 30", "Deku Nuts 10", "Recovery Heart",
+                        "Small Magic Jar", "Large Magic Jar"]
         return self.random.choice(filler_items)
         # filler_weights = (50, 25, 10, 5, 1)
         # return self.random.choices(filler_items, weights=filler_weights)[0]
@@ -391,7 +423,19 @@ class MMRWorld(World):
         return {
             "skullsanity": self.options.skullsanity.value,
             "fairysanity": self.options.fairysanity.value,
-            "shopsanity": self.options.shopsanity.value,                                                                
+            "shopsanity": self.options.shopsanity.value,
+            "grasssanity": self.options.rocksanity.value,
+            "potsanity": self.options.rocksanity.value,                        
+            "rocksanity": self.options.rocksanity.value,
+            "hitsanity": self.options.hitsanity.value,            
+            "soilsanity": self.options.soilsanity.value,  
+            "invisisanity": self.options.invisisanity.value,
+            "rupeesanity": self.options.rupeesanity.value,
+            "snowsanity": self.options.snowsanity.value,
+            "woodsanity": self.options.woodsanity.value,
+            "realfairysanity": self.options.realfairysanity.value,
+            "iciclesanity":  self.options.iciclesanity.value,
+            "hivesanity": self.options.realfairysanity.value,                                                                
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
             "cowsanity": self.options.cowsanity.value,
