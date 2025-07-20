@@ -67,6 +67,8 @@ class MMRWorld(World):
         mw.push_precollected(self.create_item("Ocarina of Time"))
         mw.push_precollected(self.create_item("Song of Time"))
 
+        self.create_and_add_filler_items(18)
+
         if self.options.swordless.value:
             mw.itempool.append(self.create_item("Progressive Sword"))
 
@@ -111,10 +113,10 @@ class MMRWorld(World):
             self.create_and_add_filler_items(1)
 
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1003)
+            self.create_and_add_filler_items(990)
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(534)
+            self.create_and_add_filler_items(532)
         
         if self.options.rocksanity.value != 0:
             self.create_and_add_filler_items(101)
@@ -135,7 +137,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(117)
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(116)
+            self.create_and_add_filler_items(113)
                                  
         if self.options.realfairysanity.value != 0:
             self.create_and_add_filler_items(62)
