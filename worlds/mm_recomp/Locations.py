@@ -7199,47 +7199,42 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Temple Main Room Pots (0)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B15,
+        address=0x3469420201B10,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (1)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B18,
-        can_create=lambda options: options.potsanity.value
-    ),
-    "Woodfall Temple Main Room Pots (2)": MMRLocationData(
-        region="Woodfall Temple",
-        address=0x3469420201B16,
+        address=0x3469420201B11,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (3)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B17,
+        address=0x3469420201B12,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Woodfall Temple Main Room Pots (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420201B13,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (4)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B12,
+        address=0x3469420201B14,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (5)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B10,
+        address=0x3469420201B15,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (6)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B11,
+        address=0x3469420201B17,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Main Room Pots (7)": MMRLocationData(
         region="Woodfall Temple",
-        address=0x3469420201B14,
-        can_create=lambda options: options.potsanity.value
-    ),
-    "Woodfall Temple Main Room Pots (8)": MMRLocationData(
-        region="Woodfall Temple",
-        address=0x3469420201B13,
+        address=0x3469420201B18,
         can_create=lambda options: options.potsanity.value
     ),
     "Woodfall Temple Deku Elevator Pots (0)": MMRLocationData(
@@ -7749,21 +7744,31 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420202142,
         can_create=lambda options: options.potsanity.value
     ),
-    "Snowhead Temple 4th Floor Wizzrobe Pots (0)": MMRLocationData(
+       "Snowhead Temple 4th Floor Wizzrobe Pots (0)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x34694202021C2,
+        address=0x34694202021C0,
         can_create=lambda options: options.potsanity.value
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x34694202021C4,
+        address=0x34694202021C1,
         can_create=lambda options: options.potsanity.value
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (2)": MMRLocationData(
         region="Snowhead Temple",
+        address=0x34694202021C2,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Snowhead Temple 4th Floor Wizzrobe Pots (3)": MMRLocationData(
+        region="Snowhead Temple",
         address=0x34694202021C3,
         can_create=lambda options: options.potsanity.value
     ),
+    "Snowhead Temple 4th Floor Wizzrobe Pots (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202021C4,
+        can_create=lambda options: options.potsanity.value
+    ),        
     "Goht Boss Room Pots (0)": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942020440C,
@@ -9815,47 +9820,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Swamp Spiderhouse Totem Eye Hitspots
     "Swamp Spiderhouse Totem Eye Hitspots (0)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152710,
+        address=0x3469420152810,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (1)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152711,
+        address=0x3469420152811,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (2)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152712,
+        address=0x3469420152812,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (3)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152720,
+        address=0x3469420152820,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (4)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152721,
+        address=0x3469420152821,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (5)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152722,
+        address=0x3469420152822,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (6)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152730,
+        address=0x3469420152830,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (7)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152731,
+        address=0x3469420152831,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (8)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420152732,
+        address=0x3469420152832,
         can_create=lambda options: options.hitsanity.value
     ),
     "Swamp Spiderhouse Totem Eye Hitspots (9)": MMRLocationData(
@@ -10167,17 +10172,17 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Laundry Pool Night 2 Rupees
     "Laundry Pool Night 2 Rupees (0)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420177003,
+        address=0x3469420177000,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Laundry Pool Night 2 Rupees (1)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420177004,
+        address=0x3469420177001,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Laundry Pool Night 2 Rupees (2)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420177005,
+        address=0x3469420177002,
         can_create=lambda options: options.rupeesanity.value
     ),
 
@@ -11236,7 +11241,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Termina Field Bio Baba Rock
     "Termina Field Bio Baba Rock": MMRLocationData(
         region="Termina Field",
-        address=0x34694201827B0,
+        address=0x34694201807B0,
         can_create=lambda options: options.rocksanity.value
     ),    
     # South West Rock Wall
@@ -11581,6 +11586,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Road To Ikana Rock Circle
+    "Road To Ikana Grotto Boulder": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420185300,
+        can_create=lambda options: options.rocksanity.value
+    ),          
     "Road To Ikana Rock Circle (0)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265300,
@@ -11837,7 +11847,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Romani Ranch Doggy Racetrack Soil
     "Romani Ranch Doggy Racetrack Soil": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420194100,
+        address=0x3469420194103,
         can_create=lambda options: options.soilsanity.value
     ),
 
@@ -12514,63 +12524,63 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Romani Ranch Crates
     "Romani Ranch Crate Next To Romani (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420253500,
+        address=0x3469420273500,
         can_create=lambda options: options.woodsanity.value
     ), 
     "Romani Ranch Baby Cuccoo Crates (0)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420254200,
+        address=0x3469420274200,
         can_create=lambda options: options.woodsanity.value
     ),
     "Romani Ranch Baby Cuccoo Crates (1)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420254201,
+        address=0x3469420274201,
         can_create=lambda options: options.woodsanity.value
     ),
     "Romani Ranch Baby Cuccoo Crates (2)": MMRLocationData(
         region="Romani Ranch",
-        address=0x3469420254202,
+        address=0x3469420274202,
         can_create=lambda options: options.woodsanity.value
     ),
     # Swamp Spider House 
     "Swamp Spider House Monument Room Crates (0)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252730,
+        address=0x3469420272730,
         can_create=lambda options: options.woodsanity.value
     ),
     "Swamp Spider House Monument Room Crates (1)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252731,
+        address=0x3469420272731,
         can_create=lambda options: options.woodsanity.value
     ),                  
     "Swamp Spider House Monument Room Crates (2)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252732,
+        address=0x3469420272732,
         can_create=lambda options: options.woodsanity.value
     ),                  
     "Swamp Spider House Monument Room Crates (3)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252733,
+        address=0x3469420272733,
         can_create=lambda options: options.woodsanity.value
     ),                  
     "Swamp Spider House Monument Room Crates (4)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252734,
+        address=0x3469420272734,
         can_create=lambda options: options.woodsanity.value
     ),                  
     "Swamp Spider House Monument Room Crates (5)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252735,
+        address=0x3469420272735,
         can_create=lambda options: options.woodsanity.value
     ),                          
     "Swamp Spider House Gold Room Crates (0)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252720,
+        address=0x3469420272720,
         can_create=lambda options: options.woodsanity.value
     ),
     "Swamp Spider House Gold Room Crates (1)": MMRLocationData(
         region="Swamp Spider House",
-        address=0x3469420252721,
+        address=0x3469420272721,
         can_create=lambda options: options.woodsanity.value
     ),
 
@@ -12694,31 +12704,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),           
     #Dungeon Woodsanity
     #Snowhead Temple
+    
+    "Snowhead Temple Lava Bridge Room Crate (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420272120,
+        can_create=lambda options: options.woodsanity.value
+    ),    
     "Snowhead Temple Elevator Room Crates (0)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420252190,
+        address=0x3469420272190,
         can_create=lambda options: options.woodsanity.value
     ),
     "Snowhead Temple Elevator Room Crates (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420252191,
+        address=0x3469420272191,
         can_create=lambda options: options.woodsanity.value
     ),
     "Snowhead Temple Elevator Room Crates (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420252192,
+        address=0x3469420272192,
         can_create=lambda options: options.woodsanity.value
     ),
     "Snowhead Temple Elevator Room Crates (3)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420252193,
+        address=0x3469420272193,
         can_create=lambda options: options.woodsanity.value
     ),
     "Snowhead Temple Elevator Room Crates (4)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420252194,
+        address=0x3469420272194,
         can_create=lambda options: options.woodsanity.value
     ),
+    "Snowhead Temple Timed Switch Puzzle Room Crate (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420272180,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Snowhead Temple Timed Switch Puzzle Room Crate (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420272181,
+        can_create=lambda options: options.woodsanity.value
+    ),        
     # Great Bay Temple Crates/Barrels
     "Great Bay Temple Entrance Barrels (0)": MMRLocationData(
         region="Great Bay Temple",
@@ -12805,27 +12831,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Temple 1F Red Valve Room Crates (5)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x3469420254920,
+        address=0x3469420274920,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple 1F Red Valve Room Crates (6)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x3469420254921,
+        address=0x3469420274921,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple 1F Red Valve Room Crates (7)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x3469420254922,
+        address=0x3469420274922,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple 1F Red Valve Room Crates (8)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x3469420254923,
+        address=0x3469420274923,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple 1F Red Valve Room Crates (9)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x3469420254924,
+        address=0x3469420274924,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple 1F Frog Miniboss Crates (0)": MMRLocationData(
@@ -12910,37 +12936,37 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Temple Seesaw Room Crates (0)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A0,
+        address=0x34694202749A0,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (1)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A1,
+        address=0x34694202749A1,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (2)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A2,
+        address=0x34694202749A2,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (3)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A3,
+        address=0x34694202749A3,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (4)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A4,
+        address=0x34694202749A4,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (5)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A5,
+        address=0x34694202749A5,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Seesaw Room Crates (6)": MMRLocationData(
         region="Great Bay Temple",
-        address=0x34694202549A6,
+        address=0x34694202749A6,
         can_create=lambda options: options.woodsanity.value
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Crates (0)": MMRLocationData(
@@ -12954,14 +12980,24 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.woodsanity.value
     ),
     # Stone Tower Temple Crates
+    "Stone Tower Temple Entrance Room Crates (0)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251600,
+        can_create=lambda options: options.woodsanity.value
+    ),
+    "Stone Tower Temple Entrance Room Crates (1)": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x3469420251601,
+        can_create=lambda options: options.woodsanity.value
+    ),        
     "Stone Tower Temple Mirror Room Crates (0)": MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420251670,
+        address=0x3469420271670,
         can_create=lambda options: options.woodsanity.value
     ),
     "Stone Tower Temple Mirror Room Crates (1)": MMRLocationData(
         region="Stone Tower Temple",
-        address=0x3469420251671,
+        address=0x3469420271671,
         can_create=lambda options: options.woodsanity.value
     ),
     "Stone Tower Temple Eyegore Room Crates (0)": MMRLocationData(
@@ -13153,6 +13189,31 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420232145,
         can_create=lambda options: options.iciclesanity.value
     ),
+    "Great Bay Temple Outside Frog Miniboss Door Icicles (0)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420234940,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Great Bay Temple Outside Frog Miniboss Door Icicles (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420234941,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Great Bay Temple Outside Frog Miniboss Door Icicles (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420234942,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Great Bay Temple Outside Frog Miniboss Door Icicles (3)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420234943,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Great Bay Temple Outside Frog Miniboss Door Icicles (4)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420234942,
+        can_create=lambda options: options.iciclesanity.value
+    ),           
     "Goron Trial Icicles (0)": MMRLocationData(
         region="The Moon",
         address=0x3469420233F00,
