@@ -8282,22 +8282,22 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420204900,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Room Behind 1F Waterfall (0)": MMRLocationData(
+    "Great Bay Temple Room Behind 1F Waterfall Pots (0)": MMRLocationData(
         region="Great Bay Temple",
         address=0x34694202049C3,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Room Behind 1F Waterfall (1)": MMRLocationData(
+    "Great Bay Temple Room Behind 1F Waterfall Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x34694202049C2,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Room Behind 1F Waterfall (2)": MMRLocationData(
+    "Great Bay Temple Room Behind 1F Waterfall Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x34694202049C0,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Room Behind 1F Waterfall (3)": MMRLocationData(
+    "Great Bay Temple Room Behind 1F Waterfall Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x34694202049C1,
         can_create=lambda options: options.potsanity.value
