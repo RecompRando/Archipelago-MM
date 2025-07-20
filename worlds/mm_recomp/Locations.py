@@ -13593,7 +13593,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420BF3700,
         can_create=lambda options: options.realfairysanity.value
     ),
-
+    "Great Bay Coast cow Grotto Butterfly Fairy (0)": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420BFB7A0,
+        can_create=lambda options: options.realfairysanity.value
+    ),    
     #Moon Butterflies
     "Moon Butterfly Fairy (0)": MMRLocationData(
         region="The Moon",
