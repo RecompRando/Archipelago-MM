@@ -3908,7 +3908,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Southern Swamp Grass Group 2 (0)": MMRLocationData(
         region="Southern Swamp",
-        address=0x346942010450,
+        address=0x3469420103450,
         can_create=lambda options: options.grasssanity.value
     ),
     "Southern Swamp Grass Group 2 (1)": MMRLocationData(
@@ -4289,31 +4289,26 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall",
         address=0x3469420124600,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (2)": MMRLocationData(
         region="Woodfall",
         address=0x3469420124601,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (3)": MMRLocationData(
         region="Woodfall",
         address=0x3469420124602,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (4)": MMRLocationData(
         region="Woodfall",
         address=0x3469420124603,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (5)": MMRLocationData(
         region="Woodfall",
         address=0x3469420124604,
         can_create=lambda options: options.grasssanity.value
-        # can_create=lamda options: options.grasssanity.value
     ),
     "Woodfall Grass (6)": MMRLocationData(
         region="Woodfall",
