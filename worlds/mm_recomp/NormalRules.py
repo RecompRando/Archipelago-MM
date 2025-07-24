@@ -2427,7 +2427,25 @@ def get_location_rules(player, options):
             ),
 
             # Grass Location Rules
-
+        "North Clock Town Keaton Grass (1)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (2)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (3)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (4)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (5)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (6)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (7)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (8)":
+            lambda state: True,
+        "North Clock Town Keaton Grass (9)":
+            lambda state: True,
+                                                                              
         # Termina Field Grass Group 0
         "Termina Field Grass Group 0 (0)":
             lambda state: True,
@@ -2896,32 +2914,6 @@ def get_location_rules(player, options):
         "Termina Field Grass Group 17 (11)":
             lambda state: True,
         
-        # Termina Field Grass Group 18
-        "Termina Field Grass Group 18 (1)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (2)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (3)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (4)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (5)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (6)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (7)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (8)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (9)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (10)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (11)":
-            lambda state: True,
-        "Termina Field Grass Group 18 (12)":
-            lambda state: True,
-        
         # Termina Field Grass Grotto Grass
         "Termina Field Grass Grotto Grass (1)":
             lambda state: True,
@@ -3183,7 +3175,7 @@ def get_location_rules(player, options):
         "Termina Field Eastern Pillar Grotto Grass (14)":
             lambda state: True,
         
-        # Termina Field Bombable Rock Grass - Special Rule
+        # Termina Field Bombable Rock Grass 
         "Termina Field Bombable Rock Grass (1)":
             lambda state: (
                 has_explosives(state, player) or 
@@ -4195,23 +4187,23 @@ def get_location_rules(player, options):
             lambda state: can_clear_snowhead(state, player),
         
         # Mountain Village Springtime Keaton Grass
-        "Mountain Village Springtime Keaton Grass (1)":
+        "Mountain Village Keaton Grass (0)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (2)":
+        "Mountain Village Keaton Grass (1)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (3)":
+        "Mountain Village Keaton Grass (2)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (4)":
+        "Mountain Village Keaton Grass (3)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (5)":
+        "Mountain Village Keaton Grass (4)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (6)":
+        "Mountain Village Keaton Grass (5)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (7)":
+        "Mountain Village Keaton Grass (6)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (8)":
+        "Mountain Village Keaton Grass (7)":
             lambda state: can_clear_snowhead(state, player),
-        "Mountain Village Springtime Keaton Grass (9)":
+        "Mountain Village Keaton Grass (8)":
             lambda state: can_clear_snowhead(state, player),
         
         # Mountain Village Spring Grotto Grass
@@ -4244,7 +4236,37 @@ def get_location_rules(player, options):
         "Mountain Village Spring Grotto Grass (14)":
             lambda state: can_clear_snowhead(state, player),
 
-        # Great Bay Coast Grass - Requires Epona's Song
+        # Great Bay Coast Grotto Grass - Requires Epona's Song
+        "Great Bay Coast Grotto Grass (0)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (1)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (2)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (3)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (4)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (5)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (6)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (7)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (8)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (9)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (10)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (11)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (12)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+        "Great Bay Coast Grotto Grass (13)":
+            lambda state: can_play_song("Epona's Song", state, player),  
+
+        # Great Bay Coast Grass - Requires Epona's Song                                                                                                                                                                      
         "Great Bay Coast Grass (1)":
             lambda state: can_play_song("Epona's Song", state, player),
         "Great Bay Coast Grass (2)":
@@ -5094,7 +5116,7 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player)
                 )
             ),
-# Ikana Castle Grass - Requires Mirror Shield or Light Arrows
+        # Ikana Castle Grass - Requires Mirror Shield or Light Arrows
         "Ikana Castle Grass (1)":
             lambda state: (
                 has_mirror_shield(state, player) or 
@@ -5176,7 +5198,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Snowhead Temple Basement Grass (9)":
             lambda state: True,
-# Stone Tower Temple Entrance Room Grass
+        # Stone Tower Temple Entrance Room Grass
         "Stone Tower Temple Entrance Room Grass (0)":
             lambda state: True,
         "Stone Tower Temple Entrance Room Grass (1)":
@@ -5223,7 +5245,9 @@ def get_location_rules(player, options):
             ),
 
         # Clock Town Pots
-        
+        "Trading Post Pot":
+            lambda state: True,
+
         # Sword School Night 3 Midnight Pots - Requires Progressive Sword
         "Sword School Night 3 Midnight Pots (0)":
             lambda state: state.has("Progressive Sword", player),
@@ -5235,7 +5259,17 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Sword", player),
         "Sword School Night 3 Midnight Pots (4)":
             lambda state: state.has("Progressive Sword", player),
-        
+
+        # Clock Tower Pots Night 3
+        "Top Of Clock Tower Pots (0)":
+            lambda state: True,
+        "Top Of Clock Tower Pots (1)":
+            lambda state: True,
+        "Top Of Clock Tower Pots (2)":
+            lambda state: True,
+        "Top Of Clock Tower Pots (3)":
+            lambda state: True,                                    
+
         # Bombers Hideout Pots - Requires access to Bomber's Hideout Astral Observatory
         "Bombers Hideout Pots (0)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
@@ -5256,7 +5290,7 @@ def get_location_rules(player, options):
 
         # Termina Field Pots
         
-        # Termina Field Eastern Pillar Pot - Requires projectiles
+        # Termina Field Eastern Pillar Pot
         "Termina Field Eastern Pillar Pot":
             lambda state: has_projectiles(state, player),
         
@@ -5278,7 +5312,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Southern Swamp Beneath Witch Shop Pots (2)":
             lambda state: True,
-# Swamp Spider House Pots
+        
+        # Swamp Spider House Pots
         
         # Swamp Spider House Main Room Pots
         "Swamp Spider House Main Room Pots (0)":
@@ -5464,11 +5499,11 @@ def get_location_rules(player, options):
         # Mountain Village Pots
         
         "Mountain Village Pots (0)":
-            lambda state: state.can_reach("Mountain Village", 'Region', player),
+            lambda state: True,
         "Mountain Village Pots (1)":
-            lambda state: state.can_reach("Mountain Village", 'Region', player),
+            lambda state: True,
         "Mountain Village Pots (2)":
-            lambda state: state.can_reach("Mountain Village", 'Region', player),
+            lambda state: True,
         # Goron Village Pots
         
         # Goron Racetrack Pots - Requires Goron Mask and Powder Keg
@@ -5625,28 +5660,29 @@ def get_location_rules(player, options):
         
         # Goron Shrine Pots - Requires region access
         "Goron Shrine Pots (0)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (1)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (2)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (3)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (4)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (5)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (6)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (7)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (8)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (9)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),
+            lambda state: True,
         "Goron Shrine Pots (10)":
-            lambda state: state.can_reach("Goron Village", 'Region', player),              
-# Snowhead Temple Pots
+            lambda state: True,  
+                        
+        # Snowhead Temple Pots
         
         # Snowhead Temple Blue Door Lava Bridge Pots 
         "Snowhead Temple Entrance Pots (0)":
@@ -5680,7 +5716,7 @@ def get_location_rules(player, options):
         # Snowhead Temple Main Room Scarecrow Pots - Requires Hookshot or Fire Arrows
         "Snowhead Temple Main Room Scarecrow Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 (
                     state.has("Hookshot", player) or 
                     can_use_fire_arrows(state, player)
@@ -5688,7 +5724,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Main Room Scarecrow Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 (
                     state.has("Hookshot", player) or 
                     can_use_fire_arrows(state, player)
@@ -5697,64 +5733,62 @@ def get_location_rules(player, options):
         
         # Snowhead Temple Frozen Green Door Pots - Basic temple access (pots are at bottom)
         "Snowhead Temple Frozen Green Door Pots (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (2)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (3)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (4)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (5)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (6)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (7)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         "Snowhead Temple Frozen Green Door Pots (8)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         "Snowhead Temple Frozen Green Door Pots (9)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         "Snowhead Temple Frozen Green Door Pots (10)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         "Snowhead Temple Frozen Green Door Pots (11)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         "Snowhead Temple Frozen Green Door Pots (12)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state:can_use_fire_arrows(state, player
+            ),
         
         # Snowhead Temple Orange Door Push Block Pots - Requires Fire Arrows and (Small Key or Hookshot)
         "Snowhead Temple Orange Door Push Block Pots (0)":
-            lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
-                can_use_fire_arrows(state, player) and
+            lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
                     state.has("Hookshot", player)
                 )
-            ),
+            ),  
         "Snowhead Temple Orange Door Push Block Pots (1)":
-            lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
-                can_use_fire_arrows(state, player) and
+            lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
                     state.has("Hookshot", player)
                 )
-            ),
+            ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (1)":
-            lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
-                can_use_fire_arrows(state, player) and
+            lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
                     state.has("Hookshot", player)
                 )
-            ),
+            ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (2)":
-            lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
-                can_use_fire_arrows(state, player) and
+            lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
                     state.has("Hookshot", player)
@@ -5764,66 +5798,58 @@ def get_location_rules(player, options):
         # Snowhead Temple Locked Grey Door Wolfos Pots - Requires 2 Small Keys
         "Snowhead Temple Locked Grey Door Wolfos Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (2)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (3)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (4)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         
         # Snowhead Temple Goron Pound Puzzle Pots - Requires explosives and (Goron Mask or Fire Arrows)
         "Snowhead Temple Goron Pound Puzzle Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 2) and 
-                (
-                    state.has("Goron Mask", player) or
+                state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
-                )
             ),
         "Snowhead Temple Goron Pound Puzzle Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 2) and 
-                (
-                    state.has("Goron Mask", player) or
+                state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
-                )
             ),
         
         # Snowhead Temple Main Room Pots 2nd Floor Bridge - Basic temple access
         "Snowhead Temple Main Room Pots 2nd Floor Bridge (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: ( 
+                    state.has("Small Key (Snowhead)", player, 2) or
+                    can_use_fire_arrows(state, player)
+            ),        
         "Snowhead Temple Main Room Pots 2nd Floor Bridge (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
-        
+            lambda state: ( 
+                    state.has("Small Key (Snowhead)", player, 2) or
+                    can_use_fire_arrows(state, player)
+            ), 
         # Snowhead Temple Main Room 4th Floor Pots - Same as Boss Key Chest requirements
         "Snowhead Temple Main Room 4th Floor Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
@@ -5832,11 +5858,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Main Room 4th Floor Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
@@ -5847,11 +5873,11 @@ def get_location_rules(player, options):
         # Snowhead Temple 4th Floor Wizzrobe Pots - Same as Boss Key Chest requirements
         "Snowhead Temple 4th Floor Wizzrobe Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
@@ -5860,11 +5886,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
@@ -5873,11 +5899,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (2)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
-                    (
+                    (    
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
@@ -5888,7 +5914,7 @@ def get_location_rules(player, options):
         # Goht Boss Room Pots - Top floor requirements plus Boss Key or Remains warp
         "Goht Boss Room Pots (0)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -5908,7 +5934,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (1)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -5928,7 +5954,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (2)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -5948,7 +5974,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (3)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -5968,7 +5994,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (4)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -5988,7 +6014,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (5)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6008,7 +6034,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (6)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6028,7 +6054,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (7)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6048,7 +6074,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (8)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6068,7 +6094,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (9)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6088,7 +6114,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (10)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6108,7 +6134,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (11)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6128,7 +6154,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (12)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -6148,7 +6174,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (13)":
             lambda state: (
-                state.can_reach("Snowhead Temple", 'Region', player) and 
+   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -7009,32 +7035,38 @@ def get_location_rules(player, options):
         "Secret Shrine Underwater Pots (0)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Secret Shrine Underwater Pots (1)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Secret Shrine Underwater Pots (2)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Secret Shrine Underwater Pots (3)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Secret Shrine Underwater Pots (4)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Secret Shrine Underwater Pots (5)":
             lambda state: (
                 can_use_light_arrows(state, player) and
-                can_smack_hard(state, player)
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
         
         # IKANA CASTLE POTS
@@ -7516,89 +7548,114 @@ def get_location_rules(player, options):
             ),
         
         # STONE TOWER POTS
+        #Stone Tower Climb Pots
+        "Stone Tower Climb Pots (0)":
+            lambda state: (
+                can_use_ice_arrows(state, player) and
+                state.has("Hookshot", player)
+            ),
+        "Stone Tower Climb Pots (1)":
+            lambda state: (
+                can_use_ice_arrows(state, player) and
+                state.has("Hookshot", player)
+            ),
+            #Stone Tower Lower Scarecrow Pots            
         "Stone Tower Lower Scarecrow Pots (0)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (3)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (4)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (5)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (6)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (7)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (8)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (9)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (10)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Lower Scarecrow Pots (11)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
+                
             ),
         
         # Stone Tower Upper Scarecrow Pots
@@ -7607,63 +7664,72 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (3)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (4)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (5)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (6)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (7)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Upper Scarecrow Pots (8)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         
         # Stone Tower Owl Pots
@@ -7672,28 +7738,33 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Owl Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Owl Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Owl Pots (3)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
             ),
         
         # STONE TOWER TEMPLE POTS
@@ -8206,4 +8277,3242 @@ def get_location_rules(player, options):
                 ) and
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
+        
+        # Termina Field Hitspots Logic
+        # Clock Town Hitspots Logic
+
+        # South Clock Town Targets Hitspot
+        "South Clock Town Targets Hitspot (0)":
+            lambda state: has_projectiles(state, player),
+        "South Clock Town Targets Hitspot (1)":
+            lambda state: has_projectiles(state, player),
+        "South Clock Town Targets Hitspot (2)":
+            lambda state: has_projectiles(state, player),
+
+        # East Clock Town Targets And Basket Hitspots
+        "East Clock Town Targets And Basket Hitspots (0)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (1)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (2)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (3)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (4)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (5)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (6)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (7)":
+            lambda state: True,
+        "East Clock Town Targets And Basket Hitspots (8)":
+            lambda state: True,
+
+        # Sword School Gong
+        "Sword School Gong":
+            lambda state: state.has("Progressive Sword", player),
+
+        # Stock Pot Inn Mask Hitspot
+        "Stock Pot Inn Mask Hitspot (0)":
+            lambda state:(             
+                state.has("Zora Mask", player) and 
+                state.has("Progressive Magic", player)),
+        "Stock Pot Inn Mask Hitspot (1)":
+            lambda state:(             
+                state.has("Zora Mask", player) and 
+                state.has("Progressive Magic", player)),
+        "Stock Pot Inn Mask Hitspot (2)":
+            lambda state:(             
+                state.has("Zora Mask", player) and 
+                state.has("Progressive Magic", player)),
+
+        # Termina Field West Wall Hitspot
+        "Termina Field West Wall Hitspot (0)":
+            lambda state: True,
+        "Termina Field West Wall Hitspot (1)":
+            lambda state: True,
+        "Termina Field West Wall Hitspot (2)":
+            lambda state: True,
+
+        # Termina Field Above West Clock Town Entry Hitspot
+        "Termina Field Above West Clock Town Entry Hitspot (0)":
+            lambda state: has_projectiles(state, player),
+        "Termina Field Above West Clock Town Entry Hitspot (1)":
+            lambda state: has_projectiles(state, player),
+        "Termina Field Above West Clock Town Entry Hitspot (2)":
+            lambda state: has_projectiles(state, player),
+
+        # Skull Kid Drawing Hitspot
+        "Skull Kid Drawing Hitspot (0)":
+            lambda state: True,
+        "Skull Kid Drawing Hitspot (1)":
+            lambda state: True,
+        "Skull Kid Drawing Hitspot (2)":
+            lambda state: True,
+        
+        # Romani Ranch Hitspots
+        "Romani Ranch Baby Cuccoos Hitspots (0)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Romani Ranch Baby Cuccoos Hitspots (1)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Romani Ranch Baby Cuccoos Hitspots (2)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Romani Ranch Baby Cuccoos Hitspots (3)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Romani Ranch Baby Cuccoos Hitspots (4)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Romani Ranch Baby Cuccoos Hitspots (5)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        
+        # Swamp Spider House Hitspots
+        "Swamp Spiderhouse Totem Eye Hitspots (0)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (1)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (2)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (3)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (4)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (5)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (6)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (7)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (8)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (9)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (10)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Swamp Spiderhouse Totem Eye Hitspots (11)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        
+        # Ocean Spider House Hitspots
+        "Ocean Spiderhouse Mask Hitspots (0)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (1)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (2)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (3)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (4)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (5)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (6)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (7)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spiderhouse Mask Hitspots (8)":
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        
+        # Pirates Fortress Interior Hitspots
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        
+        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (0)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (1)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (2)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        
+        # Ikana Graveyard Hitspots
+        "Ikana Graveyard Lantern Hitspots (0)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (1)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (2)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (3)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (4)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (5)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (6)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (7)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (8)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (9)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (10)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+        "Ikana Graveyard Lantern Hitspots (11)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_projectiles(state, player)
+            ),
+
+        # FREESTANDING RUPEES
+
+        # Termina Field Song Wall
+
+        "Termina Field 6am Songwall (0)":
+        lambda state: True,
+        "Termina Field 6am Songwall (1)":
+            lambda state: True,
+        "Termina Field 6am Songwall (2)":
+            lambda state: True,
+        "Termina Field 7am Songwall (0)":
+            lambda state: True,
+        "Termina Field 7am Songwall (1)":
+            lambda state: True,
+        "Termina Field 7am Songwall (2)":
+            lambda state: True,
+        "Termina Field 8am Songwall (0)":
+            lambda state: True,
+        "Termina Field 8am Songwall (1)":
+            lambda state: True,
+        "Termina Field 8am Songwall (2)":
+            lambda state: True,
+        "Termina Field 9am Songwall (0)":
+            lambda state: True,
+        "Termina Field 9am Songwall (1)":
+            lambda state: True,
+        "Termina Field 9am Songwall (2)":
+            lambda state: True,
+        "Termina Field 10am Songwall (0)":
+            lambda state: True,
+        "Termina Field 10am Songwall (1)":
+            lambda state: True,
+        "Termina Field 10am Songwall (2)":
+            lambda state: True,
+        "Termina Field 11am Songwall (0)":
+            lambda state: True,
+        "Termina Field 11am Songwall (1)":
+            lambda state: True,
+        "Termina Field 11am Songwall (2)":
+            lambda state: True,
+        "Termina Field 12pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 12pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 12pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 1pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 1pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 1pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 2pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 2pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 2pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 3pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 3pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 3pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 4pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 4pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 4pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 5pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 5pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 5pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 6pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 6pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 6pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 7pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 7pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 7pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 8pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 8pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 8pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 9pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 9pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 9pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 10pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 10pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 10pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 11pm Songwall (0)":
+            lambda state: True,
+        "Termina Field 11pm Songwall (1)":
+            lambda state: True,
+        "Termina Field 11pm Songwall (2)":
+            lambda state: True,
+        "Termina Field 12am Songwall (0)":
+            lambda state: True,
+        "Termina Field 12am Songwall (1)":
+            lambda state: True,
+        "Termina Field 12am Songwall (2)":
+            lambda state: True,
+        "Termina Field 1am Songwall (0)":
+            lambda state: True,
+        "Termina Field 1am Songwall (1)":
+            lambda state: True,
+        "Termina Field 1am Songwall (2)":
+            lambda state: True,
+        "Termina Field 2am Songwall (0)":
+            lambda state: True,
+        "Termina Field 2am Songwall (1)":
+            lambda state: True,
+        "Termina Field 2am Songwall (2)":
+            lambda state: True,
+        "Termina Field 3am Songwall (0)":
+            lambda state: True,
+        "Termina Field 3am Songwall (1)":
+            lambda state: True,
+        "Termina Field 3am Songwall (2)":
+            lambda state: True,
+        "Termina Field 4am Songwall (0)":
+            lambda state: True,
+        "Termina Field 4am Songwall (1)":
+            lambda state: True,
+        "Termina Field 4am Songwall (2)":
+            lambda state: True,
+        "Termina Field 5am Songwall (0)":
+            lambda state: True,
+        "Termina Field 5am Songwall (1)":
+            lambda state: True,
+        "Termina Field 5am Songwall (2)":
+            lambda state: True,
+
+        # Laundry Pool Night 2 Rupees
+        "Laundry Pool Night 2 Rupees (0)":
+            lambda state: True,
+        "Laundry Pool Night 2 Rupees (1)":
+            lambda state: True,
+        "Laundry Pool Night 2 Rupees (2)":
+            lambda state: True,
+
+
+        # Termina Field Easter Pillar Rupees
+        "Termina Field Easter Pillar Rupees":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+
+        # Termina Field Tree Rupees
+        "Termina Field Tree Rupees (0)":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+        "Termina Field Tree Rupees (1)":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+
+        # Termina Field Song Guay Rupees
+        "Termina Field Song Guay Rupees (0)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (1)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (2)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (3)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (4)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (5)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (6)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (7)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (8)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (9)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (10)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (11)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (12)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (13)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (14)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (15)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (16)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (17)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (18)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+        "Termina Field Song Guay Rupees (19)":
+            lambda state: (
+                state.can_reach("Termina Field", 'Region', player) and
+                (can_play_song("Sonata of Awakening", state, player) or
+                 can_play_song("Goron Lullaby", state, player) or
+                 can_play_song("New Wave Bossa Nova", state, player))
+            ),
+
+        # Termina Field Song Guay Goron/Epona Rupees
+        "Termina Field Song Guay Goron/Epona Rupees (0)":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+        "Termina Field Song Guay Goron/Epona Rupees (1)":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+        "Termina Field Song Guay Goron/Epona Rupees (2)":
+            lambda state: state.can_reach("Termina Field", 'Region', player),
+
+        # Deku PlayGround Day 1 Rupees
+        "Deku PlayGround Day 1 Rupees (0)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 1 Rupees (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 1 Rupees (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 1 Rupees (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 1 Rupees (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 1 Rupees (5)":
+            lambda state: state.has("Deku Mask", player),
+
+        # Deku PlayGround Day 2 Rupees
+        "Deku PlayGround Day 2 Rupees (0)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 2 Rupees (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 2 Rupees (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 2 Rupees (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 2 Rupees (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 2 Rupees (5)":
+            lambda state: state.has("Deku Mask", player),
+
+        # Deku PlayGround Day 3 Rupees
+        "Deku PlayGround Day 3 Rupees (0)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 3 Rupees (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 3 Rupees (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 3 Rupees (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 3 Rupees (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku PlayGround Day 3 Rupees (5)":
+            lambda state: state.has("Deku Mask", player),
+
+        # Southern Swamp Flower Rupees
+        "Southern Swamp Flower Rupees (0)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Flower Rupees (1)":
+            lambda state: state.has("Deku Mask", player),
+
+        "Southern Swamp Witch Shop Rupee (1)":
+            lambda state: True,            
+
+        # Deku Palace Right Side Rupees
+        "Deku Palace Right Side Rupees (0)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (1)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (2)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (3)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (4)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (5)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (6)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (7)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (8)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (9)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (10)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (11)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Rupees (12)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+
+        # Deku Palace Left Side Rupees
+        "Deku Palace Left Side Rupees (0)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (1)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (2)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (3)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (4)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (5)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (6)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (7)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (8)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (9)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Left Side Rupees (10)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+
+        # Deku Butler Rupees
+        "Deku Butler Rupees (0)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (1)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (2)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (3)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (4)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (5)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (6)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (7)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (8)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (9)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (10)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (11)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (12)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (13)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (14)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (15)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (16)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (17)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (18)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (19)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (20)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (21)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (22)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (23)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (24)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (25)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (26)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (27)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (28)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+        "Deku Butler Rupees (29)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                can_clear_woodfall(state, player) and
+                state.has("Progressive Sword", player) and
+                has_bottle(state, player)
+            ),
+
+        # Woodfall Stump Rupee
+        "Woodfall Stump Rupee":
+            lambda state: state.can_reach("Woodfall", 'Region', player),
+
+        # Romani Ranch Haystack Rupees
+        "Romani Ranch Haystack Rupees (0)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Haystack Rupees (1)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+
+        # Woodfall Temple Pre Boss Rupees 
+        "Woodfall Temple Pre Boss Rupees (0)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+        "Woodfall Temple Pre Boss Rupees (1)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+        "Woodfall Temple Pre Boss Rupees (2)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+        "Woodfall Temple Pre Boss Rupees (3)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+        "Woodfall Temple Pre Boss Rupees (4)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+        "Woodfall Temple Pre Boss Rupees (5)":
+            lambda state: (
+                state.can_reach("Woodfall Temple", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
+
+        # Snowhead Temple Icicle Rupees
+        "Snowhead Temple Icicle Rupees (0)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Icicle Rupees (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Icicle Rupees (2)":
+            lambda state: has_explosives(state, player),
+
+        # Mountain Village Spring Boulder Under Smithy Rupee
+        "Mountain Village Spring Boulder Under Smithy Rupee":
+            lambda state: can_clear_snowhead(state, player),
+
+        # Twin Islands Spring Underwater Rupees
+        "Twin Islands Spring Underwater Rupees (0)":
+            lambda state: (
+                state.can_reach("Twin Islands", 'Region', player) and
+                can_clear_snowhead(state, player) and
+                state.has("Zora Mask", player)
+            ),
+        "Twin Islands Spring Underwater Rupees (1)":
+            lambda state: (
+                state.can_reach("Twin Islands", 'Region', player) and
+                can_clear_snowhead(state, player) and
+                state.has("Zora Mask", player)
+            ),
+        "Twin Islands Spring Underwater Rupees (2)":
+            lambda state: (
+                state.can_reach("Twin Islands", 'Region', player) and
+                can_clear_snowhead(state, player) and
+                state.has("Zora Mask", player)
+            ),
+        "Twin Islands Spring Underwater Rupees (3)":
+            lambda state: (
+                state.can_reach("Twin Islands", 'Region', player) and
+                can_clear_snowhead(state, player) and
+                state.has("Zora Mask", player)
+            ),
+
+        # Great Bay Temple Waterwheel Rupees
+        "Great Bay Temple Waterwheel Rupees (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Waterwheel Rupees (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Waterwheel Rupees (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Waterwheel Rupees (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Waterwheel Rupees (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+
+        # Great Bay Temple Caged Chest Room Underwater Rupees
+        "Great Bay Temple Caged Chest Room Underwater Rupees (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Caged Chest Room Underwater Rupees (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+
+        # Ikana Graveyard Day 2 Rupees
+        "Ikana Graveyard Day 2 Rupees (0)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (1)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (2)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (3)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (4)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (5)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Day 2 Rupees (6)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+
+        # Secret Shrine Rupees
+        "Secret Shrine Rupees (0)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (1)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (2)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (3)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (4)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (5)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (6)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (7)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (8)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (9)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (10)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (11)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (12)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (13)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (14)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (15)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+        "Secret Shrine Rupees (16)":
+            lambda state: (
+                state.can_reach("Ikana Canyon", 'Region', player) and
+                (state.has("Zora Mask", player) or can_plant_beans(state, player))
+            ),
+
+        # Stone Tower Bridge Room Rupees
+        "Stone Tower Bridge Room Rupees (0)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (1)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (2)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (3)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (4)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (5)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (6)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Bridge Room Rupees (7)":
+            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+                has_mirror_shield(state, player)
+                or 
+                can_use_light_arrows(state, player)
+            ),
+        # Stone Tower Eyegore Room Light Block Rupees
+        "Stone Tower Eyegore Room Light Block Rupees (0)":
+            lambda state: (
+                can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Eyegore Room Light Block Rupees (1)":
+            lambda state: (
+                can_use_light_arrows(state, player)
+            ),
+
+        # Inverted Stone Tower Right Side Light Block Rupees
+        "Inverted Stone Tower Right Side Light Block Rupees (0)":
+            lambda state: True,
+        "Inverted Stone Tower Right Side Light Block Rupees (1)":
+            lambda state: True,
+        # Inverted Stone Tower Dexihand Rupees
+        "Inverted Stone Tower Dexihand Rupees (0)":
+            lambda state: True,
+        "Inverted Stone Tower Dexihand Rupees (1)":
+            lambda state: True,
+        "Inverted Stone Tower Dexihand Rupees (2)":
+            lambda state: True,
+
+        # Inverted Stone Tower Pre Boss Rupees
+        "Inverted Stone Tower Pre Boss Rupees (0)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (1)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (2)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (3)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (4)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (5)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (6)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (7)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (8)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (9)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+        "Inverted Stone Tower Pre Boss Rupees (10)":
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 3) and
+                state.has("Deku Mask", player),
+            ),
+
+        # INVISIBLE RUPEES
+
+        # Termina Field Invisible Rupee Over Ramp Near Fountains
+        "Termina Field Invisible Rupee Over Ramp Near Fountains":
+            lambda state: True,
+
+        # Termina Field Fountain Rupees
+        "Termina Field Fountain Rupees (0)":
+            lambda state: True,
+        "Termina Field Fountain Rupees (1)":
+            lambda state: True,
+
+        # Termina Field Invisible Rupee Over Water
+        "Termina Field Invisible Rupee Over Water":
+            lambda state: True,
+
+        # Termina Field Invisible Rupee Over Stump
+        "Termina Field Invisible Rupee Over Stump":
+            lambda state: (
+                state.has("Deku Mask", player) or
+                (state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player))
+            ),
+
+        # Termina Field Invisible Rupees In Long Grass
+        "Termina Field Invisible Rupees In Long Grass (0)":
+            lambda state: True,
+        "Termina Field Invisible Rupees In Long Grass (1)":
+            lambda state: True,
+        "Termina Field Invisible Rupees In Long Grass (2)":
+            lambda state: True,
+        "Termina Field Invisible Rupees In Long Grass (3)":
+            lambda state: True,
+        "Termina Field Invisible Rupees In Long Grass (4)":
+            lambda state: True,
+
+        # Termina Field Invisible Rupee Over Northern Ramp
+        "Termina Field Invisible Rupee Over Northern Ramp":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                state.has("Progressive Magic", player)
+            ),
+
+        # Romani Ranch Invisible Fence Rupees
+        "Romani Ranch Invisible Fence Rupees (0)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Invisible Fence Rupees (1)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Invisible Fence Rupees (2)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Invisible Fence Rupees (3)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Invisible Fence Rupees (4)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+        "Romani Ranch Invisible Fence Rupees (5)":
+            lambda state: state.can_reach("Romani Ranch", 'Region', player),
+
+        # Swamp Spiderhouse Invisible Rupees Above Giant Jars
+        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),    
+        
+        # SOILS
+
+        # Termina Field Stump Soil
+        "Termina Field Stump Soil":
+            lambda state: has_bottle(state, player),
+
+        # Termina Field Wall Soil
+        "Termina Field Wall Soil (0)":
+            lambda state: has_bottle(state, player),
+        "Termina Field Wall Soil (1)":
+            lambda state: has_bottle(state, player),
+        "Termina Field Wall Soil (2)":
+            lambda state: has_bottle(state, player),
+
+        # Termina Field Eastern Soil
+        "Termina Field Eastern Soil":
+            lambda state: has_bottle(state, player),
+
+        # Termina Field Observatory Soil
+        "Termina Field Observatory Soil (0)":
+            lambda state: has_bottle(state, player),
+        "Termina Field Observatory Soil (1)":
+            lambda state: has_bottle(state, player),
+        "Termina Field Observatory Soil (2)":
+            lambda state: has_bottle(state, player),
+
+        # Swamp Spider House Rock Soil
+        "Swamp Spider House Rock Soil (0)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Swamp Spider House Rock Soil (1)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Swamp Spider House Rock Soil (2)":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Swamp Spider House Gold Room Soil
+        "Swamp Spider House Gold Room Soil":
+            lambda state: (
+                state.can_reach("Swamp Spider House", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Deku Palace Bean Seller Soil
+        "Deku Palace Bean Seller Soil (0)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Deku Palace Bean Seller Soil (1)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Deku Palace Bean Seller Soil (2)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Deku Palace Exterior Soil
+        "Deku Palace Exterior Soil (0)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Deku Palace Exterior Soil (1)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Deku Palace Exterior Soil (2)":
+            lambda state: (
+                state.can_reach("Deku Palace", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Romani Ranch Day 1 Soil
+        "Romani Ranch Day 1 Soil":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_bottle(state, player) and
+                state.has("Goron Mask", player) and
+                can_use_powder_keg(state, player)
+            ),
+
+        # Romani Ranch Day 2/3 Soil
+        "Romani Ranch Day 2/3 Soil (0)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Romani Ranch Day 2/3 Soil (1)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Romani Ranch Day 2/3 Soil (2)":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Romani Ranch Doggy Racetrack Soil
+        "Romani Ranch Doggy Racetrack Soil":
+            lambda state: (
+                state.can_reach("Romani Ranch", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Great Bay Coast Soil
+        "Great Bay Coast Soil":
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Secret Shrine Soil
+        "Secret Shrine Soil (0)":
+            lambda state: (
+                state.can_reach("Secret Shrine", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Secret Shrine Soil (1)":
+            lambda state: (
+                state.can_reach("Secret Shrine", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Secret Shrine Soil (2)":
+            lambda state: (
+                state.can_reach("Secret Shrine", 'Region', player) and
+                has_bottle(state, player)
+            ),
+
+        # Stone Tower Inverted Soils
+        "Stone Tower Inverted Soils (0)":
+            lambda state: (
+                state.can_reach("Stone Tower (Inverted)", 'Region', player) and
+                has_bottle(state, player)
+            ),
+        "Stone Tower Inverted Soils (1)":
+            lambda state: (
+                state.can_reach("Stone Tower (Inverted)", 'Region', player) and
+                has_bottle(state, player) and
+                can_plant_beans(state, player)
+            ),    
+
+        # SNOWBALLS
+
+        # Path to Mountains Snowballs
+        "Path to Mountains Snowballs (0)":
+            lambda state: True,
+        "Path to Mountains Snowballs (1)":
+            lambda state: True,
+        "Path to Mountains Snowballs (2)":
+            lambda state: True,
+        "Path to Mountains Snowballs (3)":
+            lambda state: True,
+        "Path to Mountains Snowballs (4)":
+            lambda state: True,
+        "Path to Mountains Snowballs (5)":
+            lambda state: True,
+        "Path to Mountains Snowballs (6)":
+            lambda state: True,
+        "Path to Mountains Snowballs (7)":
+            lambda state: True,
+        "Path to Mountains Snowballs (8)":
+            lambda state: True,
+        "Path to Mountains Snowballs (9)":
+            lambda state: True,
+        "Path to Mountains Snowballs (10)":
+            lambda state: True,
+        "Path to Mountains Snowballs (11)":
+            lambda state: True,
+        "Path to Mountains Snowballs (12)":
+            lambda state: True,
+        "Path to Mountains Snowballs (13)":
+            lambda state: True,
+        "Path to Mountains Snowballs (14)":
+            lambda state: True,
+
+        # Mountain Village Day 1 Snowballs
+        "Mountain Village Day 1 Snowballs (0)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (1)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (2)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (3)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (4)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (5)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (6)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (7)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (8)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (9)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (10)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (11)":
+            lambda state: True,
+        "Mountain Village Day 1 Snowballs (12)":
+            lambda state: True,
+
+        # Snowballs Outside Goron Graveyard
+        "Snowballs Outside Goron Graveyard (0)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                state.has("Progressive Magic", player) and
+                state.has("Lens of Truth", player)
+            ),
+        "Snowballs Outside Goron Graveyard (1)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                state.has("Progressive Magic", player) and
+                state.has("Lens of Truth", player)
+            ),
+
+        # Twin Islands Day 1 Snowballs
+        "Twin Islands Day 1 Snowballs (0)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (1)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (2)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (3)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (4)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (5)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (6)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (7)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (8)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (9)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (10)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (11)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (12)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (13)":
+            lambda state: True,
+        "Twin Islands Day 1 Snowballs (14)":
+            lambda state: True,
+
+        # Twin Isles Snowballs Near Grotto
+        "Twin Isles Snowballs Near Grotto (0)":
+            lambda state: True,
+        "Twin Isles Snowballs Near Grotto (1)":
+            lambda state: True,
+        "Twin Isles Snowballs Near Grotto (2)":
+            lambda state: True,
+
+        # Goron Village Snowballs
+        "Goron Village Snowballs (0)":
+            lambda state: True,
+        "Goron Village Snowballs (1)":
+            lambda state: True,
+        "Goron Village Snowballs (2)":
+            lambda state: True,
+        "Goron Village Snowballs (3)":
+            lambda state: True,
+        "Goron Village Snowballs (4)":
+            lambda state: True,
+        "Goron Village Snowballs (5)":
+            lambda state: True,
+        "Goron Village Snowballs (6)":
+            lambda state: True,
+        "Goron Village Snowballs (7)":
+            lambda state: True,
+        "Goron Village Snowballs (8)":
+            lambda state: True,
+        "Goron Village Snowballs (9)":
+            lambda state: True,
+        "Goron Village Snowballs (10)":
+            lambda state: True,
+        "Goron Village Snowballs (11)":
+            lambda state: True,
+        "Goron Village Snowballs (12)":
+            lambda state: True,
+        "Goron Village Snowballs (13)":
+            lambda state: True,
+        "Goron Village Snowballs (14)":
+            lambda state: True,
+        "Goron Village Snowballs (15)":
+            lambda state: True,
+        "Goron Village Snowballs (16)":
+            lambda state: True,
+        "Goron Village Snowballs (17)":
+            lambda state: True,
+        "Goron Village Snowballs (18)":
+            lambda state: True,
+        "Goron Village Snowballs (19)":
+            lambda state: True,
+
+        # Path to Snowhead Snowballs
+        "Path to Snowhead Snowballs (0)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (1)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (2)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (3)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (4)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (5)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        "Path to Snowhead Snowballs (6)":
+            lambda state: (
+                state.has("Goron Mask", player) and
+                 state.has("Progressive Magic", player)
+        ),
+        # Outside Snowhead Temple Snowballs
+        "Outside Snowhead Temple Snowballs (0)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (1)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (2)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (3)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (4)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (5)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (6)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (7)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (8)":
+             lambda state: True,
+        "Outside Snowhead Temple Snowballs (9)":
+             lambda state: True,
+
+        # Snowhead Temple Lower Runway Room Snowballs             
+        "Snowhead Temple Lower Runway Room Snowballs (0)":
+            lambda state: True,
+        "Snowhead Temple Lower Runway Room Snowballs (1)":
+        lambda state: True,
+        
+        # Snowhead Temple Icicle Room Snowballs
+        "Snowhead Temple Icicle Room Snowballs (0)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+        "Snowhead Temple Icicle Room Snowballs (1)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+        "Snowhead Temple Icicle Room Snowballs (2)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+        "Snowhead Temple Icicle Room Snowballs (3)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+        "Snowhead Temple Icicle Room Snowballs (4)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+        "Snowhead Temple Icicle Room Snowballs (5)":
+            lambda state: (
+                has_explosives(state, player) and
+                state.has("Small Key (Snowhead)", player, 1) or
+                state.has("Hookshot", player)
+            ),
+
+        # Snowhead Temple Main Room 2nd Floor Snowballs
+        "Snowhead Temple Main Room 2nd Floor Snowballs (0)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple Main Room 2nd Floor Snowballs (1)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple Main Room 2nd Floor Snowballs (2)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple Main Room 2nd Floor Snowballs (3)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple Main Room 2nd Floor Snowballs (4)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple Main Room 2nd Floor Snowballs (5)":
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+
+        # Snowhead Temple 3rd Floor Bridge Snowballs
+        "Snowhead Temple 3rd Floor Bridge Snowballs (0)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Bridge Snowballs (1)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Bridge Snowballs (2)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Bridge Snowballs (3)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+
+        # Snowhead Temple 3rd Floor Behind Locked Door Snowballs
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (0)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (1)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (2)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (3)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (4)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (5)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (6)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+        "Snowhead Temple 3rd Floor Behind Locked Door Snowballs (7)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and
+                 state.has("Small Key (Snowhead)", player, 2)
+            ),
+
+        # Mountain Village Spring Snowballs
+        "Mountain Village Spring Snowballs (0)":
+            lambda state: (
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Snowballs (1)":
+            lambda state: (
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Snowballs (2)":
+            lambda state: (
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Snowballs (3)":
+            lambda state: (
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Snowballs (4)":
+            lambda state: (
+                can_clear_snowhead(state, player)
+            ),    
+        # ROCKS
+
+        # Termina Field Kamaro Rock Circle
+        "Termina Field Kamaro Rock Circle (0)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (1)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (2)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (3)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (4)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (5)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (6)":
+            lambda state: True,
+        "Termina Field Kamaro Rock Circle (7)":
+            lambda state: True,
+
+        # Termina Field North West Rock Wall
+        "Termina Field North West Rock Wall (0)":
+            lambda state: has_explosives(state, player),
+        "Termina Field North West Rock Wall (1)":
+            lambda state: has_explosives(state, player),
+        "Termina Field North West Rock Wall (2)":
+            lambda state: has_explosives(state, player),
+        "Termina Field North West Rock Wall (3)":
+            lambda state: has_explosives(state, player),
+        "Termina Field North West Rock Wall (4)":
+            lambda state: has_explosives(state, player),
+
+        # Termina Field Rock Behind Coast Wall
+        "Termina Field Rock Behind Coast Wall":
+            lambda state: can_play_song("Epona's Song", state, player),
+
+        # South West Rock Wall
+        "South West Rock Wall (0)":
+            lambda state: has_explosives(state, player),
+        "South West Rock Wall (1)":
+            lambda state: has_explosives(state, player),
+        "South West Rock Wall (2)":
+            lambda state: has_explosives(state, player),
+        "South West Rock Wall (3)":
+            lambda state: has_explosives(state, player),
+
+        # Swamp Spider Entry Rocks
+        "Swamp Spider Entry Rocks (0)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider Entry Rocks (1)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+
+        # Swamp Spider Large Pots Rock
+        "Swamp Spider Large Pots Rock":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+
+        # Goron Shrine Rocks
+        "Goron Shrine Rocks (0)":
+            lambda state: True,
+        "Goron Shrine Rocks (1)":
+            lambda state: True,
+        "Goron Shrine Rocks (2)":
+            lambda state: True,
+        "Goron Shrine Rocks (3)":
+            lambda state: True,
+        "Goron Shrine Rocks (4)":
+            lambda state: True,
+        "Goron Shrine Rocks (5)":
+            lambda state: True,
+        "Goron Shrine Rocks (6)":
+            lambda state: True,
+        "Goron Shrine Rocks (7)":
+            lambda state: True,
+        "Goron Shrine Rocks (8)":
+            lambda state: True,
+        "Goron Shrine Rocks (9)":
+            lambda state: True,
+        "Goron Shrine Rocks (10)":
+            lambda state: True,
+        "Goron Shrine Rocks (11)":
+            lambda state: True,
+        "Goron Shrine Rocks (12)":
+            lambda state: True,
+        "Goron Shrine Rocks (13)":
+            lambda state: True,
+        "Goron Shrine Rocks (14)":
+            lambda state: True,
+        "Goron Shrine Rocks (15)":
+            lambda state: True,
+
+        # Mountain Village Spring Rock Triangle
+        "Mountain Village Spring Rock Triangle (0)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Rock Triangle (1)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Rock Triangle (2)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Rock Triangle (3)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Rock Triangle (4)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+
+        # Mountain Village Spring Outside Goron Graveyard
+        "Mountain Village Spring Outside Goron Graveyard Rocks (0)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Outside Goron Graveyard Rocks (1)":
+            lambda state: (
+                state.can_reach("Mountain Village", 'Region', player) and
+                can_clear_snowhead(state, player)
+            ),
+
+        # Twin Isles Spring Above Grotto Rocks
+        "Twin Isles Spring Above Grotto Rocks (0)":
+            lambda state: True,
+        "Twin Isles Spring Above Grotto Rocks (1)":
+            lambda state: True,
+        "Twin Isles Spring Above Grotto Rocks (2)":
+            lambda state: True,
+
+        # Great Bay Coast Scattered Beach Rocks
+        "Great Bay Coast Scattered Beach Rocks (0)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Great Bay Coast Scattered Beach Rocks (1)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Great Bay Coast Scattered Beach Rocks (2)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Great Bay Coast Scattered Beach Rocks (3)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Great Bay Coast Scattered Beach Rocks (4)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+
+        # Great Bay Coast Rock Wall Rocks
+        "Great Bay Coast Rock Wall Rocks (0)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Great Bay Coast Rock Wall Rocks (1)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+
+        # Great Bay Coast Underwater Rocks (Bombchus only)
+        "Great Bay Coast Underwater Rocks (Bombchus only) (0)":
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                has_bombchus(state, player)
+            ),
+        "Great Bay Coast Underwater Rocks (Bombchus only) (1)":
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                has_bombchus(state, player)
+            ),
+        "Great Bay Coast Underwater Rocks (Bombchus only) (2)":
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                has_bombchus(state, player)
+            ),
+        "Great Bay Coast Underwater Rocks (Bombchus only) (3)":
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                has_bombchus(state, player)        
+            ),                
+
+        # Rocks Underwater Easy to get
+        "Rocks Underwater Easy to get (0)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Rocks Underwater Easy to get (1)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Rocks Underwater Easy to get (2)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+        "Rocks Underwater Easy to get (3)":
+            lambda state: state.can_reach("Great Bay", 'Region', player),
+
+        # Zora Cape Beach Rocks
+        "Zora Cape Beach Rocks (0)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (1)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (2)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (3)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (4)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (5)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (6)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (7)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (8)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Beach Rocks (9)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+
+        # Zora Cape Island Rocks (Req Hook)
+        "Zora Cape Island Rocks (0)":
+            lambda state: (
+                state.can_reach("Zora Cape", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Zora Cape Island Rocks (1)":
+            lambda state: (
+                state.can_reach("Zora Cape", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Zora Cape Island Rocks (2)":
+            lambda state: (
+                state.can_reach("Zora Cape", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Zora Cape Island Rocks (3)":
+            lambda state: (
+                state.can_reach("Zora Cape", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+        "Zora Cape Island Rocks (4)":
+            lambda state: (
+                state.can_reach("Zora Cape", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
+
+        # Road To Ikana Rock Circle
+        "Road To Ikana Rock Circle (0)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (1)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (2)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (3)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (4)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (5)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (6)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+        "Road To Ikana Rock Circle (7)":
+            lambda state: state.can_reach("Road to Ikana", 'Region', player),
+
+        # Ikana Graveyard Rock Circle
+        "Ikana Graveyard Rock Circle (0)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (1)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (2)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (3)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (4)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (5)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (6)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+        "Ikana Graveyard Rock Circle (7)":
+            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+
+        # Ikana Graveyard Captain Rockwall
+        "Ikana Graveyard Captain Rockwall (0)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_explosives(state, player) and
+                can_play_song("Sonata of Awakening", state, player)
+            ),
+        "Ikana Graveyard Captain Rockwall (1)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_explosives(state, player) and
+                can_play_song("Sonata of Awakening", state, player)
+            ),
+        "Ikana Graveyard Captain Rockwall (2)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_explosives(state, player) and
+                can_play_song("Sonata of Awakening", state, player)
+            ),
+        "Ikana Graveyard Captain Rockwall (3)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_explosives(state, player) and
+                can_play_song("Sonata of Awakening", state, player)
+            ),
+        "Ikana Graveyard Captain Rockwall (4)":
+            lambda state: (
+                state.can_reach("Ikana Graveyard", 'Region', player) and
+                has_explosives(state, player) and
+                can_play_song("Sonata of Awakening", state, player)
+            ),
+
+        # Inverted Stone Lower Tower Rocks
+        "Inverted Stone Lower Tower Rocks (0)":
+            lambda state: state.can_reach("Stone Tower (Inverted)", 'Region', player),
+        "Inverted Stone Lower Tower Rocks (1)":
+            lambda state: state.can_reach("Stone Tower (Inverted)", 'Region', player),
+
+        # Woodsanity (Crates/Barrels/Bonk Boards)
+        # Clock Town
+        "Laundry Pool Crate (0)":
+            lambda state: True,
+        "East Clock Town Crates (0)":
+            lambda state: True,
+        "East Clock Town Crates (1)":
+            lambda state: True,
+        "Termina Field Business Scrub Grotto Crate (1)":
+            lambda state: True,
+
+        # Romani Ranch Crates
+
+        "Romani Ranch Crate Next To Romani (1)":
+            lambda state: True,
+        "Romani Ranch Baby Cuccoo Crates (0)":
+            lambda state: True,
+        "Romani Ranch Baby Cuccoo Crates (1)":
+            lambda state: True,
+        "Romani Ranch Baby Cuccoo Crates (2)":
+            lambda state: True,
+
+        # Swamp Spider House
+
+        "Swamp Spider House Monument Room Crates (0)":
+             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Monument Room Crates (1)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Monument Room Crates (2)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Monument Room Crates (3)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Monument Room Crates (4)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Monument Room Crates (5)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Gold Room Crates (0)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Gold Room Crates (1)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+
+        # Goron Village
+
+        "Goron Village Keg Goron Crate (1)":
+            lambda state: can_use_fire_arrows(state,player),
+
+        # Ocean Spider House
+
+        "Ocean Spiderhouse Basement Crate (1)":
+            lambda state: state.can_reach("Ocean Spider House", 'Region', player) and
+                            state.has("Hookshot", player),
+
+        # Pirates' Fortress Related
+
+        "Pirates Fortress Entrance Bonk Board (0)":
+            lambda state: state.can_reach("Great Bay", 'Region', player) and
+                            state.has("Zora Mask", player),
+        "Pirates Fortress Entrance Bonk Board (1)":
+            lambda state: state.can_reach("Great Bay", 'Region', player) and
+                          state.has("Zora Mask", player),
+        "Pirates Fortress Entrance Bonk Board (2)":
+            lambda state: state.can_reach("Great Bay", 'Region', player) and
+                          state.has("Zora Mask", player),
+        "Pirates Fortress Entrance Bonk Board (3)":
+            lambda state: state.can_reach("Great Bay", 'Region', player) and
+                          state.has("Zora Mask", player),
+
+        "Pirates Fortress Sewers Bonk Board (0)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates Fortress Sewers Bonk Board (1)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates Fortress Sewers Bonk Board (2)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+
+        # Pirate Fortress Sewers Barrels/Crates
+
+        "Pirates' Fortress Sewers Barrel (0)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (1)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (2)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (3)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (4)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (5)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (6)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (7)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (8)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (9)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (10)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (11)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (12)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+
+        # Pirates' Fortress Interior Crates
+
+        "Pirates Fortress' Interior Crates (0)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player),
+        "Pirates Fortress' Interior Crates (1)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player),
+        "Pirates Fortress' Interior Crates (2)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player),
+        "Pirates Fortress' Exterior Balcony Barrel (1)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player) and
+                            state.has("Hookshot", player),
+        "Pirates' Fortress Leader's Room Crate (0)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player) and
+                            state.has("Progressive Bow", player),
+        "Pirates' Fortress Leader's Room Crate (1)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player) and
+                          state.has("Progressive Bow", player),
+        "Pirates' Fortress Guarded Bridge Barrel (0)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player) and
+                          state.has("Hookshot", player),
+        "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
+            lambda state: state.can_reach("Pirates' Fortress Interior", 'Region', player) and
+                          state.has("Hookshot", player),
+
+        # Dungeon Woodsanity
+
+        # Snowhead
+
+        "Snowhead Temple Lava Bridge Room Crate (0)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Elevator Room Crates (0)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Elevator Room Crates (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Elevator Room Crates (2)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Elevator Room Crates (3)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Elevator Room Crates (4)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+
+        "Snowhead Temple Timed Switch Puzzle Room Crate (0)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player) and
+                            has_explosives(state, player),
+        "Snowhead Temple Timed Switch Puzzle Room Crate (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player) and
+                          has_explosives(state, player),
+
+        # Great Bay
+
+        "Great Bay Temple Entrance Barrels (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (5)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (6)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Entrance Barrels (7)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Room Behind 1F Waterfall Barrels (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                            can_use_ice_arrows(state, player),
+        "Great Bay Temple Room Behind 1F Waterfall Barrels (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple Room Behind 1F Waterfall Barrels (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+
+        "Great Bay Temple 1F Red Valve Room Barrels (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Barrels (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Barrels (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Barrels (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Barrels (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Crates (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Crates (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Crates (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Crates (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+        "Great Bay Temple 1F Red Valve Room Crates (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player),
+
+        "Great Bay Temple 1F Frog Miniboss Crates (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (5)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (6)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (7)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (8)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (9)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (10)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (11)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (12)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (13)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (14)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple 1F Frog Miniboss Crates (15)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+
+        "Great Bay Temple Seesaw Room Crates (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (2)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (3)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (5)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Seesaw Room Crates (6)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Green Pipe Frozen Waterwheel Crates (0)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+        "Great Bay Temple Green Pipe Frozen Waterwheel Crates (1)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
+                          can_use_ice_arrows(state, player) and
+                          can_use_fire_arrows(state, player),
+
+        # Stone Tower Temple
+
+        "Stone Tower Temple Entrance Room Crates (0)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Entrance Room Crates (1)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+
+        "Stone Tower Temple Mirror Room Crates (0)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          (can_use_light_arrows(state, player) or
+                           state.has("Mirror Shield", player)),
+        "Stone Tower Temple Mirror Room Crates (1)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          (can_use_light_arrows(state, player) or
+                           state.has("Mirror Shield", player)),
+        "Stone Tower Temple Eyegore Room Crates (0)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Eyegore Room Crates (1)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Eyegore Room Crates (2)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+
+        "Stone Tower Temple Behind Bombable Wall Crates (0)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                            has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (1)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (2)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (3)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (4)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (5)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+        "Stone Tower Temple Behind Bombable Wall Crates (6)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
+                          has_explosives(state, player),
+
+        # Inverted Stone Tower
+
+        "Stone Tower Temple Inverted Entry Crates (0)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Inverted Entry Crates (1)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Inverted Entry Crates (2)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Inverted Entry Crates (3)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Inverted Entry Crates (4)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player),
+
+        "Stone Tower Temple Inverted Thin Hallway Crates (0)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Thin Hallway Crates (1)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Thin Hallway Crates (2)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Thin Hallway Crates (3)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Thin Hallway Crates (4)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Thin Hallway Crates (5)":
+            lambda state: state.can_reach("Inverted Stone Tower Temple", 'Region', player) and
+                          state.has("Deku Mask", player),
+
+        # Icicles (ice ice baby)
+
+        # Snowhead Temple
+
+        "Snowhead Temple Entry Block Icicles (0)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Entry Block Icicles (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Entry Block Icicles (2)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Entry Block Icicles (3)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Entry Block Icicles (4)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+
+        "Snowhead Temple Grey Door Icicles (0)":
+            lambda state: True,
+        "Snowhead Temple Grey Door Icicles (1)":
+            lambda state: True,
+
+        "Snowhead Temple 3F Behind Locked Door Icicles (0)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and
+                          (
+                          state.has("Hookshot", player) or
+                          can_use_fire_arrows(state, player)
+                          ),
+
+
+        "Snowhead Temple 3F Behind Locked Door Icicles (1)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and
+                          (
+                                  state.has("Hookshot", player) or
+                                  can_use_fire_arrows(state, player)
+                          ),
+
+        "Snowhead Temple 3F Behind Locked Door Icicles (2)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and
+                          (
+                                  state.has("Hookshot", player) or
+                                  can_use_fire_arrows(state, player)
+                          ),
+
+        "Snowhead Temple 4F Outside Wizzrobe Icicles (0)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and
+                          (
+                                  state.has("Hookshot", player) or
+                                  can_use_fire_arrows(state, player)
+                          ),
+        "Snowhead Temple 4F Outside Wizzrobe Icicles (1)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and
+                          (
+                                  state.has("Hookshot", player) or
+                                  can_use_fire_arrows(state, player)
+                          ),
+
+        "Snowhead Temple Outside Boss Door Icicles (0)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+        "Snowhead Temple Outside Boss Door Icicles (1)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+        "Snowhead Temple Outside Boss Door Icicles (2)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+        "Snowhead Temple Outside Boss Door Icicles (3)":
+            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+
+        # Great Bay Temple
+
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (0)":
+            lambda state: can_use_ice_arrows(state, player),
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (1)":
+            lambda state: can_use_ice_arrows(state, player),
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (2)":
+            lambda state: can_use_ice_arrows(state, player),
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (3)":
+            lambda state: can_use_ice_arrows(state, player),
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (4)":
+            lambda state: can_use_ice_arrows(state, player),
+
+        # Goron Trial
+
+        "Goron Trial Icicles (0)":
+            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+        "Goron Trial Icicles (1)":
+            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+        "Goron Trial Icicles (2)":
+            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+        "Goron Trial Icicles (3)":
+            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+
+        # Hivesanity
+
+        # Termina Field
+
+        "Termina Field Bombable Rock Grotto Hive (0)":
+            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
+        "Termina Field Bombable Rock Grotto Hive (1)":
+            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
+        "Termina Field Bombable Rock Grotto Hive (2)":
+            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
+
+        # Southern Swamp Hive
+
+        "Southern Swamp Hive Near Frog (0)":
+            lambda state: has_projectiles(state, player),
+
+        # Swamp Spider House
+
+        "Swamp Spider House Giant Pot Room Hives (0)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider House Giant Pot Room Hives (1)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider House Giant Pot Room Hives (2)":
+            lambda state: has_projectiles(state, player),
+
+        "Swamp Spider House Gold Room Hives (0)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider House Gold Room Hives (1)":
+            lambda state: has_projectiles(state, player),
+
+        "Swamp Spider Tree Room Hives (0)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider Tree Room Hives (1)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider Tree Room Hives (2)":
+            lambda state: has_projectiles(state, player),
+
+        # Woodfall Temple Hives
+
+        "Woodfall Temple Entrance Hive (0)":
+            lambda state: has_projectiles(state, player),
+
+        "Woodfall Temple Push Block Hive (0)":
+            lambda state: has_projectiles(state, player),
+
+        # Mountain Village Spring Hives
+
+        "Mountain Village Spring Tree Hive (0)":
+            lambda state: can_clear_snowhead(state, player),
+
+        # Real Fairysanity/Gossip Faires/Butterly Fairies
+
+        # Termina Field Gossip Fairies
+
+        "Termina Field Southern Tree Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player),
+        "Termina Field Near Thieving Bird Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Termina Field Near Bombable Rock Grotto Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Termina Field Gossip Grotto Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Termina Field Near Songwall Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Termina Field Eastern Corner Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Road to Southern Swamp Gossip Fairy
+
+        "Road To Southern Swamp Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Southern Swamp Gossip Fairies
+
+        "Southern Swamp Near Witch Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        "Swamp Spider House Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Milk Road Gossip Fairy
+
+        "Milk Road Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Romani Ranch Gossip Fairies
+
+        "Romani Ranch Entry Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Romani Ranch Tree Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Romani Ranch Near Barn Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                      can_play_song("Epona's Song", state, player),
+        "Romani Ranch Baby Cuccoos Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                      can_play_song("Epona's Song", state, player),
+        "Romani Ranch Doggy Racetrack Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                      can_play_song("Epona's Song", state, player),
+
+        # Path to Mountain Village Gossip Fairy
+
+        "Path To Mountain Village Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Mountain Village Gossip Fairies
+
+        "Mountain Village Spring Waterfall Gossip Fairy":
+            lambda state: can_clear_snowhead(state, player) and
+                          (
+                              can_play_song("Song of Healing", state, player) or
+                              can_play_song("Epona's Song", state, player)
+                          ),
+        "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
+            lambda state: can_clear_snowhead(state, player) and
+                          (
+                                  can_play_song("Song of Healing", state, player) or
+                                  can_play_song("Epona's Song", state, player)
+                          ),
+
+        # Great Bay Coast Gossip Fairy
+
+        "Great Bay Coast Rock Wall Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Zora Cape
+
+        "Zora Cape Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Road to Ikana Gossip Fairy
+
+        "Road To Ikana Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        # Ikana Canyon Gossip Fairy
+
+        "Ikana Canyon Near Octoroks Gossip Fairy":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+
+        "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy":
+            lambda state:
+            (
+                state.has("Zora Mask", player) and
+                state.has("Ocean Title Deed", player) and
+                state.has("Deku Mask", player) and
+                (
+                        can_play_song("Song of Healing", state, player) or
+                        can_play_song("Epona's Song", state, player)
+                  )
+            )
+        "Ikana Canyon Near Ghost House Gossip Fairy":
+            lambda state:
+            (
+                can_use_ice_arrows(state, player) and
+                state.has("Hookshot", player) and
+                (
+                        can_play_song("Song of Healing", state, player) or
+                        can_play_song("Epona's Song", state, player)
+                )
+            )
+
+        # Moon Gossip Fairies
+
+        "Deku Trial Front Left Gossip":
+            lambda state:
+        (
+            state.has("Deku Mask", player) and
+            (
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player)
+            )
+        )
+        "Deku Trial Back Left Gossip":
+            lambda state:
+            (
+                    state.has("Deku Mask", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Deku Trial Front Right Gossip":
+            lambda state:
+            (
+                    state.has("Deku Mask", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Deku Trial Back Right Gossip":
+            lambda state:
+            (
+                    state.has("Deku Mask", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Deku Trial Furthest Back Gossip":
+            lambda state:
+            (
+                    state.has("Deku Mask", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+
+        # Goron Trial Gossip Fairies
+
+        "Goron Trial 1st Gazebo Gossip (0)":
+            lambda state:
+            (
+                state.has("Goron Mask", player) and
+                state.has("Progressive Magic", player) and
+                (
+                        can_play_song("Song of Healing", state, player) or
+                        can_play_song("Epona's Song", state, player)
+                )
+            )
+        "Goron Trial 1st Gazebo Gossip (1)":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Goron Trial 2nd Gazebo Gossip (0)":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Goron Trial 2nd Gazebo Gossip (1)":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Goron Trial Near Heart Piece Gossip (1)":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+
+        # Zora Trial
+        "Zora Trial RRR Path Gossip":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Zora Trial RRL Path Gossip":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Zora Trial LRR Path Gossip":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Zora Trial LRLL Path Gossip":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+        "Zora Trial LLL Path Gossip":
+            lambda state:
+            (
+                    state.has("Goron Mask", player) and
+                    state.has("Progressive Magic", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            )
+
+        # Link Trial Gossip Fairies
+
+        "Link Trial Gossip (1)":
+            lambda state: can_play_song("Song of Healing", state, player) or
+                          can_play_song("Epona's Song", state, player),
+        "Link Trial Gossip (2)":
+            lambda state:
+            (
+                state.has("Hookshot", player) and
+                (
+                        can_play_song("Song of Healing", state, player) or
+                        can_play_song("Epona's Song", state, player)
+                )
+            ),
+
+        "Link Trial Gossip (3)":
+            lambda state:
+            (
+                    state.has("Hookshot", player) and
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            ),
+        "Link Trial Gossip (4)":
+            lambda state:
+            (
+                    state.can_reach("Link Trial Gossip (3)") and
+                    can_use_fire_arrows(state, player) and
+                    has_bombchus(state, player)
+                        (
+                        can_play_song("Song of Healing", state, player) or
+                        can_play_song("Epona's Song", state, player)
+                    )
+            ),
+
+        "Link Trial Gossip (5)":
+            lambda state:
+            (
+                    state.can_reach("Link Trial Gossip (3)") and
+                    can_use_fire_arrows(state, player) and
+                    has_bombchus(state, player)
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
+                    )
+            ),
+
+
+        # Well Fairies
+
+        "Fairy Fountain Left Side Well (0)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+        "Fairy Fountain Left Side Well (1)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (2)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (3)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (4)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (5)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (6)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        "Fairy Fountain Left Side Well (7)":
+            lambda state:
+            (
+                    (
+                            state.has("Mask of Scents", player) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+                    or
+                    (
+                            can_afford_price(state, player, 100) and
+                            has_bottle(state, player, 1) and
+                            state.has("Gibdo Mask", player)
+                    )
+            ),
+
+        # Butterfly Fairies
+
+        "Termina Field Near Peahat Grotto Butterfly Fairy (0)":
+            lambda state: True,
+
+        "Termina Field Cow Grotto Butterfly Fairy (0)":
+            lambda state: has_explosives(state, player),
+
+        "Termina Field Bombable Rock Grotto Butterfly Fairy (0)":
+            lambda state: has_explosives(state, player),
+
+        # Deku Palace Butterflies
+
+        "Deku Palace Bean Seller Butterfly Fairy (0)":
+            lambda state: True,
+
+        # Great Bay Coast Butterflies
+
+        "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (0)":
+            lambda state: True,
+
+        "Great Bay Coast cow Grotto Butterfly Fairy (0)":
+            lambda state: state.has("Hookshot", player),
+
+        # Moon Butterflies
+
+        "Moon Butterfly Fairy (0)":
+            lambda state: True,
+        "Moon Butterfly Fairy (1)":
+            lambda state: True,
+        "Moon Butterfly Fairy (2)":
+            lambda state: True,
+        "Moon Butterfly Fairy (3)":
+            lambda state: True,
+        "Moon Butterfly Fairy (4)":
+            lambda state: True,
+        "Moon Butterfly Fairy (5)":
+            lambda state: True,
+        "Moon Butterfly Fairy (6)":
+            lambda state: True,
+        "Moon Butterfly Fairy (7)":
+            lambda state: True,
+        "Moon Butterfly Fairy (8)":
+            lambda state: True,
+        "Moon Butterfly Fairy (9)":
+            lambda state: True,
+        "Moon Butterfly Fairy (10)":
+            lambda state: True,
+        "Moon Butterfly Fairy (11)":
+            lambda state: True,
+        "Moon Butterfly Fairy (12)":
+            lambda state: True,
+
     }
