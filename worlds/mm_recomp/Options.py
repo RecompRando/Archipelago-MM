@@ -229,11 +229,24 @@ class Realfairysanity(Toggle):
 
 class Iciclesanity(Toggle):
     """Choose whether Icicle items are shuffled into the pool."""
-    display_name = "Hivesanity" 
+    display_name = "Iciclesanity" 
 
 class Hivesanity(Toggle):
     """Choose whether Hive items are shuffled into the pool."""
     display_name = "Hivesanity"    
+
+class Notebooksanity(Toggle):
+    """Choose whether Notebook Entries are shuffled items."""
+    display_name = "Notebooksanity"   
+
+class Owlsanity(Toggle):
+    """Choose whether Owl Statues are shuffled items."""
+    display_name = "Owlsanity"  
+
+class Frogsanity(Toggle):
+    """Choose whether the four frogs are shuffled items."""
+    display_name = "Frogsanity"       
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -332,6 +345,9 @@ class MMROptions(PerGameCommonOptions):
     realfairysanity: Realfairysanity
     iciclesanity: Iciclesanity
     hivesanity: Hivesanity
+    notebooksanity: Notebooksanity
+    owlsanity: Owlsanity
+    frogsanity: Frogsanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
