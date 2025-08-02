@@ -10846,7 +10846,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420172DD3,
         can_create=lambda options: options.rupeesanity.value
     ),
-    
+
     # Termina Field Song Guay Goron/Epona Rupees
     "Termina Field Song Guay Goron/Epona Rupees (0)": MMRLocationData(
         region="Termina Field",
@@ -14886,10 +14886,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.owlsanity.value
     ),
     "Stone Tower Owl Statue": MMRLocationData(
-        region="Ikana Canyon",
+        region="Stone Tower",
         address=0x3469420FF1509,
         can_create=lambda options: options.owlsanity.value
-    ),  
+    ),
 
     #Frogs
     "Laundry Pool Frog": MMRLocationData(
