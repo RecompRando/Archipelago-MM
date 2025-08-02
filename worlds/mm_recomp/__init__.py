@@ -104,13 +104,13 @@ class MMRWorld(World):
             self.create_and_add_filler_items(8)
 
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(990)
+            self.create_and_add_filler_items(1035)
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(532)
+            self.create_and_add_filler_items(535)
         
         if self.options.rocksanity.value != 0:
-            self.create_and_add_filler_items(101)
+            self.create_and_add_filler_items(123)
 
         if self.options.soilsanity.value != 0:
             self.create_and_add_filler_items(29)                          
@@ -122,22 +122,31 @@ class MMRWorld(World):
             self.create_and_add_filler_items(22) 
 
         if self.options.rupeesanity.value != 0:
-            self.create_and_add_filler_items(188)
+            self.create_and_add_filler_items(210)
 
         if self.options.snowsanity.value != 0:
             self.create_and_add_filler_items(117)
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(113)
+            self.create_and_add_filler_items(125)
                                  
         if self.options.realfairysanity.value != 0:
-            self.create_and_add_filler_items(62)
+            self.create_and_add_filler_items(91)
 
         if self.options.iciclesanity.value != 0:
-            self.create_and_add_filler_items(20)
+            self.create_and_add_filler_items(25)
 
         if self.options.hivesanity.value != 0:
-            self.create_and_add_filler_items(15)   
+            self.create_and_add_filler_items(18)
+        
+        if self.options.notebooksanity.value != 0:
+            self.create_and_add_filler_items(55)
+
+        if self.options.owlsanity.value != 0:
+            self.create_and_add_filler_items(11)
+        
+        if self.options.frogsanity.value != 0:
+            self.create_and_add_filler_items(4)                                            
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -406,9 +415,12 @@ class MMRWorld(World):
         return {
             "skullsanity": self.options.skullsanity.value,
             "fairysanity": self.options.fairysanity.value,
-            "shopsanity": self.options.shopsanity.value,
-            "grasssanity": self.options.rocksanity.value,
-            "potsanity": self.options.rocksanity.value,                        
+            "shopsanity": self.options.shopsanity.value,                                                                
+            "scrubsanity": self.options.scrubsanity.value,
+            "shop_prices": self.prices,
+            "cowsanity": self.options.cowsanity.value,
+            "grasssanity": self.options.grasssanity.value,
+            "potsanity": self.options.potsanity.value,                        
             "rocksanity": self.options.rocksanity.value,
             "hitsanity": self.options.hitsanity.value,            
             "soilsanity": self.options.soilsanity.value,  
@@ -418,10 +430,10 @@ class MMRWorld(World):
             "woodsanity": self.options.woodsanity.value,
             "realfairysanity": self.options.realfairysanity.value,
             "iciclesanity":  self.options.iciclesanity.value,
-            "hivesanity": self.options.realfairysanity.value,                                                                
-            "scrubsanity": self.options.scrubsanity.value,
-            "shop_prices": self.prices,
-            "cowsanity": self.options.cowsanity.value,
+            "hivesanity": self.options.realfairysanity.value,
+            "notebooksanity": self.options.notebooksanity.value,
+            "owlsanity": self.options.owlsanity.value,
+            "frogsanity": self.options.frogsanity.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
