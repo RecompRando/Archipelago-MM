@@ -3637,6 +3637,77 @@ def get_location_rules(player, options):
                     )
                 )
             ),
+
+        # Woodfall Temple Post Dungeon
+
+        "Southern Swamp Owl Post Dungeon Grass (1)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Owl Post Dungeon Grass (2)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (1)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (10)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (11)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (12)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (2)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (3)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (4)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (5)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (6)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (7)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (8)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 1 (9)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (1)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (2)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (3)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (4)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (5)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (6)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (7)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (8)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 2 (9)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (1)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (2)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (3)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (4)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (5)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (6)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (7)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (8)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Grass Group 3 (9)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Gossip Grass (1)":
+            lambda state: can_clear_woodfall(state, player),
+        "Southern Swamp Post Dungeon Gossip Grass (2)":
+            lambda state: can_clear_woodfall(state, player),
         
         # Deku Palace Bean Grotto Grass
         "Deku Palace Bean Grotto Grass Group 0 (0)":
@@ -3677,12 +3748,6 @@ def get_location_rules(player, options):
             lambda state: True,
         "Woodfall Grass (6)":
             lambda state: True,
-        
-        # Southern Swamp Owl Post Dungeon Grass
-        "Southern Swamp Owl Post Dungeon Grass (1)":
-            lambda state: can_clear_woodfall(state, player),
-        "Southern Swamp Owl Post Dungeon Grass (2)":
-            lambda state: can_clear_woodfall(state, player),
 
         # Milk Road Owl Grass
         "Milk Road Owl Grass (1)":
@@ -8760,7 +8825,7 @@ def get_location_rules(player, options):
             lambda state: True,
 
 
-        # Termina Field Easter Pillar Rupees
+        # Termina Field Eastern Pillar Rupees
         "Termina Field Easter Pillar Rupees":
             lambda state: state.can_reach("Termina Field", 'Region', player),
 
@@ -8769,6 +8834,10 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Termina Field", 'Region', player),
         "Termina Field Tree Rupees (1)":
             lambda state: state.can_reach("Termina Field", 'Region', player),
+
+        # Observatory Guay
+        "Observatory Secret Guay Rupee":
+            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
 
         # Termina Field Song Guay Rupees
         "Termina Field Song Guay Rupees (0)":
@@ -8919,6 +8988,11 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Termina Field", 'Region', player),
         "Termina Field Song Guay Goron/Epona Rupees (2)":
             lambda state: state.can_reach("Termina Field", 'Region', player),
+
+        # Takkuri - thieving lil' shit
+
+        "Termina Field Thieving Bird Rupee":
+            lambda state: True,
 
         # Deku PlayGround Day 1 Rupees
         "Deku PlayGround Day 1 Rupees (0)":
@@ -11023,6 +11097,10 @@ def get_location_rules(player, options):
         "Termina Field Eastern Corner Gossip Fairy":
             lambda state: can_play_song("Song of Healing", state, player) or
                           can_play_song("Epona's Song", state, player),
+        "Termina Field Observatory Gossip Fairy":
+            lambda state: can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
+                          (can_play_song("Song of Healing", state, player) or
+                           can_play_song("Epona's Song", state, player)),
 
         # Road to Southern Swamp Gossip Fairy
 
@@ -11311,7 +11389,7 @@ def get_location_rules(player, options):
         "Link Trial Gossip (4)":
             lambda state:
             (
-                    state.can_reach("Link Trial Gossip (3)") and
+                    state.can_reach("Link Trial Gossip (3)", 'Location', player) and
                     can_use_fire_arrows(state, player) and
                     has_bombchus(state, player)
                         (
@@ -11323,7 +11401,7 @@ def get_location_rules(player, options):
         "Link Trial Gossip (5)":
             lambda state:
             (
-                    state.can_reach("Link Trial Gossip (3)") and
+                    state.can_reach("Link Trial Gossip (3)", 'Location', player) and
                     can_use_fire_arrows(state, player) and
                     has_bombchus(state, player)
                     (
@@ -11514,5 +11592,165 @@ def get_location_rules(player, options):
             lambda state: True,
         "Moon Butterfly Fairy (12)":
             lambda state: True,
+
+    # Frogs
+
+        "Laundry Pool Frog":
+            lambda state: state.has("Don Gero's Mask", player),
+        "Southern Swamp Frog":
+            lambda state: state.has("Don Gero's Mask", player),
+        "Woodfall Temple Miniboss Frog":
+            lambda state:
+                        state.can_reach("Woodfall Temple Boss Key Chest", 'Location', player) and
+                        state.has("Don Gero's Mask", player),
+        "Great Bay Temple Miniboss Frog":
+            lambda state:
+                        state.can_reach("Great Bay Temple Froggy Entrance Room Caged Chest", 'Location', player) and
+                        state.has("Don Gero's Mask", player),
+
+    # Owls
+
+        "Clock Town Owl Statue":
+            lambda state: True,
+        "Milk Road Owl Statue":
+            lambda state: True,
+        "Southern Swamp Owl Statue":
+            lambda state: True,
+        "Mountain Village Owl Statue":
+            lambda state: state.can_reach("Mountain Village", 'Region', player),
+        "Snowhead Owl Statue":
+            lambda state: state.can_reach("Snowhead", 'Region', player),
+        "Great Bay Coast Owl Statue":
+            lambda state: state.can_reach("Great Bay Coast", 'Region', player),
+        "Zora Cape Owl Statue":
+            lambda state: state.can_reach("Zora Hall", 'Region', player),
+        "Ikana Canyon Owl Statue":
+            lambda state: state.can_reach("Upper Ikana Canyon", 'Region', player),
+        "Stone Tower Owl Statue":
+            lambda state: state.can_reach("Stone Tower", 'Region', player),
+
+    # Notebook Events (S Tier Item now)
+
+        "Notebook Event Defended Against Aliens":
+            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+        "Notebook Event Delivered Pendant Of Memories":
+            lambda state: state.has("Kafei Mask", player) and
+                          state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player),
+        "Notebook Event Delivered Priority Mail":
+            lambda state: state.has("Priority Mail", player),
+        "Notebook Event Deposited Letter To Kafei":
+            lambda state: state.has("Letter to Kafei", player),
+        "Notebook Event Escaped Sakons Hideout":
+            lambda state: state.has("Letter to Kafei", player) and
+                          state.can_reach("Lower Ikana Canyon", 'Region', player),
+        "Notebook Event Escorted Cremia":
+            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+        "Notebook Event Learned Secret Code":
+            lambda state: has_projectiles(state, player),
+        "Notebook Event Promised Midnight Meeting":
+            lambda state: state.has("Kafei Mask", player),
+        "Notebook Event Promised To Help With Aliens":
+            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+        "Notebook Event Promised To Meet Kafei":
+            lambda state: state.has("Kafei Mask", player) and
+                          state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player),
+        "Notebook Event Received All Night Mask":
+            lambda state: state.can_reach("Curiosity Shop Night 3 (Stop Thief)", 'Location', player),
+        "Notebook Event Received Blast Mask":
+            lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
+        "Notebook Event Received Bombers NotebooK":
+            lambda state: has_projectiles(state, player),
+        "Notebook Event Received Bremen Mask":
+            lambda state: True,
+        "Notebook Event Received Bunny Hood":
+            lambda state: state.has("Bremen Mask", player),
+        "Notebook Event Received Circus Leaders Mask":
+            lambda state: state.can_reach("Milk Bar Show", 'Location', player),
+        "Notebook Event Received Couples Mask":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+        "Notebook Event Received Garos Mask":
+            lambda state: can_play_song("Epona's Song", state, player),
+        "Notebook Event Received Grandma Long Story HP":
+            lambda state: state.has("All Night's Mask", 'Location', player),
+        "Notebook Event Received Grandma Short Story HP":
+            lambda state: state.has("All Night's Mask", 'Location', player),
+        "Notebook Event Received Kafeis Mask":
+            lambda state: True,
+        "Notebook Event Received Kamaros Mask":
+            lambda state: can_play_song("Song of Healing", state, player),
+        "Notebook Event Received Keaton Mask":
+            lambda state: state.can_reach("Laundry Pool Curiosity Shop Salesman #1", 'Location', player),
+        "Notebook Event Received Letter To Kafei":
+            lambda state: state.has("Kafei Mask", player) and
+                          state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player),
+        "Notebook Event Received Mayor HP":
+            lambda state: state.has("Couple's Mask", player),
+        "Notebook Event Received Milk Bottle":
+            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+        "Notebook Event Received Pendant Of Memories":
+            lambda state: state.has("Letter to Kafei", player),
+        "Notebook Event Received Postman HP":
+            lambda state: state.has("Bunny Hood", player),
+        "Notebook Event Received Postmans Hat":
+            lambda state: state.has("Priority Mail", player),
+        "Notebook Event Received Priority Mail":
+            lambda state: state.has("Letter to Kafei", player),
+        "Notebook Event Received Romanis Mask":
+            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+        "Notebook Event Received Room Key":
+            lambda state: True,
+        "Notebook Event Received Rosa Sisters HP":
+            lambda state: state.has("Kamaro's Mask". player),
+        "Notebook Event Received Stone Mask":
+            lambda state: state.can_reach("Road to Ikana Invisible Soldier", 'Location', player),
+        "Notebook Event Received Toilet Hand HP":
+            lambda state: state.can_reach("Stock Pot Inn Midnight Toilet Hand", 'Location', player),
+
+        # Notebook Meetings
+
+        "Notebook Meeting Africa (Toto)":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Anju":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Anjus Grandmother":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Bomb Shop Lady":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Bombers":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Cremia":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Curiosity Shop Man":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Gorman":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Gorman Brothers":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Grog":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Guru Guru":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Kafei":
+            lambda state: state.has("Bomber's Notebook", player) and
+                            state.has("Letter to Kafei", player),
+        "Notebook Meeting Kamaro":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Madame Aroma":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Mayor Dotour":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Postman":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Romani":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Rosa Sisters":
+            lambda state: state.has("Bomber's Notebook", player),
+        "Notebook Meeting Shiro":
+            lambda state: state.has("Bomber's Notebook", player) and
+                            state.has("Lens of Truth", player) and
+                            state.has("Progressive Magic", player) and
+                            can_play_song("Epona's Song", state, player),
+        "Notebook Meeting Toilet Hand":
+            lambda state: state.has("Bomber's Notebook", player),
 
     }
