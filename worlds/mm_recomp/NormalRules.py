@@ -193,8 +193,13 @@ def get_region_rules(player, options):
                 has_explosives(state, player) or 
                 can_use_fire_arrows(state, player)
             ),
-        "Path to Snowhead -> Snowhead Temple":
+        "Path to Snowhead -> Snowhead":
             lambda state: (
+                state.has("Goron Mask", player) and 
+                can_play_song("Goron Lullaby", state, player) and 
+                state.has("Progressive Magic", player)
+            ),
+        "Snowhead -> Snowhead Temple": lambda state: (
                 state.has("Goron Mask", player) and 
                 can_play_song("Goron Lullaby", state, player) and 
                 state.has("Progressive Magic", player)
@@ -208,7 +213,7 @@ def get_region_rules(player, options):
         "Pirates' Fortress -> Pirates' Fortress Sewers":
             lambda state: state.has("Goron Mask", player) or state.has("Hookshot", player),
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
-            lambda state: True,
+            lambda state: state.has("Goron Mask", player) or state.has("Hookshot", player),
         "Zora Cape -> Zora Hall":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Great Bay Temple":
@@ -263,6 +268,8 @@ def get_region_rules(player, options):
                 can_use_light_arrows(state, player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
+        "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)":
+            lambda state: True,    
     }
 
 def get_location_rules(player, options):
@@ -356,7 +363,8 @@ def get_location_rules(player, options):
                 has_explosives(state, player)
             ),
         "Bomber's Hideout Astral Observatory":
-            lambda state: has_projectiles(state, player),
+            lambda state: has_projectiles(state, player) or
+                            state.has("Deku Mask", player),
         "Milk Bar Show":
             lambda state: (
                 state.has("Romani Mask", player) and 
@@ -1093,7 +1101,9 @@ def get_location_rules(player, options):
                 state.has("Swamp Title Deed", player)
             ),
         "Goron Village Deku Trade Freestanding HP":
-            lambda state: state.can_reach("Goron Village Deku Trade", 'Location', player),
+            lambda state: (
+                state.can_reach("Goron Village Deku Trade", 'Location', player)
+            ),
         "Powder Keg Goron Reward":
             lambda state: (
                 can_clear_snowhead(state, player) or 
@@ -1847,7 +1857,6 @@ def get_location_rules(player, options):
             ),
         "Ikana Canyon Deku Scrub Purchase Blue Potion":
             lambda state: (
-                state.has("Zora Mask", player) and 
                 has_bottle(state, player) and 
                 can_afford_price(state, player, 100)
             ),
