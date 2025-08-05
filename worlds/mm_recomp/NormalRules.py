@@ -210,10 +210,12 @@ def get_region_rules(player, options):
             lambda state: has_explosives(state, player),
         "Great Bay -> Pirates' Fortress":
             lambda state: state.has("Zora Mask", player),
+        "Pirates' Fortress -> Pirates' Fortress (Interior)":
+            lambda state: state.has("Hookshot", player),
         "Pirates' Fortress -> Pirates' Fortress Sewers":
-            lambda state: state.has("Goron Mask", player) or state.has("Hookshot", player),
+            lambda state: state.has("Goron Mask", player),
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
-            lambda state: state.has("Goron Mask", player) or state.has("Hookshot", player),
+            lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Zora Hall":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Great Bay Temple":
