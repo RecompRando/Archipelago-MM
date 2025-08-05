@@ -193,13 +193,7 @@ def get_region_rules(player, options):
                 has_explosives(state, player) or 
                 can_use_fire_arrows(state, player)
             ),
-        "Path to Snowhead -> Snowhead":
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                can_play_song("Goron Lullaby", state, player) and 
-                state.has("Progressive Magic", player)
-            ),
-        "Snowhead -> Snowhead Temple": lambda state: (
+        "Path to Snowhead -> Snowhead Temple": lambda state: (
                 state.has("Goron Mask", player) and 
                 can_play_song("Goron Lullaby", state, player) and 
                 state.has("Progressive Magic", player)
