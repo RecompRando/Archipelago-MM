@@ -1453,9 +1453,11 @@ def get_location_rules(player, options):
             ),
         "Great Bay Marine Research Lab Zora Egg Delivery Song":
             lambda state: (
-                can_reach_seahorse(state, player) and 
-                has_bottle(state, player, 3) and 
-                state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
+                has_bottle(state, player) and 
+                (
+                    can_reach_seahorse(state, player) or
+                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
+                )
             ),
         "Great Bay Marine Research Lab Feeding Fish":
             lambda state: has_bottle(state, player),
