@@ -100,15 +100,15 @@ class BossWarpsWithRemains(DefaultOnToggle):
 
 class ShuffleSpiderHouseReward(Toggle):
     """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
-    display_name = "Shuffle Swamphouse Reward"
+    display_name = "Shuffle Spider House Rewards"
 
 
 class Skullsanity(Choice):
     """Choose what items gold skulltulas can give.
     
-    vanilla: Keep the swamphouse in generation, but only place Skulltula tokens there.
+    vanilla: Keep the Spider Houses in generation, but only place Skulltula tokens there.
     anything: Any item can be given by any Skulltula, and tokens can be found anywhere in any world.
-    ignore: Remove the swamphouse from generation entirely, lowering the hint percentage."""
+    ignore: Remove the Spider Houses from generation entirely, lowering the hint percentage and removing them from the spoiler log."""
     display_name = "Skullsanity"
     option_vanilla = 0
     option_anything = 1
