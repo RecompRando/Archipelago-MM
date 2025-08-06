@@ -106,9 +106,9 @@ class ShuffleSpiderHouseReward(Toggle):
 class Skullsanity(Choice):
     """Choose what items gold skulltulas can give.
     
-    vanilla: Keep the swamphouse in generation, but only place Skulltula tokens there.
+    vanilla: Keep the spider houses in generation, but only place Skulltula tokens there.
     anything: Any item can be given by any Skulltula, and tokens can be found anywhere in any world.
-    ignore: Remove the swamphouse from generation entirely, lowering the hint percentage."""
+    ignore: Remove the spider houses from generation entirely, lowering the hint percentage."""
     display_name = "Skullsanity"
     option_vanilla = 0
     option_anything = 1
