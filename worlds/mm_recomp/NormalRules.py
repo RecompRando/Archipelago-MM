@@ -167,7 +167,7 @@ def get_region_rules(player, options):
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
-                state.has("Bottle of Red Potion", player) or 
+                has_bottle(state, player) or 
                 (
                     has_hard_projectiles(state, player) and 
                     state.has("Deku Mask", player)
@@ -606,7 +606,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Tingle Romani Ranch Map Purchase":
             lambda state: (
-                has_projectiles(state, player) or 
+                has_projectiles(state, player) and 
                 (
                     state.can_reach("Milk Road", 'Region', player) or 
                     state.can_reach("Twin Islands", 'Region', player)
@@ -617,7 +617,7 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
             lambda state: (
-                has_projectiles(state, player) or 
+                has_projectiles(state, player) and 
                 (
                     state.can_reach("Southern Swamp", 'Region', player) or 
                     state.can_reach("Clock Town", 'Region', player)
@@ -1478,10 +1478,7 @@ def get_location_rules(player, options):
         "Ocean Spider House First Room Open Pot #1 Token":
             lambda state: state.has("Hookshot", player),
         "Ocean Spider House First Room Open Pot #2 Token":
-            lambda state: (
-                state.has("Hookshot", player) and 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Ocean Spider House First Room Wall Token":
             lambda state: state.has("Hookshot", player),
         "Ocean Spider House Library Top Bookcase Token":
@@ -1788,7 +1785,7 @@ def get_location_rules(player, options):
         "Road to Ikana Invisible Soldier":
             lambda state: (
                 can_play_song("Epona's Song", state, player) and 
-                state.has("Bottle of Red Potion", player) and 
+                has_bottle(state, player) and 
                 can_use_lens(state, player)
             ),
             
