@@ -387,7 +387,7 @@ def get_baby_location_rules(player, options):
             lambda state: state.has("Ocarina of Time", player) and state.has("Song of Healing", player),
         "Termina Gossip Stones HP":
             lambda state: (state.has("Deku Mask", player) and can_play_song("Sonata of Awakening", state, player)) and (state.has("Goron Mask", player) and can_play_song("Goron Lullaby", state, player)) and (state.has("Zora Mask", player) and can_play_song("New Wave Bossa Nova", state, player)),
-        "Termina Moon's Tear Scrub HP":
+        "Termina Scrub Grotto HP":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and state.has("Moon's Tear", player) and state.has("Progressive Wallet", player),
         "Milk Road Gorman Ranch Race":
             lambda state: state.has("Ocarina of Time", player) and state.has("Epona's Song", player),

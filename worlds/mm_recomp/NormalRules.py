@@ -585,7 +585,7 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-        "Termina Moon's Tear Scrub HP":
+        "Termina Scrub Grotto HP":
             lambda state: (
                 (
                     state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and 
