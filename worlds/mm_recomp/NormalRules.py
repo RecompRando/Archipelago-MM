@@ -303,6 +303,18 @@ def get_location_rules(player, options):
             lambda state: state.has("Stray Fairy (Clock Town)", player),
         "Clock Town Hide-and-Seek":
             lambda state: has_projectiles(state, player),
+        "Tingle Clock Town Map Purchase":
+            lambda state: (
+                has_projectiles(state, player) and 
+                (
+                    state.can_reach("Clock Town", 'Region', player) or 
+                    (
+                        state.can_reach("Ikana Canyon", 'Region', player) and 
+                        can_use_ice_arrows(state, player) and 
+                        state.has("Hookshot", player)
+                    )
+                )
+            ),
         
         "South Clock Town Moon's Tear Trade":
             lambda state: state.has("Moon's Tear", player),
