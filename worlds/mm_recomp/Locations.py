@@ -1268,11 +1268,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Pirates' Fortress Sewers Underwater Lower Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062304
+        address=0x3469420062306
     ),
     "Pirates' Fortress Sewers Underwater Upper Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062306
+        address=0x3469420062304
     ),
     "Pirates' Fortress Exterior Underwater Log Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
