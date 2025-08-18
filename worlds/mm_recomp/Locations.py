@@ -390,11 +390,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Clock Town",
         address=0x34694200000AA
     ),
-    "Stock Pot Inn Upstairs Middle Room Chest": MMRLocationData(
+    "Stock Pot Inn Locked Room Chest": MMRLocationData(
         region="Clock Town",
         address=0x3469420066100
     ),
-    "Stock Pot Inn Employees Only Room Night 3 Chest": MMRLocationData(
+    "Stock Pot Inn Employee Room Chest": MMRLocationData(
         region="Clock Town",
         address=0x3469420066101
     ),
@@ -460,7 +460,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Termina Field",
         address=0x3469420062D02
     ),
-    "Termina Tall Grass Chest": MMRLocationData(
+    "Termina Grass Chest": MMRLocationData(
         region="Termina Field",
         address=0x3469420062D01
     ),
@@ -468,7 +468,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Termina Field",
         address=0x3469420062D00
     ),
-    "Termina Tall Grass Grotto Chest": MMRLocationData(
+    "Termina Grass Grotto Chest": MMRLocationData(
         region="Termina Field",
         address=0x346942006071F
     ),
@@ -494,7 +494,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Termina Field",
         address=0x346942006071A
     ),
-    "Termina Northern Midnight Dancer": MMRLocationData(
+    "Termina Healing Kamaro": MMRLocationData(
         region="Termina Field",
         address=0x3469420000089
     ),
@@ -530,36 +530,36 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Southern Swamp",
         address=0x3469420000098
     ),    
-    "Southern Swamp Deku Scrub Purchase Beans": MMRLocationData(
+    "Southern Swamp Deku Scrub Purchase": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420090135,
         can_create=lambda options: options.scrubsanity.value
     ),
-    "Southern Swamp Deku Trade Freestanding HP": MMRLocationData(
+    "Southern Swamp Freestanding HP": MMRLocationData(
         region="Southern Swamp",
         address=0x346942005451E
     ),
-    "Southern Swamp Healthy Witch Request": MMRLocationData(
+    "Southern Swamp Kotake Item": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420000059
     ),
-    "Southern Swamp Mystery Woods Day 2 Grotto Chest": MMRLocationData(
+    "Southern Swamp Day 2 Grotto Chest": MMRLocationData(
         region="Southern Swamp",
         address=0x346942006071C
     ),
-    "Southern Swamp Tour Witch Gift": MMRLocationData(
+    "Southern Swamp Healing Koume": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420000043
     ),
-    "Southern Swamp Tour Guide Winning Picture": MMRLocationData(
+    "Southern Swamp Winning Picture": MMRLocationData(
         region="Southern Swamp",
         address=0x34694200701C5
     ),
-    "Southern Swamp Tour Guide Good Picture": MMRLocationData(
+    "Southern Swamp Good Picture": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420071C54
     ),
-    "Southern Swamp Tour Guide Okay Picture": MMRLocationData(
+    "Southern Swamp Okay Picture": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420071C52
     ),
@@ -732,7 +732,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Swamp Spider House",
         address=0x346942000008A
     ),
-    "Southern Swamp Near Swamp Spider House Grotto Chest": MMRLocationData(
+    "Southern Swamp Grotto Chest": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x346942006071D
     ),
@@ -760,15 +760,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Southern Swamp (Deku Palace)",
         address=0x346942000008E
     ),
-    "Woodfall Near Owl Statue Chest": MMRLocationData(
+    "Woodfall Owl Statue Chest": MMRLocationData(
         region="Woodfall",
         address=0x3469420064602
     ),
-    "Woodfall After Great Fairy Cave Chest": MMRLocationData(
+    "Woodfall Bridge Chest": MMRLocationData(
         region="Woodfall",
         address=0x3469420064601
     ),
-    "Woodfall Near Swamp Entrance Chest": MMRLocationData(
+    "Woodfall Entrance Chest": MMRLocationData(
         region="Woodfall",
         address=0x3469420064600
     ),
@@ -780,11 +780,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall Temple",
         address=0x3469420061B18
     ),
-    "Woodfall Temple Moving Flower Platform Room Chest": MMRLocationData(
+    "Woodfall Temple Ledge Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B01
     ),
-    "Woodfall Temple Gagwab Chest": MMRLocationData(
+    "Woodfall Temple Turtle Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B1D
     ),
@@ -792,19 +792,19 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall Temple",
         address=0x3469420061B1C
     ),
-    "Woodfall Temple Black Boe Room Chest": MMRLocationData(
+    "Woodfall Temple Dark Room Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B19
     ),
-    "Woodfall Temple Wooden Flower Switch Chest": MMRLocationData(
+    "Woodfall Temple Switch Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B17
     ),
-    "Woodfall Temple Dinolfos Chest": MMRLocationData(
+    "Woodfall Temple Lizard Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B1B
     ),
-    "Woodfall Temple Boss Key Chest": MMRLocationData(
+    "Woodfall Temple Frog Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B1E
     ),
@@ -812,47 +812,47 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall Temple",
         address=0x3469420011B2B
     ),
-    "Woodfall Temple Wooden Flower Deku Baba SF": MMRLocationData(
+    "Woodfall Temple Deku Baba SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B2E
     ),
-    "Woodfall Temple Wooden Flower Pot SF": MMRLocationData(
+    "Woodfall Temple Pot SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B1C
     ),
-    "Woodfall Temple Moving Flower Platform Room Beehive SF": MMRLocationData(
+    "Woodfall Temple Platform Hive SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B1E
     ),
-    "Woodfall Temple Wooden Flower Bubble SF": MMRLocationData(
+    "Woodfall Temple Main Room Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B30
     ),
-    "Woodfall Temple Push Block Skulltula SF": MMRLocationData(
+    "Woodfall Temple Skulltula SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B31
     ),
-    "Woodfall Temple Push Block Bubble SF": MMRLocationData(
+    "Woodfall Temple Bridge Room Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B2F
     ),
-    "Woodfall Temple Push Block Beehive SF": MMRLocationData(
+    "Woodfall Temple Bridge Room Hive SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B1D
     ),
-    "Woodfall Temple Final Room Right Lower Platform SF": MMRLocationData(
+    "Woodfall Temple Pre-Boss Lower Right Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B2A
     ),
-    "Woodfall Temple Final Room Right Upper Platform SF": MMRLocationData(
+    "Woodfall Temple Pre-Boss Upper Right Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B32
     ),
-    "Woodfall Temple Final Room Left Upper Platform SF": MMRLocationData(
+    "Woodfall Temple Pre-Boss Upper Left Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B2C
     ),
-    "Woodfall Temple Final Room Bubble SF": MMRLocationData(
+    "Woodfall Temple Pre-Boss Pillar Bubble SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420011B2D
     ),
@@ -864,7 +864,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall Temple",
         address=0x3469420000055
     ),
-    "Tour Witch Target Shooting": MMRLocationData(
+    "Southern Swamp Boat Archery": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420070168
     ),
@@ -876,11 +876,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Mountain Village",
         address=0x346942006071B
     ),
-    "Mountain Village Invisible Ladder Cave Healing Invisible Goron": MMRLocationData(
+    "Mountain Village Healing Darmani": MMRLocationData(
         region="Mountain Village",
         address=0x3469420000079
     ),
-    "Mountain Village Feeding Freezing Goron": MMRLocationData(
+    "Mountain Village Hungry Goron": MMRLocationData(
         region="Mountain Village",
         address=0x3469420000088
     ),
@@ -892,7 +892,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Mountain Village",
         address=0x3469420000039
     ),
-    "Don Gero Mask Frog Song HP": MMRLocationData(
+    "Mountain Village Spring Frog Choir HP": MMRLocationData(
         region="Mountain Village",
         address=0x3469420070022
     ),
@@ -900,7 +900,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Twin Islands",
         address=0x3469420065E00
     ),
-    "Twin Islands Spring Underwater Near Ramp Chest": MMRLocationData(
+    "Twin Islands Spring Underwater Ramp Chest": MMRLocationData(
         region="Twin Islands",
         address=0x3469420065E06
     ),
@@ -966,7 +966,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420090023,
         can_create=lambda options: options.shopsanity.value == 2
     ),    
-    "Goron Village Deku Scrub Purchase Bomb Bag": MMRLocationData(
+    "Goron Village Scrub Purchase": MMRLocationData(
         region="Goron Village",
         address=0x346942009011D,
         can_create=lambda options: options.scrubsanity.value
@@ -975,11 +975,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Goron Village",
         address=0x3469420000099
     ),
-    "Goron Village Deku Trade Freestanding HP": MMRLocationData(
+    "Goron Village Freestanding HP": MMRLocationData(
         region="Goron Village",
         address=0x3469420054D1E
     ),
-    # "Goron Village Deku Trade Freestanding HP (Spring)": MMRLocationData(
+    # "Goron Village Freestanding HP (Spring)": MMRLocationData(
     #     region="Goron Village",
     #     address=0x346942005481E,
     #     can_create=lambda options: options.shopsanity.value == 2
@@ -1004,15 +1004,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x3469420062113
     ),
-    "Snowhead Temple 1st Wizzrobe Chest": MMRLocationData(
+    "Snowhead Temple Bottom Wizzrobe Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942006211B
     ),
-    "Snowhead Temple Initial Runway Under Platform Bubble SF": MMRLocationData(
+    "Snowhead Temple Bridge Room Under Platform Bubble SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942001212F
     ),
-    "Snowhead Temple Initial Runway Tower Bubble SF": MMRLocationData(
+    "Snowhead Temple Bridge Room Pillar Bubble SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420012130
     ),
@@ -1020,7 +1020,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x3469420012132
     ),
-    "Snowhead Temple Grey Door Near Bombable Stairs Box SF": MMRLocationData(
+    "Snowhead Temple Bombable Stairs Crate SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942001211E
     ),
@@ -1032,15 +1032,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942001212B
     ),
-    "Snowhead Temple Dinolfos Room First SF": MMRLocationData(
+    "Snowhead Temple Lizard Room First SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420012131
     ),
-    "Snowhead Temple Dinolfos Room Second SF": MMRLocationData(
+    "Snowhead Temple Lizard Room Second SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942001212D
     ),
-    "Snowhead Temple Initial Runway Ice Blowers Chest": MMRLocationData(
+    "Snowhead Temple Bridge Room Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062101
     ),
@@ -1048,43 +1048,43 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942006211D
     ),
-    "Snowhead Temple Bottom Floor Switch Chest": MMRLocationData(
+    "Snowhead Temple Basement Switch Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062114
     ),
-    "Snowhead Temple Green Door Ice Blowers Chest": MMRLocationData(
+    "Snowhead Temple Freezard Torch Room Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062118
     ),
-    "Snowhead Temple Orange Door Behind Block Chest": MMRLocationData(
+    "Snowhead Temple Stacked Block Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062103
     ),
-    "Snowhead Temple Orange Door Upper Chest": MMRLocationData(
+    "Snowhead Temple Stacked Block Upper Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062115
     ),
-    "Snowhead Temple Light Blue Door Center Chest": MMRLocationData(
+    "Snowhead Temple Frozen Block Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942006211C
     ),
-    "Snowhead Temple Light Blue Door Upper Chest": MMRLocationData(
+    "Snowhead Temple Frozen Block Upper Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062119
     ),
-    "Snowhead Temple Upstairs 2F Icicle Room Hidden Chest": MMRLocationData(
+    "Snowhead Temple Icicle Room Hidden Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062116
     ),
-    "Snowhead Temple Upstairs 2F Icicle Room Snowball Chest": MMRLocationData(
+    "Snowhead Temple Icicle Room Snowball Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062104
     ),
-    "Snowhead Temple 2nd Wizzrobe Chest": MMRLocationData(
+    "Snowhead Temple Top Wizzrobe Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942006211E
     ),
-    "Snowhead Temple Column Room 2F Hidden Chest": MMRLocationData(
+    "Snowhead Temple Main Room Wall Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062117
     ),
@@ -1105,7 +1105,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420006792,
         can_create=lambda options: options.shopsanity.value != 0
     ),
-    "Romani Ranch Bremen Mask March Baby Cuccos": MMRLocationData(
+    "Romani Ranch Baby Cuccos March": MMRLocationData(
         region="Romani Ranch",
         address=0x346942000007F
     ),
@@ -1136,7 +1136,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Romani Ranch",
         address=0x34694200000A5
     ),
-    "Romani Ranch Defended Against Aliens": MMRLocationData(
+    "Romani Ranch Aliens": MMRLocationData(
         region="Romani Ranch",
         address=0x3469420000060
     ),
@@ -1148,15 +1148,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay",
         address=0x346942000007A
     ),
-    "Great Bay Behind Fishermans Hut Grotto Chest": MMRLocationData(
+    "Great Bay Fisherman's Grotto Chest": MMRLocationData(
         region="Great Bay",
         address=0x3469420060717
     ),
-    "Great Bay Marine Research Lab Zora Egg Delivery Song": MMRLocationData(
+    "Great Bay Baby Zora Song": MMRLocationData(
         region="Great Bay",
         address=0x34694200000AC
     ),
-    "Great Bay Marine Research Lab Feeding Fish": MMRLocationData(
+    "Great Bay Feeding Lab Fish": MMRLocationData(
         region="Great Bay",
         address=0x34694200701D9
     ),
@@ -1174,7 +1174,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay",
         address=0x3469420053705
     ),
-    "Great Bay (Cleared) Fisherman Island Game HP": MMRLocationData(
+    "Great Bay Fisherman Game": MMRLocationData(
         region="Great Bay",
         address=0x3469420070292
     ),
@@ -1186,27 +1186,27 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Zora Cape",
         address=0x3469420063800
     ),
-    "Zora Cape Pot Game Silver Rupee": MMRLocationData(
+    "Zora Cape Pot Game": MMRLocationData(
         region="Zora Cape",
         address=0x3469420072806
     ),
-    "Zora Cape Upper Chest": MMRLocationData(
+    "Zora Cape Deku Flower Chest": MMRLocationData(
         region="Zora Cape",
         address=0x3469420063801
     ),
-    "Zora Cape Tree Chest": MMRLocationData(
+    "Zora Cape Scarecrow Chest": MMRLocationData(
         region="Zora Cape",
         address=0x3469420063802
     ),
-    "Zora Cape Near Great Fairy Grotto Chest": MMRLocationData(
+    "Zora Cape Grotto Chest": MMRLocationData(
         region="Zora Cape",
         address=0x3469420060715
     ),
-    "Beaver Bros. Race Bottle Reward": MMRLocationData(
+    "Beaver Bros. Race 1": MMRLocationData(
         region="Zora Cape",
         address=0x346942009018D
     ),
-    "Beaver Bros. Race HP": MMRLocationData(
+    "Beaver Bros. Race 2 HP": MMRLocationData(
         region="Zora Cape",
         address=0x346942007018D
     ),
@@ -1229,7 +1229,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942009001D,
         can_create=lambda options: options.shopsanity.value != 0
     ),
-    "Zora Hall Deku Scrub Purchase Green Potion": MMRLocationData(
+    "Zora Hall Deku Scrub Purchase": MMRLocationData(
         region="Zora Hall",
         address=0x346942009015C,
         can_create=lambda options: options.scrubsanity.value
@@ -1242,7 +1242,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Zora Hall",
         address=0x3469420054C1E
     ),
-    "Zora Hall Piano Zora Song": MMRLocationData(
+    "Zora Hall Evan's Song": MMRLocationData(
         region="Zora Hall",
         address=0x3469420070241
     ),
@@ -1262,48 +1262,48 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pirates' Fortress Sewers",
         address=0x346942005230C
     ),
-    "Pirates' Fortress Sewers Push Block Maze Chest": MMRLocationData(
+    "Pirates' Fortress Sewers Maze Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420062301
     ),
     "Pirates' Fortress Sewers Underwater Lower Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062306
+        address=0x3469420062304
     ),
     "Pirates' Fortress Sewers Underwater Upper Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062304
+        address=0x3469420062306
     ),
     "Pirates' Fortress Exterior Underwater Log Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+        region="Pirates' Fortress",
         address=0x3469420063B00
     ),
     "Pirates' Fortress Exterior Underwater Near Entrance Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+        region="Pirates' Fortress",
         address=0x3469420063B01
     ),
-    "Pirates' Fortress Exterior Underwater Corner Near Fortress Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+    "Pirates' Fortress Exterior Underwater Corner Chest": MMRLocationData(
+        region="Pirates' Fortress",
         address=0x3469420063B02
     ),
-    "Pirates' Fortress Near Egg Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+    "Pirates' Fortress Interior Tank Chest": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
         address=0x3469420062300
     ),
-    "Pirates' Fortress Pirates Surrounding Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+    "Pirates' Fortress Interior Guarded Chest": MMRLocationData(
+        region="Pirates' Fortress (Interior)",
         address=0x3469420062303
     ),
     "Pirates' Fortress Hub Lower Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420061400
     ),
     "Pirates' Fortress Hub Upper Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420061401
     ),
     "Pirates' Fortress Leader's Room Chest": MMRLocationData(
-        region="Pirates' Fortress Sewers",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420062302
     ),
     "Pinnacle Rock Upper Eel Chest": MMRLocationData(
@@ -1314,7 +1314,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pinnacle Rock",
         address=0x3469420062501
     ),
-    "Pinnacle Rock HP": MMRLocationData(
+    "Pinnacle Rock Seahorse HP": MMRLocationData(
         region="Pinnacle Rock",
         address=0x3469420070205
     ),
@@ -1476,7 +1476,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ocean Spider House",
         address=0x3469420000009
     ),
-    "Great Bay Temple Pot At Bottom Of Blender SF": MMRLocationData(
+    "Great Bay Temple Blender Pot SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001491B
     ),
@@ -1484,7 +1484,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420014932
     ),
-    "Great Bay Temple Waterwheel Room Bubble Under Platform SF": MMRLocationData(
+    "Great Bay Temple Waterwheel Room Bubble SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420014930
     ),
@@ -1492,11 +1492,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942001491C
     ),
-    "Great Bay Temple Red-Green Pipe First Room Pot SF": MMRLocationData(
+    "Great Bay Temple Before Red Valve Room Pot SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001491E
     ),
-    "Great Bay Temple Froggy Entrance Room Pot SF": MMRLocationData(
+    "Great Bay Temple Caged Chest Room Pot SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001491D
     ),
@@ -1504,7 +1504,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942001491A
     ),
-    "Great Bay Temple Four Torches Chest": MMRLocationData(
+    "Great Bay Temple Entrance Torches Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064918
     ),
@@ -1512,7 +1512,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942006491B
     ),
-    "Great Bay Temple Red-Green Pipe First Room Chest": MMRLocationData(
+    "Great Bay Temple Before Red Valve Room Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942006491D
     ),
@@ -1520,15 +1520,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064919
     ),
-    "Great Bay Temple Froggy Entrance Room Upper Chest": MMRLocationData(
+    "Great Bay Temple Caged Chest Room Upper Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942006491C
     ),
-    "Great Bay Temple Froggy Entrance Room Underwater Chest": MMRLocationData(
+    "Great Bay Temple Caged Chest Room Underwater Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064901
     ),
-    "Great Bay Temple Froggy Entrance Room Caged Chest": MMRLocationData(
+    "Great Bay Temple Caged Chest Room Caged Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942006491E
     ),
@@ -1536,11 +1536,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064915
     ),
-    "Great Bay Temple Green Pipe Freezable Waterwheel Upper Chest": MMRLocationData(
+    "Great Bay Temple Freezable Waterwheel Upper Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064914
     ),
-    "Great Bay Temple Green Pipe Freezable Waterwheel Lower Chest": MMRLocationData(
+    "Great Bay Temple Freezable Waterwheel Lower Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064917
     ),
@@ -1548,11 +1548,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064916
     ),
-    "Great Bay Temple Before Boss Room Underneath Platform Bubble SF": MMRLocationData(
+    "Great Bay Temple Before Boss Room Platform Bubble SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420014931
     ),
-    "Great Bay Temple Before Boss Room Exit Tunnel Bubble SF": MMRLocationData(
+    "Great Bay Temple Before Boss Room Tunnel Bubble SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001492F
     ),
@@ -1600,27 +1600,27 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ikana Graveyard",
         address=0x3469420063000
     ),
-    "Graveyard Sonata To Wake Sleeping Skeleton Chest": MMRLocationData(
+    "Graveyard Captain Keeta Chest": MMRLocationData(
         region="Ikana Graveyard",
         address=0x3469420064300
     ),
-    "Secret Shrine Left Chest": MMRLocationData(
+    "Secret Shrine Dinolfos Chest": MMRLocationData(
         region="Secret Shrine",
         address=0x3469420066000
     ),
-    "Secret Shrine Middle-Left Chest": MMRLocationData(
+    "Secret Shrine Wizzrobe Chest": MMRLocationData(
         region="Secret Shrine",
         address=0x3469420066001
     ),
-    "Secret Shrine Middle-Right Chest": MMRLocationData(
+    "Secret Shrine Wart Chest": MMRLocationData(
         region="Secret Shrine",
         address=0x3469420066002
     ),
-    "Secret Shrine Right Chest": MMRLocationData(
+    "Secret Shrine Garo Master Chest": MMRLocationData(
         region="Secret Shrine",
         address=0x3469420066003
     ),
-    "Secret Shrine Center Chest": MMRLocationData(
+    "Secret Shrine Completion Chest": MMRLocationData(
         region="Secret Shrine",
         address=0x346942006600A
     ),
@@ -1628,7 +1628,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ikana Canyon",
         address=0x3469420060714
     ),
-    "Ikana Canyon Deku Scrub Purchase Blue Potion": MMRLocationData(
+    "Ikana Canyon Scrub Purchase": MMRLocationData(
         region="Ikana Canyon",
         address=0x346942009015D,
         can_create=lambda options: options.scrubsanity.value
@@ -1641,7 +1641,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ikana Canyon",
         address=0x346942005131E
     ),
-    "Ikana Canyon Music Box Mummy": MMRLocationData(
+    "Ikana Canyon Healing Pamela's Father": MMRLocationData(
         region="Ikana Canyon",
         address=0x3469420000087
     ),
@@ -1682,15 +1682,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         # ~ region="Stone Tower Temple",
         # ~ address=0x346942006160E
     # ~ ),
-    "Stone Tower Inverted Outside Left Chest": MMRLocationData(
+    "Stone Tower Inverted Left Chest": MMRLocationData(
         region="Stone Tower (Inverted)",
         address=0x346942006591F
     ),
-    "Stone Tower Inverted Outside Middle Chest": MMRLocationData(
+    "Stone Tower Inverted Middle Chest": MMRLocationData(
         region="Stone Tower (Inverted)",
         address=0x346942006591E
     ),
-    "Stone Tower Inverted Outside Right Chest": MMRLocationData(
+    "Stone Tower Inverted Right Chest": MMRLocationData(
         region="Stone Tower (Inverted)",
         address=0x346942006591D
     ),
@@ -1766,11 +1766,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Stone Tower Temple (Inverted)",
         address=0x346942006180E
     ),
-    "Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest": MMRLocationData(
+    "Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x3469420061813
     ),
-    "Stone Tower Temple Inverted Eastern Air Gust Room Hall Floor Switch Chest": MMRLocationData(
+    "Stone Tower Temple Inverted Eastern Air Gust Room Switch Chest": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x3469420061804
     ),
