@@ -163,8 +163,12 @@ class ShuffleGreatFairyRewards(Toggle):
 
 
 class Keysanity(Toggle):
-    """Choose whether Small Keys are shuffled into the pool."""
+    """Choose whether Small Keys are shuffled into the pool or placed in their vanilla locations."""
     display_name = "Keysanity"
+
+class BossKeysanity(Toggle):
+    """Choose whether Boss Keys are shuffled into the pool or placed in their vanilla locations."""
+    display_name = "BossKeysanity"    
 
 
 class Fairysanity(Toggle):
@@ -253,6 +257,7 @@ class MMROptions(PerGameCommonOptions):
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     keysanity: Keysanity
+    bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
