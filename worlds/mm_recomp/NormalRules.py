@@ -856,7 +856,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Deku Mask", player),
         
         # Woodfall Temple Chests
-        "Woodfall Temple Entrance Chest":
+        "Woodfall Temple Entrance Chest SF":
             lambda state: True,
         "Woodfall Temple Ledge Chest":
             lambda state: True,
@@ -867,14 +867,14 @@ def get_location_rules(player, options):
                 state.has("Small Key (Woodfall)", player) or 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Dark Room Chest":
+        "Woodfall Temple Dark Room Chest SF":
             lambda state: (
                 state.has("Small Key (Woodfall)", player) or 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Switch Chest":
+        "Woodfall Temple Switch Chest SF":
             lambda state: state.has("Progressive Bow", player),
-        "Woodfall Temple Lizard Chest":
+        "Woodfall Temple Dinolfos Chest":
             lambda state: (
                 (
                     state.has("Small Key (Woodfall)", player) and 
@@ -882,7 +882,7 @@ def get_location_rules(player, options):
                 ) or 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Frog Chest":
+        "Woodfall Temple Gekko Chest":
             lambda state: (
                 state.has("Progressive Bow", player) and 
                 can_smack(state, player)
@@ -1022,7 +1022,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Don Gero Mask", player) and 
                 can_clear_snowhead(state, player) and 
-                state.can_reach("Woodfall Temple Frog Chest", 'Location', player) and 
+                state.can_reach("Woodfall Temple Gekko Chest", 'Location', player) and 
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
@@ -1263,24 +1263,24 @@ def get_location_rules(player, options):
                 can_use_fire_arrows(state, player) and 
                 state.has("Great Fairy Mask", player)
             ),
-        "Snowhead Temple Lizard Room First SF":
+        "Snowhead Temple Dinolfos Room First SF":
             lambda state: (
                 state.has("Small Key (Snowhead)", player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Snowhead Temple Lizard Room Second SF":
+        "Snowhead Temple Dinolfos Room Second SF":
             lambda state: (
                 state.has("Small Key (Snowhead)", player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Snowhead Temple Bridge Room Chest":
+        "Snowhead Temple Bridge Room Freezard Chest":
             lambda state: (
                 can_use_fire_arrows(state, player) or 
                 state.has("Hookshot", player)
             ),
-        "Snowhead Temple Basement Switch Chest":
+        "Snowhead Temple Basement Switch Chest SF":
             lambda state: True,    
-        "SSnowhead Temple Freezard Torch Room Chest":
+        "SSnowhead Temple Freezard Torch Room Chest SF":
             lambda state: can_use_fire_arrows(state, player),
         "Snowhead Temple Stacked Block Upper Chest":
             lambda state: (
@@ -1290,14 +1290,14 @@ def get_location_rules(player, options):
                     can_use_fire_arrows(state, player)
                 )
             ),
-        "Snowhead Temple Stacked Block Chest":
+        "Snowhead Temple Behind Stacked Block Chest":
             lambda state: True,
         "Snowhead Temple Frozen Block Chest":
             lambda state: (
                 state.has("Small Key (Snowhead)", player) or 
                 state.has("Hookshot", player)
             ),
-        "Snowhead Temple Frozen Block Upper Chest":
+        "Snowhead Temple Frozen Block Upper Chest SF":
             lambda state: (
                 can_use_fire_arrows(state, player) and 
                 (
@@ -1305,7 +1305,7 @@ def get_location_rules(player, options):
                     state.has("Hookshot", player)
                 )
             ),
-        "Snowhead Temple Icicle Room Hidden Chest":
+        "Snowhead Temple Icicle Room Hidden Chest SF":
             lambda state: (
                 can_use_lens(state, player) and 
                 has_explosives(state, player) and 
@@ -1326,7 +1326,7 @@ def get_location_rules(player, options):
                     state.has("Hookshot", player)
                 )
             ),
-        "Snowhead Temple Elevator Room Invisible Platform Chest":
+        "Snowhead Temple Elevator Room Invisible Platform Chest SF":
             lambda state: (
                 (
                     can_use_lens(state, player) and 
@@ -1352,7 +1352,7 @@ def get_location_rules(player, options):
                 ) or 
                 can_use_fire_arrows(state, player)
             ),
-        "Snowhead Temple Main Room Wall Chest":
+        "Snowhead Temple Main Room Wall Chest SF":
             lambda state: (
                 (
                     state.has("Small Key (Snowhead)", player, 3) and 
@@ -1791,7 +1791,7 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player)
             ),
             
-        "Great Bay Temple Entrance Torches Chest":
+        "Great Bay Temple Entrance Torches Chest SF":
             lambda state: True,
         "Great Bay Temple Waterwheel Room Skulltula SF":
             lambda state: can_smack_hard(state, player),
@@ -1818,18 +1818,18 @@ def get_location_rules(player, options):
                 ) or 
                 state.has("Deku Mask", player)
             ),
-        "Great Bay Temple Bio-Baba Hall Chest":
+        "Great Bay Temple Bio-Baba Hall Chest SF":
             lambda state: True,
         "Great Bay Temple Caged Chest Room Pot SF":
             lambda state: True,
-        "Great Bay Temple Caged Chest Room Upper Chest":
+        "Great Bay Temple Caged Chest Room Upper Chest SF":
             lambda state: True,
-        "Great Bay Temple Caged Chest Room Caged Chest":
+        "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Froggy Entrance Room Underwater Chest":
+        "Great Bay Temple Caged Chest Room Underwater Chest":
             lambda state: True,
         "Great Bay Temple Behind Locked Door Chest":
             lambda state: (
@@ -1846,14 +1846,14 @@ def get_location_rules(player, options):
                     state.has("Progressive Bow", player)
                 )
             ),
-        "Great Bay Temple Room Behind Waterfall Ceiling Chest":
+        "Great Bay Temple Room Behind Waterfall Ceiling Chest SF":
             lambda state: can_use_ice_arrows(state, player),
-        "Great Bay Temple Freezable Waterwheel Upper Chest":
+        "Great Bay Temple Freezable Waterwheel Upper Chest SF":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Freezable Waterwheel Lower Chest":
+        "Great Bay Temple Freezable Waterwheel Lower Chest SF":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
@@ -1863,7 +1863,7 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Seesaw Room Chest":
+        "Great Bay Temple Seesaw Room Chest SF":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
