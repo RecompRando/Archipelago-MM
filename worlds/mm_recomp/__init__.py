@@ -221,7 +221,7 @@ class MMRWorld(World):
             self.place("Great Bay Temple Mad Jellied Gekko Chest", "Boss Key (Great Bay)")
             self.place("Stone Tower Temple Inverted Gomess Chest", "Boss Key (Stone Tower)")
 
-       if not self.options.fairysanity.value:
+        if not self.options.fairysanity.value:
             self.place("Laundry Pool Stray Fairy (Clock Town)", "Stray Fairy (Clock Town)")
 
             self.place("Woodfall Temple Entrance Chest SF", "Stray Fairy (Woodfall)")
@@ -240,8 +240,8 @@ class MMRWorld(World):
             self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Bottom Floor Switch Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Elevator Room Invisible Platform Chest", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bottom Floor Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Frozen Block Upper Chest SF", "Stray Fairy (Snowhead)")
@@ -269,8 +269,8 @@ class MMRWorld(World):
             self.place("Great Bay Temple Before Red Valve Room Pot SF", "Stray Fairy (Great Bay)")
             self.place("Great Bay Temple Caged Chest Room Pot SF", "Stray Fairy (Great Bay)")
             self.place("Great Bay Temple Seesaw Room Underwater Barrel SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Before Boss Room Exit Tunnel Bubble SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Pre-Boss Room Platform Bubble SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Pre-Boss Room Tunnel Bubble SF", "Stray Fairy (Great Bay)")
 
             self.place("Stone Tower Temple Entrance Room Eye Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Armos Room Upper Chest", "Stray Fairy (Stone Tower)")
@@ -287,7 +287,7 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
-
+            
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
             sword_location.item_rule = lambda item: item.name != "Progressive Sword"
