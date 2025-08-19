@@ -1548,11 +1548,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064916
     ),
-    "Great Bay Temple Before Boss Room Platform Bubble SF": MMRLocationData(
+    "Great Bay Temple Pre-Boss Room Platform Bubble SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420014931
     ),
-    "Great Bay Temple Before Boss Room Tunnel Bubble SF": MMRLocationData(
+    "Great Bay Temple Pre-Boss Room Tunnel Bubble SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001492F
     ),
