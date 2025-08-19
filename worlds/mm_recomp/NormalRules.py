@@ -1280,7 +1280,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Basement Switch Chest SF":
             lambda state: True,    
-        "SSnowhead Temple Freezard Torch Room Chest SF":
+        "Snowhead Temple Freezard Torch Room Chest SF":
             lambda state: can_use_fire_arrows(state, player),
         "Snowhead Temple Stacked Block Upper Chest":
             lambda state: (
@@ -1344,6 +1344,8 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Elevator Room Lower Chest":
             lambda state: True,
+        "Snowhead Temple Elevator Freestanding SF":
+            lambda state: True,    
         "Snowhead Temple Lower Wizzrobe Chest":
             lambda state: (
                 (
@@ -1822,7 +1824,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Great Bay Temple Caged Chest Room Pot SF":
             lambda state: True,
-        "Great Bay Temple Caged Chest Room Upper Chest SF":
+        "Great Bay Temple Caged Chest Room Upper Chest":
             lambda state: True,
         "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
@@ -1868,19 +1870,19 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Before Boss Room Platform Bubble SF":
+        "Great Bay Temple Pre-Boss Room Platform Bubble SF":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Before Boss Room Tunnel Bubble SF":
-            lambda state: state.can_reach("Great Bay Temple Before Boss Room Platform Bubble SF", 'Location', player),
+        "Great Bay Temple Pre-Boss Room Tunnel Bubble SF":
+            lambda state: state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
             lambda state: (
                 state.has("Hookshot", player) and 
                 (
                     (
-                        state.can_reach("Great Bay Temple Before Boss Room Platform Bubble SF", 'Location', player) and 
+                        state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
                         state.has("Boss Key (Great Bay)", player)
                     ) or 
                     (
@@ -1894,7 +1896,7 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and 
                 (
                     (
-                        state.can_reach("Great Bay Temple Before Boss Room Platform Bubble SF", 'Location', player) and 
+                        state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
                         state.has("Boss Key (Great Bay)", player)
                     ) or 
                     (
@@ -2380,3 +2382,4 @@ def get_location_rules(player, options):
                 ) and 
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
+        }
