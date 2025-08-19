@@ -776,7 +776,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall",
         address=0x3469420030001
     ),
-    "Woodfall Temple Entrance Chest": MMRLocationData(
+    "Woodfall Temple Entrance Chest SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B18
     ),
@@ -792,19 +792,19 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Woodfall Temple",
         address=0x3469420061B1C
     ),
-    "Woodfall Temple Dark Room Chest": MMRLocationData(
+    "Woodfall Temple Dark Room Chest SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B19
     ),
-    "Woodfall Temple Switch Chest": MMRLocationData(
+    "Woodfall Temple Switch Chest SF": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B17
     ),
-    "Woodfall Temple Lizard Chest": MMRLocationData(
+    "Woodfall Temple Dinolfos Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B1B
     ),
-    "Woodfall Temple Frog Chest": MMRLocationData(
+    "Woodfall Temple Gekko Chest": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420061B1E
     ),
@@ -1000,7 +1000,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x3469420030002
     ),
-    "Snowhead Temple Elevator Room Invisible Platform Chest": MMRLocationData(
+    "Snowhead Temple Elevator Room Invisible Platform Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062113
     ),
@@ -1032,15 +1032,15 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942001212B
     ),
-    "Snowhead Temple Lizard Room First SF": MMRLocationData(
+    "Snowhead Temple Dinolfos Room First SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420012131
     ),
-    "Snowhead Temple Lizard Room Second SF": MMRLocationData(
+    "Snowhead Temple Dinolfos Room Second SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942001212D
     ),
-    "Snowhead Temple Bridge Room Chest": MMRLocationData(
+    "Snowhead Temple Bridge Room Freezard Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062101
     ),
@@ -1048,19 +1048,19 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942006211D
     ),
-    "Snowhead Temple Basement Switch Chest": MMRLocationData(
+    "Snowhead Temple Basement Switch Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062114
     ),
-    "Snowhead Temple Freezard Torch Room Chest": MMRLocationData(
+    "Snowhead Temple Freezard Torch Room Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062118
     ),
-    "Snowhead Temple Stacked Block Chest": MMRLocationData(
+    "Snowhead Temple Behind Stacked Block Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062103
     ),
-    "Snowhead Temple Stacked Block Upper Chest": MMRLocationData(
+    "Snowhead Temple Stacked Block Upper Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062115
     ),
@@ -1068,11 +1068,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942006211C
     ),
-    "Snowhead Temple Frozen Block Upper Chest": MMRLocationData(
+    "Snowhead Temple Frozen Block Upper Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062119
     ),
-    "Snowhead Temple Icicle Room Hidden Chest": MMRLocationData(
+    "Snowhead Temple Icicle Room Hidden Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062116
     ),
@@ -1084,7 +1084,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x346942006211E
     ),
-    "Snowhead Temple Main Room Wall Chest": MMRLocationData(
+    "Snowhead Temple Main Room Wall Chest SF": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420062117
     ),
@@ -1504,7 +1504,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942001491A
     ),
-    "Great Bay Temple Entrance Torches Chest": MMRLocationData(
+    "Great Bay Temple Entrance Torches Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064918
     ),
@@ -1516,7 +1516,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942006491D
     ),
-    "Great Bay Temple Bio-Baba Hall Chest": MMRLocationData(
+    "Great Bay Temple Bio-Baba Hall Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064919
     ),
@@ -1528,23 +1528,23 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064901
     ),
-    "Great Bay Temple Caged Chest Room Caged Chest": MMRLocationData(
+    "Great Bay Temple Mad Jellied Gekko Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942006491E
     ),
-    "Great Bay Temple Room Behind Waterfall Ceiling Chest": MMRLocationData(
+    "Great Bay Temple Room Behind Waterfall Ceiling Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064915
     ),
-    "Great Bay Temple Freezable Waterwheel Upper Chest": MMRLocationData(
+    "Great Bay Temple Freezable Waterwheel Upper Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064914
     ),
-    "Great Bay Temple Freezable Waterwheel Lower Chest": MMRLocationData(
+    "Great Bay Temple Freezable Waterwheel Lower Chest Sf": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064917
     ),
-    "Great Bay Temple Seesaw Room Chest": MMRLocationData(
+    "Great Bay Temple Seesaw Room Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064916
     ),
