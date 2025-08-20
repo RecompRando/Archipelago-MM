@@ -284,6 +284,18 @@ def get_location_rules(player, options):
             lambda state: True,    
         "Link's Inventory (Heart Item #2)":
             lambda state: True,
+        "Link's Inventory (Heart Item #3)":
+            lambda state: True,
+        "Link's Inventory (Heart Item #4)":
+            lambda state: True,
+        "Link's Inventory (Heart Item #5)":
+            lambda state: True,    
+        "Link's Inventory (Heart Item #6)":
+            lambda state: True,
+        "Link's Inventory (Heart Item #7)":
+            lambda state: True,
+        "Link's Inventory (Heart Item #8)":
+            lambda state: True,
         
         "Keaton Quiz":
             lambda state: state.has("Keaton Mask", player),
