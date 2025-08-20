@@ -176,6 +176,11 @@ class Fairysanity(Toggle):
     display_name = "Fairysanity"
 
 
+class CuriosityShopTrades(Toggle):
+    """Choose whether to shuffle the rupees given for trading bottled items at the Curiosty Shop."""
+    display_name = "Curiosity Shop Trades"
+
+
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
     display_name = "Start With Consumables"
@@ -259,6 +264,7 @@ class MMROptions(PerGameCommonOptions):
     keysanity: Keysanity
     bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
+    curiostity_shop_trades: CuriosityShopTrades
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime

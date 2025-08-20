@@ -96,10 +96,16 @@ class MMRWorld(World):
             self.create_and_add_filler_items(27)
 
         if self.options.shopsanity.value == 2:
-            self.create_and_add_filler_items(15)
+            self.create_and_add_filler_items(11)
         
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
+
+        if self.options.curiostity_shop_trades.value:
+            mw.itempool.append(self.create_item("Blue Rupee"))
+            mw.itempool.append(self.create_item("Red Rupee"))
+            mw.itempool.append(self.create_item("Purple Rupee"))
+            mw.itempool.append(self.create_item("Gold Rupee"))
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -370,7 +376,7 @@ class MMRWorld(World):
         shuffled_containers = int((12 - shp)/4)
         shuffled_pieces = (12 - shp) % 4
         return {
-           "skullsanity": self.options.skullsanity.value,
+            "skullsanity": self.options.skullsanity.value,
             "fairysanity": self.options.fairysanity.value,
             "shopsanity": self.options.shopsanity.value,                                                                
             "scrubsanity": self.options.scrubsanity.value,
@@ -378,6 +384,7 @@ class MMRWorld(World):
             "cowsanity": self.options.cowsanity.value,
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
+            "curiostity_shop_trades": self.options.curiostity_shop_trades.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
@@ -395,5 +402,6 @@ class MMRWorld(World):
             "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
+            "random_seed": self.random.getrandbits(32),
             "logic_difficulty": self.options.logic_difficulty.value
         }

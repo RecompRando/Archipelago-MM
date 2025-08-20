@@ -203,22 +203,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Curiosity Shop Blue Rupee Trade": MMRLocationData(
         region="Clock Town",
         address=0x346942007C402,
-        can_create=lambda options: options.shopsanity.value == 2
+        can_create=lambda options: options.curiostity_shop_trades.value
     ),
     "Curiosity Shop Red Rupee Trade": MMRLocationData(
         region="Clock Town",
         address=0x346942007C404,
-        can_create=lambda options: options.shopsanity.value == 2
+        can_create=lambda options: options.curiostity_shop_trades.value
     ),
     "Curiosity Shop Purple Rupee Trade": MMRLocationData(
         region="Clock Town",
         address=0x346942007C405,
-        can_create=lambda options: options.shopsanity.value == 2
+        can_create=lambda options: options.curiostity_shop_trades.value
     ),
     "Curiosity Shop Gold Rupee Trade": MMRLocationData(
         region="Clock Town",
         address=0x346942007C407,
-        can_create=lambda options: options.shopsanity.value == 2
+        can_create=lambda options: options.curiostity_shop_trades.value
     ),
     "Curiosity Shop Night 3 (Stop Thief)": MMRLocationData(
         region="Clock Town",
