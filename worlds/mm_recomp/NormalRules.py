@@ -276,6 +276,15 @@ def get_region_rules(player, options):
 
 def get_location_rules(player, options):
     return {
+        "Link's Inventory (Kokiri Sword)":
+            lambda state: True,
+        "Link's Inventory (Hero's Shield)":
+            lambda state: True,  
+        "Link's Inventory (Heart Item #1)":
+            lambda state: True,    
+        "Link's Inventory (Heart Item #2)":
+            lambda state: True,
+        
         "Keaton Quiz":
             lambda state: state.has("Keaton Mask", player),
         "Clock Town Postbox":
@@ -284,7 +293,9 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
         "Top of Clock Tower (Song of Time)":
             lambda state: has_projectiles(state, player),
-        
+
+         "North Clock Town Tree HP":
+            lambda state: True,
         "North Clock Town Deku Playground Any Day":
             lambda state: state.has("Deku Mask", player),
         "North Clock Town Deku Playground All Days":
@@ -322,6 +333,8 @@ def get_location_rules(player, options):
                 )
             ),
         
+        "South Clock Town Clock Tower Freestanding HP":
+            lambda state: True,        
         "South Clock Town Moon's Tear Trade":
             lambda state: state.has("Moon's Tear", player),
         "South Clock Town Corner Chest":
@@ -338,7 +351,12 @@ def get_location_rules(player, options):
             lambda state: True,
         "Clock Tower Happy Mask Salesman #2":
             lambda state: True,
+
         
+        "East Clock Town Archery Roof Chest":
+            lambda state: True,
+        "East Clock Town Mayors Wife":
+            lambda state: True,
         "East Clock Town Couples Mask on Mayor":
             lambda state: state.has("Couple's Mask", player),
         "East Clock Town Shooting Gallery 40-49 Points":
@@ -403,7 +421,8 @@ def get_location_rules(player, options):
                 state.has("Romani Mask", player) and 
                 can_afford_price(state, player, 200)
             ),
-        
+        "West Clock Town Lottery Any Day":
+            lambda state: True,        
         "West Clock Town Swordsman Expert Course":
             lambda state: state.has("Progressive Sword", player),
         "West Clock Town Postman Counting":
@@ -503,7 +522,9 @@ def get_location_rules(player, options):
             ),
         "Curiosity Shop Night 3 Thief Stolen Item":
             lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
-        
+
+        "Stock Pot Inn Reservation":
+            lambda state: True,        
         "Stock Pot Inn Midnight Meeting":
             lambda state: (
                 state.has("Kafei's Mask", player) and 
@@ -543,7 +564,11 @@ def get_location_rules(player, options):
             lambda state: state.has("Letter to Kafei", player),
         "Laundry Pool Musician":
             lambda state: True,
+        "Laundry Pool Stray Fairy (Clock Town)":
+            lambda state: True,        
 
+        "Termina Ikana Pillar Grotto Chest":
+            lambda state: True,        
         "Termina Grass Chest":
             lambda state: True,
         "Termina Grass Grotto Chest":
@@ -632,7 +657,9 @@ def get_location_rules(player, options):
                     state.can_reach("Twin Islands", 'Region', player)
                 )
             ),
-            
+        
+        "Road to Swamp Grotto Chest":
+            lambda state: True,            
         "Road to Swamp Tree HP":
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
@@ -829,6 +856,8 @@ def get_location_rules(player, options):
                 can_plant_beans(state, player) or 
                 state.has("Hookshot", player)
             ),
+        "Deku Palace HP":
+            lambda state: state.has("Deku Mask", player),    
         "Deku Palace Monkey Song":
             lambda state: (
                 state.has("Ocarina of Time", player) and 
@@ -1282,7 +1311,7 @@ def get_location_rules(player, options):
             lambda state: True,    
         "Snowhead Temple Freezard Torch Room Chest SF":
             lambda state: can_use_fire_arrows(state, player),
-        "Snowhead Temple Stacked Block Upper Chest":
+        "Snowhead Temple Stacked Block Upper Chest SF":
             lambda state: (
                 state.has("Hookshot", player) or 
                 (
@@ -1683,9 +1712,9 @@ def get_location_rules(player, options):
         "Pirates' Fortress Sewers Underwater Lower Chest":
             lambda state: state.has("Goron Mask", player),
         
-        "Pirates' Fortress Interior Hub Lower Chest":
+        "Pirates' Fortress Hub Lower Chest":
             lambda state: True,
-        "Pirates' Fortress Interior Hub Upper Chest":
+        "Pirates' Fortress Hub Upper Chest":
             lambda state: state.has("Hookshot", player),
         "Pirates' Fortress Leader's Room Chest":
             lambda state: (
