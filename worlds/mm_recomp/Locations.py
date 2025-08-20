@@ -1004,7 +1004,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x3469420062113
     ),
-    "Snowhead Temple Bottom Wizzrobe Chest": MMRLocationData(
+    "Snowhead Temple Lower Wizzrobe Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942006211B
     ),
@@ -1080,7 +1080,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Snowhead Temple",
         address=0x3469420062104
     ),
-    "Snowhead Temple Top Wizzrobe Chest": MMRLocationData(
+    "Snowhead Temple Upper Wizzrobe Chest": MMRLocationData(
         region="Snowhead Temple",
         address=0x346942006211E
     ),
@@ -1438,7 +1438,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420062811,
         can_create=lambda options: options.skullsanity.value != 2
     ),
-    "Ocean Spider House Dining Room Chandelier #3 Token ": MMRLocationData(
+    "Ocean Spider House Dining Room Chandelier #3 Token": MMRLocationData(
         region="Ocean Spider House",
         address=0x3469420062812,
         can_create=lambda options: options.skullsanity.value != 2
