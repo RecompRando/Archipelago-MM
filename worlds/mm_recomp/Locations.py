@@ -1540,7 +1540,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064914
     ),
-    "Great Bay Temple Freezable Waterwheel Lower Chest Sf": MMRLocationData(
+    "Great Bay Temple Freezable Waterwheel Lower Chest SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064917
     ),

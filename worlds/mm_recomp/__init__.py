@@ -240,7 +240,7 @@ class MMRWorld(World):
             self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Bottom Floor Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Basement Switch Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
@@ -282,7 +282,7 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Eyegore Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Eastern Water Room Underwater Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Entrance Room Sun Face Chest", "Stray Fairy (Stone Tower)")
-            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest", "Stray Fairy (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Wizzrobe Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
