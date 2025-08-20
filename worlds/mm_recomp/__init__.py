@@ -223,7 +223,7 @@ class MMRWorld(World):
         
         if not self.options.bosskeysanity.value:
             self.place("Woodfall Temple Gekko Chest", "Boss Key (Woodfall)")
-            self.place("Snowhead Temple Top Wizzrobe Chest", "Boss Key (Snowhead)")
+            self.place("Snowhead Temple Upper Wizzrobe Chest", "Boss Key (Snowhead)")
             self.place("Great Bay Temple Mad Jellied Gekko Chest", "Boss Key (Great Bay)")
             self.place("Stone Tower Temple Inverted Gomess Chest", "Boss Key (Stone Tower)")
 
