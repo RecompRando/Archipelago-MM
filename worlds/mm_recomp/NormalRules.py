@@ -167,7 +167,7 @@ def get_region_rules(player, options):
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
-                state.has("Bottle of Red Potion", player) or 
+                has_bottle(state, player) or 
                 (
                     has_hard_projectiles(state, player) and 
                     state.has("Deku Mask", player)
