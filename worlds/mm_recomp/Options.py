@@ -163,13 +163,29 @@ class ShuffleGreatFairyRewards(Toggle):
 
 
 class Keysanity(Toggle):
-    """Choose whether Small Keys are shuffled into the pool."""
+    """Choose whether Small Keys are shuffled into the pool or placed in their vanilla locations."""
     display_name = "Keysanity"
+
+class BossKeysanity(Toggle):
+    """Choose whether Boss Keys are shuffled into the pool or placed in their vanilla locations."""
+    display_name = "BossKeysanity"    
 
 
 class Fairysanity(Toggle):
     """Choose whether Stray Fairies are shuffled into the pool."""
     display_name = "Fairysanity"
+
+
+class CuriosityShopTrades(Toggle):
+    """Choose whether to shuffle the rupees given for trading bottled items at the Curiosty Shop."""
+    display_name = "Curiosity Shop Trades"
+
+
+class IntroChecks(Toggle):
+    """Choose whether to shuffle the checks normally found before entering the Clock Tower.
+    
+    A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
+    display_name = "Enable Intro Checks"
 
 
 class StartWithConsumables(DefaultOnToggle):
@@ -253,7 +269,10 @@ class MMROptions(PerGameCommonOptions):
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     keysanity: Keysanity
+    bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
+    curiostity_shop_trades: CuriosityShopTrades
+    intro_checks: IntroChecks
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime

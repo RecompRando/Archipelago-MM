@@ -88,6 +88,12 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Great Bay Map"))
             mw.push_precollected(self.create_item("Stone Tower Map"))
             self.create_and_add_filler_items(6)
+
+        if self.options.curiostity_shop_trades.value:
+            mw.itempool.append(self.create_item("Blue Rupee"))
+            mw.itempool.append(self.create_item("Red Rupee"))
+            mw.itempool.append(self.create_item("Purple Rupee"))
+            mw.itempool.append(self.create_item("Gold Rupee"))
             
         if self.options.scrubsanity.value != 0:
             self.create_and_add_filler_items(4)
@@ -96,10 +102,13 @@ class MMRWorld(World):
             self.create_and_add_filler_items(27)
 
         if self.options.shopsanity.value == 2:
-            self.create_and_add_filler_items(15)
+            self.create_and_add_filler_items(11)
         
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
+        
+        if self.options.intro_checks.value:
+            self.create_and_add_filler_items(1)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -202,69 +211,75 @@ class MMRWorld(World):
             self.place("Stone Tower Great Fairy Reward", "Great Fairy Sword")
 
         if not self.options.keysanity.value:
-            self.place("Woodfall Temple Moving Flower Platform Room Chest", "Small Key (Woodfall)")
+            self.place("Woodfall Temple Ledge Chest", "Small Key (Woodfall)")
 
-            self.place("Snowhead Temple Orange Door Behind Block Chest", "Small Key (Snowhead)")
-            self.place("Snowhead Temple Upstairs 2F Icicle Room Snowball Chest", "Small Key (Snowhead)")
-            self.place("Snowhead Temple Initial Runway Ice Blowers Chest", "Small Key (Snowhead)")
+            self.place("Snowhead Temple Behind Stacked Block Chest", "Small Key (Snowhead)")
+            self.place("Snowhead Temple Icicle Room Snowball Chest", "Small Key (Snowhead)")
+            self.place("Snowhead Temple Bridge Room Freezard Chest", "Small Key (Snowhead)")
 
-            self.place("Great Bay Temple Froggy Entrance Room Underwater Chest", "Small Key (Great Bay)")
+            self.place("Great Bay Temple Caged Chest Room Underwater Chest", "Small Key (Great Bay)")
 
             self.place("Stone Tower Temple Armos Room Lava Chest", "Small Key (Stone Tower)")
             self.place("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest", "Small Key (Stone Tower)")
-            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Hall Floor Switch Chest", "Small Key (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Switch Chest", "Small Key (Stone Tower)")
             self.place("Stone Tower Temple Inverted Death Armos Maze Chest", "Small Key (Stone Tower)")
+        
+        if not self.options.bosskeysanity.value:
+            self.place("Woodfall Temple Gekko Chest", "Boss Key (Woodfall)")
+            self.place("Snowhead Temple Upper Wizzrobe Chest", "Boss Key (Snowhead)")
+            self.place("Great Bay Temple Mad Jellied Gekko Chest", "Boss Key (Great Bay)")
+            self.place("Stone Tower Temple Inverted Gomess Chest", "Boss Key (Stone Tower)")
 
         if not self.options.fairysanity.value:
             self.place("Laundry Pool Stray Fairy (Clock Town)", "Stray Fairy (Clock Town)")
 
-            self.place("Woodfall Temple Entrance Chest", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Wooden Flower Switch Chest", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Black Boe Room Chest", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Entrance Chest SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Switch Chest SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Dark Room Chest SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Entrance Freestanding SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Wooden Flower Deku Baba SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Wooden Flower Pot SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Moving Flower Platform Room Beehive SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Wooden Flower Bubble SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Push Block Skulltula SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Push Block Bubble SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Push Block Beehive SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Final Room Right Lower Platform SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Final Room Right Upper Platform SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Final Room Left Upper Platform SF", "Stray Fairy (Woodfall)")
-            self.place("Woodfall Temple Final Room Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Deku Baba SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Pot SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Platform Hive SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Main Room Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Skulltula SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Bridge Room Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Bridge Room Hive SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Pre-Boss Lower Right Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Pre-Boss Upper Right Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
+            self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Bottom Floor Switch Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Elevator Room Invisible Platform Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Orange Door Upper Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Green Door Ice Blowers Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Light Blue Door Upper Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Upstairs 2F Icicle Room Hidden Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Column Room 2F Hidden Chest", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Initial Runway Tower Bubble SF", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Initial Runway Under Platform Bubble SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Basement Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Frozen Block Upper Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Icicle Room Hidden Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Main Room Wall Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bridge Room Pillar Bubble SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bridge Room Under Platform Bubble SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Elevator Freestanding SF", "Stray Fairy (Snowhead)")
-            self.place("Snowhead Temple Grey Door Near Bombable Stairs Box SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bombable Stairs Crate SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Timed Switch Room Bubble SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Snowmen Bubble SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Dinolfos Room First SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Dinolfos Room Second SF", "Stray Fairy (Snowhead)")
 
-            self.place("Great Bay Temple Four Torches Chest", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Bio-Baba Hall Chest", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Green Pipe Freezable Waterwheel Upper Chest", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Green Pipe Freezable Waterwheel Lower Chest", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Seesaw Room Chest", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Room Behind Waterfall Ceiling Chest", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Entrance Torches Chest SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Bio-Baba Hall Chest SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Freezable Waterwheel Upper Chest SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Freezable Waterwheel Lower Chest SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Seesaw Room Chest SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Room Behind Waterfall Ceiling Chest SF", "Stray Fairy (Great Bay)")
             self.place("Great Bay Temple Waterwheel Room Skulltula SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Waterwheel Room Bubble Under Platform SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Pot At Bottom Of Blender SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Waterwheel Room Bubble SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Blender Pot SF", "Stray Fairy (Great Bay)")
             self.place("Great Bay Temple Blender Room Barrel SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Red-Green Pipe First Room Pot SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Froggy Entrance Room Pot SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Before Red Valve Room Pot SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Caged Chest Room Pot SF", "Stray Fairy (Great Bay)")
             self.place("Great Bay Temple Seesaw Room Underwater Barrel SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Before Boss Room Underneath Platform Bubble SF", "Stray Fairy (Great Bay)")
-            self.place("Great Bay Temple Before Boss Room Exit Tunnel Bubble SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Pre-Boss Room Platform Bubble SF", "Stray Fairy (Great Bay)")
+            self.place("Great Bay Temple Pre-Boss Room Tunnel Bubble SF", "Stray Fairy (Great Bay)")
 
             self.place("Stone Tower Temple Entrance Room Eye Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Armos Room Upper Chest", "Stray Fairy (Stone Tower)")
@@ -276,12 +291,12 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Eyegore Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Eastern Water Room Underwater Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Entrance Room Sun Face Chest", "Stray Fairy (Stone Tower)")
-            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest", "Stray Fairy (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Wizzrobe Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
-
+            
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
             sword_location.item_rule = lambda item: item.name != "Progressive Sword"
@@ -352,6 +367,10 @@ class MMRWorld(World):
 
         for location in mw.get_locations(player):
             name = location.name
+
+            if name not in location_rules:
+                print(f"Location '{name}' does not have any logic")
+            
             if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
                 continue
             if name in location_rules and location_data_table[name].can_create(self.options):
@@ -366,10 +385,14 @@ class MMRWorld(World):
         return {
             "skullsanity": self.options.skullsanity.value,
             "fairysanity": self.options.fairysanity.value,
-            "shopsanity": self.options.shopsanity.value,
+            "shopsanity": self.options.shopsanity.value,                                                                
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
             "cowsanity": self.options.cowsanity.value,
+            "keysanity": self.options.keysanity.value,
+            "bosskeysanity": self.options.bosskeysanity.value,
+            "intro_checks": self.options.intro_checks.value,
+            "curiostity_shop_trades": self.options.curiostity_shop_trades.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
@@ -387,5 +410,6 @@ class MMRWorld(World):
             "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
+            "random_seed": self.random.getrandbits(32),
             "logic_difficulty": self.options.logic_difficulty.value
         }
