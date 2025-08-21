@@ -87,6 +87,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Clock Town",
         address=0x3469420000078
     ),
+    "Before Clock Town Chest": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420061A00,
+        can_create=lambda options: options.intro_checks.value
+    ),
     "Clock Town Postbox": MMRLocationData(
         region="Clock Town",
         address=0x34694200701F2

@@ -306,7 +306,7 @@ def get_location_rules(player, options):
         "Top of Clock Tower (Song of Time)":
             lambda state: has_projectiles(state, player),
 
-         "North Clock Town Tree HP":
+        "North Clock Town Tree HP":
             lambda state: True,
         "North Clock Town Deku Playground Any Day":
             lambda state: state.has("Deku Mask", player),
@@ -363,6 +363,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Clock Tower Happy Mask Salesman #2":
             lambda state: True,
+        "Before Clock Town Chest":
+            lambda state: state.has("Deku Mask", player),
 
         
         "East Clock Town Archery Roof Chest":

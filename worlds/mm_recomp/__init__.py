@@ -88,6 +88,12 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Great Bay Map"))
             mw.push_precollected(self.create_item("Stone Tower Map"))
             self.create_and_add_filler_items(6)
+
+        if self.options.curiostity_shop_trades.value:
+            mw.itempool.append(self.create_item("Blue Rupee"))
+            mw.itempool.append(self.create_item("Red Rupee"))
+            mw.itempool.append(self.create_item("Purple Rupee"))
+            mw.itempool.append(self.create_item("Gold Rupee"))
             
         if self.options.scrubsanity.value != 0:
             self.create_and_add_filler_items(4)
@@ -100,12 +106,9 @@ class MMRWorld(World):
         
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
-
-        if self.options.curiostity_shop_trades.value:
-            mw.itempool.append(self.create_item("Blue Rupee"))
-            mw.itempool.append(self.create_item("Red Rupee"))
-            mw.itempool.append(self.create_item("Purple Rupee"))
-            mw.itempool.append(self.create_item("Gold Rupee"))
+        
+        if self.options.intro_checks.value:
+            self.create_and_add_filler_items(1)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -364,6 +367,10 @@ class MMRWorld(World):
 
         for location in mw.get_locations(player):
             name = location.name
+
+            if name not in location_rules:
+                print(f"Location '{name}' does not have any logic")
+            
             if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
                 continue
             if name in location_rules and location_data_table[name].can_create(self.options):
@@ -384,6 +391,7 @@ class MMRWorld(World):
             "cowsanity": self.options.cowsanity.value,
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
+            "intro_checks": self.options.intro_checks.value,
             "curiostity_shop_trades": self.options.curiostity_shop_trades.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,

@@ -181,6 +181,13 @@ class CuriosityShopTrades(Toggle):
     display_name = "Curiosity Shop Trades"
 
 
+class IntroChecks(Toggle):
+    """Choose whether to shuffle the checks normally found before entering the Clock Tower.
+    
+    A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
+    display_name = "Enable Intro Checks"
+
+
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
     display_name = "Start With Consumables"
@@ -265,6 +272,7 @@ class MMROptions(PerGameCommonOptions):
     bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
     curiostity_shop_trades: CuriosityShopTrades
+    intro_checks: IntroChecks
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
