@@ -112,11 +112,17 @@ class MMRWorld(World):
         if self.options.intro_checks.value:
             self.create_and_add_filler_items(1)
 
+        if self.options.curiostity_shop_trades.value:
+            mw.itempool.append(self.create_item("Blue Rupee"))
+            mw.itempool.append(self.create_item("Red Rupee"))
+            mw.itempool.append(self.create_item("Purple Rupee"))
+            mw.itempool.append(self.create_item("Gold Rupee"))            
+
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1035)
+            self.create_and_add_filler_items(1038)
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(535)
+            self.create_and_add_filler_items(540)
         
         if self.options.rocksanity.value != 0:
             self.create_and_add_filler_items(123)
@@ -131,13 +137,13 @@ class MMRWorld(World):
             self.create_and_add_filler_items(22) 
 
         if self.options.rupeesanity.value != 0:
-            self.create_and_add_filler_items(210)
+            self.create_and_add_filler_items(212)
 
         if self.options.snowsanity.value != 0:
             self.create_and_add_filler_items(117)
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(125)
+            self.create_and_add_filler_items(128)
                                  
         if self.options.realfairysanity.value != 0:
             self.create_and_add_filler_items(91)
@@ -296,7 +302,7 @@ class MMRWorld(World):
             self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Basement Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bottom Floor Switch Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
@@ -438,6 +444,9 @@ class MMRWorld(World):
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
             "cowsanity": self.options.cowsanity.value,
+            "keysanity": self.options.keysanity.value,
+            "bosskeysanity": self.options.bosskeysanity.value,
+            "curiostity_shop_trades": self.options.curiostity_shop_trades.value, 
             "grasssanity": self.options.grasssanity.value,
             "potsanity": self.options.potsanity.value,                        
             "rocksanity": self.options.rocksanity.value,
