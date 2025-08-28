@@ -21,7 +21,8 @@ known_logic_tricks = {
         'tooltip' : '''\
                     Allows using the Powder Keg as a substitute for
                     normal explosives in a variety of mundane situations.
-                    This can be very tedious.
+                    This can be very tedious. Note that this is currently
+                    confined to use cases outside of major dungeons.
                     '''},
     'Postman Game with Nothing': {
         'name'    : 'logic_postman_nobunny',
@@ -95,8 +96,9 @@ known_logic_tricks = {
     'Zora Hall as Human': {
         'name'    : 'logic_human_zora_hall',
         'tooltip' : '''\
-                    Allows swimming to Zora Hall as human. Damage is
-                    unavoidable so don't use this with OHKO.
+                    Allows swimming to Zora Hall as human. Avoiding damage
+                    requires some camera manipulation so be careful using
+                    this with OHKO.
                     '''},
     'Goron Bomb Jumps': {
         'name'    : 'logic_goron_bomb_jump',
