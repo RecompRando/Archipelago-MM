@@ -2,8 +2,9 @@ from dataclasses import dataclass
 
 from typing import Dict
 
-from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
+from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, OptionSet, StartInventoryPool, DeathLink, PerGameCommonOptions
 
+from .LogicTricks import normalized_name_tricks
 
 class LogicDifficulty(Choice):
     """Set the logic difficulty used when generating."""
@@ -188,6 +189,23 @@ class IntroChecks(Toggle):
     display_name = "Enable Intro Checks"
 
 
+class LogicTricks(OptionSet):
+    """Set various tricks for logic in Majora's Mask. 
+    Format as a comma-separated list of "nice" names. Example of currently full list:
+    ["Earlygame Hard Combat", "Fewer Lens Requirements", "Goron Bomb Jumps", "Powder Keg as Explosive", 
+    "Stock Pot Inn at Night with Nothing", "Postman Game with Nothing", "Bank Checks without Wallets",
+    "Goron Pound to Swamp Tour Roof", "Cross Poisoned Swamp as Goron or Zora",
+    "Climb Mountain Village Wall with Nothing", "Snowhead Temple Final Key Skip",
+    "Hot Spring Water on Snowhead Temple 1f", "Pinnacle Rock without Seahorse", "Zora Hall as Human",
+    "Brute Force Oceanside Spider House Code", "Goron Pound in Zora Hall", "Great Bay Temple Skip Frog Miniboss",
+    "Climb Ikana Canyon without Ice Arrows", "One Mask Stone Tower Climb",
+    "Inverted Stone Tower Temple Deku Spin to Boss Key Area", "Inverted Stone Tower Temple Early Eyegore"]
+    """
+    display_name = "Logic Tricks"
+    valid_keys = tuple(normalized_name_tricks.keys())
+    valid_keys_casefold = True
+
+
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
     display_name = "Start With Consumables"
@@ -273,6 +291,7 @@ class MMROptions(PerGameCommonOptions):
     fairysanity: Fairysanity
     curiostity_shop_trades: CuriosityShopTrades
     intro_checks: IntroChecks
+    logic_tricks: LogicTricks
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
