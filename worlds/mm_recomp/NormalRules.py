@@ -163,37 +163,78 @@ def logic_trick(options, trick_name):
     return (trick_name in options.logic_tricks.value)
 
 def can_use_hot_spring_water(state, player, options, region = "Mountain"):
-    return (has_bottle(state, player) and
-               (
-                   (region == "Mountain" or can_play_song("Song of Soaring", state, player)) and
-                   (
-                       # Twin Island Grotto
-                       can_use_fire_arrows(state, player) or
-                       # Darmani's Grave
-                       (
-                           state.can_reach("Mountain Village", 'Region', player) and
-                           state.has("Goron Mask", player) and
-                           (
-                               can_use_lens(state, player) or
-                               logic_trick(options, "Climb Mountain Village Wall with Nothing")
-                           )
-                       )
-                   ) or
-                   # Beneath the Well
-                   (
-                       (region == "Ikana" or can_play_song("Song of Soaring", state, player)) and
-                       state.can_reach("Ikana Well Invisible Chest", 'Location', player)
-                   )
-               )
-           )
+    return
+    (
+        has_bottle(state, player) and
+        (
+            (region == "Mountain" or can_play_song("Song of Soaring", state, player)) and
+            (
+                # Twin Island Grotto
+                can_use_fire_arrows(state, player) or
+                # Darmani's Grave
+                (
+                    state.can_reach("Mountain Village", 'Region', player) and
+                    state.has("Goron Mask", player) and
+                    (
+                        can_use_lens(state, player) or
+                        logic_trick(options, "Climb Mountain Village Wall with Nothing")
+                    )
+                )
+            ) or
+            # Beneath the Well
+            (
+                (region == "Ikana" or can_play_song("Song of Soaring", state, player)) and
+                state.can_reach("Ikana Well Invisible Chest", 'Location', player)
+            )
+        )
+    )
+
+#This function allows the use of the Logic Trick "Goron Bomb Jump"
+def goron_bomb_jump(state, player, options):
+    return
+    (
+        logic_trick(options, "Goron Bomb Jumps") and
+        state.has("Goron Mask", player) and
+        state.has("Progressive Bomb Bag", player)
+    )
+
+#This controls the player's ability to go from the lower part of the main Ikana Canyon screen to the upper part.
+def ikana_climb(state, player, options):
+    return
+    (
+        state.has("Hookshot", player) and
+        (
+            can_use_ice_arrows(state, player) or
+            logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
+        )
+    )
+
+#This controls Lens of Truth requirements which can be avoided by simply knowing where the invisible things are.
+#The big wall in Mountain Village will not use this due to having a separate trick and being much harder than the rest.
+def soft_lens(state, player, options):
+    return
+    (
+        can_use_lens(state, player) or
+        logic_trick(options, "Fewer Lens Requirements")
+    )
+
+#This function allows the use of the Logic Trick "Powder Keg as Explosive".
+def has_explosives_or_keg(state, player, options):
+    return
+    (
+        has_explosives(state, player) or
+        (
+            logic_trick(options, "Powder Keg as Explosive") and
+            can_use_powder_keg(state, player)
+        )
+    )
 
 def osh_helper(state, player, options):
-    return (state.has("Hookshot", player) or
-            (
-                logic_trick(options, "Goron Bomb Jumps") and
-                state.has("Goron Mask", player) and
-                state.has("Progressive Bomb Bag", player)
-            ))
+    return
+    (
+        state.has("Hookshot", player) or
+        goron_bomb_jump(state, player, options)
+    )
 
 def mask_total(state, player):
     mask_list = ["Captain's Hat", "All-Night Mask", "Bunny Hood", "Keaton Mask", "Garo Mask", "Romani Mask",
@@ -271,11 +312,7 @@ def get_region_rules(player, options):
         "Termina Field -> Great Bay":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    logic_trick(options, "Goron Bomb Jumps") and
-                    state.has("Progressive Bomb Bag", player) and
-                    state.has("Goron Mask", player)
-                )
+                goron_bomb_jump(state, player, options)
             ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
@@ -301,11 +338,7 @@ def get_region_rules(player, options):
         "Road to Ikana -> Ikana Graveyard":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    logic_trick(options, "Goron Bomb Jumps") and
-                    state.has("Progressive Bomb Bag", player) and
-                    state.has("Goron Mask", player)
-                )
+                goron_bomb_jump(state, player, options)
             ),
         "Road to Ikana -> Ikana Canyon":
             lambda state: (
@@ -316,46 +349,26 @@ def get_region_rules(player, options):
                 ) and
                 (
                     can_play_song("Epona's Song", state, player) or
-                    (
-                        logic_trick(options, "Goron Bomb Jumps") and
-                        state.has("Progressive Bomb Bag", player) and
-                        state.has("Goron Mask", player)
-                    )
+                    goron_bomb_jump(state, player, options)
                 )
             ),
         "Ikana Canyon -> Secret Shrine":
             lambda state: can_use_light_arrows(state, player),
         "Ikana Canyon -> Beneath the Well":
-            lambda state: (
-                state.has("Hookshot", player) and
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                )
-            ),
+            lambda state: ikana_climb(state, player, options),
         # There is no circumstance this connection is logically superior to coming from the canyon.
         "Beneath the Well -> Ikana Castle":
             lambda state: False,
         "Ikana Canyon -> Ikana Castle":
             lambda state: (
-                state.has("Hookshot", player) and
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                ) and
+                ikana_climb(state, player, options) and
                 (
                     can_use_light_arrows(state, player) or 
                     has_mirror_shield(state, player)
                 )
             ),
         "Ikana Canyon -> Stone Tower":
-            lambda state: (
-                state.has("Hookshot", player) and
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                )
-            ),
+            lambda state: ikana_climb(state, player, options),
         "Stone Tower -> Stone Tower Temple":
             lambda state: ( 
                 can_play_song("Elegy of Emptiness", state, player) and
@@ -447,11 +460,7 @@ def get_location_rules(player, options):
                     state.can_reach("Clock Town", 'Region', player) or 
                     (
                         state.can_reach("Ikana Canyon", 'Region', player) and 
-                        state.has("Hookshot", player) and
-                        (
-                            can_use_ice_arrows(state, player) or
-                            logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                        )
+                        ikana_climb(state, player, options)
                     )
                 )
             ),
@@ -517,23 +526,13 @@ def get_location_rules(player, options):
         "Bomber's Hideout Chest":
             lambda state: (
                 state.can_reach("Clock Town Hide-and-Seek", 'Location', player) and
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                )
+                has_explosives_or_keg(state, player, options)
             ),
         "Bomber's Hideout Astral Observatory":
             lambda state: (
                 has_projectiles(state, player) or
                 state.has("Deku Mask", player) or
-                (
-                    logic_trick(options, "Goron Bomb Jumps") and
-                    state.has("Progressive Bomb Bag", player) and
-                    state.has("Goron Mask", player)
-                )
+                goron_bomb_jump(state, player, options)
             ),
         "Milk Bar Show":
             lambda state: (
@@ -695,11 +694,7 @@ def get_location_rules(player, options):
                 state.has("Kafei's Mask", player) and 
                 (
                     can_play_song("Epona's Song", state, player) or
-                    (
-                        logic_trick(options, "Goron Bomb Jumps") and
-                        state.has("Progressive Bomb Bag", player) and
-                        state.has("Goron Mask", player)
-                    )
+                    goron_bomb_jump(state, player, options)
                 )and 
                 state.has("Letter to Kafei", player) and 
                 state.has("Pendant of Memories", player) and
@@ -807,24 +802,12 @@ def get_location_rules(player, options):
         "Termina Log Bombable Grotto Left Cow":
             lambda state: (
                 can_play_song("Epona's Song", state, player) and
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                )
+                has_explosives_or_keg(state, player, options)
             ),
         "Termina Log Bombable Grotto Right Cow":
             lambda state: (
                 can_play_song("Epona's Song", state, player) and
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                )
+                has_explosives_or_keg(state, player, options)
             ),
 
         "Milk Road Gorman Ranch Race":
@@ -1253,13 +1236,7 @@ def get_location_rules(player, options):
         # Technically this could be done during the keg trial, but that's a bit too mean for me.
         "Twin Islands Ramp Grotto Chest":
             lambda state: (
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                ) and 
+                has_explosives_or_keg(state, player, options) and 
                 (
                     state.has("Goron Mask", player) or 
                     state.has("Hookshot", player)
@@ -1275,13 +1252,7 @@ def get_location_rules(player, options):
             ),
         "Twin Islands Hot Water Grotto Chest":
             lambda state: (
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                ) and
+                has_explosives_or_keg(state, player, options) and
                 (
                     can_clear_snowhead(state, player) or
                     can_use_fire_arrows(state, player) or
@@ -1308,13 +1279,7 @@ def get_location_rules(player, options):
             ),
             
         "Goron Village Lens Cave Rock Chest":
-            lambda state: (
-                has_explosives(state, player) or
-                (
-                    logic_trick(options, "Powder Keg as Explosive") and
-                    can_use_powder_keg(state, player)
-                )
-            ),
+            lambda state: has_explosives_or_keg(state, player, options),
         "Goron Village Lens Cave Invisible Chest":
             lambda state: True,
         "Goron Village Lens Cave Center Chest":
@@ -1388,13 +1353,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                )
+                has_explosives_or_keg(state, player, options)
             ),
         "Path to Snowhead Scarecrow Pillar HP":
             lambda state: (
@@ -1402,10 +1361,7 @@ def get_location_rules(player, options):
                 state.has("Goron Mask", player) and 
                 state.has("Hookshot", player) and
                 state.has("Progressive Magic", player) and
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                )
+                soft_lens(state, player, options)
             ),
             
         "Snowhead Great Fairy Reward":
@@ -1445,10 +1401,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Great Fairy Mask", player) and
                 state.has("Progressive Bow", player) and
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                ) and
+                soft_lens(state, player, options) and
                 (
                     state.has("Hookshot", player) or
                     can_use_fire_arrows(state, player) or
@@ -1535,10 +1488,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Icicle Room Hidden Chest SF":
             lambda state: (
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                ) and
+                soft_lens(state, player, options) and
                 (
                     (
                         has_explosives(state, player) and
@@ -1577,10 +1527,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Elevator Room Invisible Platform Chest SF":
             lambda state: (
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                ) and
+                soft_lens(state, player, options) and
                 (
                     can_use_fire_arrows(state, player) or
                     state.has("Hookshot", player) or
@@ -1615,10 +1562,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Main Room Wall Chest SF":
             lambda state: (
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                ) and
+                soft_lens(state, player, options) and
                 (
                     state.has("Hookshot", player) or
                     (
@@ -2129,22 +2073,12 @@ def get_location_rules(player, options):
                 can_use_lens(state, player) and
                 (
                     can_play_song("Epona's Song", state, player) or
-                    (
-                        logic_trick(options, "Goron Bomb Jumps") and
-                        state.has("Progressive Bomb Bag", player) and
-                        state.has("Goron Mask", player)
-                    )
+                    goron_bomb_jump(state, player, options)
                 )
             ),
             
         "Ikana Graveyard Bombable Grotto Chest":
-            lambda state: (
-                has_explosives(state, player) or
-                (
-                    logic_trick(options, "Powder Keg as Explosive") and
-                    can_use_powder_keg(state, player)
-                )
-            ),
+            lambda state: has_explosives_or_keg(state, player, options),
         "Graveyard Day 1 Bats Chest":
             lambda state: (
                 state.has("Captain's Hat", player) and
@@ -2158,17 +2092,8 @@ def get_location_rules(player, options):
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: (
                 state.has("Captain's Hat", player) and 
-                (
-                    has_explosives(state, player) or
-                    (
-                        logic_trick(options, "Powder Keg as Explosive") and
-                        can_use_powder_keg(state, player)
-                    )
-                ) and
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                ) and
+                has_explosives_or_keg(state, player, options) and
+                soft_lens(state, player, options) and
                 (
                     can_smack_hard(state, player) or
                     has_bombchus(state, player) or
@@ -2204,31 +2129,18 @@ def get_location_rules(player, options):
                 (
                     (
                         state.can_reach("Ikana Canyon", 'Region', player) and 
-                        state.has("Hookshot", player) and
-                        (
-                            can_use_ice_arrows(state, player) or
-                            logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                        )
+                        ikana_climb(state, player, options)
                     ) or 
                     state.can_reach("Great Bay", 'Region', player)
                 )
             ),
         "Ikana Canyon Spirit House":
-            lambda state: (
-                state.has("Hookshot", player) and
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                )
-            ),
+            lambda state: ikana_climb(state, player, options),
         "Ikana Canyon Healing Pamela's Father":
             lambda state: (
                 can_play_song("Song of Healing", state, player) and 
                 can_play_song("Song of Storms", state, player) and
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                )
+                ikana_climb(state, player, options)
             ),
         "Ikana Canyon Scrub Purchase":
             lambda state: (
@@ -2252,10 +2164,7 @@ def get_location_rules(player, options):
         "Stone Tower Great Fairy Reward":
             lambda state: (
                 state.has("Stray Fairy (Stone Tower)", player, 15) and 
-                (
-                    can_use_ice_arrows(state, player) or
-                    logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
-                )
+                ikana_climb(state, player, options)
             ),
             
         "Secret Shrine Dinolfos Chest":
@@ -2346,10 +2255,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Deku Mask", player) and 
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_lens(state, player) or
-                    logic_trick(options, "Fewer Lens Requirements")
-                )
+                soft_lens(state, player, options)
             ),
         "Ikana Castle King Song":
             lambda state: (
@@ -2359,10 +2265,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Deku Mask", player) and 
                     can_use_powder_keg(state, player) and
-                    (
-                        can_use_lens(state, player) or
-                        logic_trick(options, "Fewer Lens Requirements")
-                    )
+                    soft_lens(state, player, options)
                 ) or 
                 can_use_light_arrows(state, player)
             ),
@@ -2385,7 +2288,7 @@ def get_location_rules(player, options):
                     logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
                 )
             ),
-        # This room is tricky with how the enemies work. While Zora is probably mechanically impossible,
+        # This room is tricky with how the enemies work. While Zora is probably mechanically possible,
         # I believe in at least a little mercy. The damage check is to make sure this is OHKO mode safe.
         "Stone Tower Temple Armos Room Back Chest":
             lambda state: (
