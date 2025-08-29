@@ -176,9 +176,9 @@ class Fairysanity(Toggle):
     display_name = "Fairysanity"
 
 
-class CuriosityShopTrades(Toggle):
+class CuriostityShopTrades(Toggle):
     """Choose whether to shuffle the rupees given for trading bottled items at the Curiostity Shop."""
-    display_name = "Curiosity Shop Trades"
+    display_name = "Curiostity Shop Trades"
 
 
 class IntroChecks(Toggle):
@@ -271,7 +271,7 @@ class MMROptions(PerGameCommonOptions):
     keysanity: Keysanity
     bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
-    curiostity_shop_trades: CuriosityShopTrades
+    curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
