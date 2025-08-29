@@ -177,7 +177,7 @@ class Fairysanity(Toggle):
 
 
 class CuriosityShopTrades(Toggle):
-    """Choose whether to shuffle the rupees given for trading bottled items at the Curiosty Shop."""
+    """Choose whether to shuffle the rupees given for trading bottled items at the Curiostity Shop."""
     display_name = "Curiosity Shop Trades"
 
 
