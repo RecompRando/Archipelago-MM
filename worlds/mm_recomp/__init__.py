@@ -302,7 +302,7 @@ class MMRWorld(World):
             self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Bottom Floor Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Basement Switch Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
