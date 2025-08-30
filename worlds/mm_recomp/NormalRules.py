@@ -157,6 +157,16 @@ def has_enough_remains(state, player, need_count):
         remains_count += 1
     return remains_count >= need_count
 
+def mask_total(state, player):
+    mask_list = ["Captain's Hat", "All-Night Mask", "Bunny Hood", "Keaton Mask", "Garo Mask", "Romani Mask",
+                 "Circus Leader's Mask", "Postman's Hat", "Couple's Mask", "Great Fairy Mask", "Gibdo Mask",
+                 "Don Gero Mask", "Kamaro Mask", "Mask of Truth", "Stone Mask", "Bremen Mask", "Blast Mask",
+                 "Mask of Scents", "Kafei's Mask", "Giant's Mask"]
+    mask_count = 0
+    for mask in mask_list:
+        if state.has(mask, player):
+            mask_count += 1
+    return mask_count
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
@@ -167,7 +177,7 @@ def get_region_rules(player, options):
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
-                has_bottle(state, player) or 
+                state.has("Bottle of Red Potion", player) or 
                 (
                     has_hard_projectiles(state, player) and 
                     state.has("Deku Mask", player)
@@ -306,7 +316,7 @@ def get_location_rules(player, options):
         "Top of Clock Tower (Song of Time)":
             lambda state: has_projectiles(state, player),
 
-        "North Clock Town Tree HP":
+         "North Clock Town Tree HP":
             lambda state: True,
         "North Clock Town Deku Playground Any Day":
             lambda state: state.has("Deku Mask", player),
@@ -363,8 +373,6 @@ def get_location_rules(player, options):
             lambda state: True,
         "Clock Tower Happy Mask Salesman #2":
             lambda state: True,
-        "Before Clock Town Chest":
-            lambda state: state.has("Deku Mask", player),
 
         
         "East Clock Town Archery Roof Chest":
@@ -1599,7 +1607,7 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
-        "Ocean Spider House Libary Painting #1 Token":
+        "Ocean Spider House Library Painting #1 Token":
             lambda state: (
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
@@ -2358,26 +2366,38 @@ def get_location_rules(player, options):
             ),
 
         "Moon Deku Trial HP":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: ( state.has("Deku Mask", player) and
+            mask_total(state, player) >= 1
+            ),
         "Moon Goron Trial HP":
             lambda state: (
                 state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Zora Trial HP":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: ( 
+            state.has("Zora Mask", player) and
+            mask_total(state, player) >= 3
+            ),    
+            
         "Moon Link Trial Garo Master Chest":
             lambda state: (
                 can_smack_hard(state, player) and 
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Iron Knuckle Chest":
-            lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
+            lambda state:( 
+                state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
+                mask_total(state, player) >= 4
+            ),    
         "Moon Link Trial HP":
             lambda state: (
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
                 has_bombchus(state, player) and 
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and 
+                mask_total(state, player) >= 4
             ),
         "Moon Trade All Masks":
             lambda state: (
@@ -2425,8 +2445,15 @@ def get_location_rules(player, options):
                 ) and 
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
-            
+                     
             # Grass Location Rules
+        "Laundry Pool Grass (1)":
+            lambda state: True,
+        "Laundry Pool Grass (2)":
+            lambda state: True,
+        "Laundry Pool Grass (3)":
+            lambda state: True,   
+
         "North Clock Town Keaton Grass (1)":
             lambda state: True,
         "North Clock Town Keaton Grass (2)":
@@ -5503,8 +5530,6 @@ def get_location_rules(player, options):
             lambda state: True,
 
         # Sword School Night 3 Midnight Pots - Requires Progressive Sword
-        "Sword School Night 3 Midnight Pots (0)":
-            lambda state: state.has("Progressive Sword", player),
         "Sword School Night 3 Midnight Pots (1)":
             lambda state: state.has("Progressive Sword", player),
         "Sword School Night 3 Midnight Pots (2)":
@@ -5513,33 +5538,35 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Sword", player),
         "Sword School Night 3 Midnight Pots (4)":
             lambda state: state.has("Progressive Sword", player),
+        "Sword School Night 3 Midnight Pots (5)":
+            lambda state: state.has("Progressive Sword", player),
 
         # Clock Tower Pots Night 3
-        "Top Of Clock Tower Pots (0)":
-            lambda state: True,
         "Top Of Clock Tower Pots (1)":
             lambda state: True,
         "Top Of Clock Tower Pots (2)":
             lambda state: True,
         "Top Of Clock Tower Pots (3)":
+            lambda state: True,
+        "Top Of Clock Tower Pots (4)":
             lambda state: True,                                    
 
         # Bombers Hideout Pots - Requires access to Bomber's Hideout Astral Observatory
-        "Bombers Hideout Pots (0)":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Bombers Hideout Pots (1)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Bombers Hideout Pots (2)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Bombers Hideout Pots (3)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+        "Bombers Hideout Pots (4)":
+            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         
         # Astral Observatory Pots - Requires access to Bomber's Hideout Astral Observatory
-        "Astral Observatory Pots (0)":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Astral Observatory Pots (1)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Astral Observatory Pots (2)":
+            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+        "Astral Observatory Pots (3)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
 
         # Termina Field Pots
@@ -5554,24 +5581,22 @@ def get_location_rules(player, options):
         # Southern Swamp Pots
         
         # Road To Southern Swamp Outside Archery Pots
-        "Road To Southern Swamp Outside Archery Pots (0)":
-            lambda state: True,
         "Road To Southern Swamp Outside Archery Pots (1)":
+            lambda state: True,
+        "Road To Southern Swamp Outside Archery Pots (2)":
             lambda state: True,
         
         # Southern Swamp Beneath Witch Shop Pots
-        "Southern Swamp Beneath Witch Shop Pots (0)":
-            lambda state: True,
         "Southern Swamp Beneath Witch Shop Pots (1)":
             lambda state: True,
         "Southern Swamp Beneath Witch Shop Pots (2)":
+            lambda state: True,
+        "Southern Swamp Beneath Witch Shop Pots (3)":
             lambda state: True,
         
         # Swamp Spider House Pots
         
         # Swamp Spider House Main Room Pots
-        "Swamp Spider House Main Room Pots (0)":
-            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Main Room Pots (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Main Room Pots (2)":
@@ -5585,17 +5610,17 @@ def get_location_rules(player, options):
         "Swamp Spider House Main Room Pots (6)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Main Room Pots (7)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Main Room Pots (8)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),  
 
         # Swamp Spider House Tablet Room Pots
-        "Swamp Spider House Tablet Room Pots (0)":
-            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Tablet Room Pots (1)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Tablet Room Pots (2)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player), 
 
         # Swamp Spider House Giant Jar Room Pots
-        "Swamp Spider House Giant Jar Room Pots (0)":
-            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Giant Jar Room Pots (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Giant Jar Room Pots (2)":
@@ -5609,11 +5634,11 @@ def get_location_rules(player, options):
         "Swamp Spider House Giant Jar Room Pots (6)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Giant Jar Room Pots (7)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Giant Jar Room Pots (8)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),            
         
         # Swamp Spider House Gold Room Pots
-        "Swamp Spider House Gold Room Pots (0)":
-            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Gold Room Pots (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Gold Room Pots (2)":
@@ -5622,24 +5647,26 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Gold Room Pots (4)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spider House Gold Room Pots (5)":    
+        "Swamp Spider House Gold Room Pots (5)":
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+        "Swamp Spider House Gold Room Pots (6)":    
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         # Deku Palace Pots
         
         # Deku Palace Right Side Upper Pots
-        "Deku Palace Right Side Upper Pots (0)":
-            lambda state: state.can_reach("Deku Palace", 'Region', player),
         "Deku Palace Right Side Upper Pots (1)":
+            lambda state: state.can_reach("Deku Palace", 'Region', player),
+        "Deku Palace Right Side Upper Pots (2)":
             lambda state: state.can_reach("Deku Palace", 'Region', player),
         
         # Deku Butler Race Pots
-        "Deku Butler Race Pots (0)":
+        "Deku Butler Race Pots (1)":
             lambda state: (
                 can_clear_woodfall(state, player) and 
                 state.has("Progressive Sword", player) and 
                 has_bottle(state, player)
             ),
-        "Deku Butler Race Pots (1)":
+        "Deku Butler Race Pots (2)":
             lambda state: (
                 can_clear_woodfall(state, player) and 
                 state.has("Progressive Sword", player) and 
@@ -5648,17 +5675,17 @@ def get_location_rules(player, options):
         # Woodfall Pots
         
         # Woodfall Owl Pots - Requires access to Woodfall region as Deku
-        "Woodfall Owl Pots (0)":
-            lambda state: (
-                state.can_reach("Woodfall", 'Region', player) and 
-                state.has("Deku Mask", player)
-            ),
         "Woodfall Owl Pots (1)":
             lambda state: (
                 state.can_reach("Woodfall", 'Region', player) and 
                 state.has("Deku Mask", player)
             ),
         "Woodfall Owl Pots (2)":
+            lambda state: (
+                state.can_reach("Woodfall", 'Region', player) and 
+                state.has("Deku Mask", player)
+            ),
+        "Woodfall Owl Pots (3)":
             lambda state: (
                 state.can_reach("Woodfall", 'Region', player) and 
                 state.has("Deku Mask", player)
@@ -5670,8 +5697,6 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         
         # Woodfall Temple Main Room Pots
-        "Woodfall Temple Main Room Pots (0)":
-            lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Woodfall Temple Main Room Pots (1)":
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Woodfall Temple Main Room Pots (2)":
@@ -5690,39 +5715,39 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         
         # Woodfall Temple Deku Elevator Pots
-        "Woodfall Temple Deku Elevator Pots (0)":
-            lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Woodfall Temple Deku Elevator Pots (1)":
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Woodfall Temple Deku Elevator Pots (2)":
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Woodfall Temple Deku Elevator Pots (3)":
             lambda state: state.can_reach("Woodfall Temple", 'Region', player),
+        "Woodfall Temple Deku Elevator Pots (4)":
+            lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         
-        # Woodfall Temple Frog Boss Pots - Requires bow to access this area
-        "Woodfall Temple Frog Boss Pots (0)":
+        # Woodfall Temple Gekko Pots - Requires bow to access this area
+        "Woodfall Temple Gekko Pots (1)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Frog Boss Pots (1)":
+        "Woodfall Temple Gekko Pots (2)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Frog Boss Pots (2)":
+        "Woodfall Temple Gekko Pots (3)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Frog Boss Pots (3)":
+        "Woodfall Temple Gekko Pots (4)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
         
         # Woodfall Temple Left Side Bridge Pots - Requires small key or bow
-        "Woodfall Temple Left Side Bridge Pots (0)":
+        "Woodfall Temple Left Side Bridge Pots (1)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 (
@@ -5730,7 +5755,7 @@ def get_location_rules(player, options):
                     state.has("Progressive Bow", player)
                 )
             ),
-        "Woodfall Temple Left Side Bridge Pots (1)":
+        "Woodfall Temple Left Side Bridge Pots (2)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 (
@@ -5740,32 +5765,27 @@ def get_location_rules(player, options):
             ),
         
         # Woodfall Temple Pre Boss Pots - Requires bow to reach pre-boss area
-        "Woodfall Temple Pre Boss Pots (0)":
+        "Woodfall Temple Pre Boss Pots (1)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
-        "Woodfall Temple Pre Boss Pots (1)":
+        "Woodfall Temple Pre Boss Pots (2)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
         # Mountain Village Pots
         
-        "Mountain Village Pots (0)":
-            lambda state: True,
         "Mountain Village Pots (1)":
             lambda state: True,
         "Mountain Village Pots (2)":
             lambda state: True,
+        "Mountain Village Pots (3)":
+            lambda state: True,
         # Goron Village Pots
         
         # Goron Racetrack Pots - Requires Goron Mask and Powder Keg
-        "Goron Racetrack Pots (0)":
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                state.has("Powder Keg", player)
-            ),
         "Goron Racetrack Pots (1)":
             lambda state: (
                 state.has("Goron Mask", player) and 
@@ -5911,10 +5931,13 @@ def get_location_rules(player, options):
                 state.has("Goron Mask", player) and 
                 state.has("Powder Keg", player)
             ),
+        "Goron Racetrack Pots (30)":
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Powder Keg", player)
+            ),
         
         # Goron Shrine Pots - Requires region access
-        "Goron Shrine Pots (0)":
-            lambda state: True,
         "Goron Shrine Pots (1)":
             lambda state: True,
         "Goron Shrine Pots (2)":
@@ -5934,20 +5957,20 @@ def get_location_rules(player, options):
         "Goron Shrine Pots (9)":
             lambda state: True,
         "Goron Shrine Pots (10)":
+            lambda state: True,
+        "Goron Shrine Pots (11)":
             lambda state: True,  
                         
         # Snowhead Temple Pots
         
         # Snowhead Temple Blue Door Lava Bridge Pots 
-        "Snowhead Temple Entrance Pots (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),        
         "Snowhead Temple Entrance Pots (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),        
+        "Snowhead Temple Entrance Pots (2)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         # Snowhead Temple Pots
         
         # Snowhead Temple Blue Door Lava Bridge Pots - Basic temple access
-        "Snowhead Temple Blue Door Lava Bridge Pots (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Blue Door Lava Bridge Pots (1)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Blue Door Lava Bridge Pots (2)":
@@ -5960,15 +5983,17 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Blue Door Lava Bridge Pots (6)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Blue Door Lava Bridge Pots (7)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         
         # Snowhead Temple Main Room Pots Basement - Basic temple access
-        "Snowhead Temple Main Room Pots Basement (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Main Room Pots Basement (1)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Main Room Pots Basement (2)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         
         # Snowhead Temple Main Room Scarecrow Pots - Requires Hookshot or Fire Arrows
-        "Snowhead Temple Main Room Scarecrow Pots (0)":
+        "Snowhead Temple Main Room Scarecrow Pots (1)":
             lambda state: (
    
                 (
@@ -5976,7 +6001,7 @@ def get_location_rules(player, options):
                     can_use_fire_arrows(state, player)
                 )
             ),
-        "Snowhead Temple Main Room Scarecrow Pots (1)":
+        "Snowhead Temple Main Room Scarecrow Pots (2)":
             lambda state: (
    
                 (
@@ -5986,8 +6011,6 @@ def get_location_rules(player, options):
             ),
         
         # Snowhead Temple Frozen Green Door Pots - Basic temple access (pots are at bottom)
-        "Snowhead Temple Frozen Green Door Pots (0)":
-            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (1)":
             lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (2)":
@@ -6001,8 +6024,7 @@ def get_location_rules(player, options):
         "Snowhead Temple Frozen Green Door Pots (6)":
             lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (7)":
-            lambda state:can_use_fire_arrows(state, player
-            ),
+            lambda state: True,
         "Snowhead Temple Frozen Green Door Pots (8)":
             lambda state:can_use_fire_arrows(state, player
             ),
@@ -6018,16 +6040,19 @@ def get_location_rules(player, options):
         "Snowhead Temple Frozen Green Door Pots (12)":
             lambda state:can_use_fire_arrows(state, player
             ),
+        "Snowhead Temple Frozen Green Door Pots (13)":
+            lambda state:can_use_fire_arrows(state, player
+            ),
         
         # Snowhead Temple Orange Door Push Block Pots - Requires Fire Arrows and (Small Key or Hookshot)
-        "Snowhead Temple Orange Door Push Block Pots (0)":
+        "Snowhead Temple Orange Door Push Block Pots (1)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
                     state.has("Hookshot", player)
                 )
             ),  
-        "Snowhead Temple Orange Door Push Block Pots (1)":
+        "Snowhead Temple Orange Door Push Block Pots (2)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player) or
@@ -6050,10 +6075,6 @@ def get_location_rules(player, options):
             ),                         
 
         # Snowhead Temple Locked Grey Door Wolfos Pots - Requires 2 Small Keys
-        "Snowhead Temple Locked Grey Door Wolfos Pots (0)":
-            lambda state: (
-                state.has("Small Key (Snowhead)", player, 2)
-            ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (1)":
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 2)
@@ -6070,15 +6091,19 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 2)
             ),
+        "Snowhead Temple Locked Grey Door Wolfos Pots (5)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 2)
+            ),
         
         # Snowhead Temple Goron Pound Puzzle Pots - Requires explosives and (Goron Mask or Fire Arrows)
-        "Snowhead Temple Goron Pound Puzzle Pots (0)":
+        "Snowhead Temple Goron Pound Puzzle Pots (1)":
             lambda state: (
                 has_explosives(state, player) and
                 state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
             ),
-        "Snowhead Temple Goron Pound Puzzle Pots (1)":
+        "Snowhead Temple Goron Pound Puzzle Pots (2)":
             lambda state: (
                 has_explosives(state, player) and
                 state.has("Small Key (Snowhead)", player, 2) or
@@ -6086,18 +6111,18 @@ def get_location_rules(player, options):
             ),
         
         # Snowhead Temple Main Room Pots 2nd Floor Bridge - Basic temple access
-        "Snowhead Temple Main Room Pots 2nd Floor Bridge (0)":
+        "Snowhead Temple Main Room 2nd Floor Bridge Pots (1)":
             lambda state: ( 
                     state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
             ),        
-        "Snowhead Temple Main Room Pots 2nd Floor Bridge (1)":
+        "Snowhead Temple Main Room 2nd Floor Bridge Pots (2)":
             lambda state: ( 
                     state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
             ), 
         # Snowhead Temple Main Room 4th Floor Pots - Same as Boss Key Chest requirements
-        "Snowhead Temple Main Room 4th Floor Pots (0)":
+        "Snowhead Temple Main Room 4th Floor Pots (1)":
             lambda state: (
                 can_use_fire_arrows(state, player) and 
                 (
@@ -6110,7 +6135,7 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-        "Snowhead Temple Main Room 4th Floor Pots (1)":
+        "Snowhead Temple Main Room 4th Floor Pots (2)":
             lambda state: (
                 can_use_fire_arrows(state, player) and 
                 (
@@ -6125,19 +6150,6 @@ def get_location_rules(player, options):
             ),
         
         # Snowhead Temple 4th Floor Wizzrobe Pots - Same as Boss Key Chest requirements
-        "Snowhead Temple 4th Floor Wizzrobe Pots (0)":
-            lambda state: (
-                can_use_fire_arrows(state, player) and 
-                (
-                    state.has("Small Key (Snowhead)", player, 3) or 
-                    (
-                        can_use_fire_arrows(state, player) and
-                        state.has("Small Key (Snowhead)", player, 2) and 
-                        state.has("Hookshot", player) and 
-                        can_reach_scarecrow(state, player)
-                    )
-                )
-            ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (1)":
             lambda state: (
                 can_use_fire_arrows(state, player) and 
@@ -6156,6 +6168,19 @@ def get_location_rules(player, options):
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
+                    (
+                        can_use_fire_arrows(state, player) and
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        state.has("Hookshot", player) and 
+                        can_reach_scarecrow(state, player)
+                    )
+                )
+            ),
+        "Snowhead Temple 4th Floor Wizzrobe Pots (3)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 3) or 
                     (    
                         can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
@@ -6164,28 +6189,34 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-        
-        # Goht Boss Room Pots - Top floor requirements plus Boss Key or Remains warp
-        "Goht Boss Room Pots (0)":
+        "Snowhead Temple 4th Floor Wizzrobe Pots (4)":
             lambda state: (
-   
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
-                    (
+                    (    
+                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player)
                     )
-                ) and 
-                (
-                    state.has("Boss Key (Snowhead)", player) or 
-                    (
-                        state.has("Goht's Remains", player) and 
-                        options.remains_allow_boss_warps.value
-                    )
                 )
             ),
+        "Snowhead Temple 4th Floor Wizzrobe Pots (5)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 3) or 
+                    (    
+                        can_use_fire_arrows(state, player) and
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        state.has("Hookshot", player) and 
+                        can_reach_scarecrow(state, player)
+                    )
+                )
+            ),                        
+        
+        # Goht Boss Room Pots - Top floor requirements plus Boss Key or Remains warp
         "Goht Boss Room Pots (1)":
             lambda state: (
    
@@ -6446,40 +6477,90 @@ def get_location_rules(player, options):
                     )
                 )
             ),
+        "Goht Boss Room Pots (14)":
+            lambda state: (
+   
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 3) or 
+                    (
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        state.has("Hookshot", player) and 
+                        can_reach_scarecrow(state, player)
+                    )
+                ) and 
+                (
+                    state.has("Boss Key (Snowhead)", player) or 
+                    (
+                        state.has("Goht's Remains", player) and 
+                        options.remains_allow_boss_warps.value
+                    )
+                )
+            ),
 
-        "Mountain Village Springtime Pots (0)":
-            lambda state: can_clear_snowhead(state, player),
         "Mountain Village Springtime Pots (1)":
             lambda state: can_clear_snowhead(state, player),
         "Mountain Village Springtime Pots (2)":
+            lambda state: can_clear_snowhead(state, player),
+        "Mountain Village Springtime Pots (3)":
             lambda state: can_clear_snowhead(state, player),
 
         # Romani Ranch Pots
         
         # Romani Ranch Baby Chickens Pots
-        "Romani Ranch Baby Chickens Pots (0)":
+        "Romani Ranch Baby Cuccoos Pots (1)":
             lambda state: True,
-        "Romani Ranch Baby Chickens Pots (1)":
+        "Romani Ranch Baby Cuccoos Pots (2)":
             lambda state: True,
         
         # Romani Ranch Doggy Racetrack Pots
-        "Romani Ranch Doggy Racetrack Pots (0)":
-            lambda state: True,
         "Romani Ranch Doggy Racetrack Pots (1)":
             lambda state: True,
         "Romani Ranch Doggy Racetrack Pots (2)":
             lambda state: True,
         "Romani Ranch Doggy Racetrack Pots (3)":
             lambda state: True,
-# Ocean Spider House Pots - All require region access, explosives, and hookshot
-        
+        "Romani Ranch Doggy Racetrack Pots (4)":
+            lambda state: True,
+
+        # Great Bay Coast Pots
+        "Great Bay Coast Behind Marine Lab Pots (1)":
+            lambda state: True,
+        "Great Bay Coast Behind Marine Lab Pots (2)":
+            lambda state: True,            
+        "Great Bay Coast Behind Marine Lab Pots (3)":
+            lambda state: True,
+        "Great Bay Coast Behind Marine Lab Pots (4)":
+            lambda state: True,
+
+        "Great Bay Coast Rock Pools Pots (1)":
+            lambda state: True,
+        "Great Bay Coast Rock Pools Pots (2)":
+            lambda state: True,        
+            
+        "Great Bay Coast Lower Rock Wall Pots (1)":
+            lambda state: True,
+        "Great Bay Coast Lower Rock Wall Pots (2)":
+            lambda state: True,       
+        "Great Bay Coast Lower Rock Wall Pots (3)":
+            lambda state: True,       
+        "Great Bay Coast Lower Rock Wall Pots (4)":
+            lambda state: True,       
+
+        "Great Bay Coast Upper Rock Wall Pots (1)":
+            lambda state: state.has("Hookshot", player),  
+        "Great Bay Coast Upper Rock Wall Pots (2)":
+            lambda state: state.has("Hookshot", player),  
+        "Great Bay Coast Upper Rock Wall Pots (3)":
+            lambda state: state.has("Hookshot", player),   
+
+        "Great Bay Coast Beside Pirates Fortress Pots (1)":
+            lambda state: True,                   
+        "Great Bay Coast Beside Pirates Fortress Pots (2)":
+            lambda state: True,           
+        # Ocean Spider House Pots - All require region access, explosives, and hookshot
+
         # Ocean Spiderhouse Bottom Of Ramp Pots
-        "Ocean Spiderhouse Bottom Of Ramp Pots (0)":
-            lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
         "Ocean Spiderhouse Bottom Of Ramp Pots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
@@ -6498,14 +6579,14 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        
-        # Ocean Spiderhouse Main Room Lower Pots
-        "Ocean Spiderhouse Main Room Lower Pots (0)":
+        "Ocean Spiderhouse Bottom Of Ramp Pots (4)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
+        
+        # Ocean Spiderhouse Main Room Lower Pots
         "Ocean Spiderhouse Main Room Lower Pots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
@@ -6530,14 +6611,14 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        
-        # Ocean Spiderhouse Crate Room Pots
-        "Ocean Spiderhouse Crate Room Pots (0)":
+        "Ocean Spiderhouse Main Room Lower Pots (5)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
+        
+        # Ocean Spiderhouse Crate Room Pots
         "Ocean Spiderhouse Crate Room Pots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
@@ -6580,44 +6661,30 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        
-        # Ocean Spiderhouse Coloured Skulls Room Pots
-        "Ocean Spiderhouse Coloured Skulls Room Pots (0)":
+        "Ocean Spiderhouse Crate Room Pots (8)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
+        
+        # Ocean Spiderhouse Coloured Skulls Room Pots
         "Ocean Spiderhouse Coloured Skulls Room Pots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Great Bay Coast Upper Rock Wall Pots (2)":
+        "Ocean Spiderhouse Coloured Skulls Room Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and 
+                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Great Bay Coast Upper Rock Wall Pots (1)":
-            lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and 
-                state.has("Hookshot", player)
-            ),                        
-        "Great Bay Coast Upper Rock Wall Pots (2)":
-            lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and 
-                state.has("Hookshot", player)
-            ),
+
             
         # Pinnacle Rock Pots - Requires reaching seahorse, bottle, and Zora Mask
         
-        "Pinnacle Rock Pots (0)":
-            lambda state: (
-                can_reach_seahorse(state, player) and 
-                has_bottle(state, player) and 
-                state.has("Zora Mask", player)
-            ),
         "Pinnacle Rock Pots (1)":
             lambda state: (
                 can_reach_seahorse(state, player) and 
@@ -6678,38 +6745,39 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
-# Pirates' Fortress Pots
+        "Pinnacle Rock Pots (11)":
+            lambda state: (
+                can_reach_seahorse(state, player) and 
+                has_bottle(state, player) and 
+                state.has("Zora Mask", player)
+            ),
+        # Pirates' Fortress Pots
         
         # Pirates Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
-        "Pirates Fortress Sewers Cage Room Pots (0)":
+        "Pirates Fortress Sewers Cage Room Pots (1)":
             lambda state: (
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress Sewers Cage Room Pots (1)":
+        "Pirates Fortress Sewers Cage Room Pots (2)":
             lambda state: (
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
                 state.has("Goron Mask", player)
             ),
         
         # Pirates Fortress Sewers After Gate Hidden Ladder Pots
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (0)":
+        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)":
             lambda state: (
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
                 (state.has("Goron Mask", player) or state.has("Hookshot", player))
             ),
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)":
+        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)":
             lambda state: (
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
                 (state.has("Goron Mask", player) or state.has("Hookshot", player))
             ),
         
         # Pirates Fortress Sewers Exit Pots
-        "Pirates Fortress Sewers Exit Pots (0)":
-            lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
-            ),
         "Pirates Fortress Sewers Exit Pots (1)":
             lambda state: (
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
@@ -6720,13 +6788,13 @@ def get_location_rules(player, options):
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
                 (state.has("Goron Mask", player) or state.has("Hookshot", player))
             ),
+        "Pirates Fortress Sewers Exit Pots (3)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
+                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+            ),
         
         # Pirates Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
-        "Pirates Fortress Interior Underwater Chest Room Pots (0)":
-            lambda state: (
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
         "Pirates Fortress Interior Underwater Chest Room Pots (1)":
             lambda state: (
                 state.has("Hookshot", player) and 
@@ -6737,13 +6805,13 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        
-        # Pirates Fortress Interior Room Past Green Guard Pots
-        "Pirates Fortress Interior Room Past Green Guard Pots (0)":
+        "Pirates Fortress Interior Underwater Chest Room Pots (3)":
             lambda state: (
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
+        
+        # Pirates Fortress Interior Room Past Green Guard Pots
         "Pirates Fortress Interior Room Past Green Guard Pots (1)":
             lambda state: (
                 state.has("Hookshot", player) and 
@@ -6754,43 +6822,58 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        
-        # Pirates Fortress Interior Upper Beehive Room Pots
-        "Pirates Fortress Interior Upper Beehive Room Pots (0)":
+        "Pirates Fortress Interior Room Past Green Guard Pots (3)":
             lambda state: (
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
+        
+        # Pirates Fortress Interior Upper Beehive Room Pots
         "Pirates Fortress Interior Upper Beehive Room Pots (1)":
+            lambda state: (
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        "Pirates Fortress Interior Upper Beehive Room Pots (2)":
             lambda state: (
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         
         # Pirates Fortress Interior Room Past Pink Guard Pots
-        "Pirates Fortress Interior Room Past Pink Guard Pots (0)":
-            lambda state: (
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
         "Pirates Fortress Interior Room Past Pink Guard Pots (1)":
             lambda state: (
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        # Zora Cape Pots
-        "Zora Cape Jar Game Pots (0)":
+        "Pirates Fortress Interior Room Past Pink Guard Pots (2)":
             lambda state: (
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
-            ),        
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        # Zora Cape Pots
+        # Zora Cape Like Like Pool Pots 
+        "Zora Cape Like Like Pool Pots (1)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        "Zora Cape Like Like Pool Pots (2)":
+            lambda state: state.can_reach("Zora Cape", 'Region', player),
+        
+        # Zora Cape Owl Pots - Requires Zora Mask
+        "Zora Cape Owl Pots (1)":
+            lambda state: state.has("Zora Mask", player),
+        "Zora Cape Owl Pots (2)":
+            lambda state: state.has("Zora Mask", player),
+        "Zora Cape Owl Pots (3)":
+            lambda state: state.has("Zora Mask", player),
+        "Zora Cape Owl Pots (4)":
+            lambda state: state.has("Zora Mask", player),
+
         "Zora Cape Jar Game Pots (1)":
             lambda state: (
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
-            ),
+            ),        
         "Zora Cape Jar Game Pots (2)":
             lambda state: (
                 state.has("Zora Mask", player) or
@@ -6809,46 +6892,33 @@ def get_location_rules(player, options):
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
             ),
+        "Zora Cape Jar Game Pots (5)":
+            lambda state: (
+                state.has("Zora Mask", player) or
+                (state.has("Goron Mask", player) and
+                can_use_powder_keg(state, player))
+            ),
 
-        # Zora Cape Like Like Pool Pots - Region access only
-        "Zora Cape Like Like Pool Pots (0)":
-            lambda state: state.can_reach("Zora Cape", 'Region', player),
-        "Zora Cape Like Like Pool Pots (1)":
-            lambda state: state.can_reach("Zora Cape", 'Region', player),
-        
-        # Zora Cape Owl Pots - Requires Zora Mask
-        "Zora Cape Owl Pots (0)":
-            lambda state: state.has("Zora Mask", player),
-        "Zora Cape Owl Pots (1)":
-            lambda state: state.has("Zora Mask", player),
-        "Zora Cape Owl Pots (2)":
-            lambda state: state.has("Zora Mask", player),
-        "Zora Cape Owl Pots (3)":
-            lambda state: state.has("Zora Mask", player),
+
 # Great Bay Temple Pots
         
         # Great Bay Temple Above Whirlpool Pots
-        "Great Bay Temple Above Whirlpool Pots (0)":
+        "Great Bay Temple Above Blender Pots (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Above Whirlpool Pots (1)":
+        "Great Bay Temple Above Blender Pots (2)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         
         # Great Bay Temple Room Behind 1F Waterfall 
-        "Great Bay Temple Room Behind 1F Waterfall (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Room Behind 1F Waterfall (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Room Behind 1F Waterfall (2)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Room Behind 1F Waterfall (3)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Room Behind 1F Waterfall (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         
         # Great Bay Temple Red Green Pipe Tunnel Room Pots 
-        "Great Bay Temple Red Green Pipe Tunnel Room Pots (0)":
-            lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
-                can_use_ice_arrows(state, player)
-            ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -6904,10 +6974,13 @@ def get_location_rules(player, options):
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 can_use_ice_arrows(state, player)
             ),
+        "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)":
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and 
+                can_use_ice_arrows(state, player)
+            ),
         
         # Great Bay Temple Caged Chest Room Pots 
-        "Great Bay Temple Caged Chest Room Pots (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Caged Chest Room Pots (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Caged Chest Room Pots (2)":
@@ -6922,23 +6995,20 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Caged Chest Room Pots (7)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Caged Chest Room Pots (8)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         
         # Great Bay Temple Red Valve Underwater Pots - Basic temple access
-        "Great Bay Temple Red Valve Underwater Pots (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Red Valve Underwater Pots (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Red Valve Underwater Pots (2)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Red Valve Underwater Pots (3)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Red Valve Underwater Pots (4)":
+            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         
         # Great Bay Temple Behind Locked Door Pots - Requires Small Key
-        "Great Bay Temple Behind Locked Door Pots (0)":
-            lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
-                state.has("Small Key (Great Bay)", player)
-            ),
         "Great Bay Temple Behind Locked Door Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -6994,55 +7064,55 @@ def get_location_rules(player, options):
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
+        "Great Bay Temple Behind Locked Door Pots (12)":
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and 
+                state.has("Small Key (Great Bay)", player)
+            ),
         
-        # Great Bay Temple Floating Eye Miniboss Room Pots - Requires Small Key only
-        "Great Bay Temple Floating Eye Miniboss Room Pots (0)":
+        # Great Bay Temple Wart Room Pots - Requires Small Key only
+        "Great Bay Temple Wart Room Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (1)":
+        "Great Bay Temple Wart Room Pots (2)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (2)":
+        "Great Bay Temple Wart Room Pots (3)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (3)":
+        "Great Bay Temple Wart Room Pots (4)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (4)":
+        "Great Bay Temple Wart Room Pots (5)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (5)":
+        "Great Bay Temple Wart Room Pots (6)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (6)":
+        "Great Bay Temple Wart Room Pots (7)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
-        "Great Bay Temple Floating Eye Miniboss Room Pots (7)":
+        "Great Bay Temple Wart Room Pots (8)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 state.has("Small Key (Great Bay)", player)
             ),
         
         # Great Bay Temple Green Pipe Frozen Waterwheel Pots - Requires Ice Arrows
-        "Great Bay Temple Green Pipe Frozen Waterwheel Pots (0)":
-            lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
-                can_use_ice_arrows(state, player)
-            ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -7078,14 +7148,13 @@ def get_location_rules(player, options):
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 can_use_ice_arrows(state, player)
             ),
-        
-        # Great Bay Temple Seesaw Room Pots - Requires both Ice and Fire Arrows
-        "Great Bay Temple Seesaw Room Pots (0)":
+        "Great Bay Temple Green Pipe Frozen Waterwheel Pots (8)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
-                can_use_ice_arrows(state, player) and
-                can_use_fire_arrows(state, player)
+                can_use_ice_arrows(state, player)
             ),
+        
+        # Great Bay Temple Seesaw Room Pots - Requires both Ice and Fire Arrows
         "Great Bay Temple Seesaw Room Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -7098,14 +7167,14 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
-        
-        # Great Bay Temple Pots Underneath Boss Door Platform - Requires both Ice and Fire Arrows
-        "Great Bay Temple Pots Underneath Boss Door Platform (0)":
+        "Great Bay Temple Seesaw Room Pots (3)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
+        
+        # Great Bay Temple Pots Underneath Boss Door Platform - Requires both Ice and Fire Arrows
         "Great Bay Temple Pots Underneath Boss Door Platform (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -7148,19 +7217,14 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
-        
-        # Great Bay Temple Gyorg Pots - Requires Boss Key or Remains warp
-        "Great Bay Temple Gyorg Pots (0)":
+        "Great Bay Temple Pots Underneath Boss Door Platform (8)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
-                (
-                    state.has("Boss Key (Great Bay)", player) or 
-                    (
-                        state.has("Gyorg's Remains", player) and 
-                        options.remains_allow_boss_warps.value
-                    )
-                )
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
             ),
+        
+        # Great Bay Temple Gyorg Pots - Requires Boss Key or Remains warp
         "Great Bay Temple Gyorg Pots (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and 
@@ -7238,6 +7302,17 @@ def get_location_rules(player, options):
                     )
                 )
             ),
+        "Great Bay Temple Gyorg Pots (8)":
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and 
+                (
+                    state.has("Boss Key (Great Bay)", player) or 
+                    (
+                        state.has("Gyorg's Remains", player) and 
+                        options.remains_allow_boss_warps.value
+                    )
+                )
+            ),
 # Pot Location Rules
         
         # IKANA GRAVEYARD POTS
@@ -7249,8 +7324,6 @@ def get_location_rules(player, options):
             ),
         
         # Ikana Graveyard Day 1 Grave Pots
-        "Ikana Graveyard Day 1 Grave Pots (0)":
-            lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 1 Grave Pots (1)":
             lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 1 Grave Pots (2)":
@@ -7259,30 +7332,26 @@ def get_location_rules(player, options):
             lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 1 Grave Pots (4)":
             lambda state: state.has("Captain's Hat", player),
+        "Ikana Graveyard Day 1 Grave Pots (5)":
+            lambda state: state.has("Captain's Hat", player),
         
         # Ikana Graveyard Day 2 Entrance Grave Pot
         "Ikana Graveyard Day 2 Entrance Grave Pot":
             lambda state: state.has("Captain's Hat", player),
         
         # Ikana Graveyard Day 2 Invisible Path Entryway Pots
-        "Ikana Graveyard Day 2 Invisible Path Entryway Pots (0)":
+        "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)":
             lambda state: (
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
             ),
-        "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)":
+        "Ikana Graveyard Day 2 Invisible Path Entryway Pots (2)":
             lambda state: (
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
             ),
         
         # Ikana Graveyard Day 2 Invisible Path Pots
-        "Ikana Graveyard Day 2 Invisible Path Pots (0)":
-            lambda state: (
-                state.has("Captain's Hat", player) and
-                has_explosives(state, player) and
-                can_use_lens(state, player)
-            ),
         "Ikana Graveyard Day 2 Invisible Path Pots (1)":
             lambda state: (
                 state.has("Captain's Hat", player) and
@@ -7301,10 +7370,14 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
+        "Ikana Graveyard Day 2 Invisible Path Pots (4)":
+            lambda state: (
+                state.has("Captain's Hat", player) and
+                has_explosives(state, player) and
+                can_use_lens(state, player)
+            ),
         
         # Ikana Graveyard Day 3 Pots
-        "Ikana Graveyard Day 3 Pots (0)":
-            lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 3 Pots (1)":
             lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 3 Pots (2)":
@@ -7323,21 +7396,17 @@ def get_location_rules(player, options):
             lambda state: state.has("Captain's Hat", player),
         "Ikana Graveyard Day 3 Pots (9)":
             lambda state: state.has("Captain's Hat", player),
+        "Ikana Graveyard Day 3 Pots (10)":
+            lambda state: state.has("Captain's Hat", player),
         
         # SECRET SHRINE POTS
-        "Secret Shrine Entrance Pots (0)":
-            lambda state: can_use_light_arrows(state, player),
         "Secret Shrine Entrance Pots (1)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: True,
         "Secret Shrine Entrance Pots (2)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: True,
+        "Secret Shrine Entrance Pots (3)":
+            lambda state: True,
         
-        "Secret Shrine Underwater Pots (0)":
-            lambda state: (
-                can_use_light_arrows(state, player) and
-                can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
-            ),
         "Secret Shrine Underwater Pots (1)":
             lambda state: (
                 can_use_light_arrows(state, player) and
@@ -7368,18 +7437,25 @@ def get_location_rules(player, options):
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player),
             ),
-        
-        # IKANA CASTLE POTS
-        "Ikana Castle Frozen Eyes Room Pots (0)":
+        "Secret Shrine Underwater Pots (6)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
-                can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
+                can_use_light_arrows(state, player) and
+                can_smack_hard(state, player) and
+                state.has("Zora Mask", player),
             ),
+
+        "Sakons Hideout Pots (1)":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+        "Sakons Hideout Pots (2)":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+        "Sakons Hideout Pots (3)":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+        "Sakons Hideout Pots (4)":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+        "Sakons Hideout Pots (5)":
+            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),   
+
+        # IKANA CASTLE POTS
         "Ikana Castle Frozen Eyes Room Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7390,8 +7466,7 @@ def get_location_rules(player, options):
                     has_mirror_shield(state, player)
                 )
             ),
-        
-        "Ikana Castle Left Side Falling Ceiling Room Pots (0)":
+        "Ikana Castle Frozen Eyes Room Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
@@ -7401,6 +7476,7 @@ def get_location_rules(player, options):
                     has_mirror_shield(state, player)
                 )
             ),
+        
         "Ikana Castle Left Side Falling Ceiling Room Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7411,8 +7487,7 @@ def get_location_rules(player, options):
                     has_mirror_shield(state, player)
                 )
             ),
-        
-        "Ikana Castle Left Side Broken Floor Room Pots (0)":
+        "Ikana Castle Left Side Falling Ceiling Room Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
@@ -7420,9 +7495,9 @@ def get_location_rules(player, options):
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                state.has("Deku Mask", player)
+                )
             ),
+        
         "Ikana Castle Left Side Broken Floor Room Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7456,8 +7531,7 @@ def get_location_rules(player, options):
                 ) and
                 state.has("Deku Mask", player)
             ),
-        
-        "Ikana Castle Left Side Staircase Pots (0)":
+        "Ikana Castle Left Side Broken Floor Room Pots (4)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
@@ -7468,6 +7542,7 @@ def get_location_rules(player, options):
                 ) and
                 state.has("Deku Mask", player)
             ),
+        
         "Ikana Castle Left Side Staircase Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7479,8 +7554,19 @@ def get_location_rules(player, options):
                 ) and
                 state.has("Deku Mask", player)
             ),
+        "Ikana Castle Left Side Staircase Pots (2)":
+            lambda state: (
+                can_use_ice_arrows(state, player) and
+                state.has("Hookshot", player) and
+                can_use_fire_arrows(state, player) and
+                (
+                    can_use_light_arrows(state, player) or
+                    has_mirror_shield(state, player)
+                ) and
+                state.has("Deku Mask", player)
+            ),
         
-        "Ikana Castle Right Side Staircase Pots (0)":
+        "Ikana Castle Right Side Staircase Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
@@ -7490,7 +7576,7 @@ def get_location_rules(player, options):
                     has_mirror_shield(state, player)
                 )
             ),
-        "Ikana Castle Right Side Staircase Pots (1)":
+        "Ikana Castle Right Side Staircase Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
@@ -7502,22 +7588,6 @@ def get_location_rules(player, options):
             ),
         
         # Ikana Castle Throne Room Pots
-        "Ikana Castle Throne Room Pots (0)":
-            lambda state: (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    (
-                        has_mirror_shield(state, player) and
-                        state.has("Deku Mask", player) and
-                        can_use_lens(state, player) and
-                        can_use_fire_arrows(state, player) and
-                        state.has("Powder Keg", player) and
-                        state.has("Goron Mask", player)
-                    )
-                )
-            ),
         "Ikana Castle Throne Room Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7630,17 +7700,24 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-        
-        # BENEATH THE WELL POTS
-        "Well Left Side Back Room Pots (0)":
+        "Ikana Castle Throne Room Pots (8)":
             lambda state: (
-                state.has("Gibdo Mask", player) and
-                has_bottle(state, player) and
+                can_use_ice_arrows(state, player) and
+                state.has("Hookshot", player) and
                 (
-                    can_afford_price(state, player, 100) or
-                    state.has("Mask of Scents", player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        has_mirror_shield(state, player) and
+                        state.has("Deku Mask", player) and
+                        can_use_lens(state, player) and
+                        can_use_fire_arrows(state, player) and
+                        state.has("Powder Keg", player) and
+                        state.has("Goron Mask", player)
+                    )
                 )
             ),
+        
+        # BENEATH THE WELL POTS
         "Well Left Side Back Room Pots (1)":
             lambda state: (
                 state.has("Gibdo Mask", player) and
@@ -7677,16 +7754,16 @@ def get_location_rules(player, options):
                     state.has("Mask of Scents", player)
                 )
             ),
-        
-        "Well Right Side Before Chest Room Pots (0)":
+        "Well Left Side Back Room Pots (5)":
             lambda state: (
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
-                    can_use_light_arrows(state, player)
+                    can_afford_price(state, player, 100) or
+                    state.has("Mask of Scents", player)
                 )
             ),
+        
         "Well Right Side Before Chest Room Pots (1)":
             lambda state: (
                 state.has("Gibdo Mask", player) and
@@ -7768,27 +7845,17 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player)
                 )
             ),
-        
-        # Well Big Poe Pots
-        "Well Big Poe Pots (0)":
+        "Well Right Side Before Chest Room Pots (10)":
             lambda state: (
+                state.has("Gibdo Mask", player) and
+                has_bottle(state, player) and
                 (
-                    state.has("Gibdo Mask", player) and
-                    has_bottle(state, player) and
-                    can_plant_beans(state, player) and
-                    (
-                        state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Captain's Hat", player) and
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) or
-                (
-                    can_use_light_arrows(state, player) and
-                    can_use_fire_arrows(state, player)
+                    can_plant_beans(state, player) or
+                    can_use_light_arrows(state, player)
                 )
             ),
+        
+        # Well Big Poe Pots
         "Well Big Poe Pots (1)":
             lambda state: (
                 (
@@ -7805,7 +7872,7 @@ def get_location_rules(player, options):
                 ) or
                 (
                     can_use_light_arrows(state, player) and
-                    can_use_fire_arrows(state, player)
+                    state.has("Progressive Bomb Bag", player)
                 )
             ),
         "Well Big Poe Pots (2)":
@@ -7824,7 +7891,7 @@ def get_location_rules(player, options):
                 ) or
                 (
                     can_use_light_arrows(state, player) and
-                    can_use_fire_arrows(state, player)
+                    state.has("Progressive Bomb Bag", player)
                 )
             ),
         "Well Big Poe Pots (3)":
@@ -7843,31 +7910,42 @@ def get_location_rules(player, options):
                 ) or
                 (
                     can_use_light_arrows(state, player) and
-                    can_use_fire_arrows(state, player)
+                    state.has("Progressive Bomb Bag", player)
+                )
+            ),
+        "Well Big Poe Pots (4)":
+            lambda state: (
+                (
+                    state.has("Gibdo Mask", player) and
+                    has_bottle(state, player) and
+                    can_plant_beans(state, player) and
+                    (
+                        state.has("Progressive Bomb Bag", player) or
+                        (
+                            state.has("Captain's Hat", player) and
+                            state.has("Progressive Bow", player)
+                        )
+                    )
+                ) or
+                (
+                    can_use_light_arrows(state, player) and
+                    state.has("Progressive Bomb Bag", player)
                 )
             ),
         
         # STONE TOWER POTS
         #Stone Tower Climb Pots
-        "Stone Tower Climb Pots (0)":
-            lambda state: (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player)
-            ),
         "Stone Tower Climb Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player)
             ),
-            #Stone Tower Lower Scarecrow Pots            
-        "Stone Tower Lower Scarecrow Pots (0)":
+        "Stone Tower Climb Pots (2)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
                 state.has("Hookshot", player)
             ),
+            #Stone Tower Lower Scarecrow Pots            
         "Stone Tower Lower Scarecrow Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -7952,6 +8030,14 @@ def get_location_rules(player, options):
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
+            ),
+        "Stone Tower Lower Scarecrow Pots (12)":
+            lambda state: (
+                can_use_ice_arrows(state, player) and
+                can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and
                 state.has("Hookshot", player)
@@ -7959,14 +8045,6 @@ def get_location_rules(player, options):
             ),
         
         # Stone Tower Upper Scarecrow Pots
-        "Stone Tower Upper Scarecrow Pots (0)":
-            lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
-            ),
         "Stone Tower Upper Scarecrow Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
@@ -8031,9 +8109,7 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player) and
                 state.has("Hookshot", player)
             ),
-        
-        # Stone Tower Owl Pots
-        "Stone Tower Owl Pots (0)":
+        "Stone Tower Upper Scarecrow Pots (9)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
@@ -8041,13 +8117,14 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player) and
                 state.has("Hookshot", player)
             ),
+        
+        # Stone Tower Owl Pots
         "Stone Tower Owl Pots (1)":
             lambda state: (
                 can_use_ice_arrows(state, player) and
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
                 state.has("Zora Mask", player) and
-                state.has("Hookshot", player) and
                 state.has("Hookshot", player)
             ),
         "Stone Tower Owl Pots (2)":
@@ -8056,6 +8133,7 @@ def get_location_rules(player, options):
                 can_play_song("Elegy of Emptiness", state, player) and
                 state.has("Goron Mask", player) and
                 state.has("Zora Mask", player) and
+                state.has("Hookshot", player) and
                 state.has("Hookshot", player)
             ),
         "Stone Tower Owl Pots (3)":
@@ -8066,15 +8144,21 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player) and
                 state.has("Hookshot", player)
             ),
+        "Stone Tower Owl Pots (4)":
+            lambda state: (
+                can_use_ice_arrows(state, player) and
+                can_play_song("Elegy of Emptiness", state, player) and
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player) and
+                state.has("Hookshot", player)
+            ),
         
         # STONE TOWER TEMPLE POTS
-        "Stone Tower Temple Entrance Pots (0)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
         "Stone Tower Temple Entrance Pots (1)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
-        
-        "Stone Tower Temple Lower Basement Armos Pots (0)":
+        "Stone Tower Temple Entrance Pots (2)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+        
         "Stone Tower Temple Lower Basement Armos Pots (1)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
         "Stone Tower Temple Lower Basement Armos Pots (2)":
@@ -8089,15 +8173,9 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
         "Stone Tower Temple Lower Basement Armos Pots (7)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+        "Stone Tower Temple Lower Basement Armos Pots (8)":
+            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
         
-        "Stone Tower Temple Right Side Near Locked Door Pots (0)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple", 'Region', player) and
-                (
-                    state.has("Small Key (Stone Tower)", player) or
-                    can_use_light_arrows(state, player)
-                )
-            ),
         "Stone Tower Temple Right Side Near Locked Door Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
@@ -8106,8 +8184,7 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player)
                 )
             ),
-        
-        "Stone Tower Temple Right Side Underwater Pots (0)":
+        "Stone Tower Temple Right Side Near Locked Door Pots (2)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
@@ -8115,6 +8192,7 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player)
                 )
             ),
+        
         "Stone Tower Temple Right Side Underwater Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
@@ -8147,9 +8225,17 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player)
                 )
             ),
+        "Stone Tower Temple Right Side Underwater Pots (5)":
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or
+                    can_use_light_arrows(state, player)
+                )
+            ),
         
         # Stone Tower Temple Mirror Room Pots
-        "Stone Tower Temple Mirror Room Pots (0)":
+        "Stone Tower Temple Mirror Room Pots (1)":
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
@@ -8160,7 +8246,7 @@ def get_location_rules(player, options):
                     state.has("Small Key (Stone Tower)", player, 1)
                 )
             ),
-        "Stone Tower Temple Mirror Room Pots (1)":
+        "Stone Tower Temple Mirror Room Pots (2)":
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
@@ -8173,11 +8259,6 @@ def get_location_rules(player, options):
             ),
         
         # Stone Tower Temple Deku Updraft Pots
-        "Stone Tower Temple Deku Updraft Pots (0)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Deku Mask", player)
-            ),
         "Stone Tower Temple Deku Updraft Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
@@ -8193,13 +8274,13 @@ def get_location_rules(player, options):
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 state.has("Deku Mask", player)
             ),
-        
-        # Stone Tower Temple Lower Spike Roller Pots
-        "Stone Tower Temple Lower Spike Roller Pots (0)":
+        "Stone Tower Temple Deku Updraft Pots (4)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.has("Deku Mask", player)
             ),
+        
+        # Stone Tower Temple Lower Spike Roller Pots
         "Stone Tower Temple Lower Spike Roller Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
@@ -8235,13 +8316,13 @@ def get_location_rules(player, options):
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 state.has("Goron Mask", player)
             ),
+        "Stone Tower Temple Lower Spike Roller Pots (8)":
+            lambda state: (
+                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
+                state.has("Goron Mask", player)
+            ),
         
         # INVERTED STONE TOWER POTS
-        "Inverted Stone Tower Bean Pots (0)":
-            lambda state: (
-                state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
-            ),
         "Inverted Stone Tower Bean Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
@@ -8262,13 +8343,13 @@ def get_location_rules(player, options):
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
+        "Inverted Stone Tower Bean Pots (5)":
+            lambda state: (
+                state.can_reach("Stone Tower (Inverted)", 'Region', player) and
+                can_plant_beans(state, player)
+            ),
         
         # Inverted Stone Tower Temple Updraft Pots
-        "Inverted Stone Tower Temple Updraft Pots (0)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
-                state.has("Deku Mask", player)
-            ),
         "Inverted Stone Tower Temple Updraft Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
@@ -8294,27 +8375,32 @@ def get_location_rules(player, options):
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 state.has("Deku Mask", player)
             ),
+        "Inverted Stone Tower Temple Updraft Pots (6)":
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
+                state.has("Deku Mask", player)
+            ),
         
         # Inverted Stone Tower Temple Miniboss Pots
-        "Inverted Stone Tower Temple Miniboss Pots (0)":
+        "Inverted Stone Tower Temple Gomess Pots (1)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
                 state.has("Small Key (Stone Tower)", player, 3)
             ),
-        "Inverted Stone Tower Temple Miniboss Pots (1)":
+        "Inverted Stone Tower Temple Gomess Pots (2)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
                 state.has("Small Key (Stone Tower)", player, 3)
             ),
-        "Inverted Stone Tower Temple Miniboss Pots (2)":
+        "Inverted Stone Tower Temple Gomess Pots (3)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
                 state.has("Small Key (Stone Tower)", player, 3)
             ),
-        "Inverted Stone Tower Temple Miniboss Pots (3)":
+        "Inverted Stone Tower Temple Gomess Pots (4)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
@@ -8322,27 +8408,22 @@ def get_location_rules(player, options):
             ),
         
         # Inverted Stone Tower Temple Lower Bridge Room Pots
-        "Inverted Stone Tower Temple Lower Bridge Room Pots (0)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
         "Inverted Stone Tower Temple Lower Bridge Room Pots (1)":
+            lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
+        "Inverted Stone Tower Temple Lower Bridge Room Pots (2)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
         
         # Inverted Stone Tower Temple Small Poe Room Pots
-        "Inverted Stone Tower Temple Small Poe Room Pots (0)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Inverted Stone Tower Temple Small Poe Room Pots (1)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Inverted Stone Tower Temple Small Poe Room Pots (2)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Inverted Stone Tower Temple Small Poe Room Pots (3)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+        "Inverted Stone Tower Temple Small Poe Room Pots (4)":
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         
         # Inverted Stone Tower Temple Wizzrobe Room Pots
-        "Inverted Stone Tower Temple Wizzrobe Room Pots (0)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
-                can_smack_hard(state, player)
-            ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
@@ -8363,20 +8444,23 @@ def get_location_rules(player, options):
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
+        "Inverted Stone Tower Temple Wizzrobe Room Pots (5)":
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
+                can_smack_hard(state, player)
+            ),
         
         # Inverted Stone Tower Temple Pre Boss Pots (Flying)
-        "Inverted Stone Tower Temple Pre Boss Pots (Flying) (0)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (1)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (2)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (3)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+        "Inverted Stone Tower Temple Pre Boss Pots (Flying) (4)":
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         
         # Inverted Stone Tower Temple Pre Boss Pots
-        "Inverted Stone Tower Temple Pre Boss Pots (0)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (1)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (2)":
@@ -8391,159 +8475,184 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         "Inverted Stone Tower Temple Pre Boss Pots (7)":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+        "Inverted Stone Tower Temple Pre Boss Pots (8)":
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
         
         # MOON POTS
-        "Moon Goron Trial Pots (0)":
-            lambda state: (
-                state.can_reach("The Moon", 'Region', player) and
-                state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
-            ),
         "Moon Goron Trial Pots (1)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (2)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (3)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (4)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (5)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (6)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (7)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (8)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (9)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (10)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (11)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (12)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (13)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Goron Trial Pots (14)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
+            ),
+        "Moon Goron Trial Pots (15)":
+            lambda state: (
+                state.can_reach("The Moon", 'Region', player) and
+                state.has("Goron Mask", player) and
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         
         # Moon Link Trial Pots
-        "Moon Link Trial Pots (0)":
-            lambda state: (
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
-            ),
         "Moon Link Trial Pots (1)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (2)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (3)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (4)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (5)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (6)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         "Moon Link Trial Pots (7)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
+            ),
+        "Moon Link Trial Pots (8)":
+            lambda state: (
+                state.can_reach("The Moon", 'Region', player) and
+                state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
+                has_bombchus(state, player) and
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >= 4
             ),
         
         # Majora Arena Pots
-        "Majora Arena Pots (0)":
+        "Majora Arena Pots (1)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
@@ -8560,7 +8669,7 @@ def get_location_rules(player, options):
                 ) and
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
-        "Majora Arena Pots (1)":
+        "Majora Arena Pots (2)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
