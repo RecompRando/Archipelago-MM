@@ -167,6 +167,7 @@ def mask_total(state, player):
         if state.has(mask, player):
             mask_count += 1
     return mask_count
+    
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
