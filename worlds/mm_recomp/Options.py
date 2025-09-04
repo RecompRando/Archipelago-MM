@@ -38,6 +38,16 @@ class CAMC(DefaultOnToggle):
     display_name = "CAMC"
 
 
+class Ocarinaless(Toggle):
+    """Start the game without an Ocarina shuffling it into the pool."""
+    display_name = "Ocarinaless"
+
+
+class Timeless(Toggle):
+    """Start the game without Song of Time shuffling it into the pool."""
+    display_name = "Timeless"
+
+
 class Swordless(Toggle):
     """Start the game without a sword, and shuffle an extra Progressive Sword into the pool."""
     display_name = "Swordless"
@@ -334,6 +344,8 @@ class MMROptions(PerGameCommonOptions):
     majora_remains_required: MajoraRemainsRequired
     moon_remains_required: MoonRemainsRequired
     camc: CAMC
+    ocarinaless: Ocarinaless
+    timeless: Timeless
     swordless: Swordless
     shieldless: Shieldless
     start_with_soaring: StartWithSoaring
