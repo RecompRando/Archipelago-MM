@@ -90,13 +90,13 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Great Bay Map"))
             mw.push_precollected(self.create_item("Stone Tower Map"))
             self.create_and_add_filler_items(6)
-
+        
         if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
             mw.itempool.append(self.create_item("Red Rupee"))
             mw.itempool.append(self.create_item("Purple Rupee"))
             mw.itempool.append(self.create_item("Gold Rupee"))
-            
+
         if self.options.scrubsanity.value != 0:
             self.create_and_add_filler_items(4)
         
@@ -108,16 +108,16 @@ class MMRWorld(World):
         
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
-        
+    
         if self.options.intro_checks.value:
-            self.create_and_add_filler_items(1)
+            self.create_and_add_filler_items(18)
 
         if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
             mw.itempool.append(self.create_item("Red Rupee"))
             mw.itempool.append(self.create_item("Purple Rupee"))
             mw.itempool.append(self.create_item("Gold Rupee"))            
-
+        
         if self.options.grasssanity.value != 0:
             self.create_and_add_filler_items(1038)
 
@@ -161,7 +161,10 @@ class MMRWorld(World):
             self.create_and_add_filler_items(11)
         
         if self.options.frogsanity.value != 0:
-            self.create_and_add_filler_items(4)                                            
+            self.create_and_add_filler_items(4)       
+
+        if self.options.treesanity.value != 0:
+            self.create_and_add_filler_items(87)                                                   
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -302,7 +305,7 @@ class MMRWorld(World):
             self.place("Woodfall Temple Pre-Boss Upper Left Bubble SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Pre-Boss Pillar Bubble SF", "Stray Fairy (Woodfall)")
             
-            self.place("Snowhead Temple Basement Switch Chest SF", "Stray Fairy (Snowhead)")
+            self.place("Snowhead Temple Bottom Floor Switch Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Elevator Room Invisible Platform Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Stacked Block Upper Chest SF", "Stray Fairy (Snowhead)")
             self.place("Snowhead Temple Freezard Torch Room Chest SF", "Stray Fairy (Snowhead)")
@@ -344,12 +347,12 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Eyegore Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Eastern Water Room Underwater Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Entrance Room Sun Face Chest", "Stray Fairy (Stone Tower)")
-            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest", "Stray Fairy (Stone Tower)")
+            self.place("Stone Tower Temple Inverted Eastern Air Gust Room Ice Eye Switch Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Wizzrobe Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
-            
+
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
             sword_location.item_rule = lambda item: item.name != "Progressive Sword"
@@ -422,10 +425,6 @@ class MMRWorld(World):
 
         for location in mw.get_locations(player):
             name = location.name
-
-            if name not in location_rules:
-                print(f"Location '{name}' does not have any logic")
-            
             if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
                 continue
             if name in location_rules and location_data_table[name].can_create(self.options):
@@ -447,6 +446,7 @@ class MMRWorld(World):
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
             "curiostity_shop_trades": self.options.curiostity_shop_trades.value, 
+            "intro_checks": self.options.intro_checks.value,
             "grasssanity": self.options.grasssanity.value,
             "potsanity": self.options.potsanity.value,                        
             "rocksanity": self.options.rocksanity.value,
@@ -458,17 +458,11 @@ class MMRWorld(World):
             "woodsanity": self.options.woodsanity.value,
             "realfairysanity": self.options.realfairysanity.value,
             "iciclesanity":  self.options.iciclesanity.value,
-            "hivesanity": self.options.realfairysanity.value,                                                                
-            "scrubsanity": self.options.scrubsanity.value,
-            "shop_prices": self.prices,
-            "cowsanity": self.options.cowsanity.value,
-            "keysanity": self.options.keysanity.value,
-            "bosskeysanity": self.options.bosskeysanity.value,
-            "intro_checks": self.options.intro_checks.value,
-            "curiostity_shop_trades": self.options.curiostity_shop_trades.value,
+            "hivesanity": self.options.realfairysanity.value,
             "notebooksanity": self.options.notebooksanity.value,
             "owlsanity": self.options.owlsanity.value,
             "frogsanity": self.options.frogsanity.value,
+            "treesanity": self.options.treesanity.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
