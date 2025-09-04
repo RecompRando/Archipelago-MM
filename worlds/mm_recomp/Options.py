@@ -100,15 +100,15 @@ class BossWarpsWithRemains(DefaultOnToggle):
 
 class ShuffleSpiderHouseReward(Toggle):
     """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
-    display_name = "Shuffle Spider House Rewards"
+    display_name = "Shuffle Swamphouse Reward"
 
 
 class Skullsanity(Choice):
     """Choose what items gold skulltulas can give.
     
-    vanilla: Keep the Spider Houses in generation, but only place Skulltula tokens there.
+    vanilla: Keep the swamphouse in generation, but only place Skulltula tokens there.
     anything: Any item can be given by any Skulltula, and tokens can be found anywhere in any world.
-    ignore: Remove the Spider Houses from generation entirely, lowering the hint percentage and removing them from the spoiler log."""
+    ignore: Remove the swamphouse from generation entirely, lowering the hint percentage."""
     display_name = "Skullsanity"
     option_vanilla = 0
     option_anything = 1
@@ -166,6 +166,7 @@ class Keysanity(Toggle):
     """Choose whether Small Keys are shuffled into the pool or placed in their vanilla locations."""
     display_name = "Keysanity"
 
+
 class BossKeysanity(Toggle):
     """Choose whether Boss Keys are shuffled into the pool or placed in their vanilla locations."""
     display_name = "BossKeysanity"    
@@ -176,9 +177,9 @@ class Fairysanity(Toggle):
     display_name = "Fairysanity"
 
 
-class CuriostityShopTrades(Toggle):
-    """Choose whether to shuffle the rupees given for trading bottled items at the Curiostity Shop."""
-    display_name = "Curiostity Shop Trades"
+class CuriosityShopTrades(Toggle):
+    """Choose whether to shuffle the rupees given for trading bottled items at the Curiosty Shop."""
+    display_name = "Curiosity Shop Trades"
 
 
 class IntroChecks(Toggle):
@@ -187,65 +188,85 @@ class IntroChecks(Toggle):
     A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
     display_name = "Enable Intro Checks"
 
+
 class Grasssanity(Toggle):
     """Choose whether grass is shuffled into the pool."""
     display_name = "Grasssanity"
+
 
 class Potsanity(Toggle):
     """Choose whether pots are shuffled into the pool."""
     display_name = "Potsanity"
 
+
 class Hitsanity(Toggle):
     """Choose whether hit spot items are shuffled into the pool."""
     display_name = "Hitsanity"
+
 
 class Rocksanity(Toggle):
     """Choose whether rock items are shuffled into the pool."""
     display_name = "Rocksanity"
 
+
 class Soilsanity(Toggle):
     """Choose whether soil items are shuffled into the pool."""
     display_name = "Soilsanity"
+
 
 class Rupeesanity(Toggle):
     """Choose whether freestanding rupees are shuffled into the pool."""
     display_name = "Rupeesanity"
 
+
 class Invisisanity(Toggle):
     """Choose whether invisible rupees are shuffled into the pool."""
     display_name = "Invisisanity"    
+
 
 class Snowsanity(Toggle):
     """Choose whether snowball items are shuffled into the pool."""
     display_name = "Snowsanity"
 
+
 class Woodsanity(Toggle):
     """Choose whether wooden items are shuffled into the pool."""
     display_name = "Woodsanity"
+
 
 class Realfairysanity(Toggle):
     """Choose whether gossip, butterfly and freestanding fairies are shuffled."""
     display_name = "Realfairysanity"
 
+
 class Iciclesanity(Toggle):
     """Choose whether Icicle items are shuffled into the pool."""
     display_name = "Iciclesanity" 
+
 
 class Hivesanity(Toggle):
     """Choose whether Hive items are shuffled into the pool."""
     display_name = "Hivesanity"    
 
+
 class Notebooksanity(Toggle):
     """Choose whether Notebook Entries are shuffled items."""
     display_name = "Notebooksanity"   
+
 
 class Owlsanity(Toggle):
     """Choose whether Owl Statues are shuffled items."""
     display_name = "Owlsanity"  
 
+
 class Frogsanity(Toggle):
     """Choose whether the four frogs are shuffled items."""
     display_name = "Frogsanity"       
+
+
+class Treesanity(Toggle):
+    """Choose whether the trees and bushes drop shuffled items."""
+    display_name = "Treesanity"       
 
 
 class StartWithConsumables(DefaultOnToggle):
@@ -331,7 +352,7 @@ class MMROptions(PerGameCommonOptions):
     keysanity: Keysanity
     bosskeysanity: BossKeysanity
     fairysanity: Fairysanity
-    curiostity_shop_trades: CuriostityShopTrades
+    curiostity_shop_trades: CuriosityShopTrades
     intro_checks: IntroChecks
     grasssanity: Grasssanity
     potsanity: Potsanity
@@ -348,6 +369,7 @@ class MMROptions(PerGameCommonOptions):
     notebooksanity: Notebooksanity
     owlsanity: Owlsanity
     frogsanity: Frogsanity
+    treesanity: Treesanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
