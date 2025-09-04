@@ -64,10 +64,17 @@ class MMRWorld(World):
 
         mw.itempool += item_pool
 
-        mw.push_precollected(self.create_item("Ocarina of Time"))
-        mw.push_precollected(self.create_item("Song of Time"))
+        if self.options.ocarinaless.value:
+            mw.itempool.append(self.create_item("Ocarina of Time"))
+        else:
+            mw.push_precollected(self.create_item("Ocarina of Time"))
 
-        self.create_and_add_filler_items(18)
+        if self.options.timeless.value:
+            mw.itempool.append(self.create_item("Song of Time"))
+        else:
+            mw.push_precollected(self.create_item("Song of Time"))
+
+        self.create_and_add_filler_items(19)
 
         if self.options.swordless.value:
             mw.itempool.append(self.create_item("Progressive Sword"))
@@ -352,6 +359,24 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
+
+        try:
+            ocarina_location = mw.get_location("Link's Inventory (Ocarina of Time)", player)
+            if self.options.ocarinaless.value:
+                ocarina_location.item_rule = lambda item: item.name != "Ocarina of Time"
+            else:
+                ocarina_location.place_locked_item(self.create_item("Ocarina of Time"))
+        except KeyError:
+            pass
+
+        try:
+            song_of_time_location = mw.get_location("Link's Inventory (Song of Time)", player)
+            if self.options.timeless.value:
+                song_of_time_location.item_rule = lambda item: item.name != "Song of Time"
+            else:
+                song_of_time_location.place_locked_item(self.create_item("Song of Time"))
+        except KeyError:
+            pass
 
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
