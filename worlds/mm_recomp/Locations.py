@@ -87,6 +87,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Clock Town",
         address=0x3469420000078
     ),
+    "Before Clock Town Chest": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420061A00,
+        can_create=lambda options: options.intro_checks.value
+    ),
     "Clock Town Postbox": MMRLocationData(
         region="Clock Town",
         address=0x34694200701F2
@@ -1625,32 +1630,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006600A
     ),
     "Ikana Canyon Grotto Chest": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420060714
     ),
     "Ikana Canyon Scrub Purchase": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942009015D,
         can_create=lambda options: options.scrubsanity.value
     ),
     "Ikana Canyon Zora Scrub Trade": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420001307
     ),
     "Ikana Canyon Zora Trade Freestanding HP": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942005131E
     ),
     "Ikana Canyon Healing Pamela's Father": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420000087
     ),
     "Ikana Canyon Spirit House": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x34694200701DE
     ),
     "Stone Tower Great Fairy Reward": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420030004
     ),
     "Ikana Well Final Chest": MMRLocationData(
@@ -1837,66 +1842,156 @@ location_data_table: Dict[str, MMRLocationData] = {
     
     # Grass/Pots/Hitspots/Hidden Rupees etc past this point
 
-    # Laundry Pool Grass
+    # Before Clock Town Grass
+    "Before Clock Town Keaton Grass (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A09,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A10,
+        can_create=lambda options: options.intro_checks.value
+    ),    
+    "Before Clock Town Keaton Grass (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0A,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0B,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0C,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0D,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0E,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A0F,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Keaton Grass (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A11,
+        can_create=lambda options: options.intro_checks.value
+    ),        
+    "Before Clock Town Skullkid Keaton Grass (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A00,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Skullkid Keaton Grass (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A01,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Skullkid Keaton Grass (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A02,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Skullkid Keaton Grass (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A03,
+        can_create=lambda options: options.intro_checks.value
+    ),    
+    "Before Clock Town Skullkid Keaton Grass (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A04,
+        can_create=lambda options: options.intro_checks.value
+    ),    
+    "Before Clock Town Skullkid Keaton Grass (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A05,
+        can_create=lambda options: options.intro_checks.value
+    ),    
+    "Before Clock Town Skullkid Keaton Grass (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A06,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Skullkid Keaton Grass (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A07,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Skullkid Keaton Grass (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420131A08,
+        can_create=lambda options: options.intro_checks.value
+    ),
 
     "Laundry Pool Grass (1)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420127000,
         can_create=lambda options: options.grasssanity.value
     ),
     "Laundry Pool Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420127001,
         can_create=lambda options: options.grasssanity.value
     ),
     "Laundry Pool Grass (3)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420127002,
         can_create=lambda options: options.grasssanity.value
     ),
     # North Clock Town Keaton Grass
     "North Clock Town Keaton Grass (1)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E00,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E01,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Grass (3)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E02,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (4)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E03,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (5)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E04,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (6)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E05,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (7)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E06,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (8)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E07,
         can_create=lambda options: options.grasssanity.value
     ),
     "North Clock Town Keaton Grass (9)": MMRLocationData(
-        region="Termina Field",
+        region="Clock Town",
         address=0x3469420136E08,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -6161,22 +6256,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Ikana Canyon Grass
 
     "Ikana Canyon Grass (1)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420121300,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grass (2)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420121301,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grass (3)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper kana Canyon",
         address=0x3469420121302,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grass (4)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420121303,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -6184,72 +6279,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Ikana Canyon Grotto Grass
 
     "Ikana Canyon Grotto Grass (1)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A540,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (2)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A541,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (3)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A542,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (4)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A543,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (5)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A544,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (6)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A545,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (7)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A546,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (8)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A547,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (9)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A548,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (10)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A549,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (11)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A54A,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (12)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A54B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (13)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A54C,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grotto Grass (14)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942012A54D,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -7498,152 +7593,152 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Goron Racetrack Pots
     
     "Goron Racetrack Pots (1)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B14,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (2)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B15,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (3)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B17,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (4)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B16,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (5)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B12,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (6)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B10,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (7)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B13,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (8)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0F,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (9)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B11,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (10)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B00,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (11)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B02,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (12)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B05,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (13)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B04,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (14)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B03,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (15)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B07,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (16)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B06,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (17)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B09,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (18)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B08,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (19)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0A,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (20)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B01,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (21)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0E,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (22)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B18,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (23)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B19,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (24)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B1A,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (25)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B1D,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (26)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B1B,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (27)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B1C,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (28)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0D,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (29)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0C,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Racetrack Pots (30)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Racetrack",
         address=0x3469420206B0B,
         can_create=lambda options: options.potsanity.value
     ),
@@ -8996,27 +9091,27 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     #Sakons Hideout
     "Sakons Hideout Pots (1)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420204F10,
         can_create=lambda options: options.potsanity.value
     ),
     "Sakons Hideout Pots (2)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420204F11,
         can_create=lambda options: options.potsanity.value
     ),          
     "Sakons Hideout Pots (3)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420204F12,
         can_create=lambda options: options.potsanity.value
     ),
     "Sakons Hideout Pots (4)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420204F13,
         can_create=lambda options: options.potsanity.value
     ),
     "Sakons Hideout Pots (5)": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420204F14,
         can_create=lambda options: options.potsanity.value
     ),      
@@ -14275,17 +14370,17 @@ location_data_table: Dict[str, MMRLocationData] = {
     
     # Ikana Canyon Gossip Fairies
     "Ikana Canyon Near Octoroks Gossip Fairy": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x34694201F1336,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x34694201F1335,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Ikana Canyon Near Ghost House Gossip Fairy": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x34694201F1337,
         can_create=lambda options: options.realfairysanity.value
     ),
@@ -14766,7 +14861,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.notebooksanity.value
     ),
     "Notebook Event Escaped Sakons Hideout": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x34694200B001B,
         can_create=lambda options: options.notebooksanity.value
     ),
@@ -14948,7 +15043,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.owlsanity.value
     ),
     "Ikana Canyon Owl Statue": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420FF1508,
         can_create=lambda options: options.owlsanity.value
     ),
@@ -14978,7 +15073,445 @@ location_data_table: Dict[str, MMRLocationData] = {
     #     region="Great Bay Temple",
     #     address=0x3469420FF0002,
     #     can_create=lambda options: options.frogsanity.value
-    # ),          
+    # ),  
+
+    # Treesanity Locations
+    "Termina Field Tree Near Observatory (1)": MMRLocationData(
+        region="Termina Field",
+        address=0x34694202C2DED,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Termina Field Tree Near Observatory (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x34694202C2DAA,
+        can_create=lambda options: options.treesanity.value
+    ),            
+    "Termina Field Tree Near Observatory (3)": MMRLocationData(
+        region="Termina Field",
+        address=0x34694202C2DB3,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (1)": MMRLocationData(
+    region="Southern Swamp",
+    address=0x34694202D4000,
+    can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202D4001,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202D4002,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (4)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202D4003,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (5)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202D4004,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Road to Southern Swamp Trees (6)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202D4005,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Mountains Tree (1)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x34694202B1C00,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Mountains Tree (2)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x34694202B1C01,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Mountains Tree (3)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x34694202B1C02,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Mountains Tree (4)": MMRLocationData(
+        region="Path to Mountain Village",
+        address=0x34694202B1C03,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands Tree (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202B5D00,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands Tree (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202B5D01,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands Tree (3)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202B5D02,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Snowhead Tree (1)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x34694202B5B00,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Snowhead Tree (2)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x34694202B5B01,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Path To Snowhead Tree (3)": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x34694202B5B02,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (1)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B00,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (2)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B01,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (3)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B02,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (4)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B03,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (5)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B04,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (6)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B05,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (7)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B06,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (8)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B07,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (9)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B08,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Goron Racetrack Trees (10)": MMRLocationData(
+        region="Goron Racetrack",
+        address=0x34694202D6B09,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands (Spring) Tree (1)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202C5E94,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands (Spring) Tree (2)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202C5E66,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Twin Islands (Spring) Tree (3)": MMRLocationData(
+        region="Twin Islands",
+        address=0x34694202C5E0B,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Romani Ranch Bush (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C35B9,
+        can_create=lambda options: options.treesanity.value
+    ),  
+    "Romani Ranch Bush (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C3596,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Bush (3)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C3520,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Romani Ranch Bush (4)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C3540,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Romani Ranch Tree (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C356E,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Romani Ranch Tree (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C3554,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Romani Ranch Tree (3)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C356A,
+        can_create=lambda options: options.treesanity.value
+    ),    
+    "Romani Ranch Tree (4)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C35E8,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Tree (5)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C3579,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Romani Ranch Tree (6)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C353A,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Tree (7)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C351E,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Tree": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C426D,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (1)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C42C2,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (2)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C426A,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (3)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C42DF,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (4)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C42C1,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (5)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C424A,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (6)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C42AA,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Romani Ranch Baby Cucoo Bush (7)": MMRLocationData(
+        region="Romani Ranch",
+        address=0x34694202C427D,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Gorman Racetrack Tree Group 1 (1)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A01,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (2)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A06,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (3)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A14,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (4)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A41,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (5)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A77,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (6)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A99,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (7)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AC7,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (8)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6ACF,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (9)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AD3,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (10)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AD7,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (11)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AEF,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 1 (12)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A02,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (1)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A04,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (2)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A0A,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (3)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A13,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (4)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A1D,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (5)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A44,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (6)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A47,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (7)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A51,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (8)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A8F,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (9)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AA8,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (10)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6ADA,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (11)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6ADC,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (12)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6AF2,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Gorman Racetrack Tree Group 2 (13)": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x34694202C6A20,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Great Bay Coast Nut Tree (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x34694202A3701,
+        can_create=lambda options: options.treesanity.value
+    ),    
+    "Great Bay Coast Nut Tree (2)": MMRLocationData(
+        region="Great Bay",
+        address=0x34694202A3702,
+        can_create=lambda options: options.treesanity.value
+    ),    
+    "Great Bay Coast Nut Tree (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x34694202A3703,
+        can_create=lambda options: options.treesanity.value
+    ),    
+    "Great Bay Coast Fisherman Island Nut Tree (1)": MMRLocationData(
+        region="Great Bay",
+        address=0x34694202A3700,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Zora Cape Nut Tree Near Jars (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3800,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Zora Cape Nut Tree Near Jars (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3801,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Zora Cape Nut Tree On Islands (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3802,
+        can_create=lambda options: options.treesanity.value
+    ),  
+    "Zora Cape Nut Tree On Islands (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3803,
+        can_create=lambda options: options.treesanity.value
+    ),  
+    "Zora Cape Nut Tree On Islands (3)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3804,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Zora Cape Nut Tree On Turtle Island (1)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3805,
+        can_create=lambda options: options.treesanity.value
+    ),   
+    "Zora Cape Nut Tree On Turtle Island (2)": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694202A3806,
+        can_create=lambda options: options.treesanity.value
+    ),   
+
 }
 
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}
