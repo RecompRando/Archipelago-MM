@@ -119,13 +119,13 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Gold Rupee"))            
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1038)
+            self.create_and_add_filler_items(1022)
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(540)
+            self.create_and_add_filler_items(538)
         
         if self.options.rocksanity.value != 0:
-            self.create_and_add_filler_items(123)
+            self.create_and_add_filler_items(126)
 
         if self.options.soilsanity.value != 0:
             self.create_and_add_filler_items(29)                          
@@ -137,7 +137,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(22) 
 
         if self.options.rupeesanity.value != 0:
-            self.create_and_add_filler_items(212)
+            self.create_and_add_filler_items(224)
 
         if self.options.snowsanity.value != 0:
             self.create_and_add_filler_items(117)
@@ -152,7 +152,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(25)
 
         if self.options.hivesanity.value != 0:
-            self.create_and_add_filler_items(18)
+            self.create_and_add_filler_items(17)
         
         if self.options.notebooksanity.value != 0:
             self.create_and_add_filler_items(55)
