@@ -27,6 +27,14 @@ def can_create_heart_location(shp, c_or_p, loc_index):
 prices_ints = []
 
 location_data_table: Dict[str, MMRLocationData] = {
+    "Link's Inventory (Ocarina of Time)": MMRLocationData(
+        region="Clock Town",
+        address=0x346942000004C
+    ),
+    "Link's Inventory (Song of Time)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420040067
+    ),    
     "Link's Inventory (Kokiri Sword)": MMRLocationData(
         region="Clock Town",
         address=0x3469420000037
@@ -1501,7 +1509,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x346942001491E
     ),
-    "Great Bay Temple Caged Chest Room Pot SF": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pot SF": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942001491D
     ),
@@ -1525,11 +1533,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420064919
     ),
-    "Great Bay Temple Caged Chest Room Upper Chest": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Upper Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942006491C
     ),
-    "Great Bay Temple Caged Chest Room Underwater Chest": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Underwater Chest": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420064901
     ),
@@ -6266,7 +6274,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Canyon Grass (3)": MMRLocationData(
-        region="Upper kana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420121302,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -8627,42 +8635,42 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420204919,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (1)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204945,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (2)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204940,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (3)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204946,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (4)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204941,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (5)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204943,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (6)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204944,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (7)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204942,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Caged Chest Room Pots (8)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Pots (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204947,
         can_create=lambda options: options.potsanity.value
@@ -11563,13 +11571,13 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.rupeesanity.value
     ),
 
-    # Great Bay Temple Caged Chest Room Underwater Rupees
-    "Great Bay Temple Caged Chest Room Underwater Rupees (0)": MMRLocationData(
+    # Great Bay Temple Before Gekko Room Underwater Rupees
+    "Great Bay Temple Before Gekko Room Underwater Rupees (0)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420174941,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Great Bay Temple Caged Chest Room Underwater Rupees (1)": MMRLocationData(
+    "Great Bay Temple Before Gekko Room Underwater Rupees (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420174940,
         can_create=lambda options: options.rupeesanity.value
