@@ -167,7 +167,7 @@ def mask_total(state, player):
         if state.has(mask, player):
             mask_count += 1
     return mask_count
-    
+
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
@@ -204,6 +204,12 @@ def get_region_rules(player, options):
                 has_explosives(state, player) or 
                 can_use_fire_arrows(state, player)
             ),
+        "Twin Islands -> Goron Racetrack":
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                (state.has("Powder Keg", player) or
+                can_use_fire_arrows(state, player))
+            ),
         "Path to Snowhead -> Snowhead":
             lambda state: (
                 state.has("Goron Mask", player) and 
@@ -237,7 +243,7 @@ def get_region_rules(player, options):
             ),
         "Road to Ikana -> Ikana Graveyard":
             lambda state: can_play_song("Epona's Song", state, player),
-        "Road to Ikana -> Ikana Canyon":
+        "Road to Ikana -> Lower Ikana Canyon":
             lambda state: (
                 (
                     state.has("Garo Mask", player) and 
@@ -250,16 +256,21 @@ def get_region_rules(player, options):
                     state.has("Hookshot", player)
                 )
             ),
-        "Ikana Canyon -> Secret Shrine":
+        "Lower Ikana Canyon -> Secret Shrine":
             lambda state: can_use_light_arrows(state, player),
-        "Ikana Canyon -> Beneath the Well":
+        "Lower Ikana Canyon -> Upper Ikana Canyon":
+            lambda state: (
+                can_use_ice_arrows(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Upper Ikana Canyon -> Beneath the Well":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player) and 
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player)
             ),
-        "Ikana Canyon -> Ikana Castle":
+        "Upper Ikana Canyon -> Ikana Castle":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player) and 
@@ -349,7 +360,7 @@ def get_location_rules(player, options):
                 (
                     state.can_reach("Clock Town", 'Region', player) or 
                     (
-                        state.can_reach("Ikana Canyon", 'Region', player) and 
+                        state.can_reach("Lower Ikana Canyon", 'Region', player) and 
                         can_use_ice_arrows(state, player) and 
                         state.has("Hookshot", player)
                     )
@@ -375,6 +386,12 @@ def get_location_rules(player, options):
         "Clock Tower Happy Mask Salesman #2":
             lambda state: True,
 
+        "Before Clock Town Chest":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+                
         
         "East Clock Town Archery Roof Chest":
             lambda state: True,
@@ -1874,16 +1891,16 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Bio-Baba Hall Chest SF":
             lambda state: True,
-        "Great Bay Temple Caged Chest Room Pot SF":
+        "Great Bay Temple Before Gekko Room Room Pot SF":
             lambda state: True,
-        "Great Bay Temple Caged Chest Room Upper Chest":
+        "Great Bay Temple Before Gekko Room Room Upper Chest":
             lambda state: True,
         "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Caged Chest Room Underwater Chest":
+        "Great Bay Temple Before Gekko Room Room Underwater Chest":
             lambda state: True,
         "Great Bay Temple Behind Locked Door Chest":
             lambda state: (
@@ -2012,7 +2029,7 @@ def get_location_rules(player, options):
                 has_projectiles(state, player) and 
                 (
                     (
-                        state.can_reach("Ikana Canyon", 'Region', player) and 
+                        state.can_reach("Lower Ikana Canyon", 'Region', player) and 
                         can_use_ice_arrows(state, player) and 
                         state.has("Hookshot", player)
                     ) or 
@@ -2448,6 +2465,97 @@ def get_location_rules(player, options):
             ),
                      
             # Grass Location Rules
+        "Before Clock Town Keaton Grass (1)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),         
+        "Before Clock Town Keaton Grass (2)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (3)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (4)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (5)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (6)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (7)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),   
+        "Before Clock Town Keaton Grass (8)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ), 
+        "Before Clock Town Keaton Grass (9)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),        
+        "Before Clock Town Skullkid Keaton Grass (1)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (2)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (3)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),  
+        "Before Clock Town Skullkid Keaton Grass (4)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (5)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (6)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),  
+        "Before Clock Town Skullkid Keaton Grass (7)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (8)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),
+        "Before Clock Town Skullkid Keaton Grass (9)":
+            lambda state: (
+                    state.has("Hookshot", player) or 
+                    state.has("Deku Mask", player)
+            ),                                                
+
         "Laundry Pool Grass (1)":
             lambda state: True,
         "Laundry Pool Grass (2)":
@@ -6981,22 +7089,22 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player)
             ),
         
-        # Great Bay Temple Caged Chest Room Pots 
-        "Great Bay Temple Caged Chest Room Pots (1)":
+        # Great Bay Temple Before Gekko Room Room Pots 
+        "Great Bay Temple Before Gekko Room Room Pots (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (2)":
+        "Great Bay Temple Before Gekko Room Room Pots (2)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (3)":
+        "Great Bay Temple Before Gekko Room Room Pots (3)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (4)":
+        "Great Bay Temple Before Gekko Room Room Pots (4)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (5)":
+        "Great Bay Temple Before Gekko Room Room Pots (5)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (6)":
+        "Great Bay Temple Before Gekko Room Room Pots (6)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (7)":
+        "Great Bay Temple Before Gekko Room Room Pots (7)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Pots (8)":
+        "Great Bay Temple Before Gekko Room Room Pots (8)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         
         # Great Bay Temple Red Valve Underwater Pots - Basic temple access
@@ -9760,10 +9868,10 @@ def get_location_rules(player, options):
         "Great Bay Temple Waterwheel Rupees (4)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
-        # Great Bay Temple Caged Chest Room Underwater Rupees
-        "Great Bay Temple Caged Chest Room Underwater Rupees (0)":
+        # Great Bay Temple Before Gekko Room Room Underwater Rupees
+        "Great Bay Temple Before Gekko Room Room Underwater Rupees (0)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Caged Chest Room Underwater Rupees (1)":
+        "Great Bay Temple Before Gekko Room Room Underwater Rupees (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
         # Ikana Graveyard Day 2 Rupees
@@ -9785,87 +9893,87 @@ def get_location_rules(player, options):
         # Secret Shrine Rupees
         "Secret Shrine Rupees (0)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (1)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (2)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (3)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (4)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (5)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (6)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (7)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (8)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (9)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (10)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (11)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (12)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (13)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (14)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (15)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
         "Secret Shrine Rupees (16)":
             lambda state: (
-                state.can_reach("Ikana Canyon", 'Region', player) and
+                state.can_reach("Lower Ikana Canyon", 'Region', player) and
                 (state.has("Zora Mask", player) or can_plant_beans(state, player))
             ),
 
@@ -12133,7 +12241,7 @@ def get_location_rules(player, options):
                         state.has("Don Gero's Mask", player),
         "Great Bay Temple Miniboss Frog":
             lambda state:
-                        state.can_reach("Great Bay Temple Caged Chest Room Caged Chest", 'Location', player) and
+                        state.can_reach("Great Bay Temple Before Gekko Room Room Caged Chest", 'Location', player) and
                         state.has("Don Gero's Mask", player),
 
     # Owls
@@ -12153,7 +12261,7 @@ def get_location_rules(player, options):
         "Zora Cape Owl Statue":
             lambda state: state.can_reach("Zora Hall", 'Region', player),
         "Ikana Canyon Owl Statue":
-            lambda state: state.can_reach("Ikana Canyon", 'Region', player),
+            lambda state: state.can_reach("Upper Ikana Canyon", 'Region', player),
         "Stone Tower Owl Statue":
             lambda state: state.can_reach("Stone Tower", 'Region', player),
 
@@ -12170,7 +12278,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Letter to Kafei", player),
         "Notebook Event Escaped Sakons Hideout":
             lambda state: (state.has("Letter to Kafei", player) and
-                          state.can_reach("Ikana Canyon", 'Region', player)),
+                          state.can_reach("Lower Ikana Canyon", 'Region', player)),
         "Notebook Event Escorted Cremia":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
         "Notebook Event Learned Secret Code":
@@ -12281,4 +12389,7 @@ def get_location_rules(player, options):
         "Notebook Meeting Toilet Hand":
             lambda state: state.has("Bomber's Notebook", player),
 
+    #Treesanity 
+
     }
+
