@@ -37,6 +37,12 @@ def can_smack_hard(state, player):
 def can_smack(state, player):
     return can_smack_hard(state, player) or state.has("Deku Mask", player)
 
+def can_reach_stonetower(state, player):
+    return (can_use_ice_arrows(state, player) and 
+            can_play_song("Elegy of Emptiness", state, player) and 
+            state.has("Goron Mask", player) and 
+            state.has("Zora Mask", player))
+
 def can_clear_woodfall(state, player):
     return state.can_reach("Woodfall Temple Odolwa's Remains", 'Location', player)
     
@@ -259,14 +265,11 @@ def get_region_rules(player, options):
             ),
         "Stone Tower -> Stone Tower Temple":
             lambda state: (
-                can_use_ice_arrows(state, player) and 
-                can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)
+                can_reach_stonetower(state, player)
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
-                state.can_reach("Stone Tower Temple", 'Region', player) and 
+                can_reach_stonetower(state, player) and 
                 can_use_light_arrows(state, player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
