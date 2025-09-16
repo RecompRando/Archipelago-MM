@@ -870,11 +870,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420011B2D
     ),
     "Woodfall Temple Heart Container": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420051F00
     ),
     "Woodfall Temple Odolwa's Remains": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420000055
     ),
     "Southern Swamp Boat Archery": MMRLocationData(
@@ -1102,11 +1102,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420062117
     ),
     "Snowhead Temple Heart Container": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420054400
     ),
     "Snowhead Temple Goht's Remains": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420000056
     ),
     "Milk Road Gorman Ranch Race": MMRLocationData(
@@ -1570,11 +1570,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942001492F
     ),
     "Great Bay Temple Heart Container": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420055F00
     ),
     "Great Bay Temple Gyorg's Remains": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420000057
     ),
     "Road to Ikana Pillar Chest": MMRLocationData(
@@ -1804,11 +1804,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006181A
     ),
     "Stone Tower Temple Inverted Heart Container": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420053600
     ),
     "Stone Tower Temple Inverted Twinmold's Remains": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420000058
     ),
     "Oath to Order": MMRLocationData(
@@ -6815,82 +6815,82 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (1)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F00,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (2)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F01,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (3)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F02,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (4)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F03,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (5)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F04,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (6)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F05,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (7)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F06,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (8)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F07,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (9)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F08,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (10)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F09,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (11)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0A,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (12)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (13)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0C,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (14)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0D,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (15)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0E,
         can_create=lambda options: options.grasssanity.value
     ),
     "Woodfall Temple Odolwas Lair Grass (16)": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420121F0F,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -8042,37 +8042,37 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),        
     "Goht Boss Room Pots (1)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x346942020440C,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (2)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x346942020440D,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (3)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204408,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (4)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204400,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (5)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204402,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (6)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204409,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (7)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204407,
         can_create=lambda options: options.potsanity.value
     ),
@@ -8082,32 +8082,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (9)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x346942020440A,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (10)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204401,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (11)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204403,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (12)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x346942020440B,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (13)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204404,
         can_create=lambda options: options.potsanity.value
     ),
     "Goht Boss Room Pots (14)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420204405,
         can_create=lambda options: options.potsanity.value
     ),
@@ -8891,42 +8891,42 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (1)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F07,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (2)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F06,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (3)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F05,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (4)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F04,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (5)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F00,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (6)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F03,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (7)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F02,
         can_create=lambda options: options.potsanity.value
     ),
     "Great Bay Temple Gyorg Pots (8)": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420205F01,
         can_create=lambda options: options.potsanity.value
     ),
@@ -9934,12 +9934,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420206607,
         can_create=lambda options: options.potsanity.value
     ),
-    "Majora Arena Pots (1)": MMRLocationData(
+    "Majora Lair Pots (1)": MMRLocationData(
         region="The Moon",
         address=0x3469420200B00,
         can_create=lambda options: options.potsanity.value
     ),
-    "Majora Arena Pots (2)": MMRLocationData(
+    "Majora Lair Pots (2)": MMRLocationData(
         region="The Moon",
         address=0x3469420200B01,
         can_create=lambda options: options.potsanity.value
@@ -12249,22 +12249,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Great Bay Coast Underwater Rocks (Bombchus only)
-    "Great Bay Coast Underwater Rocks (Bombchus only) (0)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) (1)": MMRLocationData(
         region="Great Bay",
         address=0x346942018371C,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (1)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) (2)": MMRLocationData(
         region="Great Bay",
         address=0x346942018372E,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (2)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) (3)": MMRLocationData(
         region="Great Bay",
         address=0x346942018371B,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (3)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) (4)": MMRLocationData(
         region="Great Bay",
         address=0x346942018371A,
         can_create=lambda options: options.rocksanity.value
@@ -14149,7 +14149,7 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     # Hivesanity
     # Termina Field
-    "Termina Field Bombable Rock Grotto Hive (0)": MMRLocationData(
+    "Termina Field Bombable Rock Grotto Hive (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420240700,
         can_create=lambda options: options.hivesanity.value
@@ -14165,70 +14165,70 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.hivesanity.value
     ),        
     #Southern Swamp Hives
-    "Southern Swamp Hive Near Frog (0)": MMRLocationData(
+    "Southern Swamp Hive Near Frog (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420244500,
         can_create=lambda options: options.hivesanity.value
     ),
     #Swamp Spider House Hives
-    "Swamp Spider House Giant Pot Room Hives (0)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Hives (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242740,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider House Giant Pot Room Hives (1)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Hives (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242741,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider House Giant Pot Room Hives (2)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Hives (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242744,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider House Gold Room Hives (0)": MMRLocationData(
+    "Swamp Spider House Gold Room Hives (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242720,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider House Gold Room Hives (1)": MMRLocationData(
+    "Swamp Spider House Gold Room Hives (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242721,
         can_create=lambda options: options.hivesanity.value
     ),    
-    "Swamp Spider House Gold Room Hives (2)": MMRLocationData(
+    "Swamp Spider House Gold Room Hives (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242722,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider Tree Room Hives (0)": MMRLocationData(
+    "Swamp Spider Tree Room Hives (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242750,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider Tree Room Hives (1)": MMRLocationData(
+    "Swamp Spider Tree Room Hives (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242751,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Swamp Spider Tree Room Hives (2)": MMRLocationData(
+    "Swamp Spider Tree Room Hives (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242753,
         can_create=lambda options: options.hivesanity.value
     ),            
     #Woodfall Temple Hives
-    "Woodfall Temple Entrance Hive (0)": MMRLocationData(
+    "Woodfall Temple Entrance Hive (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420241B20,
         can_create=lambda options: options.hivesanity.value
     ),
-    "Woodfall Temple Push Block Hive (0)": MMRLocationData(
+    "Woodfall Temple Push Block Hive (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420241B31,
         can_create=lambda options: options.hivesanity.value
     ),
     # Mountain Village Spring Hives   
-    "Mountain Village Spring Tree Hive (0)": MMRLocationData(
+    "Mountain Village Spring Tree Hive (1)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420245A00,
         can_create=lambda options: options.hivesanity.value
