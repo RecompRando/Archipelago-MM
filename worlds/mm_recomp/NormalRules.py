@@ -37,12 +37,6 @@ def can_smack_hard(state, player):
 def can_smack(state, player):
     return can_smack_hard(state, player) or state.has("Deku Mask", player)
 
-def can_reach_stonetower(state, player):
-    return (can_use_ice_arrows(state, player) and 
-            can_play_song("Elegy of Emptiness", state, player) and 
-            state.has("Goron Mask", player) and 
-            state.has("Zora Mask", player))
-
 def can_clear_woodfall(state, player):
     return state.can_reach("Woodfall Temple Odolwa's Remains", 'Location', player)
     
@@ -128,7 +122,8 @@ def can_bring_to_player(state, player):
 
 def can_reach_scarecrow(state, player):
     return (state.can_reach("Astral Observatory", 'Region', player) or 
-            state.can_reach("Trading Post", 'Region', player))
+            state.can_reach("Trading Post", 'Region', player) and
+            state.has("Ocarina of Time", player))
 
 def can_reach_seahorse(state, player):
     return (state.can_reach("Fisherman's House", 'Region', player) and 
@@ -202,6 +197,18 @@ def get_region_rules(player, options):
             lambda state: state.has("Deku Mask", player),
         "Woodfall -> Woodfall Temple":
             lambda state: can_play_song("Sonata of Awakening", state, player),
+        "Woodfall Temple -> Odolwa's Lair":
+            lambda state: (
+                can_smack(state, player) and 
+                state.has("Progressive Bow", player) and 
+                (
+                    state.has("Boss Key (Woodfall)", player) or 
+                    (
+                        state.has("Odolwa's Remains", player) and 
+                        options.remains_allow_boss_warps.value
+                    )
+                )
+            ),
         "Termina Field -> Path to Mountain Village":
             lambda state: state.has("Progressive Bow", player),
         "Path to Mountain Village -> Mountain Village":
@@ -226,7 +233,12 @@ def get_region_rules(player, options):
                 state.has("Goron Mask", player) and 
                 can_play_song("Goron Lullaby", state, player) and 
                 state.has("Progressive Magic", player)
-            ),            
+            ),
+        "Snowhead Temple -> Goht's Lair": lambda state: (
+                    can_use_fire_arrows(state, player) and 
+                    state.has("Small Key (Snowhead)", player, 1) and 
+                    state.has("Boss Key (Snowhead)", player)
+            ),
         "Termina Field -> Great Bay":
             lambda state: can_play_song("Epona's Song", state, player),
         "Great Bay -> Ocean Spider House":
@@ -246,6 +258,20 @@ def get_region_rules(player, options):
                 can_play_song("New Wave Bossa Nova", state, player) and 
                 state.has("Hookshot", player) and 
                 state.has("Zora Mask", player)
+            ),
+        "Great Bay Temple -> Gyorg's Lair":
+            lambda state: (
+                state.has("Hookshot", player) and 
+                (
+                    (
+                        state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
+                        state.has("Boss Key (Great Bay)", player)
+                    ) or 
+                    (
+                        state.has("Gyorg's Remains", player) and 
+                        options.remains_allow_boss_warps.value
+                    )
+                )
             ),
         "Road to Ikana -> Ikana Graveyard":
             lambda state: can_play_song("Epona's Song", state, player),
@@ -287,16 +313,39 @@ def get_region_rules(player, options):
             ),
         "Stone Tower -> Stone Tower Temple":
             lambda state: (
-                can_reach_stonetower(state, player)
+                can_use_ice_arrows(state, player) and 
+                can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
-                can_reach_stonetower(state, player) and 
+                state.can_reach("Stone Tower Temple", 'Region', player) and 
                 can_use_light_arrows(state, player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)":
             lambda state: True,    
+        "Stone Tower Temple (Inverted) -> Twinmold's Lair":
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
+                (
+                    state.has("Progressive Bow", player) or 
+                    state.has("Fierce Deity's Mask", player) or 
+                    (
+                        state.has("Giant's Mask", player) and 
+                        state.has("Progressive Magic", player) and 
+                        state.has("Progressive Sword", player)
+                    )
+                ) and 
+                (
+                    state.has("Boss Key (Stone Tower)", player) or 
+                    (
+                        state.has("Twinmold's Remains", player) and 
+                        options.remains_allow_boss_warps.value
+                    )
+                )
+            ),
     }
 
 def get_location_rules(player, options):
@@ -8763,8 +8812,8 @@ def get_location_rules(player, options):
                 mask_total(state, player) >= 4
             ),
         
-        # Majora Arena Pots
-        "Majora Arena Pots (1)":
+        # Majora Lair Pots
+        "Majora Lair Pots (1)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
@@ -8781,7 +8830,7 @@ def get_location_rules(player, options):
                 ) and
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
-        "Majora Arena Pots (2)":
+        "Majora Lair Pots (2)":
             lambda state: (
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
@@ -9128,149 +9177,149 @@ def get_location_rules(player, options):
         # Termina Field Song Wall
 
         "Termina Field 6am Songwall (0)":
-        lambda state: True,
+        lambda state: state.has("Ocarina of Time", player),
         "Termina Field 6am Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 6am Songwall (2)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 7am Songwall (0)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 7am Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 7am Songwall (2)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 8am Songwall (0)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 8am Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 8am Songwall (2)":
-            lambda state: True,
-        "Termina Field 9am Songwall (0)":
-            lambda state: True,
-        "Termina Field 9am Songwall (1)":
-            lambda state: True,
-        "Termina Field 9am Songwall (2)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
         "Termina Field 10am Songwall (0)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 10am Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 10am Songwall (2)":
-            lambda state: True,
-        "Termina Field 11am Songwall (0)":
-            lambda state: True,
-        "Termina Field 11am Songwall (1)":
-            lambda state: True,
-        "Termina Field 11am Songwall (2)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
         "Termina Field 12pm Songwall (0)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 12pm Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 12pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 1pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 1pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 1pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 2pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 2pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 2pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 3pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 3pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 3pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 4pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 4pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 4pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 5pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 5pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 5pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 6pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 6pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 6pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 7pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 7pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 7pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 8pm Songwall (0)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 6pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 6pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 6pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 7pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 7pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 7pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+         "Termina Field 8pm Songwall (0)":
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 8pm Songwall (1)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
         "Termina Field 8pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 9pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 9pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 9pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 10pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 10pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 10pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 11pm Songwall (0)":
-            lambda state: True,
-        "Termina Field 11pm Songwall (1)":
-            lambda state: True,
-        "Termina Field 11pm Songwall (2)":
-            lambda state: True,
-        "Termina Field 12am Songwall (0)":
-            lambda state: True,
-        "Termina Field 12am Songwall (1)":
-            lambda state: True,
-        "Termina Field 12am Songwall (2)":
-            lambda state: True,
-        "Termina Field 1am Songwall (0)":
-            lambda state: True,
-        "Termina Field 1am Songwall (1)":
-            lambda state: True,
-        "Termina Field 1am Songwall (2)":
-            lambda state: True,
-        "Termina Field 2am Songwall (0)":
-            lambda state: True,
-        "Termina Field 2am Songwall (1)":
-            lambda state: True,
-        "Termina Field 2am Songwall (2)":
-            lambda state: True,
-        "Termina Field 3am Songwall (0)":
-            lambda state: True,
-        "Termina Field 3am Songwall (1)":
-            lambda state: True,
-        "Termina Field 3am Songwall (2)":
-            lambda state: True,
-        "Termina Field 4am Songwall (0)":
-            lambda state: True,
-        "Termina Field 4am Songwall (1)":
-            lambda state: True,
-        "Termina Field 4am Songwall (2)":
-            lambda state: True,
-        "Termina Field 5am Songwall (0)":
-            lambda state: True,
-        "Termina Field 5am Songwall (1)":
-            lambda state: True,
-        "Termina Field 5am Songwall (2)":
-            lambda state: True,
+            lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 9pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 10pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 10pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 10pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11pm Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11pm Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 11pm Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 12am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 12am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 12am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 1am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 2am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 3am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 4am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5am Songwall (0)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5am Songwall (1)":
+        #     lambda state: state.has("Ocarina of Time", player),
+        # "Termina Field 5am Songwall (2)":
+        #     lambda state: state.has("Ocarina of Time", player),
 
         # Laundry Pool Night 2 Rupees
         "Laundry Pool Night 2 Rupees (0)":
@@ -10898,25 +10947,26 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay", 'Region', player),
 
         # Great Bay Coast Underwater Rocks (Bombchus only)
-        "Great Bay Coast Underwater Rocks (Bombchus only) (0)":
-            lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and
-                has_bombchus(state, player)
-            ),
         "Great Bay Coast Underwater Rocks (Bombchus only) (1)":
             lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and
-                has_bombchus(state, player)
+                has_bombchus(state, player) and
+                state.has("Zora Mask", player)
             ),
         "Great Bay Coast Underwater Rocks (Bombchus only) (2)":
             lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and
-                has_bombchus(state, player)
+                has_bombchus(state, player) and
+                state.has("Zora Mask", player),
             ),
         "Great Bay Coast Underwater Rocks (Bombchus only) (3)":
             lambda state: (
-                state.can_reach("Great Bay", 'Region', player) and
-                has_bombchus(state, player)        
+                has_bombchus(state, player) and
+                state.has("Zora Mask", player)
+                
+            ),
+        "Great Bay Coast Underwater Rocks (Bombchus only) (4)":
+            lambda state: (
+                has_bombchus(state, player) and
+                state.has("Zora Mask", player)      
             ),                
 
         # Rocks Underwater Easy to get
@@ -11606,50 +11656,52 @@ def get_location_rules(player, options):
 
         # Termina Field
 
-        "Termina Field Bombable Rock Grotto Hive (0)":
-            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
         "Termina Field Bombable Rock Grotto Hive (1)":
+            lambda state: has_explosives(state, player) and has_projectiles(state, player),
+
+
+        "Termina Field Bio Baba Grotto Hive (1)":
             lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
-        "Termina Field Bombable Rock Grotto Hive (2)":
+        "Termina Field Bio Baba Grotto Hive (2)":
             lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
 
         # Southern Swamp Hive
 
-        "Southern Swamp Hive Near Frog (0)":
+        "Southern Swamp Hive Near Frog (1)":
             lambda state: has_projectiles(state, player),
 
         # Swamp Spider House
 
-        "Swamp Spider House Giant Pot Room Hives (0)":
-            lambda state: has_projectiles(state, player),
         "Swamp Spider House Giant Pot Room Hives (1)":
             lambda state: has_projectiles(state, player),
         "Swamp Spider House Giant Pot Room Hives (2)":
             lambda state: has_projectiles(state, player),
-
-        "Swamp Spider House Gold Room Hives (0)":
+        "Swamp Spider House Giant Pot Room Hives (3)":
             lambda state: has_projectiles(state, player),
+
         "Swamp Spider House Gold Room Hives (1)":
             lambda state: has_projectiles(state, player),
-
-        "Swamp Spider Tree Room Hives (0)":
+        "Swamp Spider House Gold Room Hives (2)":
             lambda state: has_projectiles(state, player),
+
         "Swamp Spider Tree Room Hives (1)":
             lambda state: has_projectiles(state, player),
         "Swamp Spider Tree Room Hives (2)":
             lambda state: has_projectiles(state, player),
+        "Swamp Spider Tree Room Hives (3)":
+            lambda state: has_projectiles(state, player),
 
         # Woodfall Temple Hives
 
-        "Woodfall Temple Entrance Hive (0)":
+        "Woodfall Temple Entrance Hive (1)":
             lambda state: has_projectiles(state, player),
 
-        "Woodfall Temple Push Block Hive (0)":
+        "Woodfall Temple Push Block Hive (1)":
             lambda state: has_projectiles(state, player),
 
         # Mountain Village Spring Hives
 
-        "Mountain Village Spring Tree Hive (0)":
+        "Mountain Village Spring Tree Hive (1)":
             lambda state: can_clear_snowhead(state, player),
 
         # Real Fairysanity/Gossip Faires/Butterly Fairies
@@ -12394,5 +12446,200 @@ def get_location_rules(player, options):
 
     #Treesanity 
 
+        # Termina Field - No requirements
+        "Termina Field Tree Near Observatory (1)":
+            lambda state: True,
+        "Termina Field Tree Near Observatory (2)":
+            lambda state: True,
+        "Termina Field Tree Near Observatory (3)":
+            lambda state: True,
+
+        # Road to Southern Swamp - No requirements  
+        "Road to Southern Swamp Trees (1)":
+            lambda state: True,
+        "Road to Southern Swamp Trees (2)":
+            lambda state: True,
+        "Road to Southern Swamp Trees (3)":
+            lambda state: True,
+        "Road to Southern Swamp Trees (4)":
+            lambda state: True,
+        "Road to Southern Swamp Trees (5)":
+            lambda state: True,
+        "Road to Southern Swamp Trees (6)":
+            lambda state: True,
+
+        # Romani Ranch Trees and Bushes - No requirements
+        "Romani Ranch Bush (1)":
+            lambda state: True,
+        "Romani Ranch Bush (2)":
+            lambda state: True,
+        "Romani Ranch Bush (3)":
+            lambda state: True,
+        "Romani Ranch Bush (4)":
+            lambda state: True,
+        "Romani Ranch Tree (1)":
+            lambda state: True,
+        "Romani Ranch Tree (2)":
+            lambda state: True,
+        "Romani Ranch Tree (3)":
+            lambda state: True,
+        "Romani Ranch Tree (4)":
+            lambda state: True,
+        "Romani Ranch Tree (5)":
+            lambda state: True,
+        "Romani Ranch Tree (6)":
+            lambda state: True,
+        "Romani Ranch Tree (7)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Tree":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (1)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (2)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (3)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (4)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (5)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (6)":
+            lambda state: True,
+        "Romani Ranch Baby Cucoo Bush (7)":
+            lambda state: True,
+
+        # Path To Mountains 
+        "Path To Mountains Tree (1)":
+            lambda state: True,
+        "Path To Mountains Tree (2)":
+            lambda state: True,
+        "Path To Mountains Tree (3)":
+            lambda state: True,
+        "Path To Mountains Tree (4)":
+            lambda state: True,
+
+        # Twin Islands - Requires access to the region
+        "Twin Islands Tree (1)":
+            lambda state: True,
+        "Twin Islands Tree (2)":
+            lambda state: True,
+        "Twin Islands Tree (3)":
+            lambda state: True,
+
+        # Twin Islands Spring - Requires clearing Snowhead Temple (spring access)
+        "Twin Islands (Spring) Tree (1)":
+            lambda state: can_clear_snowhead(state, player),
+        "Twin Islands (Spring) Tree (2)":
+            lambda state: can_clear_snowhead(state, player),
+        "Twin Islands (Spring) Tree (3)":
+            lambda state: can_clear_snowhead(state, player),
+
+        # Path To Snowhead - Requires access to the region
+        "Path To Snowhead Tree (1)":
+            lambda state: True,
+        "Path To Snowhead Tree (2)":
+            lambda state: True,
+        "Path To Snowhead Tree (3)":
+            lambda state: True,
+
+        # Goron Racetrack - Requires access to the region
+        "Goron Racetrack Trees (1)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (2)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (3)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (4)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (5)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (6)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (7)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (8)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (9)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+        "Goron Racetrack Trees (10)":
+            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+
+        # Gorman Brothers Track - Requires access to the region
+        "Gorman Racetrack Tree Group 1 (1)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (2)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (3)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (4)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (5)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (6)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (7)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (8)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (9)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (10)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (11)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 1 (12)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (1)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (2)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (3)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (4)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (5)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (6)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (7)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (8)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (9)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (10)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (11)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (12)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+        "Gorman Racetrack Tree Group 2 (13)":
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
+
+        # Great Bay Coast Nut Trees - Requires access to the region
+        "Great Bay Coast Nut Tree (1)":
+            lambda state: True,
+        "Great Bay Coast Nut Tree (2)":
+            lambda state: True,
+        "Great Bay Coast Nut Tree (3)":
+            lambda state: True,
+        "Great Bay Coast Fisherman Island Nut Tree (1)":
+            lambda state: state.has("Hookshot", player),
+
+        # Zora Cape Nut Trees - Requires access to the region and possibly Zora Mask for some
+        "Zora Cape Nut Tree Near Jars (1)":
+            lambda state: True,
+        "Zora Cape Nut Tree Near Jars (2)":
+            lambda state: True,
+        "Zora Cape Nut Tree On Islands (1)":
+            lambda state: state.has("Hookshot", player),
+        "Zora Cape Nut Tree On Islands (2)":
+            lambda state: state.has("Hookshot", player),
+        "Zora Cape Nut Tree On Islands (3)":
+            lambda state: state.has("Hookshot", player),
+        "Zora Cape Nut Tree On Turtle Island (1)":
+            lambda state: state.has("Hookshot", player),
+        "Zora Cape Nut Tree On Turtle Island (2)":
+            lambda state: state.has("Hookshot", player),
     }
 

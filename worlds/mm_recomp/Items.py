@@ -63,7 +63,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Ocarina of Time": MMRItemData(
         code=0x346942000004C,
         type=ItemClassification.progression,
-        can_create=lambda options: False
+        can_create=lambda options: options.ocarinaless.value == 1
     ),
     "Heart Piece": MMRItemData(
         code=0x346942000000C,
@@ -117,7 +117,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Song of Time": MMRItemData(
         code=0x3469420040067,
         type=ItemClassification.progression,
-        can_create=lambda options: False
+        can_create=lambda options: options.timeless.value == 1
     ),
     "Song of Healing": MMRItemData(
         code=0x3469420040068,

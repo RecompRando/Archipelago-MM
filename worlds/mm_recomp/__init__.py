@@ -1,5 +1,6 @@
 from typing import List
 from typing import Dict
+from typing import TextIO
 
 from BaseClasses import Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
@@ -144,7 +145,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(22) 
 
         if self.options.rupeesanity.value != 0:
-            self.create_and_add_filler_items(224)
+            self.create_and_add_filler_items(222)
 
         if self.options.snowsanity.value != 0:
             self.create_and_add_filler_items(117)
@@ -454,6 +455,12 @@ class MMRWorld(World):
                 continue
             if name in location_rules and location_data_table[name].can_create(self.options):
                 location.access_rule = location_rules[name]
+
+    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
+        if self.options.shopsanity.value:
+            spoiler_handle.write("\nShop Prices:\n")
+            for location, shop_id in shop_location_to_id.items():
+                spoiler_handle.write(f"\n{location}: {prices_ints[shop_id]} Rupees")
 
     def fill_slot_data(self):
         shp = self.options.starting_hearts.value
