@@ -278,6 +278,10 @@ class Treesanity(Toggle):
     """Choose whether the trees and bushes drop shuffled items."""
     display_name = "Treesanity"       
 
+class Floweranity(Toggle):
+    """Choose whether the Deku Flowers give shuffled items when entered."""
+    display_name = "Flowersanity" 
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -382,6 +386,7 @@ class MMROptions(PerGameCommonOptions):
     owlsanity: Owlsanity
     frogsanity: Frogsanity
     treesanity: Treesanity
+    flowersanity: Flowersanity
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime

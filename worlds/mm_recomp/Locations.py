@@ -1941,7 +1941,161 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420131A08,
         can_create=lambda options: options.intro_checks.value
     ),
-
+    "Before Clock Town Lost Woods Grass (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146511,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146516,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146515,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146510,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146514,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146512,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146519,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146518,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146513,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass (10)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146517,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146505,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146500,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x346942014650B,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146504,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x346942014650A,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146509,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146508,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146503,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146502,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (10)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146501,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (11)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146506,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Before Clock Town Lost Woods Grass Patch 2 (12)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420146507,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136502,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136501,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136507,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136506,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136505,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136504,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136503,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136500,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Keaton Grass (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420136508,
+        can_create=lambda options: options.intro_checks.value
+    ),
     "Laundry Pool Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420127000,
@@ -2003,7 +2157,6 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420136E08,
         can_create=lambda options: options.grasssanity.value
     ),
-
     # Termina Field 
 
     "Termina Field Grass Near Western Water Ramp (1)": MMRLocationData(
@@ -11970,27 +12123,41 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.rocksanity.value
     ),    
     # South West Rock Wall
-    "South West Rock Wall (0)": MMRLocationData(
+    "Termina Field South West Rock Wall (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420182D0B,
         can_create=lambda options: options.rocksanity.value
     ),
-    "South West Rock Wall (1)": MMRLocationData(
+    "Termina Field South West Rock Wall (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420182D05,
         can_create=lambda options: options.rocksanity.value
     ),
-    "South West Rock Wall (2)": MMRLocationData(
+    "Termina Field South West Rock Wall (3)": MMRLocationData(
         region="Termina Field",
         address=0x3469420182D06,
         can_create=lambda options: options.rocksanity.value
     ),
-    "South West Rock Wall (3)": MMRLocationData(
+    "Termina Field South West Rock Wall (4)": MMRLocationData(
         region="Termina Field",
         address=0x3469420182D02,
         can_create=lambda options: options.rocksanity.value
     ),
-
+    "Deku Palace Guarded Boulder (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201B2B10,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Deku Palace Guarded Boulder (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201B2B11,
+        can_create=lambda options: options.rocksanity.value
+    ),
+    "Deku Palace Guarded Boulder (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694201B2B12,
+        can_create=lambda options: options.rocksanity.value
+    ),
     # Swamp Spider Entry Rocks
     "Swamp Spider Entry Rocks (0)": MMRLocationData(
         region="Swamp Spider House",
@@ -12961,6 +13128,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420215D0F,
         can_create=lambda options: options.snowsanity.value
     ),
+    "Twin Islands Day 1 Snowballs (15)": MMRLocationData(
+        region="Twin Islands",
+        address=0x3469420215D00,
+        can_create=lambda options: options.snowsanity.value
+    ),
 
     # Twin Isles Snowballs Near Grotto
     "Twin Isles Snowballs Near Grotto (0)": MMRLocationData(
@@ -13080,6 +13252,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420214D0A,
         can_create=lambda options: options.snowsanity.value
     ),
+    "Goron Village Snowballs (20)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420214D01,
+        can_create=lambda options: options.snowsanity.value
+    ),
+
 
     # Path to Snowhead Snowballs
     "Path to Snowhead Snowballs (0)": MMRLocationData(
@@ -15084,6 +15262,16 @@ location_data_table: Dict[str, MMRLocationData] = {
     # ),  
 
     # Treesanity Locations
+    "North Clock Town Tree (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202D6E00,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "North Clock Town Tree (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202D6E01,
+        can_create=lambda options: options.treesanity.value
+    ),
     "Termina Field Tree Near Observatory (1)": MMRLocationData(
         region="Termina Field",
         address=0x34694202C2DED,
@@ -15519,6 +15707,779 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202A3806,
         can_create=lambda options: options.treesanity.value
     ),   
+    #Flowersanity
+   
+    "Below Clock Town Flower (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A10,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A11,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A12,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A13,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A14,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A15,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (9)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (10)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Below Clock Town Flower (11)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1A04,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "South Clock Town Business Scrub Flower": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F6F00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "East Clock Town Flower": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F6C00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Flower (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F6E00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Flower (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F6E01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (5)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E04,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (6)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E05,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (7)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E06,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "North Clock Town Deku Playground Flower (8)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694203F1E07,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Termina Field Flower Near Observatory": MMRLocationData(
+        region="Termina Field",
+        address=0x34694203F2D03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Termina Field Flower Near Skullkid Drawing": MMRLocationData(
+        region="Termina Field",
+        address=0x34694203F2D02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Termina Field Flower Near Stump": MMRLocationData(
+        region="Termina Field",
+        address=0x34694203F2D01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Termina Field Flower Near Giant Log": MMRLocationData(
+        region="Termina Field",
+        address=0x34694203F2D00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    # Road To Swamp Flowers
+    "Road To Southern Swamp Flowers (1)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4000,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (2)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4001,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (3)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4002,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (4)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4003,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (5)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4004,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (6)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4005,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (7)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4006,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Road To Southern Swamp Flowers (8)": MMRLocationData(
+        region="Road To Southern Swamp",
+        address=0x34694203F4007,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Business Scrub Flower": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4500,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Day 1/3 (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6430,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Day 1/3 (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6431,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Any Day (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6440,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Any Day (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6450,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Day 2 (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6470,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Woods Of Mystery Flower Day 2 (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6471,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    #Deku Palace Flowers
+    "Deku Palace Flower (1)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B10,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (2)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B11,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B12,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (4)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B13,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (5)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B14,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (6)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B15,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (7)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B20,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (8)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B21,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (9)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B22,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (10)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B23,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace Flower (11)": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B24,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    # Swamp Spider Flowers
+    "Swamp Spiderhouse Main Room Flowers (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694203F2710,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Swamp Spiderhouse Main Room Flowers (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694203F2711,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Swamp Spiderhouse Main Room Flower (3)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694203F2712,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Swamp Spiderhouse Giant Pot Room Flower (1)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694203F2740,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    # Requires Sonata 
+    "Swamp Spiderhouse Giant Pot Room Flower (2)": MMRLocationData(
+        region="Swamp Spider House",
+        address=0x34694203F2741,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    #Heading to Woodfall
+    "Southern Swamp Path To Woodfall Flower (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4510,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Path To Woodfall Flower (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4511,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Path To Woodfall Flower (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4512,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Path To Woodfall Flower (4)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4513,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Path To Woodfall Flower (5)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4514,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Path To Woodfall Flower (6)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F4515,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (1)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4600,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (2)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4601,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (3)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4602,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (4)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4603,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (5)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4604,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (6)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4605,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (7)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4606,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (8)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4607,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Flower (9)": MMRLocationData(
+        region="Woodfall",
+        address=0x34694203F4608,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    # Woodfall Temple Flowers
+    "Woodfall Temple Entrance Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B20,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Entrance Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B21,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Entrance Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B22,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Entrance Flower (4)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B23,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Main Room Flower": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B10,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Elevator Room Flower": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B50,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Elevator Room Upper Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B51,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Elevator Room Upper Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B52,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Snapping Turtle Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B60,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Snapping Turtle Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B61,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Snapping Turtle Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B62,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Snapping Turtle Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B62,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Gekko Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B80,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Gekko Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B81,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Gekko Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B82,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Gekko Flower (4)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B83,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Gekko Flower (5)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B84,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Dinolfos Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B70,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Dinolfos Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B71,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple 2F Moving Platform Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1BA0,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple 2F Moving Platform Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1BA1,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple 2F Moving Platform Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1BA2,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple 2F Moving Platform Flower (4)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1BA3,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Dragonfly Room Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B40,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Dragonfly Room Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B41,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Dragonfly Room Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B42,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (4)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (5)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B04,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (6)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B05,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (7)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B06,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (8)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B07,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (9)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B08,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Pre Boss Room Flower (10)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1B09,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Woodfall Temple Odolwa Golden Flower": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694203F1F00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Goron Village Business Scrub Flower": MMRLocationData(
+        region="Goron Village",
+        address=0x34694203F4D00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Goron Village Business Scrub Flower": MMRLocationData(
+        region="Goron Village",
+        address=0x34694203F4D00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Snowhead Temple Frozen Green Door Flower (1)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694203F2150,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Snowhead Temple Frozen Green Door Flower (2)": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694203F2151,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Snowhead Temple Main Room Wall Chest Flower": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694203F2140,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Snowhead Temple Main Room Wall Chest Flower": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694203F2140,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Snowhead Temple Flower Outside Goht": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694203F2141,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Zora Cape Lower Wall Flower Near Beavers": MMRLocationData(
+        region="Zora Cape",
+        address=0x34694203F2141,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Zora Hall Business Scrub Flower": MMRLocationData(
+        region="Zora Hall",
+        address=0x34694203F4C20,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Canyon Business Scrub Flower (1)": MMRLocationData(
+        region="Lower Ikana Canyon",
+        address=0x34694203F1340,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Canyon Business Scrub Flower (2)": MMRLocationData(
+        region="Lower Ikana Canyon",
+        address=0x34694203F1341,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Falling Ceiling Room Flower (1)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D20,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Falling Ceiling Room Flower (2)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D21,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Falling Ceiling Room Flower (3)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D22,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Falling Ceiling Room Flower (4)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D23,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Falling Ceiling Room Flower (5)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D24,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Broken Floor Room Flower (1)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D40,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Broken Floor Room Flower (2)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D41,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Left Side Broken Floor Room Flower (3)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D42,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Exterior Flower (1)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Exterior Flower (2)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Exterior Flower (3)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Ikana Castle Exterior Flower (4)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x34694203F1D03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Stone Tower Temple Deku Updraft Flower": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x34694203F1690,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1830,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Stone Tower Temple Inverted Eastern Air Gust Room Flower (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1831,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Inverted Stone Tower Temple Small Poe Room Flower (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1820,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Inverted Stone Tower Temple Small Poe Room Flower (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1821,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Inverted Stone Tower Temple Lower Bridge Room Flower (1)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1810,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Inverted Stone Tower Temple Lower Bridge Room Flower (2)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1811,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Inverted Stone Tower Temple Lower Bridge Room Flower (3)": MMRLocationData(
+        region="Stone Tower Temple (Inverted)",
+        address=0x34694203F1812,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (1)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (2)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A01,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (3)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A02,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (4)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A03,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (5)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A04,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (6)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A05,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (7)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A06,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (8)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A07,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (9)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A08,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (10)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A09,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Deku Trial Flower (11)": MMRLocationData(
+        region="The Moon",
+        address=0x34694203F2A0A,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "The Moon Majora Flower": MMRLocationData(
+        region="The Moon",
+        address=0x3469420,
+        can_create=lambda options: options.flowersanity.value
+    ),
 
 }
 

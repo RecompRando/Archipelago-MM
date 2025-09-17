@@ -10488,6 +10488,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Twin Islands Day 1 Snowballs (14)":
             lambda state: True,
+        "Twin Islands Day 1 Snowballs (15)":
+            lambda state: True,
 
         # Twin Isles Snowballs Near Grotto
         "Twin Isles Snowballs Near Grotto (0)":
@@ -10537,6 +10539,8 @@ def get_location_rules(player, options):
         "Goron Village Snowballs (18)":
             lambda state: True,
         "Goron Village Snowballs (19)":
+            lambda state: True,
+        "Goron Village Snowballs (20)":
             lambda state: True,
 
         # Path to Snowhead Snowballs
@@ -10795,13 +10799,13 @@ def get_location_rules(player, options):
             lambda state: can_play_song("Epona's Song", state, player),
 
         # South West Rock Wall
-        "South West Rock Wall (0)":
+        "Termina Field South West Rock Wall (1)":
             lambda state: has_explosives(state, player),
-        "South West Rock Wall (1)":
+        "Termina Field South West Rock Wall (2)":
             lambda state: has_explosives(state, player),
-        "South West Rock Wall (2)":
+        "Termina Field South West Rock Wall (3)":
             lambda state: has_explosives(state, player),
-        "South West Rock Wall (3)":
+        "Termina Field South West Rock Wall (4)":
             lambda state: has_explosives(state, player),
 
         "Termina Field Boulder Over Bio Baba Grotto (0)":
@@ -10809,6 +10813,14 @@ def get_location_rules(player, options):
 
         "Termina Field Boulder Over Gossip Grotto (0)":
             lambda state: has_explosives(state, player),
+        # Deku Palace Goron Boulders 
+        "Deku Palace Guarded Boulder (1)":
+            lambda state: state.has("Goron Mask", player),
+        "Deku Palace Guarded Boulder (2)":
+            lambda state: state.has("Goron Mask", player),
+        "Deku Palace Guarded Boulder (3)":
+            lambda state: state.has("Goron Mask", player),
+
         # Swamp Spider Entry Rocks
         "Swamp Spider Entry Rocks (0)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),

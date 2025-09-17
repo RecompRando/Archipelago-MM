@@ -118,7 +118,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(8)
     
         if self.options.intro_checks.value:
-            self.create_and_add_filler_items(18)
+            self.create_and_add_filler_items(39)
 
         if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
@@ -127,13 +127,13 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Gold Rupee"))            
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1022)
+            self.create_and_add_filler_items(1028)  # 6 extra grass for gen balancing till frog/owl items
 
         if self.options.potsanity.value != 0:
             self.create_and_add_filler_items(538)
         
         if self.options.rocksanity.value != 0:
-            self.create_and_add_filler_items(126)
+            self.create_and_add_filler_items(129)
 
         if self.options.soilsanity.value != 0:
             self.create_and_add_filler_items(29)                          
@@ -148,7 +148,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(222)
 
         if self.options.snowsanity.value != 0:
-            self.create_and_add_filler_items(117)
+            self.create_and_add_filler_items(119)
 
         if self.options.woodsanity.value != 0:
             self.create_and_add_filler_items(128)
@@ -172,7 +172,10 @@ class MMRWorld(World):
             self.create_and_add_filler_items(4)       
 
         if self.options.treesanity.value != 0:
-            self.create_and_add_filler_items(87)                                                   
+            self.create_and_add_filler_items(89)
+
+        if self.options.flowersanity.value != 0:
+            self.create_and_add_filler_items(154)                                                   
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -495,6 +498,7 @@ class MMRWorld(World):
             "owlsanity": self.options.owlsanity.value,
             "frogsanity": self.options.frogsanity.value,
             "treesanity": self.options.treesanity.value,
+            "flowersanity": self.options.treesanity.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
