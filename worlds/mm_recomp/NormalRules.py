@@ -12884,9 +12884,15 @@ def get_location_rules(player, options):
         "Goron Village Business Scrub Flower":
             lambda state: state.has("Deku Mask", player),
         "Snowhead Temple Frozen Green Door Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Snowhead Temple Frozen Green Door Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Snowhead Temple Main Room Wall Chest Flower":
             lambda state: state.has("Deku Mask", player),
         "Snowhead Temple Flower Outside Goht":
@@ -12905,7 +12911,10 @@ def get_location_rules(player, options):
             ),
             #Great Bay Flowers
         "Zora Cape Lower Wall Flower Near Beavers":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Hookshot", player)
+            ), 
         "Zora Hall Business Scrub Flower":
             lambda state: state.has("Deku Mask", player),
             #Ikana Flowers
@@ -12914,31 +12923,71 @@ def get_location_rules(player, options):
         "Ikana Canyon Business Scrub Flower (2)":
             lambda state: state.has("Deku Mask", player),
         "Ikana Castle Left Side Falling Ceiling Room Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Falling Ceiling Room Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Falling Ceiling Room Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Falling Ceiling Room Flower (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Falling Ceiling Room Flower (5)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Broken Floor Room Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Broken Floor Room Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Left Side Broken Floor Room Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Exterior Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Exterior Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Exterior Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Ikana Castle Exterior Flower (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                can_use_fire_arrows(state, player)
+            ), 
         "Stone Tower Temple Deku Updraft Flower":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+               (state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player))
+            ),
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)":
             lambda state: state.has("Deku Mask", player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (2)":

@@ -38,7 +38,7 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Bomber's Notebook": MMRItemData(
         code=0x3469420000050,
-        type=ItemClassification.useful
+        type=ItemClassification.progression,
     ),
     "Moon's Tear": MMRItemData(
         code=0x3469420000096,

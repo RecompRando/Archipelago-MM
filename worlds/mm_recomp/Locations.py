@@ -16297,7 +16297,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Cape Lower Wall Flower Near Beavers": MMRLocationData(
         region="Zora Cape",
-        address=0x34694203F2141,
+        address=0x34694203F3800,
         can_create=lambda options: options.flowersanity.value
     ),
     "Zora Hall Business Scrub Flower": MMRLocationData(
