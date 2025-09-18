@@ -16270,11 +16270,6 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F4D00,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Goron Village Business Scrub Flower": MMRLocationData(
-        region="Goron Village",
-        address=0x34694203F4D00,
-        can_create=lambda options: options.flowersanity.value
-    ),
     "Snowhead Temple Frozen Green Door Flower (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x34694203F2150,
@@ -16475,11 +16470,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F2A0A,
         can_create=lambda options: options.flowersanity.value
     ),
-    "The Moon Majora Flower": MMRLocationData(
-        region="The Moon",
-        address=0x3469420,
-        can_create=lambda options: options.flowersanity.value
-    ),
+        # "The Moon Majora Flower": MMRLocationData(
+        #     region="The Moon",
+        #     address=0x3469420,
+        #     can_create=lambda options: options.flowersanity.value
+        # ),
 
 }
 

@@ -8314,28 +8314,28 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player)
             ),
         
-        # STONE TOWER TEMPLE POTS
+        # Stone Tower Temple Pots
         "Stone Tower Temple Entrance Pots (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Entrance Pots (2)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         
         "Stone Tower Temple Lower Basement Armos Pots (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (2)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (3)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (4)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (5)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (6)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (7)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Lower Basement Armos Pots (8)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         
         "Stone Tower Temple Right Side Near Locked Door Pots (1)":
             lambda state: (
@@ -8483,7 +8483,7 @@ def get_location_rules(player, options):
                 state.has("Goron Mask", player)
             ),
         
-        # INVERTED STONE TOWER POTS
+        # Inverted Stone Tower Pots
         "Inverted Stone Tower Bean Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
@@ -11503,9 +11503,9 @@ def get_location_rules(player, options):
         # Stone Tower Temple
 
         "Stone Tower Temple Entrance Room Crates (0)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Entrance Room Crates (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
 
         "Stone Tower Temple Mirror Room Crates (0)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
@@ -11516,11 +11516,11 @@ def get_location_rules(player, options):
                           (can_use_light_arrows(state, player) or
                            state.has("Mirror Shield", player)),
         "Stone Tower Temple Eyegore Room Crates (0)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Eyegore Room Crates (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
         "Stone Tower Temple Eyegore Room Crates (2)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player),
+            lambda state: True,
 
         "Stone Tower Temple Behind Bombable Wall Crates (0)":
             lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
@@ -12653,5 +12653,347 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
         "Zora Cape Nut Tree On Turtle Island (2)":
             lambda state: state.has("Hookshot", player),
+
+        #Flower Sanity
+# Flowersanity Logic
+        "Below Clock Town Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (9)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (10)":
+            lambda state: state.has("Deku Mask", player),
+        "Below Clock Town Flower (11)":
+            lambda state: state.has("Deku Mask", player),
+        "South Clock Town Business Scrub Flower":
+            lambda state: state.has("Deku Mask", player),
+        "East Clock Town Flower":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "North Clock Town Deku Playground Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Termina Field Flower Near Observatory":
+            lambda state: state.has("Deku Mask", player),
+        "Termina Field Flower Near Skullkid Drawing":
+            lambda state: state.has("Deku Mask", player),
+        "Termina Field Flower Near Stump":
+            lambda state: state.has("Deku Mask", player),
+        "Termina Field Flower Near Giant Log":
+            lambda state: state.has("Deku Mask", player),
+        # Road To Swamp Flowers
+        "Road To Southern Swamp Flowers (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (7)":
+            lambda state: state.has("Deku Mask", player),
+        "Road To Southern Swamp Flowers (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Business Scrub Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Day 1/3 (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Day 1/3 (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Any Day (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Any Day (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Day 2 (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Woods Of Mystery Flower Day 2 (2)":
+            lambda state: state.has("Deku Mask", player),
+        # Deku Palace Flowers
+        "Deku Palace Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (9)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (10)":
+            lambda state: state.has("Deku Mask", player),
+        "Deku Palace Flower (11)":
+            lambda state: state.has("Deku Mask", player),
+        # Swamp Spider Flowers
+        "Swamp Spiderhouse Main Room Flowers (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Swamp Spiderhouse Main Room Flowers (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Swamp Spiderhouse Main Room Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Swamp Spiderhouse Giant Pot Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        # Requires Sonata 
+        "Swamp Spiderhouse Giant Pot Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        # Heading to Woodfall
+        "Southern Swamp Path To Woodfall Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Path To Woodfall Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Path To Woodfall Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Path To Woodfall Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Path To Woodfall Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Southern Swamp Path To Woodfall Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Flower (9)":
+            lambda state: state.has("Deku Mask", player),
+        # Woodfall Temple Flowers
+        "Woodfall Temple Entrance Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Entrance Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Entrance Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Entrance Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Main Room Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Elevator Room Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Elevator Room Upper Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Elevator Room Upper Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Snapping Turtle Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Snapping Turtle Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Snapping Turtle Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Gekko Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Gekko Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Gekko Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Gekko Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Gekko Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Dinolfos Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Dinolfos Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple 2F Moving Platform Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple 2F Moving Platform Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple 2F Moving Platform Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple 2F Moving Platform Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Dragonfly Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Dragonfly Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Dragonfly Room Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (9)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Pre Boss Room Flower (10)":
+            lambda state: state.has("Deku Mask", player),
+        "Woodfall Temple Odolwa Golden Flower":
+            lambda state: state.has("Deku Mask", player),
+            #Snowhead Flowers
+        "Goron Village Business Scrub Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Snowhead Temple Frozen Green Door Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Snowhead Temple Frozen Green Door Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Snowhead Temple Main Room Wall Chest Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Snowhead Temple Flower Outside Goht":
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                (can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 3) or 
+                    (
+                        can_use_fire_arrows(state, player) and
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        state.has("Hookshot", player) and 
+                        can_reach_scarecrow(state, player))
+                    )
+                )
+            ),
+            #Great Bay Flowers
+        "Zora Cape Lower Wall Flower Near Beavers":
+            lambda state: state.has("Deku Mask", player),
+        "Zora Hall Business Scrub Flower":
+            lambda state: state.has("Deku Mask", player),
+            #Ikana Flowers
+        "Ikana Canyon Business Scrub Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Canyon Business Scrub Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Falling Ceiling Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Falling Ceiling Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Falling Ceiling Room Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Falling Ceiling Room Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Falling Ceiling Room Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Broken Floor Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Broken Floor Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Left Side Broken Floor Room Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Exterior Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Exterior Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Exterior Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "Ikana Castle Exterior Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "Stone Tower Temple Deku Updraft Flower":
+            lambda state: state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "Stone Tower Temple Inverted Eastern Air Gust Room Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "Inverted Stone Tower Temple Small Poe Room Flower (1)":
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
+            ),
+        "Inverted Stone Tower Temple Small Poe Room Flower (2)":
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
+            ),
+        "Inverted Stone Tower Temple Lower Bridge Room Flower (1)":
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
+            ),
+        "Inverted Stone Tower Temple Lower Bridge Room Flower (2)":
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
+            ),
+        "Inverted Stone Tower Temple Lower Bridge Room Flower (3)":
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
+            ),
+        "The Moon Deku Trial Flower (1)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (2)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (3)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (4)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (5)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (6)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (7)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (8)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (9)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (10)":
+            lambda state: state.has("Deku Mask", player),
+        "The Moon Deku Trial Flower (11)":
+            lambda state: state.has("Deku Mask", player),
     }
 
