@@ -12638,7 +12638,7 @@ def get_location_rules(player, options):
         "Great Bay Coast Fisherman Island Nut Tree (1)":
             lambda state: state.has("Hookshot", player),
 
-        # Zora Cape Nut Trees - Requires access to the region and possibly Zora Mask for some
+        # Zora Cape Nut Trees 
         "Zora Cape Nut Tree Near Jars (1)":
             lambda state: True,
         "Zora Cape Nut Tree Near Jars (2)":
@@ -12655,7 +12655,6 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
 
         #Flower Sanity
-# Flowersanity Logic
         "Below Clock Town Flower (1)":
             lambda state: state.has("Deku Mask", player),
         "Below Clock Town Flower (2)":
@@ -12679,7 +12678,10 @@ def get_location_rules(player, options):
         "Below Clock Town Flower (11)":
             lambda state: state.has("Deku Mask", player),
         "South Clock Town Business Scrub Flower":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Land Title Deed", player)
+            ),
         "East Clock Town Flower":
             lambda state: state.has("Deku Mask", player),
         "North Clock Town Flower (1)":
@@ -12728,7 +12730,10 @@ def get_location_rules(player, options):
         "Road To Southern Swamp Flowers (8)":
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp Business Scrub Flower":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Land Title Deed", player)
+            ), 
         "Southern Swamp Woods Of Mystery Flower Day 1/3 (1)":
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp Woods Of Mystery Flower Day 1/3 (2)":
@@ -12831,55 +12836,161 @@ def get_location_rules(player, options):
         "Woodfall Temple Snapping Turtle Flower (3)":
             lambda state: state.has("Deku Mask", player),
         "Woodfall Temple Gekko Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player)
+            ),
         "Woodfall Temple Gekko Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player)
+            ),
         "Woodfall Temple Gekko Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player)
+            ),
         "Woodfall Temple Gekko Flower (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player)
+            ),
         "Woodfall Temple Gekko Flower (5)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player)
+            ),
         "Woodfall Temple Dinolfos Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Dinolfos Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple 2F Moving Platform Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple 2F Moving Platform Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple 2F Moving Platform Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple 2F Moving Platform Flower (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Dragonfly Room Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Dragonfly Room Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Dragonfly Room Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (5)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (6)":
-            lambda state: state.has("Deku Mask", player),
+                  lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (7)":
-            lambda state: state.has("Deku Mask", player),
+             lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (8)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (9)":
-            lambda state: state.has("Deku Mask", player),
+             lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Pre Boss Room Flower (10)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
         "Woodfall Temple Odolwa Golden Flower":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                state.has("Progressive Bow", player) and
+                (state.has("Small Key (Woodfall)", player, 1) or
+                state.has("Hookshot", player))
+            ),
             #Snowhead Flowers
         "Goron Village Business Scrub Flower":
             lambda state: state.has("Deku Mask", player),
@@ -12916,12 +13027,25 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player)
             ), 
         "Zora Hall Business Scrub Flower":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Zora Mask", player) and 
+                state.has("Goron Mask", player) and
+                state.has("Mountain Title Deed", player)
+            ), 
             #Ikana Flowers
         "Ikana Canyon Business Scrub Flower (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Zora Mask", player) and 
+                state.has("Ocean Title Deed", player)
+            ), 
         "Ikana Canyon Business Scrub Flower (2)":
-            lambda state: state.has("Deku Mask", player),
+                        lambda state: (
+                state.has("Deku Mask", player) and 
+                state.has("Zora Mask", player) and 
+                state.has("Ocean Title Deed", player)
+            ), 
         "Ikana Castle Left Side Falling Ceiling Room Flower (1)":
             lambda state: (
                 state.has("Deku Mask", player) and 
