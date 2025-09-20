@@ -21,7 +21,7 @@ class MMRWebWorld(WebWorld):
         language="English",
         file_name="guide_en.md",
         link="guide/en",
-        authors=["LittleCube"]
+        authors=["LittleCube", "ThatHypedPerson", "PixelShake92", "Muervo_"]
     )
     
     tutorials = [setup_en]
