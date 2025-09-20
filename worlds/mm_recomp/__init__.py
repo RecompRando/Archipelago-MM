@@ -127,7 +127,7 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Gold Rupee"))            
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1028)  # 6 extra grass for gen balancing till frog/owl items
+            self.create_and_add_filler_items(1020) 
 
         if self.options.potsanity.value != 0:
             self.create_and_add_filler_items(538)
@@ -175,7 +175,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(89)
 
         if self.options.flowersanity.value != 0:
-            self.create_and_add_filler_items(154)                                                   
+            self.create_and_add_filler_items(155)                                                   
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
