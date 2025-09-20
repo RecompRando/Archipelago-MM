@@ -278,7 +278,7 @@ class Treesanity(Toggle):
     """Choose whether the trees and bushes drop shuffled items."""
     display_name = "Treesanity"       
 
-class Floweranity(Toggle):
+class Flowersanity(Toggle):
     """Choose whether the Deku Flowers give shuffled items when entered."""
     display_name = "Flowersanity" 
 
