@@ -15709,57 +15709,57 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),   
     #Flowersanity
    
-    "Below Clock Town Flower (1)": MMRLocationData(
+    "Before Clock Town Flower (1)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A10,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (2)": MMRLocationData(
+    "Before Clock Town Flower (2)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A11,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (3)": MMRLocationData(
+    "Before Clock Town Flower (3)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A12,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (4)": MMRLocationData(
+    "Before Clock Town Flower (4)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A13,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (5)": MMRLocationData(
+    "Before Clock Town Flower (5)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A14,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (6)": MMRLocationData(
+    "Before Clock Town Flower (6)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A15,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (7)": MMRLocationData(
+    "Before Clock Town Flower (7)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A00,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (8)": MMRLocationData(
+    "Before Clock Town Flower (8)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A01,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (9)": MMRLocationData(
+    "Before Clock Town Flower (9)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A02,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (10)": MMRLocationData(
+    "Before Clock Town Flower (10)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A03,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Below Clock Town Flower (11)": MMRLocationData(
+    "Before Clock Town Flower (11)": MMRLocationData(
         region="Clock Town",
         address=0x34694203F1A04,
         can_create=lambda options: options.flowersanity.value

@@ -2519,92 +2519,74 @@ def get_location_rules(player, options):
             # Grass Location Rules
         "Before Clock Town Keaton Grass (1)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),         
         "Before Clock Town Keaton Grass (2)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (3)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (4)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (5)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (6)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (7)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (8)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ), 
         "Before Clock Town Keaton Grass (9)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),        
         "Before Clock Town Skullkid Keaton Grass (1)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (2)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (3)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),  
         "Before Clock Town Skullkid Keaton Grass (4)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (5)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (6)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),  
         "Before Clock Town Skullkid Keaton Grass (7)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (8)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (9)":
             lambda state: (
-                    state.has("Hookshot", player) or 
                     state.has("Deku Mask", player)
             ),                                                
 
@@ -12655,27 +12637,27 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
 
         #Flower Sanity
-        "Below Clock Town Flower (1)":
+        "Before Clock Town Flower (1)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (2)":
+        "Before Clock Town Flower (2)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (3)":
+        "Before Clock Town Flower (3)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (4)":
+        "Before Clock Town Flower (4)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (5)":
+        "Before Clock Town Flower (5)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (6)":
+        "Before Clock Town Flower (6)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (7)":
+        "Before Clock Town Flower (7)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (8)":
+        "Before Clock Town Flower (8)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (9)":
+        "Before Clock Town Flower (9)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (10)":
+        "Before Clock Town Flower (10)":
             lambda state: state.has("Deku Mask", player),
-        "Below Clock Town Flower (11)":
+        "Before Clock Town Flower (11)":
             lambda state: state.has("Deku Mask", player),
         "South Clock Town Business Scrub Flower":
             lambda state: (
