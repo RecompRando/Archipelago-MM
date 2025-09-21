@@ -6041,6 +6041,19 @@ def get_location_rules(player, options):
                 state.can_reach("Woodfall Temple", 'Region', player) and 
                 state.has("Progressive Bow", player)
             ),
+        #Southern  Swamp Post Dungeon Pots
+        "Southern Swamp Post Dungeon Witch Pot (1)":
+            lambda state: (
+        can_clear_woodfall(state, player)
+            ),
+        "Southern Swamp Post Dungeon Witch Pot (2)":
+            lambda state: (
+        can_clear_woodfall(state, player)
+            ),
+        "Southern Swamp Post Dungeon Witch Pot (3)":
+            lambda state: (
+        can_clear_woodfall(state, player)
+            ),
         # Mountain Village Pots
         
         "Mountain Village Pots (1)":
@@ -13095,6 +13108,16 @@ def get_location_rules(player, options):
                 state.has("Progressive Bow", player) and
                 (state.has("Small Key (Woodfall)", player, 1) or
                 state.has("Hookshot", player))
+            ),
+        "Southern Swamp Post Dungeon Flower (1)":
+            lambda state: (
+                can_clear_woodfall(state, player) and
+                state.has("Deku Mask", player) 
+            ),
+        "Southern Swamp Post Dungeon Flower (2)":
+            lambda state: (
+                can_clear_woodfall(state, player) and
+                state.has("Deku Mask", player) 
             ),
             #Snowhead Flowers
         "Goron Village Business Scrub Flower":

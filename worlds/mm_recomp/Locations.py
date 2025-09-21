@@ -7722,7 +7722,21 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420201B00,
         can_create=lambda options: options.potsanity.value
     ),
-    
+    "Southern Swamp Post Dungeon Witch Pot (1)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420200020,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Southern Swamp Post Dungeon Witch Pot (2)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420200021,
+        can_create=lambda options: options.potsanity.value
+    ),
+    "Southern Swamp Post Dungeon Witch Pot (3)": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420200022,
+        can_create=lambda options: options.potsanity.value
+    ),
     # Mountain Village Pots
     
     "Mountain Village Pots (1)": MMRLocationData(
@@ -16263,6 +16277,16 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Woodfall Temple Odolwa Golden Flower": MMRLocationData(
         region="Woodfall Temple",
         address=0x34694203F1F00,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Post Dungeon Flower (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F0010,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Southern Swamp Post Dungeon Flower (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F0011,
         can_create=lambda options: options.flowersanity.value
     ),
     "Goron Village Business Scrub Flower": MMRLocationData(

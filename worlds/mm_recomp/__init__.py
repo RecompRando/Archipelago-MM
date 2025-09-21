@@ -130,7 +130,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(1022) 
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(538)
+            self.create_and_add_filler_items(541)
         
         if self.options.rocksanity.value != 0:
             self.create_and_add_filler_items(129)
@@ -175,7 +175,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(89)
 
         if self.options.flowersanity.value != 0:
-            self.create_and_add_filler_items(155)                                                   
+            self.create_and_add_filler_items(154)                                                   
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
