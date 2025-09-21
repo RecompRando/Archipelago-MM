@@ -118,7 +118,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(8)
     
         if self.options.intro_checks.value:
-            self.create_and_add_filler_items(39)
+            self.create_and_add_filler_items(50)
 
         if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
@@ -127,7 +127,7 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Gold Rupee"))            
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1020) 
+            self.create_and_add_filler_items(1022) 
 
         if self.options.potsanity.value != 0:
             self.create_and_add_filler_items(538)

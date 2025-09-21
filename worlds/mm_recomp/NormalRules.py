@@ -2588,8 +2588,131 @@ def get_location_rules(player, options):
         "Before Clock Town Skullkid Keaton Grass (9)":
             lambda state: (
                     state.has("Deku Mask", player)
-            ),                                                
-
+            ),
+        "Lost Woods Grass (1)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (2)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (3)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (4)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (5)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (6)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (7)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (8)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (9)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass (10)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (1)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (2)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (3)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (4)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (5)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (6)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (7)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (8)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (9)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (10)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (11)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Grass Patch 2 (12)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (1)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (2)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (3)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (4)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (5)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (6)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (7)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (8)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),
+        "Lost Woods Keaton Grass (9)":
+            lambda state: (
+                state.has("Deku Mask", player)
+            ),                                                 
         "Laundry Pool Grass (1)":
             lambda state: True,
         "Laundry Pool Grass (2)":
