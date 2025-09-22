@@ -529,20 +529,14 @@ item_data_table: Dict[str, MMRItemData] = {
     ), 
     "Bombchu (1)": MMRItemData(
         code=0x3469420000036,
-        type=ItemClassification.progression,
+        type=ItemClassification.filler,
         num_exist=4,
         can_create=lambda options: False
     ),
     "Bombchu (5)": MMRItemData(
         code=0x346942000003A,
-        type=ItemClassification.progression,
+        type=ItemClassification.filler,
         num_exist=2,
-        can_create=lambda options: False
-    ),
-    "Bombchu (10)": MMRItemData(
-        code=0x346942000001A,
-        type=ItemClassification.progression,
-        num_exist=5,
         can_create=lambda options: False
     ),
     "Blue Rupee": MMRItemData(
@@ -575,6 +569,82 @@ item_data_table: Dict[str, MMRItemData] = {
     "Victory": MMRItemData(
         type=ItemClassification.progression,
         can_create=lambda options: False
+    ),
+    "Bombchu (10)": MMRItemData(
+        code=0x346942000001A,
+        type=ItemClassification.filler,
+        num_exist=5,
+        can_create=lambda options: False
+    ),
+    "Clock Town Owl Statue": MMRItemData(
+        code=0x3469420FF1504,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Milk Road Owl Statue": MMRItemData(
+        code=0x3469420FF1505,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Southern Swamp Owl Statue": MMRItemData(
+        code=0x3469420FF1507,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Woodfall Owl Statue": MMRItemData(
+        code=0x3469420FF1506,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Mountain Village Owl Statue": MMRItemData(
+        code=0x3469420FF1503,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Snowhead Owl Statue": MMRItemData(
+        code=0x3469420FF1502,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Great Bay Coast Owl Statue": MMRItemData(
+        code=0x3469420FF1500,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Zora Cape Owl Statue": MMRItemData(
+        code=0x3469420FF1501,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Ikana Canyon Owl Statue": MMRItemData(
+        code=0x3469420FF1508,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "Stone Tower Owl Statue": MMRItemData(
+        code=0x3469420FF1509,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.owlsanity.value
+    ),
+    "White Frog": MMRItemData(
+        code=0x3469420FF0004,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.frogsanity.value
+    ),
+    "Cyan Frog": MMRItemData(
+        code=0x3469420FF0003,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.frogsanity.value
+    ),
+    "Blue Frog": MMRItemData(
+        code=0x3469420FF0001,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.frogsanity.value
+    ),
+    "Pink Frog": MMRItemData(
+        code=0x3469420FF0002,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.frogsanity.value
     ),
 }
 

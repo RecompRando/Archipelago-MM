@@ -118,13 +118,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(8)
     
         if self.options.intro_checks.value:
-            self.create_and_add_filler_items(50)
-
-        if self.options.curiostity_shop_trades.value:
-            mw.itempool.append(self.create_item("Blue Rupee"))
-            mw.itempool.append(self.create_item("Red Rupee"))
-            mw.itempool.append(self.create_item("Purple Rupee"))
-            mw.itempool.append(self.create_item("Gold Rupee"))            
+            self.create_and_add_filler_items(50)     
         
         if self.options.grasssanity.value != 0:
             self.create_and_add_filler_items(1022) 
@@ -163,13 +157,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(17)
         
         if self.options.notebooksanity.value != 0:
-            self.create_and_add_filler_items(55)
-
-        if self.options.owlsanity.value != 0:
-            self.create_and_add_filler_items(11)
-        
-        if self.options.frogsanity.value != 0:
-            self.create_and_add_filler_items(4)       
+            self.create_and_add_filler_items(55)  
 
         if self.options.treesanity.value != 0:
             self.create_and_add_filler_items(89)
@@ -493,7 +481,7 @@ class MMRWorld(World):
             "woodsanity": self.options.woodsanity.value,
             "realfairysanity": self.options.realfairysanity.value,
             "iciclesanity":  self.options.iciclesanity.value,
-            "hivesanity": self.options.realfairysanity.value,
+            "hivesanity": self.options.hivesanity.value,
             "notebooksanity": self.options.notebooksanity.value,
             "owlsanity": self.options.owlsanity.value,
             "frogsanity": self.options.frogsanity.value,
