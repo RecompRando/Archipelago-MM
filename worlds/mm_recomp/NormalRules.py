@@ -171,6 +171,7 @@ def mask_total(state, player):
 
 def has_all_frogs(state, player):
     return (
+        state.has("Yellow Frog", player) and
         state.has("White Frog", player) and
         state.has("Cyan Frog", player) and
         state.has("Blue Frog", player) and
@@ -1221,13 +1222,17 @@ def get_location_rules(player, options):
                 state.has("Don Gero Mask", player) and 
                 can_clear_snowhead(state, player) and 
                 (
-                    (not options.frogsanity.value and
-                    state.can_reach("Woodfall Temple Gekko Chest", 'Location', player) and 
-                    state.can_reach("Great Bay Temple", 'Region', player) and 
-                    can_use_ice_arrows(state, player) and 
-                    can_use_fire_arrows(state, player)) or
-                    (options.frogsanity.value and
-                    has_all_frogs(state, player))
+                    (
+                        not options.frogsanity.value and
+                        state.can_reach("Woodfall Temple Gekko Chest", 'Location', player) and 
+                        state.can_reach("Great Bay Temple", 'Region', player) and 
+                        can_use_ice_arrows(state, player) and 
+                        can_use_fire_arrows(state, player)
+                    ) or
+                    (
+                        options.frogsanity.value and
+                        has_all_frogs(state, player)
+                    )
                 )
             ),
         "Mountain Village Smithy Upgrade":

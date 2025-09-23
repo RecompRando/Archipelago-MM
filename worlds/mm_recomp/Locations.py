@@ -15254,26 +15254,26 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     #Frogs
-    # "Laundry Pool Frog": MMRLocationData(
-    #     region="Clock Town",
-    #     address=0x3469420FF0004,
-    #     can_create=lambda options: options.frogsanity.value
-    # ), 
-    # "Southern Swamp Frog": MMRLocationData(
-    #     region="Southern Swamp",
-    #     address=0x3469420FF0003,
-    #     can_create=lambda options: options.frogsanity.value
-    # ),
-    # "Woodfall Temple Miniboss Frog": MMRLocationData(
-    #     region="Woodfall Temple",
-    #     address=0x3469420FF0001,
-    #     can_create=lambda options: options.frogsanity.value
-    # ),    
-    # "Great Bay Temple Miniboss Frog": MMRLocationData(
-    #     region="Great Bay Temple",
-    #     address=0x3469420FF0002,
-    #     can_create=lambda options: options.frogsanity.value
-    # ),  
+    "Laundry Pool Frog": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420FF0004,
+        can_create=lambda options: options.frogsanity.value
+    ), 
+    "Southern Swamp Frog": MMRLocationData(
+        region="Southern Swamp",
+        address=0x3469420FF0003,
+        can_create=lambda options: options.frogsanity.value
+    ),
+    "Woodfall Temple Miniboss Frog": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x3469420FF0001,
+        can_create=lambda options: options.frogsanity.value
+    ),    
+    "Great Bay Temple Miniboss Frog": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420FF0002,
+        can_create=lambda options: options.frogsanity.value
+    ),  
 
     # Treesanity Locations
     "North Clock Town Tree (1)": MMRLocationData(

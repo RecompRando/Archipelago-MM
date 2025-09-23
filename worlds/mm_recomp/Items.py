@@ -626,6 +626,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.owlsanity.value
     ),
+    "Yellow Frog": MMRItemData(
+        code=0x3469420FF0000,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.frogsanity.value
+    ),
     "White Frog": MMRItemData(
         code=0x3469420FF0004,
         type=ItemClassification.progression,
