@@ -539,6 +539,12 @@ item_data_table: Dict[str, MMRItemData] = {
         num_exist=2,
         can_create=lambda options: False
     ),
+    "Bombchu (10)": MMRItemData(
+        code=0x346942000001A,
+        type=ItemClassification.filler,
+        num_exist=5,
+        can_create=lambda options: False
+    ),
     "Blue Rupee": MMRItemData(
         code=0x3469420000002,
         type=ItemClassification.filler,
@@ -568,12 +574,6 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Victory": MMRItemData(
         type=ItemClassification.progression,
-        can_create=lambda options: False
-    ),
-    "Bombchu (10)": MMRItemData(
-        code=0x346942000001A,
-        type=ItemClassification.filler,
-        num_exist=5,
         can_create=lambda options: False
     ),
     "Clock Town Owl Statue": MMRItemData(
