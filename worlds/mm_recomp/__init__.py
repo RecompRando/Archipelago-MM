@@ -353,7 +353,7 @@ class MMRWorld(World):
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
 
         try:
-            ocarina_location = mw.get_location("Link's Inventory (Ocarina of Time)", player)
+            ocarina_location = mw.get_location("Top of Clock Tower (Ocarina of Time))", player)
             if self.options.ocarinaless.value:
                 ocarina_location.item_rule = lambda item: item.name != "Ocarina of Time"
             else:
@@ -362,7 +362,7 @@ class MMRWorld(World):
             pass
 
         try:
-            song_of_time_location = mw.get_location("Link's Inventory (Song of Time)", player)
+            song_of_time_location = mw.get_location("Top of Clock Tower (Song of Time)", player)
             if self.options.timeless.value:
                 song_of_time_location.item_rule = lambda item: item.name != "Song of Time"
             else:
