@@ -231,7 +231,8 @@ def get_region_rules(player, options):
                 state.has("Progressive Bow", player) or
                 (
                     options.owlsanity.value and
-                    state.has("Mountain Village Owl Statue", player)
+                    state.has("Mountain Village Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Path to Mountain Village -> Mountain Village":
@@ -241,7 +242,8 @@ def get_region_rules(player, options):
                 can_use_fire_arrows(state, player) or
                 (
                     options.owlsanity.value and
-                    state.has("Mountain Village Owl Statue", player)
+                    state.has("Mountain Village Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Mountain Village -> Termina Field":
@@ -260,7 +262,8 @@ def get_region_rules(player, options):
                     state.has("Progressive Magic", player)
                 ) or (
                     options.owlsanity.value and
-                    state.has("Snowhead Owl Statue", player)
+                    state.has("Snowhead Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Path to Snowhead -> Mountain Village":
@@ -284,8 +287,9 @@ def get_region_rules(player, options):
                 (
                     options.owlsanity.value and
                     (
-                        state.has("Great Bay Coast Owl Statue", player) or
-                        state.has("Zora Cape Owl Statue", player)
+                        (state.has("Great Bay Coast Owl Statue", player) or
+                        state.has("Zora Cape Owl Statue", player) and
+                        can_play_song("Song of Soaring", state, player))
                     )
                 )
             ),
@@ -330,7 +334,8 @@ def get_region_rules(player, options):
                 can_play_song("Epona's Song", state, player) or
                 (
                     options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player)
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Road to Ikana -> Lower Ikana Canyon":
@@ -347,7 +352,8 @@ def get_region_rules(player, options):
                 ) or
                 (
                     options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player)
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Lower Ikana Canyon -> Secret Shrine":
@@ -355,7 +361,8 @@ def get_region_rules(player, options):
                 can_use_light_arrows(state, player) or
                 (
                     options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player)
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Lower Ikana Canyon -> Upper Ikana Canyon":
@@ -367,8 +374,9 @@ def get_region_rules(player, options):
                 (
                     options.owlsanity.value and
                     (
-                        state.has("Ikana Canyon Owl Statue", player) or
-                        state.has("Stone Tower Owl Statue", player)
+                        (state.has("Ikana Canyon Owl Statue", player) or
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player))
                     )
                 )
             ),
@@ -393,7 +401,10 @@ def get_region_rules(player, options):
                 can_use_ice_arrows(state, player) and 
                 can_play_song("Elegy of Emptiness", state, player) and 
                 state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)
+                state.has("Zora Mask", player) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player) and 
+                can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
@@ -7777,37 +7788,37 @@ def get_location_rules(player, options):
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (2)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (3)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (4)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (5)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (6)":
             lambda state: (
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
 
         "Sakons Hideout Pots (1)":
