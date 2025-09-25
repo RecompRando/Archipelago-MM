@@ -145,7 +145,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(119)
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(128)
+            self.create_and_add_filler_items(130)
                                  
         if self.options.realfairysanity.value != 0:
             self.create_and_add_filler_items(91)

@@ -925,6 +925,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Southern Swamp Witch Shop Item 1":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Mask of Scents", player) and 
                 has_bottle(state, player) and 
                 can_purchase(state, player, SHOP_ID_WITCH_POTION_1)
@@ -935,51 +936,77 @@ def get_location_rules(player, options):
             lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_3),
 
         "Swamp Spider House First Room Pot Near Entrance Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House First Room Crawling In Water Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House First Room Crawling Right Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House First Room Crawling Left Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House First Room Against Far Wall Token":
             lambda state: (
                 (
+                    has_soul_misc(state, player, options, "Gold Skulltulas") and
                     can_bring_to_player(state, player) and 
                     has_projectiles(state, player)
                 ) or 
                 (
+                    has_soul_misc(state, player, options, "Gold Skulltulas") and
                     state.has("Deku Mask", player) and 
                     state.has("Progressive Magic", player)
                 ) or 
                 (
+                    has_soul_misc(state, player, options, "Gold Skulltulas") and
                     state.has("Deku Mask", player) and 
                     state.has("Progressive Bow", player)
                 )
             ),
         "Swamp Spider House First Room Lower Left Bugpatch Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House First Room Lower Right Bugpatch Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House First Room Upper Right Bugpatch Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House Monument Room Left Crate Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House Monument Room Right Crate Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House Monument Room Crawling Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_bring_to_player(state, player) or 
                 (
+                    has_soul_misc(state, player, options, "Gold Skulltulas") and
                     can_smack(state, player) and 
                     can_plant_beans(state, player) and 
                     (
@@ -990,65 +1017,106 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House Monument Room Crawling On Monument Token":
             lambda state: (
-                can_smack(state, player) and 
-                can_bring_to_player(state, player) and 
-                has_projectiles(state, player)
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
             ),
         "Swamp Spider House Monument Room Behind Torch Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player),
+            ),
         "Swamp Spider House Pottery Room Beehive #1 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_projectiles(state, player)
             ),
         "Swamp Spider House Pottery Room Beehive #2 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_projectiles(state, player)
             ),
         "Swamp Spider House Pottery Room Small Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Pottery Room Left Large Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Pottery Room Right Large Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Pottery Room Behind Vines Token":
             lambda state: (
+                (has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Progressive Sword", player) or 
                 state.has("Great Fairy Sword", player) or 
-                state.has("Fierce Deity's Mask", player)
+                state.has("Fierce Deity's Mask", player))
             ),
         "Swamp Spider House Pottery Room Upper Wall Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Golden Room Crawling Left Wall Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Golden Room Crawling Right Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Golden Room Against Far Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 (
-                    can_bring_to_player(state, player) or 
-                    can_plant_beans(state, player)
+                    (can_bring_to_player(state, player) or 
+                    can_plant_beans(state, player))
                 )
             ),
         "Swamp Spider House Golden Room Beehive Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_projectiles(state, player)
             ),
         "Swamp Spider House Tree Room Tall Grass #1 Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Tree Room Tall Grass #2 Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Tree Room Tree #1 Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Tree Room Tree #2 Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Tree Room Tree #3 Token":
-            lambda state: can_smack(state, player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                can_smack(state, player)
+            ),
         "Swamp Spider House Tree Room Beehive Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player) and 
                 has_projectiles(state, player)
             ),
@@ -1766,147 +1834,184 @@ def get_location_rules(player, options):
             lambda state: can_clear_greatbay(state, player),
         
         "Ocean Spider House Ramp Upper Token":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                has_explosives(state, player) and
+                state.has("Hookshot", player),
+            ), 
         "Ocean Spider House Ramp Lower Token":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                has_explosives(state, player) and
+                state.has("Hookshot", player),
+            ), 
         "Ocean Spider House Lobby Ceiling Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and 
+                has_explosives(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Ocean Spider House First Room Rafter Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Open Pot #1 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Open Pot #2 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Top Bookcase Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Passage Behind Bookcase Front Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Passage Behind Bookcase Rear Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Painting #1 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Painting #2 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Rafter Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Library Bookshelf Hole Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Downstairs Rafter Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Downstairs Open Pot Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Downstairs Behind Staircase Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Downstairs Crate Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House First Room Downstairs Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Open Pot Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Painting Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Ceiling Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Chandelier #1 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Chandelier #2 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Dining Room Chandelier #3 Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Storage Room Web Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and 
                 can_use_fire_arrows(state, player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Storage Room North Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Storage Room Crate Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Storage Room Hidden Hole Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Storage Room Ceiling Pot Token":
              lambda state: (
+                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
