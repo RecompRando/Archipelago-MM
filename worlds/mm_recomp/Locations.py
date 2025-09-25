@@ -29,11 +29,11 @@ prices_ints = []
 location_data_table: Dict[str, MMRLocationData] = {
     "Link's Inventory (Ocarina of Time)": MMRLocationData(
         region="Clock Town",
-        address=0x346942000004C
+        address=0x34694200D004C
     ),
     "Link's Inventory (Song of Time)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420040067
+        address=0x34694200D0067
     ),    
     "Link's Inventory (Kokiri Sword)": MMRLocationData(
         region="Clock Town",
@@ -10994,12 +10994,6 @@ location_data_table: Dict[str, MMRLocationData] = {
     #     address=0x346942015B2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
-    "Termina Field Observatory Hidden Guay Rupee (0)": MMRLocationData(
-        region="Clock Town",
-        address=0x3469420177000,
-        can_create=lambda options: options.rupeesanity.value
-    ),
-
     # Laundry Pool Night 2 Rupees
     "Laundry Pool Night 2 Rupees (0)": MMRLocationData(
         region="Clock Town",
@@ -11035,14 +11029,14 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420172DE2,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Observatory Secret Guay Rupee (0)": MMRLocationData(
-        region="Termina Field",
-        address=0x3469420172DD2,
-        can_create=lambda options: options.rupeesanity.value
-    ),
     "Observatory Secret Guay Rupee (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420172DD3,
+        address=0x3469420172DC2,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Observatory Secret Guay Rupee (2)": MMRLocationData(
+        region="Termina Field",
+        address=0x3469420172DC3,
         can_create=lambda options: options.rupeesanity.value
     ),    
     # Termina Field Song Guay Rupees
@@ -13619,7 +13613,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Goron Village Keg Goron Crate
     "Goron Village Keg Goron Crate (1)": MMRLocationData(
         region="Goron Village",
-        address=0x3469420254D10,
+        address=0x3469420274D10,
         can_create=lambda options: options.woodsanity.value
     ),
     "Ocean Spiderhouse Basement Crate (1)": MMRLocationData(
@@ -13665,74 +13659,82 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.woodsanity.value
     ),                      
     # Pirates' Fortress Sewers Barrels/Crates
-    "Pirates' Fortress Sewers Barrel (0)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B0,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (2)": MMRLocationData(
         region="Pirates' Fortress Sewers", 
         address=0x34694202223B1,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B2,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (3)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (4)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B3,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (4)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (5)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B4,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (5)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (6)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B5,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (6)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (7)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B6,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (7)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (8)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B7,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (8)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (9)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B8,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (9)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (10)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223B9,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (10)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (11)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BA,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (11)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (12)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BB,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (12)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (13)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BC,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates' Fortress Sewers Barrel (13)": MMRLocationData(
+    "Pirates' Fortress Sewers Barrel (14)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BD,
+    ),
+    "Pirates' Fortress Sewers Barrel (15)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x34694202223BE,
+    ),
+    "Pirates' Fortress Sewers Barrel (16)": MMRLocationData(
+        region="Pirates' Fortress Sewers",
+        address=0x34694202223BF,
     ),
     "Pirates' Fortress Sewers Exit Barrel (0)": MMRLocationData(
         region="Pirates' Fortress Sewers",
@@ -14315,7 +14317,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (4)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420234942,
+        address=0x3469420234944,
         can_create=lambda options: options.iciclesanity.value
     ),           
     "Goron Trial Icicles (0)": MMRLocationData(
@@ -14758,7 +14760,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Termina Field Cow Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420BFADA1,
+        address=0x3469420BFADA2,
         can_create=lambda options: options.realfairysanity.value
     ),                
     "Termina Field Bombable Rock Grotto Butterfly Fairy (0)": MMRLocationData(
@@ -15924,6 +15926,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F6450,
         can_create=lambda options: options.flowersanity.value
     ),
+    "Southern Swamp Woods Of Mystery Flower Any Day (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F6451,
+        can_create=lambda options: options.flowersanity.value
+    ),
     "Southern Swamp Woods Of Mystery Flower Day 2 (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x34694203F6470,
@@ -15988,6 +15995,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Deku Palace Flower (11)": MMRLocationData(
         region="Deku Palace",
         address=0x34694203F2B24,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Deku Palace To Swamp Flower": MMRLocationData(
+        region="Deku Palace",
+        address=0x34694203F2B00,
         can_create=lambda options: options.flowersanity.value
     ),
     # Swamp Spider Flowers

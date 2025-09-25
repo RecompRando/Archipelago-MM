@@ -352,34 +352,21 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
 
-        try:
-            ocarina_location = mw.get_location("Top of Clock Tower (Ocarina of Time))", player)
-            if self.options.ocarinaless.value:
-                ocarina_location.item_rule = lambda item: item.name != "Ocarina of Time"
-            else:
-                ocarina_location.place_locked_item(self.create_item("Ocarina of Time"))
-        except KeyError:
-            pass
+      
+        if not self.options.ocarinaless.value:
+            ocarina_location = mw.get_location("Link's Inventory (Ocarina of Time)", player)
+            ocarina_location.place_locked_item(self.create_item("Ocarina of Time"))
 
-        try:
-            song_of_time_location = mw.get_location("Top of Clock Tower (Song of Time)", player)
-            if self.options.timeless.value:
-                song_of_time_location.item_rule = lambda item: item.name != "Song of Time"
-            else:
-                song_of_time_location.place_locked_item(self.create_item("Song of Time"))
-        except KeyError:
-            pass
+        if not self.options.timeless.value:
+            song_of_time_location = mw.get_location("Link's Inventory (Song of Time)", player)
+            song_of_time_location.place_locked_item(self.create_item("Song of Time"))
 
-        sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
-        if self.options.swordless.value:
-            sword_location.item_rule = lambda item: item.name != "Progressive Sword"
-        else:
+        if not self.options.swordless.value:
+            sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
             sword_location.place_locked_item(self.create_item("Progressive Sword"))
 
-        shield_location = mw.get_location("Link's Inventory (Hero's Shield)", player)
-        if self.options.shieldless.value:
-            shield_location.item_rule = lambda item: item.name != "Progressive Shield"
-        else:
+        if not self.options.shieldless.value:
+            shield_location = mw.get_location("Link's Inventory (Hero's Shield)", player)
             shield_location.place_locked_item(self.create_item("Progressive Shield"))
 
         shp = self.options.starting_hearts.value

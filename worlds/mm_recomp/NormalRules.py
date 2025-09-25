@@ -9597,9 +9597,9 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Termina Field", 'Region', player),
 
         # Observatory Guay
-        "Observatory Secret Guay Rupee (0)":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
         "Observatory Secret Guay Rupee (1)":
+            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+        "Observatory Secret Guay Rupee (2)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),            
 
         # Termina Field Song Guay Rupees
@@ -11451,8 +11451,6 @@ def get_location_rules(player, options):
 
         # Pirate Fortress Sewers Barrels/Crates
 
-        "Pirates' Fortress Sewers Barrel (0)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
         "Pirates' Fortress Sewers Barrel (1)":
             lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
         "Pirates' Fortress Sewers Barrel (2)":
@@ -11476,6 +11474,14 @@ def get_location_rules(player, options):
         "Pirates' Fortress Sewers Barrel (11)":
             lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
         "Pirates' Fortress Sewers Barrel (12)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (13)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (14)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (15)":
+            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+        "Pirates' Fortress Sewers Barrel (16)":
             lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
 
         # Pirates' Fortress Interior Crates
