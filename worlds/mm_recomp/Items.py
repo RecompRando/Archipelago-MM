@@ -651,6 +651,31 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.frogsanity.value
     ),
+    "Odolwa's Soul": MMRItemData(
+        code=0x34694200B0129,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.boss_souls.value
+    ),
+    "Goht's Soul": MMRItemData(
+        code=0x34694200B01DD,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.boss_souls.value
+    ),
+    "Gyorg's Soul": MMRItemData(
+        code=0x34694200B012B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.boss_souls.value
+    ),
+    "Twinmold's Soul": MMRItemData(
+        code=0x34694200B012A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.boss_souls.value
+    ),
+    "Majora's Soul": MMRItemData(
+        code=0x34694200B012F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.boss_souls.value
+    ),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

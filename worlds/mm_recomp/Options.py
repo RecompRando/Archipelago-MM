@@ -282,6 +282,12 @@ class Flowersanity(Toggle):
     """Choose whether the Deku Flowers give shuffled items when entered."""
     display_name = "Flowersanity" 
 
+class BossSouls(Toggle):
+    """Add souls for the main bosses in the game. They will not spawn unless their soul is obtained.
+    
+    This includes Odolwa, Goht, Gyorg, Twinmold, and Majora."""
+    display_name = "Add Boss Souls"
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -387,6 +393,7 @@ class MMROptions(PerGameCommonOptions):
     frogsanity: Frogsanity
     treesanity: Treesanity
     flowersanity: Flowersanity
+    boss_souls: BossSouls
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime

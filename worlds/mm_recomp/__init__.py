@@ -163,7 +163,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(89)
 
         if self.options.flowersanity.value != 0:
-            self.create_and_add_filler_items(154)                                                   
+            self.create_and_add_filler_items(154)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -272,7 +272,7 @@ class MMRWorld(World):
             self.place("Snowhead Temple Icicle Room Snowball Chest", "Small Key (Snowhead)")
             self.place("Snowhead Temple Bridge Room Freezard Chest", "Small Key (Snowhead)")
 
-            self.place("Great Bay Temple Caged Chest Room Underwater Chest", "Small Key (Great Bay)")
+            self.place("Great Bay Temple Before Gekko Room Underwater Chest", "Small Key (Great Bay)")
 
             self.place("Stone Tower Temple Armos Room Lava Chest", "Small Key (Stone Tower)")
             self.place("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest", "Small Key (Stone Tower)")
@@ -486,7 +486,8 @@ class MMRWorld(World):
             "owlsanity": self.options.owlsanity.value,
             "frogsanity": self.options.frogsanity.value,
             "treesanity": self.options.treesanity.value,
-            "flowersanity": self.options.treesanity.value,
+            "flowersanity": self.options.flowersanity.value,
+            "boss_souls": self.options.boss_souls.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,

@@ -178,6 +178,11 @@ def has_all_frogs(state, player):
         state.has("Pink Frog", player)
     )
 
+def has_soul_boss(state, player, options, item_name):
+    if not options.boss_souls.value:
+        return True
+    return state.has(item_name, player)
+
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
@@ -1180,6 +1185,7 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Heart Container":
             lambda state: (
+                has_soul_boss(state, player, options, "Odolwa's Soul") and
                 can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
@@ -1192,6 +1198,7 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Odolwa's Remains":
             lambda state: (
+                has_soul_boss(state, player, options, "Odolwa's Soul") and
                 can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
@@ -1604,6 +1611,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Heart Container":
             lambda state: (
+                has_soul_boss(state, player, options, "Goht's Soul") and
                 can_use_fire_arrows(state, player) and 
                 (
                     (
@@ -1618,6 +1626,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Goht's Remains":
             lambda state: (
+                has_soul_boss(state, player, options, "Goht's Soul") and
                 can_use_fire_arrows(state, player) and 
                 (
                     (
@@ -2098,6 +2107,7 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
             lambda state: (
+                has_soul_boss(state, player, options, "Gyorg's Soul") and
                 state.has("Hookshot", player) and 
                 (
                     (
@@ -2112,6 +2122,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg's Remains":
             lambda state: (
+                has_soul_boss(state, player, options, "Gyorg's Soul") and
                 state.has("Hookshot", player) and 
                 (
                     (
@@ -2486,6 +2497,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Inverted Heart Container":
             lambda state: (
+                has_soul_boss(state, player, options, "Twinmold's Soul") and
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
@@ -2506,6 +2518,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: (
+                has_soul_boss(state, player, options, "Twinmold's Soul") and
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
@@ -2597,6 +2610,7 @@ def get_location_rules(player, options):
             ),
         "Defeat Majora":
             lambda state: (
+                has_soul_boss(state, player, options, "Majora's Soul") and
                 can_smack_hard(state, player) and 
                 (
                     (
