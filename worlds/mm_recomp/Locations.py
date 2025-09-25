@@ -15288,6 +15288,26 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202D6E01,
         can_create=lambda options: options.treesanity.value
     ),
+    "West Clock Town Trading Post Bush (1)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202C343F,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "West Clock Town Trading Post Bush (2)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202C348C,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "West Clock Town Trading Post Bush (3)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202C34CA,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "West Clock Town Trading Post Bush (4)": MMRLocationData(
+        region="Clock Town",
+        address=0x34694202C34E8,
+        can_create=lambda options: options.treesanity.value
+    ),
     "Termina Field Tree Near Observatory (1)": MMRLocationData(
         region="Termina Field",
         address=0x34694202C2DED,

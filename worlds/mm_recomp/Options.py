@@ -296,7 +296,7 @@ class BossSouls(Choice):
 class MiscSouls(Toggle):
     """Add souls for Cows, Gold Skulltulas, and Keaton.
     They will not spawn unless their soul is obtained."""
-    display_name = "Add Boss Souls"
+    display_name = "Add Misc Souls"
 
 
 class StartWithConsumables(DefaultOnToggle):
