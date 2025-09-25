@@ -488,6 +488,7 @@ class MMRWorld(World):
             "treesanity": self.options.treesanity.value,
             "flowersanity": self.options.flowersanity.value,
             "boss_souls": self.options.boss_souls.value,
+            "misc_souls": self.options.misc_souls.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,

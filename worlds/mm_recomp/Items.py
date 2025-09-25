@@ -651,30 +651,45 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.frogsanity.value
     ),
-    "Odolwa's Soul": MMRItemData(
+    "Soul of Odolwa": MMRItemData(
         code=0x34694200B0129,
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value
     ),
-    "Goht's Soul": MMRItemData(
+    "Soul of Goht": MMRItemData(
         code=0x34694200B01DD,
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value
     ),
-    "Gyorg's Soul": MMRItemData(
+    "Soul of Gyorg": MMRItemData(
         code=0x34694200B012B,
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value
     ),
-    "Twinmold's Soul": MMRItemData(
+    "Soul of Twinmold": MMRItemData(
         code=0x34694200B012A,
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value
     ),
-    "Majora's Soul": MMRItemData(
+    "Soul of Majora": MMRItemData(
         code=0x34694200B012F,
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value == 2
+    ),
+    "Soul of Cows": MMRItemData(
+        code=0x34694200A00F3,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.misc_souls.value
+    ),
+    "Soul of Keaton": MMRItemData(
+        code=0x34694200A028C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.misc_souls.value
+    ),
+    "Soul of Gold Skulltulas": MMRItemData(
+        code=0x34694200A0050,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.misc_souls.value
     ),
 }
 

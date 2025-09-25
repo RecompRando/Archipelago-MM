@@ -57,21 +57,32 @@ def has_paper(state, player):
             state.has("Letter to Kafei", player) or 
             state.has("Priority Mail", player))
 
-def can_get_cow_milk(state, player):
-    return (has_bottle(state, player) and 
-            can_play_song("Epona's Song", state, player) and 
-            (has_explosives(state, player) or 
-             can_use_powder_keg(state, player) or 
-             state.has("Hookshot", player) or 
-             (state.has("Gibdo Mask", player) and 
-              has_bottle(state, player) and 
-              can_plant_beans(state, player) and 
-              state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
-              can_use_light_arrows(state, player) and 
-              (state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
-               (state.has("Goron Mask", player) and 
-                state.can_reach("Mountain Village Healing Darmani", 'Location', player)) or 
-               state.can_reach("Ikana Well Invisible Chest", 'Location', player)))))
+def can_get_cow_milk(state, player, options):
+    return (
+        has_soul_misc(state, player, options, "Cow") and
+        has_bottle(state, player) and 
+        can_play_song("Epona's Song", state, player) and 
+        (
+            has_explosives(state, player) or
+            can_use_powder_keg(state, player) or 
+            state.has("Hookshot", player) or 
+            (
+                state.has("Gibdo Mask", player) and 
+                has_bottle(state, player) and 
+                can_plant_beans(state, player) and 
+                state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
+                can_use_light_arrows(state, player) and 
+                (
+                    state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
+                    (
+                        state.has("Goron Mask", player) and 
+                        state.can_reach("Mountain Village Healing Darmani", 'Location', player)
+                    ) or 
+                    state.can_reach("Ikana Well Invisible Chest", 'Location', player)
+                )
+            )
+        )
+    )
 
 def has_bottle(state, player, need_count=1):
     bottle_count = 0
@@ -178,12 +189,17 @@ def has_all_frogs(state, player):
         state.has("Pink Frog", player)
     )
 
-def has_soul_boss(state, player, options, item_name):
+def has_soul_boss(state, player, options, soul_name):
     if not options.boss_souls.value:
         return True
-    if options.boss_souls.value != 2 and item_name == "Majora's Soul":
+    if options.boss_souls.value != 2 and soul_name == "Majora":
         return True
-    return state.has(item_name, player)
+    return state.has("Soul of " + soul_name, player)
+
+def has_soul_misc(state, player, options, soul_name):
+    if not options.misc_souls.value:
+        return True
+    return state.has("Soul of " + soul_name, player)
 
 def get_region_rules(player, options):
     return {
@@ -468,7 +484,7 @@ def get_location_rules(player, options):
             lambda state: True,
         
         "Keaton Quiz":
-            lambda state: state.has("Keaton Mask", player),
+            lambda state: state.has("Keaton Mask", player) and has_soul_misc(state, player, options, "Keaton"),
         "Clock Town Postbox":
             lambda state: state.has("Postman's Hat", player),
         "Top of Clock Tower (Ocarina of Time)":
@@ -675,7 +691,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     state.has("Mask of Scents", player) or 
-                    can_get_cow_milk(state, player)
+                    can_get_cow_milk(state, player, options)
                 )
             ),
         "Curiosity Shop Red Rupee Trade":
@@ -821,11 +837,13 @@ def get_location_rules(player, options):
             ),
         "Termina Log Bombable Grotto Left Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 has_explosives(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Termina Log Bombable Grotto Right Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 has_explosives(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -1187,7 +1205,7 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Heart Container":
             lambda state: (
-                has_soul_boss(state, player, options, "Odolwa's Soul") and
+                has_soul_boss(state, player, options, "Odolwa") and
                 can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
@@ -1200,7 +1218,7 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Odolwa's Remains":
             lambda state: (
-                has_soul_boss(state, player, options, "Odolwa's Soul") and
+                has_soul_boss(state, player, options, "Odolwa") and
                 can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
@@ -1613,7 +1631,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Heart Container":
             lambda state: (
-                has_soul_boss(state, player, options, "Goht's Soul") and
+                has_soul_boss(state, player, options, "Goht") and
                 can_use_fire_arrows(state, player) and 
                 (
                     (
@@ -1628,7 +1646,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Goht's Remains":
             lambda state: (
-                has_soul_boss(state, player, options, "Goht's Soul") and
+                has_soul_boss(state, player, options, "Goht") and
                 can_use_fire_arrows(state, player) and 
                 (
                     (
@@ -1669,16 +1687,19 @@ def get_location_rules(player, options):
             ),
         "Romani Ranch Barn Free Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Front Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Back Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -1703,11 +1724,13 @@ def get_location_rules(player, options):
             lambda state: True,   
         "Great Bay Ledge Grotto Left Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 state.has("Hookshot", player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Great Bay Ledge Grotto Right Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 state.has("Hookshot", player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -2109,7 +2132,7 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player),
         "Great Bay Temple Heart Container":
             lambda state: (
-                has_soul_boss(state, player, options, "Gyorg's Soul") and
+                has_soul_boss(state, player, options, "Gyorg") and
                 state.has("Hookshot", player) and 
                 (
                     (
@@ -2124,7 +2147,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg's Remains":
             lambda state: (
-                has_soul_boss(state, player, options, "Gyorg's Soul") and
+                has_soul_boss(state, player, options, "Gyorg") and
                 state.has("Hookshot", player) and 
                 (
                     (
@@ -2302,6 +2325,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Well Cow":
             lambda state: (
+                has_soul_misc(state, player, options, "Cow") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -2499,7 +2523,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Inverted Heart Container":
             lambda state: (
-                has_soul_boss(state, player, options, "Twinmold's Soul") and
+                has_soul_boss(state, player, options, "Twinmold") and
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
@@ -2520,7 +2544,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: (
-                has_soul_boss(state, player, options, "Twinmold's Soul") and
+                has_soul_boss(state, player, options, "Twinmold") and
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
@@ -2612,7 +2636,7 @@ def get_location_rules(player, options):
             ),
         "Defeat Majora":
             lambda state: (
-                has_soul_boss(state, player, options, "Majora's Soul") and
+                has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player) and 
                 (
                     (

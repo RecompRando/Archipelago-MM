@@ -283,7 +283,8 @@ class Flowersanity(Toggle):
     display_name = "Flowersanity" 
 
 class BossSouls(Choice):
-    """Add souls for the main bosses in the game. They will not spawn unless their soul is obtained.
+    """Add souls for the main bosses in the game.
+    They will not spawn unless their soul is obtained.
     
     This includes Odolwa, Goht, Gyorg, Twinmold, and optionally Majora."""
     display_name = "Add Boss Souls"
@@ -291,6 +292,11 @@ class BossSouls(Choice):
     option_true = 1
     option_true_include_majora = 2
     default = 0
+
+class MiscSouls(Toggle):
+    """Add souls for Cows, Gold Skulltulas, and Keaton.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add Boss Souls"
 
 
 class StartWithConsumables(DefaultOnToggle):
@@ -398,6 +404,7 @@ class MMROptions(PerGameCommonOptions):
     treesanity: Treesanity
     flowersanity: Flowersanity
     boss_souls: BossSouls
+    misc_souls: MiscSouls
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
