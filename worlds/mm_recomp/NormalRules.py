@@ -201,6 +201,16 @@ def has_soul_misc(state, player, options, soul_name):
         return True
     return state.has("Soul of " + soul_name, player)
 
+def has_soul_npc(state, player, options, soul_name):
+    if not options.npc_souls.value:
+        return True
+    return state.has("Soul of " + soul_name, player)
+
+def has_soul_enemy(state, player, options, soul_name):
+    if not options.enemy_souls.value:
+        return True
+    return state.has("Soul of " + soul_name, player)
+
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":

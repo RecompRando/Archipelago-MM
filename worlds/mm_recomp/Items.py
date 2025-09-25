@@ -651,6 +651,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.frogsanity.value
     ),
+    #Souls
     "Soul of Odolwa": MMRItemData(
         code=0x34694200B0129,
         type=ItemClassification.progression,
@@ -691,6 +692,160 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.misc_souls.value
     ),
+    #NPC souls
+    "Soul of Anju": MMRItemData(
+        code=0x34694200C0001,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Anjus Mother": MMRItemData(
+        code=0x34694200C0002,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Kafei": MMRItemData(
+        code=0x34694200C0003,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Toilet Hand": MMRItemData(
+        code=0x34694200C0004,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Gorman": MMRItemData(
+        code=0x34694200C0005,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Rosa Sisters": MMRItemData(
+        code=0x34694200C0006,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Guru-Guru": MMRItemData(
+        code=0x34694200C0007,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Honey and Darling": MMRItemData(
+        code=0x34694200C0008,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Treasure Game Lady": MMRItemData(
+        code=0x34694200C0009,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Toto": MMRItemData(
+        code=0x34694200C000A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Milk Barman": MMRItemData(
+        code=0x34694200C000B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Madame Aroma": MMRItemData(
+        code=0x34694200C000C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Mayor Dotour": MMRItemData(
+        code=0x34694200C000D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Bomber Kids": MMRItemData(
+        code=0x34694200C000E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Tingle": MMRItemData(
+        code=0x34694200C000F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Bomb Granny": MMRItemData(
+        code=0x34694200C0010,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Sakon": MMRItemData(
+        code=0x34694200C0011,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Clock Town Fairy": MMRItemData(
+        code=0x34694200C0012,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Deku Playground Guides": MMRItemData(
+        code=0x34694200C0013,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Postman": MMRItemData(
+        code=0x34694200C0014,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Sword Master": MMRItemData(
+        code=0x34694200C0015,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Bomb Shop Owner": MMRItemData(
+        code=0x34694200C0016,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Trading Post Day Worker": MMRItemData(
+        code=0x34694200C0017,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Trading Post Night Worker": MMRItemData(
+        code=0x34694200C0018,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Scarecrow": MMRItemData(
+        code=0x34694200C0019,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Banker": MMRItemData(
+        code=0x34694200C001A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Curiosity Shop Man": MMRItemData(
+        code=0x34694200C001B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Happy Mask Salesman": MMRItemData(
+        code=0x34694200C001C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Kamaro": MMRItemData(
+        code=0x34694200C001D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Shooting Gallery Man": MMRItemData(
+        code=0x34694200C001E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+
+
+
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

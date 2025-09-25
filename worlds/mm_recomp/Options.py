@@ -298,6 +298,15 @@ class MiscSouls(Toggle):
     They will not spawn unless their soul is obtained."""
     display_name = "Add Misc Souls"
 
+class NPCSouls(Toggle):
+    """Add souls for npc characters such as Anju, Romani, Kamaro etc.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add NPC Souls"
+
+class EnemySouls(Toggle):
+    """Add souls for basic enemies such as wolfos, peahat etc.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add Enemy Souls"
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -405,6 +414,8 @@ class MMROptions(PerGameCommonOptions):
     flowersanity: Flowersanity
     boss_souls: BossSouls
     misc_souls: MiscSouls
+    npc_souls: NPCSouls
+    enemy_souls: EnemySouls
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
