@@ -674,7 +674,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Majora's Soul": MMRItemData(
         code=0x34694200B012F,
         type=ItemClassification.progression,
-        can_create=lambda options: options.boss_souls.value
+        can_create=lambda options: options.boss_souls.value == 2
     ),
 }
 

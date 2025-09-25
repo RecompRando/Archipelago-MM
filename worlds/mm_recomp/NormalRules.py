@@ -181,6 +181,8 @@ def has_all_frogs(state, player):
 def has_soul_boss(state, player, options, item_name):
     if not options.boss_souls.value:
         return True
+    if options.boss_souls.value != 2 and item_name == "Majora's Soul":
+        return True
     return state.has(item_name, player)
 
 def get_region_rules(player, options):

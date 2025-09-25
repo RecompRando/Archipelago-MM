@@ -282,11 +282,15 @@ class Flowersanity(Toggle):
     """Choose whether the Deku Flowers give shuffled items when entered."""
     display_name = "Flowersanity" 
 
-class BossSouls(Toggle):
+class BossSouls(Choice):
     """Add souls for the main bosses in the game. They will not spawn unless their soul is obtained.
     
-    This includes Odolwa, Goht, Gyorg, Twinmold, and Majora."""
+    This includes Odolwa, Goht, Gyorg, Twinmold, and optionally Majora."""
     display_name = "Add Boss Souls"
+    option_false = 0
+    option_true = 1
+    option_true_include_majora = 2
+    default = 0
 
 
 class StartWithConsumables(DefaultOnToggle):
