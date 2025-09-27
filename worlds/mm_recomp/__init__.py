@@ -477,6 +477,8 @@ class MMRWorld(World):
             "boss_souls": self.options.boss_souls.value,
             "misc_souls": self.options.misc_souls.value,
             "npc_souls": self.options.npc_souls.value,
+            "absurd_souls": self.options.absurd_souls.value,
+            "utility_souls": self.options.utility_souls.value,
             "enemy_souls": self.options.enemy_souls.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,

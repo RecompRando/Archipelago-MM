@@ -278,9 +278,11 @@ class Treesanity(Toggle):
     """Choose whether the trees and bushes drop shuffled items."""
     display_name = "Treesanity"       
 
+
 class Flowersanity(Toggle):
     """Choose whether the Deku Flowers give shuffled items when entered."""
     display_name = "Flowersanity" 
+
 
 class BossSouls(Choice):
     """Add souls for the main bosses in the game.
@@ -293,20 +295,37 @@ class BossSouls(Choice):
     option_true_include_majora = 2
     default = 0
 
+
 class MiscSouls(Toggle):
     """Add souls for Cows, Gold Skulltulas, and Keaton.
     They will not spawn unless their soul is obtained."""
     display_name = "Add Misc Souls"
+
 
 class NPCSouls(Toggle):
     """Add souls for npc characters such as Anju, Romani, Kamaro etc.
     They will not spawn unless their soul is obtained."""
     display_name = "Add NPC Souls"
 
+
+class AbsurdSouls(Toggle):
+    """Add souls for absurd things like rocks, songwall and grass etc.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add Absurd Souls"
+
+
+class UtilitySouls(Toggle):
+    """Add souls for absurd things like rocks, songwall and grass etc.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add Absurd Souls"
+
+
 class EnemySouls(Toggle):
     """Add souls for basic enemies such as wolfos, peahat etc.
     They will not spawn unless their soul is obtained."""
     display_name = "Add Enemy Souls"
+
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -415,6 +434,8 @@ class MMROptions(PerGameCommonOptions):
     boss_souls: BossSouls
     misc_souls: MiscSouls
     npc_souls: NPCSouls
+    absurd_souls: AbsurdSouls
+    utility_souls: UtilitySouls
     enemy_souls: EnemySouls
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
