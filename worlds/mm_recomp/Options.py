@@ -315,9 +315,9 @@ class AbsurdSouls(Toggle):
 
 
 class UtilitySouls(Toggle):
-    """Add souls for absurd things like rocks, songwall and grass etc.
+    """Add souls for Utility Items Like Scarecrow and Postboxes etc.
     They will not spawn unless their soul is obtained."""
-    display_name = "Add Absurd Souls"
+    display_name = "Add Utility Souls"
 
 
 class EnemySouls(Toggle):

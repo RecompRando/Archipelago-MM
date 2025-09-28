@@ -505,18 +505,27 @@ def get_location_rules(player, options):
          "North Clock Town Tree HP":
             lambda state: True,
         "North Clock Town Deku Playground Any Day":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
+                state.has("Deku Mask", player),
+            ),
         "North Clock Town Deku Playground All Days":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
+                state.has("Deku Mask", player),
+            ),
         "North Clock Town Save Old Lady":
             lambda state: (
+                (has_soul_npc(state, player, options, "Bomb Granny") and
+                has_soul_npc(state, player, options, "Sakon") and
                 state.has("Progressive Sword", player) or 
                 state.has("Great Fairy Sword", player) or 
                 state.has("Zora Mask", player) or 
-                state.has("Goron Mask", player)
+                state.has("Goron Mask", player))
             ),
         "North Clock Town Great Fairy Reward (Has Transformation Mask)":
             lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
                 state.has("Stray Fairy (Clock Town)", player) and 
                 (
                     state.has("Deku Mask", player) or 
@@ -525,18 +534,22 @@ def get_location_rules(player, options):
                 )
             ),
         "North Clock Town Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Clock Town)", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
+                state.has("Stray Fairy (Clock Town)", player),
+            ),
         "Clock Town Hide-and-Seek":
             lambda state: has_projectiles(state, player),
         "Tingle Clock Town Map Purchase":
             lambda state: (
+                (has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Clock Town", 'Region', player) or 
                     (
                         state.can_reach("Lower Ikana Canyon", 'Region', player) and 
                         can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player)
+                        state.has("Hookshot", player))
                     )
                 )
             ),
@@ -556,10 +569,15 @@ def get_location_rules(player, options):
                 )
             ),
         "Clock Tower Happy Mask Salesman #1":
-            lambda state: True,
+            lambda state: (
+                has_soul_npc(state, player, options, "Happy Mask Salesman") and
+                state.has("Ocarina of Time", player)
+            ),
         "Clock Tower Happy Mask Salesman #2":
-            lambda state: True,
-
+            lambda state: (
+                has_soul_npc(state, player, options, "Happy Mask Salesman") and
+                state.has("Ocarina of Time", player)
+            ),
         "Before Clock Town Chest":
             lambda state: (
                     state.has("Hookshot", player) or 
@@ -579,6 +597,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Bow", player),
         "East Clock Town Honey and Darling Any Day":
             lambda state: (
+                (has_soul_npc(state, player, options, "Honey & Darling") and
                 state.has("Progressive Bow", player) or 
                 (
                     state.has("Progressive Bomb Bag", player) or 
@@ -586,33 +605,47 @@ def get_location_rules(player, options):
                 ) or 
                 (
                     state.has("Deku Mask", player) and 
-                    state.has("Progressive Magic", player)
+                    state.has("Progressive Magic", player))
                 )
             ),
         "East Clock Town Honey and Darling All Days":
             lambda state: (
+                has_soul_npc(state, player, options, "Honey & Darling") and
                 state.has("Progressive Bow", player) and 
                 state.has("Progressive Bomb Bag", player) and 
                 has_bombchus(state, player)
             ),
         "East Clock Town Treasure Game Chest (Human)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Treasure Game Lady"),
         "East Clock Town Treasure Game Chest (Deku)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Treasure Game Lady") and
+                state.has("Deku Mask", player),
+            ),
         "East Clock Town Treasure Game Chest (Goron)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Treasure Game Lady") and
+                state.has("Goron Mask", player),
+            ),
         "East Clock Town Treasure Game Chest (Zora)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Treasure Game Lady") and
+                state.has("Zora Mask", player),
+            ),
         "Bomber's Hideout Chest":
             lambda state: (
                 state.can_reach("Clock Town Hide-and-Seek", 'Location', player) and 
                 has_explosives(state, player)
             ),
         "Bomber's Hideout Astral Observatory":
-            lambda state: has_projectiles(state, player) or
-                            state.has("Deku Mask", player),
+            lambda state: (
+                (has_soul_npc(state, player, options, "Astral Observatory Man") and
+                has_projectiles(state, player) or
+                state.has("Deku Mask", player)),
+            ),
         "Milk Bar Show":
             lambda state: (
+                has_soul_npc(state, player, options, "Toto") and
                 state.has("Romani Mask", player) and 
                 state.has("Deku Mask", player) and 
                 state.has("Goron Mask", player) and 
@@ -621,34 +654,52 @@ def get_location_rules(player, options):
             ),
         "Milk Bar Priority Mail to Aroma":
             lambda state: (
+                has_soul_npc(state, player, options, "Madame Aroma") and
                 state.has("Romani Mask", player) and 
                 state.has("Kafei's Mask", player) and 
                 state.has("Priority Mail", player)
             ),
         "East Clock Town Milk Bar Milk Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Barten") and
                 state.has("Romani Mask", player) and 
                 can_afford_price(state, player, 40)
             ),
         "East Clock Town Milk Bar Chateau Romani Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Barten") and
                 state.has("Romani Mask", player) and 
                 can_afford_price(state, player, 200)
             ),
         "West Clock Town Lottery Any Day":
-            lambda state: True,        
+            lambda state: has_soul_npc(state, player, options, "Lottery"),       
         "West Clock Town Swordsman Expert Course":
-            lambda state: state.has("Progressive Sword", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Postman") and
+                state.has("Progressive Sword", player),
+            ),
         "West Clock Town Postman Counting":
-            lambda state: state.has("Bunny Hood", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Postman") and
+                state.has("Bunny Hood", player),
+            ),
         "West Clock Town Dancing Sisters":
-            lambda state: state.has("Kamaro Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Rosa Sisters"),
+                state.has("Kamaro Mask", player)
+            ),
         "West Clock Town Bank 200 Rupees":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Banker"),
         "West Clock Town Bank 500 Rupees":
-            lambda state: state.has("Progressive Wallet", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Banker"),
+                state.has("Progressive Wallet", player),
+            ),
         "West Clock Town Bank 1000 Rupees":
-            lambda state: state.has("Progressive Wallet", player, 2),
+            lambda state: (
+                has_soul_npc(state, player, options, "Banker"),
+                state.has("Progressive Wallet", player, 2),
+            ),
         "West Clock Town Priority Mail to Postman":
             lambda state: state.has("Priority Mail", player),
         "Clock Town Trading Post Shop Item 1":
@@ -690,14 +741,19 @@ def get_location_rules(player, options):
         "Clock Town Bomb Shop Item 3":
             lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_3),
         "Clock Town Bomb Shop Powder Keg Goron":
-            lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Keg Selling Goron") and
+                state.has("Goron Mask", player) and state.has("Powder Keg", player),
+            ),
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: (
+                has_soul_npc(state, player, options, "Bomb Granny") and
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player) and 
                 can_purchase(state, player, SHOP_ID_BOMB_SHOP_3_UPGRADE)
             ),
         "Curiosity Shop Blue Rupee Trade":
             lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 has_bottle(state, player) and 
                 (
                     state.has("Mask of Scents", player) or 
@@ -705,14 +761,19 @@ def get_location_rules(player, options):
                 )
             ),
         "Curiosity Shop Red Rupee Trade":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                has_bottle(state, player),
+            ),
         "Curiosity Shop Purple Rupee Trade":
             lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 has_bottle(state, player) and 
                 state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player)
             ),
         "Curiosity Shop Gold Rupee Trade":
             lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 has_bottle(state, player) and 
                 (
                     (
@@ -731,16 +792,20 @@ def get_location_rules(player, options):
             ),
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and 
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player)
             ),
         "Curiosity Shop Night 3 Thief Stolen Item":
-            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
-
+        lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG)
+            ),
         "Stock Pot Inn Reservation":
-            lambda state: True,        
+            lambda state: has_soul_npc(state, player, options, "Anju"),        
         "Stock Pot Inn Midnight Meeting":
             lambda state: (
+                has_soul_npc(state, player, options, "Anju") and
                 state.has("Kafei's Mask", player) and 
                 (
                     state.has("Deku Mask", player) or 
@@ -752,13 +817,24 @@ def get_location_rules(player, options):
         "Stock Pot Inn Locked Room Chest":
             lambda state: state.has("Room Key", player),
         "Stock Pot Inn Midnight Toilet Hand":
-            lambda state: has_paper(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Toilet Hand") and
+                has_paper(state, player)
+            ),
         "Stock Pot Inn Granny Story #1":
-            lambda state: state.has("All-Night Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Anju's Grandmother") and
+                state.has("All-Night Mask", player),
+            ),
         "Stock Pot Inn Granny Story #2":
-            lambda state: state.has("All-Night Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Anju's Grandmother") and
+                state.has("All-Night Mask", player),
+            ),
         "Stock Pot Inn Anju and Kafei":
             lambda state: (
+                has_soul_npc(state, player, options, "Anju") and
+                has_soul_npc(state, player, options, "Kafei") and
                 state.has("Kafei's Mask", player) and 
                 can_play_song("Epona's Song", state, player) and 
                 state.has("Letter to Kafei", player) and 
@@ -771,13 +847,22 @@ def get_location_rules(player, options):
             ),
         
         "Laundry Pool Kafei's Request":
-            lambda state: state.has("Letter to Kafei", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Kafei") and
+                state.has("Letter to Kafei", player),
+            ),
         "Laundry Pool Curiosity Shop Salesman #1":
-            lambda state: state.has("Letter to Kafei", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                state.has("Letter to Kafei", player),
+            ),
         "Laundry Pool Curiosity Shop Salesman #2":
-            lambda state: state.has("Letter to Kafei", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                state.has("Letter to Kafei", player),
+            ),
         "Laundry Pool Musician":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Guru-Guru"),
         "Laundry Pool Stray Fairy (Clock Town)":
             lambda state: True,        
 
@@ -808,6 +893,7 @@ def get_location_rules(player, options):
             ),
         "Termina Healing Kamaro":
             lambda state: (
+                has_soul_npc(state, player, options, "Kamaro") and
                 state.has("Ocarina of Time", player) and 
                 state.has("Song of Healing", player)
             ),
