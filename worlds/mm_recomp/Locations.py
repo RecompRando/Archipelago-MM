@@ -11909,37 +11909,36 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420171686,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (0)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171690,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (1)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171691,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (2)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171692,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (3)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171693,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (4)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (5)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171694,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Stone Tower Deku Updraft (5)": MMRLocationData(
+    "Stone Tower Deku Updraft Rupees (6)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x3469420171695,
         can_create=lambda options: options.rupeesanity.value
     ),                           
-
     # Stone Tower Eyegore Room Light Block Rupees
     "Stone Tower Eyegore Room Light Block Rupees (0)": MMRLocationData(
         region="Stone Tower Temple",

@@ -280,7 +280,12 @@ def get_region_rules(player, options):
                 )
             ),
         "Mountain Village -> Termina Field":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                state.has("Progressive Bow", player) or
+                    options.owlsanity.value and
+                    state.has("Clock Town Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+            ),
         "Twin Islands -> Goron Racetrack":
             lambda state: (
                 state.has("Goron Mask", player) and 
@@ -327,7 +332,12 @@ def get_region_rules(player, options):
                 )
             ),
         "Great Bay -> Termina Field":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                    options.owlsanity.value and
+                    state.has("Clock Town Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+            ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
         "Great Bay -> Pirates' Fortress":
@@ -2173,7 +2183,10 @@ def get_location_rules(player, options):
         "Zora Cape Underwater Like-Like HP":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape Pot Game":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
+                state.has("Zora Mask", player),
+            ),
         "Zora Cape Deku Flower Chest":
             lambda state: state.has("Hookshot", player),
         "Zora Cape Scarecrow Chest":
@@ -10486,7 +10499,7 @@ def get_location_rules(player, options):
                 can_plant_beans(state, player))
             ),
 
-        # Stone Tower Bridge Room Rupees
+        # Stone Tower Rupees
         "Stone Tower Bridge Room Rupees (0)":
             lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
                 has_mirror_shield(state, player)
@@ -10530,10 +10543,65 @@ def get_location_rules(player, options):
                 can_use_light_arrows(state, player)
             ),
         "Stone Tower Bridge Room Rupees (7)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
+            lambda state: (
+                state.has("Stone Tower Temple Small Key", player, 2) and 
                 has_mirror_shield(state, player)
                 or 
                 can_use_light_arrows(state, player)
+            ),
+        "Stone Tower Deku Updraft Rupees (1)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
+            ),
+        "Stone Tower Deku Updraft Rupees (2)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
+            ),
+        "Stone Tower Deku Updraft Rupees (3)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
+            ),
+        "Stone Tower Deku Updraft Rupees (4)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
+            ),
+        "Stone Tower Deku Updraft Rupees (5)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
+            ),
+        "Stone Tower Deku Updraft Rupees (6)":
+            lambda state: (
+                state.has("Deku Mask", player) and
+                (state.has("Stone Tower Temple Small Key", player, 2) and
+                has_mirror_shield(state, player)
+                or 
+                state.has("Stone Tower Temple Small Key", player,) and
+                can_use_light_arrows(state, player))
             ),
         # Stone Tower Eyegore Room Light Block Rupees
         "Stone Tower Eyegore Room Light Block Rupees (0)":
@@ -10544,7 +10612,6 @@ def get_location_rules(player, options):
             lambda state: (
                 can_use_light_arrows(state, player)
             ),
-
         # Inverted Stone Tower Right Side Light Block Rupees
         "Inverted Stone Tower Right Side Light Block Rupees (0)":
             lambda state: True,

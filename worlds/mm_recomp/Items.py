@@ -693,7 +693,7 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.misc_souls.value
     ),
     "Soul of Butterflies": MMRItemData(
-        code=0x34694200C0015,
+        code=0x34694200A0015,
         type=ItemClassification.progression,
         can_create=lambda options: options.misc_souls.value
     ),
@@ -744,7 +744,7 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Toto": MMRItemData(
-        code=0x34694200C000A,
+        code=0x34694200C0234,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
@@ -763,11 +763,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.npc_souls.value
     ),
-    # "Soul of Mayor Dotour": MMRItemData(
-    #     code=0x34694200C000D,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
+    "Soul of Council": MMRItemData(
+        code=0x34694200C026F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Toto": MMRItemData(
         code=0x34694200C0234,
         type=ItemClassification.progression,
@@ -808,21 +808,16 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Sword Master": MMRItemData(
-        code=0x34694200C0015,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.npc_souls.value
-    ),
     # "Soul of Bomb Shop Owner": MMRItemData(
     #     code=0x34694200C0016,
     #     type=ItemClassification.progression,
     #     can_create=lambda options: options.npc_souls.value
     # ),
-    # "Soul of Trading Post Day Worker": MMRItemData(
-    #     code=0x34694200C0017,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
+    "Soul of Shop Owners": MMRItemData(
+        code=0x34694200C002A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     # "Soul of Trading Post Night Worker": MMRItemData(
     #     code=0x34694200C0018,
     #     type=ItemClassification.progression,
@@ -884,7 +879,7 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Inn Goron": MMRItemData(
-        code=0x34694200B0001,
+        code=0x34694200C0276,
         type=ItemClassification.filler,
         can_create=lambda options: options.npc_souls.value
     ),
