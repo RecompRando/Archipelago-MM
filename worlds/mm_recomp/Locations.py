@@ -1991,6 +1991,17 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420146517,
         can_create=lambda options: options.intro_checks.value
     ),
+    "Lost Woods Grass (11)": MMRLocationData(
+        region="Clock Town",
+        address=0x346942014651A,
+        can_create=lambda options: options.intro_checks.value
+    ),
+    "Lost Woods Grass (12)": MMRLocationData(
+        region="Clock Town",
+        address=0x346942014651B,
+        can_create=lambda options: options.intro_checks.value
+    ),
+
     "Lost Woods Grass Patch 2 (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146505,
@@ -7921,57 +7932,57 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Goron Shrine Pots
     
     "Goron Shrine Pots (1)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203204,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (2)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203203,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (3)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203207,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (4)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203202,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (5)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203200,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (6)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203205,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (7)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203201,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (8)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203206,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (9)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203210,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (10)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203211,
         can_create=lambda options: options.potsanity.value
     ),
     "Goron Shrine Pots (11)": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420203212,
         can_create=lambda options: options.potsanity.value
     ),
@@ -9293,7 +9304,11 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     
     # Ikana Castle
-    
+    "Ikana Castle Exterior Corner Pot": MMRLocationData(
+        region="Ikana Castle",
+        address=0x3469420201D00,
+        can_create=lambda options: options.potsanity.value
+    ),
     "Ikana Castle Frozen Eyes Room Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x3469420201D11,
@@ -13615,6 +13630,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420274D10,
         can_create=lambda options: options.woodsanity.value
     ),
+    "Goron Village Keg Goron Crate (Spring) (1)": MMRLocationData(
+        region="Goron Village",
+        address=0x3469420274810,
+        can_create=lambda options: options.woodsanity.value
+    ),
     "Ocean Spiderhouse Basement Crate (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x3469420272850,
@@ -14200,17 +14220,76 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.woodsanity.value
     ),
     # Scarecrow Items
-
+    "Mountain Village Rooftop Scarecrow": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420305000,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Mountain Village Spring Rooftop Scarecrow": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420305A00,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Path to Snowhead Scarecrow": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420305B00,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Path to Snowhead Spring Scarecrow": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x3469420305C00,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     "Twin Islands Scarecrow": MMRLocationData(
         region="Twin Islands",
         address=0x3469420305D00,
-        can_create=lambda options: options.woodsanity.value
+        can_create=lambda options: options.scarecrowsanity.value
     ),
     "Twin Islands (Spring) Scarecrow": MMRLocationData(
         region="Twin Islands",
         address=0x3469420305E00,
-        can_create=lambda options: options.woodsanity.value
-    ),         
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Snowhead Temple Lower Scarecrow": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420302140,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Snowhead Temple Hidden Alcove Scarecrow": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x3469420302141,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),        
+    "Great Bay Coast Rock Wall Scarecrow": MMRLocationData(
+        region="Great Bay",
+        address=0x3469420303700,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),    
+    "Zora Cape Beavers Scarecrow": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420303800,
+        can_create=lambda options: options.scarecrowsanity.value
+    ), 
+    "Zora Cape Island Scarecrow": MMRLocationData(
+        region="Zora Cape",
+        address=0x3469420303801,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Road to Ikana Scarecrow": MMRLocationData(
+        region="Road to Ikana",
+        address=0x3469420305300,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Stone Tower Lower Scarecrow": MMRLocationData(
+        region="Stone Tower",
+        address=0x3469420305800,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Stone Tower Upper Scarecrow": MMRLocationData(
+        region="Stone Tower",
+        address=0x3469420305801,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     # Icicles
     #Snowhead Temple
     "Snowhead Temple Entry Block Icicles (0)": MMRLocationData(
@@ -14737,190 +14816,195 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     #Butterfly Fairies
     #Termina Field Butterflies
-    "Termina Field Near Peahat Grotto Butterfly Fairy (0)": MMRLocationData(
+    "Termina Field Near Peahat Grotto Butterfly Fairy (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF2D00,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Termina Field Near Peahat Grotto Butterfly Fairy (1)": MMRLocationData(
+    "Termina Field Near Peahat Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF2D01,
         can_create=lambda options: options.realfairysanity.value
     ),    
-    "Termina Field Cow Grotto Butterfly Fairy (0)": MMRLocationData(
+    "Termina Field Cow Grotto Butterfly Fairy (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BFADA0,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Termina Field Cow Grotto Butterfly Fairy (1)": MMRLocationData(
+    "Termina Field Cow Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BFADA1,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Termina Field Cow Grotto Butterfly Fairy (2)": MMRLocationData(
+    "Termina Field Cow Grotto Butterfly Fairy (3)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BFADA2,
         can_create=lambda options: options.realfairysanity.value
     ),                
-    "Termina Field Bombable Rock Grotto Butterfly Fairy (0)": MMRLocationData(
+    "Termina Field Bombable Rock Grotto Butterfly Fairy (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF8000,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Termina Field Bombable Rock Grotto Butterfly Fairy (1)": MMRLocationData(
+    "Termina Field Bombable Rock Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF8001,
         can_create=lambda options: options.realfairysanity.value
     ),    
     #Deku Palace Butterfly
-    "Deku Palace Bean Seller Butterfly Fairy (0)": MMRLocationData(
+    "Deku Palace Bean Seller Butterfly Fairy (1)": MMRLocationData(
         region="Deku Palace",
         address=0x3469420BF8CC0,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Deku Palace Bean Seller Butterfly Fairy (1)": MMRLocationData(
+    "Deku Palace Bean Seller Butterfly Fairy (2)": MMRLocationData(
         region="Deku Palace",
         address=0x3469420BF8CC1,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Deku Palace Bean Seller Butterfly Fairy (2)": MMRLocationData(
+    "Deku Palace Bean Seller Butterfly Fairy (3)": MMRLocationData(
         region="Deku Palace",
         address=0x3469420BF8CC2,
         can_create=lambda options: options.realfairysanity.value
-    ),        
-    "Mountain Village Spring Day Butterfly (0)": MMRLocationData(
-        region="Mountain Village",
-        address=0x3469420BF5A00,
+    ),
+    "Deku Palace Bean Seller Butterfly Fairy (4)": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420BF8CC3,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Mountain Village Spring Day Butterfly (1)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420BF5A01,
+        address=0x3469420BF5A00,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Mountain Village Spring Day Butterfly (2)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420BF5A02,
+        address=0x3469420BF5A01,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Mountain Village Spring Day Butterfly (3)": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420BF5A03,
+        address=0x3469420BF5A02,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Mountain Village Spring Day Butterfly (4)": MMRLocationData(
         region="Mountain Village",
+        address=0x3469420BF5A03,
+        can_create=lambda options: options.realfairysanity.value
+    ),
+    "Mountain Village Spring Day Butterfly (5)": MMRLocationData(
+        region="Mountain Village",
         address=0x3469420BF5A04,
         can_create=lambda options: options.realfairysanity.value
     ),                
-    "Mountain Village Spring Day Butterfly (5)": MMRLocationData(
+    "Mountain Village Spring Day Butterfly (6)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420BF5A05,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Mountain Village Spring Day Butterfly (6)": MMRLocationData(
+    "Mountain Village Spring Day Butterfly (7)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420BF5A06,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Mountain Village Spring Day Butterfly (7)": MMRLocationData(
+    "Mountain Village Spring Day Butterfly (8)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420BF5A07,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Mountain Village Spring Day Butterfly (8)": MMRLocationData(
+    "Mountain Village Spring Day Butterfly (9)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420BF5A08,
         can_create=lambda options: options.realfairysanity.value
     ),                       
     #Great Bay Coast Butterflies
-    "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (0)": MMRLocationData(
+    "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (1)": MMRLocationData(
         region="Great Bay",
         address=0x3469420BF3700,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (1)": MMRLocationData(
+    "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (2)": MMRLocationData(
         region="Great Bay",
         address=0x3469420BF3701,
         can_create=lambda options: options.realfairysanity.value
     ),    
-    "Great Bay Coast Cow Grotto Butterfly Fairy (0)": MMRLocationData(
+    "Great Bay Coast Cow Grotto Butterfly Fairy (1)": MMRLocationData(
         region="Great Bay",
         address=0x3469420BFB7A0,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Great Bay Coast Cow Grotto Butterfly Fairy (1)": MMRLocationData(
+    "Great Bay Coast Cow Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Great Bay",
         address=0x3469420BFB7A1,
         can_create=lambda options: options.realfairysanity.value
     ), 
-    "Great Bay Coast Cow Grotto Butterfly Fairy (2)": MMRLocationData(
+    "Great Bay Coast Cow Grotto Butterfly Fairy (3)": MMRLocationData(
         region="Great Bay",
         address=0x3469420BFB7A2,
         can_create=lambda options: options.realfairysanity.value
     ),           
     #Moon Butterflies
-    "Moon Butterfly Fairy (0)": MMRLocationData(
+    "Moon Butterfly Fairy (1)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6700,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (1)": MMRLocationData(
+    "Moon Butterfly Fairy (2)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6701,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (2)": MMRLocationData(
+    "Moon Butterfly Fairy (3)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6702,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (3)": MMRLocationData(
+    "Moon Butterfly Fairy (4)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6703,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (4)": MMRLocationData(
+    "Moon Butterfly Fairy (5)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6704,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (5)": MMRLocationData(
+    "Moon Butterfly Fairy (6)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6705,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (6)": MMRLocationData(
+    "Moon Butterfly Fairy (7)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6706,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (7)": MMRLocationData(
+    "Moon Butterfly Fairy (8)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6707,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (8)": MMRLocationData(
+    "Moon Butterfly Fairy (9)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6708,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (9)": MMRLocationData(
+    "Moon Butterfly Fairy (10)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF6709,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (10)": MMRLocationData(
+    "Moon Butterfly Fairy (11)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF670A,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (11)": MMRLocationData(
+    "Moon Butterfly Fairy (12)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF670B,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Moon Butterfly Fairy (12)": MMRLocationData(
+    "Moon Butterfly Fairy (13)": MMRLocationData(
         region="The Moon",
         address=0x3469420BF670C,
         can_create=lambda options: options.realfairysanity.value
@@ -15741,7 +15825,22 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Zora Cape",
         address=0x34694202A3806,
         can_create=lambda options: options.treesanity.value
-    ),   
+    ), 
+    "Beneath The Well Tree Near Cow": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202C4BCB,
+        can_create=lambda options: options.treesanity.value
+    ), 
+    "Beneath The Well Bush Near Cow (1)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202C4B25,
+        can_create=lambda options: options.treesanity.value
+    ),
+    "Beneath The Well Bush Near Cow (2)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202C4B93,
+        can_create=lambda options: options.treesanity.value
+    ),
     #Flowersanity
    
     "Before Clock Town Flower (1)": MMRLocationData(

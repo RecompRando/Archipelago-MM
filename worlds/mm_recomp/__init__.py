@@ -121,7 +121,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(50)     
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(1022) 
+            self.create_and_add_filler_items(958) # 1024 actual value Lessened for Soul Items
 
         if self.options.potsanity.value != 0:
             self.create_and_add_filler_items(541)
@@ -145,7 +145,7 @@ class MMRWorld(World):
             self.create_and_add_filler_items(119)
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(130)
+            self.create_and_add_filler_items(131)
                                  
         if self.options.realfairysanity.value != 0:
             self.create_and_add_filler_items(91)
@@ -156,6 +156,9 @@ class MMRWorld(World):
         if self.options.hivesanity.value != 0:
             self.create_and_add_filler_items(17)
         
+        if self.options.scarecrowsanity.value != 0:
+            self.create_and_add_filler_items(14)
+
         if self.options.notebooksanity.value != 0:
             self.create_and_add_filler_items(55)  
 
@@ -468,6 +471,7 @@ class MMRWorld(World):
             "woodsanity": self.options.woodsanity.value,
             "realfairysanity": self.options.realfairysanity.value,
             "iciclesanity":  self.options.iciclesanity.value,
+            "scarecrowsanity": self.options.scarecrowsanity.value,
             "hivesanity": self.options.hivesanity.value,
             "notebooksanity": self.options.notebooksanity.value,
             "owlsanity": self.options.owlsanity.value,

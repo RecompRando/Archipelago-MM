@@ -254,6 +254,11 @@ class Iciclesanity(Toggle):
     display_name = "Iciclesanity" 
 
 
+class Scarecrowsanity(Toggle):
+    """Choose whether the scarecrow rewards an item when he is spawned."""
+    display_name = "Scarecrowanity"  
+
+
 class Hivesanity(Toggle):
     """Choose whether Hive items are shuffled into the pool."""
     display_name = "Hivesanity"    
@@ -425,6 +430,7 @@ class MMROptions(PerGameCommonOptions):
     woodsanity: Woodsanity
     realfairysanity: Realfairysanity
     iciclesanity: Iciclesanity
+    scarecrowsanity: Scarecrowsanity
     hivesanity: Hivesanity
     notebooksanity: Notebooksanity
     owlsanity: Owlsanity
