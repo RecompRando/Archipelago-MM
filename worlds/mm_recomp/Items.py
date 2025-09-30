@@ -576,6 +576,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: False
     ),
+    # Owl Statues
     "Clock Town Owl Statue": MMRItemData(
         code=0x3469420FF1504,
         type=ItemClassification.progression,
@@ -626,6 +627,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.owlsanity.value
     ),
+    # Frogs
     "Yellow Frog": MMRItemData(
         code=0x3469420FF0000,
         type=ItemClassification.progression,
@@ -651,7 +653,8 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.frogsanity.value
     ),
-    #Souls
+    # Souls
+    # Boss Souls
     "Soul of Odolwa": MMRItemData(
         code=0x34694200B0129,
         type=ItemClassification.progression,
@@ -677,6 +680,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.boss_souls.value == 2
     ),
+    # Misc. Souls
     "Soul of Cows": MMRItemData(
         code=0x34694200A00F3,
         type=ItemClassification.progression,
@@ -697,7 +701,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.misc_souls.value
     ),
-    #NPC souls
+    # NPC Souls
     "Soul of Anju": MMRItemData(
         code=0x34694200C0202,
         type=ItemClassification.progression,
@@ -1023,12 +1027,18 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-
     # "Soul of Cremia": MMRItemData(
     #     code=0x34694200C0220,
     #     type=ItemClassification.progression,
     #     can_create=lambda options: options.npc_souls.value
     # ),
+    # Utility Souls
+    "Soul of Postboxes": MMRItemData(
+        code=0x34694200D01F2,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.utility_souls.value
+    ),
+    # Absurd Souls
     "Soul of Songwall": MMRItemData(
         code=0x34694200E01D6,
         type=ItemClassification.progression,
@@ -1039,12 +1049,6 @@ item_data_table: Dict[str, MMRItemData] = {
     #     type=ItemClassification.progression,
     #     can_create=lambda options: options.absurd_souls.value
     # ),
-    #Utility Souls
-    "Soul of Postboxes": MMRItemData(
-        code=0x34694200D01F2,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.utility_souls.value
-    ),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

@@ -13347,14 +13347,18 @@ def get_location_rules(player, options):
         "Termina Field Bombable Rock Grotto Butterfly Fairy (1)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                (has_explosives(state, player) or
-                state.has("Goron Mask, Player"))
+                (
+                    has_explosives(state, player) or
+                    state.has("Goron Mask", player)
+                )
             ), 
         "Termina Field Bombable Rock Grotto Butterfly Fairy (2)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                (has_explosives(state, player) or
-                state.has("Goron Mask, Player"))
+                (
+                    has_explosives(state, player) or
+                    state.has("Goron Mask", player)
+                )
             ),         
         # Deku Palace Butterflies
 
@@ -13580,7 +13584,11 @@ def get_location_rules(player, options):
                 state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)
             ),
         "Notebook Event Received All Night Mask":
-            lambda state: state.can_reach("Curiosity Shop Night 3 (Stop Thief)", 'Location', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and 
+                state.can_reach("North Clock Town Save Old Lady", 'Location', player)
+            ),
         "Notebook Event Received Blast Mask":
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Notebook Event Received Bombers NotebooK":

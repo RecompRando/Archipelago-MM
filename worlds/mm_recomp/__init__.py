@@ -53,6 +53,7 @@ class MMRWorld(World):
 
     def create_items(self) -> None:
         mw = self.multiworld
+        filler_amount = 0
 
         item_pool: List[MMRItem] = []
         item_pool_count: Dict[str, int] = {}
@@ -75,7 +76,7 @@ class MMRWorld(World):
         else:
             mw.push_precollected(self.create_item("Song of Time"))
 
-        self.create_and_add_filler_items(19)
+        filler_amount += 19
 
         if self.options.swordless.value:
             mw.itempool.append(self.create_item("Progressive Sword"))
@@ -85,7 +86,7 @@ class MMRWorld(World):
             
         if self.options.start_with_soaring.value:
             mw.push_precollected(self.create_item("Song of Soaring"))
-            self.create_and_add_filler_items()
+            filler_amount += 1
         
         if self.options.shuffle_spiderhouse_reward.value:
             mw.itempool.append(self.create_item("Progressive Wallet"))
@@ -97,7 +98,7 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Romani Ranch Map"))
             mw.push_precollected(self.create_item("Great Bay Map"))
             mw.push_precollected(self.create_item("Stone Tower Map"))
-            self.create_and_add_filler_items(6)
+            filler_amount += 6
         
         if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
@@ -106,67 +107,92 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Gold Rupee"))
 
         if self.options.scrubsanity.value != 0:
-            self.create_and_add_filler_items(4)
+            filler_amount += 4
         
         if self.options.shopsanity.value != 0:
-            self.create_and_add_filler_items(27)
+            filler_amount += 27
 
         if self.options.shopsanity.value == 2:
-            self.create_and_add_filler_items(11)
+            filler_amount += 11
         
         if self.options.cowsanity.value != 0:
-            self.create_and_add_filler_items(8)
+            filler_amount += 8
     
         if self.options.intro_checks.value:
-            self.create_and_add_filler_items(50)     
+            filler_amount += 1
+    
+        if self.options.intro_checks.value and self.options.grasssanity.value:
+            filler_amount += 51
         
         if self.options.grasssanity.value != 0:
-            self.create_and_add_filler_items(958) # 1024 actual value Lessened for Soul Items
+            filler_amount += 1022
 
         if self.options.potsanity.value != 0:
-            self.create_and_add_filler_items(541)
+            filler_amount += 541
         
         if self.options.rocksanity.value != 0:
-            self.create_and_add_filler_items(129)
+            filler_amount += 129
 
         if self.options.soilsanity.value != 0:
-            self.create_and_add_filler_items(29)                          
+            filler_amount += 29
 
         if self.options.hitsanity.value != 0:
-            self.create_and_add_filler_items(73)  
+            filler_amount += 73
 
         if self.options.invisisanity.value != 0:
-            self.create_and_add_filler_items(22) 
+            filler_amount += 22
 
         if self.options.rupeesanity.value != 0:
-            self.create_and_add_filler_items(222)
+            filler_amount += 213
 
         if self.options.snowsanity.value != 0:
-            self.create_and_add_filler_items(119)
+            filler_amount += 119
 
         if self.options.woodsanity.value != 0:
-            self.create_and_add_filler_items(131)
+            filler_amount += 128
                                  
         if self.options.realfairysanity.value != 0:
-            self.create_and_add_filler_items(91)
+            filler_amount += 92
 
         if self.options.iciclesanity.value != 0:
-            self.create_and_add_filler_items(25)
+            filler_amount += 25
 
         if self.options.hivesanity.value != 0:
-            self.create_and_add_filler_items(17)
+            filler_amount += 17
         
         if self.options.scarecrowsanity.value != 0:
-            self.create_and_add_filler_items(14)
+            filler_amount += 14
 
         if self.options.notebooksanity.value != 0:
-            self.create_and_add_filler_items(55)  
+            filler_amount += 55
 
         if self.options.treesanity.value != 0:
-            self.create_and_add_filler_items(89)
+            filler_amount += 96
 
         if self.options.flowersanity.value != 0:
-            self.create_and_add_filler_items(154)
+            filler_amount += 155
+
+        if self.options.boss_souls.value:
+            filler_amount -= 4
+
+        if self.options.boss_souls.value == 2:
+            filler_amount -= 1
+
+        if self.options.misc_souls.value:
+            filler_amount -= 4
+
+        if self.options.npc_souls.value:
+            filler_amount -= 59
+
+        if self.options.utility_souls.value:
+            filler_amount -= 1
+
+        if self.options.absurd_souls.value:
+            filler_amount -= 1
+
+        filler_amount += 9 # temp
+
+        self.create_and_add_filler_items(filler_amount)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -202,6 +228,13 @@ class MMRWorld(World):
                 prices_ints.append(price)
                 self.prices += str(price) + " "
 
+            self.prices = self.prices[:-1]
+        else:
+            # populate stored prices with default prices if shopsanity is disabled
+            for i in range(0, 36):
+                price = default_shop_prices[i]
+                prices_ints.append(price)
+                self.prices += str(price) + " "
             self.prices = self.prices[:-1]
 
         # Create regions.

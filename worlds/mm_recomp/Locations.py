@@ -1854,258 +1854,258 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Before Clock Town Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A09,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A10,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),    
     "Before Clock Town Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0A,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0B,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0C,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0D,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0E,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A0F,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A11,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),        
     "Before Clock Town Skullkid Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A00,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Skullkid Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A01,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Skullkid Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A02,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Skullkid Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A03,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),    
     "Before Clock Town Skullkid Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A04,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),    
     "Before Clock Town Skullkid Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A05,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),    
     "Before Clock Town Skullkid Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A06,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Skullkid Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A07,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Before Clock Town Skullkid Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x3469420131A08,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146511,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146516,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146515,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146510,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146514,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146512,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146519,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146518,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146513,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (10)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146517,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (11)": MMRLocationData(
         region="Clock Town",
         address=0x346942014651A,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass (12)": MMRLocationData(
         region="Clock Town",
         address=0x346942014651B,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
 
     "Lost Woods Grass Patch 2 (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146505,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (2)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146500,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (3)": MMRLocationData(
         region="Clock Town",
         address=0x346942014650B,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146504,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (5)": MMRLocationData(
         region="Clock Town",
         address=0x346942014650A,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (6)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146509,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (7)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146508,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (8)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146503,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (9)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146502,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (10)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146501,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (11)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146506,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Grass Patch 2 (12)": MMRLocationData(
         region="Clock Town",
         address=0x3469420146507,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136502,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136501,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136507,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136506,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136505,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136504,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136503,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136500,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Lost Woods Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136508,
-        can_create=lambda options: options.intro_checks.value
+        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
     ),
     "Laundry Pool Grass (1)": MMRLocationData(
         region="Clock Town",
@@ -10127,8 +10127,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),
 
-    #Hitspots
-        # South Clock Town Targets Hitspot
+    # Hitspots
+
+    # South Clock Town Targets Hitspot
     "South Clock Town Targets Hitspot (0)": MMRLocationData(
         region="Clock Town",
         address=0x3469420156F02,
@@ -10519,7 +10520,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.hitsanity.value
     ),            
 
-    # INVISIBLE RUPEES
+    # Invisible Rupees
 
     # Termina Field Invisible Rupee Over Ramp Near Fountains
     "Termina Field Invisible Rupee Over Ramp Near Fountains": MMRLocationData(
@@ -10647,7 +10648,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420162740,
         can_create=lambda options: options.invisisanity.value
     ),
-    # FREESTANDING RUPEES
+
+    # Freestanding Rupees
+
     # Songwall Rupees
     "Termina Field 6am Songwall (0)": MMRLocationData(
         region="Clock Town",
@@ -12051,7 +12054,8 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420171884,
         can_create=lambda options: options.rupeesanity.value
     ),
-    #Rocksanity
+
+    # Rocksanity
 
     # Termina Field 
     "Termina Field Boulder Over Gossip Grotto (0)": MMRLocationData(
@@ -12736,7 +12740,8 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420185901,
         can_create=lambda options: options.rocksanity.value
     ),
-    # SOILS
+
+    # Soil
 
     # Termina Field Stump Soil
     "Termina Field Stump Soil": MMRLocationData(
@@ -12911,7 +12916,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.soilsanity.value
     ),
 
-    # SNOWBALLS
+    # Snowballs
 
     # Path to Mountains Snowballs
     "Path to Mountains Snowballs (0)": MMRLocationData(
@@ -14219,6 +14224,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420251835,
         can_create=lambda options: options.woodsanity.value
     ),
+
     # Scarecrow Items
     "Mountain Village Rooftop Scarecrow": MMRLocationData(
         region="Mountain Village",
@@ -14290,8 +14296,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420305801,
         can_create=lambda options: options.scarecrowsanity.value
     ),
+
     # Icicles
-    #Snowhead Temple
+
+    # Snowhead Temple
     "Snowhead Temple Entry Block Icicles (0)": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420232100,
@@ -14352,7 +14360,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420232144,
         can_create=lambda options: options.iciclesanity.value
     ),
-     # Snowhead Temple Outside Boss Icicles
+    # Snowhead Temple Outside Boss Icicles
     "Snowhead Temple Outside Boss Door Icicles (0)": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420232141,
@@ -14420,6 +14428,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Hivesanity
+
     # Termina Field
     "Termina Field Bombable Rock Grotto Hive (1)": MMRLocationData(
         region="Termina Field",
@@ -14436,13 +14445,13 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202407B2,
         can_create=lambda options: options.hivesanity.value
     ),        
-    #Southern Swamp Hives
+    # Southern Swamp Hives
     "Southern Swamp Hive Near Frog (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420244500,
         can_create=lambda options: options.hivesanity.value
     ),
-    #Swamp Spider House Hives
+    # Swamp Spider House Hives
     "Swamp Spider House Giant Pot Room Hives (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3469420242740,
@@ -14488,7 +14497,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420242753,
         can_create=lambda options: options.hivesanity.value
     ),            
-    #Woodfall Temple Hives
+    # Woodfall Temple Hives
     "Woodfall Temple Entrance Hive (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x3469420241B20,
@@ -14510,8 +14519,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pirates' Fortress (Interior)",
         address=0x3469420242330,
         can_create=lambda options: options.hivesanity.value
-    ),    
-    #RealFairy Sanity Gossips/Butterfly Fairies
+    ),
+
+    # Real Fairies including Gossips/Butterfly Fairies
     
     # Termina Field Gossip Fairies
     "Termina Field Southern Tree Gossip Fairy": MMRLocationData(
@@ -15407,9 +15417,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (1)": MMRLocationData(
-    region="Southern Swamp",
-    address=0x34694202D4000,
-    can_create=lambda options: options.treesanity.value
+        region="Southern Swamp",
+        address=0x34694202D4000,
+        can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (2)": MMRLocationData(
         region="Southern Swamp",
@@ -15841,7 +15851,8 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202C4B93,
         can_create=lambda options: options.treesanity.value
     ),
-    #Flowersanity
+
+    # Flowersanity
    
     "Before Clock Town Flower (1)": MMRLocationData(
         region="Clock Town",
@@ -16624,11 +16635,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F2A0A,
         can_create=lambda options: options.flowersanity.value
     ),
-        # "The Moon Majora Flower": MMRLocationData(
-        #     region="The Moon",
-        #     address=0x3469420,
-        #     can_create=lambda options: options.flowersanity.value
-        # ),
+    # "The Moon Majora Flower": MMRLocationData(
+    #     region="The Moon",
+    #     address=0x3469420,
+    #     can_create=lambda options: options.flowersanity.value
+    # ),
 
 }
 

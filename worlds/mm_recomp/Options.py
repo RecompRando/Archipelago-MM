@@ -301,22 +301,22 @@ class BossSouls(Choice):
     default = 0
 
 
-class MiscSouls(Toggle):
-    """Add souls for Cows, Gold Skulltulas, and Keaton.
-    They will not spawn unless their soul is obtained."""
-    display_name = "Add Misc Souls"
-
-
 class NPCSouls(Toggle):
     """Add souls for npc characters such as Anju, Romani, Kamaro etc.
     They will not spawn unless their soul is obtained."""
     display_name = "Add NPC Souls"
 
 
-class AbsurdSouls(Toggle):
-    """Add souls for absurd things like rocks, songwall and grass etc.
+class EnemySouls(Toggle):
+    """Add souls for basic enemies such as wolfos, peahat etc.
     They will not spawn unless their soul is obtained."""
-    display_name = "Add Absurd Souls"
+    display_name = "Add Enemy Souls"
+
+
+class MiscSouls(Toggle):
+    """Add souls for Cows, Gold Skulltulas, and Keaton.
+    They will not spawn unless their soul is obtained."""
+    display_name = "Add Misc Souls"
 
 
 class UtilitySouls(Toggle):
@@ -325,11 +325,10 @@ class UtilitySouls(Toggle):
     display_name = "Add Utility Souls"
 
 
-class EnemySouls(Toggle):
-    """Add souls for basic enemies such as wolfos, peahat etc.
+class AbsurdSouls(Toggle):
+    """Add souls for absurd things like rocks, songwall and grass etc.
     They will not spawn unless their soul is obtained."""
-    display_name = "Add Enemy Souls"
-
+    display_name = "Add Absurd Souls"
 
 
 class StartWithConsumables(DefaultOnToggle):
@@ -438,11 +437,11 @@ class MMROptions(PerGameCommonOptions):
     treesanity: Treesanity
     flowersanity: Flowersanity
     boss_souls: BossSouls
-    misc_souls: MiscSouls
     npc_souls: NPCSouls
-    absurd_souls: AbsurdSouls
-    utility_souls: UtilitySouls
     enemy_souls: EnemySouls
+    misc_souls: MiscSouls
+    utility_souls: UtilitySouls
+    absurd_souls: AbsurdSouls
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
