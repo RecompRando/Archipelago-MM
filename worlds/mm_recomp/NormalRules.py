@@ -293,7 +293,9 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Progressive Bow", player) or
                     options.owlsanity.value and
-                    state.has("Clock Town Owl Statue", player) and
+                    state.has("Clock Town Owl Statue", player) or
+                    state.has("Southern Swamp Owl Statue", player) or
+                    state.has("Milk Road Owl Statue", player) and
                     can_play_song("Song of Soaring", state, player)
             ),
         "Twin Islands -> Goron Village":
@@ -352,7 +354,9 @@ def get_region_rules(player, options):
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
                     options.owlsanity.value and
-                    state.has("Clock Town Owl Statue", player) and
+                    state.has("Clock Town Owl Statue", player) or
+                    state.has("Southern Swamp Owl Statue", player) or
+                    state.has("Milk Road Owl Statue", player) and
                     can_play_song("Song of Soaring", state, player)
             ),
         "Great Bay -> Ocean Spider House":
@@ -366,7 +370,12 @@ def get_region_rules(player, options):
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Zora Hall":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                options.owlsanity.value and
+                state.has("Zora Cape Owl Statue", player) and
+                can_play_song("Song of Soaring", state, player) or
+                state.has("Zora Mask", player),
+            ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
                 can_play_song("New Wave Bossa Nova", state, player) and 
@@ -401,11 +410,13 @@ def get_region_rules(player, options):
         "Road to Ikana -> Lower Ikana Canyon":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Spirit House Owner") and
                     state.has("Garo Mask", player) and 
                     can_play_song("Epona's Song", state, player) and 
                     state.has("Hookshot", player)
                 ) or 
                 (
+                    has_soul_npc(state, player, options, "Spirit House Owner") and
                     state.has("Gibdo Mask", player) and 
                     can_play_song("Epona's Song", state, player) and 
                     state.has("Hookshot", player)
@@ -2023,12 +2034,14 @@ def get_location_rules(player, options):
             ),
         "Pinnacle Rock Seahorse HP":
             lambda state: (
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Upper Eel Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -2041,6 +2054,8 @@ def get_location_rules(player, options):
             ),
         "Great Bay Baby Zora Song":
             lambda state: (
+                has_soul_npc(state, player, options, "Fisherman") and
+                has_soul_npc(state, player, options, "Marine Lab Researcher") and
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player) or
@@ -2050,8 +2065,10 @@ def get_location_rules(player, options):
         "Great Bay Feeding Lab Fish":
             lambda state: has_bottle(state, player),
         "Great Bay Fisherman Game":
-            lambda state: can_clear_greatbay(state, player),
-        
+            lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
+                can_clear_greatbay(state, player),
+            ),
         "Ocean Spider House Ramp Upper Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
@@ -2508,8 +2525,10 @@ def get_location_rules(player, options):
             
         "Ikana Graveyard Bombable Grotto Chest":
             lambda state: has_explosives(state, player),
+
         "Graveyard Day 1 Bats Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack(state, player)
             ),
@@ -2517,6 +2536,7 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack_hard(state, player) and 
                 has_explosives(state, player) and 
@@ -2525,6 +2545,7 @@ def get_location_rules(player, options):
         "Graveyard Day 3 Dampe Big Poe Chest":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Stalchildren") and
                     state.has("Captain's Hat", player) and 
                     state.has("Progressive Bow", player)
                 ) or 
@@ -2540,6 +2561,7 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 1 Iron Knuckle Song":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack_hard(state, player)
             ),
@@ -2558,6 +2580,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Canyon Spirit House":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player)
             ),
@@ -2617,6 +2640,7 @@ def get_location_rules(player, options):
             ),
         "Secret Shrine Completion Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 state.can_reach("Secret Shrine Dinolfos Chest", 'Location', player) and 
                 state.can_reach("Secret Shrine Wizzrobe Chest", 'Location', player) and 
                 state.can_reach("Secret Shrine Wart Chest", 'Location', player) and 
@@ -2625,6 +2649,7 @@ def get_location_rules(player, options):
             
         "Ikana Well Rightside Torch Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -2634,6 +2659,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Well Invisible Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -2644,6 +2670,7 @@ def get_location_rules(player, options):
         "Ikana Well Final Chest":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and 
                     has_bottle(state, player) and 
                     can_plant_beans(state, player) and 
@@ -2662,6 +2689,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Well Cow":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 has_soul_misc(state, player, options, "Cow") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -5929,6 +5957,7 @@ def get_location_rules(player, options):
         # Beneath the Well Left Side Back Room Grass - Matches Invisible Chest rules
         "Beneath the Well Left Side Back Room Grass (0)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5938,6 +5967,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Left Side Back Room Grass (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5949,6 +5979,7 @@ def get_location_rules(player, options):
         # Beneath the Well Right Side Before Big Poe and Cow Grass 
         "Beneath the Well Right Side Before Big Poe and Cow Grass (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5958,6 +5989,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Before Big Poe and Cow Grass (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5967,6 +5999,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Before Big Poe and Cow Grass (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5976,6 +6009,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Before Big Poe and Cow Grass (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5987,6 +6021,7 @@ def get_location_rules(player, options):
         # Beneath the Well Right Side Cow Grass 
         "Beneath the Well Right Side Cow Grass (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6015,6 +6050,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Cow Grass (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6043,6 +6079,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Cow Grass (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6073,6 +6110,7 @@ def get_location_rules(player, options):
         # Beneath the Well Right Side Back Room Grass
         "Beneath the Well Right Side Back Room Grass (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6082,6 +6120,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Back Room Grass (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6091,6 +6130,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Back Room Grass (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6100,6 +6140,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Back Room Grass (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6109,6 +6150,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Back Room Grass (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -7694,66 +7736,77 @@ def get_location_rules(player, options):
         
         "Pinnacle Rock Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (6)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (7)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (8)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (9)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (10)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (11)":
             lambda state: (
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -8332,28 +8385,44 @@ def get_location_rules(player, options):
         
         # Ikana Graveyard Day 1 Grave Pots
         "Ikana Graveyard Day 1 Grave Pots (1)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 1 Grave Pots (2)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 1 Grave Pots (3)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 1 Grave Pots (4)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 1 Grave Pots (5)":
             lambda state: state.has("Captain's Hat", player),
         
         # Ikana Graveyard Day 2 Entrance Grave Pot
         "Ikana Graveyard Day 2 Entrance Grave Pot":
-            lambda state: state.has("Captain's Hat", player),
-        
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         # Ikana Graveyard Day 2 Invisible Path Entryway Pots
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
             ),
@@ -8361,24 +8430,28 @@ def get_location_rules(player, options):
         # Ikana Graveyard Day 2 Invisible Path Pots
         "Ikana Graveyard Day 2 Invisible Path Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
                 can_use_lens(state, player)
@@ -8386,26 +8459,55 @@ def get_location_rules(player, options):
         
         # Ikana Graveyard Day 3 Pots
         "Ikana Graveyard Day 3 Pots (1)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (2)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (3)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (4)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (5)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (6)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (7)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (8)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (9)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         "Ikana Graveyard Day 3 Pots (10)":
-            lambda state: state.has("Captain's Hat", player),
-        
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player),
+            ),
         # SECRET SHRINE POTS
         "Secret Shrine Entrance Pots (1)":
             lambda state: True,
@@ -8736,9 +8838,10 @@ def get_location_rules(player, options):
                 )
             ),
         
-        # BENEATH THE WELL POTS
+        # Well Pots
         "Well Left Side Back Room Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8748,6 +8851,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8757,6 +8861,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8766,6 +8871,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8775,6 +8881,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8785,6 +8892,7 @@ def get_location_rules(player, options):
         
         "Well Right Side Before Chest Room Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8794,6 +8902,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8803,6 +8912,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8812,6 +8922,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8821,6 +8932,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8830,6 +8942,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (6)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8839,6 +8952,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (7)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8848,6 +8962,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (8)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8857,6 +8972,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (9)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8866,6 +8982,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (10)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
@@ -8878,6 +8995,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (1)":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
                     can_plant_beans(state, player) and
@@ -8897,6 +9015,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (2)":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
                     can_plant_beans(state, player) and
@@ -8916,6 +9035,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (3)":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
                     can_plant_beans(state, player) and
@@ -8935,6 +9055,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (4)":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
                     can_plant_beans(state, player) and
@@ -12080,59 +12201,67 @@ def get_location_rules(player, options):
         
         "Road To Ikana Bomb Boulder (0)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (1)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),            
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ),          
         "Road To Ikana Bomb Boulder (2)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (3)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (4)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (5)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (6)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
-            ),
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
+            ), 
         "Road To Ikana Bomb Boulder (7)":
             lambda state: (
-                state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player)
+                (state.has("Garo MasK", player) or
+                state.has("Gibdo Mask", player) and 
+                state.has("Hookshot", player)) 
             ),                                                                        
 
         # Ikana Graveyard Rock Circle
@@ -13207,30 +13336,34 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
         "Fairy Fountain Left Side Well (1)":
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13238,15 +13371,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13254,15 +13389,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13270,15 +13407,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13286,15 +13425,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13302,15 +13443,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13318,15 +13461,17 @@ def get_location_rules(player, options):
             lambda state:
             (
                     (
-                            state.has("Mask of Scents", player) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        state.has("Mask of Scents", player) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
                     or
                     (
-                            can_afford_price(state, player, 100) and
-                            has_bottle(state, player, 1) and
-                            state.has("Gibdo Mask", player)
+                        has_soul_npc(state, player, options, "Gibdos") and
+                        can_afford_price(state, player, 100) and
+                        has_bottle(state, player, 1) and
+                        state.has("Gibdo Mask", player)
                     )
             ),
 
@@ -13512,15 +13657,20 @@ def get_location_rules(player, options):
             lambda state: state.has("Don Gero's Mask", player),
 
         "Woodfall Temple Miniboss Frog":
-            lambda state:
-                state.can_reach("Woodfall Temple Gekko Chest", 'Location', player) and
+            lambda state: (
+                state.has("Deku Mask", player),
+                state.has("Progressive Bow", player) and 
+                can_smack(state, player)
+            and
                 state.has("Don Gero's Mask", player),
-
+            ),
         "Great Bay Temple Miniboss Frog":
-            lambda state:
-                state.can_reach("Great Bay Temple Mad Jellied Gekko Chest", 'Location', player) and
+            lambda state: (
+                state.has("Zora Mask", player) and 
+                can_use_ice_arrows(state, player) and 
+                can_use_fire_arrows(state, player) and
                 state.has("Don Gero's Mask", player),
-
+            ),
     # Owls
 
         "Clock Town Owl Statue":
@@ -14044,6 +14194,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
         "Beneath The Well Tree Near Cow":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -14072,6 +14223,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (1)": 
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -14100,6 +14252,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (

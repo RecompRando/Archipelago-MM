@@ -927,11 +927,6 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    # "Soul of Bomber Kids": MMRItemData(
-    #     code=0x34694200C027B,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
     "Soul of Lottery": MMRItemData(
         code=0x34694200C0239,
         type=ItemClassification.progression,
@@ -992,12 +987,17 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Fisherman": MMRItemData(
+        code=0x34694200C01C2,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Marine Lab Researcher": MMRItemData(
         code=0x34694200C00AE,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Coast Zora": MMRItemData(
+    "Soul of Hall Zora": MMRItemData(
         code=0x34694200C0260,
         type=ItemClassification.filler,
         can_create=lambda options: options.npc_souls.value
@@ -1017,6 +1017,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Stalchildren": MMRItemData(
+        code=0x34694200C00ED,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Composer Poe": MMRItemData(
         code=0x34694200C0247,
         type=ItemClassification.progression,
@@ -1024,6 +1029,16 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Soul of Pamela's Father": MMRItemData(
         code=0x34694200C0250,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Gibdos": MMRItemData(
+        code=0x34694200C01DA,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Spirit House Owner": MMRItemData(
+        code=0x34694200C01DE,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
