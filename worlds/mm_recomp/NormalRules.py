@@ -1559,13 +1559,20 @@ def get_location_rules(player, options):
             lambda state: can_clear_greatbay(state, player),
         
         "Ocean Spider House Ramp Upper Token":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
         "Ocean Spider House Ramp Lower Token":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
         "Ocean Spider House Lobby Ceiling Token":
             lambda state: (
                 state.has("Hookshot", player) and 
-                can_use_fire_arrows(state, player)
+                can_use_fire_arrows(state, player) and
+                has_explosives(state, player)
             ),
         "Ocean Spider House First Room Rafter Token":
             lambda state: (
