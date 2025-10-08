@@ -1533,6 +1533,7 @@ def get_location_rules(player, options):
             ),
         "Mountain Village Hungry Goron":
             lambda state: (
+                has_soul_npc(state, player, options, "Hungry Goron") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 (
@@ -1564,6 +1565,7 @@ def get_location_rules(player, options):
             ),
         "Mountain Village Smithy Upgrade":
             lambda state: (
+                has_soul_npc(state, player, options, "Mountain Smithy") and
                 can_afford_price(state, player, 100) and 
                 (
                     can_use_fire_arrows(state, player) or 
@@ -1573,6 +1575,7 @@ def get_location_rules(player, options):
             ),
         "Mountain Village Smithy Gold Dust Upgrade":
             lambda state: (
+                has_soul_npc(state, player, options, "Mountain Smithy") and
                 state.can_reach("Mountain Village Smithy Upgrade", 'Location', player) and 
                 state.can_reach("Goron Racetrack Prize", 'Location', player) and 
                 has_bottle(state, player)

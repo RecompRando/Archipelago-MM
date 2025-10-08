@@ -987,6 +987,16 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Hungry Goron": MMRItemData(
+        code=0x34694200C023A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Mountain Smithy": MMRItemData(
+        code=0x34694200C01FF,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Fisherman": MMRItemData(
         code=0x34694200C01C2,
         type=ItemClassification.progression,
