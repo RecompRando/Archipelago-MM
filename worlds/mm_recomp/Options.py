@@ -38,6 +38,12 @@ class CAMC(DefaultOnToggle):
     display_name = "CAMC"
 
 
+# TODO: separate dungeons and bosses into more groups
+class EntranceRando(Toggle):
+    """Set whether dungeons and bosses are randomized amongst themselves."""
+    display_name = "Entrance Rando"
+
+
 class Ocarinaless(Toggle):
     """Start the game without an Ocarina shuffling it into the pool."""
     display_name = "Ocarinaless"
@@ -416,6 +422,7 @@ class MMROptions(PerGameCommonOptions):
     majora_remains_required: MajoraRemainsRequired
     moon_remains_required: MoonRemainsRequired
     camc: CAMC
+    entrance_rando: EntranceRando
     ocarinaless: Ocarinaless
     timeless: Timeless
     swordless: Swordless
