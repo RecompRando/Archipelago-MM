@@ -76,7 +76,7 @@ def can_get_cow_milk(state, player, options):
                     state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
                     (
                         state.has("Goron Mask", player) and 
-                        state.can_reach("Mountain Village Healing Darmani", 'Location', player)
+                        can_use_lens(state, player)
                     ) or 
                     state.can_reach("Ikana Well Invisible Chest", 'Location', player)
                 )
@@ -1604,7 +1604,7 @@ def get_location_rules(player, options):
                     can_use_fire_arrows(state, player) or 
                     (
                         (
-                            state.can_reach("Mountain Village Healing Darmani", 'Location', player) or 
+                            can_use_lens(state, player) or 
                             (
                                 state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
                                 can_play_song("Song of Soaring", state, player)
@@ -1621,7 +1621,7 @@ def get_location_rules(player, options):
                     can_use_fire_arrows(state, player)
                 ) or 
                 (
-                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                    can_use_lens(state, player) and 
                     has_bottle(state, player) and 
                     state.has("Goron Mask", player) and 
                     has_explosives(state, player)
@@ -2711,7 +2711,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -6042,7 +6042,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -6071,7 +6071,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -6100,7 +6100,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -14344,7 +14344,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -14374,7 +14374,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
@@ -14404,7 +14404,7 @@ def get_location_rules(player, options):
                                     can_use_fire_arrows(state, player)
                                 ) or 
                                 (
-                                    state.can_reach("Mountain Village Healing Darmani", 'Location', player) and 
+                                    can_use_lens(state, player) and 
                                     state.has("Goron Mask", player)
                                 )
                             )
