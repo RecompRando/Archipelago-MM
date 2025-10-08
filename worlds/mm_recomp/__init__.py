@@ -5,7 +5,7 @@ from typing import TextIO
 from BaseClasses import Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, prices_ints
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
 from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
@@ -38,6 +38,7 @@ class MMRWorld(World):
     location_name_to_id = location_table
     item_name_to_id = item_table
     prices = ""
+    prices_ints = []
 
     def generate_early(self):
         pass
@@ -142,7 +143,7 @@ class MMRWorld(World):
                     price = default_shop_prices[i]
                 else:
                     price = self.random.randint(0, price_max)
-                prices_ints.append(price)
+                self.prices_ints.append(price)
                 self.prices += str(price) + " "
 
             self.prices = self.prices[:-1]
@@ -348,6 +349,7 @@ class MMRWorld(World):
         player = self.player
         mw = self.multiworld
         options = self.options
+        prices = self.prices_ints
 
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
@@ -360,7 +362,7 @@ class MMRWorld(World):
             # ~ location_rules = get_baby_location_rules(player, options)
         if (self.options.logic_difficulty.value == 1):
             region_rules = get_region_rules(player, options)
-            location_rules = get_location_rules(player, options)
+            location_rules = get_location_rules(player, options, prices)
 
         for entrance_name, rule in region_rules.items():
             entrance = mw.get_entrance(entrance_name, player)
@@ -381,7 +383,7 @@ class MMRWorld(World):
         if self.options.shopsanity.value:
             spoiler_handle.write("\nShop Prices:\n")
             for location, shop_id in shop_location_to_id.items():
-                spoiler_handle.write(f"\n{location}: {prices_ints[shop_id]} Rupees")
+                spoiler_handle.write(f"\n{location}: {self.prices_ints[shop_id]} Rupees")
 
     def fill_slot_data(self):
         shp = self.options.starting_hearts.value
