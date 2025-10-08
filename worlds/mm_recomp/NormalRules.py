@@ -11510,8 +11510,6 @@ def get_location_rules(player, options):
         # SNOWBALLS
 
         # Path to Mountains Snowballs
-        "Path to Mountains Snowballs (0)":
-            lambda state: True,
         "Path to Mountains Snowballs (1)":
             lambda state: True,
         "Path to Mountains Snowballs (2)":
@@ -11527,19 +11525,53 @@ def get_location_rules(player, options):
         "Path to Mountains Snowballs (7)":
             lambda state: True,
         "Path to Mountains Snowballs (8)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (9)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (10)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (11)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (12)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (13)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (14)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
+        "Path to Mountains Snowballs (15)":
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
 
         # Mountain Village Day 1 Snowballs
         "Mountain Village Day 1 Snowballs (0)":
@@ -12210,7 +12242,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and 
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12218,7 +12250,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12226,7 +12258,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12234,7 +12266,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12242,7 +12274,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12250,7 +12282,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (6)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -12258,7 +12290,7 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (7)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
+                has_explosives(state, player) and 
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
@@ -13921,279 +13953,376 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Toilet Hand") and
                 state.has("Bomber's Notebook", player)
             ),
-    #Treesanity 
+        #Treesanity 
 
-        # Termina Field - No requirements
+        # Termina Field -
         "Termina Field Tree Near Observatory (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Termina Field Tree Near Observatory (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Termina Field Tree Near Observatory (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
 
-        # Road to Southern Swamp - No requirements  
+        # Road to Southern Swamp  
         "Road to Southern Swamp Trees (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Road to Southern Swamp Trees (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Road to Southern Swamp Trees (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Road to Southern Swamp Trees (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Road to Southern Swamp Trees (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Road to Southern Swamp Trees (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
 
-        # Romani Ranch Trees and Bushes - No requirements
+        # Romani Ranch Trees and Bushes 
         "Romani Ranch Bush (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Bush (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Bush (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Bush (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Tree (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Tree":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Romani Ranch Baby Cucoo Bush (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
 
         # Path To Mountains 
         "Path To Mountains Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Path To Mountains Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Path To Mountains Tree (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and 
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                  can_use_fire_arrows(state, player) or 
+                options.owlsanity.value and
+                state.has("Mountain Village Owl Statue", player))
+            ),
         "Path To Mountains Tree (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and 
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                  can_use_fire_arrows(state, player) or 
+                options.owlsanity.value and
+                state.has("Mountain Village Owl Statue", player))
+            ),
 
         # Twin Islands 
         "Twin Islands Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Twin Islands Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Twin Islands Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
 
         # Twin Islands Spring - Requires clearing Snowhead Temple (spring access)
         "Twin Islands (Spring) Tree (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands (Spring) Tree (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands (Spring) Tree (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                can_clear_snowhead(state, player)
+            ),
 
-        # Path To Snowhead - Requires access to the region
+        # Path To Snowhead - 
         "Path To Snowhead Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Path To Snowhead Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Path To Snowhead Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
 
-        # Goron Racetrack - Requires access to the region
+        # Goron Racetrack - 
         "Goron Racetrack Trees (1)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (2)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (3)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (4)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (5)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (6)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (7)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (8)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (9)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
         "Goron Racetrack Trees (10)":
-            lambda state: state.can_reach("Goron Racetrack", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.can_reach("Goron Racetrack", 'Region', player)
+            ),
 
-        # Gorman Brothers Track - Requires access to the region
+        # Gorman Brothers Track -
         "Gorman Racetrack Tree Group 1 (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (13)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         # Great Bay Coast Nut Trees - Requires access to the region
         "Great Bay Coast Nut Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Great Bay Coast Nut Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Great Bay Coast Nut Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Great Bay Coast Fisherman Island Nut Tree (1)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
 
         # Zora Cape Nut Trees 
         "Zora Cape Nut Tree Near Jars (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Zora Cape Nut Tree Near Jars (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees"),
         "Zora Cape Nut Tree On Islands (1)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
         "Zora Cape Nut Tree On Islands (2)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
         "Zora Cape Nut Tree On Islands (3)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
         "Zora Cape Nut Tree On Turtle Island (1)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
         "Zora Cape Nut Tree On Turtle Island (2)":
-            lambda state: state.has("Hookshot", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
+                state.has("Hookshot", player)
+            ),
         "Beneath The Well Tree Near Cow":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -14223,6 +14352,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (1)": 
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -14252,6 +14382,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 

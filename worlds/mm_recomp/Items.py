@@ -1059,6 +1059,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
+    "Soul of Trees": MMRItemData(
+        code=0x34694200E0041,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.absurd_souls.value
+    ),
     # "Soul of Deku Flowers": MMRItemData(
     #     code=0x34694200E0080,
     #     type=ItemClassification.progression,
