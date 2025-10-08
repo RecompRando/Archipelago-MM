@@ -1341,7 +1341,7 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House Reward":
             lambda state: (
-                state.has("Swamp Skulltula Token", player, 30) and
+                state.has("Swamp Skulltula Token", player, options.required_skull_tokens.value) and
                 has_soul_npc(state, player, options, "Soul of Spider Man")
             ), 
         "Deku Palace Bean Seller":
@@ -1371,7 +1371,7 @@ def get_location_rules(player, options):
             ),
 
         "Woodfall Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Woodfall)", player, 15),
+            lambda state: state.has("Stray Fairy (Woodfall)", player, options.required_stray_fairies.value),
         "Woodfall Owl Statue Chest":
             lambda state: state.has("Deku Mask", player),
         "Woodfall Bridge Chest":
@@ -1754,7 +1754,7 @@ def get_location_rules(player, options):
             ),
             
         "Snowhead Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Snowhead)", player, 15),
+            lambda state: state.has("Stray Fairy (Snowhead)", player, options.required_stray_fairies.value),
             
         "Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
@@ -2260,7 +2260,7 @@ def get_location_rules(player, options):
             ),
         "Ocean Spider House Reward":
             lambda state: (
-                state.has("Ocean Skulltula Token", player, 30) and
+                state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value) and
                 has_soul_npc(state, player, options, "Soul of Spider Man")
             ),
         "Pirates' Fortress Exterior Underwater Log Chest":
@@ -2393,7 +2393,7 @@ def get_location_rules(player, options):
 
         "Great Bay Great Fairy Reward":
             lambda state: (
-                state.has("Stray Fairy (Great Bay)", player, 15) and 
+                state.has("Stray Fairy (Great Bay)", player, options.required_stray_fairies.value) and 
                 state.has("Hookshot", player)
             ),
             
@@ -2614,7 +2614,7 @@ def get_location_rules(player, options):
 
         "Stone Tower Great Fairy Reward":
             lambda state: (
-                state.has("Stray Fairy (Stone Tower)", player, 15) and 
+                state.has("Stray Fairy (Stone Tower)", player, options.required_stray_fairies.value) and 
                 can_use_ice_arrows(state, player)
             ),
             
