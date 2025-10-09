@@ -37,11 +37,36 @@ class MMRWorld(World):
     options = MMROptions
     location_name_to_id = location_table
     item_name_to_id = item_table
-    prices = ""
-    prices_ints = []
+    prices_ints: List[int]
+    prices: str
+
+    def __init__(self, *args, **kwargs):
+        self.prices_ints = []
+        self.prices = ""
+        super(MMRWorld, self).__init__(*args, **kwargs)
 
     def generate_early(self):
-        pass
+        # Create shop prices.
+        if self.options.shopsanity.value != 0:
+            price_max = 0
+
+            if self.options.shop_prices.value == 2:
+                price_max = 99
+            elif self.options.shop_prices.value == 3:
+                price_max = 200
+            elif self.options.shop_prices.value == 4:
+                price_max = 500
+
+            # There are 34 (+2 fake) shop locations that need prices
+            for i in range(0, 36):
+                if self.options.shop_prices.value == 0:
+                    price = default_shop_prices[i]
+                else:
+                    price = self.random.randint(0, price_max)
+                self.prices_ints.append(price)
+                self.prices += str(price) + " "
+
+            self.prices = self.prices[:-1]
     
     def create_item(self, name: str) -> MMRItem:
         return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
@@ -125,28 +150,6 @@ class MMRWorld(World):
     def create_regions(self) -> None:
         player = self.player
         mw = self.multiworld
-
-        # Create shop prices.
-        if self.options.shopsanity.value != 0:
-            price_max = 0
-
-            if self.options.shop_prices.value == 2:
-                price_max = 99
-            elif self.options.shop_prices.value == 3:
-                price_max = 200
-            elif self.options.shop_prices.value == 4:
-                price_max = 500
-
-            # There are 34 (+2 fake) shop locations that need prices
-            for i in range(0, 36):
-                if self.options.shop_prices.value == 0:
-                    price = default_shop_prices[i]
-                else:
-                    price = self.random.randint(0, price_max)
-                self.prices_ints.append(price)
-                self.prices += str(price) + " "
-
-            self.prices = self.prices[:-1]
 
         # Create regions.
         for region_name in region_data_table.keys():
