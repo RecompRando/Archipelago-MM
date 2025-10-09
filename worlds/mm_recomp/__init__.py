@@ -37,16 +37,15 @@ class MMRWorld(World):
     options = MMROptions
     location_name_to_id = location_table
     item_name_to_id = item_table
+    
     prices_ints: List[int]
     prices: str
 
-    def __init__(self, *args, **kwargs):
-        self.prices_ints = []
-        self.prices = ""
-        super(MMRWorld, self).__init__(*args, **kwargs)
-
     def generate_early(self):
         # Create shop prices.
+        self.prices_ints = []
+        self.prices = ""
+
         if self.options.shopsanity.value != 0:
             price_max = 0
 
