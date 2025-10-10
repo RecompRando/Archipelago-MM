@@ -752,7 +752,7 @@ def get_location_rules(player, options):
         "West Clock Town Bank 1000 Rupees":
             lambda state: (
                 has_soul_npc(state, player, options, "Banker") and
-                state.has("Progressive Wallet", player, 2),
+                state.has("Progressive Wallet", player, 2)
             ),
         "West Clock Town Priority Mail to Postman":
             lambda state: (
@@ -3539,29 +3539,29 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Grass Near Takkuri
-        "Termina Field Grass Near Takkuri  (1)":
+        "Termina Field Grass Near Takkuri (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (2)":
+        "Termina Field Grass Near Takkuri (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (3)":
+        "Termina Field Grass Near Takkuri (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (4)":
+        "Termina Field Grass Near Takkuri (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (5)":
+        "Termina Field Grass Near Takkuri (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (6)":
+        "Termina Field Grass Near Takkuri (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (7)":
+        "Termina Field Grass Near Takkuri (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (8)":
+        "Termina Field Grass Near Takkuri (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (9)":
+        "Termina Field Grass Near Takkuri (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (10)":
+        "Termina Field Grass Near Takkuri (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (11)":
+        "Termina Field Grass Near Takkuri (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Takkuri  (12)":
+        "Termina Field Grass Near Takkuri (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Kamaro
@@ -3851,8 +3851,6 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Observatory Fence
-        "Termina Field Grass Near Observatory Fence (0)":
-            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (2)":
@@ -3875,10 +3873,10 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
+        "Termina Field Grass Near Observatory Fence (12)":
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Eastern Gossip Grotto
-        "Termina Field Grass Near Eastern Gossip Grotto (0)":
-            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (2)":
@@ -3900,6 +3898,8 @@ def get_location_rules(player, options):
         "Termina Field Grass Near Eastern Gossip Grotto (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (11)":
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
+        "Termina Field Grass Near Eastern Gossip Grotto (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Grotto Grass
@@ -8543,27 +8543,27 @@ def get_location_rules(player, options):
         
         # Goron Shrine Pots - Requires region access
         "Goron Shrine Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (4)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (5)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (6)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (7)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (8)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (9)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (10)":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
         "Goron Shrine Pots (11)":
-            lambda state: True,  
+            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
                         
         # Snowhead Temple Pots
         
@@ -13589,7 +13589,11 @@ def get_location_rules(player, options):
             lambda state: True,
         "Termina Field Kamaro Rock Circle (7)":
             lambda state: True,
-
+        "Termina Field Bio Baba Rock":
+            lambda state: (
+                has_explosives(state, player) or
+                state.has("Goron Mask", player)
+            ),
         # Termina Field North West Rock Wall
         "Termina Field North West Rock Wall (0)":
             lambda state: has_explosives(state, player),
@@ -13652,37 +13656,85 @@ def get_location_rules(player, options):
                
         # Goron Shrine Rocks
         "Goron Shrine Rocks (0)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (1)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (2)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (3)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (4)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (5)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (6)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (7)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (8)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (9)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (10)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (11)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (12)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (13)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (14)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
         "Goron Shrine Rocks (15)":
-            lambda state: True,
+            lambda state: (
+                state.has("Goron Mask", player) or
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
+            ),
 
         # Mountain Village Spring Rock Triangle
 
