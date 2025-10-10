@@ -399,6 +399,7 @@ class MMRWorld(World):
             "shopsanity": self.options.shopsanity.value,                                                                
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
+            "shop_prices_ints": self.prices_ints,
             "cowsanity": self.options.cowsanity.value,
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
