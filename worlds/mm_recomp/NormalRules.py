@@ -552,7 +552,7 @@ def get_location_rules(player, options):
                 has_projectiles(state, player)
             ),
          "North Clock Town Tree HP":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "North Clock Town Deku Playground Any Day":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
@@ -15806,6 +15806,10 @@ def get_location_rules(player, options):
                 state.has("Bomber's Notebook", player)
             ),
         #Treesanity 
+        "North Clock Town Tree (1)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+        "North Clock Town Tree (2)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "West Clock Town Trading Post Bush (1)":
         lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "West Clock Town Trading Post Bush (2)":
