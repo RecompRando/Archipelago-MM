@@ -49,6 +49,9 @@ def can_clear_greatbay(state, player):
 def can_clear_stonetower(state, player):
     return state.can_reach("Stone Tower Temple Inverted Twinmold's Remains", 'Location', player)
 
+def has_notebook(state, player):
+    return (state.has("Bomber's Notebook", player))
+
 def has_paper(state, player):
     return (state.has("Land Title Deed", player) or 
             state.has("Swamp Title Deed", player) or 
@@ -59,7 +62,7 @@ def has_paper(state, player):
 
 def can_get_cow_milk(state, player, options):
     return (
-        has_soul_misc(state, player, options, "Cow") and
+        has_soul_misc(state, player, options, "Cows") and
         has_bottle(state, player) and 
         can_play_song("Epona's Song", state, player) and 
         (
@@ -378,14 +381,16 @@ def get_region_rules(player, options):
             ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and 
                 can_play_song("New Wave Bossa Nova", state, player) and 
                 state.has("Hookshot", player) and 
                 state.has("Zora Mask", player)
             ),
         "Great Bay Temple -> Gyorg's Lair":
             lambda state: (
+                can_play_song("New Wave Bossa Nova", state, player) and 
                 state.has("Hookshot", player) and 
-                (
+                state.has("Zora Mask", player) and
                     (
                         state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
                         state.has("Boss Key (Great Bay)", player)
@@ -394,7 +399,6 @@ def get_region_rules(player, options):
                         state.has("Gyorg's Remains", player) and 
                         options.remains_allow_boss_warps.value
                     )
-                )
             ),
         "Road to Ikana -> Termina Field":
             lambda state: can_play_song("Epona's Song", state, player),
@@ -469,11 +473,12 @@ def get_region_rules(player, options):
             ),
         "Stone Tower -> Stone Tower Temple":
             lambda state: (
+                state.has("Hookshot", player) and  
                 can_play_song("Elegy of Emptiness", state, player) and 
                 (state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player) or
+                state.has("Zora Mask", player)) or
                 state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player))
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
@@ -539,24 +544,24 @@ def get_location_rules(player, options):
         "Top of Clock Tower (Ocarina of Time)":
             lambda state: (
                 has_soul_npc(state, player, options, "Skull Kid") and
-                has_projectiles(state, player),
+                has_projectiles(state, player)
             ),
         "Top of Clock Tower (Song of Time)":
             lambda state: (
                 has_soul_npc(state, player, options, "Skull Kid") and
-                has_projectiles(state, player),
+                has_projectiles(state, player)
             ),
          "North Clock Town Tree HP":
             lambda state: True,
         "North Clock Town Deku Playground Any Day":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground All Days":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "North Clock Town Save Old Lady":
             lambda state: (
@@ -580,7 +585,7 @@ def get_location_rules(player, options):
         "North Clock Town Great Fairy Reward":
             lambda state: (
                 has_soul_npc(state, player, options, "Great Fairies") and
-                state.has("Stray Fairy (Clock Town)", player),
+                state.has("Stray Fairy (Clock Town)", player)
             ),
         "Clock Town Hide-and-Seek":
             lambda state: has_projectiles(state, player),
@@ -602,8 +607,8 @@ def get_location_rules(player, options):
             lambda state: True,        
         "South Clock Town Moon's Tear Trade":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
-                state.has("Moon's Tear", player),
+                has_soul_npc(state, player, options, "Business Scrubs") and
+                state.has("Moon's Tear", player)
             ),
         "South Clock Town Corner Chest":
             lambda state: state.has("Hookshot", player),
@@ -646,7 +651,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Bow", player),
         "East Clock Town Honey and Darling Any Day":
             lambda state: (
-                (has_soul_npc(state, player, options, "Honey & Darling") and
+                (has_soul_npc(state, player, options, "Honey and Darling") and
                 state.has("Progressive Bow", player) or 
                 (
                     state.has("Progressive Bomb Bag", player) or 
@@ -659,7 +664,7 @@ def get_location_rules(player, options):
             ),
         "East Clock Town Honey and Darling All Days":
             lambda state: (
-                has_soul_npc(state, player, options, "Honey & Darling") and
+                has_soul_npc(state, player, options, "Honey and Darling") and
                 state.has("Progressive Bow", player) and 
                 state.has("Progressive Bomb Bag", player) and 
                 has_bombchus(state, player)
@@ -669,17 +674,17 @@ def get_location_rules(player, options):
         "East Clock Town Treasure Game Chest (Deku)":
             lambda state: (
                 has_soul_npc(state, player, options, "Treasure Game Lady") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "East Clock Town Treasure Game Chest (Goron)":
             lambda state: (
                 has_soul_npc(state, player, options, "Treasure Game Lady") and
-                state.has("Goron Mask", player),
+                state.has("Goron Mask", player)
             ),
         "East Clock Town Treasure Game Chest (Zora)":
             lambda state: (
                 has_soul_npc(state, player, options, "Treasure Game Lady") and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Bomber's Hideout Chest":
             lambda state: (
@@ -690,7 +695,7 @@ def get_location_rules(player, options):
             lambda state: (
                 (has_soul_npc(state, player, options, "Astral Observatory Man") and
                 has_projectiles(state, player) or
-                state.has("Deku Mask", player)),
+                state.has("Deku Mask", player))
             ),
         "Milk Bar Show":
             lambda state: (
@@ -725,28 +730,28 @@ def get_location_rules(player, options):
         "West Clock Town Swordsman Expert Course":
             lambda state: (
                 has_soul_npc(state, player, options, "Swordsman") and
-                state.has("Progressive Sword", player),
+                state.has("Progressive Sword", player)
             ),
         "West Clock Town Postman Counting":
             lambda state: (
                 has_soul_npc(state, player, options, "Postman") and
-                state.has("Bunny Hood", player),
+                state.has("Bunny Hood", player)
             ),
         "West Clock Town Dancing Sisters":
             lambda state: (
-                has_soul_npc(state, player, options, "Rosa Sisters"),
+                has_soul_npc(state, player, options, "Rosa Sisters") and 
                 state.has("Kamaro Mask", player)
             ),
         "West Clock Town Bank 200 Rupees":
             lambda state: has_soul_npc(state, player, options, "Banker"),
         "West Clock Town Bank 500 Rupees":
             lambda state: (
-                has_soul_npc(state, player, options, "Banker"),
-                state.has("Progressive Wallet", player),
+                has_soul_npc(state, player, options, "Banker") and 
+                state.has("Progressive Wallet", player)
             ),
         "West Clock Town Bank 1000 Rupees":
             lambda state: (
-                has_soul_npc(state, player, options, "Banker"),
+                has_soul_npc(state, player, options, "Banker") and
                 state.has("Progressive Wallet", player, 2),
             ),
         "West Clock Town Priority Mail to Postman":
@@ -762,7 +767,7 @@ def get_location_rules(player, options):
         "Clock Town Trading Post Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_2),
+                can_purchase(state, player, SHOP_ID_TRADING_POST_2)
             ),
         "Clock Town Trading Post Shop Item 3":
             lambda state: (
@@ -852,7 +857,7 @@ def get_location_rules(player, options):
         "Clock Town Bomb Shop Powder Keg Goron":
             lambda state: (
                 has_soul_npc(state, player, options, "Keg Selling Goron") and
-                state.has("Goron Mask", player) and state.has("Powder Keg", player),
+                state.has("Goron Mask", player) and state.has("Powder Keg", player)
             ),
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: (
@@ -872,7 +877,7 @@ def get_location_rules(player, options):
         "Curiosity Shop Red Rupee Trade":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                has_bottle(state, player),
+                has_bottle(state, player)
             ),
         "Curiosity Shop Purple Rupee Trade":
             lambda state: (
@@ -933,12 +938,12 @@ def get_location_rules(player, options):
         "Stock Pot Inn Granny Story #1":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
-                state.has("All-Night Mask", player),
+                state.has("All-Night Mask", player)
             ),
         "Stock Pot Inn Granny Story #2":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
-                state.has("All-Night Mask", player),
+                state.has("All-Night Mask", player)
             ),
         "Stock Pot Inn Anju and Kafei":
             lambda state: (
@@ -960,19 +965,19 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
                 has_soul_npc(state, player, options, "Kafei") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player)
             ),
         "Laundry Pool Curiosity Shop Salesman #1":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player)
             ),
         "Laundry Pool Curiosity Shop Salesman #2":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player)
             ),
         "Laundry Pool Musician":
             lambda state: has_soul_npc(state, player, options, "Guru-Guru"),
@@ -980,11 +985,15 @@ def get_location_rules(player, options):
             lambda state: True,        
 
         "Termina Ikana Pillar Grotto Chest":
-            lambda state: True,        
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),      
         "Termina Grass Chest":
             lambda state: True,
         "Termina Grass Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),   
         "Termina Stump Chest":
             lambda state: (
                 state.has("Hookshot", player) or 
@@ -993,11 +1002,16 @@ def get_location_rules(player, options):
         "Termina Underwater Chest":
             lambda state: state.has("Zora Mask", player),
         "Termina Peahat Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),   
         "Termina Dodongo Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),   
         "Termina Bio Baba Grotto HP":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 (
                     has_explosives(state, player) or 
                     state.has("Goron Mask", player)
@@ -1033,9 +1047,10 @@ def get_location_rules(player, options):
             ),
         "Termina Scrub Grotto HP":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 (
                     has_soul_npc(state, player, options, "Astral Observatory Man") and
-                    has_soul_npc(state, player, options, "Business Scrub") and
+                    has_soul_npc(state, player, options, "Business Scrubs") and
                     (state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and 
                     state.has("Ocarina of Time", player) and 
                     can_afford_price(state, player, 100)
@@ -1048,13 +1063,15 @@ def get_location_rules(player, options):
             ),
         "Termina Log Bombable Grotto Left Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Cows") and
                 has_explosives(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Termina Log Bombable Grotto Right Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Cows") and
                 has_explosives(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -1076,7 +1093,9 @@ def get_location_rules(player, options):
             ),
         
         "Road to Swamp Grotto Chest":
-            lambda state: True,            
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),          
         "Road to Swamp Tree HP":
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
@@ -1106,8 +1125,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Deku Trade":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
-                state.has("Land Title Deed", player),
+                has_soul_npc(state, player, options, "Business Scrubs") and
+                state.has("Land Title Deed", player)
             ),
         "Southern Swamp Freestanding HP":
             lambda state: (
@@ -1125,7 +1144,8 @@ def get_location_rules(player, options):
         "Southern Swamp Okay Picture":
             lambda state: state.has("Pictograph Box", player),
         "Southern Swamp Grotto Chest":
-            lambda state: ( 
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Deku Mask", player) and
                 (
                     has_projectiles(state, player) or
@@ -1136,7 +1156,9 @@ def get_location_rules(player, options):
         "Southern Swamp Song Tablet":
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp Day 2 Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),   
         "Southern Swamp Witch Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Kotake") and
@@ -1157,22 +1179,22 @@ def get_location_rules(player, options):
         "Swamp Spider House First Room Pot Near Entrance Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House First Room Crawling In Water Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House First Room Crawling Right Column Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House First Room Crawling Left Column Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House First Room Against Far Wall Token":
             lambda state: (
@@ -1213,12 +1235,12 @@ def get_location_rules(player, options):
         "Swamp Spider House Monument Room Left Crate Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House Monument Room Right Crate Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House Monument Room Crawling Wall Token":
             lambda state: (
@@ -1242,7 +1264,7 @@ def get_location_rules(player, options):
         "Swamp Spider House Monument Room Behind Torch Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
-                can_smack(state, player),
+                can_smack(state, player)
             ),
         "Swamp Spider House Pottery Room Beehive #1 Token":
             lambda state: (
@@ -1342,19 +1364,21 @@ def get_location_rules(player, options):
         "Swamp Spider House Reward":
             lambda state: (
                 state.has("Swamp Skulltula Token", player, options.required_skull_tokens.value) and
-                has_soul_npc(state, player, options, "Soul of Spider Man")
+                has_soul_npc(state, player, options, "Spider Man")
             ), 
         "Deku Palace Bean Seller":
             lambda state: state.has("Deku Mask", player),
         "Deku Palace Bean Grotto Chest":
             lambda state: (
-                can_plant_beans(state, player) or 
-                state.has("Hookshot", player)
+                has_soul_absurd(state, player, options, "Grottos") and
+                (can_plant_beans(state, player) or 
+                state.has("Hookshot", player))
             ),
         "Deku Palace HP":
             lambda state: state.has("Deku Mask", player),    
         "Deku Palace Monkey Song":
             lambda state: (
+                has_soul_npc(state, player, options, "Monkey") and
                 state.has("Ocarina of Time", player) and 
                 can_plant_beans(state, player) and 
                 state.has("Deku Mask", player)
@@ -1544,7 +1568,10 @@ def get_location_rules(player, options):
         "Mountain Village Spring Waterfall Chest":
             lambda state: can_clear_snowhead(state, player),
         "Mountain Village Spring Ramp Grotto":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Frog Choir HP":
             lambda state: (
                 state.has("Don Gero Mask", player) and 
@@ -1591,10 +1618,12 @@ def get_location_rules(player, options):
             ),
         "Twin Islands Ramp Grotto Chest":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_explosives(state, player) and 
                 (
-                    state.has("Goron Mask", player) or 
-                    state.has("Hookshot", player)
+                    (state.has("Goron Mask", player) or 
+                    state.has("Hookshot", player) and
+                    has_soul_npc(state, player, options, "Scarecrow")) 
                 )
             ),
         "Twin Islands Goron Elder Request":
@@ -1616,6 +1645,7 @@ def get_location_rules(player, options):
             ),
         "Twin Islands Hot Water Grotto Chest":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 (
                     has_explosives(state, player) and 
                     can_use_fire_arrows(state, player)
@@ -1673,7 +1703,7 @@ def get_location_rules(player, options):
             ),
         "Goron Village Deku Trade":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.has("Swamp Title Deed", player)
             ),
@@ -1744,6 +1774,7 @@ def get_location_rules(player, options):
 
         "Path to Snowhead Grotto Chest":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
@@ -1772,7 +1803,7 @@ def get_location_rules(player, options):
         "Snowhead Temple Bombable Stairs Crate SF":
             lambda state: (
                 (
-                    state.has("Small Key (Snowhead)", player) and 
+                    state.has("Small Key (Snowhead)", player, 1) and 
                     state.has("Great Fairy Mask", player) and 
                     has_explosives(state, player)
                 ) or 
@@ -1806,18 +1837,18 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Snowmen Bubble SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
+                state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player) and 
                 state.has("Great Fairy Mask", player)
             ),
         "Snowhead Temple Dinolfos Room First SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
+                state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Dinolfos Room Second SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
+                state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Bridge Room Freezard Chest":
@@ -1833,7 +1864,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Hookshot", player) or 
                 (
-                    state.has("Small Key (Snowhead)", player) and 
+                    state.has("Small Key (Snowhead)", player, 1) and 
                     can_use_fire_arrows(state, player)
                 )
             ),
@@ -1841,14 +1872,14 @@ def get_location_rules(player, options):
             lambda state: True,
         "Snowhead Temple Frozen Block Chest":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) or 
+                state.has("Small Key (Snowhead)", player, 1) or 
                 state.has("Hookshot", player)
             ),
         "Snowhead Temple Frozen Block Upper Chest SF":
             lambda state: (
                 can_use_fire_arrows(state, player) and 
                 (
-                    state.has("Small Key (Snowhead)", player) or 
+                    state.has("Small Key (Snowhead)", player, 1) or 
                     state.has("Hookshot", player)
                 )
             ),
@@ -1858,7 +1889,7 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
-                    state.has("Small Key (Snowhead)", player) or 
+                    state.has("Small Key (Snowhead)", player, 1) or 
                     state.has("Hookshot", player)
                 )
             ),
@@ -1867,7 +1898,7 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 (
                     (
-                        state.has("Small Key (Snowhead)", player) and 
+                        state.has("Small Key (Snowhead)", player, 1) and 
                         state.has("Progressive Bow", player)
                     ) or 
                     state.has("Hookshot", player)
@@ -1975,7 +2006,10 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player)
             ),
         "Romani Ranch Doggy Race":
-            lambda state: state.has("Mask of Truth", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Doggy Race Lady & Dogs") and
+                state.has("Mask of Truth", player)
+            ),
         "Romani Ranch Romani Game":
             lambda state: (
                 can_use_powder_keg(state, player) and 
@@ -1988,19 +2022,19 @@ def get_location_rules(player, options):
             ),
         "Romani Ranch Barn Free Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_misc(state, player, options, "Cows") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Front Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_misc(state, player, options, "Cows") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Back Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_misc(state, player, options, "Cows") and
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -2022,16 +2056,20 @@ def get_location_rules(player, options):
                 )
             ),
         "Great Bay Fisherman's Grotto Chest":
-            lambda state: True,   
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),    
         "Great Bay Ledge Grotto Left Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Cows") and
                 state.has("Hookshot", player) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Great Bay Ledge Grotto Right Cow":
             lambda state: (
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_misc(state, player, options, "Cows") and
                 state.has("Hookshot", player) and 
                 can_play_song("Epona's Song", state, player)
             ),
@@ -2070,19 +2108,19 @@ def get_location_rules(player, options):
         "Great Bay Fisherman Game":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                can_clear_greatbay(state, player),
+                can_clear_greatbay(state, player)
             ),
         "Ocean Spider House Ramp Upper Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 has_explosives(state, player) and
-                state.has("Hookshot", player),
+                state.has("Hookshot", player)
             ), 
         "Ocean Spider House Ramp Lower Token":
             lambda state: (
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 has_explosives(state, player) and
-                state.has("Hookshot", player),
+                state.has("Hookshot", player)
             ), 
         "Ocean Spider House Lobby Ceiling Token":
             lambda state: (
@@ -2264,7 +2302,7 @@ def get_location_rules(player, options):
         "Ocean Spider House Reward":
             lambda state: (
                 state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value) and
-                has_soul_npc(state, player, options, "Soul of Spider Man")
+                has_soul_npc(state, player, options, "Spider Man")
             ),
         "Pirates' Fortress Exterior Underwater Log Chest":
             lambda state: state.has("Zora Mask", player),
@@ -2310,6 +2348,7 @@ def get_location_rules(player, options):
             
         "Zora Cape Grotto Chest":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Goron Mask", player) or 
                 has_explosives(state, player)
             ),
@@ -2320,7 +2359,7 @@ def get_location_rules(player, options):
         "Zora Cape Pot Game":
             lambda state: (
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player),
+                state.has("Zora Mask", player)
             ),
         "Zora Cape Deku Flower Chest":
             lambda state: state.has("Hookshot", player),
@@ -2364,14 +2403,14 @@ def get_location_rules(player, options):
             ),
         "Zora Hall Goron Scrub Trade":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Zora Mask", player) and 
                 state.has("Mountain Title Deed", player) and 
                 state.has("Goron Mask", player)
             ),
         "Zora Hall Goron Scrub Trade Freestanding HP":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.can_reach("Zora Hall Goron Scrub Trade", 'Location', player)
             ),
@@ -2518,7 +2557,10 @@ def get_location_rules(player, options):
         "Road to Ikana Pillar Chest":
             lambda state: state.has("Hookshot", player),
         "Road to Ikana Rock Grotto Chest":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                state.has("Goron Mask", player)
+            ),
         "Road to Ikana Invisible Soldier":
             lambda state: (
                 can_play_song("Epona's Song", state, player) and 
@@ -2527,8 +2569,10 @@ def get_location_rules(player, options):
             ),
             
         "Ikana Graveyard Bombable Grotto Chest":
-            lambda state: has_explosives(state, player),
-
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player)
+            ),
         "Graveyard Day 1 Bats Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
@@ -2536,7 +2580,10 @@ def get_location_rules(player, options):
                 can_smack(state, player)
             ),
         "Graveyard Day 2 Dampe Bats":
-            lambda state: has_projectiles(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Dampe") and
+                has_projectiles(state, player)
+            ),
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
@@ -2547,13 +2594,10 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 3 Dampe Big Poe Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                has_soul_npc(state, player, options, "Dampe") and
                 (
-                    has_soul_npc(state, player, options, "Stalchildren") and
-                    state.has("Captain's Hat", player) and 
-                    state.has("Progressive Bow", player)
-                ) or 
-                (
-                    state.has("Captain's Hat", player) and 
+                    (state.has("Captain's Hat", player) and state.has("Progressive Bow", player)) or
                     state.has("Zora Mask", player)
                 )
             ),
@@ -2600,20 +2644,22 @@ def get_location_rules(player, options):
             ),
         "Ikana Canyon Zora Scrub Trade":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Zora Mask", player) and 
                 state.has("Ocean Title Deed", player)
             ),
         "Ikana Canyon Zora Trade Freestanding HP":
             lambda state: (
-                has_soul_npc(state, player, options, "Business Scrub") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and 
                 state.has("Zora Mask", player) and 
                 state.has("Ocean Title Deed", player)
             ),
         "Ikana Canyon Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),   
 
         "Stone Tower Great Fairy Reward":
             lambda state: (
@@ -2693,7 +2739,7 @@ def get_location_rules(player, options):
         "Ikana Well Cow":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
-                has_soul_misc(state, player, options, "Cow") and
+                has_soul_misc(state, player, options, "Cows") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -2784,7 +2830,7 @@ def get_location_rules(player, options):
             lambda state: can_use_light_arrows(state, player),
         "Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player) or 
+                state.has("Small Key (Stone Tower)", player, 1) or 
                 can_use_light_arrows(state, player)
             ),
         "Stone Tower Temple Eastern Water Room Underwater Chest":
@@ -2793,7 +2839,7 @@ def get_location_rules(player, options):
             lambda state: (
                 can_use_light_arrows(state, player) or 
                 (
-                    state.has("Small Key (Stone Tower)", player) and 
+                    state.has("Small Key (Stone Tower)", player, 1) and 
                     has_mirror_shield(state, player)
                 )
             ),
@@ -3035,1060 +3081,1548 @@ def get_location_rules(player, options):
             ),
                      
             # Grass Location Rules
+            # Clock Town Area Grass
         "Before Clock Town Keaton Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),         
         "Before Clock Town Keaton Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),   
         "Before Clock Town Keaton Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ), 
         "Before Clock Town Keaton Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),        
         "Before Clock Town Skullkid Keaton Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Before Clock Town Skullkid Keaton Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Before Clock Town Skullkid Keaton Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Before Clock Town Skullkid Keaton Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
+        # Lost Woods Grass
         "Lost Woods Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),
         "Lost Woods Grass (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Grass Patch 2 (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
             ),  
         "Lost Woods Keaton Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_soul_npc(state, player, options, "Skull Kid") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player)
-            ),                                            
+            ),
         "Laundry Pool Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Laundry Pool Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Laundry Pool Grass (3)":
-            lambda state: True,   
+            lambda state: has_soul_absurd(state, player, options, "Grass"),   
 
         "North Clock Town Keaton Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "North Clock Town Keaton Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
+        
                                                                               
-        # Termina Field Grass Near Western Water Ramp
+# Termina Field Grass Near Western Water Ramp
         "Termina Field Grass Near Western Water Ramp (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Takkuri Gossip Tree
         "Termina Field Grass Near Takkuri Gossip Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri Gossip Tree (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Southwest Above Rock Ledge
         "Termina Field Grass Southwest Above Rock Ledge (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Southwest Above Rock Ledge (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Western Fountains
         "Termina Field Grass Near Western Fountains (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Fountains (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Grass Near Takkuri
         "Termina Field Grass Near Takkuri  (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Takkuri  (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Kamaro
         "Termina Field Grass Near Kamaro (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Kamaro (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Peahat Grotto
         "Termina Field Grass Near Peahat Grotto (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Peahat Grotto (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass In Front Of Log
         "Termina Field Grass In Front Of Log (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass In Front Of Log (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Northern Ramp 
         "Termina Field Grass Near Northern Ramp (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Northern Ramp (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Termina Field Grass Near Grass Grotto
+# Termina Field Grass Near Grass Grotto
         "Termina Field Grass Near Grass Grotto (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Below Southeast Hill Fence
         "Termina Field Grass Below Southeast Hill Fence (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Below Southeast Hill Fence (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Bottom Of Southeast Hill Grass
         "Termina Field Bottom Of Southeast Hill Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Bottom Of Southeast Hill Grass (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Eastern Pillars
         "Termina Field Grass Near Eastern Pillars (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillars (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Eastern Pillar Grotto
         "Termina Field Grass Near Eastern Pillar Grotto (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Pillar Grotto (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Middle Of Southeast Hill Grass
         "Termina Field Middle Of Southeast Hill Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Middle Of Southeast Hill Grass (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Business Scrub Grotto
         "Termina Field Grass Near Business Scrub Grotto (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Business Scrub Grotto (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Observatory Fence
         "Termina Field Grass Near Observatory Fence (0)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Observatory Fence (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Eastern Gossip Grotto
         "Termina Field Grass Near Eastern Gossip Grotto (0)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Eastern Gossip Grotto (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Grotto Grass
         "Termina Field Grass Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (6)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (7)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (8)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (9)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (10)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (11)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (12)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (13)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Grass Grotto Grass (14)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         # Termina Field Cow Grotto Grass Groups
         "Termina Field Cow Grotto Grass Group 1 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 1 (12)":
-            lambda state: has_explosives(state, player),
-        
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 2 (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         
         "Termina Field Cow Grotto Grass Group 3 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (8)":
-            lambda state: has_explosives(state, player),
+              lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 3 (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         
         "Termina Field Cow Grotto Grass Group 4 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 4 (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         
         "Termina Field Cow Grotto Grass Group 5 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 5 (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         
         "Termina Field Cow Grotto Grass Group 6 (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Termina Field Cow Grotto Grass Group 6 (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         
         # Termina Field Peahat Grotto Grass
         "Termina Field Peahat Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (6)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (7)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (8)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (9)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (10)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (11)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Peahat Grotto Grass (12)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         
         # Termina Field Bio Baba Grotto Grass
         "Termina Field Bio Baba Grotto Grass (1)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Termina Field Bio Baba Grotto Grass (2)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         
         # Termina Field Eastern Gossip Grotto Grass
         "Termina Field Eastern Gossip Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Gossip Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Gossip Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Gossip Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Gossip Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         
         # Termina Field Eastern Pillar Grotto Grass
         "Termina Field Eastern Pillar Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (6)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (7)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (8)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (9)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (10)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (11)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (12)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (13)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Termina Field Eastern Pillar Grotto Grass (14)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         
         # Termina Field Bombable Rock Grass 
         "Termina Field Bombable Rock Grass (1)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Termina Field Bombable Rock Grass (2)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Termina Field Bombable Rock Grass (3)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Termina Field Bombable Rock Grass (4)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Termina Field Bombable Rock Grass (5)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         # Road To Southern Swamp Grass
         "Road to Southern Swamp Outside Archery Grass (1)":
@@ -4096,228 +4630,321 @@ def get_location_rules(player, options):
         "Road to Southern Swamp Outside Archery Grass (2)":
             lambda state: True,
         
+# Road To Southern Swamp Grass
+        "Road to Southern Swamp Outside Archery Grass (1)":
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
+        "Road to Southern Swamp Outside Archery Grass (2)":
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
+        
         # Road to Southern Swamp Grass Near Tourist Centre
         "Road to Southern Swamp Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Road to Southern Swamp Grass 
         "Road to Southern Swamp Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (13)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (14)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (15)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (16)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (17)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grass (18)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Road to Southern Swamp Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (2)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (3)":
-            lambda state: True,   
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (4)":
-            lambda state: True, 
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (6)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (7)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (8)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (9)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (10)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ), 
         "Road to Southern Swamp Grotto Grass (11)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ), 
         "Road to Southern Swamp Grotto Grass (12)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (13)":
-            lambda state: True,  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Road to Southern Swamp Grotto Grass (14)":
-            lambda state: True,              
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),           
 
         # Southern Swamp Grass
         "Southern Swamp Owl Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Owl Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Southern Swamp Grass Near Tourist Centre
         "Southern Swamp Grass Near Tourist Centre (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Tourist Centre (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (13)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (14)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (15)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (16)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (17)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Swamp Grass Near Witch Shop (18)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Near Gossip Stone Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Southern Near Gossip Stone Grass (2)":
-            lambda state: True,            
+            lambda state: has_soul_absurd(state, player, options, "Grass"),         
         # Woods of Mystery Grass
+# Woods of Mystery Grass
         "Woods of Mystery Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (13)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (14)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (15)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (16)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (17)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (18)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (19)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (20)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Woods of Mystery Day-specific Grass
         "Woods of Mystery Day 2 Unique Grass":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Day 3 Unique Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Day 3 Unique Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Woods of Mystery Day 2 Grotto Grass
         "Woods of Mystery Day 2 Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (6)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (7)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (8)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (9)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (10)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (11)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (12)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (13)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         "Woods of Mystery Day 2 Grotto Grass (14)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),
         
         # Southern Swamp Grotto Grass - Requires access to Swamp Spider House
         "Southern Swamp Grotto Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4333,6 +4960,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4348,6 +4977,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4363,6 +4994,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4378,6 +5011,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4393,6 +5028,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4408,6 +5045,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4423,6 +5062,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4438,6 +5079,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4453,6 +5096,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4468,6 +5113,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4483,6 +5130,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4498,6 +5147,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (13)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4513,6 +5164,8 @@ def get_location_rules(player, options):
             ),
         "Southern Swamp Grotto Grass (14)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
                     state.has("Bottle of Red Potion", player) or 
@@ -4530,200 +5183,362 @@ def get_location_rules(player, options):
         # Woodfall Temple Post Dungeon
 
         "Southern Swamp Owl Post Dungeon Grass (1)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Owl Post Dungeon Grass (2)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (1)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (2)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (3)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (4)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (5)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (6)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (7)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (8)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (9)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (10)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (11)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (12)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (1)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (2)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (3)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (4)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (5)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (6)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (7)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (8)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (9)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (10)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (11)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (12)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (13)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (14)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (15)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (16)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (17)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (18)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Gossip Grass (1)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         "Southern Swamp Post Dungeon Gossip Grass (2)":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_woodfall(state, player)
+            ),
         
         # Deku Palace Bean Grotto Grass
         "Deku Palace Bean Grotto Grass (1)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (2)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (3)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (4)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (5)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (6)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (7)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (8)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (9)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (10)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (11)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Grass (12)":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Deku Mask", player)
+            ),
         
         # Woodfall Grass
         "Woodfall Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
 
         # Milk Road Owl Grass
         "Milk Road Owl Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Owl Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Owl Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Milk Road Keaton Grass
         "Milk Road Keaton Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Milk Road Keaton Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Milk Road Gorman Racetrack Grass Group 1 - Requires Epona's Song
         "Milk Road Gorman Racetrack Grass Group 1 (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
@@ -4731,1236 +5546,1894 @@ def get_location_rules(player, options):
         # Milk Road Gorman Racetrack Grass Group 2 - Requires Epona's Song
         "Milk Road Gorman Racetrack Grass Group 2 (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
 
         # Romani Ranch Grass In Front Of Gossip Tree
         "Romani Ranch Grass In Front Of Gossip Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass In Front Of Gossip Tree (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Romani Ranch Grass Behind Gossip Tree
         "Romani Ranch Grass Behind Gossip Tree (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Gossip Tree (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Romani Ranch Grass Near Entrance
         "Romani Ranch Grass Near Entrance (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Near Entrance (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Romani Ranch Grass Between Entrance and Barn
         "Romani Ranch Grass Between Entrance and Barn (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Between Entrance and Barn (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Romani Ranch Grass Behind Barn
         "Romani Ranch Grass Behind Barn (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Romani Ranch Grass Behind Barn (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
 
-        # Twin Isles Grotto Grass - Requires 
+        # Twin Isles Grotto Grass 
+
         "Twin Isles Grotto Grass (1)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (2)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (3)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (4)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (5)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (6)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (7)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (8)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (9)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (10)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (11)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (12)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (13)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         "Twin Isles Grotto Grass (14)":
             lambda state: (
-                (state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player))
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
+                (state.has("Hookshot", player) and has_explosives(state, player)))
             ),
         
         # Twin Islands Springtime Grass - Requires clearing Snowhead
         "Twin Islands Springtime Grass Group 1 (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (4)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (5)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (6)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (7)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (8)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (9)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (10)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (11)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Twin Islands Springtime Grass Group 1 (12)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
 
         # Goron Village Lens Cave Grass
         "Goron Village Lens Cave Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (11)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (12)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Goron Village Lens Cave Grass
+        # Goron Village Lens Cave Grass continued
         "Goron Village Lens Cave Grass (13)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (14)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (15)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (16)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (17)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (18)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (19)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (20)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (21)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (22)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (23)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Goron Village Lens Cave Grass (24)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
 
         # Path To Snowhead Grotto Grass - Requires Goron Mask, Magic, and Explosives
         "Path To Snowhead Grotto Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (13)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (14)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
                 has_explosives(state, player)
             ),
 
         # Mountain Village Springtime Grass
+# Mountain Village Springtime Grass
         "Mountain Village Springtime Grass (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (4)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (5)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (6)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (7)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (8)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (9)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (10)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (11)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (12)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (13)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (14)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (15)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (16)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (17)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (18)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (19)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (20)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (21)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (22)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (23)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (24)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (25)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (26)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (27)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (28)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (29)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Grass (30)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         
         # Mountain Village Springtime Keaton Grass
         "Mountain Village Keaton Grass (0)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (4)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (5)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (6)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (7)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Keaton Grass (8)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         
         # Mountain Village Spring Grotto Grass
         "Mountain Village Spring Grotto Grass (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (4)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (5)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (6)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (7)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (8)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (9)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (10)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (11)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (12)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (13)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Spring Grotto Grass (14)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                can_clear_snowhead(state, player)
+            ),
 
-        # Great Bay Coast Grotto Grass - Requires Epona's Song
+        # Great Bay Coast Grotto Grass -
         "Great Bay Coast Grotto Grass (1)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (2)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),     
         "Great Bay Coast Grotto Grass (3)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (4)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (5)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (6)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),     
         "Great Bay Coast Grotto Grass (7)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (8)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (9)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (10)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (11)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),       
         "Great Bay Coast Grotto Grass (12)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),      
         "Great Bay Coast Grotto Grass (13)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
         "Great Bay Coast Grotto Grass (14)":
-            lambda state: can_play_song("Epona's Song", state, player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass")
+            ),    
 
         # Great Bay Coast Grass - Requires Epona's Song                                                                                                                                                                      
         "Great Bay Coast Grass (1)":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass")
+            ),  
         "Great Bay Coast Grass (2)":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass")
+            ),  
         "Great Bay Coast Grass (3)":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass")
+            ),   
         "Great Bay Coast Grass (4)":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass")
+            ),  
         "Great Bay Coast Grass (5)":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass")
+            ),  
         
         # Great Bay Coast Cow Grotto Grass Group 1 - Requires Epona's Song and Hookshot
         "Great Bay Coast Cow Grotto Grass Group 1 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 1 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         
         # Great Bay Coast Cow Grotto Grass Group 2
         "Great Bay Coast Cow Grotto Grass Group 2 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 2 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         
         # Great Bay Coast Cow Grotto Grass Group 3
         "Great Bay Coast Cow Grotto Grass Group 3 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 3 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         
         # Great Bay Coast Cow Grotto Grass Group 4
         "Great Bay Coast Cow Grotto Grass Group 4 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 4 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         
         # Great Bay Coast Cow Grotto Grass Group 5
         "Great Bay Coast Cow Grotto Grass Group 5 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 5 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         
         # Great Bay Coast Cow Grotto Grass Group 6
         "Great Bay Coast Cow Grotto Grass Group 6 (1)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (2)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (3)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (4)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (5)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (6)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (7)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (8)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (9)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (10)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (11)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Grass Group 6 (12)":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Hookshot", player)
             ),            
 
         # Zora Cape Grotto Grass - Requires explosives or Goron Mask
         "Zora Cape Grotto Grass (1)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (2)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (3)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (4)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (5)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (6)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (7)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (8)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (9)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (10)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (11)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (12)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (13)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
             ),
         "Zora Cape Grotto Grass (14)":
             lambda state: (
-                has_explosives(state, player) or 
-                state.has("Goron Mask", player)
-            ),            
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                (has_explosives(state, player) or 
+                state.has("Goron Mask", player))
+            ),       
         # Road To Ikana Grotto Grass - Requires Goron Mask
         "Road To Ikana Grotto Grass (1)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (2)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (3)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (4)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (5)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (6)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (7)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (8)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (9)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (10)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (11)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (12)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (13)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),
         "Road To Ikana Grotto Grass (14)":
-            lambda state: state.has("Goron Mask", player),                 
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                state.has("Goron Mask", player)
+            ),             
         # Ikana Graveyard Lower Grass
         "Ikana Graveyard Lower Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Lower Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Lower Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Lower Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Lower Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Ikana Graveyard Upper Grass
         "Ikana Graveyard Upper Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Ikana Graveyard Upper Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Ikana Graveyard Bombable Grotto Grass - Requires explosives
         "Ikana Graveyard Bombable Grotto Grass (1)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (2)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (3)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (4)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (5)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (6)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (7)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (8)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (9)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (10)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (11)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (12)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (13)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         "Ikana Graveyard Bombable Grotto Grass (14)":
-            lambda state: has_explosives(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") and
+                has_explosives(state, player)
+            ),
         # Ikana Canyon Grass - Requires Ice Arrows and Hookshot
         "Ikana Canyon Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ikana Canyon Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ikana Canyon Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ikana Canyon Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 can_use_ice_arrows(state, player) and 
                 state.has("Hookshot", player)
             ),
         
         # Ikana Canyon Grotto Grass
         "Ikana Canyon Grotto Grass (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (2)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (3)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (4)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (5)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (6)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (7)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (8)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (9)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (10)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (11)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (12)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (13)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
         "Ikana Canyon Grotto Grass (14)":
-            lambda state: True, 
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and 
+                has_soul_absurd(state, player, options, "Grass") 
+            ),
 
         # Secret Shrine Entrance Grass
         "Secret Shrine Entrance Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Secret Shrine Entrance Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Secret Shrine Entrance Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Secret Shrine Entrance Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Secret Shrine Entrance Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Secret Shrine Entrance Grass (6)":
-            lambda state: True,
-        
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         # Secret Shrine Dinolfos Grass - Requires Light Arrows
         "Secret Shrine Dinolfos Grass (1)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Dinolfos Grass (2)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Dinolfos Grass (3)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Dinolfos Grass (4)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         
         # Secret Shrine Wizzrobe Grass - Requires Light Arrows
         "Secret Shrine Wizzrobe Grass (1)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wizzrobe Grass (2)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wizzrobe Grass (3)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wizzrobe Grass (4)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wizzrobe Grass (5)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         
         # Secret Shrine Wart Grass - Requires Light Arrows
         "Secret Shrine Wart Grass (1)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (2)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (3)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (4)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (5)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (6)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (7)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Wart Grass (8)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         
         # Secret Shrine Garo Master Grass - Requires Light Arrows
         "Secret Shrine Garo Master Grass (1)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Garo Master Grass (2)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Garo Master Grass (3)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Garo Master Grass (4)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Garo Master Grass (5)":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
         "Secret Shrine Garo Master Grass (6)":
-            lambda state: can_use_light_arrows(state, player),   
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                can_use_light_arrows(state, player)
+            ),
 
         # Beneath the Well Left Side Back Room Grass - Matches Invisible Chest rules
         "Beneath the Well Left Side Back Room Grass (0)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5971,6 +7444,7 @@ def get_location_rules(player, options):
         "Beneath the Well Left Side Back Room Grass (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5983,6 +7457,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Before Big Poe and Cow Grass (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -5993,6 +7468,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Before Big Poe and Cow Grass (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6003,6 +7479,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Before Big Poe and Cow Grass (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6013,6 +7490,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Before Big Poe and Cow Grass (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6025,6 +7503,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Cow Grass (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6054,6 +7533,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Cow Grass (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6083,6 +7563,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Cow Grass (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6114,6 +7595,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Back Room Grass (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6124,6 +7606,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Back Room Grass (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6134,6 +7617,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Back Room Grass (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6144,6 +7628,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Back Room Grass (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6154,6 +7639,7 @@ def get_location_rules(player, options):
         "Beneath the Well Right Side Back Room Grass (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
@@ -6164,99 +7650,116 @@ def get_location_rules(player, options):
         # Ikana Castle Grass - Requires Mirror Shield or Light Arrows
         "Ikana Castle Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
         "Ikana Castle Grass (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 has_mirror_shield(state, player) or 
                 can_use_light_arrows(state, player)
             ),
 
         # Woodfall Temple Grass
         "Woodfall Temple Entrance Room Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Temple Entrance Room Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Temple Entrance Room Grass (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) or
                 state.has("Hookshot", player)
             ),
         "Woodfall Temple Entrance Room Grass (4)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) or
                 state.has("Hookshot", player)
             ),
         "Woodfall Temple Entrance Room Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woodfall Temple Main Room Grass (1)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) or
                 state.has("Hookshot", player)
             ),
         "Woodfall Temple Main Room Grass (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) or
                 state.has("Hookshot", player)
             ),
         "Woodfall Temple Main Room Grass (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) or
                 state.has("Hookshot", player)
             ),
@@ -6268,288 +7771,335 @@ def get_location_rules(player, options):
         "Woodfall Temple Deku Elevator Room Grass (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Snapping Turtle Grass (1)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Snapping Turtle Grass (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Snapping Turtle Grass (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Snapping Turtle Grass (4)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Snapping Turtle Grass (5)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Dragonfly Chest Room Grass (1)":
             lambda state: (
-                state.has("Small Key (Woodfall)", player) or 
+                has_soul_absurd(state, player, options, "Grass") and
+                (state.has("Small Key (Woodfall)", player) or 
                 (
                     #has_soul_absurd(state, player, options, "Deku Flower") and
                     state.has("Deku Mask", player) and
-                    state.has("Progressive Bow", player)
+                    state.has("Progressive Bow", player))
                 )
             ),
         "Woodfall Temple Dragonfly Chest Room Grass (2)":
             lambda state: (
-                state.has("Small Key (Woodfall)", player) or 
+                has_soul_absurd(state, player, options, "Grass") and
+                (state.has("Small Key (Woodfall)", player) or 
                 (
                     #has_soul_absurd(state, player, options, "Deku Flower") and
                     state.has("Deku Mask", player) and
-                    state.has("Progressive Bow", player)
+                    state.has("Progressive Bow", player))
                 )
             ),
         "Woodfall Temple Dragonfly Chest Room Grass (3)":
             lambda state: (
-                state.has("Small Key (Woodfall)", player) or 
+                has_soul_absurd(state, player, options, "Grass") and
+                (state.has("Small Key (Woodfall)", player) or 
                 (
                     #has_soul_absurd(state, player, options, "Deku Flower") and
                     state.has("Deku Mask", player) and
-                    state.has("Progressive Bow", player)
+                    state.has("Progressive Bow", player))
                 )
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (1)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (4)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (5)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (6)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (7)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (8)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (9)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (10)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple 2F Moving Flower Platform Room Grass (11)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Pre Boss Room Grass (1)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Pre Boss Room Grass (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Pre Boss Room Grass (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Pre Boss Room Grass (4)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Pre Boss Room Grass (5)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (13)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (14)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (15)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
         "Woodfall Temple Odolwas Lair Grass (16)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Progressive Bow", player) and
                 state.has("Boss Key (Woodfall)", player)
             ),
             
         # Snowhead Temple Basement Grass
         "Snowhead Temple Basement Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (9)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Snowhead Temple Basement Grass (10)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         # Stone Tower Temple Entrance Room Grass
         "Stone Tower Temple Entrance Room Grass (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Stone Tower Temple Entrance Room Grass (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Stone Tower Temple Entrance Room Grass (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Stone Tower Temple Elegy Maze Grass - Requires Goron, Zora, and Elegy
         "Stone Tower Temple Elegy Maze Grass (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
                 can_play_song("Elegy of Emptiness", state, player)
@@ -6607,7 +8157,9 @@ def get_location_rules(player, options):
         
         # Termina Field Deku Business Scrub Grotto Pot
         "Termina Field Deku Business Scrub Grotto Pot":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),
         # Southern Swamp Pots
         
         # Road To Southern Swamp Outside Archery Pots
@@ -7100,28 +8652,28 @@ def get_location_rules(player, options):
         "Snowhead Temple Orange Door Push Block Pots (1)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player) or
+                    state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Pots (2)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player) or
+                    state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (1)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player) or
+                    state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (2)":
             lambda state: (can_use_fire_arrows(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player) or
+                    state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),                         
@@ -7973,13 +9525,21 @@ def get_location_rules(player, options):
         
         # Great Bay Temple Room Behind 1F Waterfall 
         "Great Bay Temple Room Behind 1F Waterfall (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                can_use_ice_arrows(state, player)
+            ),
         
         # Great Bay Temple Red Green Pipe Tunnel Room Pots 
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (1)":
@@ -8390,22 +9950,22 @@ def get_location_rules(player, options):
         "Ikana Graveyard Day 1 Grave Pots (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (5)":
             lambda state: state.has("Captain's Hat", player),
@@ -8414,7 +9974,7 @@ def get_location_rules(player, options):
         "Ikana Graveyard Day 2 Entrance Grave Pot":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         # Ikana Graveyard Day 2 Invisible Path Entryway Pots
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)":
@@ -8464,52 +10024,52 @@ def get_location_rules(player, options):
         "Ikana Graveyard Day 3 Pots (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (6)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (7)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (8)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (9)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (10)":
             lambda state: (
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player),
+                state.has("Captain's Hat", player)
             ),
         # SECRET SHRINE POTS
         "Secret Shrine Entrance Pots (1)":
@@ -9076,224 +10636,275 @@ def get_location_rules(player, options):
                 )
             ),
         
-        # STONE TOWER POTS
         #Stone Tower Climb Pots
         "Stone Tower Climb Pots (1)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Climb Pots (2)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
             #Stone Tower Lower Scarecrow Pots            
         "Stone Tower Lower Scarecrow Pots (1)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (2)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (3)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (4)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (5)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (6)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (7)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (8)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (9)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (10)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (11)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Lower Scarecrow Pots (12)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
                 state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
-                
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         
         # Stone Tower Upper Scarecrow Pots
         "Stone Tower Upper Scarecrow Pots (1)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (2)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (3)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (4)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (5)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (6)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (7)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (8)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Upper Scarecrow Pots (9)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         
         # Stone Tower Owl Pots
         "Stone Tower Owl Pots (1)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Owl Pots (2)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Owl Pots (3)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Owl Pots (4)":
             lambda state: (
-                can_use_ice_arrows(state, player) and
-                can_play_song("Elegy of Emptiness", state, player) and
-                state.has("Goron Mask", player) and
-                state.has("Zora Mask", player) and
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and  
+                (can_play_song("Elegy of Emptiness", state, player) and 
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)) or
+                state.has("Stone Tower Owl Statue", player) and 
+                can_play_song("Song of Soaring", state, player)
             ),
         
         # Stone Tower Temple Pots
@@ -9323,7 +10934,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -9331,7 +10942,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -9340,7 +10951,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -9356,7 +10967,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -9364,7 +10975,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -9372,7 +10983,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -10175,47 +11786,47 @@ def get_location_rules(player, options):
         "Termina Field 6am Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 6am Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 6am Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 7am Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 7am Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 7am Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 8am Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 8am Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 8am Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         # "Termina Field 9am Songwall (0)":
         #     lambda state: state.has("Ocarina of Time", player),
@@ -10226,17 +11837,17 @@ def get_location_rules(player, options):
         "Termina Field 10am Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 10am Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 10am Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         # "Termina Field 11am Songwall (0)":
         #     lambda state: state.has("Ocarina of Time", player),
@@ -10247,17 +11858,17 @@ def get_location_rules(player, options):
         "Termina Field 12pm Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 12pm Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 12pm Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         # "Termina Field 1pm Songwall (0)":
         #     lambda state: state.has("Ocarina of Time", player),
@@ -10304,17 +11915,17 @@ def get_location_rules(player, options):
          "Termina Field 8pm Songwall (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 8pm Songwall (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         "Termina Field 8pm Songwall (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Songwall") and
-                state.has("Ocarina of Time", player),
+                state.has("Ocarina of Time", player)
             ),
         # "Termina Field 9pm Songwall (0)":
         #     lambda state: state.has("Ocarina of Time", player),
@@ -10392,10 +12003,15 @@ def get_location_rules(player, options):
 
         # Observatory Guay
         "Observatory Secret Guay Rupee (1)":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Astral Observatory Man") and
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+            ),
         "Observatory Secret Guay Rupee (2)":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),            
-
+            lambda state: (
+                has_soul_npc(state, player, options, "Astral Observatory Man") and
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
+            ),
         # Termina Field Song Guay Rupees
         "Termina Field Song Guay Rupees (0)":
             lambda state: (
@@ -10568,37 +12184,37 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 1 Rupees (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 1 Rupees (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 1 Rupees (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 1 Rupees (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 1 Rupees (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
 
         # Deku PlayGround Day 2 Rupees
@@ -10606,74 +12222,74 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 2 Rupees (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 2 Rupees (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 2 Rupees (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 2 Rupees (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 2 Rupees (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         # Deku PlayGround Day 3 Rupees
         "Deku PlayGround Day 3 Rupees (0)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 3 Rupees (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 3 Rupees (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 3 Rupees (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 3 Rupees (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Deku PlayGround Day 3 Rupees (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         # Southern Swamp Flower Rupees
         "Southern Swamp Flower Rupees (0)":
@@ -11054,19 +12670,47 @@ def get_location_rules(player, options):
 
         # Ikana Graveyard Day 2 Rupees
         "Ikana Graveyard Day 2 Rupees (0)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (1)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (2)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (3)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (4)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (5)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
         "Ikana Graveyard Day 2 Rupees (6)":
-            lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player) and 
+                can_smack_hard(state, player)
+            ),
 
         # Secret Shrine Rupees
         "Secret Shrine Rupees (0)":
@@ -11157,122 +12801,125 @@ def get_location_rules(player, options):
 
         # Stone Tower Rupees
         "Stone Tower Bridge Room Rupees (0)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (1)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (2)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (3)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (4)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (5)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (6)":
-            lambda state: (state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+            lambda state: (
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Bridge Room Rupees (7)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 2) and 
-                has_mirror_shield(state, player)
+                state.has("Small Key (Stone Tower)", player, 2) and 
+                (has_mirror_shield(state, player)
                 or 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player))
             ),
         "Stone Tower Deku Updraft Rupees (1)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Deku Updraft Rupees (2)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player) and 
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                state.has("Deku Mask", player) and
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Deku Updraft Rupees (3)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Deku Updraft Rupees (4)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player) and 
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                state.has("Deku Mask", player) and
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Deku Updraft Rupees (5)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Deku Updraft Rupees (6)":
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and
-                (state.has("Stone Tower Temple Small Key", player, 2) and
-                has_mirror_shield(state, player)
-                or 
-                state.has("Stone Tower Temple Small Key", player,) and
-                can_use_light_arrows(state, player))
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         # Stone Tower Eyegore Room Light Block Rupees
         "Stone Tower Eyegore Room Light Block Rupees (0)":
             lambda state: (
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player) and 
+                state.has("Zora Mask", player)
             ),
         "Stone Tower Eyegore Room Light Block Rupees (1)":
             lambda state: (
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player) and 
+                state.has("Zora Mask", player)
             ),
         # Inverted Stone Tower Right Side Light Block Rupees
         "Inverted Stone Tower Right Side Light Block Rupees (0)":
@@ -11290,69 +12937,69 @@ def get_location_rules(player, options):
         # Inverted Stone Tower Pre Boss Rupees
         "Inverted Stone Tower Pre Boss Rupees (0)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (1)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (2)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (3)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (4)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (5)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (6)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (7)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (8)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (9)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (10)":
             lambda state: (
-                state.has("Stone Tower Temple Small Key", player, 3) and
                 #has_soul_absurd(state, player, options, "Deku Flower") and
-                state.has("Deku Mask", player),
+                state.has("Small Key (Stone Tower)", player, 4) and 
+                state.has("Deku Mask", player)
             ),
 
         # INVISIBLE RUPEES
@@ -12177,38 +13824,45 @@ def get_location_rules(player, options):
         # Zora Cape Island Rocks (Req Hook)
         "Zora Cape Island Rocks (0)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Island Rocks (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Island Rocks (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Island Rocks (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Island Rocks (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player)
             ),
 
         "Zora Cape Great Fairy Boulders (0)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player) and 
                 has_explosives(state, player)
             ),
         "Zora Cape Great Fairy Boulders (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Zora Cape", 'Region', player) and
                 state.has("Hookshot", player) and 
                 has_explosives(state, player)
@@ -12364,7 +14018,9 @@ def get_location_rules(player, options):
         "East Clock Town Crates (1)":
             lambda state: True,
         "Termina Field Business Scrub Grotto Crate (1)":
-            lambda state: True,
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos")
+            ),
 
         "Gorman Racetrack Behind Fence Crate":
             lambda state: (
@@ -12385,7 +14041,7 @@ def get_location_rules(player, options):
         # Swamp Spider House
 
         "Swamp Spider House Monument Room Crates (0)":
-             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
+            lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Monument Room Crates (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
         "Swamp Spider House Monument Room Crates (2)":
@@ -12411,24 +14067,33 @@ def get_location_rules(player, options):
         # Ocean Spider House
 
         "Ocean Spiderhouse Basement Crate (1)":
-            lambda state: state.can_reach("Ocean Spider House", 'Region', player) and
-                            state.has("Hookshot", player),
+            lambda state: (
+                state.can_reach("Ocean Spider House", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
 
         # Pirates' Fortress Related
 
         "Pirates Fortress Entrance Bonk Board (0)":
-            lambda state: state.can_reach("Great Bay", 'Region', player) and
-                            state.has("Zora Mask", player),
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                state.has("Zora Mask", player)
+            ),
         "Pirates Fortress Entrance Bonk Board (1)":
-            lambda state: state.can_reach("Great Bay", 'Region', player) and
-                          state.has("Zora Mask", player),
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                state.has("Zora Mask", player)
+            ),
         "Pirates Fortress Entrance Bonk Board (2)":
-            lambda state: state.can_reach("Great Bay", 'Region', player) and
-                          state.has("Zora Mask", player),
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                state.has("Zora Mask", player)
+            ),
         "Pirates Fortress Entrance Bonk Board (3)":
-            lambda state: state.can_reach("Great Bay", 'Region', player) and
-                          state.has("Zora Mask", player),
-
+            lambda state: (
+                state.can_reach("Great Bay", 'Region', player) and
+                state.has("Zora Mask", player)
+            ),
         "Pirates Fortress Sewers Bonk Board (0)":
             lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
         "Pirates Fortress Sewers Bonk Board (1)":
@@ -12480,20 +14145,30 @@ def get_location_rules(player, options):
         "Pirates Fortress' Interior Crates (2)":
             lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
         "Pirates Fortress' Exterior Balcony Barrel (1)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
-                            state.has("Hookshot", player),
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
         "Pirates' Fortress Leader's Room Crate (0)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
-                            state.has("Progressive Bow", player),
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
         "Pirates' Fortress Leader's Room Crate (1)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
-                          state.has("Progressive Bow", player),
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Progressive Bow", player)
+            ),
         "Pirates' Fortress Guarded Bridge Barrel (0)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
-                          state.has("Hookshot", player),
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
         "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
-                          state.has("Hookshot", player),
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player)
+            ),
 
         # Dungeon Woodsanity
 
@@ -12513,12 +14188,17 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
 
         "Snowhead Temple Timed Switch Puzzle Room Crate (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player) and
-                            has_explosives(state, player),
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                state.has("Small Key (Snowhead)", player, 2) and
+                has_explosives(state, player)
+            ),
         "Snowhead Temple Timed Switch Puzzle Room Crate (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player) and
-                          has_explosives(state, player),
-
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                state.has("Small Key (Snowhead)", player, 2) and
+                has_explosives(state, player)
+            ),
         # Great Bay
 
         "Great Bay Temple Entrance Barrels (0)":
@@ -12538,147 +14218,223 @@ def get_location_rules(player, options):
         "Great Bay Temple Entrance Barrels (7)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                            can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
 
         "Great Bay Temple 1F Red Valve Room Barrels (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Barrels (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Barrels (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Barrels (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Barrels (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Crates (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Crates (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Crates (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Crates (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple 1F Red Valve Room Crates (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player),
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
 
         "Great Bay Temple 1F Frog Miniboss Crates (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (5)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (6)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (7)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (8)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (9)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (10)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (11)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (12)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (13)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (14)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple 1F Frog Miniboss Crates (15)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
 
         "Great Bay Temple Seesaw Room Crates (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (5)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Seesaw Room Crates (6)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Crates (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Crates (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player) and
-                          can_use_ice_arrows(state, player) and
-                          can_use_fire_arrows(state, player),
+            lambda state: ( 
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
 
         # Stone Tower Temple
 
@@ -12688,41 +14444,59 @@ def get_location_rules(player, options):
             lambda state: True,
 
         "Stone Tower Temple Mirror Room Crates (0)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          (can_use_light_arrows(state, player) or
-                           state.has("Mirror Shield", player)),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                (can_use_light_arrows(state, player) or
+                state.has("Mirror Shield", player))
+            ),
         "Stone Tower Temple Mirror Room Crates (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          (can_use_light_arrows(state, player) or
-                           state.has("Mirror Shield", player)),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                (can_use_light_arrows(state, player) or
+                state.has("Mirror Shield", player))
+            ),
         "Stone Tower Temple Eyegore Room Crates (0)":
-            lambda state: True,
+            lambda state: state.has("Zora Mask", player),
         "Stone Tower Temple Eyegore Room Crates (1)":
-            lambda state: True,
+            lambda state: state.has("Zora Mask", player),
         "Stone Tower Temple Eyegore Room Crates (2)":
-            lambda state: True,
+            lambda state: state.has("Zora Mask", player),
 
         "Stone Tower Temple Behind Bombable Wall Crates (0)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                            has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (1)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (2)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (3)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (4)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (5)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
         "Stone Tower Temple Behind Bombable Wall Crates (6)":
-            lambda state: state.can_reach("Stone Tower Temple", 'Region', player) and
-                          has_explosives(state, player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple", 'Region', player) and
+                has_explosives(state, player)
+            ),
 
         # Inverted Stone Tower
 
@@ -12789,49 +14563,67 @@ def get_location_rules(player, options):
             lambda state: True,
 
         "Snowhead Temple 3F Behind Locked Door Icicles (0)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and
-                          (
-                          state.has("Hookshot", player) or
-                          can_use_fire_arrows(state, player)
-                          ),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) or
+                can_use_fire_arrows(state, player)
+                )
+            ),
 
 
         "Snowhead Temple 3F Behind Locked Door Icicles (1)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and
-                          (
-                                  state.has("Hookshot", player) or
-                                  can_use_fire_arrows(state, player)
-                          ),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) or
+                can_use_fire_arrows(state, player)
+                )
+            ),
 
         "Snowhead Temple 3F Behind Locked Door Icicles (2)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and
-                          (
-                                  state.has("Hookshot", player) or
-                                  can_use_fire_arrows(state, player)
-                          ),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) and 
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
+            ),
 
         "Snowhead Temple 4F Outside Wizzrobe Icicles (0)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and
-                          (
-                                  state.has("Hookshot", player) or
-                                  can_use_fire_arrows(state, player)
-                          ),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player) and
+                state.has("Deku Mask", player)
+            ),
         "Snowhead Temple 4F Outside Wizzrobe Icicles (1)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and
-                          (
-                                  state.has("Hookshot", player) or
-                                  can_use_fire_arrows(state, player)
-                          ),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player) and
+                state.has("Deku Mask", player)
+            ),
 
         "Snowhead Temple Outside Boss Door Icicles (0)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player)
+            ),
         "Snowhead Temple Outside Boss Door Icicles (1)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player)
+            ),        
         "Snowhead Temple Outside Boss Door Icicles (2)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player)
+            ),        
         "Snowhead Temple Outside Boss Door Icicles (3)":
-            lambda state: state.has("Small Key (Snowhead)", player, 1) and can_use_fire_arrows(state, player),
-
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player)
+            ),
         # Great Bay Temple
 
         "Great Bay Temple Outside Frog Miniboss Door Icicles (0)":
@@ -12848,26 +14640,50 @@ def get_location_rules(player, options):
         # Goron Trial
 
         "Goron Trial Icicles (0)":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
         "Goron Trial Icicles (1)":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
         "Goron Trial Icicles (2)":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
         "Goron Trial Icicles (3)":
-            lambda state: state.has("Goron Mask", player) and state.has("Progressive Magic", player),
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
 
         # Hivesanity
 
         # Termina Field
 
         "Termina Field Bombable Rock Grotto Hive (1)":
-            lambda state: has_explosives(state, player) and has_projectiles(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                has_projectiles(state, player)
+            ),
 
 
         "Termina Field Bio Baba Grotto Hive (1)":
-            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                state.has("Zora Mask", player)
+            ),
         "Termina Field Bio Baba Grotto Hive (2)":
-            lambda state: has_explosives(state, player) and state.has("Zora Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                state.has("Zora Mask", player)
+            ),
 
         # Southern Swamp Hive
 
@@ -13022,79 +14838,116 @@ def get_location_rules(player, options):
         # Termina Field Gossip Fairies
 
         "Termina Field Southern Tree Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Near Thieving Bird Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Near Bombable Rock Grotto Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Gossip Grotto Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Near Songwall Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Eastern Corner Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Termina Field Observatory Gossip Fairy":
-            lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
-                          (can_play_song("Song of Healing", state, player) or
-                           can_play_song("Epona's Song", state, player)),
+            lambda state: (
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Road to Southern Swamp Gossip Fairy
 
         "Road To Southern Swamp Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Southern Swamp Gossip Fairies
 
         "Southern Swamp Near Witch Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         
         "Southern Swamp Near Witch Post Dungeon Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player) and
-                          can_clear_woodfall(state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player) and
+                can_clear_woodfall(state, player)
+            ),
 
 
         "Swamp Spider House Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Milk Road Gossip Fairy
 
         "Milk Road Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Romani Ranch Gossip Fairies
 
         "Romani Ranch Entry Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Romani Ranch Tree Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Romani Ranch Near Barn Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                      can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Romani Ranch Baby Cuccoos Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                      can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Romani Ranch Doggy Racetrack Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                      can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Path to Mountain Village Gossip Fairy
 
         "Path To Mountain Village Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Mountain Village Gossip Fairies
 
@@ -13114,26 +14967,34 @@ def get_location_rules(player, options):
         # Great Bay Coast Gossip Fairy
 
         "Great Bay Coast Rock Wall Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Zora Cape
 
         "Zora Cape Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Road to Ikana Gossip Fairy
 
         "Road To Ikana Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         # Ikana Canyon Gossip Fairy
 
         "Ikana Canyon Near Octoroks Gossip Fairy":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
 
         "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy":
             lambda state:
@@ -13319,8 +15180,10 @@ def get_location_rules(player, options):
         # Link Trial Gossip Fairies
 
         "Link Trial Gossip (1)":
-            lambda state: can_play_song("Song of Healing", state, player) or
-                          can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
+            ),
         "Link Trial Gossip (2)":
             lambda state:
             (
@@ -13518,14 +15381,27 @@ def get_location_rules(player, options):
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
 
         "Termina Field Cow Grotto Butterfly Fairy (1)":
-            lambda state: has_explosives(state, player) and has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         "Termina Field Cow Grotto Butterfly Fairy (2)":
-            lambda state: has_explosives(state, player) and has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         "Termina Field Cow Grotto Butterfly Fairy (3)":
-            lambda state: has_explosives(state, player) and has_soul_misc(state, player, options, "Butterflies"),                
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                has_soul_misc(state, player, options, "Butterflies")
+            ),               
 
         "Termina Field Bombable Rock Grotto Butterfly Fairy (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_misc(state, player, options, "Butterflies") and
                 (
                     has_explosives(state, player) or
@@ -13534,6 +15410,7 @@ def get_location_rules(player, options):
             ), 
         "Termina Field Bombable Rock Grotto Butterfly Fairy (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_misc(state, player, options, "Butterflies") and
                 (
                     has_explosives(state, player) or
@@ -13604,18 +15481,21 @@ def get_location_rules(player, options):
 
         "Great Bay Coast Cow Grotto Butterfly Fairy (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
+                state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Butterfly Fairy (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
+                state.has("Hookshot", player)
             ),
         "Great Bay Coast Cow Grotto Butterfly Fairy (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
+                state.has("Hookshot", player)
             ),                    
 
         # Moon Butterflies
@@ -13623,88 +15503,51 @@ def get_location_rules(player, options):
         "Moon Butterfly Fairy (1)":
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (2)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (3)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (4)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (5)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (6)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (7)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (8)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (9)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (10)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (11)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (12)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
         "Moon Butterfly Fairy (13)":
-            lambda state: (
-                has_soul_misc(state, player, options, "Butterflies") and
-                state.has("Hookshot", player),
-            ),
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
 
     # Frogs
 
         "Laundry Pool Frog":
-            lambda state: state.has("Don Gero's Mask", player),
+            lambda state: state.has("Don Gero Mask", player),
 
         "Southern Swamp Frog":
-            lambda state: state.has("Don Gero's Mask", player),
+            lambda state: state.has("Don Gero Mask", player),
 
         "Woodfall Temple Miniboss Frog":
             lambda state: (
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player) and 
-                can_smack(state, player)
-            and
-                state.has("Don Gero's Mask", player),
+                can_smack(state, player) and
+                state.has("Don Gero Mask", player)
             ),
         "Great Bay Temple Miniboss Frog":
             lambda state: (
                 state.has("Zora Mask", player) and 
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player) and
-                state.has("Don Gero's Mask", player),
+                state.has("Don Gero Mask", player)
             ),
     # Owls
 
@@ -13727,38 +15570,40 @@ def get_location_rules(player, options):
         "Stone Tower Owl Statue":
             lambda state: state.can_reach("Stone Tower", 'Region', player),
 
-    # Notebook Events (S Tier Item now)
+    # Notebook Events
 
         "Notebook Event Defended Against Aliens":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
         "Notebook Event Delivered Pendant Of Memories":
-            lambda state: (state.has("Kafei's Mask", player) and
-                          state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)),
+            lambda state: (
+                state.has("Kafei's Mask", player) and
+                state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)
+            ),
         "Notebook Event Delivered Priority Mail":
             lambda state: state.has("Priority Mail", player),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player)
             ),
         "Notebook Event Escaped Sakons Hideout":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
                 has_soul_npc(state, player, options, "Kafei") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player) and
                 state.can_reach("Lower Ikana Canyon", 'Region', player)
             ),
         "Notebook Event Escorted Cremia":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
         "Notebook Event Learned Secret Code":
             lambda state: (
-                has_soul_npc(state, player, options, "Bombers") and
-                has_projectiles(state, player),
+                has_soul_npc(state, player, options, "Bomber Kids") and
+                has_projectiles(state, player)
             ),
         "Notebook Event Promised Midnight Meeting":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju") and
-                state.has("Kafei's Mask", player),
+                state.has("Kafei's Mask", player)
             ),
         "Notebook Event Promised To Help With Aliens":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
@@ -13778,15 +15623,15 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("North Clock Town Save Old Lady", 'Location', player),
         "Notebook Event Received Bombers NotebooK":
             lambda state: (
-                has_soul_npc(state, player, options, "Bombers") and
-                has_projectiles(state, player),
+                has_soul_npc(state, player, options, "Bomber Kids") and
+                has_projectiles(state, player)
             ),
         "Notebook Event Received Bremen Mask":
             lambda state: has_soul_npc(state, player, options, "Guru-Guru"),
         "Notebook Event Received Bunny Hood":
             lambda state: (
                 has_soul_npc(state, player, options, "Grog") and
-                state.has("Bremen Mask", player),
+                state.has("Bremen Mask", player)
             ),
         "Notebook Event Received Circus Leaders Mask":
             lambda state: state.can_reach("Milk Bar Show", 'Location', player),
@@ -13797,29 +15642,31 @@ def get_location_rules(player, options):
         "Notebook Event Received Grandma Long Story HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
-                state.has("All-Night Mask", player),
+                state.has("All-Night Mask", player)
             ),
         "Notebook Event Received Grandma Short Story HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
-                state.has("All-Night Mask", player),
+                state.has("All-Night Mask", player)
             ),
         "Notebook Event Received Kafeis Mask":
             lambda state: has_soul_npc(state, player, options, "Madame Aroma"),
         "Notebook Event Received Kamaros Mask":
             lambda state: (
                 has_soul_npc(state, player, options, "Kamaro") and
-                can_play_song("Song of Healing", state, player),
+                can_play_song("Song of Healing", state, player)
             ),
         "Notebook Event Received Keaton Mask":
             lambda state: state.can_reach("Laundry Pool Curiosity Shop Salesman #1", 'Location', player),
         "Notebook Event Received Letter To Kafei":
-            lambda state: (state.has("Kafei's Mask", player) and
-                          state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)),
+            lambda state: (
+                state.has("Kafei's Mask", player) and
+                state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)
+            ),
         "Notebook Event Received Mayor HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Council") and
-                state.has("Couple's Mask", player),
+                state.has("Couple's Mask", player)
             ),
         "Notebook Event Received Milk Bottle":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
@@ -13827,23 +15674,24 @@ def get_location_rules(player, options):
             lambda state:(
                 has_soul_npc(state, player, options, "Kafei") and
                 has_soul_utility(state, player, options, "Postboxes") and
-                state.has("Letter to Kafei", player),
+                state.has("Letter to Kafei", player)
             ),
         "Notebook Event Received Postman HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Postman") and
-                state.has("Bunny Hood", player),
+                state.has("Bunny Hood", player)
             ),
         "Notebook Event Received Postmans Hat":
             lambda state: (
                 has_soul_npc(state, player, options, "Postman") and
-                state.has("Priority Mail", player),
+                state.has("Priority Mail", player)
             ),
         "Notebook Event Received Priority Mail":
             lambda state: (
                 has_soul_npc(state, player, options, "Kafei") and
-                has_soul_npc(state, player, options, "Curioisity Man") and
-                state.has("Letter to Kafei", player),
+                has_soul_npc(state, player, options, "Curiosity Shop Man") and
+                has_soul_utility(state, player, options, "Postboxes") and
+                state.has("Letter to Kafei", player)
             ),
         "Notebook Event Received Romanis Mask":
             lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
@@ -13852,7 +15700,7 @@ def get_location_rules(player, options):
         "Notebook Event Received Rosa Sisters HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Rosa Sisters") and
-                state.has("Kamaro Mask", player),
+                state.has("Kamaro Mask", player)
             ),
         "Notebook Event Received Stone Mask":
             lambda state: state.can_reach("Road to Ikana Invisible Soldier", 'Location', player),
@@ -13864,51 +15712,51 @@ def get_location_rules(player, options):
         "Notebook Meeting Africa (Toto)":
             lambda state: (
                 has_soul_npc(state, player, options, "Toto & Gorman") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Anju":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
-        "Notebook Meeting Anjus Grandmother":
+        "Notebook Meeting Anju's Grandmother":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Bomb Shop Lady":
             lambda state: (
                 has_soul_npc(state, player, options, "Bomb Granny") and
-                state.has("Bomber's Notebook", player),
+                state.has("Bomber's Notebook", player)
             ),
         "Notebook Meeting Bombers":
             lambda state: (
                 has_soul_npc(state, player, options, "Bomber Kids") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Cremia":
-            lambda state: state.has("Bomber's Notebook", player),
+            lambda state: has_notebook(state, player),
         "Notebook Meeting Curiosity Shop Man":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Gorman":
             lambda state: (
                 has_soul_npc(state, player, options, "Toto & Gorman") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Gorman Brothers":
-            lambda state: state.has("Bomber's Notebook", player),
+            lambda state: has_notebook(state, player),
         "Notebook Meeting Grog":
             lambda state: (
                 has_soul_npc(state, player, options, "Grog") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Guru Guru":
             lambda state: (
                 has_soul_npc(state, player, options, "Guru-Guru") and
-                state.has("Bomber's Notebook", player),
+                has_notebook(state, player)
             ),
         "Notebook Meeting Kafei":
             lambda state: (
@@ -13937,7 +15785,7 @@ def get_location_rules(player, options):
                 state.has("Bomber's Notebook", player)
             ),
         "Notebook Meeting Romani":
-            lambda state: state.has("Bomber's Notebook", player),
+            lambda state: has_notebook(state, player),
         "Notebook Meeting Rosa Sisters":
             lambda state: (
                 has_soul_npc(state, player, options, "Rosa Sisters") and
@@ -13946,10 +15794,11 @@ def get_location_rules(player, options):
         "Notebook Meeting Shiro":
             lambda state: (
                 has_soul_npc(state, player, options, "Shiro") and
-                state.has("Bomber's Notebook", player) and
+                has_notebook(state, player) and
                 state.has("Lens of Truth", player) and
                 state.has("Progressive Magic", player) and
-                can_play_song("Epona's Song", state, player)),
+                can_play_song("Epona's Song", state, player)
+            ),
                 
         "Notebook Meeting Toilet Hand":
             lambda state: (
@@ -13957,77 +15806,84 @@ def get_location_rules(player, options):
                 state.has("Bomber's Notebook", player)
             ),
         #Treesanity 
-
+        "West Clock Town Trading Post Bush (1)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+        "West Clock Town Trading Post Bush (2)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+        "West Clock Town Trading Post Bush (3)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+        "West Clock Town Trading Post Bush (4)":
+        lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         # Termina Field -
         "Termina Field Tree Near Observatory (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Termina Field Tree Near Observatory (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Termina Field Tree Near Observatory (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Road to Southern Swamp  
         "Road to Southern Swamp Trees (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Road to Southern Swamp Trees (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Road to Southern Swamp Trees (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Road to Southern Swamp Trees (4)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Road to Southern Swamp Trees (5)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Road to Southern Swamp Trees (6)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Romani Ranch Trees and Bushes 
         "Romani Ranch Bush (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Bush (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Bush (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Bush (4)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (4)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (5)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (6)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Tree (7)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Tree":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (4)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (5)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (6)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Romani Ranch Baby Cucoo Bush (7)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Path To Mountains 
         "Path To Mountains Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Path To Mountains Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Path To Mountains Tree (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and 
+                has_soul_absurd(state, player, options, "Trees & Bushes") and 
                 (state.has("Goron Mask", player) or
                  has_explosives(state, player) or
                   can_use_fire_arrows(state, player) or 
@@ -14036,7 +15892,7 @@ def get_location_rules(player, options):
             ),
         "Path To Mountains Tree (4)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and 
+                has_soul_absurd(state, player, options, "Trees & Bushes") and 
                 (state.has("Goron Mask", player) or
                  has_explosives(state, player) or
                   can_use_fire_arrows(state, player) or 
@@ -14046,286 +15902,286 @@ def get_location_rules(player, options):
 
         # Twin Islands 
         "Twin Islands Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Twin Islands Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Twin Islands Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Twin Islands Spring - Requires clearing Snowhead Temple (spring access)
         "Twin Islands (Spring) Tree (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 can_clear_snowhead(state, player)
             ),
         "Twin Islands (Spring) Tree (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 can_clear_snowhead(state, player)
             ),
         "Twin Islands (Spring) Tree (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 can_clear_snowhead(state, player)
             ),
 
         # Path To Snowhead - 
         "Path To Snowhead Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Path To Snowhead Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Path To Snowhead Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Goron Racetrack - 
         "Goron Racetrack Trees (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (4)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (5)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (6)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (7)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (8)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (9)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
         "Goron Racetrack Trees (10)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Goron Racetrack", 'Region', player)
             ),
 
         # Gorman Brothers Track -
         "Gorman Racetrack Tree Group 1 (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (4)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (5)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (6)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (7)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (8)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (9)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (10)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (11)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 1 (12)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (4)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (5)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (6)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (7)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (8)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (9)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (10)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (11)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (12)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         "Gorman Racetrack Tree Group 2 (13)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
                 can_play_song("Song of Time", state, player)
             ),
         # Great Bay Coast Nut Trees - Requires access to the region
         "Great Bay Coast Nut Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Great Bay Coast Nut Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Great Bay Coast Nut Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Great Bay Coast Fisherman Island Nut Tree (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
 
         # Zora Cape Nut Trees 
         "Zora Cape Nut Tree Near Jars (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Zora Cape Nut Tree Near Jars (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Zora Cape Nut Tree On Islands (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Nut Tree On Islands (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Nut Tree On Islands (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Nut Tree On Turtle Island (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Nut Tree On Turtle Island (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Beneath The Well Tree Near Cow":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -14355,7 +16211,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (1)": 
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -14385,7 +16241,7 @@ def get_location_rules(player, options):
             ),
         "Beneath The Well Bush Near Cow (2)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Trees") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -15184,8 +17040,10 @@ def get_location_rules(player, options):
             lambda state: (
                 #has_soul_absurd(state, player, options, "Deku Flower") and
                 state.has("Deku Mask", player) and
-                (state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player))
+                (state.has("Zora Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 2) or
+                can_use_light_arrows(state, player) and
+                state.has("Small Key (Stone Tower)", player, 1))
             ),
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)":
             lambda state: (

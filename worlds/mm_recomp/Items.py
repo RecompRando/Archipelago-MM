@@ -512,11 +512,31 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         num_exist=1
     ),
+    # "Deku Nuts Upgrade 30": MMRItemData(
+    #     code=0x346942000009D,
+    #     type=ItemClassification.filler,
+    #     num_exist=1
+    # ),
+    # "Deku Nuts Upgrade 40": MMRItemData(
+    #     code=0x346942000009E,
+    #     type=ItemClassification.filler,
+    #     num_exist=1
+    # ),
     "Deku Stick": MMRItemData(
         code=0x3469420000019,
         type=ItemClassification.filler,
         num_exist=1
     ),    
+    # "Deku Stick Upgrade 20": MMRItemData(
+    #     code=0x346942000009B,
+    #     type=ItemClassification.filler,
+    #     num_exist=1
+    # ),
+    # "Deku Stick Upgrade 30": MMRItemData(
+    #     code=0x346942000009C,
+    #     type=ItemClassification.filler,
+    #     num_exist=1
+    # ),     
     "Recovery Heart": MMRItemData(
         code=0x346942000000A,
         type=ItemClassification.filler,
@@ -550,6 +570,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         num_exist=6
         # ~ num_exist=6
+    ),
+    "Crimson Rupee": MMRItemData(
+        code=0x3469420000003,
+        type=ItemClassification.progression,
+        num_exist=1
     ),
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
@@ -777,16 +802,6 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Clock Town Dog": MMRItemData(
-        code=0x34694200C00E2,
-        type=ItemClassification.filler,
-        can_create=lambda options: options.npc_souls.value
-    ),
-    "Soul of Toto": MMRItemData(
-        code=0x34694200C0234,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.npc_souls.value
-    ),
     "Soul of Bomber Kids": MMRItemData(
         code=0x34694200C027E,
         type=ItemClassification.progression,
@@ -907,11 +922,6 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Honey & Darling": MMRItemData(
-        code=0x34694200C00B5,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.npc_souls.value
-    ),
     "Soul of Swordsman": MMRItemData(
         code=0x34694200C01EF,
         type=ItemClassification.progression,
@@ -970,6 +980,11 @@ item_data_table: Dict[str, MMRItemData] = {
     "Soul of Deku Palace Searching Guards": MMRItemData(
         code=0x34694200C017A,
         type=ItemClassification.useful,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Monkey": MMRItemData(
+        code=0x34694200C019E,
+        type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Cursed Swamp Spider Man": MMRItemData(
@@ -1032,6 +1047,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Dampe": MMRItemData(
+        code=0x34694200C01CA,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Composer Poe": MMRItemData(
         code=0x34694200C0247,
         type=ItemClassification.progression,
@@ -1069,8 +1089,18 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
-    "Soul of Trees": MMRItemData(
+    "Soul of Trees & Bushes": MMRItemData(
         code=0x34694200E0041,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.absurd_souls.value
+    ),
+    "Soul of Grass": MMRItemData(
+        code=0x34694200E010B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.absurd_souls.value
+    ),
+    "Soul of Grottos": MMRItemData(
+        code=0x34694200E0055,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),

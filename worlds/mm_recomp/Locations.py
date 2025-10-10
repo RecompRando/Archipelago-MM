@@ -2133,7 +2133,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420136E01,
         can_create=lambda options: options.grasssanity.value
     ),
-    "North Clock Town Grass (3)": MMRLocationData(
+    "North Clock Town Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x3469420136E02,
         can_create=lambda options: options.grasssanity.value
@@ -15090,7 +15090,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694200B000D,
         can_create=lambda options: options.notebooksanity.value
     ),
-    "Notebook Meeting Anjus Grandmother": MMRLocationData(
+    "Notebook Meeting Anju's Grandmother": MMRLocationData(
         region="Clock Town",
         address=0x34694200B000E,
         can_create=lambda options: options.notebooksanity.value
