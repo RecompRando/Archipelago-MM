@@ -11037,12 +11037,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Termina Field Tree Rupees
-    "Termina Field Tree Rupees (0)": MMRLocationData(
+    "Termina Field Tree Rupees (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420172DE1,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Termina Field Tree Rupees (1)": MMRLocationData(
+    "Termina Field Tree Rupees (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420172DE2,
         can_create=lambda options: options.rupeesanity.value
