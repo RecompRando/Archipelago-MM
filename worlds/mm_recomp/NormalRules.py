@@ -255,7 +255,8 @@ def get_region_rules(player, options):
                 state.has("Deku Mask", player) or
                 (
                     options.owlsanity.value and
-                    state.has("Woodfall Owl Statue", player)
+                    state.has("Woodfall Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
                 )
             ),
         "Woodfall -> Southern Swamp (Deku Palace)":
@@ -354,22 +355,20 @@ def get_region_rules(player, options):
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
                 (
-                    options.owlsanity.value and
-                    (
+                        options.owlsanity.value and
+                        can_play_song("Song of Soaring", state, player) and
                         (state.has("Great Bay Coast Owl Statue", player) or
-                        state.has("Zora Cape Owl Statue", player) and
-                        can_play_song("Song of Soaring", state, player))
-                    )
+                        state.has("Zora Cape Owl Statue", player))
                 )
             ),
         "Great Bay -> Termina Field":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
                     options.owlsanity.value and
-                    state.has("Clock Town Owl Statue", player) or
+                    can_play_song("Song of Soaring", state, player) and
+                    (state.has("Clock Town Owl Statue", player) or
                     state.has("Southern Swamp Owl Statue", player) or
-                    state.has("Milk Road Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
+                    state.has("Milk Road Owl Statue", player))
             ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
@@ -383,10 +382,10 @@ def get_region_rules(player, options):
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Zora Hall":
             lambda state: (
+                state.has("Zora Mask", player) or
                 options.owlsanity.value and
                 state.has("Zora Cape Owl Statue", player) and
-                can_play_song("Song of Soaring", state, player) or
-                state.has("Zora Mask", player)
+                can_play_song("Song of Soaring", state, player)
             ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
@@ -416,8 +415,9 @@ def get_region_rules(player, options):
                 can_play_song("Epona's Song", state, player) or
                 (
                     options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
+                    can_play_song("Song of Soaring", state, player) and
+                    state.has("Ikana Canyon Owl Statue", player) 
+                    
                 )
             ),
         "Road to Ikana -> Lower Ikana Canyon":
