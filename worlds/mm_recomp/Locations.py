@@ -992,11 +992,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Goron Village",
         address=0x3469420054D1E
     ),
-    # "Goron Village Freestanding HP (Spring)": MMRLocationData(
-    #     region="Goron Village",
-    #     address=0x346942005481E,
-    #     can_create=lambda options: options.shopsanity.value == 2
-    # ),
+    "Goron Village Freestanding HP (Spring)": MMRLocationData(
+        region="Goron Village",
+        address=0x346942005481E,
+        can_create=lambda options: options.shopsanity.value == 2
+    ),
     "Powder Keg Goron Reward": MMRLocationData(
         region="Goron Village",
         address=0x3469420000034
@@ -11749,7 +11749,16 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420174981,
         can_create=lambda options: options.rupeesanity.value
     ),
-
+    "Great Bay Temple Room Behind Waterfall Rupees (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694201749C1,
+        can_create=lambda options: options.rupeesanity.value
+    ),
+    "Great Bay Temple Room Behind Waterfall Rupees (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x34694201749C0,
+        can_create=lambda options: options.rupeesanity.value
+    ),
     # Great Bay Temple Before Gekko Room Underwater Rupees
     "Great Bay Temple Before Gekko Room Underwater Rupees (0)": MMRLocationData(
         region="Great Bay Temple",
@@ -12584,42 +12593,42 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694201B5300,
         can_create=lambda options: options.rocksanity.value
     ),          
-    "Road To Ikana Rock Circle (0)": MMRLocationData(
+    "Road To Ikana Rock Circle (1)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265300,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (1)": MMRLocationData(
+    "Road To Ikana Rock Circle (2)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265301,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (2)": MMRLocationData(
+    "Road To Ikana Rock Circle (3)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265302,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (3)": MMRLocationData(
+    "Road To Ikana Rock Circle (4)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265303,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (4)": MMRLocationData(
+    "Road To Ikana Rock Circle (5)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265304,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (5)": MMRLocationData(
+    "Road To Ikana Rock Circle (6)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265305,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (6)": MMRLocationData(
+    "Road To Ikana Rock Circle (7)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265306,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Road To Ikana Rock Circle (7)": MMRLocationData(
+    "Road To Ikana Rock Circle (8)": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420265307,
         can_create=lambda options: options.rocksanity.value

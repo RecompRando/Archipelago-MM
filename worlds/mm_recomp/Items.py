@@ -898,7 +898,7 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Spider Man": MMRItemData(
-        code=0x34694200C020B,
+        code=0x34694200C00D4,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
@@ -984,11 +984,6 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Soul of Monkey": MMRItemData(
         code=0x34694200C019E,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.npc_souls.value
-    ),
-    "Soul of Cursed Swamp Spider Man": MMRItemData(
-        code=0x34694200C00D4,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
@@ -1105,7 +1100,12 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Deku Flowers": MMRItemData(
-        code=0x34694200E0080,
+        code=0x34694200E0183,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.absurd_souls.value
+    ),
+    "Soul of Barrels": MMRItemData(
+        code=0x34694200E022D,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),

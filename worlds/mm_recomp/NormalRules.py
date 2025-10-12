@@ -1736,47 +1736,52 @@ def get_location_rules(player, options):
             ),
         "Goron Village Baby Goron Lullaby":
             lambda state: (
-                has_soul_npc(state, player, options, "Shop Owners") and
                 state.has("Goron Mask", player) and 
                 can_play_song("Goron Lullaby", state, player)
             ),
         "Goron Village Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
                 can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_2)
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
+                can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_3)
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
+                can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop (Spring) Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_1) and 
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
+                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_2) and 
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
+                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_3) and 
+                (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
+                state.has("Goron Mask", player)) and 
+                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Freestanding HP (Spring)":
@@ -2394,10 +2399,12 @@ def get_location_rules(player, options):
             ),
             
         "Zora Hall Evan's Song":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Ocarina of Time", player) and
+                state.has("Zora Mask", player)
+            ),
         "Zora Hall Torches Reward":
             lambda state: (
-                state.has("Zora Mask", player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Zora Hall Good Picture of Lulu":
@@ -2412,8 +2419,7 @@ def get_location_rules(player, options):
            ),
         "Zora Hall Deku Scrub Purchase":
             lambda state: (
-                state.has("Zora Mask", player) and 
-                has_bottle(state, player)
+                state.has("Zora Mask", player)
             ),
         "Zora Hall Goron Scrub Trade":
             lambda state: (
@@ -2424,6 +2430,7 @@ def get_location_rules(player, options):
             ),
         "Zora Hall Goron Scrub Trade Freestanding HP":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.can_reach("Zora Hall Goron Scrub Trade", 'Location', player)
@@ -12694,6 +12701,16 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
         "Great Bay Temple Waterwheel Rupees (4)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+        "Great Bay Temple Room Behind Waterfall Rupees (1)":
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
+        "Great Bay Temple Room Behind Waterfall Rupees (2)":
+            lambda state: (
+                state.can_reach("Great Bay Temple", 'Region', player) and
+                can_use_ice_arrows(state, player)
+            ),
 
         # Great Bay Temple Before Gekko Room Room Underwater Rupees
         "Great Bay Temple Before Gekko Room Room Underwater Rupees (0)":
@@ -13955,31 +13972,79 @@ def get_location_rules(player, options):
         "Road To Ikana Grotto Boulder":
             lambda state: state.has("Goron Mask", player),
             
-        "Road To Ikana Rock Circle (0)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
         "Road To Ikana Rock Circle (1)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (2)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (3)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (4)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (5)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (6)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        "Road To Ikana Rock Circle (7)":
-            lambda state: state.can_reach("Road to Ikana", 'Region', player),
-        
-        "Road To Ikana Bomb Boulder (0)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player)
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (2)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (3)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (4)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (5)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (6)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (7)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        "Road To Ikana Rock Circle (8)":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    state.has("Ikana Canyon Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
+        
         "Road To Ikana Bomb Boulder (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
@@ -13987,15 +14052,15 @@ def get_location_rules(player, options):
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
-            ),          
+            ), 
         "Road To Ikana Bomb Boulder (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
+                has_explosives(state, player) and 
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
-            ), 
+            ),          
         "Road To Ikana Bomb Boulder (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
@@ -14031,11 +14096,11 @@ def get_location_rules(player, options):
         "Road To Ikana Bomb Boulder (7)":
             lambda state: (
                 has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and 
+                has_explosives(state, player) and
                 (state.has("Garo MasK", player) or
                 state.has("Gibdo Mask", player) and 
                 state.has("Hookshot", player)) 
-            ),                                                                        
+            ),                                                                       
 
         # Ikana Graveyard Rock Circle
         "Ikana Graveyard Rock Circle (0)":
@@ -14188,37 +14253,85 @@ def get_location_rules(player, options):
         # Pirate Fortress Sewers Barrels/Crates
 
         "Pirates' Fortress Sewers Barrel (1)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (2)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (3)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (4)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (5)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (6)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (7)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (8)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (9)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (10)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (11)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (12)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (13)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (14)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (15)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates' Fortress Sewers Barrel (16)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
 
         # Pirates' Fortress Interior Crates
 
@@ -14286,60 +14399,92 @@ def get_location_rules(player, options):
         # Great Bay
 
         "Great Bay Temple Entrance Barrels (0)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (5)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (6)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Entrance Barrels (7)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Great Bay Temple", 'Region', player)
+            ),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (0)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Room Behind 1F Waterfall Barrels (2)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
 
         "Great Bay Temple 1F Red Valve Room Barrels (0)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple 1F Red Valve Room Barrels (1)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple 1F Red Valve Room Barrels (2)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple 1F Red Valve Room Barrels (3)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple 1F Red Valve Room Barrels (4)":
             lambda state: (
                 state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_absurd(state, player, options, "Barrels") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple 1F Red Valve Room Crates (0)":
