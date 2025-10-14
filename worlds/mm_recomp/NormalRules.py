@@ -1092,11 +1092,12 @@ def get_location_rules(player, options):
 
         "Milk Road Gorman Ranch Race":
             lambda state: (
+                has_soul_npc(state, player, options, "Gorman Bros") and
                 state.has("Ocarina of Time", player) and 
                 state.has("Epona's Song", player)
             ),
         "Milk Road Gorman Ranch Purchase":
-            lambda state: True,
+            lambda state: has_soul_npc(state, player, options, "Gorman Bros"),
         "Tingle Romani Ranch Map Purchase":
             lambda state: (
                 has_projectiles(state, player) and 
@@ -2015,6 +2016,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Bremen Mask", player),
         "Romani Ranch Helping Cremia":
             lambda state: (
+                has_soul_npc(state, player, options, "Romani & Cremia") and
                 can_use_powder_keg(state, player) and 
                 state.has("Progressive Bow", player)
             ),
@@ -2031,11 +2033,13 @@ def get_location_rules(player, options):
             ),
         "Romani Ranch Romani Game":
             lambda state: (
+                has_soul_npc(state, player, options, "Romani & Cremia") and
                 can_use_powder_keg(state, player) and 
                 state.has("Progressive Bow", player)
             ),
         "Romani Ranch Aliens":
             lambda state: (
+                has_soul_npc(state, player, options, "Romani & Cremia") and
                 can_use_powder_keg(state, player) and 
                 state.has("Progressive Bow", player)
             ),
@@ -2057,7 +2061,6 @@ def get_location_rules(player, options):
                 can_use_powder_keg(state, player) and 
                 can_play_song("Epona's Song", state, player)
             ),
-
         "Great Bay Healing Zora":
             lambda state: can_play_song("Song of Healing", state, player),
         "Great Bay Scarecrow Ledge HP":
@@ -3019,35 +3022,41 @@ def get_location_rules(player, options):
 
         "Moon Deku Trial HP":
             lambda state: ( 
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
                 mask_total(state, player) >= 1
             ),
         "Moon Goron Trial HP":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and
                 mask_total(state, player) >= 2
             ),
         "Moon Zora Trial HP":
             lambda state: ( 
-            state.has("Zora Mask", player) and
-            mask_total(state, player) >= 3
+                has_soul_npc(state, player, options, "Moon Kids") and
+                state.has("Zora Mask", player) and
+                mask_total(state, player) >= 3
             ),    
             
         "Moon Link Trial Garo Master Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 can_smack_hard(state, player) and 
                 state.has("Hookshot", player) and
                 mask_total(state, player) >= 4
             ),
         "Moon Link Trial Iron Knuckle Chest":
             lambda state:( 
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
                 mask_total(state, player) >= 4
             ),    
         "Moon Link Trial HP":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
                 has_bombchus(state, player) and 
                 state.has("Progressive Bow", player) and 
@@ -3055,6 +3064,7 @@ def get_location_rules(player, options):
             ),
         "Moon Trade All Masks":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("Moon Deku Trial HP", 'Location', player) and 
                 state.can_reach("Moon Goron Trial HP", 'Location', player) and 
                 state.can_reach("Moon Zora Trial HP", 'Location', player) and 
@@ -3083,6 +3093,7 @@ def get_location_rules(player, options):
             ),
         "Defeat Majora":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player) and 
                 (
@@ -11271,6 +11282,7 @@ def get_location_rules(player, options):
         # MOON POTS
         "Moon Goron Trial Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11278,6 +11290,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11285,6 +11298,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11292,6 +11306,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11299,6 +11314,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11306,6 +11322,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (6)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11313,6 +11330,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (7)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11320,6 +11338,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (8)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11327,6 +11346,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (9)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11334,6 +11354,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (10)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11341,6 +11362,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (11)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11348,6 +11370,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (12)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11355,6 +11378,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (13)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11362,6 +11386,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (14)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11369,6 +11394,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (15)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
@@ -11378,6 +11404,7 @@ def get_location_rules(player, options):
         # Moon Link Trial Pots
         "Moon Link Trial Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11386,6 +11413,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11394,6 +11422,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11402,6 +11431,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11410,6 +11440,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11418,6 +11449,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (6)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11426,6 +11458,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (7)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11434,6 +11467,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (8)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
@@ -11444,6 +11478,7 @@ def get_location_rules(player, options):
         # Majora Lair Pots
         "Majora Lair Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
                 (
@@ -11461,6 +11496,7 @@ def get_location_rules(player, options):
             ),
         "Majora Lair Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 can_smack_hard(state, player) and
                 (
@@ -14870,21 +14906,25 @@ def get_location_rules(player, options):
 
         "Goron Trial Icicles (0)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player)
             ),
         "Goron Trial Icicles (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player)
             ),
         "Goron Trial Icicles (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player)
             ),
         "Goron Trial Icicles (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player)
             ),
@@ -15253,6 +15293,7 @@ def get_location_rules(player, options):
         "Deku Trial Front Left Gossip":
             lambda state:
         (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
             (
@@ -15263,6 +15304,7 @@ def get_location_rules(player, options):
         "Deku Trial Back Left Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and
                     (
@@ -15273,6 +15315,7 @@ def get_location_rules(player, options):
         "Deku Trial Front Right Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and
                     (
@@ -15283,6 +15326,7 @@ def get_location_rules(player, options):
         "Deku Trial Back Right Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and
                     (
@@ -15293,6 +15337,7 @@ def get_location_rules(player, options):
         "Deku Trial Furthest Back Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and
                     (
@@ -15306,6 +15351,7 @@ def get_location_rules(player, options):
         "Goron Trial 1st Gazebo Gossip (0)":
             lambda state:
             (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and
                 state.has("Progressive Magic", player) and
                 (
@@ -15316,6 +15362,7 @@ def get_location_rules(player, options):
         "Goron Trial 1st Gazebo Gossip (1)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15326,6 +15373,7 @@ def get_location_rules(player, options):
         "Goron Trial 2nd Gazebo Gossip (0)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15336,6 +15384,7 @@ def get_location_rules(player, options):
         "Goron Trial 2nd Gazebo Gossip (1)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15346,6 +15395,7 @@ def get_location_rules(player, options):
         "Goron Trial Near Heart Piece Gossip (1)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15358,6 +15408,7 @@ def get_location_rules(player, options):
         "Zora Trial RRR Path Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15368,6 +15419,7 @@ def get_location_rules(player, options):
         "Zora Trial RRL Path Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15378,6 +15430,7 @@ def get_location_rules(player, options):
         "Zora Trial LRR Path Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15387,7 +15440,8 @@ def get_location_rules(player, options):
             ),
         "Zora Trial LRLL Path Gossip":
             lambda state:
-            (
+            (   
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15398,6 +15452,7 @@ def get_location_rules(player, options):
         "Zora Trial LLL Path Gossip":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Goron Mask", player) and
                     state.has("Progressive Magic", player) and
                     (
@@ -15410,12 +15465,14 @@ def get_location_rules(player, options):
 
         "Link Trial Gossip (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 can_play_song("Song of Healing", state, player) or
                 can_play_song("Epona's Song", state, player)
             ),
         "Link Trial Gossip (2)":
             lambda state:
             (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Hookshot", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
@@ -15426,6 +15483,7 @@ def get_location_rules(player, options):
         "Link Trial Gossip (3)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Hookshot", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
@@ -15434,7 +15492,8 @@ def get_location_rules(player, options):
             ),
         "Link Trial Gossip (4)":
             lambda state:
-            (
+            (       
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.can_reach("Link Trial Gossip (3)", 'Location', player) and
                     can_use_fire_arrows(state, player) and
                     has_bombchus(state, player) and
@@ -15447,6 +15506,7 @@ def get_location_rules(player, options):
         "Link Trial Gossip (5)":
             lambda state:
             (
+                    has_soul_npc(state, player, options, "Moon Kids") and
                     state.can_reach("Link Trial Gossip (3)", 'Location', player) and
                     can_use_fire_arrows(state, player) and
                     has_bombchus(state, player) and
@@ -17325,56 +17385,67 @@ def get_location_rules(player, options):
             ),
         "The Moon Deku Trial Flower (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (6)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (7)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (8)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (9)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (10)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
         "The Moon Deku Trial Flower (11)":
             lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),

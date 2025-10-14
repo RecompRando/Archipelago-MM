@@ -752,11 +752,6 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    # "Soul of Gorman": MMRItemData(
-    #     code=0x34694200C00A4,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
     "Soul of Guru-Guru": MMRItemData(
         code=0x34694200C0248,
         type=ItemClassification.progression,
@@ -942,11 +937,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    # "Soul of Romani": MMRItemData(
-    #     code=0x34694200C0117,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
+    "Soul of Romani & Cremia": MMRItemData(
+        code=0x34694200C021F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Grog": MMRItemData(
         code=0x34694200C00A6,
         type=ItemClassification.progression,
@@ -954,6 +949,11 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Soul of Doggy Race Lady & Dogs": MMRItemData(
         code=0x34694200C0117,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Gorman Bros": MMRItemData(
+        code=0x34694200C0067,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
@@ -1067,11 +1067,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    # "Soul of Cremia": MMRItemData(
-    #     code=0x34694200C0220,
-    #     type=ItemClassification.progression,
-    #     can_create=lambda options: options.npc_souls.value
-    # ),
+    "Soul of Moon Kids": MMRItemData(
+        code=0x34694200C00BF,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     # Utility Souls
     "Soul of Postboxes": MMRItemData(
         code=0x34694200D01F2,
