@@ -377,7 +377,10 @@ def get_region_rules(player, options):
         "Pirates' Fortress -> Pirates' Fortress (Interior)":
             lambda state: state.has("Hookshot", player),
         "Pirates' Fortress -> Pirates' Fortress Sewers":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and 
+                state.has("Goron Mask", player)
+            ),
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Zora Hall":
@@ -1382,7 +1385,10 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Spider Man")
             ), 
         "Deku Palace Bean Seller":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Bean Daddy") and
+                state.has("Deku Mask", player)
+            ),
         "Deku Palace Bean Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
@@ -14280,11 +14286,20 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player)
             ),
         "Pirates Fortress Sewers Bonk Board (0)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates Fortress Sewers Bonk Board (1)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
         "Pirates Fortress Sewers Bonk Board (2)":
-            lambda state: state.can_reach("Pirates' Fortress Sewers", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
 
         # Pirate Fortress Sewers Barrels/Crates
 
@@ -16024,7 +16039,10 @@ def get_location_rules(player, options):
                 has_notebook(state, player)
             ),
         "Notebook Meeting Cremia":
-            lambda state: has_notebook(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Romani & Cremia") and
+                has_notebook(state, player)
+            ),
         "Notebook Meeting Curiosity Shop Man":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
@@ -16074,7 +16092,10 @@ def get_location_rules(player, options):
                 state.has("Bomber's Notebook", player)
             ),
         "Notebook Meeting Romani":
-            lambda state: has_notebook(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Romani & Cremia") and
+                has_notebook(state, player)
+            ),
         "Notebook Meeting Rosa Sisters":
             lambda state: (
                 has_soul_npc(state, player, options, "Rosa Sisters") and

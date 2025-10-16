@@ -987,6 +987,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Bean Daddy": MMRItemData(
+        code=0x34694200C00A5,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Goron Elder": MMRItemData(
         code=0x34694200C0213,
         type=ItemClassification.progression,
