@@ -17219,6 +17219,14 @@ def get_location_rules(player, options):
                 can_clear_woodfall(state, player) and
                 state.has("Deku Mask", player) 
             ),
+        "Southern Swamp Post Dungeon Business Scrub Flower":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and 
+                can_clear_woodfall(state, player) and
+                has_soul_npc(state, player, options, "Business Scrubs") and
+                state.has("Land Title Deed", player)
+            ), 
             #Snowhead Flowers
         "Goron Village Business Scrub Flower":
             lambda state: (

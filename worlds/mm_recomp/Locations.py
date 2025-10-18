@@ -16044,6 +16044,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F4500,
         can_create=lambda options: options.flowersanity.value
     ),
+    "Southern Swamp Post Dungeon Business Scrub Flower": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694203F0000,
+        can_create=lambda options: options.flowersanity.value
+    ),
     "Southern Swamp Woods Of Mystery Flower Day 1/3 (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x34694203F6430,
