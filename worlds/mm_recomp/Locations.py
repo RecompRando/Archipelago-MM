@@ -12472,22 +12472,22 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.rocksanity.value
     ),    
     # Rocks Underwater Easy to get
-    "Rocks Underwater Easy to get (0)": MMRLocationData(
+    "Great Bay Coast Beach Rocks Underwater (1)": MMRLocationData(
         region="Great Bay",
         address=0x346942018370A,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Rocks Underwater Easy to get (1)": MMRLocationData(
+    "Great Bay Coast Beach Rocks Underwater (2)": MMRLocationData(
         region="Great Bay",
         address=0x3469420183724,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Rocks Underwater Easy to get (2)": MMRLocationData(
+    "Great Bay Coast Beach Rocks Underwater (3)": MMRLocationData(
         region="Great Bay",
         address=0x3469420183723,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Rocks Underwater Easy to get (3)": MMRLocationData(
+    "Great Bay Coast Beach Rocks Underwater (4)": MMRLocationData(
         region="Great Bay",
         address=0x346942018370B,
         can_create=lambda options: options.rocksanity.value

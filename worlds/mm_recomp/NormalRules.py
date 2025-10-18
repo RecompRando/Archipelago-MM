@@ -235,6 +235,7 @@ def get_region_rules(player, options):
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
+                has_soul_npc(state, player, options, "Koume") and
                 state.has("Bottle of Red Potion", player) or 
                 (
                     has_hard_projectiles(state, player) and 
@@ -488,15 +489,14 @@ def get_region_rules(player, options):
                 state.has("Hookshot", player) and  
                 can_play_song("Elegy of Emptiness", state, player) and 
                 (state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
+                state.has("Zora Mask", player) or
                 state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                can_play_song("Song of Soaring", state, player))
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and 
-                can_use_light_arrows(state, player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_use_light_arrows(state, player)
             ),
         "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)":
             lambda state: True,    
@@ -582,9 +582,9 @@ def get_location_rules(player, options):
             ),
         "North Clock Town Save Old Lady":
             lambda state: (
-                (has_soul_npc(state, player, options, "Bomb Granny") and
+                has_soul_npc(state, player, options, "Bomb Granny") and
                 has_soul_npc(state, player, options, "Sakon") and
-                state.has("Progressive Sword", player) or 
+                (state.has("Progressive Sword", player) or 
                 state.has("Great Fairy Sword", player) or 
                 state.has("Zora Mask", player) or 
                 state.has("Goron Mask", player))
@@ -608,16 +608,13 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
         "Tingle Clock Town Map Purchase":
             lambda state: (
-                (has_soul_npc(state, player, options, "Tingle") and
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Clock Town", 'Region', player) or 
-                    (
-                        state.can_reach("Lower Ikana Canyon", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player))
-                    )
-                )
+                    
+                        state.can_reach("Upper Ikana Canyon", 'Region', player)
+                ),
             ),
         
         "South Clock Town Clock Tower Freestanding HP":
@@ -2648,9 +2645,7 @@ def get_location_rules(player, options):
                 has_projectiles(state, player) and 
                 (
                     (
-                        state.can_reach("Lower Ikana Canyon", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player)
+                        state.can_reach("Upper Ikana Canyon", 'Region', player) 
                     ) or 
                     state.can_reach("Great Bay", 'Region', player)
                 )
@@ -8275,9 +8270,17 @@ def get_location_rules(player, options):
         
         # Deku Palace Right Side Upper Pots
         "Deku Palace Right Side Upper Pots (1)":
-            lambda state: state.can_reach("Deku Palace", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
+                state.can_reach("Deku Palace", 'Region', player)
+            ),
         "Deku Palace Right Side Upper Pots (2)":
-            lambda state: state.can_reach("Deku Palace", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
+                state.can_reach("Deku Palace", 'Region', player)
+            ),
         
         # Deku Butler Race Pots
         "Deku Butler Race Pots (1)":
@@ -9514,13 +9517,13 @@ def get_location_rules(player, options):
         
         # Zora Cape Owl Pots - Requires Zora Mask
         "Zora Cape Owl Pots (1)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: state.can_reach("Zora Hall", 'Region', player),
         "Zora Cape Owl Pots (2)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: state.can_reach("Zora Hall", 'Region', player),
         "Zora Cape Owl Pots (3)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: state.can_reach("Zora Hall", 'Region', player),
         "Zora Cape Owl Pots (4)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: state.can_reach("Zora Hall", 'Region', player),
 
         "Zora Cape Jar Game Pots (1)":
             lambda state: (
@@ -9975,9 +9978,9 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-# Pot Location Rules
+
         
-        # IKANA GRAVEYARD POTS
+        # IKANA POTS
         "Road To Ikana Scarecrow Pillar Pot":
             lambda state: (
                 can_play_song("Epona's Song", state, player) and
@@ -10989,6 +10992,7 @@ def get_location_rules(player, options):
         "Stone Tower Temple Right Side Underwater Pots (1)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
+                state.has("Zora Mask", player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
@@ -10997,14 +11001,16 @@ def get_location_rules(player, options):
         "Stone Tower Temple Right Side Underwater Pots (2)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
+                state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player) or
+                    state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
                 )
             ),
         "Stone Tower Temple Right Side Underwater Pots (3)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
+                state.has("Zora Mask", player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
@@ -11013,6 +11019,7 @@ def get_location_rules(player, options):
         "Stone Tower Temple Right Side Underwater Pots (4)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
+                state.has("Zora Mask", player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
@@ -11021,6 +11028,7 @@ def get_location_rules(player, options):
         "Stone Tower Temple Right Side Underwater Pots (5)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and
+                state.has("Zora Mask", player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
                     can_use_light_arrows(state, player)
@@ -11032,6 +11040,8 @@ def get_location_rules(player, options):
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
+                    state.has("Zora Mask", player) and
+                    state.has("Goron Mask", player) and
                     has_mirror_shield(state, player)
                 ) or
                 (
@@ -11043,6 +11053,8 @@ def get_location_rules(player, options):
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
+                    state.has("Zora Mask", player) and
+                    state.has("Goron Mask", player) and
                     has_mirror_shield(state, player)
                 ) or
                 (
@@ -11080,43 +11092,35 @@ def get_location_rules(player, options):
         # Stone Tower Temple Lower Spike Roller Pots
         "Stone Tower Temple Lower Spike Roller Pots (1)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (2)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (3)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (4)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (5)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (6)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (7)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (8)":
             lambda state: (
-                state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
-                state.has("Goron Mask", player)
+                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         
         # Inverted Stone Tower Pots
@@ -11595,33 +11599,27 @@ def get_location_rules(player, options):
         # Romani Ranch Hitspots
         "Romani Ranch Baby Cuccoos Hitspots (0)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         "Romani Ranch Baby Cuccoos Hitspots (1)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         "Romani Ranch Baby Cuccoos Hitspots (2)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         "Romani Ranch Baby Cuccoos Hitspots (3)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         "Romani Ranch Baby Cuccoos Hitspots (4)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         "Romani Ranch Baby Cuccoos Hitspots (5)":
             lambda state: (
-                state.can_reach("Romani Ranch", 'Region', player) and
-                has_projectiles(state, player)
+                state.can_reach("Romani Ranch", 'Region', player)
             ),
         
         # Swamp Spider House Hitspots
@@ -11690,46 +11688,55 @@ def get_location_rules(player, options):
         "Ocean Spiderhouse Mask Hitspots (0)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (2)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (3)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (4)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (5)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (6)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (7)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Mask Hitspots (8)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         
@@ -12057,13 +12064,13 @@ def get_location_rules(player, options):
 
         # Termina Field Eastern Pillar Rupees
         "Termina Field Easter Pillar Rupees":
-            lambda state: state.can_reach("Termina Field", 'Region', player),
+            lambda state: True,
 
         # Termina Field Tree Rupees
         "Termina Field Tree Rupees (1)":
-            lambda state: has_soul_absurd(state, player, options, "Astral Observatory Man"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Termina Field Tree Rupees (2)":
-            lambda state: has_soul_absurd(state, player, options, "Astral Observatory Man"),
+            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
 
         # Observatory Guay
         "Observatory Secret Guay Rupee (1)":
@@ -13886,11 +13893,11 @@ def get_location_rules(player, options):
 
         # Twin Isles Spring Above Grotto Rocks
         "Twin Isles Spring Above Grotto Rocks (0)":
-            lambda state: True,
+            lambda state: can_clear_snowhead(state, player),
         "Twin Isles Spring Above Grotto Rocks (1)":
-            lambda state: True,
+            lambda state: can_clear_snowhead(state, player),
         "Twin Isles Spring Above Grotto Rocks (2)":
-            lambda state: True,
+            lambda state: can_clear_snowhead(state, player),
 
         # Great Bay Coast Scattered Beach Rocks
         "Great Bay Coast Scattered Beach Rocks (0)":
@@ -13932,15 +13939,15 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player)      
             ),                
 
-        # Rocks Underwater Easy to get
-        "Rocks Underwater Easy to get (0)":
-            lambda state: state.can_reach("Great Bay", 'Region', player),
-        "Rocks Underwater Easy to get (1)":
-            lambda state: state.can_reach("Great Bay", 'Region', player),
-        "Rocks Underwater Easy to get (2)":
-            lambda state: state.can_reach("Great Bay", 'Region', player),
-        "Rocks Underwater Easy to get (3)":
-            lambda state: state.can_reach("Great Bay", 'Region', player),
+        # Rocks Underwater at Beach
+        "Great Bay Coast Beach Rocks Underwater (1)":
+            lambda state: has_bombchus(state, player),
+        "Great Bay Coast Beach Rocks Underwater (2)":
+            lambda state: has_bombchus(state, player),
+        "Great Bay Coast Beach Rocks Underwater (3)":
+            lambda state: has_bombchus(state, player),
+        "Great Bay Coast Beach Rocks Underwater (4)":
+            lambda state: has_bombchus(state, player),
 
         # Zora Cape Beach Rocks
         "Zora Cape Beach Rocks (0)":
@@ -14260,6 +14267,7 @@ def get_location_rules(player, options):
         "Ocean Spiderhouse Basement Crate (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
+                has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
 
@@ -14409,11 +14417,13 @@ def get_location_rules(player, options):
             ),
         "Pirates' Fortress Guarded Bridge Barrel (0)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
         "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
@@ -15877,7 +15887,7 @@ def get_location_rules(player, options):
     # Notebook Events
 
         "Notebook Event Defended Against Aliens":
-            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+            lambda state: state.can_reach("Romani Ranch Aliens", 'Location', player),
         "Notebook Event Delivered Pendant Of Memories":
             lambda state: (
                 state.has("Kafei's Mask", player) and
@@ -15898,7 +15908,7 @@ def get_location_rules(player, options):
                 state.can_reach("Lower Ikana Canyon", 'Region', player)
             ),
         "Notebook Event Escorted Cremia":
-            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
         "Notebook Event Learned Secret Code":
             lambda state: (
                 has_soul_npc(state, player, options, "Bomber Kids") and
@@ -15973,7 +15983,7 @@ def get_location_rules(player, options):
                 state.has("Couple's Mask", player)
             ),
         "Notebook Event Received Milk Bottle":
-            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+            lambda state: state.can_reach("Romani Ranch Aliens", 'Location', player),
         "Notebook Event Received Pendant Of Memories":
             lambda state:(
                 has_soul_npc(state, player, options, "Kafei") and
@@ -15998,7 +16008,7 @@ def get_location_rules(player, options):
                 state.has("Letter to Kafei", player)
             ),
         "Notebook Event Received Romanis Mask":
-            lambda state: state.can_reach("Romani Ranch Romani Game", 'Location', player),
+            lambda state: state.can_reach("Romani Ranch Helping Cremia", 'Location', player),
         "Notebook Event Received Room Key":
             lambda state: has_soul_npc(state, player, options, "Anju"),
         "Notebook Event Received Rosa Sisters HP":
