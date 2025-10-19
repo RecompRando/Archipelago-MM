@@ -83,6 +83,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694200D0007,
         can_create=lambda options: can_create_heart_location(options.starting_hearts.value, options.starting_hearts_are_containers_or_pieces.value, 8)
     ),
+    "Starting Time": MMRLocationData(
+        region="Clock Town",
+        address=0x34694201F0106, # day 1 6 am
+        can_create=lambda options: options.shuffle_time.value
+    ),
     "Keaton Quiz": MMRLocationData(
         region="Clock Town",
         address=0x346942007028C

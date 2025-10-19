@@ -405,6 +405,13 @@ class MMRWorld(World):
             shield_location = mw.get_location("Link's Inventory (Hero's Shield)", player)
             shield_location.place_locked_item(self.create_item("Progressive Shield"))
 
+        if self.options.shuffle_time.value:
+            # TODO: random starting time when starting_time is set to false
+            if self.options.shuffle_time.value == 3:
+                self.place("Starting Time", "Day 1 (6 AM)")
+            else:
+                self.place("Starting Time", "Day 1")
+
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
             containers = int(shp/4) - 1
@@ -517,6 +524,8 @@ class MMRWorld(World):
             "absurd_souls": self.options.absurd_souls.value,
             "utility_souls": self.options.utility_souls.value,
             "enemy_souls": self.options.enemy_souls.value,
+            "shuffle_time": self.options.shuffle_time.value,
+            "starting_time": self.options.starting_time.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,

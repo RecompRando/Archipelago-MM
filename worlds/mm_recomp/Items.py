@@ -1114,6 +1114,415 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
+    # Time
+    # Days Only
+    "Day 1": MMRItemData(
+        code=0x34694201F0016, # 6 am
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 1
+    ),
+    "Day 2": MMRItemData(
+        code=0x34694201F0026,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 1
+    ),
+    "Day 3": MMRItemData(
+        code=0x34694201F0036,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 1
+    ),
+    # Days and Nights
+    "Day 1": MMRItemData(
+        code=0x34694201F0106,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    "Night 1": MMRItemData(
+        code=0x34694201F0112, # 6 pm (18)
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    "Day 2": MMRItemData(
+        code=0x34694201F0206,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    "Night 2": MMRItemData(
+        code=0x34694201F0212,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    "Day 3": MMRItemData(
+        code=0x34694201F0306,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    "Night 3": MMRItemData(
+        code=0x34694201F0312,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 2
+    ),
+    # Hours
+    "Day 1 (6 AM)": MMRItemData(
+        code=0x34694201F0106,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (7 AM)": MMRItemData(
+        code=0x34694201F0107,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (8 AM)": MMRItemData(
+        code=0x34694201F0108,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (9 AM)": MMRItemData(
+        code=0x34694201F0109,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (10 AM)": MMRItemData(
+        code=0x34694201F010A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (11 AM)": MMRItemData(
+        code=0x34694201F010B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (12 PM)": MMRItemData(
+        code=0x34694201F010C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (1 PM)": MMRItemData(
+        code=0x34694201F010D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (2 PM)": MMRItemData(
+        code=0x34694201F010E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (3 PM)": MMRItemData(
+        code=0x34694201F010F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (4 PM)": MMRItemData(
+        code=0x34694201F0110,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (5 PM)": MMRItemData(
+        code=0x34694201F0111,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (6 PM)": MMRItemData(
+        code=0x34694201F0112,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (7 PM)": MMRItemData(
+        code=0x34694201F0113,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (8 PM)": MMRItemData(
+        code=0x34694201F0114,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (9 PM)": MMRItemData(
+        code=0x34694201F0115,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (10 PM)": MMRItemData(
+        code=0x34694201F0116,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (11 PM)": MMRItemData(
+        code=0x34694201F0117,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (12 AM)": MMRItemData(
+        code=0x34694201F0100,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (1 AM)": MMRItemData(
+        code=0x34694201F0101,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (2 AM)": MMRItemData(
+        code=0x34694201F0102,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (3 AM)": MMRItemData(
+        code=0x34694201F0103,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (4 AM)": MMRItemData(
+        code=0x34694201F0104,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 1 (5 AM)": MMRItemData(
+        code=0x34694201F0105,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (6 AM)": MMRItemData(
+        code=0x34694201F0206,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (7 AM)": MMRItemData(
+        code=0x34694201F0207,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (8 AM)": MMRItemData(
+        code=0x34694201F0208,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (9 AM)": MMRItemData(
+        code=0x34694201F0209,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (10 AM)": MMRItemData(
+        code=0x34694201F020A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (11 AM)": MMRItemData(
+        code=0x34694201F020B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (12 PM)": MMRItemData(
+        code=0x34694201F020C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (1 PM)": MMRItemData(
+        code=0x34694201F020D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (2 PM)": MMRItemData(
+        code=0x34694201F020E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (3 PM)": MMRItemData(
+        code=0x34694201F020F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (4 PM)": MMRItemData(
+        code=0x34694201F0210,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (5 PM)": MMRItemData(
+        code=0x34694201F0211,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (6 PM)": MMRItemData(
+        code=0x34694201F0212,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (7 PM)": MMRItemData(
+        code=0x34694201F0213,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (8 PM)": MMRItemData(
+        code=0x34694201F0214,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (9 PM)": MMRItemData(
+        code=0x34694201F0215,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (10 PM)": MMRItemData(
+        code=0x34694201F0216,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (11 PM)": MMRItemData(
+        code=0x34694201F0217,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (12 AM)": MMRItemData(
+        code=0x34694201F0200,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (1 AM)": MMRItemData(
+        code=0x34694201F0201,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (2 AM)": MMRItemData(
+        code=0x34694201F0202,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (3 AM)": MMRItemData(
+        code=0x34694201F0203,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (4 AM)": MMRItemData(
+        code=0x34694201F0204,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 2 (5 AM)": MMRItemData(
+        code=0x34694201F0205,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (6 AM)": MMRItemData(
+        code=0x34694201F0306,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (7 AM)": MMRItemData(
+        code=0x34694201F0307,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (8 AM)": MMRItemData(
+        code=0x34694201F0308,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (9 AM)": MMRItemData(
+        code=0x34694201F0309,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (10 AM)": MMRItemData(
+        code=0x34694201F030A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (11 AM)": MMRItemData(
+        code=0x34694201F030B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (12 PM)": MMRItemData(
+        code=0x34694201F030C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (1 PM)": MMRItemData(
+        code=0x34694201F030D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (2 PM)": MMRItemData(
+        code=0x34694201F030E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (3 PM)": MMRItemData(
+        code=0x34694201F030F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (4 PM)": MMRItemData(
+        code=0x34694201F0310,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (5 PM)": MMRItemData(
+        code=0x34694201F0311,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (6 PM)": MMRItemData(
+        code=0x34694201F0312,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (7 PM)": MMRItemData(
+        code=0x34694201F0313,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (8 PM)": MMRItemData(
+        code=0x34694201F0314,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (9 PM)": MMRItemData(
+        code=0x34694201F0315,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (10 PM)": MMRItemData(
+        code=0x34694201F0316,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (11 PM)": MMRItemData(
+        code=0x34694201F0317,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (12 AM)": MMRItemData(
+        code=0x34694201F0300,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (1 AM)": MMRItemData(
+        code=0x34694201F0301,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (2 AM)": MMRItemData(
+        code=0x34694201F0302,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (3 AM)": MMRItemData(
+        code=0x34694201F0303,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (4 AM)": MMRItemData(
+        code=0x34694201F0304,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
+    "Day 3 (5 AM)": MMRItemData(
+        code=0x34694201F0305,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.shuffle_time.value == 3
+    ),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

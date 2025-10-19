@@ -351,6 +351,29 @@ class AbsurdSouls(Toggle):
     display_name = "Add Absurd Souls"
 
 
+class ShuffleTime(Choice):
+    """Splits Time up into separate items based on the option selected.
+    Time is skipped to the next available time collected and will cause a moon crash once you run out of time.
+    
+    vanilla: Time is not shuffled and acts as normal.
+    days: Every day becomes a separate item added to the pool.
+    day_night: Every day and night becomes a separate item added to the pool.
+    hours: Every hour per day becomes a separate item added to the pool."""
+    display_name = "Shuffle Time"
+    option_vanilla = 0
+    option_days = 1
+    option_day_night = 2
+    option_hours = 3
+    default = 0
+
+
+class StartingTime(DefaultOnToggle):
+    """Choose whether to start with the equivalent of Day 1 - 6 AM or a random time.
+    
+    This option has no effect when Time Shuffle is disabled."""
+    display_name = "Random Starting Time"
+
+
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
     display_name = "Start With Consumables"
@@ -464,6 +487,8 @@ class MMROptions(PerGameCommonOptions):
     misc_souls: MiscSouls
     utility_souls: UtilitySouls
     absurd_souls: AbsurdSouls
+    shuffle_time: ShuffleTime
+    starting_time: StartingTime
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
