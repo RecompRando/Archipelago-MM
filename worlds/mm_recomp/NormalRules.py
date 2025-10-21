@@ -193,6 +193,14 @@ def has_all_frogs(state, player):
         state.has("Pink Frog", player)
     )
 
+def can_use_owl(state, player, options, owl_region):
+    if not options.owlsanity.value:
+        return False
+    return (
+        state.has(owl_region + " Owl Statue", player) and 
+        can_play_song("Song of Soaring", state, player)
+    )
+
 def has_soul_boss(state, player, options, soul_name):
     if not options.boss_souls.value:
         return True
@@ -254,11 +262,7 @@ def get_region_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Woodfall Owl Statue", player) and 
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Woodfall")
             ),
         "Woodfall -> Southern Swamp (Deku Palace)":
             lambda state: (
@@ -286,22 +290,14 @@ def get_region_rules(player, options):
         "Termina Field -> Path to Mountain Village":
             lambda state: (
                 state.has("Progressive Bow", player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Mountain Village Owl Statue", player) and 
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Mountain Village")
             ),
         "Path to Mountain Village -> Mountain Village":
             lambda state: (
                 state.has("Goron Mask", player) or 
                 has_explosives(state, player) or 
                 can_use_fire_arrows(state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Mountain Village Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Mountain Village")
             ),
         "Mountain Village -> Termina Field":
             lambda state: (
@@ -331,11 +327,8 @@ def get_region_rules(player, options):
                     state.has("Goron Mask", player) and 
                     can_play_song("Goron Lullaby", state, player) and 
                     state.has("Progressive Magic", player)
-                ) or (
-                    options.owlsanity.value and
-                    state.has("Snowhead Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                ) or
+                can_use_owl(state, player, options, "Snowhead")
             ),
         "Path to Snowhead -> Mountain Village":
             lambda state: (
@@ -355,12 +348,8 @@ def get_region_rules(player, options):
         "Termina Field -> Great Bay":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                        options.owlsanity.value and
-                        can_play_song("Song of Soaring", state, player) and
-                        (state.has("Great Bay Coast Owl Statue", player) or
-                        state.has("Zora Cape Owl Statue", player))
-                )
+                can_use_owl(state, player, options, "Great Bay Coast") or
+                can_use_owl(state, player, options, "Zora Cape")
             ),
         "Great Bay -> Termina Field":
             lambda state: (
@@ -387,9 +376,7 @@ def get_region_rules(player, options):
         "Zora Cape -> Zora Hall":
             lambda state: (
                 state.has("Zora Mask", player) or
-                options.owlsanity.value and
-                state.has("Zora Cape Owl Statue", player) and
-                can_play_song("Song of Soaring", state, player)
+                can_use_owl(state, player, options, "Zora Cape")
             ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
@@ -417,12 +404,7 @@ def get_region_rules(player, options):
         "Road to Ikana -> Ikana Graveyard":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    can_play_song("Song of Soaring", state, player) and
-                    state.has("Ikana Canyon Owl Statue", player) 
-                    
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road to Ikana -> Lower Ikana Canyon":
             lambda state: (
@@ -438,11 +420,7 @@ def get_region_rules(player, options):
                     can_play_song("Epona's Song", state, player) and 
                     state.has("Hookshot", player)
                 ) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Lower Ikana Canyon -> Secret Shrine":
             lambda state: (
@@ -459,14 +437,8 @@ def get_region_rules(player, options):
                     can_use_ice_arrows(state, player) and 
                     state.has("Hookshot", player)
                 ) or
-                (
-                    options.owlsanity.value and
-                    (
-                        (state.has("Ikana Canyon Owl Statue", player) or
-                        state.has("Stone Tower Owl Statue", player) and 
-                        can_play_song("Song of Soaring", state, player))
-                    )
-                )
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Upper Ikana Canyon -> Beneath the Well":
             lambda state: (
@@ -8301,26 +8273,26 @@ def get_location_rules(player, options):
         "Woodfall Owl Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) or
-                options.owlsanity.value and
-                state.has("Woodfall Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Deku Mask", player) or
+                    can_use_owl(state, player, options, "Woodfall")
+                )
             ),
         "Woodfall Owl Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) or
-                options.owlsanity.value and
-                state.has("Woodfall Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Deku Mask", player) or
+                    can_use_owl(state, player, options, "Woodfall")
+                )
             ),
         "Woodfall Owl Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) or
-                options.owlsanity.value and
-                state.has("Woodfall Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Deku Mask", player) or
+                    can_use_owl(state, player, options, "Woodfall")
+                )
             ),
         # Woodfall Temple Pots
         
@@ -14024,74 +13996,42 @@ def get_location_rules(player, options):
         "Road To Ikana Rock Circle (1)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (2)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (3)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (4)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (5)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (6)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (7)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road To Ikana Rock Circle (8)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
+                can_use_owl(state, player, options, "Ikana Canyon")
             ),
         
         "Road To Ikana Bomb Boulder (1)":
@@ -16208,20 +16148,22 @@ def get_location_rules(player, options):
         "Path To Mountains Tree (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and 
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                  can_use_fire_arrows(state, player) or 
-                options.owlsanity.value and
-                state.has("Mountain Village Owl Statue", player))
+                (
+                    state.has("Goron Mask", player) or
+                    has_explosives(state, player) or
+                    can_use_fire_arrows(state, player) or 
+                    can_use_owl(state, player, options, "Mountain Village")
+                )
             ),
         "Path To Mountains Tree (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and 
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                  can_use_fire_arrows(state, player) or 
-                options.owlsanity.value and
-                state.has("Mountain Village Owl Statue", player))
+                (
+                    state.has("Goron Mask", player) or
+                    has_explosives(state, player) or
+                    can_use_fire_arrows(state, player) or 
+                    can_use_owl(state, player, options, "Mountain Village")
+                )
             ),
 
         # Twin Islands 
