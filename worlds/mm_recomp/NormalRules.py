@@ -24,7 +24,7 @@ def has_hard_projectiles(state, player):
             state.has("Hookshot", player))
 
 def has_projectiles(state, player):
-    return ((state.has("Deku Mask", player) and state.has("Progressive Magic", player)) or 
+    return (state.has("Deku Mask", player) and state.has("Progressive Magic", player) or 
             has_hard_projectiles(state, player))
 
 def can_smack_hard(state, player):
@@ -303,10 +303,9 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Progressive Bow", player) or
                     options.owlsanity.value and
-                    state.has("Clock Town Owl Statue", player) or
-                    state.has("Southern Swamp Owl Statue", player) or
-                    state.has("Milk Road Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
+                    can_use_owl(state, player, options, "Clock Town") or
+                    can_use_owl(state, player, options, "Southern Swamp") or
+                    can_use_owl(state, player, options, "Milk Road")
             ),
         "Twin Islands -> Goron Village":
             lambda state: True,
@@ -352,14 +351,18 @@ def get_region_rules(player, options):
                 can_use_owl(state, player, options, "Zora Cape")
             ),
         "Great Bay -> Termina Field":
-            lambda state: (
-                can_play_song("Epona's Song", state, player) or
-                    options.owlsanity.value and
-                    can_play_song("Song of Soaring", state, player) and
-                    (state.has("Clock Town Owl Statue", player) or
-                    state.has("Southern Swamp Owl Statue", player) or
-                    state.has("Milk Road Owl Statue", player))
-            ),
+            lambda state:
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    (
+                        options.owlsanity.value and
+                        (
+                            can_use_owl(state, player, options, "Clock Town") or
+                            can_use_owl(state, player, options, "Southern Swamp") or
+                            can_use_owl(state, player, options, "Milk Road")
+                        )
+                    )
+                ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
         "Great Bay -> Pirates' Fortress":
@@ -407,64 +410,57 @@ def get_region_rules(player, options):
                 can_use_owl(state, player, options, "Ikana Canyon")
             ),
         "Road to Ikana -> Lower Ikana Canyon":
-            lambda state: (
+            lambda state:
                 (
-                    has_soul_npc(state, player, options, "Spirit House Owner") and
-                    state.has("Garo Mask", player) and 
-                    can_play_song("Epona's Song", state, player) and 
-                    state.has("Hookshot", player)
-                ) or 
-                (
-                    has_soul_npc(state, player, options, "Spirit House Owner") and
-                    state.has("Gibdo Mask", player) and 
-                    can_play_song("Epona's Song", state, player) and 
-                    state.has("Hookshot", player)
-                ) or
-                can_use_owl(state, player, options, "Ikana Canyon")
-            ),
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and 
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or
+                    can_use_owl(state, player, options, "Ikana Canyon")
+                ),
         "Lower Ikana Canyon -> Secret Shrine":
-            lambda state: (
-                can_use_light_arrows(state, player) or
-                (
-                    options.owlsanity.value and
-                    state.has("Ikana Canyon Owl Statue", player) and
-                    can_play_song("Song of Soaring", state, player)
-                )
-            ),
+            lambda state: True,
         "Lower Ikana Canyon -> Upper Ikana Canyon":
-            lambda state: (
+            lambda state:
                 (
-                    can_use_ice_arrows(state, player) and 
-                    state.has("Hookshot", player)
-                ) or
-                can_use_owl(state, player, options, "Ikana Canyon") or
-                can_use_owl(state, player, options, "Stone Tower")
-            ),
+                    (
+                        can_use_ice_arrows(state, player) and 
+                        state.has("Hookshot", player)
+                    ) or
+                    can_use_owl(state, player, options, "Ikana Canyon") or
+                    can_use_owl(state, player, options, "Stone Tower")
+                ),
         "Upper Ikana Canyon -> Beneath the Well":
             lambda state: (
-                can_use_ice_arrows(state, player) and 
-                state.has("Hookshot", player) and 
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player)
             ),
         "Upper Ikana Canyon -> Ikana Castle":
-            lambda state: (
-                can_use_ice_arrows(state, player) and 
-                state.has("Hookshot", player) and 
-                (
+            lambda state: 
+            (
                     can_use_light_arrows(state, player) or 
                     has_mirror_shield(state, player)
-                )
             ),
         "Stone Tower -> Stone Tower Temple":
-            lambda state: (
-                state.has("Hookshot", player) and  
-                can_play_song("Elegy of Emptiness", state, player) and 
-                (state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player))
-            ),
+lambda state:
+    (
+        state.has("Hookshot", player) and  
+        can_play_song("Elegy of Emptiness", state, player) and 
+        (
+            (
+                state.has("Goron Mask", player) and 
+                state.has("Zora Mask", player)
+            ) or
+            (
+                can_use_owl(state, player, options, "Stone Tower")
+            )
+        )
+    ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and 
@@ -5749,102 +5745,200 @@ def get_location_rules(player, options):
         # Twin Isles Grotto Grass 
 
         "Twin Isles Grotto Grass (1)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (2)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (3)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (4)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (5)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (6)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (7)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (8)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (9)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (10)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (11)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (12)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (13)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         "Twin Isles Grotto Grass (14)":
-            lambda state: (
+            lambda state:
+            (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                ((state.has("Goron Mask", player) and has_explosives(state, player)) or
-                (state.has("Hookshot", player) and has_explosives(state, player)))
+                has_explosives(state, player) and
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
         
         # Twin Islands Springtime Grass - Requires clearing Snowhead
