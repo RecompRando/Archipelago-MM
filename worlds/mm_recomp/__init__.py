@@ -159,9 +159,6 @@ class MMRWorld(World):
 
         if self.options.hivesanity.value != 0:
             filler_amount += 17
-        
-        if self.options.scarecrowsanity.value != 0:
-            filler_amount += 14
 
         if self.options.notebooksanity.value != 0:
             filler_amount += 55

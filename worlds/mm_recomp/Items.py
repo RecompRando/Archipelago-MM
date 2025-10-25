@@ -678,6 +678,77 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.frogsanity.value
     ),
+    # Scarecrows
+    "Mountain Village Rooftop Scarecrow": MMRItemData(
+        code=0x3469420305000,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Mountain Village Spring Rooftop Scarecrow": MMRItemData(
+        code=0x3469420305A00,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Path to Snowhead Scarecrow": MMRItemData(
+        code=0x3469420305B00,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Path to Snowhead Spring Scarecrow": MMRItemData(
+        code=0x3469420305C00,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Twin Islands Scarecrow": MMRItemData(
+        code=0x3469420305D00,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Twin Islands (Spring) Scarecrow": MMRItemData(
+        code=0x3469420305E00,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Snowhead Temple Lower Scarecrow": MMRItemData(
+        code=0x3469420302140,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Snowhead Temple Hidden Alcove Scarecrow": MMRItemData(
+        code=0x3469420302141,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),        
+    "Great Bay Coast Rock Wall Scarecrow": MMRItemData(
+        code=0x3469420303700,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),    
+    "Zora Cape Beavers Scarecrow": MMRItemData(
+        code=0x3469420303800,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ), 
+    "Zora Cape Island Scarecrow": MMRItemData(
+        code=0x3469420303801,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Road to Ikana Scarecrow": MMRItemData(
+        code=0x3469420305300,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Stone Tower Lower Scarecrow": MMRItemData(
+        code=0x3469420305800,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Stone Tower Upper Scarecrow": MMRItemData(
+        code=0x3469420305801,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     # Souls
     # Boss Souls
     "Soul of Odolwa": MMRItemData(
