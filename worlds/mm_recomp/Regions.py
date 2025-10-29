@@ -52,7 +52,7 @@ region_data_table: Dict[str, MMRRegionData] = {
     "Lower Ikana Canyon": MMRRegionData(["Secret Shrine", "Upper Ikana Canyon", "Road to Ikana"]),
     "Upper Ikana Canyon": MMRRegionData(["Beneath the Well", "Ikana Castle", "Stone Tower", "Lower Ikana Canyon"]),
     "Secret Shrine": MMRRegionData(["Lower Ikana Canyon"]),
-    "Beneath the Well": MMRRegionData(["Ikana Castle"]),
+    "Beneath the Well": MMRRegionData(["Ikana Castle", "Upper Ikana Canyon"]),
     "Ikana Castle": MMRRegionData(["Beneath the Well", "Inside Ikana Castle"]),
     "Inside Ikana Castle": MMRRegionData([]),
     "Stone Tower": MMRRegionData(["Stone Tower Temple", "Stone Tower (Inverted)", "Upper Ikana Canyon"]),

@@ -446,6 +446,24 @@ def get_region_rules(player, options):
                     can_use_light_arrows(state, player) or 
                     has_mirror_shield(state, player)
             ),
+        "Beneath the Well -> Ikana Castle":
+            lambda state: (
+                ( 
+                    state.has("Gibdo Mask", player) and 
+                    has_bottle(state, player) and 
+                    can_plant_beans(state, player) and 
+                    (
+                        state.has("Progressive Bomb Bag", player) or 
+                        (
+                            state.has("Captain's Hat", player) and 
+                            state.has("Progressive Bow", player)
+                        )
+                    )
+                ) and (
+                    can_use_light_arrows(state, player) or 
+                    has_mirror_shield(state, player)
+                )
+            ),
         "Stone Tower -> Stone Tower Temple":
 lambda state:
     (
@@ -7698,8 +7716,20 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
-                    can_use_light_arrows(state, player)
+                    (
+                        can_plant_beans(state, player) and
+                        (
+                            state.has("Progressive Bomb Bag", player) or
+                            (
+                                state.has("Captain's Hat", player) and 
+                                state.has("Progressive Bow", player)
+                            )
+                        )
+                    ) or 
+                    (
+                        can_use_light_arrows(state, player) and
+                        can_use_fire_arrows(state, player)
+                    )
                 )
             ),
         "Beneath the Well Right Side Back Room Grass (2)":
@@ -7709,8 +7739,20 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
-                    can_use_light_arrows(state, player)
+                    (
+                        can_plant_beans(state, player) and
+                        (
+                            state.has("Progressive Bomb Bag", player) or
+                            (
+                                state.has("Captain's Hat", player) and 
+                                state.has("Progressive Bow", player)
+                            )
+                        )
+                    ) or 
+                    (
+                        can_use_light_arrows(state, player) and
+                        can_use_fire_arrows(state, player)
+                    )
                 )
             ),
         "Beneath the Well Right Side Back Room Grass (3)":
@@ -7720,8 +7762,20 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
-                    can_use_light_arrows(state, player)
+                    (
+                        can_plant_beans(state, player) and
+                        (
+                            state.has("Progressive Bomb Bag", player) or
+                            (
+                                state.has("Captain's Hat", player) and 
+                                state.has("Progressive Bow", player)
+                            )
+                        )
+                    ) or 
+                    (
+                        can_use_light_arrows(state, player) and
+                        can_use_fire_arrows(state, player)
+                    )
                 )
             ),
         "Beneath the Well Right Side Back Room Grass (4)":
@@ -7731,8 +7785,20 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
-                    can_use_light_arrows(state, player)
+                    (
+                        can_plant_beans(state, player) and
+                        (
+                            state.has("Progressive Bomb Bag", player) or
+                            (
+                                state.has("Captain's Hat", player) and 
+                                state.has("Progressive Bow", player)
+                            )
+                        )
+                    ) or 
+                    (
+                        can_use_light_arrows(state, player) and
+                        can_use_fire_arrows(state, player)
+                    )
                 )
             ),
         "Beneath the Well Right Side Back Room Grass (5)":
@@ -7742,82 +7808,118 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
-                    can_use_light_arrows(state, player)
+                    (
+                        can_plant_beans(state, player) and
+                        (
+                            state.has("Progressive Bomb Bag", player) or
+                            (
+                                state.has("Captain's Hat", player) and 
+                                state.has("Progressive Bow", player)
+                            )
+                        )
+                    ) or 
+                    (
+                        can_use_light_arrows(state, player) and
+                        can_use_fire_arrows(state, player)
+                    )
                 )
             ),
         # Ikana Castle Grass - Requires Mirror Shield or Light Arrows
         "Ikana Castle Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Ikana Castle Grass (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                has_mirror_shield(state, player) or 
-                can_use_light_arrows(state, player)
+                (
+                    has_mirror_shield(state, player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
 
         # Woodfall Temple Grass
@@ -9593,30 +9695,35 @@ def get_location_rules(player, options):
 
         "Zora Cape Jar Game Pots (1)":
             lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
             ),        
         "Zora Cape Jar Game Pots (2)":
             lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
             ),
         "Zora Cape Jar Game Pots (3)":
             lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
             ),
         "Zora Cape Jar Game Pots (4)":
             lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
             ),
         "Zora Cape Jar Game Pots (5)":
             lambda state: (
+                has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player) or
                 (state.has("Goron Mask", player) and
                 can_use_powder_keg(state, player))
@@ -10673,7 +10780,6 @@ def get_location_rules(player, options):
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
-                            state.has("Captain's Hat", player) and
                             state.has("Progressive Bow", player)
                         )
                     )
@@ -10693,7 +10799,6 @@ def get_location_rules(player, options):
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
-                            state.has("Captain's Hat", player) and
                             state.has("Progressive Bow", player)
                         )
                     )
@@ -10713,7 +10818,6 @@ def get_location_rules(player, options):
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
-                            state.has("Captain's Hat", player) and
                             state.has("Progressive Bow", player)
                         )
                     )
@@ -10733,7 +10837,6 @@ def get_location_rules(player, options):
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
-                            state.has("Captain's Hat", player) and
                             state.has("Progressive Bow", player)
                         )
                     )
@@ -14436,6 +14539,7 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
         "Pirates Fortress' Exterior Balcony Barrel (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
@@ -15590,6 +15694,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15607,6 +15712,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15625,6 +15731,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15643,6 +15750,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15661,6 +15769,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15679,6 +15788,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15697,6 +15807,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
@@ -15715,6 +15826,7 @@ def get_location_rules(player, options):
                     or
                     (
                         has_soul_npc(state, player, options, "Gibdos") and
+                        has_soul_npc(state, player, options, "Business Scrubs") and
                         can_afford_price(state, player, 100) and
                         has_bottle(state, player, 1) and
                         state.has("Gibdo Mask", player)
