@@ -113,7 +113,7 @@ class MMRWorld(World):
             filler_amount += 27
 
         if self.options.shopsanity.value == 2:
-            filler_amount += 11
+            filler_amount += 12
         
         if self.options.cowsanity.value != 0:
             filler_amount += 8
@@ -128,7 +128,7 @@ class MMRWorld(World):
             filler_amount += 1022
 
         if self.options.potsanity.value != 0:
-            filler_amount += 541
+            filler_amount += 542
         
         if self.options.rocksanity.value != 0:
             filler_amount += 129
@@ -143,13 +143,13 @@ class MMRWorld(World):
             filler_amount += 22
 
         if self.options.rupeesanity.value != 0:
-            filler_amount += 213
+            filler_amount += 215
 
         if self.options.snowsanity.value != 0:
             filler_amount += 119
 
         if self.options.woodsanity.value != 0:
-            filler_amount += 128
+            filler_amount += 127
                                  
         if self.options.realfairysanity.value != 0:
             filler_amount += 92
@@ -167,7 +167,7 @@ class MMRWorld(World):
             filler_amount += 96
 
         if self.options.flowersanity.value != 0:
-            filler_amount += 155
+            filler_amount += 156
 
         if self.options.boss_souls.value:
             filler_amount -= 4
@@ -179,7 +179,7 @@ class MMRWorld(World):
             filler_amount -= 4
 
         if self.options.npc_souls.value:
-            filler_amount -= 59
+            filler_amount -= 70
 
         if self.options.utility_souls.value:
             filler_amount -= 1
@@ -187,7 +187,7 @@ class MMRWorld(World):
         if self.options.absurd_souls.value:
             filler_amount -= 1
 
-        filler_amount += 9 # temp
+        filler_amount += 9 #temp
 
         self.create_and_add_filler_items(filler_amount)
 

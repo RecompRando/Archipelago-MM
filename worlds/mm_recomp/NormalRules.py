@@ -1627,6 +1627,7 @@ def get_location_rules(player, options):
                 (
                     (state.has("Goron Mask", player) or 
                     state.has("Hookshot", player) and
+                    state.has("Twin Islands Scarecrow", player) and
                     has_soul_npc(state, player, options, "Scarecrow")) 
                 )
             ),
@@ -5772,6 +5773,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5786,6 +5789,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5800,6 +5805,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5814,6 +5821,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5828,6 +5837,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5842,6 +5853,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5856,6 +5869,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5870,6 +5885,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5884,6 +5901,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5898,6 +5917,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5912,6 +5933,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5926,6 +5949,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5940,6 +5965,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -5954,6 +5981,8 @@ def get_location_rules(player, options):
                     state.has("Goron Mask", player) or
                     (
                         state.has("Hookshot", player) and
+                        state.has("Twin Islands Scarecrow", player) and
+                        can_reach_scarecrow(state, player, options) and
                         has_soul_npc(state, player, options, "Scarecrow")
                     )
                 )
@@ -10869,253 +10898,420 @@ def get_location_rules(player, options):
             #Stone Tower Lower Scarecrow Pots            
         "Stone Tower Lower Scarecrow Pots (1)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (2)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (3)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (4)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (5)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (6)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (7)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (8)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (9)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (10)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (11)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Lower Scarecrow Pots (12)":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         
         # Stone Tower Upper Scarecrow Pots
         "Stone Tower Upper Scarecrow Pots (1)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (2)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (3)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (4)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (5)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (6)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (7)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (8)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         "Stone Tower Upper Scarecrow Pots (9)":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
+                can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    (
+                        can_play_song("Elegy of Emptiness", state, player) and 
+                        state.has("Goron Mask", player) and 
+                        state.has("Zora Mask", player)
+                    ) or (
+                        state.has("Stone Tower Owl Statue", player) and 
+                        can_play_song("Song of Soaring", state, player)
+                    )
+                )
             ),
         
         # Stone Tower Owl Pots
         "Stone Tower Owl Pots (1)":
             lambda state: (
-                state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Hookshot", player) and  
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                )
+                or 
+                (
+                    state.has("Stone Tower Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
+                )
             ),
         "Stone Tower Owl Pots (2)":
             lambda state: (
-                state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Hookshot", player) and  
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                )
+                or 
+                (
+                    state.has("Stone Tower Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
+                )
             ),
         "Stone Tower Owl Pots (3)":
             lambda state: (
-                state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Hookshot", player) and  
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                )
+                or 
+                (
+                    state.has("Stone Tower Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
+                )
             ),
         "Stone Tower Owl Pots (4)":
             lambda state: (
-                state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
-                state.has("Stone Tower Owl Statue", player) and 
-                can_play_song("Song of Soaring", state, player)
+                (
+                    state.has("Hookshot", player) and  
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                )
+                or 
+                (
+                    state.has("Stone Tower Owl Statue", player) and 
+                    can_play_song("Song of Soaring", state, player)
+                )
             ),
         
         # Stone Tower Temple Pots
@@ -12871,13 +13067,30 @@ def get_location_rules(player, options):
             ),
 
         # Snowhead Temple Icicle Rupees
-        "Snowhead Temple Icicle Rupees (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Icicle Rupees (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
         "Snowhead Temple Icicle Rupees (2)":
-            lambda state: has_explosives(state, player),
-
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Rupees (3)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
         # Mountain Village Spring Boulder Under Smithy Rupee
         "Mountain Village Spring Boulder Under Smithy Rupee":
             lambda state: can_clear_snowhead(state, player),
@@ -13687,38 +13900,50 @@ def get_location_rules(player, options):
         "Snowhead Temple Icicle Room Snowballs (0)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Icicle Room Snowballs (1)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Icicle Room Snowballs (2)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Icicle Room Snowballs (3)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Icicle Room Snowballs (4)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Icicle Room Snowballs (5)":
             lambda state: (
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 1) or
-                state.has("Hookshot", player)
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
             ),
 
         # Snowhead Temple Main Room 2nd Floor Snowballs
@@ -14974,8 +15199,6 @@ def get_location_rules(player, options):
 
         # Snowhead Temple
 
-        "Snowhead Temple Entry Block Icicles (0)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Entry Block Icicles (1)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Entry Block Icicles (2)":
@@ -14984,27 +15207,105 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
         "Snowhead Temple Entry Block Icicles (4)":
             lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+        "Snowhead Temple Entry Block Icicles (5)":
+            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
 
-        "Snowhead Temple Grey Door Icicles (0)":
-            lambda state: True,
         "Snowhead Temple Grey Door Icicles (1)":
             lambda state: True,
+        "Snowhead Temple Grey Door Icicles (2)":
+            lambda state: True,
+        "Snowhead Temple Grey Door Ceiling Icicles (2)":
+            lambda state: True,
+        "Snowhead Temple Grey Door Ceiling Icicles (2)":
+            lambda state: True,
 
-        "Snowhead Temple 3F Behind Locked Door Icicles (0)":
+        "Snowhead Temple Frozen Block Ceiling Icicle (1)":
             lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
+                can_use_fire_arrows(state, player) and 
                 (
-                state.has("Hookshot", player) or
-                can_use_fire_arrows(state, player)
+                    state.has("Small Key (Snowhead)", player, 1) or 
+                    state.has("Hookshot", player)
                 )
             ),
-
-
+        "Snowhead Temple Frozen Block Ceiling Icicle (2)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 1) or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Frozen Block Ceiling Icicle (3)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 1) or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Frozen Block Ceiling Icicle (4)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 1) or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Frozen Block Ceiling Icicle (5)":
+            lambda state: (
+                can_use_fire_arrows(state, player) and 
+                (
+                    state.has("Small Key (Snowhead)", player, 1) or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Room Ceiling Icicle (1)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Room Ceiling Icicle (2)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Room Ceiling Icicle (3)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Room Ceiling Icicle (4)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Snowhead Temple Icicle Room Ceiling Icicle (5)":
+            lambda state: (
+                has_explosives(state, player) and
+                (    
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    state.has("Hookshot", player)
+                )
+            ),
         "Snowhead Temple 3F Behind Locked Door Icicles (1)":
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 1) and
                 (
-                state.has("Hookshot", player) or
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
                 can_use_fire_arrows(state, player)
                 )
             ),
@@ -15014,48 +15315,97 @@ def get_location_rules(player, options):
                 state.has("Small Key (Snowhead)", player, 1) and
                 (
                 state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") or
                 can_use_fire_arrows(state, player)
                 )
             ),
 
-        "Snowhead Temple 4F Outside Wizzrobe Icicles (0)":
+        "Snowhead Temple 3F Behind Locked Door Icicles (3)":
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 1) and
-                can_use_fire_arrows(state, player) and
-                state.has("Deku Mask", player)
+                (
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
+            ),
+        "Snowhead Temple 3F Behind Locked Door Ceiling Icicles (1)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
+            ),
+        "Snowhead Temple 3F Behind Locked Door Ceiling Icicles (2)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
+            ),
+        "Snowhead Temple 3F Behind Locked Door Ceiling Icicles (3)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
+            ),
+        "Snowhead Temple 3F Behind Locked Door Ceiling Icicles (4)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 1) and
+                (
+                state.has("Hookshot", player) and 
+                state.has("Snowhead Temple Lower Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") or
+                can_use_fire_arrows(state, player)
+                )
             ),
         "Snowhead Temple 4F Outside Wizzrobe Icicles (1)":
             lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
+                state.has("Small Key (Snowhead)", player, 3) and
+                can_use_fire_arrows(state, player) and
+                state.has("Deku Mask", player)
+            ),
+        "Snowhead Temple 4F Outside Wizzrobe Icicles (2)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player) and
                 state.has("Deku Mask", player)
             ),
 
-        "Snowhead Temple Outside Boss Door Icicles (0)":
-            lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
-                can_use_fire_arrows(state, player)
-            ),
         "Snowhead Temple Outside Boss Door Icicles (1)":
             lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
+                state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player)
-            ),        
+            ),
         "Snowhead Temple Outside Boss Door Icicles (2)":
             lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
+                state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player)
             ),        
         "Snowhead Temple Outside Boss Door Icicles (3)":
             lambda state: (
-                state.has("Small Key (Snowhead)", player, 1) and
+                state.has("Small Key (Snowhead)", player, 3) and
+                can_use_fire_arrows(state, player)
+            ),        
+        "Snowhead Temple Outside Boss Door Icicles (4)":
+            lambda state: (
+                state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player)
             ),
         # Great Bay Temple
 
-        "Great Bay Temple Outside Frog Miniboss Door Icicles (0)":
-            lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Outside Frog Miniboss Door Icicles (1)":
             lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Outside Frog Miniboss Door Icicles (2)":
@@ -15064,15 +15414,11 @@ def get_location_rules(player, options):
             lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Outside Frog Miniboss Door Icicles (4)":
             lambda state: can_use_ice_arrows(state, player),
+        "Great Bay Temple Outside Frog Miniboss Door Icicles (5)":
+            lambda state: can_use_ice_arrows(state, player),
 
         # Goron Trial
 
-        "Goron Trial Icicles (0)":
-            lambda state: (
-                has_soul_npc(state, player, options, "Moon Kids") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player)
-            ),
         "Goron Trial Icicles (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
@@ -15086,6 +15432,12 @@ def get_location_rules(player, options):
                 state.has("Progressive Magic", player)
             ),
         "Goron Trial Icicles (3)":
+            lambda state: (
+                has_soul_npc(state, player, options, "Moon Kids") and
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
+        "Goron Trial Icicles (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
@@ -15160,11 +15512,13 @@ def get_location_rules(player, options):
         # Mountain Village Scarecrows
         "Mountain Village Rooftop Scarecrow":
             lambda state: (
+                state.has("Mountain Village Rooftop Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Mountain Village Spring Rooftop Scarecrow":
             lambda state: (
+                state.has("Mountain Village Spring Rooftop Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_clear_snowhead(state, player)
@@ -15172,11 +15526,13 @@ def get_location_rules(player, options):
         # Path to Snowhead Scarecrows
         "Path to Snowhead Scarecrow":
             lambda state: (
+                state.has("Path to Snowhead Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Path to Snowhead Spring Scarecrow":
             lambda state: (
+                state.has("Path to Snowhead Spring Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_clear_snowhead(state, player)
@@ -15184,11 +15540,13 @@ def get_location_rules(player, options):
         # Twin Islands Scarecrows
         "Twin Islands Scarecrow":
             lambda state: (
+                state.has("Twin Islands Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Twin Islands (Spring) Scarecrow":
             lambda state: (
+                state.has("Twin Islands Spring Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_clear_snowhead(state, player)
@@ -15196,39 +15554,46 @@ def get_location_rules(player, options):
         # Snowhead Temple Scarecrows
         "Snowhead Temple Lower Scarecrow":
             lambda state: (
+                state.has("Snowhead Temple Lower Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Snowhead Temple Hidden Alcove Scarecrow":
             lambda state: (
+                state.has("Snowhead Temple Hidden Alcove Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Great Bay Scarecrows
         "Great Bay Coast Rock Wall Scarecrow":
             lambda state: (
+                state.has("Great Bay Coast Rock Wall Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Zora Cape Beavers Scarecrow":
             lambda state: (
+                state.has("Zora Cape Beavers Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Zora Cape Island Scarecrow":
             lambda state: (
+                state.has("Zora Cape Island Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Ikana Scarecrows
         "Road to Ikana Scarecrow":
             lambda state: (
+                state.has("Road to Ikana Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Stone Tower Scarecrows
         "Stone Tower Lower Scarecrow":
             lambda state: (
+                state.has("Stone Tower Lower Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 (
@@ -15248,6 +15613,7 @@ def get_location_rules(player, options):
             
         "Stone Tower Upper Scarecrow":
             lambda state: (
+                state.has("Stone Tower Upper Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 (

@@ -704,7 +704,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.scarecrowsanity.value
     ),
-    "Twin Islands (Spring) Scarecrow": MMRItemData(
+    "Twin Islands Spring Scarecrow": MMRItemData(
         code=0x3469420305E00,
         type=ItemClassification.progression,
         can_create=lambda options: options.scarecrowsanity.value
@@ -829,7 +829,7 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Honey and Darling": MMRItemData(
-        code=0x34694200C0008,
+        code=0x34694200C00B5,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),

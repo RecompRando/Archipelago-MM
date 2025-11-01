@@ -340,7 +340,7 @@ class MiscSouls(Toggle):
 
 
 class UtilitySouls(Toggle):
-    """Add souls for Utility Items Like Scarecrow and Postboxes etc.
+    """Add souls for Utility Items like the Postboxes etc.
     They will not spawn unless their soul is obtained."""
     display_name = "Add Utility Souls"
 
