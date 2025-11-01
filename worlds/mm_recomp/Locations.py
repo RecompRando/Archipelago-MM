@@ -10196,7 +10196,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Sword School Gong
     "Sword School Gong": MMRLocationData(
         region="Clock Town",
-        address=0x3469420165400,
+        address=0x3469420155400,
         can_create=lambda options: options.hitsanity.value
     ),
 
