@@ -155,7 +155,7 @@ class MMRWorld(World):
             filler_amount += 92
 
         if self.options.iciclesanity.value != 0:
-            filler_amount += 25
+            filler_amount += 41
 
         if self.options.hivesanity.value != 0:
             filler_amount += 17

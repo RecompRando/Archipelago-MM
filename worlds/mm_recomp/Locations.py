@@ -12451,22 +12451,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Great Bay Coast Underwater Rocks (Bombchus only)
-    "Great Bay Coast Underwater Rocks (Bombchus only) (1)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) Below Rock Pools (1)": MMRLocationData(
         region="Great Bay",
         address=0x346942018371C,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (2)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) Next to Like-Like": MMRLocationData(
         region="Great Bay",
         address=0x346942018372E,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (3)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) Below Rock Pools (2)": MMRLocationData(
         region="Great Bay",
         address=0x346942018371B,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Underwater Rocks (Bombchus only) (4)": MMRLocationData(
+    "Great Bay Coast Underwater Rocks (Bombchus only) Near Rock Wall": MMRLocationData(
         region="Great Bay",
         address=0x346942018371A,
         can_create=lambda options: options.rocksanity.value

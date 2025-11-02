@@ -14312,22 +14312,22 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Great Bay", 'Region', player),
 
         # Great Bay Coast Underwater Rocks (Bombchus only)
-        "Great Bay Coast Underwater Rocks (Bombchus only) (1)":
+        "Great Bay Coast Underwater Rocks (Bombchus only) Below Rock Pools (1)":
             lambda state: (
                 has_bombchus(state, player) and
                 state.has("Zora Mask", player)
             ),
-        "Great Bay Coast Underwater Rocks (Bombchus only) (2)":
+        "Great Bay Coast Underwater Rocks (Bombchus only) Next to Like-Like":
             lambda state: (
                 has_bombchus(state, player) and
                 state.has("Zora Mask", player)
             ),
-        "Great Bay Coast Underwater Rocks (Bombchus only) (3)":
+        "Great Bay Coast Underwater Rocks (Bombchus only) Below Rock Pools (2)":
             lambda state: (
                 has_bombchus(state, player) and
                 state.has("Zora Mask", player)
             ),
-        "Great Bay Coast Underwater Rocks (Bombchus only) (4)":
+        "Great Bay Coast Underwater Rocks (Bombchus only) Near Rock Wall":
             lambda state: (
                 has_bombchus(state, player) and
                 state.has("Zora Mask", player)      
