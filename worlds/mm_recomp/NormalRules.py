@@ -260,8 +260,8 @@ def get_region_rules(player, options):
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp (Deku Palace) -> Woodfall":
             lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) or
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") or
                 can_use_owl(state, player, options, "Woodfall")
             ),
         "Woodfall -> Southern Swamp (Deku Palace)":
@@ -271,6 +271,7 @@ def get_region_rules(player, options):
             ),
         "Woodfall -> Woodfall Temple":
             lambda state: (
+                state.has("Deku Mask", player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 can_play_song("Sonata of Awakening", state, player)
             ),
