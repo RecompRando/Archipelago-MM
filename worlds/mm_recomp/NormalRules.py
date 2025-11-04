@@ -200,7 +200,19 @@ def can_use_owl(state, player, options, owl_region):
         state.has(owl_region + " Owl Statue", player) and 
         can_play_song("Song of Soaring", state, player)
     )
-
+def can_warp_out(state, player, options):
+    return (
+        (
+            can_play_song("Song of Soaring", state, player) 
+        ) and 
+        (
+            can_use_owl(state, player, options, "Clock Town") or
+            can_use_owl(state, player, options, "Milk Road") or
+            can_use_owl(state, player, options, "Southern Swamp") or
+            can_use_owl(state, player, options, "Ikana Canyon") or
+            can_use_owl(state, player, options, "Stone Tower")
+        )
+    )
 def has_soul_boss(state, player, options, soul_name):
     if not options.boss_souls.value:
         return True
@@ -260,9 +272,13 @@ def get_region_rules(player, options):
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp (Deku Palace) -> Woodfall":
             lambda state: (
-                state.has("Deku Mask", player) and
-                has_soul_absurd(state, player, options, "Deku Flowers") or
-                can_use_owl(state, player, options, "Woodfall")
+                (
+                    state.has("Deku Mask", player) and
+                    has_soul_absurd(state, player, options, "Deku Flowers")
+                ) 
+                or ( 
+                    can_use_owl(state, player, options, "Woodfall")
+                   )
             ),
         "Woodfall -> Southern Swamp (Deku Palace)":
             lambda state: (
@@ -304,9 +320,7 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Progressive Bow", player) or
                     options.owlsanity.value and
-                    can_use_owl(state, player, options, "Clock Town") or
-                    can_use_owl(state, player, options, "Southern Swamp") or
-                    can_use_owl(state, player, options, "Milk Road")
+                    can_warp_out(state, player, options)
             ),
         "Twin Islands -> Goron Village":
             lambda state: True,
@@ -357,11 +371,7 @@ def get_region_rules(player, options):
                     can_play_song("Epona's Song", state, player) or
                     (
                         options.owlsanity.value and
-                        (
-                            can_use_owl(state, player, options, "Clock Town") or
-                            can_use_owl(state, player, options, "Southern Swamp") or
-                            can_use_owl(state, player, options, "Milk Road")
-                        )
+                        can_warp_out(state, player, options)
                     )
                 ),
         "Great Bay -> Ocean Spider House":
@@ -8501,7 +8511,8 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
-                    can_use_owl(state, player, options, "Woodfall")
+                    can_use_owl(state, player, options, "Woodfall") and 
+                    can_warp_out(state, player, options)
                 )
             ),
         "Woodfall Owl Pots (2)":
@@ -8509,7 +8520,8 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
-                    can_use_owl(state, player, options, "Woodfall")
+                    can_use_owl(state, player, options, "Woodfall") and 
+                    can_warp_out(state, player, options)
                 )
             ),
         "Woodfall Owl Pots (3)":
@@ -8517,7 +8529,8 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
-                    can_use_owl(state, player, options, "Woodfall")
+                    can_use_owl(state, player, options, "Woodfall") and 
+                    can_warp_out(state, player, options)
                 )
             ),
         # Woodfall Temple Pots
@@ -14419,27 +14432,32 @@ def get_location_rules(player, options):
         "Road To Ikana Rock Circle (1)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (2)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (3)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (4)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (5)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (6)":
             lambda state: (
@@ -14449,71 +14467,149 @@ def get_location_rules(player, options):
         "Road To Ikana Rock Circle (7)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         "Road To Ikana Rock Circle (8)":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Ikana Canyon")
+                can_use_owl(state, player, options, "Ikana Canyon") or
+                can_use_owl(state, player, options, "Stone Tower")
             ),
         
         "Road To Ikana Bomb Boulder (1)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player) and 
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road To Ikana Bomb Boulder (2)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
                 has_explosives(state, player) and 
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ),          
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),      
         "Road To Ikana Bomb Boulder (3)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                has_explosives(state, player) and 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road To Ikana Bomb Boulder (4)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                has_explosives(state, player) and 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road To Ikana Bomb Boulder (5)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                has_explosives(state, player) and 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road To Ikana Bomb Boulder (6)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ), 
+                has_explosives(state, player) and 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road To Ikana Bomb Boulder (7)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
-                has_explosives(state, player) and
-                (state.has("Garo MasK", player) or
-                state.has("Gibdo Mask", player) and 
-                state.has("Hookshot", player)) 
-            ),                                                                       
-
+                has_explosives(state, player) and 
+                (
+                    (
+                        has_soul_npc(state, player, options, "Spirit House Owner") and
+                        can_play_song("Epona's Song", state, player) and
+                        state.has("Hookshot", player) and
+                        (
+                            state.has("Garo Mask", player) or
+                            state.has("Gibdo Mask", player)
+                        )
+                    ) or 
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         # Ikana Graveyard Rock Circle
         "Ikana Graveyard Rock Circle (0)":
             lambda state: state.can_reach("Ikana Graveyard", 'Region', player),
