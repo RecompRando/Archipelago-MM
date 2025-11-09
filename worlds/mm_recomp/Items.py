@@ -1023,7 +1023,7 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Gorman Bros": MMRItemData(
+    "Soul of Gorman Brothers": MMRItemData(
         code=0x34694200C0067,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value

@@ -335,6 +335,11 @@ def get_region_rules(player, options):
                 (state.has("Powder Keg", player) or
                 can_use_fire_arrows(state, player))
             ),
+        "Mountain Village -> Path to Snowhead": 
+            lambda state: (
+                state.has("Goron Mask", player) and 
+                state.has("Progressive Magic", player)
+            ),
         "Path to Snowhead -> Snowhead":
             lambda state: (
                 (
@@ -1101,14 +1106,15 @@ def get_location_rules(player, options):
 
         "Milk Road Gorman Ranch Race":
             lambda state: (
-                has_soul_npc(state, player, options, "Gorman Bros") and
+                has_soul_npc(state, player, options, "Gorman Brothers") and
                 state.has("Ocarina of Time", player) and 
                 state.has("Epona's Song", player)
             ),
         "Milk Road Gorman Ranch Purchase":
-            lambda state: has_soul_npc(state, player, options, "Gorman Bros"),
+            lambda state: has_soul_npc(state, player, options, "Gorman Brothers"),
         "Tingle Romani Ranch Map Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Milk Road", 'Region', player) or 
@@ -1124,6 +1130,7 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
         "Tingle Woodfall Map Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Southern Swamp", 'Region', player) or 
@@ -1637,6 +1644,7 @@ def get_location_rules(player, options):
             
         "Tingle Snowhead Map Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Twin Islands", 'Region', player) or 
@@ -1646,12 +1654,14 @@ def get_location_rules(player, options):
         "Twin Islands Ramp Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                has_explosives(state, player) and 
-                (
-                    (state.has("Goron Mask", player) or 
-                    state.has("Hookshot", player) and
-                    state.has("Twin Islands Scarecrow", player) and
-                    has_soul_npc(state, player, options, "Scarecrow")) 
+                has_explosives(state, player) 
+                and (
+                        state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
                 )
             ),
         "Twin Islands Goron Elder Request":
@@ -2088,6 +2098,7 @@ def get_location_rules(player, options):
             ),
         "Tingle Great Bay Map Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     state.can_reach("Great Bay", 'Region', player) or 
@@ -2656,6 +2667,7 @@ def get_location_rules(player, options):
 
         "Tingle Stone Tower Map Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Tingle") and
                 has_projectiles(state, player) and 
                 (
                     (
@@ -13840,13 +13852,36 @@ def get_location_rules(player, options):
             lambda state: True,
 
         # Twin Isles Snowballs Near Grotto
-        "Twin Isles Snowballs Near Grotto (0)":
-            lambda state: True,
         "Twin Isles Snowballs Near Grotto (1)":
-            lambda state: True,
+            lambda state: 
+            (
+                state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
+            ),
         "Twin Isles Snowballs Near Grotto (2)":
-            lambda state: True,
-
+            lambda state: 
+            (
+                state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
+            ),
+        "Twin Isles Snowballs Near Grotto (3)":
+            lambda state: 
+            (
+                state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
+            ),
         # Goron Village Snowballs
         "Goron Village Snowballs (0)":
             lambda state: True,
@@ -16718,7 +16753,10 @@ def get_location_rules(player, options):
                 has_notebook(state, player)
             ),
         "Notebook Meeting Gorman Brothers":
-            lambda state: has_notebook(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Gorman Brothers") and
+                has_notebook(state, player)
+            ),
         "Notebook Meeting Grog":
             lambda state: (
                 has_soul_npc(state, player, options, "Grog") and
@@ -16732,6 +16770,7 @@ def get_location_rules(player, options):
         "Notebook Meeting Kafei":
             lambda state: (
                 has_soul_npc(state, player, options, "Kafei") and
+                has_soul_utility(state, player, options, "Postboxes") and
                 state.has("Bomber's Notebook", player) and
                 state.has("Letter to Kafei", player)
             ),
@@ -16886,8 +16925,17 @@ def get_location_rules(player, options):
         "Twin Islands Tree (2)":
             lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
         "Twin Islands Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
-
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") 
+                and (
+                    state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
+            ),
         # Twin Islands Spring - Requires clearing Snowhead Temple (spring access)
         "Twin Islands (Spring) Tree (1)":
             lambda state: (
@@ -17474,56 +17522,67 @@ def get_location_rules(player, options):
         "Deku Palace Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                can_plant_beans(state, player) and
                 state.has("Deku Mask", player)
             ),
         # Swamp Spider Flowers

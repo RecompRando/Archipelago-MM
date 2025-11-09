@@ -13171,17 +13171,17 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Twin Isles Snowballs Near Grotto
-    "Twin Isles Snowballs Near Grotto (0)": MMRLocationData(
+    "Twin Isles Snowballs Near Grotto (1)": MMRLocationData(
         region="Twin Islands",
         address=0x3469420215D11,
         can_create=lambda options: options.snowsanity.value
     ),
-    "Twin Isles Snowballs Near Grotto (1)": MMRLocationData(
+    "Twin Isles Snowballs Near Grotto (2)": MMRLocationData(
         region="Twin Islands",
         address=0x3469420215D12,
         can_create=lambda options: options.snowsanity.value
     ),
-    "Twin Isles Snowballs Near Grotto (2)": MMRLocationData(
+    "Twin Isles Snowballs Near Grotto (3)": MMRLocationData(
         region="Twin Islands",
         address=0x3469420215D10,
         can_create=lambda options: options.snowsanity.value
