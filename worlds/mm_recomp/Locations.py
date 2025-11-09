@@ -14471,27 +14471,27 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.iciclesanity.value
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (1)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Great Bay Temple",
         address=0x3469420234940,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (2)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Great Bay Temple",
         address=0x3469420234941,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (3)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Great Bay Temple",
         address=0x3469420234942,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (4)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Great Bay Temple",
         address=0x3469420234943,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Great Bay Temple Outside Frog Miniboss Door Icicles (5)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Great Bay Temple",
         address=0x3469420234944,
         can_create=lambda options: options.iciclesanity.value
     ),           
@@ -15458,7 +15458,6 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420FF0002,
         can_create=lambda options: options.frogsanity.value
     ),  
-
     # Treesanity Locations
     "North Clock Town Tree (1)": MMRLocationData(
         region="Clock Town",
