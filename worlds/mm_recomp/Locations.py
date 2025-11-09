@@ -16574,6 +16574,16 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F1341,
         can_create=lambda options: options.flowersanity.value
     ),
+    "Well Deku Flower (1)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694203F4B20,
+        can_create=lambda options: options.flowersanity.value
+    ),
+    "Well Deku Flower (2)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694203F4B21,
+        can_create=lambda options: options.flowersanity.value
+    ),
     "Ikana Castle Left Side Falling Ceiling Room Flower (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x34694203F1D20,

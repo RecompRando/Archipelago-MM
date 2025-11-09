@@ -360,11 +360,18 @@ def get_region_rules(player, options):
                     state.has("Boss Key (Snowhead)", player)
             ),
         "Termina Field -> Great Bay":
-            lambda state: (
-                can_play_song("Epona's Song", state, player) or
-                can_use_owl(state, player, options, "Great Bay Coast") or
-                can_use_owl(state, player, options, "Zora Cape")
-            ),
+            lambda state: 
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    can_warp_out(state, player, options) 
+                and (
+                        options.owlsanity.value 
+                    and (
+                            can_use_owl(state, player, options, "Great Bay Coast") or
+                            can_use_owl(state, player, options, "Zora Cape")
+                        )
+                    )
+                ),
         "Great Bay -> Termina Field":
             lambda state:
                 (
@@ -387,10 +394,13 @@ def get_region_rules(player, options):
             ),
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
+        "Great Bay -> Zora Cape":
+            lambda state: True,
         "Zora Cape -> Zora Hall":
             lambda state: (
                 state.has("Zora Mask", player) or
-                can_use_owl(state, player, options, "Zora Cape")
+                        options.owlsanity.value and
+                        can_warp_out(state, player, options)
             ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
@@ -568,12 +578,14 @@ def get_location_rules(player, options):
         "North Clock Town Deku Playground Any Day":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground All Days":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_npc(state, player, options, "Deku Playground Employee") and
                 state.has("Deku Mask", player)
             ),
@@ -1652,7 +1664,9 @@ def get_location_rules(player, options):
                             can_use_lens(state, player) or 
                             (
                                 state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
-                                can_play_song("Song of Soaring", state, player)
+                                can_play_song("Song of Soaring", state, player) and 
+                                options.owlsanity.value and
+                                can_use_owl(state, player, options, "Ikana Canyon")
                             )
                         ) and 
                         has_bottle(state, player)
@@ -1676,7 +1690,9 @@ def get_location_rules(player, options):
                     can_clear_snowhead(state, player) or 
                     (
                         state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
-                        can_play_song("Song of Soaring", state, player)
+                        can_play_song("Song of Soaring", state, player) and
+                        options.owlsanity.value and
+                        can_use_owl(state, player, options, "Mountain Village")
                     )
                 )
             ),
@@ -2736,7 +2752,8 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player)
+                    state.has("Mask of Scents", player) and
+                    has_soul_npc(state, player, options, "Kotake")
                 )
             ),
         "Ikana Well Final Chest":
@@ -7595,7 +7612,8 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player)
+                    state.has("Mask of Scents", player) and
+                    has_soul_npc(state, player, options, "Kotake") 
                 )
             ),
         "Beneath the Well Left Side Back Room Grass (1)":
@@ -7606,7 +7624,8 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player)
+                    state.has("Mask of Scents", player) and
+                    has_soul_npc(state, player, options, "Kotake") 
                 )
             ),
         
@@ -8364,14 +8383,37 @@ def get_location_rules(player, options):
 
         # Clock Tower Pots Night 3
         "Top Of Clock Tower Pots (1)":
-            lambda state: True,
+            lambda state: 
+            (
+                state.has("Ocarina of Time", player) and
+                can_play_song("Song of Soaring", state, player) and
+                options.owlsanity.value and
+                can_warp_out(state, player, options)
+            ),
         "Top Of Clock Tower Pots (2)":
-            lambda state: True,
+            lambda state: 
+            (
+                state.has("Ocarina of Time", player) and
+                can_play_song("Song of Soaring", state, player) and
+                options.owlsanity.value and
+                can_warp_out(state, player, options)
+            ),
         "Top Of Clock Tower Pots (3)":
-            lambda state: True,
+            lambda state: 
+            (
+                state.has("Ocarina of Time", player) and
+                can_play_song("Song of Soaring", state, player) and
+                options.owlsanity.value and
+                can_warp_out(state, player, options)
+            ),
         "Top Of Clock Tower Pots (4)":
-            lambda state: True,                                    
-
+            lambda state: 
+            (
+                state.has("Ocarina of Time", player) and
+                can_play_song("Song of Soaring", state, player) and
+                options.owlsanity.value and
+                can_warp_out(state, player, options)
+            ),                                 
         # Bombers Hideout Pots - Requires access to Bomber's Hideout Astral Observatory
         "Bombers Hideout Pots (1)":
             lambda state: state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player),
@@ -8511,6 +8553,7 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
+                    options.owlsanity.value and
                     can_use_owl(state, player, options, "Woodfall") and 
                     can_warp_out(state, player, options)
                 )
@@ -8520,6 +8563,7 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
+                    options.owlsanity.value and
                     can_use_owl(state, player, options, "Woodfall") and 
                     can_warp_out(state, player, options)
                 )
@@ -8529,6 +8573,7 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 (
                     state.has("Deku Mask", player) or
+                    options.owlsanity.value and
                     can_use_owl(state, player, options, "Woodfall") and 
                     can_warp_out(state, player, options)
                 )
@@ -17509,7 +17554,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                can_play_song ("Sonata of Awakening", state, player)
+                can_play_song("Sonata of Awakening", state, player)
             ),
         # Heading to Woodfall
         "Southern Swamp Path To Woodfall Flower (1)":
@@ -17915,6 +17960,28 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player) and 
                 state.has("Ocean Title Deed", player)
             ), 
+            "Well Deku Flower (1)":
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and 
+                has_bottle(state, player) and 
+                (
+                    can_afford_price(state, player, 100) or 
+                    state.has("Mask of Scents", player) and
+                    has_soul_npc(state, player, options, "Kotake")
+                )
+            ),
+            "Well Deku Flower (2)":
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and 
+                has_bottle(state, player) and 
+                (
+                    can_afford_price(state, player, 100) or 
+                    state.has("Mask of Scents", player) and
+                    has_soul_npc(state, player, options, "Kotake")
+                )
+            ),
         "Ikana Castle Left Side Falling Ceiling Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
