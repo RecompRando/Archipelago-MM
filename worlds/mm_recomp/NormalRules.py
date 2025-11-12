@@ -173,16 +173,59 @@ def has_enough_remains(state, player, need_count):
         remains_count += 1
     return remains_count >= need_count
 
-def mask_total(state, player):
-    mask_list = ["Captain's Hat", "All-Night Mask", "Bunny Hood", "Keaton Mask", "Garo Mask", "Romani Mask",
-                 "Circus Leader's Mask", "Postman's Hat", "Couple's Mask", "Great Fairy Mask", "Gibdo Mask",
-                 "Don Gero Mask", "Kamaro Mask", "Mask of Truth", "Stone Mask", "Bremen Mask", "Blast Mask",
-                 "Mask of Scents", "Kafei's Mask", "Giant's Mask"]
+def has_enough_masks(state, player, need_count, exclude_transformation=False):
     mask_count = 0
-    for mask in mask_list:
-        if state.has(mask, player):
+    if state.has("Captain's Hat", player):
+        mask_count += 1
+    if state.has("All-Night Mask", player):
+        mask_count += 1
+    if state.has("Bunny Hood", player):
+        mask_count += 1
+    if state.has("Keaton Mask", player):
+        mask_count += 1
+    if state.has("Garo Mask", player):
+        mask_count += 1
+    if state.has("Romani Mask", player):
+        mask_count += 1
+    if state.has("Circus Leader's Mask", player):
+        mask_count += 1
+    if state.has("Postman's Hat", player):
+        mask_count += 1
+    if state.has("Couple's Mask", player):
+        mask_count += 1
+    if state.has("Great Fairy Mask", player):
+        mask_count += 1
+    if state.has("Gibdo Mask", player):
+        mask_count += 1
+    if state.has("Don Gero Mask", player):
+        mask_count += 1
+    if state.has("Kamaro Mask", player):
+        mask_count += 1
+    if state.has("Mask of Truth", player):
+        mask_count += 1
+    if state.has("Stone Mask", player):
+        mask_count += 1
+    if state.has("Bremen Mask", player):
+        mask_count += 1
+    if state.has("Blast Mask", player):
+        mask_count += 1
+    if state.has("Mask of Scents", player):
+        mask_count += 1
+    if state.has("Kafei's Mask", player):
+        mask_count += 1
+    if state.has("Giant's Mask", player):
+        mask_count += 1
+    # Add transformation masks unless excluded (for Moon Kids)
+    if not exclude_transformation:
+        if state.has("Deku Mask", player):
             mask_count += 1
-    return mask_count
+        if state.has("Goron Mask", player):
+            mask_count += 1
+        if state.has("Zora Mask", player):
+            mask_count += 1
+        if state.has("Fierce Deity's Mask", player):
+            mask_count += 1
+    return mask_count >= need_count
 
 def has_all_frogs(state, player):
     return (
@@ -251,7 +294,8 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Ocarina of Time", player) and 
                 state.has("Oath to Order", player) and 
-                has_enough_remains(state, player, options.moon_remains_required.value)
+                has_enough_remains(state, player, options.moon_remains_required.value) and
+                has_enough_masks(state, player, options.moon_masks_required.value)
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
@@ -262,6 +306,7 @@ def get_region_rules(player, options):
                     state.has("Deku Mask", player)
                 ) or 
                 (
+                    has_soul_npc(state, player, options, "Tourist Guide") and
                     state.has("Pictograph Box", player) and 
                     state.has("Deku Mask", player)
                 )
@@ -1165,15 +1210,30 @@ def get_location_rules(player, options):
                 state.has("Deku Mask", player)
             ),
         "Southern Swamp Kotake Item":
-            lambda state: True,    
+            lambda state: (
+                has_soul_npc(state, player, options, "Koume")
+            ),    
         "Southern Swamp Healing Koume":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Koume") and
+                has_bottle(state, player)
+            ),     
         "Southern Swamp Winning Picture":
-            lambda state: state.has("Pictograph Box", player),
+            lambda state: (
+                state.has("Pictograph Box", player) and
+                has_soul_npc(state, player, options, "Tourist Guide") and 
+                has_soul_npc(state, player, options, "Tingle") 
+            ),
         "Southern Swamp Good Picture":
-            lambda state: state.has("Pictograph Box", player),
+            lambda state: (
+                state.has("Pictograph Box", player) and
+                has_soul_npc(state, player, options, "Tourist Guide")
+            ),
         "Southern Swamp Okay Picture":
-            lambda state: state.has("Pictograph Box", player),
+            lambda state: (
+                state.has("Pictograph Box", player) and
+                has_soul_npc(state, player, options, "Tourist Guide")
+            ),
         "Southern Swamp Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
@@ -1581,9 +1641,9 @@ def get_location_rules(player, options):
             lambda state: (
                 can_clear_woodfall(state, player) and 
                 has_bottle(state, player) and 
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                has_soul_npc(state, player, options, "Koume")
             ),
-            
         "Mountain Village Healing Darmani":
             lambda state: (
                 can_use_lens(state, player) and 
@@ -2132,21 +2192,22 @@ def get_location_rules(player, options):
             ),
         "Pinnacle Rock Upper Eel Chest":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Lower Eel Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Great Bay Baby Zora Song":
             lambda state: (
-                has_soul_npc(state, player, options, "Fisherman") and
                 has_soul_npc(state, player, options, "Marine Lab Researcher") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player) or
@@ -2157,7 +2218,7 @@ def get_location_rules(player, options):
             lambda state: has_bottle(state, player),
         "Great Bay Fisherman Game":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_clear_greatbay(state, player)
             ),
         "Ocean Spider House Ramp Upper Token":
@@ -3052,43 +3113,37 @@ def get_location_rules(player, options):
             lambda state: ( 
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                mask_total(state, player) >= 1
+                state.has("Deku Mask", player)
             ),
         "Moon Goron Trial HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Zora Trial HP":
             lambda state: ( 
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.has("Zora Mask", player) and
-                mask_total(state, player) >= 3
+                state.has("Zora Mask", player)
             ),    
             
         "Moon Link Trial Garo Master Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 can_smack_hard(state, player) and 
-                state.has("Hookshot", player) and
-                mask_total(state, player) >= 4
+                state.has("Hookshot", player)
             ),
         "Moon Link Trial Iron Knuckle Chest":
             lambda state:( 
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
-                mask_total(state, player) >= 4
+                state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player)
             ),    
         "Moon Link Trial HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
                 has_bombchus(state, player) and 
-                state.has("Progressive Bow", player) and 
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Trade All Masks":
             lambda state: (
@@ -3098,29 +3153,12 @@ def get_location_rules(player, options):
                 state.can_reach("Moon Zora Trial HP", 'Location', player) and 
                 state.can_reach("Moon Link Trial HP", 'Location', player) and 
                 can_use_fire_arrows(state, player) and 
-                state.has("Captain's Hat", player) and 
-                state.has("Giant's Mask", player) and 
-                state.has("All-Night Mask", player) and 
-                state.has("Bunny Hood", player) and 
-                state.has("Keaton Mask", player) and 
-                state.has("Garo Mask", player) and 
-                state.has("Romani Mask", player) and 
-                state.has("Circus Leader's Mask", player) and 
-                state.has("Postman's Hat", player) and 
-                state.has("Couple's Mask", player) and 
-                state.has("Great Fairy Mask", player) and 
-                state.has("Gibdo Mask", player) and 
-                state.has("Don Gero Mask", player) and 
-                state.has("Kamaro Mask", player) and 
-                state.has("Mask of Truth", player) and 
-                state.has("Stone Mask", player) and 
-                state.has("Bremen Mask", player) and 
-                state.has("Blast Mask", player) and 
-                state.has("Mask of Scents", player) and 
-                state.has("Kafei's Mask", player)
+                has_enough_masks(state, player, 20, exclude_transformation=True)
             ),
         "Defeat Majora":
             lambda state: (
+                has_enough_remains(state, player, options.majora_remains_required.value) and
+                has_enough_masks(state, player, options.majora_masks_required.value) and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player) and 
@@ -3136,8 +3174,7 @@ def get_location_rules(player, options):
                         state.has("Fierce Deity's Mask", player) and 
                         state.has("Progressive Magic", player)
                     )
-                ) and 
-                has_enough_remains(state, player, options.majora_remains_required.value)
+                )
             ),
                      
             # Grass Location Rules
@@ -11731,122 +11768,106 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (6)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (7)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (8)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (9)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (10)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (11)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (12)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (13)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (14)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
         "Moon Goron Trial Pots (15)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
-                state.has("Progressive Magic", player) and
-                mask_total(state, player) >= 2
+                state.has("Progressive Magic", player)
             ),
-        
         # Moon Link Trial Pots
         "Moon Link Trial Pots (1)":
             lambda state: (
@@ -11854,8 +11875,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (2)":
             lambda state: (
@@ -11863,8 +11883,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (3)":
             lambda state: (
@@ -11872,8 +11891,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (4)":
             lambda state: (
@@ -11881,8 +11899,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (5)":
             lambda state: (
@@ -11890,8 +11907,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (6)":
             lambda state: (
@@ -11899,8 +11915,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (7)":
             lambda state: (
@@ -11908,8 +11923,7 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         "Moon Link Trial Pots (8)":
             lambda state: (
@@ -11917,50 +11931,27 @@ def get_location_rules(player, options):
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
                 has_bombchus(state, player) and
-                state.has("Progressive Bow", player) and
-                mask_total(state, player) >= 4
+                state.has("Progressive Bow", player)
             ),
         
         # Majora Lair Pots
         "Majora Lair Pots (1)":
             lambda state: (
+                has_enough_remains(state, player, options.majora_remains_required.value) and
+                has_enough_masks(state, player, options.majora_masks_required.value) and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                can_smack_hard(state, player) and
-                (
-                    (
-                        state.has("Zora Mask", player) or
-                        has_mirror_shield(state, player)
-                    ) and
-                    can_use_light_arrows(state, player) or
-                    (
-                        state.has("Fierce Deity's Mask", player) and
-                        state.has("Progressive Magic", player)
-                    )
-                ) and
-                has_enough_remains(state, player, options.majora_remains_required.value)
+                has_soul_boss(state, player, options, "Majora") and
+                can_smack_hard(state, player)
             ),
         "Majora Lair Pots (2)":
             lambda state: (
+                has_enough_remains(state, player, options.majora_remains_required.value) and
+                has_enough_masks(state, player, options.majora_masks_required.value) and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                can_smack_hard(state, player) and
-                (
-                    (
-                        state.has("Zora Mask", player) or
-                        has_mirror_shield(state, player)
-                    ) and
-                    can_use_light_arrows(state, player) or
-                    (
-                        state.has("Fierce Deity's Mask", player) and
-                        state.has("Progressive Magic", player)
-                    )
-                ) and
-                has_enough_remains(state, player, options.majora_remains_required.value)
+                has_soul_boss(state, player, options, "Majora") and
+                can_smack_hard(state, player)
             ),
-        
-        # Termina Field Hitspots Logic
-        # Clock Town Hitspots Logic
+        # Clock Town Hitspots 
 
         # South Clock Town Targets Hitspot
         "South Clock Town Targets Hitspot (0)":

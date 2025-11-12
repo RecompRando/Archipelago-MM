@@ -25,12 +25,28 @@ class MajoraRemainsRequired(Range):
     default = 4
 
 
+class MajoraMasksRequired(Range):
+    """Set the amount of masks required to fight Majora."""
+    display_name = "Majora Masks Required"
+    range_start = 0
+    range_end = 24
+    default = 0
+
+
 class MoonRemainsRequired(Range):
     """Set the amount of boss remains required to reach the Moon after playing Oath to Order."""
     display_name = "Moon Boss Remains Required"
     range_start = 0
     range_end = 4
     default = 4
+
+
+class MoonMasksRequired(Range):
+    """Set the amount of masks required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Masks Required"
+    range_start = 0
+    range_end = 24
+    default = 0
 
 
 class CAMC(DefaultOnToggle):
@@ -414,7 +430,9 @@ class MMROptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     logic_difficulty: LogicDifficulty
     majora_remains_required: MajoraRemainsRequired
+    majora_masks_required: MajoraMasksRequired
     moon_remains_required: MoonRemainsRequired
+    moon_masks_required: MoonMasksRequired
     camc: CAMC
     ocarinaless: Ocarinaless
     timeless: Timeless
