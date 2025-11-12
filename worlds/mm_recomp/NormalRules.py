@@ -323,7 +323,7 @@ def get_region_rules(player, options):
                     state.has("Deku Mask", player)
                 ) or 
                 (
-                    has_soul_npc(state, player, options, "Tourist Guide") and
+                    has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                     state.has("Pictograph Box", player) and 
                     state.has("Deku Mask", player)
                 )
@@ -783,9 +783,13 @@ def get_location_rules(player, options):
             ),
         "Bomber's Hideout Astral Observatory":
             lambda state: (
-                (has_soul_npc(state, player, options, "Astral Observatory Man") and
-                has_projectiles(state, player) or
-                state.has("Deku Mask", player))
+                has_soul_npc(state, player, options, "Astral Observatory Man") and
+                (
+                    has_projectiles(state, player) 
+                or
+                    (state.has("Deku Mask", player) and 
+                    has_soul_absurd(state, player, options, "Deku Flowers"))
+                )
             ),
         "Milk Bar Show":
             lambda state: (
@@ -1238,18 +1242,18 @@ def get_location_rules(player, options):
         "Southern Swamp Winning Picture":
             lambda state: (
                 state.has("Pictograph Box", player) and
-                has_soul_npc(state, player, options, "Tourist Guide") and 
+                has_soul_npc(state, player, options, "Swamp Tourist Guide") and 
                 has_soul_npc(state, player, options, "Tingle") 
             ),
         "Southern Swamp Good Picture":
             lambda state: (
                 state.has("Pictograph Box", player) and
-                has_soul_npc(state, player, options, "Tourist Guide")
+                has_soul_npc(state, player, options, "Swamp Tourist Guide")
             ),
         "Southern Swamp Okay Picture":
             lambda state: (
                 state.has("Pictograph Box", player) and
-                has_soul_npc(state, player, options, "Tourist Guide")
+                has_soul_npc(state, player, options, "Swamp Tourist Guide")
             ),
         "Southern Swamp Grotto Chest":
             lambda state: (
@@ -3731,30 +3735,30 @@ def get_location_rules(player, options):
         "Termina Field Grass Near Peahat Grotto (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Termina Field Grass In Front Of Log
-        "Termina Field Grass In Front Of Log (1)":
+        # Termina Field Grass In Front of Log
+        "Termina Field Grass In Front of Log (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (2)":
+        "Termina Field Grass In Front of Log (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (3)":
+        "Termina Field Grass In Front of Log (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (4)":
+        "Termina Field Grass In Front of Log (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (5)":
+        "Termina Field Grass In Front of Log (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (6)":
+        "Termina Field Grass In Front of Log (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (7)":
+        "Termina Field Grass In Front of Log (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (8)":
+        "Termina Field Grass In Front of Log (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (9)":
+        "Termina Field Grass In Front of Log (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (10)":
+        "Termina Field Grass In Front of Log (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (11)":
+        "Termina Field Grass In Front of Log (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass In Front Of Log (12)":
+        "Termina Field Grass In Front of Log (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Northern Ramp 
@@ -3835,30 +3839,30 @@ def get_location_rules(player, options):
         "Termina Field Grass Below Southeast Hill Fence (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Termina Field Bottom Of Southeast Hill Grass
-        "Termina Field Bottom Of Southeast Hill Grass (1)":
+        # Termina Field Bottom of Southeast Hill Grass
+        "Termina Field Bottom of Southeast Hill Grass (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (2)":
+        "Termina Field Bottom of Southeast Hill Grass (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (3)":
+        "Termina Field Bottom of Southeast Hill Grass (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (4)":
+        "Termina Field Bottom of Southeast Hill Grass (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (5)":
+        "Termina Field Bottom of Southeast Hill Grass (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (6)":
+        "Termina Field Bottom of Southeast Hill Grass (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (7)":
+        "Termina Field Bottom of Southeast Hill Grass (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (8)":
+        "Termina Field Bottom of Southeast Hill Grass (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (9)":
+        "Termina Field Bottom of Southeast Hill Grass (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (10)":
+        "Termina Field Bottom of Southeast Hill Grass (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (11)":
+        "Termina Field Bottom of Southeast Hill Grass (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Bottom Of Southeast Hill Grass (12)":
+        "Termina Field Bottom of Southeast Hill Grass (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Eastern Pillars
@@ -3913,30 +3917,30 @@ def get_location_rules(player, options):
         "Termina Field Grass Near Eastern Pillar Grotto (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Termina Field Middle Of Southeast Hill Grass
-        "Termina Field Middle Of Southeast Hill Grass (1)":
+        # Termina Field Middle of Southeast Hill Grass
+        "Termina Field Middle of Southeast Hill Grass (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (2)":
+        "Termina Field Middle of Southeast Hill Grass (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (3)":
+        "Termina Field Middle of Southeast Hill Grass (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (4)":
+        "Termina Field Middle of Southeast Hill Grass (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (5)":
+        "Termina Field Middle of Southeast Hill Grass (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (6)":
+        "Termina Field Middle of Southeast Hill Grass (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (7)":
+        "Termina Field Middle of Southeast Hill Grass (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (8)":
+        "Termina Field Middle of Southeast Hill Grass (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (9)":
+        "Termina Field Middle of Southeast Hill Grass (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (10)":
+        "Termina Field Middle of Southeast Hill Grass (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (11)":
+        "Termina Field Middle of Southeast Hill Grass (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Middle Of Southeast Hill Grass (12)":
+        "Termina Field Middle of Southeast Hill Grass (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass Near Business Scrub Grotto
@@ -5732,30 +5736,30 @@ def get_location_rules(player, options):
                 can_play_song("Song of Time", state, player)
             ),
 
-        # Romani Ranch Grass In Front Of Gossip Tree
-        "Romani Ranch Grass In Front Of Gossip Tree (1)":
+        # Romani Ranch Grass In Front of Gossip Tree
+        "Romani Ranch Grass In Front of Gossip Tree (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (2)":
+        "Romani Ranch Grass In Front of Gossip Tree (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (3)":
+        "Romani Ranch Grass In Front of Gossip Tree (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (4)":
+        "Romani Ranch Grass In Front of Gossip Tree (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (5)":
+        "Romani Ranch Grass In Front of Gossip Tree (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (6)":
+        "Romani Ranch Grass In Front of Gossip Tree (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (7)":
+        "Romani Ranch Grass In Front of Gossip Tree (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (8)":
+        "Romani Ranch Grass In Front of Gossip Tree (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (9)":
+        "Romani Ranch Grass In Front of Gossip Tree (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (10)":
+        "Romani Ranch Grass In Front of Gossip Tree (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (11)":
+        "Romani Ranch Grass In Front of Gossip Tree (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Romani Ranch Grass In Front Of Gossip Tree (12)":
+        "Romani Ranch Grass In Front of Gossip Tree (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Romani Ranch Grass Behind Gossip Tree
@@ -8449,7 +8453,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Progressive Sword", player),
 
         # Clock Tower Pots Night 3
-        "Top Of Clock Tower Pots (1)":
+        "Top of Clock Tower Pots (1)":
             lambda state: 
             (
                 state.has("Ocarina of Time", player) and
@@ -8457,7 +8461,7 @@ def get_location_rules(player, options):
                 options.owlsanity.value and
                 can_warp_out(state, player, options)
             ),
-        "Top Of Clock Tower Pots (2)":
+        "Top of Clock Tower Pots (2)":
             lambda state: 
             (
                 state.has("Ocarina of Time", player) and
@@ -8465,7 +8469,7 @@ def get_location_rules(player, options):
                 options.owlsanity.value and
                 can_warp_out(state, player, options)
             ),
-        "Top Of Clock Tower Pots (3)":
+        "Top of Clock Tower Pots (3)":
             lambda state: 
             (
                 state.has("Ocarina of Time", player) and
@@ -8473,7 +8477,7 @@ def get_location_rules(player, options):
                 options.owlsanity.value and
                 can_warp_out(state, player, options)
             ),
-        "Top Of Clock Tower Pots (4)":
+        "Top of Clock Tower Pots (4)":
             lambda state: 
             (
                 state.has("Ocarina of Time", player) and
@@ -9529,26 +9533,26 @@ def get_location_rules(player, options):
             lambda state: True,           
         # Ocean Spider House Pots - All require region access, explosives, and hookshot
 
-        # Ocean Spiderhouse Bottom Of Ramp Pots
-        "Ocean Spiderhouse Bottom Of Ramp Pots (1)":
+        # Ocean Spiderhouse Bottom of Ramp Pots
+        "Ocean Spiderhouse Bottom of Ramp Pots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Bottom Of Ramp Pots (2)":
+        "Ocean Spiderhouse Bottom of Ramp Pots (2)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Bottom Of Ramp Pots (3)":
+        "Ocean Spiderhouse Bottom of Ramp Pots (3)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Bottom Of Ramp Pots (4)":
+        "Ocean Spiderhouse Bottom of Ramp Pots (4)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and 
                 has_explosives(state, player) and 
@@ -16604,7 +16608,7 @@ def get_location_rules(player, options):
 
         "Notebook Event Defended Against Aliens":
             lambda state: state.can_reach("Romani Ranch Aliens", 'Location', player),
-        "Notebook Event Delivered Pendant Of Memories":
+        "Notebook Event Delivered Pendant of Memories":
             lambda state: (
                 state.has("Kafei's Mask", player) and
                 state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)
@@ -16700,7 +16704,7 @@ def get_location_rules(player, options):
             ),
         "Notebook Event Received Milk Bottle":
             lambda state: state.can_reach("Romani Ranch Aliens", 'Location', player),
-        "Notebook Event Received Pendant Of Memories":
+        "Notebook Event Received Pendant of Memories":
             lambda state:(
                 has_soul_npc(state, player, options, "Kafei") and
                 has_soul_utility(state, player, options, "Postboxes") and
@@ -17515,32 +17519,32 @@ def get_location_rules(player, options):
                 state.has("Deku Mask", player) and 
                 state.has("Land Title Deed", player)
             ), 
-        "Southern Swamp Woods Of Mystery Flower Day 1/3 (1)":
+        "Southern Swamp Woods of Mystery Flower Day 1/3 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Southern Swamp Woods Of Mystery Flower Day 1/3 (2)":
+        "Southern Swamp Woods of Mystery Flower Day 1/3 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Southern Swamp Woods Of Mystery Flower Any Day (1)":
+        "Southern Swamp Woods of Mystery Flower Any Day (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Southern Swamp Woods Of Mystery Flower Any Day (2)":
+        "Southern Swamp Woods of Mystery Flower Any Day (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Southern Swamp Woods Of Mystery Flower Day 2 (1)":
+        "Southern Swamp Woods of Mystery Flower Day 2 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Southern Swamp Woods Of Mystery Flower Day 2 (2)":
+        "Southern Swamp Woods of Mystery Flower Day 2 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
