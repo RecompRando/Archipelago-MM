@@ -33,6 +33,11 @@ class MajoraMasksRequired(Range):
     default = 0
 
 
+class MajoraStarFox(Toggle):
+    """Set whether you require Keaton, Scents, Bremen, Bunny & Gero masks to fight Majora."""
+    display_name = "MajoraStarFox"
+
+
 class MoonRemainsRequired(Range):
     """Set the amount of boss remains required to reach the Moon after playing Oath to Order."""
     display_name = "Moon Boss Remains Required"
@@ -47,6 +52,12 @@ class MoonMasksRequired(Range):
     range_start = 0
     range_end = 24
     default = 0
+
+
+class MoonStarFox(Toggle):
+    """Set whether you require Keaton, Scents, Bremen, Bunny & Gero masks to reach the Moon 
+    after playing Oath to Order."""
+    display_name = "MoonStarFox"
 
 
 class CAMC(DefaultOnToggle):
@@ -431,8 +442,10 @@ class MMROptions(PerGameCommonOptions):
     logic_difficulty: LogicDifficulty
     majora_remains_required: MajoraRemainsRequired
     majora_masks_required: MajoraMasksRequired
+    majora_star_fox: MajoraStarFox
     moon_remains_required: MoonRemainsRequired
     moon_masks_required: MoonMasksRequired
+    moon_star_fox: MoonStarFox
     camc: CAMC
     ocarinaless: Ocarinaless
     timeless: Timeless

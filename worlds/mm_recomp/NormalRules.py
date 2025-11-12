@@ -227,6 +227,22 @@ def has_enough_masks(state, player, need_count, exclude_transformation=False):
             mask_count += 1
     return mask_count >= need_count
 
+def has_star_fox(state, player, options, goal_type="majora"):
+    required = options.majora_star_fox.value if goal_type == "majora" else options.moon_star_fox.value
+    
+    # If the goal isn't enabled (False), (no requirement)
+    if not required:
+        return True
+    
+    # If enabled (True), check for all 5 masks
+    return (
+        state.has("Keaton Mask", player) and
+        state.has("Bremen Mask", player) and
+        state.has("Mask of Scents", player) and
+        state.has("Don Gero Mask", player) and
+        state.has("Bunny Hood", player)
+    )
+
 def has_all_frogs(state, player):
     return (
         state.has("Yellow Frog", player) and
@@ -294,8 +310,9 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Ocarina of Time", player) and 
                 state.has("Oath to Order", player) and 
-                has_enough_remains(state, player, options.moon_remains_required.value) and
-                has_enough_masks(state, player, options.moon_masks_required.value)
+                (options.moon_remains_required.value == 0 or has_enough_remains(state, player, options.moon_remains_required.value)) and
+                (options.moon_masks_required.value == 0 or has_enough_masks(state, player, options.moon_masks_required.value)) and
+                (not options.moon_star_fox.value or has_star_fox(state, player, options, "moon"))
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
@@ -3157,8 +3174,9 @@ def get_location_rules(player, options):
             ),
         "Defeat Majora":
             lambda state: (
-                has_enough_remains(state, player, options.majora_remains_required.value) and
-                has_enough_masks(state, player, options.majora_masks_required.value) and
+                (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
+                (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
+                (not options.majora_star_fox.value or has_star_fox(state, player, options, "majora")) and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player) and 
@@ -11937,16 +11955,18 @@ def get_location_rules(player, options):
         # Majora Lair Pots
         "Majora Lair Pots (1)":
             lambda state: (
-                has_enough_remains(state, player, options.majora_remains_required.value) and
-                has_enough_masks(state, player, options.majora_masks_required.value) and
+                (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
+                (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
+                (not options.majora_star_fox.value == 0 or has_star_fox(state, player, options, "majora")) and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player)
             ),
         "Majora Lair Pots (2)":
             lambda state: (
-                has_enough_remains(state, player, options.majora_remains_required.value) and
-                has_enough_masks(state, player, options.majora_masks_required.value) and
+                (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
+                (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
+                (not options.majora_star_fox.value == 0 or has_star_fox(state, player, options, "majora")) and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
                 can_smack_hard(state, player)
@@ -13704,19 +13724,35 @@ def get_location_rules(player, options):
 
         # Path to Mountains Snowballs
         "Path to Mountains Snowballs (1)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (2)":
             lambda state: True,
         "Path to Mountains Snowballs (3)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (4)":
             lambda state: True,
         "Path to Mountains Snowballs (5)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (6)":
             lambda state: True,
         "Path to Mountains Snowballs (7)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (8)":
             lambda state: (
                 (state.has("Goron Mask", player) or
