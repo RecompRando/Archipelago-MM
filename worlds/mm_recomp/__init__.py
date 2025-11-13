@@ -169,6 +169,9 @@ class MMRWorld(World):
         if self.options.flowersanity.value != 0:
             filler_amount += 156
 
+        if self.options.signsanity.value != 0:
+            filler_amount += 51
+
         if self.options.boss_souls.value:
             filler_amount -= 4
 
@@ -186,9 +189,6 @@ class MMRWorld(World):
 
         if self.options.absurd_souls.value:
             filler_amount -= 1
-
-        if self.options.signsanity.value:
-            filler_amount += 50
 
         filler_amount += 9 #temp
 
