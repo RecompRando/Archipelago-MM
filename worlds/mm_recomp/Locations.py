@@ -7629,7 +7629,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Woodfall Temple Pots
     
     "Woodfall Temple Entrance Pot": MMRLocationData(
-        region="Woodfall",
+        region="Woodfall Temple",
         address=0x3469420201B20,
         can_create=lambda options: options.potsanity.value
     ),
@@ -12739,12 +12739,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Inverted Stone Lower Tower Rocks
-    "Inverted Stone Tower Rocks (0)": MMRLocationData(
+    "Inverted Stone Tower Rocks (1)": MMRLocationData(
         region="Stone Tower (Inverted)",
         address=0x3469420185900,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Inverted Stone Tower Rocks (1)": MMRLocationData(
+    "Inverted Stone Tower Rocks (2)": MMRLocationData(
         region="Stone Tower (Inverted)",
         address=0x3469420185901,
         can_create=lambda options: options.rocksanity.value
