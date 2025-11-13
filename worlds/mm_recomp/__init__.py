@@ -187,6 +187,9 @@ class MMRWorld(World):
         if self.options.absurd_souls.value:
             filler_amount -= 1
 
+        if self.options.signsanity.value:
+            filler_amount += 51
+
         filler_amount += 9 #temp
 
         self.create_and_add_filler_items(filler_amount)
