@@ -18326,6 +18326,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Mountain Village Outside Smithy Cut the Sign":
             lambda state: True,
+        "Mountain Village Bridge Cut the Sign":
+            lambda state: True,
         "Mountain Village Pond Cut the Sign":
             lambda state: True,
         "Mountain Village Twin Island Entrance Cut the Sign":
