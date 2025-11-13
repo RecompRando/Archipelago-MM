@@ -18361,7 +18361,7 @@ def get_location_rules(player, options):
         "Great Bay Coast Rock Pools Cut the Sign":
             lambda state: True,
         "Great Bay Coast (Clear) Fisherman Boat Cut the Sign":
-            lambda state: can_clear("Great Bay", state, player),
+            lambda state: can_clear_greatbay(state, player),
         "Zora Cape Jar Game Cut the Sign":
             lambda state: True,
         "Zora Cape Waterfall Cut the Sign":
