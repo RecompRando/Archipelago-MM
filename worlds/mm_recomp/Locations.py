@@ -16855,7 +16855,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031030C,
         can_create=lambda options: options.signsanity.value
     ),
-    "Path to Mountain Village": MMRLocationData(
+    "Path to Mountain Village Cut the Sign": MMRLocationData(
         region="Path to Mountain Village",
         address=0x3469420310303,
         can_create=lambda options: options.signsanity.value
