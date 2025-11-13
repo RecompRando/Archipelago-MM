@@ -18315,8 +18315,6 @@ def get_location_rules(player, options):
             lambda state: True,
         "Deku Palace Bean Daddy Grotto Cut the Sign":
             lambda state: True,
-        "Deku Shrine Entrance Cut the Sign":
-            lambda state: True,
         
         "Path to Mountain Village":
             lambda state: (
