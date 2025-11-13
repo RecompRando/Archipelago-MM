@@ -188,7 +188,7 @@ class MMRWorld(World):
             filler_amount -= 1
 
         if self.options.signsanity.value:
-            filler_amount += 51
+            filler_amount += 50
 
         filler_amount += 9 #temp
 

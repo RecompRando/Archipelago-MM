@@ -16972,7 +16972,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Ikana Canyon River Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x34694231032E,
+        address=0x346942031032E,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Sakon's Hideout Cut the Sign": MMRLocationData(
