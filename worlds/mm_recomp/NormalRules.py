@@ -18309,9 +18309,9 @@ def get_location_rules(player, options):
         
         "Deku Palace Behind Entrance Guards Cut the Sign (1)":
             lambda state: True,
-        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+        "Deku Palace Behind Entrance Guards Cut the Sign (2)":
             lambda state: True,
-        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+        "Deku Palace Behind Entrance Guards Cut the Sign (3)":
             lambda state: True,
         "Deku Palace Bean Daddy Grotto Cut the Sign":
             lambda state: True,
