@@ -18307,11 +18307,11 @@ def get_location_rules(player, options):
         "Swamp Spider House Behind Statue Cut the Sign":
             lambda state: True,
         
-        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+        "Deku Palace Behind Entrance Guards Cut Left Sign":
             lambda state: True,
-        "Deku Palace Behind Entrance Guards Cut the Sign (2)":
+        "Deku Palace Behind Entrance Guards Cut Right Sign":
             lambda state: True,
-        "Deku Palace Behind Entrance Guards Cut the Sign (3)":
+        "Deku Palace Behind Entrance Guards Cut Sign Near King's Chamber":
             lambda state: True,
         "Deku Palace Bean Daddy Grotto Cut the Sign":
             lambda state: True,
