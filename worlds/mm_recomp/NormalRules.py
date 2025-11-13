@@ -18319,6 +18319,7 @@ def get_location_rules(player, options):
                 (state.has("Goron Mask", player) or
                  has_explosives(state, player) or
                  can_use_fire_arrows(state, player)),
+            ),
         "Mountain Village Owl Statue Cut the Sign":
             lambda state: True,
         "Mountain Village Outside Smithy Cut the Sign":
@@ -18376,6 +18377,4 @@ def get_location_rules(player, options):
             lambda state: True,
         "Ikana Canyon Outside Well Cut the Sign":
             lambda state: True,
-        
     }   
-
