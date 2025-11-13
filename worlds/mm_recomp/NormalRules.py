@@ -18277,6 +18277,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Southern Swamp Witch's Hut Cut the Sign":
             lambda state: True,
+        "Southern Swamp Outside Woods of Mystery Cut the Sign":
+            lambda state: True,
         #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
            # lambda state: can_clear("Woodfall", state, player),
         "Woods of Mystery Cut the Sign (1)":
@@ -18304,6 +18306,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Swamp Spider House Behind Statue Cut the Sign":
             lambda state: True,
+        
         "Deku Palace Behind Entrance Guards Cut the Sign (1)":
             lambda state: True,
         "Deku Palace Behind Entrance Guards Cut the Sign (1)":
@@ -18314,6 +18317,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Deku Shrine Entrance Cut the Sign":
             lambda state: True,
+        
         "Path to Mountain Village":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -18343,6 +18347,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Outside Snowhead Temple Cut the Sign":
             lambda state: True,
+        
         "Great Bay Coast Entrance Cut the Sign":
             lambda state: True,
         "Great Bay Coast Outside Fisherman Hut Cut the Sign":
@@ -18363,6 +18368,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Zora Cape Turtle Cut the Sign":
             lambda state: True,
+        
         "Ikana Canyon River Cut the Sign":
             lambda state: True,
         "Ikana Canyon Outside Sakon's Hideout Cut the Sign":
