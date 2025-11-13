@@ -18264,5 +18264,118 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player),
             ),
-    }
+
+                # Signs (BREAK THE TARGETS)
+
+        "North Clock Town Cut the Sign":
+            lambda state: True,
+        "Termina Field Takkuri Cut the Sign":
+            lambda state: True,
+        "Road to Southern Swamp Entry Cut the Sign":
+            lambda state: True,
+        "Southern Swamp Tourist Centre Cut the Sign":
+            lambda state: True,
+        "Southern Swamp Witch's Hut Cut the Sign":
+            lambda state: True,
+        #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
+           # lambda state: can_clear("Woodfall", state, player),
+        "Woods of Mystery Cut the Sign (1)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (2)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (3)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (4)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (5)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (6)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (7)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (8)":
+            lambda state: True,
+        "Woods of Mystery Cut the Sign (9)":
+            lambda state: True,
+
+        "Southern Swamp Log Cut the Sign":
+            lambda state: True,
+        "Southern Swamp Outside Spider House":
+            lambda state: True,
+        "Swamp Spider House Behind Statue Cut the Sign":
+            lambda state: True,
+        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+            lambda state: True,
+        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+            lambda state: True,
+        "Deku Palace Behind Entrance Guards Cut the Sign (1)":
+            lambda state: True,
+        "Deku Palace Bean Daddy Grotto Cut the Sign":
+            lambda state: True,
+        "Deku Shrine Entrance Cut the Sign":
+            lambda state: True,
+        "Path to Mountain Village":
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player)),
+        "Mountain Village Owl Statue Cut the Sign":
+            lambda state: True,
+        "Mountain Village Outside Smithy Cut the Sign":
+            lambda state: True,
+        "Mountain Village Pond Cut the Sign":
+            lambda state: True,
+        "Mountain Village Twin Island Entrance Cut the Sign":
+            lambda state: True,
+        "Twin Islands Outside Goron Racetrack Cut the Sign":
+            lambda state: state.has("Goron Mask", player) or
+                          (state.has("Hookshot", player) and has_soul_npc(state, player, options, "Scarecrow")),
+        "Goron Village Outside Lens Cave Cut the Sign":
+            lambda state: True,
+        "Goron Village Outside Keg Goron Cut the Sign":
+            lambda state: True,
+        "Goron Village Outside Goron Shrine":
+            lambda state: True,
+        "Path to Snowhead Cut the Sign":
+            lambda state: True,
+        "Path to Snowhead Upper Cut the Sign":
+            lambda state: True,
+        "Outside Snowhead Temple Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Entrance Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Outside Fisherman Hut Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Beachfront Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Entrance to Zora Cape Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Marine Lab Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast Rock Pools Cut the Sign":
+            lambda state: True,
+        "Great Bay Coast (Clear) Fisherman Boat Cut the Sign":
+            lambda state: can_clear("Great Bay", state, player),
+        "Zora Cape Jar Game Cut the Sign":
+            lambda state: True,
+        "Zora Cape Waterfall Cut the Sign":
+            lambda state: True,
+        "Zora Cape Turtle Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon River Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Outside Sakon's Hideout Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Outside Secret Shrine Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Outside Spring Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Outside Ikana Castle Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Poe Hut Cut the Sign":
+            lambda state: True,
+        "Ikana Canyon Outside Well Cut the Sign":
+            lambda state: True,
+        
+    }   
 
