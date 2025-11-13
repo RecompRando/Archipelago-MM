@@ -16770,46 +16770,52 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Southern Swamp Outside Woods of Mystery Cut the Sign": MMRLocationData(
         region="Southern Swamp",
-        address=0x346942031030B
+        address=0x346942031030B,
         can_create=lambda options: options.signsanity.value
     ),
  #   "Woods of Mystery Cut the Sign Day 1 (1)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
  #   ),
  #   "Woods of Mystery Cut the Sign Day 1 (2)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
  #   ),
  #   "Woods of Mystery Cut the Sign Day 1 (3)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 2 (4)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 2 (5)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 2 (6)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 3 (7)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 3 (8)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
+ #   ),
  #   "Woods of Mystery Cut the Sign Day 3 (9)": MMRLocationData(
  #       region="Southern Swamp",
- #       address=0x346942031033D
+ #       address=0x346942031033D,
  #       can_create=lambda options: options.signsanity.value
  #   ),
     
@@ -16850,7 +16856,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Path to Mountain Village": MMRLocationData(
         region="Path to Mountain Village",
-        address=0x3469420310303
+        address=0x3469420310303,
         can_create=lambda options: options.signsanity.value
     ),
     "Mountain Village Owl Statue Cut the Sign": MMRLocationData(
@@ -16885,7 +16891,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Goron Village Outside Keg Goron Cut the Sign": MMRLocationData(
         region="Goron Village",
-        address=0x346942031031D
+        address=0x346942031031D,
         can_create=lambda options: options.signsanity.value
     ),
     "Goron Village Outside Goron Shrine": MMRLocationData(
@@ -16910,87 +16916,87 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
         "Great Bay Coast Entrance Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310326
+        address=0x3469420310326,
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast Outside Fisherman Hut Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310321 
+        address=0x3469420310321, 
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast Beachfront Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310327 
+        address=0x3469420310327, 
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast Entrance to Zora Cape Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310325 
+        address=0x3469420310325, 
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast Marine Lab Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310323 
+        address=0x3469420310323, 
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast Rock Pools Cut the Sign": MMRLocationData(
         region="Great Bay",
-        address=0x3469420310322 
+        address=0x3469420310322, 
         can_create=lambda options: options.signsanity.value
     ),
     "Great Bay Coast (Clear) Fisherman Boat Cut the Sign": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420310312 
+        address=0x3469420310312, 
         can_create=lambda options: options.signsanity.value
     ),
     "Zora Cape Jar Game Cut the Sign": MMRLocationData(
         region="Zora Cape",
-        address=0x346942031032B 
+        address=0x346942031032B, 
         can_create=lambda options: options.signsanity.value
     ),
     "Zora Cape Waterfall Cut the Sign": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420310328
+        address=0x3469420310328,
         can_create=lambda options: options.signsanity.value
     ),
     "Zora Cape Turtle Cut the Sign": MMRLocationData(
         region="Zora Cape",
-        address=0x346942031032A 
+        address=0x346942031032A, 
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon River Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x34694231032E
+        address=0x34694231032E,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Sakon's Hideout Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420310334  
+        address=0x3469420310334,  
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Secret Shrine Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420310333  
+        address=0x3469420310333,  
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Spring Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420310330 
+        address=0x3469420310330, 
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Ikana Castle Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420310332
+        address=0x3469420310332,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Poe Hut Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420310331
+        address=0x3469420310331,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Well Cut the Sign": MMRLocationData(
         region="Ikana Canyon",
-        address=0x346942031032F
+        address=0x346942031032F,
         can_create=lambda options: options.signsanity.value
     ),
 }
