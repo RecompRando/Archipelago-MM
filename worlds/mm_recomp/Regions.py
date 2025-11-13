@@ -15,7 +15,7 @@ region_data_table: Dict[str, MMRRegionData] = {
     "Astral Observatory": MMRRegionData(["Astral Observatory (Outside)"]),
     "Astral Observatory (Outside)": MMRRegionData(["Termina Field"]),
     "Termina Field": MMRRegionData(["Road To Southern Swamp", "Milk Road", "Path to Mountain Village", "Great Bay", "Road to Ikana"]),
-    "Road To Southern Swamp": MMRRegionData(["Termina Field", "Southern Swamp"]),
+    "Road to Southern Swamp": MMRRegionData(["Termina Field", "Southern Swamp"]),
     "Southern Swamp": MMRRegionData(["Road To Southern Swamp", "Southern Swamp (Deku Palace)"]),
     "Southern Swamp (Deku Palace)": MMRRegionData(["Swamp Spider House", "Deku Palace", "Woodfall"]),
     "Swamp Spider House": MMRRegionData([]),

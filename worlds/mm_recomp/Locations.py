@@ -3886,173 +3886,173 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Road to Southern Swamp
      
     "Road to Southern Swamp Outside Archery Grass (1)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420124000,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Outside Archery Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420124001,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (1)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100400,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100401,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (3)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100402,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (4)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100403,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (5)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100404,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (6)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100405,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (7)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100406,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (8)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100407,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (9)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420100408,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (10)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101400,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (11)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101401,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (12)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101402,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (13)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101403,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (14)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101404,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (15)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101405,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (16)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101406,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (17)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101407,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grass (18)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x3469420101408,
         can_create=lambda options: options.grasssanity.value
     ),
-    # Road To Southern Swamp Grotto
+    # Road to Southern Swamp Grotto
     "Road to Southern Swamp Grotto Grass (1)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF40,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF41,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (3)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF42,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (4)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF43,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (5)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF44,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (6)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF45,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (7)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF46,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (8)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF47,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (9)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF48,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (10)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF49,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (11)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF4A,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (12)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF4B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (13)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF4C,
         can_create=lambda options: options.grasssanity.value
     ),
     "Road to Southern Swamp Grotto Grass (14)": MMRLocationData(
-        region="Termina Field",
+        region="Road to Southern Swamp",
         address=0x346942012AF4D,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -7433,13 +7433,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     
     # Southern Swamp Pots
     
-    "Road To Southern Swamp Outside Archery Pots (1)": MMRLocationData(
-        region="Southern Swamp",
+    "Road to Southern Swamp Outside Archery Pots (1)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694202040F1,
         can_create=lambda options: options.potsanity.value
     ),
-    "Road To Southern Swamp Outside Archery Pots (2)": MMRLocationData(
-        region="Southern Swamp",
+    "Road to Southern Swamp Outside Archery Pots (2)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694202040F0,
         can_create=lambda options: options.potsanity.value
     ),
@@ -14649,9 +14649,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.realfairysanity.value
     ), 
 
-    # Road To Southern Swamp Gossip Fairy
-    "Road To Southern Swamp Gossip Fairy": MMRLocationData(
-        region="Termina Field",
+    # Road to Southern Swamp Gossip Fairy
+    "Road to Southern Swamp Gossip Fairy": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694201F4030,
         can_create=lambda options: options.realfairysanity.value
     ),
@@ -15505,32 +15505,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (1)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4000,
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (2)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4001,
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (3)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4002,
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (4)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4003,
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (5)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4004,
         can_create=lambda options: options.treesanity.value
     ),
     "Road to Southern Swamp Trees (6)": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x34694202D4005,
         can_create=lambda options: options.treesanity.value
     ),
@@ -16078,43 +16078,43 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.flowersanity.value
     ),
     # Road To Swamp Flowers
-    "Road To Southern Swamp Flowers (1)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (1)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4000,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (2)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (2)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4001,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (3)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (3)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4002,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (4)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (4)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4003,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (5)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (5)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4004,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (6)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (6)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4005,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (7)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (7)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4006,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Road To Southern Swamp Flowers (8)": MMRLocationData(
-        region="Road To Southern Swamp",
+    "Road to Southern Swamp Flowers (8)": MMRLocationData(
+        region="Road to Southern Swamp",
         address=0x34694203F4007,
         can_create=lambda options: options.flowersanity.value
     ),
@@ -16761,9 +16761,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.signsanity.value
     ),
      "Southern Swamp Tourist Centre Cut the Sign": MMRLocationData(
-         region="Southern Swamp",
-         address=0x3469420310307,
-         can_create=lambda options: options.signsanity.value
+        region="Southern Swamp",
+        address=0x3469420310307,
+        can_create=lambda options: options.signsanity.value
     ),
     "Southern Swamp Witch's Hut Cut the Sign": MMRLocationData(
         region="Southern Swamp",
@@ -16971,37 +16971,37 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon River Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942031032E,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Sakon's Hideout Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420310334,  
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Secret Shrine Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420310333,  
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Spring Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420310330, 
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Ikana Castle Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420310332,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Poe Hut Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420310331,
         can_create=lambda options: options.signsanity.value
     ),
     "Ikana Canyon Outside Well Cut the Sign": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x346942031032F,
         can_create=lambda options: options.signsanity.value
     ),
