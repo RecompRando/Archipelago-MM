@@ -18316,12 +18316,11 @@ def get_location_rules(player, options):
         "Deku Palace Bean Daddy Grotto Cut the Sign":
             lambda state: True,
         
-        "Path to Mountain Village":
-            lambda state: (
+        "Path to Mountain Village Cut the Sign":
+            lambda state:
                 (state.has("Goron Mask", player) or
                  has_explosives(state, player) or
                  can_use_fire_arrows(state, player)),
-            ),
         "Mountain Village Owl Statue Cut the Sign":
             lambda state: True,
         "Mountain Village Outside Smithy Cut the Sign":
