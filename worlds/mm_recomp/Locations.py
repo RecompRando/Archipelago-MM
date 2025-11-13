@@ -8194,7 +8194,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420202142,
         can_create=lambda options: options.potsanity.value
     ),
-       "Snowhead Temple 4th Floor Wizzrobe Pots (1)": MMRLocationData(
+    "Snowhead Temple 4th Floor Wizzrobe Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x34694202021C0,
         can_create=lambda options: options.potsanity.value
@@ -16743,6 +16743,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     #     address=0x3469420,
     #     can_create=lambda options: options.flowersanity.value
     # ),
+    
+    # Signs
     "North Clock Town Cut the Sign": MMRLocationData(
         region="Clock Town",
         address=0x3469420310311,
@@ -16773,52 +16775,51 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031030B,
         can_create=lambda options: options.signsanity.value
     ),
- #   "Woods of Mystery Cut the Sign Day 1 (1)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 1 (2)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 1 (3)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 2 (4)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 2 (5)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 2 (6)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 3 (7)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 3 (8)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
- #   "Woods of Mystery Cut the Sign Day 3 (9)": MMRLocationData(
- #       region="Southern Swamp",
- #       address=0x346942031033D,
- #       can_create=lambda options: options.signsanity.value
- #   ),
-    
+    "Woods of Mystery Cut the Sign Day 1 (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031033D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 1 (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031133D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 1 (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031233D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 2 (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031333D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 2 (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031433D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 2 (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031533D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 3 (1)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031633D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 3 (2)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031733D,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Woods of Mystery Cut the Sign Day 3 (3)": MMRLocationData(
+        region="Southern Swamp",
+        address=0x346942031833D,
+        can_create=lambda options: options.signsanity.value
+    ),
     "Southern Swamp Log Cut the Sign": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420310309,
@@ -16834,20 +16835,20 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031030C,
         can_create=lambda options: options.signsanity.value
     ),
-#    "Deku Palace Behind Entrance Guards Cut Sign (1)": MMRLocationData(
-#        region="Deku Palace",
-#        address=0x3469420310338,
-#        can_create=lambda options: option.signsanity.value
-#    ),
-#    "Deku Palace Behind Entrance Guards Cut Sign (2)": MMRLocationData(
-#        region="Deku Palace",
-#        address=0x3469420310338,
-#        can_create=lambda options: option.signsanity.value
-#    ),
-    "Deku Palace Behind Entrance Guards Cut Sign (3)": MMRLocationData(
+    "Deku Palace Behind Entrance Guards Cut Left Sign": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420310338,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Deku Palace Behind Entrance Guards Cut Right Sign": MMRLocationData(
+        region="Deku Palace",
+        address=0x3469420311338,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Deku Palace Behind Entrance Guards Cut Sign Near King's Chamber": MMRLocationData(
         region="Deku Palace",
         address=0x346942031033A,
-        can_create=lambda options: option.signsanity.value
+        can_create=lambda options: options.signsanity.value
     ),
     "Deku Palace Bean Daddy Grotto Cut the Sign": MMRLocationData(
         region="Deku Palace",
@@ -16861,7 +16862,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Mountain Village Owl Statue Cut the Sign": MMRLocationData(
         region="Mountain Village",
-        address=0x3469420310314,
+        address=0x3469420311314,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Mountain Village Owl Statue Spring Cut the Sign": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420310317,
         can_create=lambda options: options.signsanity.value
     ),
     "Mountain Village Bridge Cut the Sign": MMRLocationData(
