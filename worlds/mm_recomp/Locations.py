@@ -8577,87 +8577,87 @@ location_data_table: Dict[str, MMRLocationData] = {
         # Pirates' Fortress Pots
     
     "Pirates Fortress Sewers Cage Room Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x34694202023B0,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers Cage Room Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x34694202023B1,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x34694202023A1,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x34694202023A0,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers Exit Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x3469420202391,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers Exit Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x3469420202390,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Sewers Exit Pots (3)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress Sewers",
         address=0x3469420202392,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202360,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202361,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (3)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202362,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202380,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202381,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (3)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202382,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Upper Beehive Room Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202331,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Upper Beehive Room Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x3469420202330,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Room Past Pink Guard Pots (1)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x34694202023D1,
         can_create=lambda options: options.potsanity.value
     ),
     "Pirates Fortress Interior Room Past Pink Guard Pots (2)": MMRLocationData(
-        region="Pirates' Fortress",
+        region="Pirates' Fortress (Interior)",
         address=0x34694202023D0,
         can_create=lambda options: options.potsanity.value
     ),

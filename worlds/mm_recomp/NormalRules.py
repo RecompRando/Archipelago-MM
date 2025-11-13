@@ -9163,181 +9163,245 @@ def get_location_rules(player, options):
                 )
             ),
         "Goron Shrine Pots (9)":
-            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                (
+                    has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or 
+                    state.has("Goron Mask", player)
+                )
+            ),
         "Goron Shrine Pots (10)":
-            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                (
+                    has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or 
+                    state.has("Goron Mask", player)
+                )
+            ),
         "Goron Shrine Pots (11)":
-            lambda state: has_soul_npc(state, player, options, "Gatekeeper & Medigoron"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                (
+                    has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or 
+                    state.has("Goron Mask", player)
+                )
+            ),
                         
         # Snowhead Temple Pots
         
         # Snowhead Temple Blue Door Lava Bridge Pots 
         "Snowhead Temple Entrance Pots (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),        
+            lambda state: has_soul_absurd(state, player, options, "Pots"),      
         "Snowhead Temple Entrance Pots (2)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         # Snowhead Temple Pots
         
         # Snowhead Temple Blue Door Lava Bridge Pots - Basic temple access
         "Snowhead Temple Blue Door Lava Bridge Pots (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (2)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (3)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (4)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (5)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (6)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Blue Door Lava Bridge Pots (7)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         
         # Snowhead Temple Main Room Pots Basement - Basic temple access
         "Snowhead Temple Main Room Pots Basement (1)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         "Snowhead Temple Main Room Pots Basement (2)":
-            lambda state: state.can_reach("Snowhead Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"), 
         
         # Snowhead Temple Main Room Scarecrow Pots - Requires Hookshot or Fire Arrows
         "Snowhead Temple Main Room Scarecrow Pots (1)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 (
-                    state.has("Hookshot", player) or 
+                    state.has("Hookshot", player) and 
+                    state.has("Snowhead Temple Lower Scarecrow", player) and
+                    has_soul_npc(state, player, options, "Scarecrow") or
                     can_use_fire_arrows(state, player)
                 )
             ),
         "Snowhead Temple Main Room Scarecrow Pots (2)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 (
-                    state.has("Hookshot", player) and
-                    can_reach_scarecrow(state, player, options) or 
+                    state.has("Hookshot", player) and 
+                    state.has("Snowhead Temple Lower Scarecrow", player) and
+                    has_soul_npc(state, player, options, "Scarecrow") or
                     can_use_fire_arrows(state, player)
                 )
             ),
         
         # Snowhead Temple Frozen Green Door Pots - Basic temple access (pots are at bottom)
         "Snowhead Temple Frozen Green Door Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Snowhead Temple Frozen Green Door Pots (8)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Frozen Green Door Pots (9)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Frozen Green Door Pots (10)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Frozen Green Door Pots (11)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Frozen Green Door Pots (12)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Frozen Green Door Pots (13)":
-            lambda state:can_use_fire_arrows(state, player
+            lambda state:
+            (  
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_fire_arrows(state, player)
             ),
         
         # Snowhead Temple Orange Door Push Block Pots - Requires Fire Arrows and (Small Key or Hookshot)
         "Snowhead Temple Orange Door Push Block Pots (1)":
-            lambda state: (can_use_fire_arrows(state, player) and
+            lambda state: (
+                    has_soul_absurd(state, player, options, "Pots") and
+                    can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Pots (2)":
-            lambda state: (can_use_fire_arrows(state, player) and
+            lambda state: (
+                    has_soul_absurd(state, player, options, "Pots") and
+                    can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (1)":
-            lambda state: (can_use_fire_arrows(state, player) and
+            lambda state: (
+                    has_soul_absurd(state, player, options, "Pots") and
+                    can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
             ),  
         "Snowhead Temple Orange Door Push Block Ghost Pots (2)":
-            lambda state: (can_use_fire_arrows(state, player) and
+            lambda state: (
+                    has_soul_absurd(state, player, options, "Pots") and
+                    can_use_fire_arrows(state, player) and
                 (
                     state.has("Small Key (Snowhead)", player, 1) or
                     state.has("Hookshot", player)
                 )
-            ),                         
+            ),                        
 
         # Snowhead Temple Locked Grey Door Wolfos Pots - Requires 2 Small Keys
         "Snowhead Temple Locked Grey Door Wolfos Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         "Snowhead Temple Locked Grey Door Wolfos Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Small Key (Snowhead)", player, 2)
             ),
         
         # Snowhead Temple Goron Pound Puzzle Pots - Requires explosives and (Goron Mask or Fire Arrows)
         "Snowhead Temple Goron Pound Puzzle Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 2) or
+                (
+                    state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
+                )
             ),
         "Snowhead Temple Goron Pound Puzzle Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and
-                state.has("Small Key (Snowhead)", player, 2) or
+                (
+                    state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
+                )
             ),
         
         # Snowhead Temple Main Room Pots 2nd Floor Bridge - Basic temple access
         "Snowhead Temple Main Room 2nd Floor Bridge Pots (1)":
             lambda state: ( 
+                has_soul_absurd(state, player, options, "Pots") and
+                (
                     state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
+                )
             ),        
         "Snowhead Temple Main Room 2nd Floor Bridge Pots (2)":
             lambda state: ( 
+                has_soul_absurd(state, player, options, "Pots") and
+                (
                     state.has("Small Key (Snowhead)", player, 2) or
                     can_use_fire_arrows(state, player)
-            ), 
+                )
+            ),   
         # Snowhead Temple Main Room 4th Floor Pots - Same as Boss Key Chest requirements
         "Snowhead Temple Main Room 4th Floor Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
-                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9346,11 +9410,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Main Room 4th Floor Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
-                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9361,11 +9425,11 @@ def get_location_rules(player, options):
         # Snowhead Temple 4th Floor Wizzrobe Pots - Same as Boss Key Chest requirements
         "Snowhead Temple 4th Floor Wizzrobe Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
-                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9374,11 +9438,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
-                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9387,11 +9451,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
-                    (    
-                        can_use_fire_arrows(state, player) and
+                    (
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9400,11 +9464,11 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
-                    (    
-                        can_use_fire_arrows(state, player) and
+                    (
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
@@ -9413,22 +9477,22 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple 4th Floor Wizzrobe Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
-                    (    
-                        can_use_fire_arrows(state, player) and
+                    (
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
                         can_reach_scarecrow(state, player, options)
                     )
                 )
-            ),                        
+            ),                      
         
         # Goht Boss Room Pots - Top floor requirements plus Boss Key or Remains warp
         "Goht Boss Room Pots (1)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9448,7 +9512,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (2)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9468,7 +9532,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (3)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9488,7 +9552,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (4)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9508,7 +9572,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (5)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9528,7 +9592,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (6)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9548,7 +9612,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (7)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9568,7 +9632,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (8)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9588,7 +9652,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (9)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9608,7 +9672,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (10)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9628,7 +9692,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (11)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9648,7 +9712,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (12)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9668,7 +9732,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (13)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9688,7 +9752,7 @@ def get_location_rules(player, options):
             ),
         "Goht Boss Room Pots (14)":
             lambda state: (
-   
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
@@ -9708,121 +9772,135 @@ def get_location_rules(player, options):
             ),
 
         "Mountain Village Springtime Pots (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Pots (2)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                can_clear_snowhead(state, player)
+            ),
         "Mountain Village Springtime Pots (3)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                can_clear_snowhead(state, player)
+            ),
 
         # Romani Ranch Pots
         
         # Romani Ranch Baby Chickens Pots
         "Romani Ranch Baby Cuccoos Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Romani Ranch Baby Cuccoos Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Romani Ranch Doggy Racetrack Pots
         "Romani Ranch Doggy Racetrack Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Romani Ranch Doggy Racetrack Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Romani Ranch Doggy Racetrack Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Romani Ranch Doggy Racetrack Pots (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
 
         # Great Bay Coast Pots
         "Great Bay Coast Behind Marine Lab Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Coast Behind Marine Lab Pots (2)":
-            lambda state: True,            
+            lambda state: has_soul_absurd(state, player, options, "Pots"),           
         "Great Bay Coast Behind Marine Lab Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Coast Behind Marine Lab Pots (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
 
         "Great Bay Coast Rock Pools Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Coast Rock Pools Pots (2)":
-            lambda state: True,        
+            lambda state: has_soul_absurd(state, player, options, "Pots"),        
             
         "Great Bay Coast Lower Rock Wall Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Coast Lower Rock Wall Pots (2)":
-            lambda state: True,       
+            lambda state: has_soul_absurd(state, player, options, "Pots"),       
         "Great Bay Coast Lower Rock Wall Pots (3)":
-            lambda state: True,       
+            lambda state: has_soul_absurd(state, player, options, "Pots"),       
         "Great Bay Coast Lower Rock Wall Pots (4)":
-            lambda state: True,       
+            lambda state: has_soul_absurd(state, player, options, "Pots"),       
 
         "Great Bay Coast Upper Rock Wall Pots (1)":
-            lambda state: state.has("Hookshot", player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player)
+            ),
         "Great Bay Coast Upper Rock Wall Pots (2)":
-            lambda state: state.has("Hookshot", player),  
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player)
+            ),
         "Great Bay Coast Upper Rock Wall Pots (3)":
-            lambda state: state.has("Hookshot", player),   
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player)
+            ),  
 
         "Great Bay Coast Beside Pirates Fortress Pots (1)":
-            lambda state: True,                   
+            lambda state: has_soul_absurd(state, player, options, "Pots"),                   
         "Great Bay Coast Beside Pirates Fortress Pots (2)":
-            lambda state: True,           
+            lambda state: has_soul_absurd(state, player, options, "Pots"),           
         # Ocean Spider House Pots - All require region access, explosives, and hookshot
 
         # Ocean Spiderhouse Bottom of Ramp Pots
         "Ocean Spiderhouse Bottom of Ramp Pots (1)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player)
             ),
         "Ocean Spiderhouse Bottom of Ramp Pots (2)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player)
             ),
         "Ocean Spiderhouse Bottom of Ramp Pots (3)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player)
             ),
         "Ocean Spiderhouse Bottom of Ramp Pots (4)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player)
             ),
         
         # Ocean Spiderhouse Main Room Lower Pots
         "Ocean Spiderhouse Main Room Lower Pots (1)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Main Room Lower Pots (2)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Main Room Lower Pots (3)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Main Room Lower Pots (4)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Main Room Lower Pots (5)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
@@ -9830,49 +9908,49 @@ def get_location_rules(player, options):
         # Ocean Spiderhouse Crate Room Pots
         "Ocean Spiderhouse Crate Room Pots (1)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (2)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (3)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (4)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (5)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (6)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (7)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Crate Room Pots (8)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
@@ -9880,13 +9958,13 @@ def get_location_rules(player, options):
         # Ocean Spiderhouse Coloured Skulls Room Pots
         "Ocean Spiderhouse Coloured Skulls Room Pots (1)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Ocean Spiderhouse Coloured Skulls Room Pots (2)":
             lambda state: (
-                state.can_reach("Ocean Spider House", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
@@ -9896,77 +9974,88 @@ def get_location_rules(player, options):
         
         "Pinnacle Rock Pots (1)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (2)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (3)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (4)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (5)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (6)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (7)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (8)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (9)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (10)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Pots (11)":
             lambda state: (
-                has_soul_npc(state, player, options, "Spirit House Owner") and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Fisherman") and
                 can_reach_seahorse(state, player) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -9976,57 +10065,82 @@ def get_location_rules(player, options):
         # Pirates Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
         "Pirates Fortress Sewers Cage Room Pots (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
         "Pirates Fortress Sewers Cage Room Pots (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
         
         # Pirates Fortress Sewers After Gate Hidden Ladder Pots
         "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
             ),
         "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
             ),
         
         # Pirates Fortress Sewers Exit Pots
         "Pirates Fortress Sewers Exit Pots (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
             ),
         "Pirates Fortress Sewers Exit Pots (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
             ),
         "Pirates Fortress Sewers Exit Pots (3)":
             lambda state: (
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player) and 
-                (state.has("Goron Mask", player) or state.has("Hookshot", player))
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
             ),
         
         # Pirates Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
         "Pirates Fortress Interior Underwater Chest Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Underwater Chest Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Underwater Chest Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
@@ -10034,6 +10148,7 @@ def get_location_rules(player, options):
         # Pirates Fortress Interior Room Past Green Guard Pots
         "Pirates Fortress Interior Room Past Green Guard Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
@@ -10044,6 +10159,7 @@ def get_location_rules(player, options):
             ),
         "Pirates Fortress Interior Room Past Green Guard Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
@@ -10051,11 +10167,13 @@ def get_location_rules(player, options):
         # Pirates Fortress Interior Upper Beehive Room Pots
         "Pirates Fortress Interior Upper Beehive Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Upper Beehive Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
@@ -10063,346 +10181,379 @@ def get_location_rules(player, options):
         # Pirates Fortress Interior Room Past Pink Guard Pots
         "Pirates Fortress Interior Room Past Pink Guard Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Room Past Pink Guard Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         # Zora Cape Pots
         # Zora Cape Like Like Pool Pots 
         "Zora Cape Like Like Pool Pots (1)":
-            lambda state: state.can_reach("Zora Cape", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Zora Cape Like Like Pool Pots (2)":
-            lambda state: state.can_reach("Zora Cape", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Zora Cape Owl Pots - Requires Zora Mask
         "Zora Cape Owl Pots (1)":
-            lambda state: state.can_reach("Zora Hall", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Zora Hall", 'Region', player)
+            ),
         "Zora Cape Owl Pots (2)":
-            lambda state: state.can_reach("Zora Hall", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Zora Hall", 'Region', player)
+            ),
         "Zora Cape Owl Pots (3)":
-            lambda state: state.can_reach("Zora Hall", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Zora Hall", 'Region', player)
+            ),
         "Zora Cape Owl Pots (4)":
-            lambda state: state.can_reach("Zora Hall", 'Region', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Zora Hall", 'Region', player)
+            ),
 
         "Zora Cape Jar Game Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Goron Mask", player) and
+                    can_use_powder_keg(state, player)
+                )
             ),        
         "Zora Cape Jar Game Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
-            ),
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Goron Mask", player) and
+                    can_use_powder_keg(state, player)
+                )
+            ), 
         "Zora Cape Jar Game Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
-            ),
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Goron Mask", player) and
+                    can_use_powder_keg(state, player)
+                )
+            ), 
         "Zora Cape Jar Game Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
-            ),
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Goron Mask", player) and
+                    can_use_powder_keg(state, player)
+                )
+            ), 
         "Zora Cape Jar Game Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
-                state.has("Zora Mask", player) or
-                (state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player))
-            ),
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Goron Mask", player) and
+                    can_use_powder_keg(state, player)
+                )
+            ), 
 
 
 # Great Bay Temple Pots
         
         # Great Bay Temple Above Whirlpool Pots
         "Great Bay Temple Above Blender Pots (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Above Blender Pots (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Room Behind 1F Waterfall 
         "Great Bay Temple Room Behind 1F Waterfall (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Room Behind 1F Waterfall (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Room Behind 1F Waterfall (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Room Behind 1F Waterfall (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         
         # Great Bay Temple Red Green Pipe Tunnel Room Pots 
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (9)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (10)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (11)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
         
         # Great Bay Temple Before Gekko Room Room Pots 
         "Great Bay Temple Before Gekko Room Room Pots (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (5)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (6)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (7)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Room Pots (8)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Red Valve Underwater Pots - Basic temple access
         "Great Bay Temple Red Valve Underwater Pots (1)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Red Valve Underwater Pots (2)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Red Valve Underwater Pots (3)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Red Valve Underwater Pots (4)":
-            lambda state: state.can_reach("Great Bay Temple", 'Region', player),
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Behind Locked Door Pots - Requires Small Key
         "Great Bay Temple Behind Locked Door Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (9)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (10)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (11)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Behind Locked Door Pots (12)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         
         # Great Bay Temple Wart Room Pots - Requires Small Key only
         "Great Bay Temple Wart Room Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         "Great Bay Temple Wart Room Pots (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 state.has("Small Key (Great Bay)", player)
             ),
         
         # Great Bay Temple Green Pipe Frozen Waterwheel Pots - Requires Ice Arrows
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         
         # Great Bay Temple Seesaw Room Pots - Requires both Ice and Fire Arrows
         "Great Bay Temple Seesaw Room Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
@@ -10410,49 +10561,49 @@ def get_location_rules(player, options):
         # Great Bay Temple Pots Underneath Boss Door Platform - Requires both Ice and Fire Arrows
         "Great Bay Temple Pots Underneath Boss Door Platform (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
@@ -10460,7 +10611,7 @@ def get_location_rules(player, options):
         # Great Bay Temple Gyorg Pots - Requires Boss Key or Remains warp
         "Great Bay Temple Gyorg Pots (1)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10471,7 +10622,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (2)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10482,7 +10633,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (3)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10493,7 +10644,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (4)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10504,7 +10655,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (5)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10515,7 +10666,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (6)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10526,7 +10677,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (7)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
@@ -10537,7 +10688,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (8)":
             lambda state: (
-                state.can_reach("Great Bay Temple", 'Region', player) and 
+                has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
                     (
