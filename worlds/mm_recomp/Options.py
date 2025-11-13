@@ -336,6 +336,11 @@ class Flowersanity(Toggle):
     display_name = "Flowersanity" 
 
 
+class Signsanity(Toggle):
+    """Choose whether Square Signposts give shuffled items when cut."""
+    display_name = "Signsanity" 
+
+
 class BossSouls(Choice):
     """Add souls for the main bosses in the game.
     They will not spawn unless their soul is obtained.
@@ -489,6 +494,7 @@ class MMROptions(PerGameCommonOptions):
     frogsanity: Frogsanity
     treesanity: Treesanity
     flowersanity: Flowersanity
+    signsanity: Signsanity
     boss_souls: BossSouls
     npc_souls: NPCSouls
     enemy_souls: EnemySouls
