@@ -18281,23 +18281,23 @@ def get_location_rules(player, options):
             lambda state: True,
         #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
            # lambda state: can_clear("Woodfall", state, player),
-        "Woods of Mystery Cut the Sign (1)":
+        "Woods of Mystery Cut the Sign Day 1 (1)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (2)":
+        "Woods of Mystery Cut the Sign Day 1 (2)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (3)":
+        "Woods of Mystery Cut the Sign Day 1 (3)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (4)":
+        "Woods of Mystery Cut the Sign Day 2 (4)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (5)":
+        "Woods of Mystery Cut the Sign Day 2 (5)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (6)":
+        "Woods of Mystery Cut the Sign Day 2 (6)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (7)":
+        "Woods of Mystery Cut the Sign Day 3 (7)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (8)":
+        "Woods of Mystery Cut the Sign Day 3 (8)":
             lambda state: True,
-        "Woods of Mystery Cut the Sign (9)":
+        "Woods of Mystery Cut the Sign Day 3 (9)":
             lambda state: True,
 
         "Southern Swamp Log Cut the Sign":
