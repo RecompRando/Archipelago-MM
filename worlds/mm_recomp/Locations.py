@@ -16844,11 +16844,11 @@ location_data_table: Dict[str, MMRLocationData] = {
 #        address=0x3469420310338,
 #        can_create=lambda options: option.signsanity.value
 #    ),
-#    "Deku Palace Behind Entrance Guards Cut Sign (3)": MMRLocationData(
-#        region="Deku Palace",
-#        address=0x346942031033A,
-#        can_create=lambda options: option.signsanity.value
-#    ),
+    "Deku Palace Behind Entrance Guards Cut Sign (3)": MMRLocationData(
+        region="Deku Palace",
+        address=0x346942031033A,
+        can_create=lambda options: option.signsanity.value
+    ),
     "Deku Palace Bean Daddy Grotto Cut the Sign": MMRLocationData(
         region="Deku Palace",
         address=0x346942031030C,
