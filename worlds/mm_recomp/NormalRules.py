@@ -10702,50 +10702,62 @@ def get_location_rules(player, options):
         # IKANA POTS
         "Road To Ikana Scarecrow Pillar Pot":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 can_play_song("Epona's Song", state, player) and
                 state.has("Hookshot", player) and
-                can_reach_scarecrow(state, player, options)
+                can_reach_scarecrow(state, player, options) and
+                state.has("Road to Ikana Scarecrow", player)
             ),
-        
         # Ikana Graveyard Day 1 Grave Pots
         "Ikana Graveyard Day 1 Grave Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 1 Grave Pots (5)":
-            lambda state: state.has("Captain's Hat", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_soul_npc(state, player, options, "Stalchildren") and
+                state.has("Captain's Hat", player)
+            ),
         
         # Ikana Graveyard Day 2 Entrance Grave Pot
         "Ikana Graveyard Day 2 Entrance Grave Pot":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         # Ikana Graveyard Day 2 Invisible Path Entryway Pots
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player)
@@ -10754,13 +10766,15 @@ def get_location_rules(player, options):
         # Ikana Graveyard Day 2 Invisible Path Pots
         "Ikana Graveyard Day 2 Invisible Path Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (2)":
-            lambda state: (
+             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
@@ -10768,6 +10782,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
@@ -10775,6 +10790,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
                 has_explosives(state, player) and
@@ -10784,113 +10800,145 @@ def get_location_rules(player, options):
         # Ikana Graveyard Day 3 Pots
         "Ikana Graveyard Day 3 Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 3 Pots (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player)
             ),
         # SECRET SHRINE POTS
         "Secret Shrine Entrance Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Secret Shrine Entrance Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Secret Shrine Entrance Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         "Secret Shrine Underwater Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
         "Secret Shrine Underwater Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 can_smack_hard(state, player) and
                 state.has("Zora Mask", player)
             ),
 
         "Sakons Hideout Pots (1)":
-            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
         "Sakons Hideout Pots (2)":
-            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
         "Sakons Hideout Pots (3)":
-            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
         "Sakons Hideout Pots (4)":
-            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
         "Sakons Hideout Pots (5)":
-            lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),   
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
 
         # IKANA CASTLE POTS
         "Ikana Castle Frozen Eyes Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -10901,6 +10949,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Frozen Eyes Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -10912,6 +10961,7 @@ def get_location_rules(player, options):
         
         "Ikana Castle Left Side Falling Ceiling Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -10922,6 +10972,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Left Side Falling Ceiling Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -10932,79 +10983,92 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         "Ikana Castle Left Side Staircase Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         "Ikana Castle Left Side Staircase Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
-                ) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                )
+
             ),
         
         "Ikana Castle Right Side Staircase Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -11012,9 +11076,11 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
                 )
+
             ),
         "Ikana Castle Right Side Staircase Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
@@ -11022,11 +11088,13 @@ def get_location_rules(player, options):
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
                 )
+
             ),
         
         # Ikana Castle Throne Room Pots
         "Ikana Castle Throne Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11044,6 +11112,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11061,6 +11130,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11078,6 +11148,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11095,6 +11166,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11112,6 +11184,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11129,6 +11202,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11146,6 +11220,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Throne Room Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player) and
                 state.has("Hookshot", player) and
                 (
@@ -11165,6 +11240,7 @@ def get_location_rules(player, options):
         # Well Pots
         "Well Left Side Back Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11175,6 +11251,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11185,6 +11262,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11195,6 +11273,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11205,6 +11284,7 @@ def get_location_rules(player, options):
             ),
         "Well Left Side Back Room Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11216,6 +11296,7 @@ def get_location_rules(player, options):
         
         "Well Right Side Before Chest Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11226,6 +11307,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11236,6 +11318,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11246,6 +11329,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11256,6 +11340,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11266,6 +11351,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11276,6 +11362,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11286,6 +11373,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11296,6 +11384,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11306,6 +11395,7 @@ def get_location_rules(player, options):
             ),
         "Well Right Side Before Chest Room Pots (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
@@ -11319,6 +11409,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (1)":
             lambda state: (
                 (
+                    has_soul_absurd(state, player, options, "Pots") and
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
@@ -11338,6 +11429,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (2)":
             lambda state: (
                 (
+                    has_soul_absurd(state, player, options, "Pots") and
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
@@ -11357,6 +11449,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (3)":
             lambda state: (
                 (
+                    has_soul_absurd(state, player, options, "Pots") and
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
@@ -11376,6 +11469,7 @@ def get_location_rules(player, options):
         "Well Big Poe Pots (4)":
             lambda state: (
                 (
+                    has_soul_absurd(state, player, options, "Pots") and
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
@@ -11396,25 +11490,32 @@ def get_location_rules(player, options):
         #Stone Tower Climb Pots
         "Stone Tower Climb Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
+                (
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                ) or
                 state.has("Stone Tower Owl Statue", player) and 
                 can_play_song("Song of Soaring", state, player)
             ),
         "Stone Tower Climb Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and  
-                (can_play_song("Elegy of Emptiness", state, player) and 
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)) or
+                (
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                ) or
                 state.has("Stone Tower Owl Statue", player) and 
                 can_play_song("Song of Soaring", state, player)
             ),
             #Stone Tower Lower Scarecrow Pots            
         "Stone Tower Lower Scarecrow Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11432,6 +11533,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11449,6 +11551,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11466,6 +11569,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11483,6 +11587,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11500,6 +11605,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11517,6 +11623,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11534,6 +11641,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11551,6 +11659,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11568,6 +11677,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11585,6 +11695,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11602,6 +11713,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Lower Scarecrow Pots (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Lower Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11621,6 +11733,7 @@ def get_location_rules(player, options):
         # Stone Tower Upper Scarecrow Pots
         "Stone Tower Upper Scarecrow Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11638,6 +11751,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11655,6 +11769,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11672,6 +11787,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11689,6 +11805,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11706,6 +11823,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11723,6 +11841,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11740,6 +11859,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11757,6 +11877,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Upper Scarecrow Pots (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Stone Tower Upper Scarecrow", player) and
                 can_reach_scarecrow(state, player, options) and
                 has_soul_npc(state, player, options, "Scarecrow") and
@@ -11776,6 +11897,7 @@ def get_location_rules(player, options):
         # Stone Tower Owl Pots
         "Stone Tower Owl Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Hookshot", player) and  
                     can_play_song("Elegy of Emptiness", state, player) and 
@@ -11790,6 +11912,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Owl Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Hookshot", player) and  
                     can_play_song("Elegy of Emptiness", state, player) and 
@@ -11804,6 +11927,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Owl Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Hookshot", player) and  
                     can_play_song("Elegy of Emptiness", state, player) and 
@@ -11818,6 +11942,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Owl Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Hookshot", player) and  
                     can_play_song("Elegy of Emptiness", state, player) and 
@@ -11833,29 +11958,30 @@ def get_location_rules(player, options):
         
         # Stone Tower Temple Pots
         "Stone Tower Temple Entrance Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Entrance Pots (2)":
             lambda state: True,
         
         "Stone Tower Temple Lower Basement Armos Pots (1)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (3)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (4)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (5)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (6)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (7)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (8)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         "Stone Tower Temple Right Side Near Locked Door Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
@@ -11864,6 +11990,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Right Side Near Locked Door Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 1) or
@@ -11873,6 +12000,7 @@ def get_location_rules(player, options):
         
         "Stone Tower Temple Right Side Underwater Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
@@ -11882,6 +12010,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Right Side Underwater Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
@@ -11891,6 +12020,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Right Side Underwater Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
@@ -11900,6 +12030,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Right Side Underwater Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
@@ -11909,6 +12040,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Right Side Underwater Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
@@ -11920,6 +12052,7 @@ def get_location_rules(player, options):
         # Stone Tower Temple Mirror Room Pots
         "Stone Tower Temple Mirror Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
                     state.has("Zora Mask", player) and
@@ -11933,6 +12066,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Mirror Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and
                     state.has("Zora Mask", player) and
@@ -11948,24 +12082,28 @@ def get_location_rules(player, options):
         # Stone Tower Temple Deku Updraft Pots
         "Stone Tower Temple Deku Updraft Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Stone Tower Temple Deku Updraft Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Stone Tower Temple Deku Updraft Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Stone Tower Temple Deku Updraft Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Mirror Room Sun Block Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
@@ -11974,60 +12112,73 @@ def get_location_rules(player, options):
         # Stone Tower Temple Lower Spike Roller Pots
         "Stone Tower Temple Lower Spike Roller Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", 'Location', player)
             ),
         
         # Inverted Stone Tower Pots
         "Inverted Stone Tower Bean Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
         "Inverted Stone Tower Bean Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
         "Inverted Stone Tower Bean Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
         "Inverted Stone Tower Bean Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
         "Inverted Stone Tower Bean Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
                 can_plant_beans(state, player)
             ),
@@ -12035,36 +12186,42 @@ def get_location_rules(player, options):
         # Inverted Stone Tower Temple Updraft Pots
         "Inverted Stone Tower Temple Updraft Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Updraft Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Updraft Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Updraft Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Updraft Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Updraft Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", 'Location', player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
@@ -12074,12 +12231,14 @@ def get_location_rules(player, options):
         "Inverted Stone Tower Temple Gomess Pots (1)":
             lambda state: (
                 can_use_light_arrows(state, player) and
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
                 state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Inverted Stone Tower Temple Gomess Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -12087,6 +12246,7 @@ def get_location_rules(player, options):
             ),
         "Inverted Stone Tower Temple Gomess Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -12094,6 +12254,7 @@ def get_location_rules(player, options):
             ),
         "Inverted Stone Tower Temple Gomess Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -12108,72 +12269,126 @@ def get_location_rules(player, options):
         
         # Inverted Stone Tower Temple Small Poe Room Pots
         "Inverted Stone Tower Temple Small Poe Room Pots (1)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Small Poe Room Pots (2)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Small Poe Room Pots (3)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Small Poe Room Pots (4)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player)
+            ),
         
         # Inverted Stone Tower Temple Wizzrobe Room Pots
         "Inverted Stone Tower Temple Wizzrobe Room Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower Temple Inverted Gomess Chest", 'Location', player) and
                 can_smack_hard(state, player)
             ),
         
         # Inverted Stone Tower Temple Pre Boss Pots (Flying)
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (1)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (2)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (3)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (Flying) (4)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         
         # Inverted Stone Tower Temple Pre Boss Pots
         "Inverted Stone Tower Temple Pre Boss Pots (1)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (2)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (3)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (4)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (5)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (6)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (7)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Pre Boss Pots (8)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+            ),
         
         # MOON POTS
         "Moon Goron Trial Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12181,6 +12396,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12188,6 +12404,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12195,6 +12412,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12202,6 +12420,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12209,6 +12428,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12216,6 +12436,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12223,6 +12444,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12230,6 +12452,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (9)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12237,6 +12460,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (10)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12244,6 +12468,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (11)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12251,6 +12476,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (12)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12258,6 +12484,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (13)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12265,6 +12492,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (14)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12272,6 +12500,7 @@ def get_location_rules(player, options):
             ),
         "Moon Goron Trial Pots (15)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.has("Goron Mask", player) and
@@ -12280,6 +12509,7 @@ def get_location_rules(player, options):
         # Moon Link Trial Pots
         "Moon Link Trial Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12288,6 +12518,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12296,6 +12527,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12304,6 +12536,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (4)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12312,6 +12545,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (5)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12320,6 +12554,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (6)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12328,6 +12563,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (7)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12336,6 +12572,7 @@ def get_location_rules(player, options):
             ),
         "Moon Link Trial Pots (8)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("The Moon", 'Region', player) and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and
@@ -12346,6 +12583,7 @@ def get_location_rules(player, options):
         # Majora Lair Pots
         "Majora Lair Pots (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
                 (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
                 (not options.majora_star_fox.value == 0 or has_star_fox(state, player, options, "majora")) and
@@ -12355,6 +12593,7 @@ def get_location_rules(player, options):
             ),
         "Majora Lair Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
                 (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
                 (not options.majora_star_fox.value == 0 or has_star_fox(state, player, options, "majora")) and
