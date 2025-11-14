@@ -17,27 +17,7 @@ class LogicDifficulty(Choice):
     default = 1
 
 
-class MajoraRemainsRequired(Range):
-    """Set the amount of boss remains required to fight Majora."""
-    display_name = "Majora Boss Remains Required"
-    range_start = 0
-    range_end = 4
-    default = 4
-
-
-class MajoraMasksRequired(Range):
-    """Set the amount of masks required to fight Majora."""
-    display_name = "Majora Masks Required"
-    range_start = 0
-    range_end = 24
-    default = 0
-
-
-class MajoraStarFox(Toggle):
-    """Set whether you require Keaton, Scents, Bremen, Bunny & Gero masks to fight Majora."""
-    display_name = "MajoraStarFox"
-
-
+# Moon Goal Options
 class MoonRemainsRequired(Range):
     """Set the amount of boss remains required to reach the Moon after playing Oath to Order."""
     display_name = "Moon Boss Remains Required"
@@ -57,7 +37,98 @@ class MoonMasksRequired(Range):
 class MoonStarFox(Toggle):
     """Set whether you require Keaton, Scents, Bremen, Bunny & Gero masks to reach the Moon 
     after playing Oath to Order."""
-    display_name = "MoonStarFox"
+    display_name = "Moon Star Fox"
+
+
+class MoonOwlsRequired(Range):
+    """Set the amount of owl statues required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Owls Required"
+    range_start = 0
+    range_end = 10
+    default = 0
+
+
+class MoonScarecrowsRequired(Range):
+    """Set the amount of scarecrows required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Scarecrows Required"
+    range_start = 0
+    range_end = 14
+    default = 0
+
+
+class MoonFrogsRequired(Range):
+    """Set the amount of frogs required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Frogs Required"
+    range_start = 0
+    range_end = 5
+    default = 0
+
+
+class MoonItemsRequired(Range):
+    """Set the amount of trade items required to reach the Moon after playing Oath to Order."""
+    display_name = "Moon Items Required"
+    range_start = 0
+    range_end = 48
+    default = 0
+
+
+# Majora Goal Options
+class MajoraRemainsRequired(Range):
+    """Set the amount of boss remains required to fight Majora."""
+    display_name = "Majora Boss Remains Required"
+    range_start = 0
+    range_end = 4
+    default = 4
+
+
+class MajoraMasksRequired(Range):
+    """Set the amount of masks required to fight Majora."""
+    display_name = "Majora Masks Required"
+    range_start = 0
+    range_end = 24
+    default = 0
+
+
+class MajoraStarFox(Toggle):
+    """Set whether you require Keaton, Scents, Bremen, Bunny & Gero masks to fight Majora."""
+    display_name = "Majora Star Fox"
+
+
+class MajoraOwlsRequired(Range):
+    """Set the amount of owl statues required to fight Majora."""
+    display_name = "Majora Owls Required"
+    range_start = 0
+    range_end = 10
+    default = 0
+
+
+class MajoraScarecrowsRequired(Range):
+    """Set the amount of scarecrows required to fight Majora."""
+    display_name = "Majora Scarecrows Required"
+    range_start = 0
+    range_end = 14
+    default = 0
+
+
+class MajoraFrogsRequired(Range):
+    """Set the amount of frogs required to fight Majora."""
+    display_name = "Majora Frogs Required"
+    range_start = 0
+    range_end = 5
+    default = 0
+
+
+class MajoraItemsRequired(Range):
+    """Set the amount of trade items required to fight Majora."""
+    display_name = "Majora Items Required"
+    range_start = 0
+    range_end = 31
+    default = 0
+
+
+class CompletionGoal(Toggle):
+    """Enable the completion goal which requires 100% of all collectibles and has a special flag assosciated with it."""
+    display_name = "Completion Goal"
 
 
 class CAMC(DefaultOnToggle):
@@ -445,12 +516,21 @@ class LinkTunicColor(OptionList):
 class MMROptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     logic_difficulty: LogicDifficulty
-    majora_remains_required: MajoraRemainsRequired
-    majora_masks_required: MajoraMasksRequired
-    majora_star_fox: MajoraStarFox
     moon_remains_required: MoonRemainsRequired
     moon_masks_required: MoonMasksRequired
     moon_star_fox: MoonStarFox
+    moon_owls_required: MoonOwlsRequired
+    moon_scarecrows_required: MoonScarecrowsRequired
+    moon_frogs_required: MoonFrogsRequired
+    moon_items_required: MoonItemsRequired
+    majora_remains_required: MajoraRemainsRequired
+    majora_masks_required: MajoraMasksRequired
+    majora_star_fox: MajoraStarFox
+    majora_owls_required: MajoraOwlsRequired
+    majora_scarecrows_required: MajoraScarecrowsRequired
+    majora_frogs_required: MajoraFrogsRequired
+    majora_items_required: MajoraItemsRequired
+    completion_goal: CompletionGoal
     camc: CAMC
     ocarinaless: Ocarinaless
     timeless: Timeless

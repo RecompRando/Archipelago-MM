@@ -253,7 +253,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Bottle": MMRItemData(
         code=0x346942000005A,
         type=ItemClassification.progression,
-        num_exist=2
+        num_exist=3
     ),
     "Bottle of Milk": MMRItemData(
         code=0x3469420000060,

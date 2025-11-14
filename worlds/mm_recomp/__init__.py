@@ -76,7 +76,7 @@ class MMRWorld(World):
         else:
             mw.push_precollected(self.create_item("Song of Time"))
 
-        filler_amount += 19
+        filler_amount += 18
 
         if self.options.swordless.value:
             mw.itempool.append(self.create_item("Progressive Sword"))
@@ -524,11 +524,20 @@ class MMRWorld(World):
             "camc": self.options.camc.value,
             "starting_heart_locations": 8 if self.options.starting_hearts_are_containers_or_pieces.value == 1 else starting_containers + starting_pieces + shuffled_containers + shuffled_pieces,
             "majora_remains_required": self.options.majora_remains_required.value,
-            "majora_masks_required":self.options.majora_masks_required.value,
-            "majora_star_fox":self.options.majora_star_fox.value,
+            "majora_masks_required": self.options.majora_masks_required.value,
+            "majora_star_fox": self.options.majora_star_fox.value,
+            "majora_owls_required": self.options.majora_owls_required.value,
+            "majora_scarecrows_required": self.options.majora_scarecrows_required.value,
+            "majora_frogs_required": self.options.majora_frogs_required.value,
+            "majora_items_required": self.options.majora_items_required.value,
             "moon_remains_required": self.options.moon_remains_required.value,
             "moon_masks_required": self.options.moon_masks_required.value,
-            "moon_star_fox":self.options.moon_star_fox.value,
+            "moon_star_fox": self.options.moon_star_fox.value,
+            "moon_owls_required": self.options.moon_owls_required.value,
+            "moon_scarecrows_required": self.options.moon_scarecrows_required.value,
+            "moon_frogs_required": self.options.moon_frogs_required.value,
+            "moon_items_required": self.options.moon_items_required.value,
+            "completion_goal": self.options.completion_goal.value,
             "required_skull_tokens": self.options.required_skull_tokens.value,
             "required_stray_fairies": self.options.required_stray_fairies.value,
             "start_with_consumables": self.options.start_with_consumables.value,
