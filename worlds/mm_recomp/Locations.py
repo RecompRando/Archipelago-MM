@@ -2465,7 +2465,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694201042DA,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Takkuri  (12)": MMRLocationData(
+    "Termina Field Grass Near Takkuri (12)": MMRLocationData(
         region="Termina Field",
         address=0x34694201042DB,
         can_create=lambda options: options.grasssanity.value
@@ -6676,7 +6676,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420124B51,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Beneath the Well Left Side Back Room Grasss (2)": MMRLocationData(
+    "Beneath the Well Left Side Back Room Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x3469420124B50,
         can_create=lambda options: options.grasssanity.value
@@ -16219,7 +16219,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694203F2B24,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Deku Palace To Swamp Flower": MMRLocationData(
+    "Deku Palace to Swamp Flower": MMRLocationData(
         region="Deku Palace",
         address=0x34694203F2B00,
         can_create=lambda options: options.flowersanity.value
