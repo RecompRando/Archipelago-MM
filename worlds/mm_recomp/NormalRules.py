@@ -19376,26 +19376,26 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Outside Woods of Mystery Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
-        # lambda state: can_clear("Woodfall", state, player),
-        "Woods of Mystery Cut the Sign Day 1":
+        "Southern Swamp (Clear State) Witch's Hut Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_woodfall(state, player),
+        "Woods of Mystery Cut the Sign Day 1 (1)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 1 (2)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 1 (3)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        "Woods of Mystery Cut the Sign Day 2":
+        "Woods of Mystery Cut the Sign Day 1 (2)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 2 (5)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 2 (6)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        "Woods of Mystery Cut the Sign Day 3":
+        "Woods of Mystery Cut the Sign Day 1 (3)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 3 (8)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 3 (9)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (1)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (2)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (3)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (1)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (2)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (3)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
 
         "Southern Swamp Log Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
