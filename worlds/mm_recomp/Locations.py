@@ -13769,23 +13769,23 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pirates' Fortress Sewers",
         address=0x34694202223BF,
     ),
-    "Pirates' Fortress Sewers Exit Barrel (0)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222390,
     ),
-    "Pirates' Fortress Sewers Exit Barrel (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222391,
     ),
-    "Pirates' Fortress Sewers Exit Barrel (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222392,
     ),
-    "Pirates' Fortress Sewers Exit Barrel (3)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel (4)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222393,
     ),
-    "Pirates' Fortress Sewers Exit Barrel (4)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel (5)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222394,
     ),                                                                

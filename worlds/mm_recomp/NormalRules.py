@@ -11149,6 +11149,11 @@ def get_location_rules(player, options):
                 ),
 
         # IKANA CASTLE POTS
+        "Ikana Castle Exterior Corner Pot":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                ),
         "Ikana Castle Frozen Eyes Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
@@ -16017,6 +16022,31 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress Sewers", 'Region', player)
             ),
+        "Pirates' Fortress Sewers Exit Barrel (1)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
+        "Pirates' Fortress Sewers Exit Barrel (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
+        "Pirates' Fortress Sewers Exit Barrel (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
+        "Pirates' Fortress Sewers Exit Barrel (4)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
+        "Pirates' Fortress Sewers Exit Barrel (5)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
+                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+            ),
 
         # Pirates' Fortress Interior Crates
 
@@ -19474,6 +19504,8 @@ def get_location_rules(player, options):
                 
         "Mountain Village Owl Statue Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Mountain Village Owl Statue Spring Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_snowhead(state, player),
         "Mountain Village Outside Smithy Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Bridge Cut the Sign":
