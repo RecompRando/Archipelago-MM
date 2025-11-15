@@ -16760,66 +16760,66 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031030A,
         can_create=lambda options: options.signsanity.value
     ),
-     "Southern Swamp Tourist Centre Cut the Sign": MMRLocationData(
+    "Southern Swamp Tourist Centre Cut the Sign": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420310307,
         can_create=lambda options: options.signsanity.value
     ),
-    "Southern Swamp Witch's Hut Cut the Sign": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031030C,
-        can_create=lambda options: options.signsanity.value
-    ),
+    # ~ "Southern Swamp Witch's Hut Cut the Sign": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031030C,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
     "Southern Swamp Outside Woods of Mystery Cut the Sign": MMRLocationData(
         region="Southern Swamp",
         address=0x346942031030B,
         can_create=lambda options: options.signsanity.value
     ),
-    "Woods of Mystery Cut the Sign Day 1 (1)": MMRLocationData(
+    "Woods of Mystery Cut the Sign Day 1": MMRLocationData(
         region="Southern Swamp",
         address=0x346942031033D,
         can_create=lambda options: options.signsanity.value
     ),
-    "Woods of Mystery Cut the Sign Day 1 (2)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031133D,
-        can_create=lambda options: options.signsanity.value
-    ),
-    "Woods of Mystery Cut the Sign Day 1 (3)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031233D,
-        can_create=lambda options: options.signsanity.value
-    ),
-    "Woods of Mystery Cut the Sign Day 2 (1)": MMRLocationData(
+    # ~ "Woods of Mystery Cut the Sign Day 1 (2)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031133D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
+    # ~ "Woods of Mystery Cut the Sign Day 1 (3)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031233D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
+    "Woods of Mystery Cut the Sign Day 2": MMRLocationData(
         region="Southern Swamp",
         address=0x346942031333D,
         can_create=lambda options: options.signsanity.value
     ),
-    "Woods of Mystery Cut the Sign Day 2 (2)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031433D,
-        can_create=lambda options: options.signsanity.value
-    ),
-    "Woods of Mystery Cut the Sign Day 2 (3)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031533D,
-        can_create=lambda options: options.signsanity.value
-    ),
-    "Woods of Mystery Cut the Sign Day 3 (1)": MMRLocationData(
+    # ~ "Woods of Mystery Cut the Sign Day 2 (2)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031433D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
+    # ~ "Woods of Mystery Cut the Sign Day 2 (3)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031533D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
+    "Woods of Mystery Cut the Sign Day 3": MMRLocationData(
         region="Southern Swamp",
         address=0x346942031633D,
         can_create=lambda options: options.signsanity.value
     ),
-    "Woods of Mystery Cut the Sign Day 3 (2)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031733D,
-        can_create=lambda options: options.signsanity.value
-    ),
-    "Woods of Mystery Cut the Sign Day 3 (3)": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942031833D,
-        can_create=lambda options: options.signsanity.value
-    ),
+    # ~ "Woods of Mystery Cut the Sign Day 3 (2)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031733D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
+    # ~ "Woods of Mystery Cut the Sign Day 3 (3)": MMRLocationData(
+        # ~ region="Southern Swamp",
+        # ~ address=0x346942031833D,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
     "Southern Swamp Log Cut the Sign": MMRLocationData(
         region="Southern Swamp",
         address=0x3469420310309,
@@ -16830,11 +16830,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031030E,
         can_create=lambda options: options.signsanity.value
     ),
-    "Swamp Spider House Behind Statue Cut the Sign": MMRLocationData(
-        region="Southern Swamp (Deku Palace)",
-        address=0x346942031030C,
-        can_create=lambda options: options.signsanity.value
-    ),
+    # ~ "Swamp Spider House Behind Statue Cut the Sign": MMRLocationData(
+        # ~ region="Southern Swamp (Deku Palace)",
+        # ~ address=0x346942031030C,
+        # ~ can_create=lambda options: options.signsanity.value
+    # ~ ),
     "Deku Palace Behind Entrance Guards Cut Left Sign": MMRLocationData(
         region="Deku Palace",
         address=0x3469420310338,
