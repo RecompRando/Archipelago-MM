@@ -19365,118 +19365,126 @@ def get_location_rules(player, options):
                 # Signs (BREAK THE TARGETS)
 
         "North Clock Town Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Termina Field Takkuri Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Road to Southern Swamp Entry Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Tourist Centre Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Witch's Hut Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Outside Woods of Mystery Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
-           # lambda state: can_clear("Woodfall", state, player),
+        # lambda state: can_clear("Woodfall", state, player),
         "Woods of Mystery Cut the Sign Day 1":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 1 (2)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 1 (3)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Woods of Mystery Cut the Sign Day 2":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 2 (5)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 2 (6)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Woods of Mystery Cut the Sign Day 3":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 3 (8)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
         # ~ "Woods of Mystery Cut the Sign Day 3 (9)":
-            # ~ lambda state: True,
+            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
 
         "Southern Swamp Log Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Outside Spider House":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Swamp Spider House Behind Statue Cut the Sign":
-            lambda state: True,
-        
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+
         "Deku Palace Behind Entrance Guards Cut Left Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Deku Palace Behind Entrance Guards Cut Right Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Deku Palace Behind Entrance Guards Cut Sign Near King's Chamber":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Deku Palace Bean Daddy Grotto Cut the Sign":
-            lambda state: True,
-        
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+
         "Path to Mountain Village Cut the Sign":
             lambda state:
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                 can_use_fire_arrows(state, player)),
+                (
+                    has_soul_absurd(state, player, options, "Signs") and
+                    (
+                        state.has("Goron Mask", player) or
+                        has_explosives(state, player) or
+                        can_use_fire_arrows(state, player)
+                    )
+                ),
+                
+                
         "Mountain Village Owl Statue Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Outside Smithy Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Bridge Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Pond Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Twin Island Entrance Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Twin Islands Outside Goron Racetrack Cut the Sign":
-            lambda state: state.has("Goron Mask", player) or
-                          (state.has("Hookshot", player) and has_soul_npc(state, player, options, "Scarecrow")),
+            lambda state: (state.has("Goron Mask", player) or
+                        (state.has("Hookshot", player) and has_soul_npc(state, player, options, "Scarecrow"))) and
+                        has_soul_absurd(state, player, options, "Signs"),
         "Goron Village Outside Lens Cave Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Goron Village Outside Keg Goron Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Goron Village Outside Goron Shrine":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Path to Snowhead Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Path to Snowhead Upper Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Outside Snowhead Temple Cut the Sign":
-            lambda state: True,
-        
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+
         "Great Bay Coast Entrance Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Outside Fisherman Hut Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Beachfront Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Entrance to Zora Cape Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Marine Lab Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Rock Pools Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast (Clear) Fisherman Boat Cut the Sign":
-            lambda state: can_clear_greatbay(state, player),
+            lambda state: can_clear_greatbay(state, player) and has_soul_absurd(state, player, options, "Signs"),
         "Zora Cape Jar Game Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Zora Cape Waterfall Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Zora Cape Turtle Cut the Sign":
-            lambda state: True,
-        
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+
         "Ikana Canyon River Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Sakon's Hideout Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Secret Shrine Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Spring Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Ikana Castle Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Poe Hut Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Well Cut the Sign":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
     }   
