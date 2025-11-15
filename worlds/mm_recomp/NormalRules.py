@@ -14079,6 +14079,57 @@ def get_location_rules(player, options):
         "Great Bay Temple Before Gekko Room Underwater Rupees (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
+        "Pirates' Fortress Sewers Rupees Under Barrel (0)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates' Fortress Sewers Rupees Under Barrel (1)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates' Fortress Sewers Rupees Under Barrel (3)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates' Fortress Sewers Rupees Under Barrel (4)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates Fortress' Sewers Exit Barrel Rupee (0)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates Fortress' Sewers Exit Barrel Rupee (1)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates Fortress' Sewers Exit Barrel Rupee (2)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates Fortress' Interior Ledge Recovery Hearts (0)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player) 
+            ),
+        "Pirates Fortress' Interior Ledge Recovery Hearts (1)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player) 
+            ),
+        "Pirates Fortress' Interior Ledge Recovery Hearts (2)":
+            lambda state: (
+                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.has("Hookshot", player) 
+            ),
+
         # Ikana Graveyard Day 2 Rupees
         "Ikana Graveyard Day 2 Rupees (0)":
             lambda state: (
@@ -17594,7 +17645,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
                 can_clear_snowhead(state, player)
-            ),                                            
+            ),
 
         # Great Bay Coast Butterflies
 
