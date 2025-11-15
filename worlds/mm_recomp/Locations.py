@@ -17010,6 +17010,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031032F,
         can_create=lambda options: options.signsanity.value
     ),
+    # 100% Completion
+    "Majora's Soul": MMRLocationData(
+        region="Clock Town",
+        address=0x34694200B012F,
+        can_create=lambda options: options.completion_goal.value
+    ),
 }
 
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}

@@ -774,7 +774,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Soul of Majora": MMRItemData(
         code=0x34694200B012F,
         type=ItemClassification.progression,
-        can_create=lambda options: options.boss_souls.value == 2
+        can_create=lambda options: options.boss_souls.value == 2 and not options.completion_goal.value
     ),
     # Misc. Souls
     "Soul of Cows": MMRItemData(

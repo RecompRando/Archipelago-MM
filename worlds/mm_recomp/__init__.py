@@ -405,6 +405,10 @@ class MMRWorld(World):
             shield_location = mw.get_location("Link's Inventory (Hero's Shield)", player)
             shield_location.place_locked_item(self.create_item("Progressive Shield"))
 
+        if self.options.completion_goal.value:
+            giga_location = mw.get_location("Majora's Soul", player)
+            giga_location.place_locked_item(self.create_item("Soul of Majora"))
+
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
             containers = int(shp/4) - 1
