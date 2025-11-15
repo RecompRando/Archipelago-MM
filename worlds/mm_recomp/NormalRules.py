@@ -2687,7 +2687,7 @@ def get_location_rules(player, options):
                 )
             ),
         "Great Bay Temple Blender Room Barrel SF":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Barrels"),
         "Great Bay Temple Blender Pot SF":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Red Valve Room Chest":
