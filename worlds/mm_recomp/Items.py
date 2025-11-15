@@ -894,7 +894,12 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Great Fairies": MMRItemData(
-        code=0x3469420C0153,
+        code=0x34694200C0130,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Archery Man": MMRItemData(
+        code=0x34694200C011D,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
@@ -1095,7 +1100,7 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Soul of Hall Zora": MMRItemData(
         code=0x34694200C0260,
-        type=ItemClassification.filler,
+        type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Pot Game Zora": MMRItemData(

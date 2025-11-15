@@ -5,10 +5,12 @@ from .Constants import *
 def can_play_song(song, state, player):
     return state.has(song, player) and state.has("Ocarina of Time", player)
 
-def can_get_magic_beans(state, player):
-    return (state.has("Magic Bean", player) and 
+def can_get_magic_beans(state, player, options):
+    return (
+            has_soul_npc(state, player, options, "Bean Daddy") and
             state.has("Deku Mask", player) and 
-            state.can_reach("Deku Palace", 'Region', player))
+            state.can_reach("Deku Palace", 'Region', player)
+            )
 
 def has_bombchus(state, player):
     return state.has("Progressive Bombchu Bag", player)
@@ -63,14 +65,20 @@ def has_paper(state, player):
 def can_get_cow_milk(state, player, options):
     return (
         has_soul_misc(state, player, options, "Cows") and
+        has_soul_absurd(state, player, options, "Grottos") and
         has_bottle(state, player) and 
         can_play_song("Epona's Song", state, player) and 
         (
             has_explosives(state, player) or
             can_use_powder_keg(state, player) or 
-            state.has("Hookshot", player) or 
+            state.has("Hookshot", player) or
+            (
+                has_soul_npc(state, player, options, "Barten") and 
+                state.has("Romani Mask", player)
+            ) or
             (
                 state.has("Gibdo Mask", player) and 
+                has_soul_npc(state, player, options, "Gibdos") and
                 has_bottle(state, player) and 
                 can_plant_beans(state, player) and 
                 state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
@@ -140,11 +148,17 @@ def can_reach_scarecrow(state, player, options):
             (state.can_reach("Astral Observatory", 'Region', player) or 
             state.can_reach("Trading Post", 'Region', player)))
 
-def can_reach_seahorse(state, player):
-    return (state.can_reach("Fisherman's House", 'Region', player) and 
-            state.has("Zora Mask", player) and 
-            state.has("Pictograph Box", player) and 
-            (state.has("Hookshot", player) or state.has("Goron Mask", player)))
+def can_reach_seahorse(state, player, options):
+    return (
+        has_soul_npc(state, player, options, "Fisherman") and
+        state.can_reach("Fisherman's House", 'Region', player) and 
+        state.has("Zora Mask", player) and 
+        state.has("Pictograph Box", player) and 
+        (
+            state.has("Hookshot", player) or 
+            state.has("Goron Mask", player)
+        )
+    )
 
 def can_afford_price(state, player, price):
     if price > 200:
@@ -525,6 +539,7 @@ def get_region_rules(player, options):
                 ),
         "Upper Ikana Canyon -> Beneath the Well":
             lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player)
             ),
@@ -535,38 +550,43 @@ def get_region_rules(player, options):
                     has_mirror_shield(state, player)
             ),
         "Beneath the Well -> Ikana Castle":
-            lambda state: (
-                ( 
-                    state.has("Gibdo Mask", player) and 
-                    has_bottle(state, player) and 
-                    can_plant_beans(state, player) and 
+lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and 
+                has_bottle(state, player) and 
+                can_plant_beans(state, player) and
+                state.has("Progressive Bow", player) and
+                (
+                    state.has("Progressive Bomb Bag", player) or 
                     (
-                        state.has("Progressive Bomb Bag", player) or 
-                        (
-                            state.has("Captain's Hat", player) and 
-                            state.has("Progressive Bow", player)
-                        )
+                        state.has("Captain's Hat", player) and 
+                        has_soul_npc(state, player, options, "Stalchildren")
                     )
-                ) and (
+                ) and
+                (
                     can_use_light_arrows(state, player) or 
                     has_mirror_shield(state, player)
                 )
             ),
+        "Ikana Castle -> Beneath the Well":
+            lambda state: 
+                can_use_light_arrows(state, player),
+
         "Stone Tower -> Stone Tower Temple":
-lambda state:
-    (
-        state.has("Hookshot", player) and  
-        can_play_song("Elegy of Emptiness", state, player) and 
-        (
-            (
-                state.has("Goron Mask", player) and 
-                state.has("Zora Mask", player)
-            ) or
-            (
-                can_use_owl(state, player, options, "Stone Tower")
-            )
-        )
-    ),
+            lambda state:
+                (
+                    state.has("Hookshot", player) and  
+                    can_play_song("Elegy of Emptiness", state, player) and 
+                    (
+                        (
+                            state.has("Goron Mask", player) and 
+                            state.has("Zora Mask", player)
+                        ) or
+                        (
+                            can_use_owl(state, player, options, "Stone Tower")
+                        )
+                    )
+                ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
                 state.can_reach("Stone Tower Temple", 'Region', player) and 
@@ -681,7 +701,10 @@ def get_location_rules(player, options):
                 state.has("Stray Fairy (Clock Town)", player)
             ),
         "Clock Town Hide-and-Seek":
-            lambda state: has_projectiles(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Bomber Kids") and
+                has_projectiles(state, player)
+            ),
         "Tingle Clock Town Map Purchase":
             lambda state: (
                 has_soul_npc(state, player, options, "Tingle") and
@@ -736,9 +759,15 @@ def get_location_rules(player, options):
                 state.has("Couple's Mask", player)
             ),
         "East Clock Town Shooting Gallery 40-49 Points":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Archery Man") and 
+                state.has("Progressive Bow", player)
+            ),
         "East Clock Town Shooting Gallery Perfect 50 Points":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Archery Man") and 
+                state.has("Progressive Bow", player)
+            ),
         "East Clock Town Honey and Darling Any Day":
             lambda state: (
                 (has_soul_npc(state, player, options, "Honey and Darling") and
@@ -1121,6 +1150,7 @@ def get_location_rules(player, options):
         "Termina Gossip Stones HP":
             lambda state: (
                 (
+                    has_soul_absurd(state, player, options, "Grottos") and
                     has_explosives(state, player) or 
                     state.has("Goron Mask", player)
                 ) and 
@@ -1204,13 +1234,20 @@ def get_location_rules(player, options):
                 )
             ),
         "Swamp Shooting Gallery 2120 Points":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Archery Man") and 
+                state.has("Progressive Bow", player)
+            ),
         "Swamp Shooting Gallery 2180 Points":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Archery Man") and 
+                state.has("Progressive Bow", player)
+            ),
 
         "Southern Swamp Deku Scrub Purchase":
             lambda state: (
                 (
+                    has_soul_npc(state, player, options, "Business Scrubs") and
                     state.has("Deku Mask", player) and 
                     can_plant_beans(state, player)
                 ) or 
@@ -1290,6 +1327,7 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House First Room Pot Near Entrance Token":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player)
             ),
@@ -1392,6 +1430,7 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House Pottery Room Small Pot Token":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 can_smack(state, player)
             ),
@@ -1510,7 +1549,10 @@ def get_location_rules(player, options):
             ),
 
         "Woodfall Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Woodfall)", player, options.required_stray_fairies.value),
+            lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
+                state.has("Stray Fairy (Woodfall)", player, options.required_stray_fairies.value)
+            ),
         "Woodfall Owl Statue Chest":
             lambda state: state.has("Deku Mask", player),
         "Woodfall Bridge Chest":
@@ -1814,6 +1856,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Goron Village Scrub Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 can_afford_price(state, player, 200) and 
                 (
                     state.has("Goron Mask", player) or 
@@ -1910,15 +1953,18 @@ def get_location_rules(player, options):
         "Path to Snowhead Scarecrow Pillar HP":
             lambda state: (
                 can_reach_scarecrow(state, player, options) and 
+                state.has("Path to Snowhead Scarecrow", player) and
                 state.has("Goron Mask", player) and 
                 can_use_lens(state, player) and 
                 state.has("Hookshot", player)
             ),
             
         "Snowhead Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Snowhead)", player, options.required_stray_fairies.value),
-            
-        "Snowhead Temple Bridge Room Under Platform Bubble SF":
+            lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
+                state.has("Stray Fairy (Snowhead)", player, options.required_stray_fairies.value)
+            ),
+"Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
                 state.has("Progressive Bow", player) and 
                 state.has("Great Fairy Mask", player)
@@ -1930,37 +1976,35 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Bombable Stairs Crate SF":
             lambda state: (
+                has_explosives(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player, 1) and 
-                    state.has("Great Fairy Mask", player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    state.has("Hookshot", player) and 
-                    state.can_reach("Snowhead Temple Bridge Room Under Platform Bubble SF", 'Location', player) and 
-                    has_explosives(state, player)
+                    (
+                        state.has("Small Key (Snowhead)", player, 1) and 
+                        state.has("Great Fairy Mask", player)
+                    ) or 
+                    (
+                        state.has("Hookshot", player) and 
+                        state.can_reach("Snowhead Temple Bridge Room Under Platform Bubble SF", 'Location', player)
+                    )
                 )
             ),
         "Snowhead Temple Timed Switch Room Bubble SF":
             lambda state: (
+                state.has("Great Fairy Mask", player) and 
+                can_use_lens(state, player) and 
                 (
-                    state.has("Small Key (Snowhead)", player, 2) and 
-                    state.has("Great Fairy Mask", player) and 
-                    state.has("Progressive Bow", player) and 
-                    can_use_lens(state, player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    can_reach_scarecrow(state, player, options) and 
-                    state.has("Hookshot", player) and 
-                    state.has("Great Fairy Mask", player) and 
-                    state.has("Progressive Bow", player) and 
-                    can_use_lens(state, player)
-                ) or 
-                (
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Great Fairy's Mask", player) and 
-                    can_use_lens(state, player)
+                    (
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        state.has("Progressive Bow", player) and 
+                        has_explosives(state, player)
+                    ) or 
+                    (
+                        can_reach_scarecrow(state, player, options) and
+                        state.has("Snowhead Temple Lower Scarecrow", player) and 
+                        state.has("Hookshot", player) and 
+                        state.has("Progressive Bow", player)
+                    ) or 
+                    can_use_fire_arrows(state, player)
                 )
             ),
         "Snowhead Temple Snowmen Bubble SF":
@@ -2034,17 +2078,13 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Elevator Room Invisible Platform Chest SF":
             lambda state: (
+                can_use_lens(state, player) and 
                 (
-                    can_use_lens(state, player) and 
-                    state.has("Small Key (Snowhead)", player, 2) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    can_use_lens(state, player) and 
-                    can_use_fire_arrows(state, player)
-                ) or 
-                (
-                    can_use_lens(state, player) and 
+                    (
+                        state.has("Small Key (Snowhead)", player, 2) and 
+                        has_explosives(state, player)
+                    ) or 
+                    can_use_fire_arrows(state, player) or 
                     state.has("Hookshot", player)
                 )
             ),
@@ -2062,31 +2102,33 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Main Room Wall Chest SF":
             lambda state: (
+                can_use_fire_arrows(state, player) and 
+                can_use_lens(state, player) and 
                 (
-                    state.has("Small Key (Snowhead)", player, 3) and 
-                    can_use_fire_arrows(state, player) and 
-                    can_use_lens(state, player) and 
-                    has_explosives(state, player) and 
-                    state.has("Deku Mask", player)
-                ) or 
-                (
-                    can_use_fire_arrows(state, player) and 
-                    can_reach_scarecrow(state, player, options) and 
-                    state.has("Hookshot", player) and 
-                    can_use_lens(state, player)
+                    (
+                        state.has("Small Key (Snowhead)", player, 3) and 
+                        has_explosives(state, player) and 
+                        state.has("Deku Mask", player)
+                    ) or 
+                    (
+                        can_reach_scarecrow(state, player, options) and
+
+                        state.has("Hookshot", player)
+                    )
                 )
             ),
         "Snowhead Temple Upper Wizzrobe Chest":
             lambda state: (
+                can_use_fire_arrows(state, player) and 
                 (
-                    state.has("Small Key (Snowhead)", player, 3) and 
-                    can_use_fire_arrows(state, player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Snowhead)", player, 1) and 
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Deku Mask", player)
+                    (
+                        state.has("Small Key (Snowhead)", player, 3) and 
+                        has_explosives(state, player)
+                    ) or 
+                    (
+                        state.has("Small Key (Snowhead)", player, 1) and 
+                        state.has("Deku Mask", player)
+                    )
                 )
             ),
         "Snowhead Temple Heart Container":
@@ -2175,6 +2217,7 @@ def get_location_rules(player, options):
             lambda state: (
                 can_plant_beans(state, player) and 
                 can_reach_scarecrow(state, player, options) and 
+                state.has("Great Bay Coast Rock Wall Scarecrow", player) and
                 state.has("Hookshot", player)
             ),
         "Tingle Great Bay Map Purchase":
@@ -2228,7 +2271,6 @@ def get_location_rules(player, options):
         "Great Bay Baby Zora Song":
             lambda state: (
                 has_soul_npc(state, player, options, "Marine Lab Researcher") and
-                has_soul_npc(state, player, options, "Fisherman") and
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player) or
@@ -2347,6 +2389,7 @@ def get_location_rules(player, options):
             ),
         "Ocean Spider House First Room Downstairs Crate Token":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
@@ -2420,12 +2463,14 @@ def get_location_rules(player, options):
             ),
         "Ocean Spider House Storage Room Ceiling Pot Token":
              lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_misc(state, player, options, "Gold Skulltulas") and
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
         "Ocean Spider House Coloured Mask Sequence HP":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Hookshot", player) and 
                 state.has("Captain's Hat", player) and 
                 state.has("Progressive Bow", player) and 
@@ -2490,6 +2535,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Zora Mask", player),
         "Zora Cape Pot Game":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Pot Game Zora") and
                 state.has("Zora Mask", player)
             ),
@@ -2497,6 +2543,8 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
         "Zora Cape Scarecrow Chest":
             lambda state: (
+                can_reach_scarecrow(state, player, options) and 
+                state.has("Zora Cape Beavers Scarecrow", player) and
                 state.has("Hookshot", player) and 
                 state.has("Deku Mask", player)
             ),
@@ -2518,20 +2566,26 @@ def get_location_rules(player, options):
             ),
         "Zora Hall Torches Reward":
             lambda state: (
+                has_soul_npc(state, player, options, "Hall Zora") and
                 can_use_fire_arrows(state, player)
             ),
         "Zora Hall Good Picture of Lulu":
            lambda state: (
+               has_soul_npc(state, player, options, "Hall Zora") and
+               has_soul_npc(state, player, options, "Lulu") and
                state.has("Pictograph Box", player) and 
                state.has("Zora Mask", player)
            ),
         "Zora Hall Bad Picture of Lulu":
            lambda state: (
+               has_soul_npc(state, player, options, "Hall Zora") and
+               has_soul_npc(state, player, options, "Lulu") and
                state.has("Pictograph Box", player) and 
                state.has("Zora Mask", player)
            ),
         "Zora Hall Deku Scrub Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Zora Mask", player)
             ),
         "Zora Hall Goron Scrub Trade":
@@ -2569,6 +2623,8 @@ def get_location_rules(player, options):
 
         "Great Bay Great Fairy Reward":
             lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Stray Fairy (Great Bay)", player, options.required_stray_fairies.value) and 
                 state.has("Hookshot", player)
             ),
@@ -2588,43 +2644,40 @@ def get_location_rules(player, options):
         "Great Bay Temple Blender Room Barrel SF":
             lambda state: True,
         "Great Bay Temple Blender Pot SF":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Red Valve Room Chest":
             lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Before Red Valve Room Pot SF":
             lambda state: (
-                can_use_ice_arrows(state, player) or 
+                has_soul_absurd(state, player, options, "Pots") and
                 (
-                    has_projectiles(state, player) and 
-                    state.has("Great Fairy Mask", player)
-                ) or 
-                state.has("Deku Mask", player)
+                    can_use_ice_arrows(state, player) or
+                    (
+                        has_projectiles(state, player) and 
+                        state.has("Great Fairy Mask", player)
+                    ) or 
+                    state.has("Deku Mask", player)
+                )
             ),
         "Great Bay Temple Bio-Baba Hall Chest SF":
             lambda state: True,
-        "Great Bay Temple Before Gekko Room Room Pot SF":
-            lambda state: True,
-        "Great Bay Temple Before Gekko Room Room Upper Chest":
+        "Great Bay Temple Before Gekko Room Pot SF":
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
+        "Great Bay Temple Before Gekko Room Upper Chest":
             lambda state: True,
         "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
-        "Great Bay Temple Before Gekko Room Room Underwater Chest":
+        "Great Bay Temple Before Gekko Room Underwater Chest":
             lambda state: True,
         "Great Bay Temple Behind Locked Door Chest":
             lambda state: (
+                state.has("Small Key (Great Bay)", player) and 
                 (
-                    state.has("Small Key (Great Bay)", player) and 
-                    can_smack_hard(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Great Bay)", player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Great Bay)", player) and 
+                    can_smack_hard(state, player) or
+                    has_explosives(state, player) or
                     state.has("Progressive Bow", player)
                 )
             ),
@@ -2772,6 +2825,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Canyon Scrub Purchase":
             lambda state: (
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 has_bottle(state, player) and 
                 can_afford_price(state, player, 100)
             ),
@@ -2796,6 +2850,7 @@ def get_location_rules(player, options):
 
         "Stone Tower Great Fairy Reward":
             lambda state: (
+                has_soul_npc(state, player, options, "Great Fairies") and
                 state.has("Stray Fairy (Stone Tower)", player, options.required_stray_fairies.value) and 
                 can_use_ice_arrows(state, player)
             ),
@@ -5066,12 +5121,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5083,12 +5140,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5100,12 +5159,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5117,12 +5178,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5134,12 +5197,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5151,12 +5216,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5168,12 +5235,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5185,12 +5254,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5202,12 +5273,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5219,12 +5292,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5236,12 +5311,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5253,12 +5330,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5270,12 +5349,14 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5287,18 +5368,19 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player) and
                 (
+                    has_soul_npc(state, player, options, "Koume") and
                     state.has("Bottle of Red Potion", player) or 
                     (
                         has_hard_projectiles(state, player) and 
                         state.has("Deku Mask", player)
                     ) or 
                     (
+                        has_soul_npc(state, player, options, "Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
                 )
             ),
-
         # Woodfall Temple Post Dungeon
 
         "Southern Swamp Owl Post Dungeon Grass (1)":
