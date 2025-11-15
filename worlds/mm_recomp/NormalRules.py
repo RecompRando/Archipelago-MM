@@ -80,7 +80,7 @@ def can_get_cow_milk(state, player, options):
                 state.has("Gibdo Mask", player) and 
                 has_soul_npc(state, player, options, "Gibdos") and
                 has_bottle(state, player) and 
-                can_plant_beans(state, player) and 
+                can_plant_beans(state, player, options) and 
                 state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
                 can_use_light_arrows(state, player) and 
                 (
@@ -109,8 +109,8 @@ def has_bottle(state, player, need_count=1):
         bottle_count += 1
     return bottle_count >= need_count
 
-def can_plant_beans(state, player):
-    return (can_get_magic_beans(state, player) and 
+def can_plant_beans(state, player, options):
+    return (can_get_magic_beans(state, player, options) and 
             (has_bottle(state, player) or can_play_song("Song of Storms", state, player)))
 
 def can_use_powder_keg(state, player):
@@ -554,7 +554,7 @@ lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Progressive Bow", player) and
                 (
                     state.has("Progressive Bomb Bag", player) or 
@@ -1120,7 +1120,7 @@ def get_location_rules(player, options):
         "Termina Stump Chest":
             lambda state: (
                 state.has("Hookshot", player) or 
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         "Termina Underwater Chest":
             lambda state: state.has("Zora Mask", player),
@@ -1249,12 +1249,12 @@ def get_location_rules(player, options):
                 (
                     has_soul_npc(state, player, options, "Business Scrubs") and
                     state.has("Deku Mask", player) and 
-                    can_plant_beans(state, player)
+                    can_plant_beans(state, player, options)
                 ) or 
                 (
                     state.has("Land Title Deed", player) and 
                     state.has("Moon's Tear", player) and 
-                    can_plant_beans(state, player)
+                    can_plant_beans(state, player, options)
                 )
             ),
         "Southern Swamp Deku Trade":
@@ -1399,7 +1399,7 @@ def get_location_rules(player, options):
                 (
                     has_soul_misc(state, player, options, "Gold Skulltulas") and
                     can_smack(state, player) and 
-                    can_plant_beans(state, player) and 
+                    can_plant_beans(state, player, options) and 
                     (
                         has_explosives(state, player) or 
                         state.has("Goron Mask", player)
@@ -1472,7 +1472,7 @@ def get_location_rules(player, options):
                 can_smack(state, player) and 
                 (
                     (can_bring_to_player(state, player) or 
-                    can_plant_beans(state, player))
+                    can_plant_beans(state, player, options))
                 )
             ),
         "Swamp Spider House Golden Room Beehive Token":
@@ -1525,7 +1525,7 @@ def get_location_rules(player, options):
         "Deku Palace Bean Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                (can_plant_beans(state, player) or 
+                (can_plant_beans(state, player, options) or 
                 state.has("Hookshot", player))
             ),
         "Deku Palace HP":
@@ -1534,7 +1534,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Monkey") and
                 state.has("Ocarina of Time", player) and 
-                can_plant_beans(state, player) and 
+                can_plant_beans(state, player, options) and 
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Butler Race":
@@ -2173,7 +2173,7 @@ def get_location_rules(player, options):
         "Romani Ranch Doggy Racetrack Rooftop Chest":
             lambda state: (
                 state.has("Hookshot", player) or 
-                can_plant_beans(state, player) or 
+                can_plant_beans(state, player, options) or 
                 state.has("Zora Mask", player)
             ),
         "Romani Ranch Doggy Race":
@@ -2215,7 +2215,7 @@ def get_location_rules(player, options):
             lambda state: can_play_song("Song of Healing", state, player),
         "Great Bay Scarecrow Ledge HP":
             lambda state: (
-                can_plant_beans(state, player) and 
+                can_plant_beans(state, player, options) and 
                 can_reach_scarecrow(state, player, options) and 
                 state.has("Great Bay Coast Rock Wall Scarecrow", player) and
                 state.has("Hookshot", player)
@@ -2250,21 +2250,21 @@ def get_location_rules(player, options):
         "Pinnacle Rock Seahorse HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Upper Eel Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Lower Eel Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -2273,7 +2273,7 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Marine Lab Researcher") and
                 has_bottle(state, player) and 
                 (
-                    can_reach_seahorse(state, player) or
+                    can_reach_seahorse(state, player, options) or
                     state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
                 )
             ),
@@ -2890,7 +2890,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
+                    can_plant_beans(state, player, options) or 
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -2911,7 +2911,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and 
                     has_bottle(state, player) and 
-                    can_plant_beans(state, player) and 
+                    can_plant_beans(state, player, options) and 
                     (
                         state.has("Progressive Bomb Bag", player) or 
                         (
@@ -2934,7 +2934,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -2982,11 +2982,11 @@ def get_location_rules(player, options):
             ),
 
         "Stone Tower Inverted Left Chest":
-            lambda state: can_plant_beans(state, player),
+            lambda state: can_plant_beans(state, player, options),
         "Stone Tower Inverted Middle Chest":
-            lambda state: can_plant_beans(state, player),
+            lambda state: can_plant_beans(state, player, options),
         "Stone Tower Inverted Right Chest":
-            lambda state: can_plant_beans(state, player),
+            lambda state: can_plant_beans(state, player, options),
         
         "Stone Tower Temple Entrance Room Eye Switch Chest":
             lambda state: state.has("Progressive Bow", player),
@@ -7856,7 +7856,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
+                    can_plant_beans(state, player, options) or 
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -7867,7 +7867,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
+                    can_plant_beans(state, player, options) or 
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -7878,7 +7878,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
+                    can_plant_beans(state, player, options) or 
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -7889,7 +7889,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_plant_beans(state, player) or 
+                    can_plant_beans(state, player, options) or 
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -7904,7 +7904,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -7934,7 +7934,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -7964,7 +7964,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -7995,7 +7995,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     (
-                        can_plant_beans(state, player) and
+                        can_plant_beans(state, player, options) and
                         (
                             state.has("Progressive Bomb Bag", player) or
                             (
@@ -8018,7 +8018,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     (
-                        can_plant_beans(state, player) and
+                        can_plant_beans(state, player, options) and
                         (
                             state.has("Progressive Bomb Bag", player) or
                             (
@@ -8041,7 +8041,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     (
-                        can_plant_beans(state, player) and
+                        can_plant_beans(state, player, options) and
                         (
                             state.has("Progressive Bomb Bag", player) or
                             (
@@ -8064,7 +8064,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     (
-                        can_plant_beans(state, player) and
+                        can_plant_beans(state, player, options) and
                         (
                             state.has("Progressive Bomb Bag", player) or
                             (
@@ -8087,7 +8087,7 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     (
-                        can_plant_beans(state, player) and
+                        can_plant_beans(state, player, options) and
                         (
                             state.has("Progressive Bomb Bag", player) or
                             (
@@ -8785,14 +8785,14 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.can_reach("Deku Palace", 'Region', player)
             ),
         "Deku Palace Right Side Upper Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.can_reach("Deku Palace", 'Region', player)
             ),
         
@@ -10124,7 +10124,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10132,7 +10132,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10140,7 +10140,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10148,7 +10148,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10156,7 +10156,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10164,7 +10164,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10172,7 +10172,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10180,7 +10180,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10188,7 +10188,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10196,7 +10196,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -10204,7 +10204,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_reach_seahorse(state, player) and 
+                can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
@@ -11449,7 +11449,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11460,7 +11460,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11471,7 +11471,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11482,7 +11482,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11493,7 +11493,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11504,7 +11504,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11515,7 +11515,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11526,7 +11526,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11537,7 +11537,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11548,7 +11548,7 @@ def get_location_rules(player, options):
                 state.has("Gibdo Mask", player) and
                 has_bottle(state, player) and
                 (
-                    can_plant_beans(state, player) or
+                    can_plant_beans(state, player, options) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -11561,7 +11561,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
-                    can_plant_beans(state, player) and
+                    can_plant_beans(state, player, options) and
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
@@ -11581,7 +11581,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
-                    can_plant_beans(state, player) and
+                    can_plant_beans(state, player, options) and
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
@@ -11601,7 +11601,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
-                    can_plant_beans(state, player) and
+                    can_plant_beans(state, player, options) and
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
@@ -11621,7 +11621,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Gibdos") and
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
-                    can_plant_beans(state, player) and
+                    can_plant_beans(state, player, options) and
                     (
                         state.has("Progressive Bomb Bag", player) or
                         (
@@ -12304,31 +12304,31 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         "Inverted Stone Tower Bean Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         "Inverted Stone Tower Bean Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         "Inverted Stone Tower Bean Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         "Inverted Stone Tower Bean Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stone Tower (Inverted)", 'Region', player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
         
         # Inverted Stone Tower Temple Updraft Pots
@@ -14057,87 +14057,87 @@ def get_location_rules(player, options):
         "Secret Shrine Rupees (0)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (1)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (2)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (3)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (4)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (5)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (6)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (7)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (8)":
              lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (9)":
              lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (10)":
              lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (11)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (12)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (13)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (14)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (15)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
         "Secret Shrine Rupees (16)":
             lambda state: (
                 (state.has("Zora Mask", player) or 
-                can_plant_beans(state, player))
+                can_plant_beans(state, player, options))
             ),
 
         # Stone Tower Rupees
@@ -18299,7 +18299,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -18329,7 +18329,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -18359,7 +18359,7 @@ def get_location_rules(player, options):
                 (
                     can_play_song("Epona's Song", state, player) and 
                     (
-                        can_plant_beans(state, player) or 
+                        can_plant_beans(state, player, options) or 
                         can_use_light_arrows(state, player)
                     ) and 
                     (
@@ -18605,67 +18605,67 @@ def get_location_rules(player, options):
         "Deku Palace Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Flower (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_plant_beans(state, player) and
+                can_plant_beans(state, player, options) and
                 state.has("Deku Mask", player)
             ),
         # Swamp Spider Flowers
