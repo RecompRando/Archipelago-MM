@@ -19487,4 +19487,23 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Well Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
+
+        "Majora's Soul":
+            lambda state: (
+                has_enough_remains(state, player, 4) and
+                has_enough_masks(state, player, 24) and
+                has_all_owls(state, player) and
+                has_all_scarecrows(state, player) and
+                has_all_frogs(state, player) and
+                has_all_trade_items(state, player) and
+                state.has("Heart Piece", player, 36) and
+                state.has("Heart Container", player, 8) and
+                state.has("Stray Fairy (Clock Town)", player, 1) and
+                state.has("Stray Fairy (Woodfall)", player, 15) and
+                state.has("Stray Fairy (Snowhead)", player, 15) and
+                state.has("Stray Fairy (Great Bay)", player, 15) and
+                state.has("Stray Fairy (Stone Tower)", player, 15) and
+                state.has("Swamp Skulltula Token", player, 30) and
+                state.has("Ocean Skulltula Token", player, 30)
+            ),
     }   
