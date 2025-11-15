@@ -7868,7 +7868,7 @@ def get_location_rules(player, options):
             ),
 
         # Beneath the Well Left Side Back Room Grass - Matches Invisible Chest rules
-        "Beneath the Well Left Side Back Room Grass (0)":
+        "Beneath the Well Left Side Back Room Grass (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
                 has_soul_absurd(state, player, options, "Grass") and
@@ -7880,7 +7880,7 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Kotake") 
                 )
             ),
-        "Beneath the Well Left Side Back Room Grass (1)":
+        "Beneath the Well Left Side Back Room Grass (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
                 has_soul_absurd(state, player, options, "Grass") and
@@ -10474,22 +10474,22 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Room Behind 1F Waterfall 
-        "Great Bay Temple Room Behind 1F Waterfall (1)":
+        "Great Bay Temple Room Behind 1F Waterfall Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
-        "Great Bay Temple Room Behind 1F Waterfall (2)":
+        "Great Bay Temple Room Behind 1F Waterfall Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
-        "Great Bay Temple Room Behind 1F Waterfall (3)":
+        "Great Bay Temple Room Behind 1F Waterfall Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
-        "Great Bay Temple Room Behind 1F Waterfall (4)":
+        "Great Bay Temple Room Behind 1F Waterfall Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
@@ -10557,22 +10557,22 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player)
             ),
         
-        # Great Bay Temple Before Gekko Room Room Pots 
-        "Great Bay Temple Before Gekko Room Room Pots (1)":
+        # Great Bay Temple Before Gekko Room Pots 
+        "Great Bay Temple Before Gekko Room Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (2)":
+        "Great Bay Temple Before Gekko Room Pots (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (3)":
+        "Great Bay Temple Before Gekko Room Pots (3)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (4)":
+        "Great Bay Temple Before Gekko Room Pots (4)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (5)":
+        "Great Bay Temple Before Gekko Room Pots (5)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (6)":
+        "Great Bay Temple Before Gekko Room Pots (6)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (7)":
+        "Great Bay Temple Before Gekko Room Pots (7)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Room Pots (8)":
+        "Great Bay Temple Before Gekko Room Pots (8)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Red Valve Underwater Pots - Basic temple access
@@ -14048,10 +14048,10 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player)
             ),
 
-        # Great Bay Temple Before Gekko Room Room Underwater Rupees
-        "Great Bay Temple Before Gekko Room Room Underwater Rupees (0)":
+        # Great Bay Temple Before Gekko Room Underwater Rupees
+        "Great Bay Temple Before Gekko Room Underwater Rupees (0)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
-        "Great Bay Temple Before Gekko Room Room Underwater Rupees (1)":
+        "Great Bay Temple Before Gekko Room Underwater Rupees (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
         # Ikana Graveyard Day 2 Rupees
@@ -17536,6 +17536,8 @@ def get_location_rules(player, options):
         # Great Bay Coast Butterflies
 
         "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (1)":
+            lambda state: has_soul_misc(state, player, options, "Butterflies"),
+        "Great Bay Coast Outside Fisherman Hut Butterfly Fairy (2)":
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
 
         "Great Bay Coast Cow Grotto Butterfly Fairy (1)":

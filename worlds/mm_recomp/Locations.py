@@ -6676,7 +6676,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420124B51,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Beneath the Well Left Side Back Room Grasss (2)": MMRLocationData(
+    "Beneath the Well Left Side Back Room Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x3469420124B50,
         can_create=lambda options: options.grasssanity.value
