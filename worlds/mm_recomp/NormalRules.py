@@ -17022,7 +17022,7 @@ def get_location_rules(player, options):
 
         # Road to Southern Swamp Gossip Fairy
 
-        "Road To Southern Swamp Gossip Fairy":
+        "Road to Southern Swamp Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
                 can_play_song("Epona's Song", state, player)
