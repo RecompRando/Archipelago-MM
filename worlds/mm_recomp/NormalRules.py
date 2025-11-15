@@ -19626,8 +19626,6 @@ def get_location_rules(player, options):
                 has_all_scarecrows(state, player) and
                 has_all_frogs(state, player) and
                 has_all_trade_items(state, player) and
-                state.has("Heart Piece", player, 36) and
-                state.has("Heart Container", player, 8) and
                 state.has("Stray Fairy (Clock Town)", player, 1) and
                 state.has("Stray Fairy (Woodfall)", player, 15) and
                 state.has("Stray Fairy (Snowhead)", player, 15) and
