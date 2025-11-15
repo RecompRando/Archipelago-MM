@@ -318,6 +318,51 @@ def has_soul_enemy(state, player, options, soul_name):
         return True
     return state.has("Soul of " + soul_name, player)
 
+def has_all_owls(state, player):
+    return (
+        state.has("Clock Town Owl Statue", player) and
+        state.has("Milk Road Owl Statue", player) and
+        state.has("Southern Swamp Owl Statue", player) and
+        state.has("Woodfall Owl Statue", player) and
+        state.has("Mountain Village Owl Statue", player) and
+        state.has("Snowhead Owl Statue", player) and
+        state.has("Great Bay Coast Owl Statue", player) and
+        state.has("Zora Cape Owl Statue", player) and
+        state.has("Ikana Canyon Owl Statue", player) and
+        state.has("Stone Tower Owl Statue", player)
+    )
+
+def has_all_scarecrows(state, player):
+    return (
+        state.has("Mountain Village Rooftop Scarecrow", player) and
+        state.has("Mountain Village Spring Rooftop Scarecrow", player) and
+        state.has("Path to Snowhead Scarecrow", player) and
+        state.has("Path to Snowhead Spring Scarecrow", player) and
+        state.has("Twin Islands Scarecrow", player) and
+        state.has("Twin Islands Spring Scarecrow", player) and
+        state.has("Snowhead Temple Lower Scarecrow", player) and
+        state.has("Snowhead Temple Hidden Alcove Scarecrow", player) and
+        state.has("Great Bay Coast Rock Wall Scarecrow", player) and
+        state.has("Zora Cape Beavers Scarecrow", player) and
+        state.has("Zora Cape Island Scarecrow", player) and
+        state.has("Road to Ikana Scarecrow", player) and
+        state.has("Stone Tower Lower Scarecrow", player) and
+        state.has("Stone Tower Upper Scarecrow", player)
+    )
+
+def has_all_trade_items(state, player):
+    return (
+        state.has("Room Key", player) and
+        state.has("Priority Mail", player) and
+        state.has("Letter to Kafei", player) and
+        state.has("Pendant of Memories", player) and
+        state.has("Moon's Tear", player) and
+        state.has("Land Title Deed", player) and
+        state.has("Swamp Title Deed", player) and
+        state.has("Mountain Title Deed", player) and
+        state.has("Ocean Title Deed", player)
+    )
+
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
