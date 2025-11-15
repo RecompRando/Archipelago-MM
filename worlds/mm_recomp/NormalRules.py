@@ -8766,10 +8766,10 @@ def get_location_rules(player, options):
             ),
         # Southern Swamp Pots
         
-        # Road To Southern Swamp Outside Archery Pots
-        "Road To Southern Swamp Outside Archery Pots (1)":
+        # Road to Southern Swamp Outside Archery Pots
+        "Road to Southern Swamp Outside Archery Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Road To Southern Swamp Outside Archery Pots (2)":
+        "Road to Southern Swamp Outside Archery Pots (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Southern Swamp Beneath Witch Shop Pots
@@ -18688,42 +18688,42 @@ def get_location_rules(player, options):
                 state.has("Deku Mask", player)
             ),
         # Road To Swamp Flowers
-        "Road To Southern Swamp Flowers (1)":
+        "Road to Southern Swamp Flowers (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (2)":
+        "Road to Southern Swamp Flowers (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (3)":
+        "Road to Southern Swamp Flowers (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (4)":
+        "Road to Southern Swamp Flowers (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (5)":
+        "Road to Southern Swamp Flowers (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (6)":
+        "Road to Southern Swamp Flowers (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (7)":
+        "Road to Southern Swamp Flowers (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Road To Southern Swamp Flowers (8)":
+        "Road to Southern Swamp Flowers (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
