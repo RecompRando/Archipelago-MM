@@ -16813,7 +16813,12 @@ def get_location_rules(player, options):
                 has_explosives(state, player) and 
                 state.has("Zora Mask", player)
             ),
-
+        "Termina Field Cow Grotto Hive":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_explosives(state, player) and 
+                has_projectiles(state, player)
+            ),
         # Southern Swamp Hive
 
         "Southern Swamp Hive Near Frog (1)":
@@ -16854,7 +16859,16 @@ def get_location_rules(player, options):
 
         "Mountain Village Spring Tree Hive (1)":
             lambda state: can_clear_snowhead(state, player),
-
+        "Great Bay Coast Cow Grotto Hive":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                state.has("Hookshot", player)
+            ),
+        "Pirates Fortress Interior Leaders Hive From Lower Barrels":
+            lambda state: (
+                state.has("Hookshot", player) and 
+                state.has("Stone Mask", player)
+            ),
         #Scarecrowsanity
         # Mountain Village Scarecrows
         "Mountain Village Rooftop Scarecrow":

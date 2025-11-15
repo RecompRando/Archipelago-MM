@@ -14521,19 +14521,24 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Termina Field
     "Termina Field Bombable Rock Grotto Hive (1)": MMRLocationData(
         region="Termina Field",
-        address=0x3469420240700,
+        address=0x3469420248000,
         can_create=lambda options: options.hivesanity.value
     ),
     "Termina Field Bio Baba Grotto Hive (1)": MMRLocationData(
         region="Termina Field",
-        address=0x34694202407B1,
+        address=0x3469420248BB1,
         can_create=lambda options: options.hivesanity.value
     ),
     "Termina Field Bio Baba Grotto Hive (2)": MMRLocationData(
         region="Termina Field",
-        address=0x34694202407B2,
+        address=0x3469420248BB2,
         can_create=lambda options: options.hivesanity.value
-    ),        
+    ),   
+    "Termina Field Cow Grotto Hive": MMRLocationData(
+        region="Termina Field",
+        address=0x346942024ADA0,
+        can_create=lambda options: options.hivesanity.value
+    ),   
     # Southern Swamp Hives
     "Southern Swamp Hive Near Frog (1)": MMRLocationData(
         region="Southern Swamp",
@@ -14601,6 +14606,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Spring Tree Hive (1)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420245A00,
+        can_create=lambda options: options.hivesanity.value
+    ),
+    "Great Bay Coast Cow Grotto Hive": MMRLocationData(
+        region="Great Bay",
+        address=0x346942024B7A0,
         can_create=lambda options: options.hivesanity.value
     ),
     # Pirates Fortress Interior Guarded Hive From Barrel  
