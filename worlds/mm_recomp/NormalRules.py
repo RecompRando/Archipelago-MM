@@ -2687,7 +2687,7 @@ def get_location_rules(player, options):
                 )
             ),
         "Great Bay Temple Blender Room Barrel SF":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Barrels"),
         "Great Bay Temple Blender Pot SF":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Red Valve Room Chest":
@@ -19521,26 +19521,26 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp Outside Woods of Mystery Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        #"Southern Swamp (Clear State) Witch's Hut Cut the Sign":
-        # lambda state: can_clear("Woodfall", state, player),
-        "Woods of Mystery Cut the Sign Day 1":
+        "Southern Swamp (Clear State) Witch's Hut Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_woodfall(state, player),
+        "Woods of Mystery Cut the Sign Day 1 (1)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 1 (2)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 1 (3)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        "Woods of Mystery Cut the Sign Day 2":
+        "Woods of Mystery Cut the Sign Day 1 (2)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 2 (5)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 2 (6)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        "Woods of Mystery Cut the Sign Day 3":
+        "Woods of Mystery Cut the Sign Day 1 (3)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 3 (8)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
-        # ~ "Woods of Mystery Cut the Sign Day 3 (9)":
-            # ~ lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (1)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (2)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 2 (3)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (1)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (2)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Woods of Mystery Cut the Sign Day 3 (3)":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
 
         "Southern Swamp Log Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
@@ -19632,4 +19632,23 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Well Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
+
+        "Majora's Soul":
+            lambda state: (
+                has_enough_remains(state, player, 4) and
+                has_enough_masks(state, player, 24) and
+                has_all_owls(state, player) and
+                has_all_scarecrows(state, player) and
+                has_all_frogs(state, player) and
+                has_all_trade_items(state, player) and
+                state.has("Heart Piece", player, 36) and
+                state.has("Heart Container", player, 8) and
+                state.has("Stray Fairy (Clock Town)", player, 1) and
+                state.has("Stray Fairy (Woodfall)", player, 15) and
+                state.has("Stray Fairy (Snowhead)", player, 15) and
+                state.has("Stray Fairy (Great Bay)", player, 15) and
+                state.has("Stray Fairy (Stone Tower)", player, 15) and
+                state.has("Swamp Skulltula Token", player, 30) and
+                state.has("Ocean Skulltula Token", player, 30)
+            ),
     }   
