@@ -2465,7 +2465,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694201042DA,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Takkuri  (12)": MMRLocationData(
+    "Termina Field Grass Near Takkuri (12)": MMRLocationData(
         region="Termina Field",
         address=0x34694201042DB,
         can_create=lambda options: options.grasssanity.value
@@ -12204,7 +12204,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420182700,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Swamp Spider Monument Room Boulder (1)": MMRLocationData(
+    "Swamp Spider Monument Room Boulder": MMRLocationData(
         region="Swamp Spider House",
         address=0x34694201B2730,
         can_create=lambda options: options.rocksanity.value
@@ -12323,17 +12323,17 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420183209,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Goron Village Lens Cave Bomb Boulder (0)": MMRLocationData(
+    "Goron Village Lens Cave Bomb Boulder (1)": MMRLocationData(
         region="Goron Village",
         address=0x34694201B0750,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Goron Village Lens Cave Bomb Boulder (1)": MMRLocationData(
+    "Goron Village Lens Cave Bomb Boulder (2)": MMRLocationData(
         region="Goron Village",
         address=0x34694201B0751,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Goron Village Lens Cave Bomb Boulder (2)": MMRLocationData(
+    "Goron Village Lens Cave Bomb Boulder (3)": MMRLocationData(
         region="Goron Village",
         address=0x34694201B0752,
         can_create=lambda options: options.rocksanity.value

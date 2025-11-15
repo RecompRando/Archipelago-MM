@@ -3479,6 +3479,20 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),  
+        "Lost Woods Grass (11)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                has_soul_npc(state, player, options, "Skull Kid") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player)
+            ),  
+        "Lost Woods Grass (12)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grass") and
+                has_soul_npc(state, player, options, "Skull Kid") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player)
+            ),  
         "Lost Woods Grass Patch 2 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
@@ -9016,6 +9030,12 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Mountain Village Pots (3)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
+        
+        # Mountain Smithy Pots
+        "Mountain Smithy Pots (1)":
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
+        "Mountain Smithy Pots (2)":
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         # Goron Village Pots
         
         # Goron Racetrack Pots - Requires Goron Mask and Powder Keg
@@ -13333,7 +13353,7 @@ def get_location_rules(player, options):
 
 
         # Termina Field Eastern Pillar Rupees
-        "Termina Field Easter Pillar Rupees":
+        "Termina Field Eastern Pillar Rupees":
             lambda state: True,
 
         # Termina Field Tree Rupees
@@ -15110,6 +15130,9 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Rocks") and
                 state.can_reach("Swamp Spider House", 'Region', player)
             ),
+        # Swamp Spider Monument Room Boulder 
+        "Swamp Spider Monument Room Boulder":
+            lambda state: True,
         # Swamp Spider Large Pots Rock
         "Swamp Spider Large Pots Rock":
             lambda state: (
@@ -15272,6 +15295,14 @@ def get_location_rules(player, options):
                         has_soul_npc(state, player, options, "Gatekeeper & Medigoron")
                     )
             ),
+
+        # Lens Cave Boulders
+        "Goron Village Lens Cave Bomb Boulder (1)":
+            lambda state: state.has("Goron Mask", player),
+        "Goron Village Lens Cave Bomb Boulder (2)":
+            lambda state: state.has("Goron Mask", player),
+        "Goron Village Lens Cave Bomb Boulder (3)":
+            lambda state: state.has("Goron Mask", player),
 
         # Mountain Village Spring Rock Triangle
 
@@ -16447,7 +16478,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Snowhead Temple Grey Door Icicles (2)":
             lambda state: True,
-        "Snowhead Temple Grey Door Ceiling Icicles (2)":
+        "Snowhead Temple Grey Door Ceiling Icicles (1)":
             lambda state: True,
         "Snowhead Temple Grey Door Ceiling Icicles (2)":
             lambda state: True,
@@ -16719,6 +16750,8 @@ def get_location_rules(player, options):
         "Swamp Spider House Gold Room Hives (1)":
             lambda state: has_projectiles(state, player),
         "Swamp Spider House Gold Room Hives (2)":
+            lambda state: has_projectiles(state, player),
+        "Swamp Spider House Gold Room Hives (3)":
             lambda state: has_projectiles(state, player),
 
         "Swamp Spider Tree Room Hives (1)":
@@ -17618,6 +17651,8 @@ def get_location_rules(player, options):
             lambda state: True,
         "Southern Swamp Owl Statue":
             lambda state: True,
+        "Woodfall Owl Statue":
+            lambda state: state.can_reach("Woodfall Temple", 'Region', player),
         "Mountain Village Owl Statue":
             lambda state: state.can_reach("Mountain Village", 'Region', player),
         "Snowhead Owl Statue":
@@ -18638,6 +18673,11 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
+        "Southern Swamp Woods of Mystery Flower Any Day (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player)
+            ),
         "Southern Swamp Woods of Mystery Flower Day 2 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
@@ -18713,6 +18753,11 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 can_plant_beans(state, player, options) and
+                state.has("Deku Mask", player)
+            ),
+        "Deku Palace To Swamp Flower":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         # Swamp Spider Flowers
