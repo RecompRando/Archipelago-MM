@@ -2,7 +2,7 @@ from typing import List
 from typing import Dict
 from typing import TextIO
 
-from BaseClasses import Region, Tutorial
+from BaseClasses import Region, Tutorial, ItemClassification
 from worlds.AutoWorld import WebWorld, World
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
 from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
@@ -37,7 +37,7 @@ class MMRWorld(World):
     options = MMROptions
     location_name_to_id = location_table
     item_name_to_id = item_table
-    
+
     prices_ints: List[int]
     prices: str
 
@@ -66,9 +66,16 @@ class MMRWorld(World):
                 self.prices += str(price) + " "
 
             self.prices = self.prices[:-1]
-    
+
     def create_item(self, name: str) -> MMRItem:
-        return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
+        if (name == "Stray Fairy (Clock Town)" or
+            name == "Stray Fairy (Woodfall)" or
+            name == "Stray Fairy (Snowhead)" or
+            name == "Stray Fairy (Great Bay)" or
+            name == "Stray Fairy (Stone Tower)") and self.options.shuffle_great_fairy_rewards == 0:
+            return MMRItem(name, ItemClassification.filler, item_data_table[name].code, self.player)
+        else:
+            return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
 
     def place(self, location, item):
         player = self.player
@@ -98,11 +105,11 @@ class MMRWorld(World):
 
         if self.options.shieldless.value:
             mw.itempool.append(self.create_item("Progressive Shield"))
-            
+
         if self.options.start_with_soaring.value:
             mw.push_precollected(self.create_item("Song of Soaring"))
             self.create_and_add_filler_items()
-        
+
         if self.options.shuffle_spiderhouse_reward.value:
             mw.itempool.append(self.create_item("Progressive Wallet"))
 
@@ -120,21 +127,24 @@ class MMRWorld(World):
             mw.itempool.append(self.create_item("Red Rupee"))
             mw.itempool.append(self.create_item("Purple Rupee"))
             mw.itempool.append(self.create_item("Gold Rupee"))
-            
+
         if self.options.scrubsanity.value != 0:
             self.create_and_add_filler_items(4)
-        
+
         if self.options.shopsanity.value != 0:
             self.create_and_add_filler_items(27)
 
         if self.options.shopsanity.value == 2:
             self.create_and_add_filler_items(11)
-        
+
         if self.options.cowsanity.value != 0:
             self.create_and_add_filler_items(8)
-        
+
         if self.options.intro_checks.value:
             self.create_and_add_filler_items(1)
+
+        if self.options.shuffle_great_fairy_rewards.value != 0:
+            self.create_and_add_filler_items(6)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -204,9 +214,8 @@ class MMRWorld(World):
                     self.place(code_to_location_table[0x3469420062700 | i], "Swamp Skulltula Token")
                 if i != 0:
                     self.place(code_to_location_table[0x3469420062800 | i], "Ocean Skulltula Token")
-                
 
-        if not self.options.shuffle_great_fairy_rewards.value:
+        if self.options.shuffle_great_fairy_rewards.value == 1: #vanilla
             self.place("North Clock Town Great Fairy Reward", "Progressive Magic")
             self.place("North Clock Town Great Fairy Reward (Has Transformation Mask)", "Great Fairy Mask")
             self.place("Woodfall Great Fairy Reward", "Great Spin Attack")

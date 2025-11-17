@@ -23,18 +23,18 @@ item_data_table: Dict[str, MMRItemData] = {
     "Progressive Magic": MMRItemData(
         code=0x3469420020000,
         type=ItemClassification.progression,
-        can_create=lambda options: options.shuffle_great_fairy_rewards.value,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 1,
         num_exist=2
     ),
     "Great Spin Attack": MMRItemData(
         code=0x3469420020001,
         type=ItemClassification.useful,
-        can_create=lambda options: options.shuffle_great_fairy_rewards.value
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 1
     ),
     "Double Defense": MMRItemData(
         code=0x3469420020003,
         type=ItemClassification.useful,
-        can_create=lambda options: options.shuffle_great_fairy_rewards.value
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 1
     ),
     "Bomber's Notebook": MMRItemData(
         code=0x3469420000050,
@@ -195,7 +195,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Great Fairy Mask": MMRItemData(
         code=0x3469420000086,
         type=ItemClassification.progression,
-        can_create=lambda options: options.shuffle_great_fairy_rewards.value
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 1
     ),
     "Gibdo Mask": MMRItemData(
         code=0x3469420000087,
@@ -271,7 +271,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Great Fairy Sword": MMRItemData(
         code=0x346942000003B,
         type=ItemClassification.progression,
-        can_create=lambda options: options.shuffle_great_fairy_rewards.value
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 1
     ),
     "Progressive Bow": MMRItemData(
         code=0x3469420000022,
@@ -508,13 +508,13 @@ item_data_table: Dict[str, MMRItemData] = {
     "Blue Rupee": MMRItemData(
         code=0x3469420000002,
         type=ItemClassification.filler,
-        num_exist=14
+        num_exist=12
         # ~ num_exist=6
     ),
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
         type=ItemClassification.filler,
-        num_exist=45
+        num_exist=41
         # ~ num_exist=29
     ),
     "Purple Rupee": MMRItemData(

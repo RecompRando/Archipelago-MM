@@ -167,9 +167,16 @@ class Cowsanity(Toggle):
     display_name = "Shuffle Cows"
 
 
-class ShuffleGreatFairyRewards(Toggle):
-    """Choose whether to shuffle Great Fairy rewards."""
+class ShuffleGreatFairyRewards(Choice):
+    """Choose how Great Fairy rewards are shuffled.
+    disabled: Great Fairy rewards won't be shuffled into the pool.
+    vanilla: Great Fairy rewards will be vanilla. For example, Magic will be behind Clock Town and Snowhead rewards.
+    enabled: Great Fairy rewards will be shuffled. Any item can be shuffled at their locations."""
     display_name = "Shuffle Great Fairy Rewards"
+    option_disabled = 0
+    option_vanilla = 1
+    option_enabled = 2
+    default = 0
 
 
 class RequiredStrayFairies(Range):

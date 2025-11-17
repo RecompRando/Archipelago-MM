@@ -339,11 +339,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "North Clock Town Great Fairy Reward": MMRLocationData(
         region="Clock Town",
-        address=0x3469420030000
+        address=0x3469420030000,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "North Clock Town Great Fairy Reward (Has Transformation Mask)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420000086
+        address=0x3469420000086,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "West Clock Town Lottery Any Day": MMRLocationData(
         region="Clock Town",
@@ -777,7 +779,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Great Fairy Reward": MMRLocationData(
         region="Woodfall",
-        address=0x3469420030001
+        address=0x3469420030001,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Woodfall Temple Entrance Chest SF": MMRLocationData(
         region="Woodfall Temple",
@@ -1001,7 +1004,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Snowhead Great Fairy Reward": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420030002
+        address=0x3469420030002,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Snowhead Temple Elevator Room Invisible Platform Chest SF": MMRLocationData(
         region="Snowhead Temple",
@@ -1215,7 +1219,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Great Fairy Reward": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420030003
+        address=0x3469420030003,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Zora Hall Shop Item 1": MMRLocationData(
         region="Zora Hall",
@@ -1654,7 +1659,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Stone Tower Great Fairy Reward": MMRLocationData(
         region="Ikana Canyon",
-        address=0x3469420030004
+        address=0x3469420030004,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Ikana Well Final Chest": MMRLocationData(
         region="Beneath the Well",
