@@ -595,7 +595,7 @@ def get_region_rules(player, options):
                     has_mirror_shield(state, player)
             ),
         "Beneath the Well -> Ikana Castle":
-lambda state: (
+            lambda state: (
                 has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
@@ -753,12 +753,7 @@ def get_location_rules(player, options):
         "Tingle Clock Town Map Purchase":
             lambda state: (
                 has_soul_npc(state, player, options, "Tingle") and
-                has_projectiles(state, player) and 
-                (
-                    state.can_reach("Clock Town", 'Region', player) or 
-                    
-                        state.can_reach("Upper Ikana Canyon", 'Region', player)
-                ),
+                has_projectiles(state, player)
             ),
         
         "South Clock Town Clock Tower Freestanding HP":
@@ -4863,12 +4858,6 @@ def get_location_rules(player, options):
         "Road to Southern Swamp Outside Archery Grass (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-# Road To Southern Swamp Grass
-        "Road to Southern Swamp Outside Archery Grass (1)":
-            lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Road to Southern Swamp Outside Archery Grass (2)":
-            lambda state: has_soul_absurd(state, player, options, "Grass"),
-        
         # Road to Southern Swamp Grass Near Tourist Centre
         "Road to Southern Swamp Grass (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
@@ -5051,7 +5040,6 @@ def get_location_rules(player, options):
         "Southern Near Gossip Stone Grass (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),         
         # Woods of Mystery Grass
-# Woods of Mystery Grass
         "Woods of Mystery Grass (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Woods of Mystery Grass (2)":
@@ -19249,14 +19237,13 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                (can_use_fire_arrows(state, player) and 
+                can_use_fire_arrows(state, player) and 
                 (
                     state.has("Small Key (Snowhead)", player, 3) or 
                     (
-                        can_use_fire_arrows(state, player) and
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
-                        can_reach_scarecrow(state, player, options))
+                        can_reach_scarecrow(state, player, options)
                     )
                 )
             ),
@@ -19279,6 +19266,7 @@ def get_location_rules(player, options):
         "Ikana Canyon Business Scrub Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.has("Zora Mask", player) and 
                 state.has("Ocean Title Deed", player)
@@ -19286,30 +19274,45 @@ def get_location_rules(player, options):
         "Ikana Canyon Business Scrub Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.has("Zora Mask", player) and 
                 state.has("Ocean Title Deed", player)
             ), 
-            "Well Deku Flower (1)":
+        "Well Deku Flower (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Deku Mask", player) and 
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
-                (
-                    can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player) and
-                    has_soul_npc(state, player, options, "Kotake")
+                (   
+                    (
+                        can_afford_price(state, player, 100) and
+                        has_soul_npc(state, player, options, "Business Scrubs")
+                    ) or 
+                    (
+                        state.has("Mask of Scents", player) and
+                        has_soul_npc(state, player, options, "Kotake")
+                    )
                 )
             ),
-            "Well Deku Flower (2)":
+        "Well Deku Flower (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Deku Mask", player) and 
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
-                (
-                    can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player) and
-                    has_soul_npc(state, player, options, "Kotake")
+                (   
+                    (
+                        can_afford_price(state, player, 100) and
+                        has_soul_npc(state, player, options, "Business Scrubs")
+                    ) or 
+                    (
+                        state.has("Mask of Scents", player) and
+                        has_soul_npc(state, player, options, "Kotake")
+                    )
                 )
             ),
         "Ikana Castle Left Side Falling Ceiling Room Flower (1)":
