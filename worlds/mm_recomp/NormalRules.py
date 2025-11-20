@@ -12840,7 +12840,7 @@ def get_location_rules(player, options):
 
         # Sword School Gong
         "Sword School Gong":
-            lambda state: state.has("Progressive Sword", player),
+            lambda state: can_smack(state, player),
 
         # Stock Pot Inn Mask Hitspot
         "Stock Pot Inn Mask Hitspot (0)":
