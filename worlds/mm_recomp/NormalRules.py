@@ -10367,6 +10367,7 @@ def get_location_rules(player, options):
             ),
         "Pirates Fortress Interior Room Past Green Guard Pots (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
