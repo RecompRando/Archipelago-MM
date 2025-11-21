@@ -2322,7 +2322,8 @@ def get_location_rules(player, options):
             ),
 
         "Romani Ranch Baby Cuccos March":
-            lambda state: state.has("Bremen Mask", player),
+            lambda state: has_soul_npc(state, player, options, "Grog") and 
+                            state.has("Bremen Mask", player),
         "Romani Ranch Helping Cremia":
             lambda state: (
                 has_soul_npc(state, player, options, "Romani & Cremia") and
