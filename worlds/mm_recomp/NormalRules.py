@@ -928,15 +928,15 @@ def get_location_rules(player, options):
             ),
         "East Clock Town Honey and Darling Any Day":
             lambda state: (
-                (has_soul_npc(state, player, options, "Honey and Darling") and
-                state.has("Progressive Bow", player) or 
+                has_soul_npc(state, player, options, "Honey and Darling") and
                 (
-                    state.has("Progressive Bomb Bag", player) or 
-                    has_bombchus(state, player)
-                ) or 
-                (
-                    state.has("Deku Mask", player) and 
-                    state.has("Progressive Magic", player))
+                    state.has("Progressive Bow", player) or
+                    state.has("Progressive Bomb Bag", player) or
+                    has_bombchus(state, player) or
+                    (
+                        state.has("Deku Mask", player) and
+                        state.has("Progressive Magic", player)
+                    )
                 )
             ),
         "East Clock Town Honey and Darling All Days":
@@ -971,6 +971,7 @@ def get_location_rules(player, options):
         "Bomber's Hideout Astral Observatory":
             lambda state: (
                 has_soul_npc(state, player, options, "Astral Observatory Man") and
+                has_soul_npc(state, player, options,"Skull Kid") and
                 (
                     has_projectiles(state, player) 
                 or
@@ -15231,8 +15232,12 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Rocks"),
         "Termina Field Bio Baba Rock":
             lambda state: (
-                has_explosives(state, player) or
-                state.has("Goron Mask", player)
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_absurd(state, player, options, "Rocks") and
+                (
+                    has_explosives(state, player) or
+                    state.has("Goron Mask", player)
+                )
             ),
         # Termina Field North West Rock Wall
         "Termina Field North West Rock Wall (0)":
@@ -19678,7 +19683,13 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
 
         "Southern Swamp Log Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Deku Mask", player)
+                )
+            ),
         "Southern Swamp Outside Spider House":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Swamp Spider House Behind Statue Cut the Sign":
