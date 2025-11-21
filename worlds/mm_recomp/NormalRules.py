@@ -17256,23 +17256,21 @@ def get_location_rules(player, options):
         # Mountain Village Gossip Fairies
 
         "Mountain Village Spring Waterfall Gossip Fairy":
-            lambda state: 
+            lambda state: (
+                can_clear_snowhead(state, player) and
                 (
-                    can_clear_snowhead(state, player) and
-                          (
-                                  can_play_song("Song of Healing", state, player) or
-                                  can_play_song("Epona's Song", state, player)
-                          ),
-                ),
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player)
+                )
+            ),
         "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
-            lambda state: 
+            lambda state: (
+                can_clear_snowhead(state, player) and
                 (
-                    can_clear_snowhead(state, player) and
-                          (
-                                  can_play_song("Song of Healing", state, player) or
-                                  can_play_song("Epona's Song", state, player)
-                          ),
-                ),
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player)
+                )
+            ),
 
         # Great Bay Coast Gossip Fairy
 
