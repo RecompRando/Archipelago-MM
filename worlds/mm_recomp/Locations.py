@@ -14494,7 +14494,17 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Great Bay Temple",
         address=0x3469420234944,
         can_create=lambda options: options.iciclesanity.value
-    ),           
+    ),         
+    "Bottom of the Well Icicle (1)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420234B11,
+        can_create=lambda options: options.iciclesanity.value
+    ),
+    "Bottom of the Well Icicle (2)": MMRLocationData(
+        region="Great Bay Temple",
+        address=0x3469420234B10,
+        can_create=lambda options: options.iciclesanity.value
+    ),              
     "Goron Trial Icicles (1)": MMRLocationData(
         region="The Moon",
         address=0x3469420233F00,
@@ -14613,12 +14623,14 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942024B7A0,
         can_create=lambda options: options.hivesanity.value
     ),
-    # Pirates Fortress Interior Guarded Hive From Barrel  
-    "Pirates Fortress Interior Leaders Hive From Lower Barrels": MMRLocationData(
-        region="Pirates' Fortress (Interior)",
-        address=0x3469420242330,
-        can_create=lambda options: options.hivesanity.value
-    ),
+    #People complained so its removed now.
+
+    # # Pirates Fortress Interior Guarded Hive From Barrel  
+    # "Pirates Fortress Interior Leaders Hive From Lower Barrels": MMRLocationData(
+    #     region="Pirates' Fortress (Interior)",
+    #     address=0x3469420242330,
+    #     can_create=lambda options: options.hivesanity.value
+    # ),
 
     # Real Fairies including Gossips/Butterfly Fairies
     

@@ -244,11 +244,9 @@ def has_enough_masks(state, player, need_count, exclude_transformation=False):
 def has_star_fox(state, player, options, goal_type="majora"):
     required = options.majora_star_fox.value if goal_type == "majora" else options.moon_star_fox.value
     
-    # If the goal isn't enabled (False), (no requirement)
     if not required:
         return True
     
-    # If enabled (True), check for all 5 masks
     return (
         state.has("Keaton Mask", player) and
         state.has("Bremen Mask", player) and
@@ -256,15 +254,82 @@ def has_star_fox(state, player, options, goal_type="majora"):
         state.has("Don Gero Mask", player) and
         state.has("Bunny Hood", player)
     )
+def has_all_scarecrows(state, player, options, goal_type="majora"):
+    required = options.majora_scarecrows_required.value if goal_type == "majora" else options.moon_scarecrows_required.value
+    
+    if required == 0:
+        return True
+    
+    scarecrow_count = 0
+    scarecrows = [
+        "Mountain Village Rooftop Scarecrow",
+        "Mountain Village Spring Rooftop Scarecrow",
+        "Path to Snowhead Scarecrow",
+        "Path to Snowhead Spring Scarecrow",
+        "Twin Islands Scarecrow",
+        "Twin Islands Spring Scarecrow",
+        "Snowhead Temple Lower Scarecrow",
+        "Snowhead Temple Hidden Alcove Scarecrow",
+        "Great Bay Coast Rock Wall Scarecrow",
+        "Zora Cape Beavers Scarecrow",
+        "Zora Cape Island Scarecrow",
+        "Road to Ikana Scarecrow",
+        "Stone Tower Lower Scarecrow",
+        "Stone Tower Upper Scarecrow"
+    ]
+    
+    for scarecrow in scarecrows:
+        if state.has(scarecrow, player):
+            scarecrow_count += 1
+    
+    return scarecrow_count >= required
 
-def has_all_frogs(state, player):
-    return (
-        state.has("Yellow Frog", player) and
-        state.has("White Frog", player) and
-        state.has("Cyan Frog", player) and
-        state.has("Blue Frog", player) and
-        state.has("Pink Frog", player)
-    )
+def has_all_owls(state, player, options, goal_type="majora"):
+    required = options.majora_owls_required.value if goal_type == "majora" else options.moon_owls_required.value
+    
+    if required == 0:
+        return True
+    
+    owl_count = 0
+    owls = [
+        "Clock Town Owl Statue",
+        "Milk Road Owl Statue",
+        "Southern Swamp Owl Statue",
+        "Woodfall Owl Statue",
+        "Mountain Village Owl Statue",
+        "Snowhead Owl Statue",
+        "Great Bay Coast Owl Statue",
+        "Zora Cape Owl Statue",
+        "Ikana Canyon Owl Statue",
+        "Stone Tower Owl Statue"
+    ]
+    
+    for owl in owls:
+        if state.has(owl, player):
+            owl_count += 1
+    
+    return owl_count >= required
+
+def has_all_frogs(state, player, options, goal_type="majora"):
+    required = options.majora_frogs_required.value if goal_type == "majora" else options.moon_frogs_required.value
+    
+    if required == 0:
+        return True
+    
+    frog_count = 0
+    frogs = [
+        "Yellow Frog",
+        "White Frog",
+        "Cyan Frog",
+        "Blue Frog",
+        "Pink Frog"
+    ]
+    
+    for frog in frogs:
+        if state.has(frog, player):
+            frog_count += 1
+    
+    return frog_count >= required
 
 def can_use_owl(state, player, options, owl_region):
     if not options.owlsanity.value:
@@ -273,6 +338,7 @@ def can_use_owl(state, player, options, owl_region):
         state.has(owl_region + " Owl Statue", player) and 
         can_play_song("Song of Soaring", state, player)
     )
+
 def can_warp_out(state, player, options):
     return (
         (
@@ -286,6 +352,64 @@ def can_warp_out(state, player, options):
             can_use_owl(state, player, options, "Stone Tower")
         )
     )
+def has_enough_items(state, player, required_amount):
+    if required_amount == 0:
+        return True
+    
+    item_count = 0
+    
+    # Regular inventory slots 
+    inventory_slots = [
+        "Ocarina of Time",           
+        "Progressive Bow",           
+        "Fire Arrow",                
+        "Ice Arrow",                 
+        "Light Arrow",               
+        "Progressive Bomb Bag",      
+        "Progressive Bombchu Bag",   
+        "Magic Bean",                
+        "Powder Keg",                
+        "Pictograph Box",            
+        "Lens of Truth",             
+        "Hookshot",                  
+        "Great Fairy Sword",         
+        "Progressive Shield",        
+        # Note: Deku Stick and Deku Nut are consumables, not permanent inventory items
+    ]
+    
+    # Count filled bottle slots (up to 6 total)
+    item_count += min(state.count("Bottle", player), 3)  # 3 empty bottles
+    if state.has("Bottle of Milk", player):
+        item_count += 1
+    if state.has("Bottle of Chateau Romani", player):
+        item_count += 1
+    if state.has("Bottle of Red Potion", player):
+        item_count += 1
+    
+    # Trade items (9 total)
+    trade_items = [
+        "Room Key",
+        "Priority Mail",
+        "Letter to Kafei",
+        "Pendant of Memories",
+        "Moon's Tear",
+        "Land Title Deed",
+        "Swamp Title Deed",
+        "Mountain Title Deed",
+        "Ocean Title Deed",
+    ]
+    
+    for item in inventory_slots:
+        if state.has(item, player):
+            item_count += 1
+    
+    for item in trade_items:
+        if state.has(item, player):
+            item_count += 1
+    
+    return item_count >= required_amount
+
+
 def has_soul_boss(state, player, options, soul_name):
     if not options.boss_souls.value:
         return True
@@ -318,38 +442,6 @@ def has_soul_enemy(state, player, options, soul_name):
         return True
     return state.has("Soul of " + soul_name, player)
 
-def has_all_owls(state, player):
-    return (
-        state.has("Clock Town Owl Statue", player) and
-        state.has("Milk Road Owl Statue", player) and
-        state.has("Southern Swamp Owl Statue", player) and
-        state.has("Woodfall Owl Statue", player) and
-        state.has("Mountain Village Owl Statue", player) and
-        state.has("Snowhead Owl Statue", player) and
-        state.has("Great Bay Coast Owl Statue", player) and
-        state.has("Zora Cape Owl Statue", player) and
-        state.has("Ikana Canyon Owl Statue", player) and
-        state.has("Stone Tower Owl Statue", player)
-    )
-
-def has_all_scarecrows(state, player):
-    return (
-        state.has("Mountain Village Rooftop Scarecrow", player) and
-        state.has("Mountain Village Spring Rooftop Scarecrow", player) and
-        state.has("Path to Snowhead Scarecrow", player) and
-        state.has("Path to Snowhead Spring Scarecrow", player) and
-        state.has("Twin Islands Scarecrow", player) and
-        state.has("Twin Islands Spring Scarecrow", player) and
-        state.has("Snowhead Temple Lower Scarecrow", player) and
-        state.has("Snowhead Temple Hidden Alcove Scarecrow", player) and
-        state.has("Great Bay Coast Rock Wall Scarecrow", player) and
-        state.has("Zora Cape Beavers Scarecrow", player) and
-        state.has("Zora Cape Island Scarecrow", player) and
-        state.has("Road to Ikana Scarecrow", player) and
-        state.has("Stone Tower Lower Scarecrow", player) and
-        state.has("Stone Tower Upper Scarecrow", player)
-    )
-
 def has_all_trade_items(state, player):
     return (
         state.has("Room Key", player) and
@@ -368,10 +460,16 @@ def get_region_rules(player, options):
         "Clock Town -> The Moon":
             lambda state: (
                 state.has("Ocarina of Time", player) and 
-                state.has("Oath to Order", player) and 
-                (options.moon_remains_required.value == 0 or has_enough_remains(state, player, options.moon_remains_required.value)) and
-                (options.moon_masks_required.value == 0 or has_enough_masks(state, player, options.moon_masks_required.value)) and
-                (not options.moon_star_fox.value or has_star_fox(state, player, options, "moon"))
+                state.has("Oath to Order", player) and
+                
+                # Goal Requirements
+                has_enough_remains(state, player, options.moon_remains_required.value) and
+                has_enough_masks(state, player, options.moon_masks_required.value) and
+                has_enough_items(state, player, options.moon_items_required.value) and
+                (not options.moon_star_fox.value or has_star_fox(state, player, options, "moon")) and
+                has_all_frogs(state, player, options, "moon") and
+                has_all_scarecrows(state, player, options, "moon") and
+                has_all_owls(state, player, options, "moon")
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
@@ -549,8 +647,28 @@ def get_region_rules(player, options):
                         options.remains_allow_boss_warps.value
                     )
             ),
+        "Termina Field -> Road to Ikana":
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road to Ikana -> Termina Field":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                (
+                    options.owlsanity.value and
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )
+                )
+            ),
         "Road to Ikana -> Ikana Graveyard":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
@@ -1783,7 +1901,7 @@ def get_location_rules(player, options):
                     ) or
                     (
                         options.frogsanity.value and
-                        has_all_frogs(state, player)
+                        has_all_frogs(state, player, options)
                     )
                 )
             ),
@@ -2004,7 +2122,7 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Great Fairies") and
                 state.has("Stray Fairy (Snowhead)", player, options.required_stray_fairies.value)
             ),
-"Snowhead Temple Bridge Room Under Platform Bubble SF":
+        "Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
                 state.has("Progressive Bow", player) and 
                 state.has("Great Fairy Mask", player)
@@ -3273,22 +3391,44 @@ def get_location_rules(player, options):
             ),
         "Defeat Majora":
             lambda state: (
-                (options.majora_remains_required.value == 0 or has_enough_remains(state, player, options.majora_remains_required.value)) and
-                (options.majora_masks_required.value == 0 or has_enough_masks(state, player, options.majora_masks_required.value)) and
-                (not options.majora_star_fox.value or has_star_fox(state, player, options, "majora")) and
+                # Goal Requirements - Optional challenges
+                # Remains Goal
+                has_enough_remains(state, player, options.majora_remains_required.value) and
+                
+                # Masks Goal
+                has_enough_masks(state, player, options.majora_masks_required.value) and
+                
+                # Items Goal
+                has_enough_items(state, player, options.majora_items_required.value) and
+                
+                # Star Fox Goal (5 specific masks)
+                (not options.majora_star_fox.value or 
+                has_star_fox(state, player, options, "majora")) and
+                
+                # Frogs Goal
+                has_all_frogs(state, player, options, "majora") and
+                
+                # Scarecrows Goal
+                has_all_scarecrows(state, player, options, "majora") and
+                
+                # Owl Statues Goal
+                has_all_owls(state, player, options, "majora") and
+                
+                # Soul Requirements
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_boss(state, player, options, "Majora") and
-                can_smack_hard(state, player) and 
+                
+                # Combat Requirements
+                can_smack_hard(state, player) and
+                
+                # Equipment Requirements - Either Light Arrows OR Fierce Deity
                 (
                     (
-                        (
-                            state.has("Zora Mask", player) or 
-                            has_mirror_shield(state, player)
-                        ) and 
+                        (state.has("Zora Mask", player) or has_mirror_shield(state, player)) and
                         can_use_light_arrows(state, player)
-                    ) or 
+                    ) or
                     (
-                        state.has("Fierce Deity's Mask", player) and 
+                        state.has("Fierce Deity's Mask", player) and
                         state.has("Progressive Magic", player)
                     )
                 )
@@ -3662,7 +3802,7 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
                                                                               
-# Termina Field Grass Near Western Water Ramp
+        # Termina Field Grass Near Western Water Ramp
         "Termina Field Grass Near Western Water Ramp (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Western Water Ramp (2)":
@@ -3896,7 +4036,7 @@ def get_location_rules(player, options):
         "Termina Field Grass Near Northern Ramp (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-# Termina Field Grass Near Grass Grotto
+        # Termina Field Grass Near Grass Grotto
         "Termina Field Grass Near Grass Grotto (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         "Termina Field Grass Near Grass Grotto (2)":
@@ -6511,7 +6651,6 @@ def get_location_rules(player, options):
             ),
 
         # Mountain Village Springtime Grass
-# Mountain Village Springtime Grass
         "Mountain Village Springtime Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
@@ -9026,7 +9165,6 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         # Goron Village Pots
         
-        # Goron Racetrack Pots - Requires Goron Mask and Powder Keg
         "Goron Racetrack Pots (1)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
@@ -16750,6 +16888,13 @@ def get_location_rules(player, options):
             lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Outside Frog Miniboss Door Icicles (5)":
             lambda state: can_use_ice_arrows(state, player),
+        
+        # Well
+
+       "Bottom of the Well Icicle (1)":
+            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player),
+       "Bottom of the Well Icicle (2)":
+            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", 'Location', player),
 
         # Goron Trial
 
@@ -16853,11 +16998,12 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Hookshot", player)
             ),
-        "Pirates Fortress Interior Leaders Hive From Lower Barrels":
-            lambda state: (
-                state.has("Hookshot", player) and 
-                state.has("Stone Mask", player)
-            ),
+        # "Pirates Fortress Interior Leaders Hive From Lower Barrels":
+        #     lambda state: (
+        #         state.has("Hookshot", player) and 
+        #         state.has("Stone Mask", player)
+        #     ),
+
         #Scarecrowsanity
         # Mountain Village Scarecrows
         "Mountain Village Rooftop Scarecrow":
@@ -17100,17 +17246,23 @@ def get_location_rules(player, options):
         # Mountain Village Gossip Fairies
 
         "Mountain Village Spring Waterfall Gossip Fairy":
-            lambda state: can_clear_snowhead(state, player) and
-                          (
-                              can_play_song("Song of Healing", state, player) or
-                              can_play_song("Epona's Song", state, player)
-                          ),
-        "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
-            lambda state: can_clear_snowhead(state, player) and
+            lambda state: 
+                (
+                    can_clear_snowhead(state, player) and
                           (
                                   can_play_song("Song of Healing", state, player) or
                                   can_play_song("Epona's Song", state, player)
                           ),
+                ),
+        "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
+            lambda state: 
+                (
+                    can_clear_snowhead(state, player) and
+                          (
+                                  can_play_song("Song of Healing", state, player) or
+                                  can_play_song("Epona's Song", state, player)
+                          ),
+                ),
 
         # Great Bay Coast Gossip Fairy
 
@@ -17159,8 +17311,6 @@ def get_location_rules(player, options):
         "Ikana Canyon Near Ghost House Gossip Fairy":
             lambda state:
             (
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
                         can_play_song("Epona's Song", state, player)
@@ -17288,8 +17438,7 @@ def get_location_rules(player, options):
             lambda state:
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.has("Goron Mask", player) and
-                    state.has("Progressive Magic", player) and
+                    state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17299,8 +17448,7 @@ def get_location_rules(player, options):
             lambda state:
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.has("Goron Mask", player) and
-                    state.has("Progressive Magic", player) and
+                    state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17310,8 +17458,7 @@ def get_location_rules(player, options):
             lambda state:
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.has("Goron Mask", player) and
-                    state.has("Progressive Magic", player) and
+                    state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17319,10 +17466,9 @@ def get_location_rules(player, options):
             ),
         "Zora Trial LRLL Path Gossip":
             lambda state:
-            (   
+            (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.has("Goron Mask", player) and
-                    state.has("Progressive Magic", player) and
+                    state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17332,8 +17478,7 @@ def get_location_rules(player, options):
             lambda state:
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.has("Goron Mask", player) and
-                    state.has("Progressive Magic", player) and
+                    state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17399,154 +17544,138 @@ def get_location_rules(player, options):
         # Well Fairies
 
         "Fairy Fountain Left Side Well (0)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
         "Fairy Fountain Left Side Well (1)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (2)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (3)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (4)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (5)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (6)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         "Fairy Fountain Left Side Well (7)":
-            lambda state:
-            (
+            lambda state: (
+                has_soul_npc(state, player, options, "Gibdos") and
+                has_bottle(state, player, 1) and
+                state.has("Gibdo Mask", player) and
+                (
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
-                        state.has("Mask of Scents", player) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
-                    )
-                    or
+                        has_soul_npc(state, player, options, "Kotake") and
+                        state.has("Mask of Scents", player)
+                    ) or
                     (
-                        has_soul_npc(state, player, options, "Gibdos") and
                         has_soul_npc(state, player, options, "Business Scrubs") and
-                        can_afford_price(state, player, 100) and
-                        has_bottle(state, player, 1) and
-                        state.has("Gibdo Mask", player)
+                        can_afford_price(state, player, 100)
                     )
+                )
             ),
 
         # Butterfly Fairies
@@ -17987,7 +18116,11 @@ def get_location_rules(player, options):
                 has_notebook(state, player) and
                 state.has("Lens of Truth", player) and
                 state.has("Progressive Magic", player) and
-                can_play_song("Epona's Song", state, player)
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    options.owlsanity.value 
+                    and can_use_owl(state, player, options, "Ikana Canyon")
+                )
             ),
                 
         "Notebook Meeting Toilet Hand":
@@ -18423,7 +18556,7 @@ def get_location_rules(player, options):
         "Great Bay Coast Fisherman Island Nut Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.has("Hookshot", player)
+                can_clear_greatbay(state, player)
             ),
 
         # Zora Cape Nut Trees 
@@ -18604,8 +18737,10 @@ def get_location_rules(player, options):
             ),
         "South Clock Town Business Scrub Flower":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
                 state.has("Moon's Tear", player)
+
             ),
         "East Clock Town Flower":
             lambda state: (
@@ -19205,9 +19340,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                can_clear_woodfall(state, player) and
-                has_soul_npc(state, player, options, "Business Scrubs") and
-                state.has("Land Title Deed", player)
+                can_clear_woodfall(state, player)
             ), 
             #Snowhead Flowers
         "Goron Village Business Scrub Flower":
@@ -19243,7 +19376,8 @@ def get_location_rules(player, options):
                     (
                         state.has("Small Key (Snowhead)", player, 2) and 
                         state.has("Hookshot", player) and 
-                        can_reach_scarecrow(state, player, options)
+                        can_reach_scarecrow(state, player, options) and
+                        state.has("Snowhead Temple Lower Scarecrow", player)
                     )
                 )
             ),
@@ -19584,9 +19718,18 @@ def get_location_rules(player, options):
         "Mountain Village Twin Island Entrance Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Twin Islands Outside Goron Racetrack Cut the Sign":
-            lambda state: (state.has("Goron Mask", player) or
-                        (state.has("Hookshot", player) and has_soul_npc(state, player, options, "Scarecrow"))) and
-                        has_soul_absurd(state, player, options, "Signs"),
+            lambda state: (
+                # Access via Goron rolling OR Hookshot to scarecrow
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Hookshot", player) and
+                        has_soul_npc(state, player, options, "Scarecrow") and
+                        state.has("Twin Islands Scarecrow", player)
+                    )
+                ) and
+                has_soul_absurd(state, player, options, "Signs")
+            ),
         "Goron Village Outside Lens Cave Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Goron Village Outside Keg Goron Cut the Sign":
@@ -19640,9 +19783,9 @@ def get_location_rules(player, options):
             lambda state: (
                 has_enough_remains(state, player, 4) and
                 has_enough_masks(state, player, 24) and
-                has_all_owls(state, player) and
-                has_all_scarecrows(state, player) and
-                has_all_frogs(state, player) and
+                has_all_owls(state, player, options) and
+                has_all_scarecrows(state, player, options) and
+                has_all_frogs(state, player, options) and
                 has_all_trade_items(state, player) and
                 state.has("Stray Fairy (Clock Town)", player, 1) and
                 state.has("Stray Fairy (Woodfall)", player, 15) and
@@ -19653,3 +19796,4 @@ def get_location_rules(player, options):
                 state.has("Ocean Skulltula Token", player, 30)
             ),
     }   
+

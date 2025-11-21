@@ -122,7 +122,7 @@ class MajoraItemsRequired(Range):
     """Set the amount of trade items required to fight Majora."""
     display_name = "Majora Items Required"
     range_start = 0
-    range_end = 31
+    range_end = 29
     default = 0
 
 
