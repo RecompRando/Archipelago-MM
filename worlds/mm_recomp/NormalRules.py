@@ -2686,8 +2686,10 @@ def get_location_rules(player, options):
         "Zora Cape Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                state.has("Goron Mask", player) or 
-                has_explosives(state, player)
+                (
+                    state.has("Goron Mask", player) or 
+                    has_explosives(state, player)
+                )
             ),
         "Zora Cape Underwater Chest":
             lambda state: state.has("Zora Mask", player),
@@ -17193,9 +17195,11 @@ def get_location_rules(player, options):
         
         "Southern Swamp Near Witch Post Dungeon Gossip Fairy":
             lambda state: (
-                can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player) and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player) and
+                (
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player)
+                )
             ),
 
 
