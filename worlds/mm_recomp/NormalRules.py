@@ -1605,10 +1605,12 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House Pottery Room Behind Vines Token":
             lambda state: (
-                (has_soul_misc(state, player, options, "Gold Skulltulas") and
-                state.has("Progressive Sword", player) or 
-                state.has("Great Fairy Sword", player) or 
-                state.has("Fierce Deity's Mask", player))
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
+                (
+                    state.has("Progressive Sword", player) or
+                    state.has("Great Fairy Sword", player) or
+                    state.has("Fierce Deity's Mask", player)
+                )
             ),
         "Swamp Spider House Pottery Room Upper Wall Token":
             lambda state: (

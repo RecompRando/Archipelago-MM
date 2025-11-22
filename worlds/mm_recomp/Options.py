@@ -137,7 +137,7 @@ class CAMC(DefaultOnToggle):
 
 
 class Ocarinaless(Toggle):
-    """Start the game without an Ocarina shuffling it into the pool."""
+    """Start the game without an Ocarina shuffling it into the pool. This has the effect of sped up time"""
     display_name = "Ocarinaless"
 
 
