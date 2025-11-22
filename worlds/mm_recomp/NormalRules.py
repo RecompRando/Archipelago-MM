@@ -13660,22 +13660,40 @@ def get_location_rules(player, options):
         # Termina Field Song Guay Goron/Epona Rupees
         "Termina Field Song Guay Goron/Epona Rupees (0)":
             lambda state: (
-                state.can_reach("Termina Field Song Guay Rupees (15)", 'Location', player) and
-                (can_play_song("Eponas Song", state, player) or
-                state.has("Goron Mask", player))
+                (
+                    can_play_song("Sonata of Awakening", state, player) or
+                    can_play_song("Goron Lullaby", state, player) or
+                    can_play_song("New Wave Bossa Nova", state, player)
+                ) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    state.has("Goron Mask", player)
+                )
             ),
         "Termina Field Song Guay Goron/Epona Rupees (1)":
             lambda state: (
-                state.can_reach("Termina Field Song Guay Rupees (15)", 'Location', player) and
-                (can_play_song("Eponas Song", state, player) or
-                state.has("Goron Mask", player))
+                (
+                    can_play_song("Sonata of Awakening", state, player) or
+                    can_play_song("Goron Lullaby", state, player) or
+                    can_play_song("New Wave Bossa Nova", state, player)
+                ) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    state.has("Goron Mask", player)
+                )
             ),
         "Termina Field Song Guay Goron/Epona Rupees (2)":
             lambda state: (
-                state.can_reach("Termina Field Song Guay Rupees (15)", 'Location', player) and
-                (can_play_song("Eponas Song", state, player) or
-                state.has("Goron Mask", player))
-            ),            
+                (
+                    can_play_song("Sonata of Awakening", state, player) or
+                    can_play_song("Goron Lullaby", state, player) or
+                    can_play_song("New Wave Bossa Nova", state, player)
+                ) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    state.has("Goron Mask", player)
+                )
+            ),         
 
         # Takkuri - thieving lil' shit
 
@@ -19380,11 +19398,13 @@ def get_location_rules(player, options):
             ), 
         "Snowhead Temple Frozen Green Door Flower (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
                 can_use_fire_arrows(state, player)
             ), 
         "Snowhead Temple Frozen Green Door Flower (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
                 can_use_fire_arrows(state, player)
             ), 
