@@ -903,10 +903,10 @@ def get_location_rules(player, options):
             ),
         "Before Clock Town Chest":
             lambda state: (
+                    has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player)
             ),
                 
-        
         "East Clock Town Archery Roof Chest":
             lambda state: True,
         "East Clock Town Mayors Wife":
@@ -19716,7 +19716,10 @@ def get_location_rules(player, options):
         "Deku Palace Behind Entrance Guards Cut Sign Near King's Chamber":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Deku Palace Bean Daddy Grotto Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_absurd(state, player, options, "Signs"),
+            ),
 
         "Path to Mountain Village Cut the Sign":
             lambda state:
