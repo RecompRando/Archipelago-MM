@@ -928,11 +928,6 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Banker": MMRItemData(
-        code=0x34694200C001A,
-        type=ItemClassification.progression,
-        can_create=lambda options: options.npc_souls.value
-    ),
     "Soul of Curiosity Shop Man": MMRItemData(
         code=0x34694200C01C4,
         type=ItemClassification.progression,

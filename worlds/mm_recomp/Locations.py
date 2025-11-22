@@ -4658,122 +4658,122 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     # Milk Road Gorman Racetrack Grass
     "Milk Road Gorman Racetrack Grass Group 1 (1)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A0,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (2)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A1,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (3)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A2,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (4)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A3,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (5)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A4,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (6)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A5,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (7)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A6,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (8)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A7,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (9)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A8,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (10)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006A9,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (11)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006AA,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (12)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201006AB,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (1)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A0,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (2)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A1,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (3)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A2,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (4)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A3,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (5)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A4,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (6)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A5,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (7)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A6,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (8)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A7,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (9)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A8,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (10)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016A9,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (11)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016AA,
         can_create=lambda options: options.grasssanity.value
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (12)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694201016AB,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -12439,17 +12439,21 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Great Bay Coast Rock Wall Rocks
-    "Great Bay Coast Rock Wall Rocks (0)": MMRLocationData(
+    "Great Bay Coast Rock Wall Rocks (1)": MMRLocationData(
         region="Great Bay",
         address=0x346942018372D,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Great Bay Coast Rock Wall Rocks (1)": MMRLocationData(
+    "Great Bay Coast Rock Wall Rocks (2)": MMRLocationData(
         region="Great Bay",
         address=0x346942018372B,
         can_create=lambda options: options.rocksanity.value
     ),
-
+    "Great Bay Coast Rock Wall Rocks (3)": MMRLocationData(
+        region="Great Bay",
+        address=0x346942018372C,
+        can_create=lambda options: options.rocksanity.value
+    ),
     # Great Bay Coast Underwater Rocks (Bombchus only)
     "Great Bay Coast Underwater Rocks (Bombchus only) Below Rock Pools (1)": MMRLocationData(
         region="Great Bay",
@@ -13571,7 +13575,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.woodsanity.value
     ),
     "Gorman Racetrack Behind Fence Crate": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x3469420276A00,
         can_create=lambda options: options.woodsanity.value
     ),
@@ -15217,7 +15221,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.notebooksanity.value
     ),
     "Notebook Meeting Gorman Brothers": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694200B0011,
         can_create=lambda options: options.notebooksanity.value
     ),
@@ -15591,6 +15595,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202B5D02,
         can_create=lambda options: options.treesanity.value
     ),
+    "Path To Snowhead Tree Near Ledge": MMRLocationData(
+        region="Path to Snowhead",
+        address=0x34694202B5B03,
+        can_create=lambda options: options.treesanity.value
+    ),
     "Path To Snowhead Tree (1)": MMRLocationData(
         region="Path to Snowhead",
         address=0x34694202B5B00,
@@ -15767,127 +15776,127 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.treesanity.value
     ), 
     "Gorman Racetrack Tree Group 1 (1)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A01,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (2)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A06,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (3)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A14,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (4)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A41,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (5)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A77,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (6)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A99,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (7)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AC7,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (8)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6ACF,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (9)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AD3,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (10)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AD7,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (11)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AEF,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 1 (12)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A02,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (1)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A04,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (2)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A0A,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (3)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A13,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (4)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A1D,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (5)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A44,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (6)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A47,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (7)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A51,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (8)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A8F,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (9)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AA8,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (10)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6ADA,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (11)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6ADC,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (12)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6AF2,
         can_create=lambda options: options.treesanity.value
     ),
     "Gorman Racetrack Tree Group 2 (13)": MMRLocationData(
-        region="Gorman Brothers Track",
+        region="Inside Gorman Brothers Track",
         address=0x34694202C6A20,
         can_create=lambda options: options.treesanity.value
     ),
@@ -16772,6 +16781,16 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420310311,
         can_create=lambda options: options.signsanity.value
     ),
+    "West Clock Town Sword School Night 3 Midnight Cut the Sign": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420310310,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "East Clock Town Milk Bar Roof Cut the Sign": MMRLocationData(
+        region="Clock Town",
+        address=0x346942031033F,
+        can_create=lambda options: options.signsanity.value
+    ),
     "Termina Field Takkuri Cut the Sign": MMRLocationData(
         region="Termina Field",
         address=0x346942031033C,
@@ -16947,7 +16966,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420310320,
         can_create=lambda options: options.signsanity.value
     ),
-        "Great Bay Coast Entrance Cut the Sign": MMRLocationData(
+    "Mountain Village Spring Near Graveyard Pond Cut the Sign": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420310318,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Mountain Village Spring Path to Twin Islands Cut the Sign": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420310316,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Romani Ranch Epona Stable Cut the Sign": MMRLocationData(
+        region="Romani Ranch",
+        address=0x346942031033E,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Romani Ranch Doggy Racetrack Cut the Sign": MMRLocationData(
+        region="Romani Ranch",
+        address=0x3469420310302,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Gorman Racetrack Fence Day 3 Cut the Sign": MMRLocationData(
+        region="Gorman Brothers Track",
+        address=0x3469420310341,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Great Bay Coast Entrance Cut the Sign": MMRLocationData(
         region="Great Bay",
         address=0x3469420310326,
         can_create=lambda options: options.signsanity.value

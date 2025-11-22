@@ -71,7 +71,7 @@ def can_get_cow_milk(state, player, options):
         can_play_song("Epona's Song", state, player) and 
         (
             has_explosives(state, player) or
-            can_use_powder_keg(state, player) or 
+            can_use_powder_keg(state, player, options) or 
             state.has("Hookshot", player) or
             (
                 has_soul_npc(state, player, options, "Barten") and 
@@ -111,11 +111,27 @@ def has_bottle(state, player, need_count=1):
     return bottle_count >= need_count
 
 def can_plant_beans(state, player, options):
-    return (can_get_magic_beans(state, player, options) and 
-            (has_bottle(state, player) or can_play_song("Song of Storms", state, player)))
+    return (
+        can_get_magic_beans(state, player, options) and
+        (
+            has_bottle(state, player) or
+            can_play_song("Song of Storms", state, player)
+        )
+    )
 
-def can_use_powder_keg(state, player):
-    return state.has("Powder Keg", player) and state.has("Goron Mask", player)
+def can_use_powder_keg(state, player, options):
+    return (
+        state.has("Goron Mask", player) and
+        state.has("Powder Keg", player) and
+        (
+            has_soul_npc(state, player, options, "Keg Selling Goron") or
+            (
+                has_soul_npc(state, player, options, "Gatekeeper & Medigoron") and
+                can_use_fire_arrows(state, player) and
+                can_afford_price(state, player, 100)
+            )
+        )
+    )
 
 def can_use_magic_arrow(item, state, player):
     return (state.has(item, player) and 
@@ -462,7 +478,6 @@ def get_region_rules(player, options):
             lambda state: (
                 state.has("Ocarina of Time", player) and 
                 state.has("Oath to Order", player) and
-                
                 # Goal Requirements
                 has_enough_remains(state, player, options.moon_remains_required.value) and
                 has_enough_masks(state, player, options.moon_masks_required.value) and
@@ -511,7 +526,6 @@ def get_region_rules(player, options):
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 can_play_song("Sonata of Awakening", state, player)
             ),
-
         "Woodfall Temple -> Odolwa's Lair":
             lambda state: (
                 can_smack(state, player) and 
@@ -583,6 +597,22 @@ def get_region_rules(player, options):
                     can_use_fire_arrows(state, player) and 
                     state.has("Small Key (Snowhead)", player, 1) and 
                     state.has("Boss Key (Snowhead)", player)
+            ),
+        "Termina Field -> Milk Road":
+            lambda state: True,
+        "Milk Road -> Gorman Brothers Track":
+            lambda state: True,
+        "Gorman Brothers Track -> Inside Gorman Brothers Track":
+            lambda state: (
+                (
+                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                    can_play_song("Song of Time", state, player) and 
+                    can_warp_out(state, player, options)
+                ) or
+                (
+                    options.absurd_souls.value and
+                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                )
             ),
         "Termina Field -> Great Bay":
             lambda state: 
@@ -2006,7 +2036,7 @@ def get_location_rules(player, options):
         "Goron Racetrack Prize":
             lambda state: (
                 (
-                    can_use_powder_keg(state, player) or 
+                    can_use_powder_keg(state, player, options) or 
                     state.can_reach("Powder Keg Goron Reward", 'Location', player)
                 ) and 
                 can_clear_snowhead(state, player)
@@ -2333,7 +2363,7 @@ def get_location_rules(player, options):
         "Romani Ranch Helping Cremia":
             lambda state: (
                 has_soul_npc(state, player, options, "Romani & Cremia") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 state.has("Progressive Bow", player)
             ),
         "Romani Ranch Doggy Racetrack Rooftop Chest":
@@ -2350,31 +2380,31 @@ def get_location_rules(player, options):
         "Romani Ranch Romani Game":
             lambda state: (
                 has_soul_npc(state, player, options, "Romani & Cremia") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 state.has("Progressive Bow", player)
             ),
         "Romani Ranch Aliens":
             lambda state: (
                 has_soul_npc(state, player, options, "Romani & Cremia") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 state.has("Progressive Bow", player)
             ),
         "Romani Ranch Barn Free Cow":
             lambda state: (
                 has_soul_misc(state, player, options, "Cows") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Front Cow":
             lambda state: (
                 has_soul_misc(state, player, options, "Cows") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Romani Ranch Barn Stables Back Cow":
             lambda state: (
                 has_soul_misc(state, player, options, "Cows") and
-                can_use_powder_keg(state, player) and 
+                can_use_powder_keg(state, player, options) and 
                 can_play_song("Epona's Song", state, player)
             ),
         "Great Bay Healing Zora":
@@ -2949,10 +2979,13 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 3 Dampe Big Poe Chest":
             lambda state: (
+                # Always required
                 has_soul_npc(state, player, options, "Stalchildren") and
                 has_soul_npc(state, player, options, "Dampe") and
+                state.has("Captain's Hat", player) and
+                # Alternative methods
                 (
-                    (state.has("Captain's Hat", player) and state.has("Progressive Bow", player)) or
+                    state.has("Progressive Bow", player) or
                     state.has("Zora Mask", player)
                 )
             ),
@@ -5872,103 +5905,169 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                (
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
+                )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 1 (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                (
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
+                )
             ),
         
         # Milk Road Gorman Racetrack Grass Group 2 - Requires Epona's Song
@@ -5976,108 +6075,168 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Milk Road Gorman Racetrack Grass Group 2 (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 (
-                has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer") or
-                state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                can_play_song("Song of Time", state, player)
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
 
@@ -8991,7 +9150,6 @@ def get_location_rules(player, options):
                 can_plant_beans(state, player, options) and
                 state.can_reach("Deku Palace", 'Region', player)
             ),
-        
         # Deku Butler Race Pots
         "Deku Butler Race Pots (1)":
             lambda state: (
@@ -10577,7 +10735,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
-                    can_use_powder_keg(state, player)
+                    can_use_powder_keg(state, player, options)
                 )
             ),        
         "Zora Cape Jar Game Pots (2)":
@@ -10587,7 +10745,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
-                    can_use_powder_keg(state, player)
+                    can_use_powder_keg(state, player, options)
                 )
             ), 
         "Zora Cape Jar Game Pots (3)":
@@ -10597,7 +10755,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
-                    can_use_powder_keg(state, player)
+                    can_use_powder_keg(state, player, options)
                 )
             ), 
         "Zora Cape Jar Game Pots (4)":
@@ -10607,7 +10765,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
-                    can_use_powder_keg(state, player)
+                    can_use_powder_keg(state, player, options)
                 )
             ), 
         "Zora Cape Jar Game Pots (5)":
@@ -10617,7 +10775,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
-                    can_use_powder_keg(state, player)
+                    can_use_powder_keg(state, player, options)
                 )
             ), 
 
@@ -14754,7 +14912,7 @@ def get_location_rules(player, options):
                 state.can_reach("Romani Ranch", 'Region', player) and
                 has_bottle(state, player) and
                 state.has("Goron Mask", player) and
-                can_use_powder_keg(state, player)
+                can_use_powder_keg(state, player, options)
             ),
         # Romani Ranch Day 2/3 Soil
         "Romani Ranch Day 2/3 Soil (0)":
@@ -15629,11 +15787,15 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Rocks")
             ),
         # Great Bay Coast Rock Wall Rocks
-        "Great Bay Coast Rock Wall Rocks (0)":
+        "Great Bay Coast Rock Wall Rocks (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")
             ),
-        "Great Bay Coast Rock Wall Rocks (1)":
+        "Great Bay Coast Rock Wall Rocks (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Rocks")
+            ),
+        "Great Bay Coast Rock Wall Rocks (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")
             ),
@@ -18373,90 +18535,140 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 1 (11)":
@@ -18469,126 +18681,196 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         "Gorman Racetrack Tree Group 2 (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 (
-                    state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
-                    can_play_song("Song of Time", state, player) or
-                    has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    (
+                        state.can_reach("Romani Ranch Helping Cremia", 'Location', player) and
+                        can_play_song("Song of Time", state, player)
+                    ) or
+                    (
+                        options.absurd_souls.value and
+                        has_soul_absurd(state, player, options, "Gorman Ranch Bulldozer")
+                    )
                 )
             ),
         # Great Bay Coast Nut Trees - Requires access to the region
@@ -19582,12 +19864,12 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "Inverted Stone Tower Temple Small Poe Room Flower (1)":
             lambda state: (
@@ -19628,72 +19910,85 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (2)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (3)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (4)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (5)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (6)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (7)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (8)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (9)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (10)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
         "The Moon Deku Trial Flower (11)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player),
+                state.has("Deku Mask", player)
             ),
 
                 # Signs (BREAK THE TARGETS)
 
         "North Clock Town Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "West Clock Town Sword School Night 3 Midnight Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and
+                    (
+                        state.has("Goron Mask", player) or
+                        state.has("Zora Mask", player) or
+                        state.has("Deku Mask", player) or
+                        state.has("Blast Mask", player) or
+                        state.has("Progressive Sword", player)
+                    )
+            ),
+        "East Clock Town Milk Bar Roof Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Termina Field Takkuri Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
@@ -19761,12 +20056,8 @@ def get_location_rules(player, options):
                         can_use_fire_arrows(state, player)
                     )
                 ),
-                
-                
         "Mountain Village Owl Statue Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-        "Mountain Village Owl Statue Spring Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_snowhead(state, player),
         "Mountain Village Outside Smithy Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Bridge Cut the Sign":
@@ -19777,7 +20068,7 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Twin Islands Outside Goron Racetrack Cut the Sign":
             lambda state: (
-                # Access via Goron rolling OR Hookshot to scarecrow
+                has_soul_absurd(state, player, options, "Signs") and
                 (
                     state.has("Goron Mask", player) or
                     (
@@ -19785,8 +20076,7 @@ def get_location_rules(player, options):
                         has_soul_npc(state, player, options, "Scarecrow") and
                         state.has("Twin Islands Scarecrow", player)
                     )
-                ) and
-                has_soul_absurd(state, player, options, "Signs")
+                )
             ),
         "Goron Village Outside Lens Cave Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
@@ -19800,7 +20090,30 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Outside Snowhead Temple Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-
+        "Mountain Village Owl Statue Spring Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and 
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Near Graveyard Pond Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and 
+                can_clear_snowhead(state, player)
+            ),
+        "Mountain Village Spring Path to Twin Islands Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and 
+                can_clear_snowhead(state, player)
+            ),
+        "Romani Ranch Epona Stable Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and
+                can_play_song("Epona's Song", state, player)
+            ),
+        "Romani Ranch Doggy Racetrack Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
+        "Gorman Racetrack Fence Day 3 Cut the Sign":
+            lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Entrance Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast Outside Fisherman Hut Cut the Sign":
