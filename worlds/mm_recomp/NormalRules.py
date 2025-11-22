@@ -8,6 +8,7 @@ def can_play_song(song, state, player):
 def can_get_magic_beans(state, player, options):
     return (
             has_soul_npc(state, player, options, "Bean Daddy") and
+            has_soul_absurd(state, player, options, "Grottos") and
             state.has("Deku Mask", player) and 
             state.can_reach("Deku Palace", 'Region', player)
             )
@@ -734,7 +735,9 @@ def get_region_rules(player, options):
         "Ikana Castle -> Beneath the Well":
             lambda state: 
                 can_use_light_arrows(state, player),
-
+        "Stone Tower -> Upper Ikana Canyon":
+            lambda state: 
+                can_use_owl(state, player, options, "Stone Tower"),
         "Stone Tower -> Stone Tower Temple":
             lambda state:
                 (
@@ -1189,11 +1192,11 @@ def get_location_rules(player, options):
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and 
+                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player)
             ),
         "Curiosity Shop Night 3 Thief Stolen Item":
-        lambda state: (
+            lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG)
             ),
@@ -1252,12 +1255,14 @@ def get_location_rules(player, options):
         "Laundry Pool Curiosity Shop Salesman #1":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
+                has_soul_npc(state, player, options, "Kafei") and
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 state.has("Letter to Kafei", player)
             ),
         "Laundry Pool Curiosity Shop Salesman #2":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and
+                has_soul_npc(state, player, options, "Kafei") and
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 state.has("Letter to Kafei", player)
             ),
@@ -1330,19 +1335,13 @@ def get_location_rules(player, options):
             ),
         "Termina Scrub Grotto HP":
             lambda state: (
+                # Always required
                 has_soul_absurd(state, player, options, "Grottos") and
-                (
-                    has_soul_npc(state, player, options, "Astral Observatory Man") and
-                    has_soul_npc(state, player, options, "Business Scrubs") and
-                    (state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and 
-                    state.has("Ocarina of Time", player) and 
-                    can_afford_price(state, player, 100)
-                ) or 
-                (
-                    state.has("Deku Mask", player) and 
-                    state.has("Ocarina of Time", player) and 
-                    can_afford_price(state, player, 100))
-                )
+                has_soul_npc(state, player, options, "Business Scrubs") and
+                has_soul_npc(state, player, options, "Astral Observatory Man") and
+                state.has("Ocarina of Time", player) and
+                can_afford_price(state, player, 100) and
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player)
             ),
         "Termina Log Bombable Grotto Left Cow":
             lambda state: (
@@ -1511,20 +1510,20 @@ def get_location_rules(player, options):
             ),
         "Swamp Spider House First Room Against Far Wall Token":
             lambda state: (
+                has_soul_misc(state, player, options, "Gold Skulltulas") and
                 (
-                    has_soul_misc(state, player, options, "Gold Skulltulas") and
-                    can_bring_to_player(state, player) and 
-                    has_projectiles(state, player)
-                ) or 
-                (
-                    has_soul_misc(state, player, options, "Gold Skulltulas") and
-                    state.has("Deku Mask", player) and 
-                    state.has("Progressive Magic", player)
-                ) or 
-                (
-                    has_soul_misc(state, player, options, "Gold Skulltulas") and
-                    state.has("Deku Mask", player) and 
-                    state.has("Progressive Bow", player)
+                    (
+                        can_bring_to_player(state, player) and
+                        has_projectiles(state, player)
+                    ) or
+                    (
+                        has_soul_absurd(state, player, options, "Deku Flowers") and
+                        state.has("Deku Mask", player) and
+                        (
+                            state.has("Progressive Magic", player) or
+                            state.has("Progressive Bow", player)
+                        )
+                    )
                 )
             ),
         "Swamp Spider House First Room Lower Left Bugpatch Token":
@@ -2040,7 +2039,8 @@ def get_location_rules(player, options):
             ),
         "Goron Village Freestanding HP":
             lambda state: (
-                state.can_reach("Goron Village Deku Trade", 'Location', player)
+                state.can_reach("Goron Village Deku Trade", 'Location', player) and 
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Powder Keg Goron Reward":
             lambda state: (
