@@ -1462,7 +1462,11 @@ def get_location_rules(player, options):
                 )
             ),
         "Southern Swamp Song Tablet":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player),
+            ),
+            
         "Southern Swamp Day 2 Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos")
@@ -17966,7 +17970,11 @@ def get_location_rules(player, options):
         "Notebook Event Received Couples Mask":
             lambda state: state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player),
         "Notebook Event Received Garos Mask":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                    has_soul_npc(state, player, options, "Gorman Brothers") and
+                    can_play_song("Epona's Song", state, player),
+            ),
+                
         "Notebook Event Received Grandma Long Story HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Anju's Grandmother") and
@@ -18600,11 +18608,13 @@ def get_location_rules(player, options):
             ),
         "Zora Cape Nut Tree On Turtle Island (1)":
             lambda state: (
+                state.has("Zora Mask", player) and
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
         "Zora Cape Nut Tree On Turtle Island (2)":
             lambda state: (
+                state.has("Zora Mask", player) and
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.has("Hookshot", player)
             ),
