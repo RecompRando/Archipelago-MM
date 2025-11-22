@@ -14685,11 +14685,20 @@ def get_location_rules(player, options):
 
         # Termina Field Observatory Soil
         "Termina Field Observatory Soil (0)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
+                has_bottle(state, player)
+            ),
         "Termina Field Observatory Soil (1)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
+                has_bottle(state, player)
+            ),
         "Termina Field Observatory Soil (2)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                state.can_reach("Bomber's Hideout Astral Observatory", 'Location', player) and
+                has_bottle(state, player)
+            ),
 
         # Swamp Spider House Rock Soil
         "Swamp Spider House Rock Soil (0)":
