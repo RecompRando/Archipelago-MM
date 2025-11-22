@@ -10654,362 +10654,362 @@ location_data_table: Dict[str, MMRLocationData] = {
     # Songwall Rupees
     "Termina Field 6am Songwall (0)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150011,
+        address=0x34694201A0011,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 6am Songwall (1)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150022,
+        address=0x34694201A0022,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 6am Songwall (2)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150000,
+        address=0x34694201A0000,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 7am Songwall (0)": MMRLocationData(
         region="Clock Town",
-        address=0x34694201500C0,
+        address=0x34694201A00C0,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 7am Songwall (1)": MMRLocationData(
         region="Clock Town",
-        address=0x34694201500D1,
+        address=0x34694201A00D1,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 7am Songwall (2)": MMRLocationData(
         region="Clock Town",
-        address=0x34694201500E2,
+        address=0x34694201A00E2,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 8am Songwall (0)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150030,
+        address=0x34694201A0030,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 8am Songwall (1)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150041,
+        address=0x34694201A0041,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 8am Songwall (2)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150052,
+        address=0x34694201A0052,
         can_create=lambda options: options.rupeesanity.value
     ),
     # "Termina Field 9am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 9am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ), 
     # "Termina Field 9am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ),          
     "Termina Field 10am Songwall (0)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150060,
+        address=0x34694201A0060,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 10am Songwall (1)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150071,
+        address=0x34694201A0071,
         can_create=lambda options: options.rupeesanity.value
     ),  
     "Termina Field 10am Songwall (2)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150082,
+        address=0x34694201A0082,
         can_create=lambda options: options.rupeesanity.value
     ),
     # "Termina Field 11am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 11am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ), 
     # "Termina Field 11am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x3469420150052,
+    #     address=0x34694201A0052,
     #     can_create=lambda options: options.rupeesanity.value
     # ),          
     # "Termina Field 12pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),        
     # "Termina Field 2pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 2pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 2pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 3pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 3pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 3pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ), 
     # "Termina Field 6pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 6pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 6pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 7pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 7pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 7pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201582,
+    #     address=0x34694201A82,
     #     can_create=lambda options: options.rupeesanity.value
     # ), 
     "Termina Field 8pm Songwall (0)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420150090,
+        address=0x34694201A0090,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 8pm Songwall (1)": MMRLocationData(
         region="Clock Town",
-        address=0x34694201500A1,
+        address=0x34694201A00A1,
         can_create=lambda options: options.rupeesanity.value
     ),
     "Termina Field 8pm Songwall (2)": MMRLocationData(
         region="Clock Town",
-        address=0x34694201500B2,
+        address=0x34694201A00B2,
         can_create=lambda options: options.rupeesanity.value
     ),
     # "Termina Field 9pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 9pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 9pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 10pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 10pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ), 
     # "Termina Field 10pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 11pm Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 11pm Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 11pm Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 12am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 1am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 2am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 3am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 3am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 4am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5am Songwall (0)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x34694201590,
+    #     address=0x34694201A90,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5am Songwall (1)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015A1,
+    #     address=0x34694201AA1,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # "Termina Field 5am Songwall (2)": MMRLocationData(
     #     region="Clock Town",
-    #     address=0x346942015B2,
+    #     address=0x34694201AB2,
     #     can_create=lambda options: options.rupeesanity.value
     # ),
     # Laundry Pool Night 2 Rupees
