@@ -9322,17 +9322,20 @@ def get_location_rules(player, options):
             ),
         # Mountain Village Pots
         
+        "Mountain Village Rooftop Pot":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_hard_projectiles(state, player)
+            ),
         "Mountain Village Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Mountain Village Pots (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Mountain Village Pots (3)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Mountain Smithy Pots
-        "Mountain Smithy Pots (1)":
+        "Mountain Smithy Pots Inside at Night (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Mountain Smithy Pots (2)":
+        "Mountain Smithy Pots Inside at Night (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         # Goron Village Pots
         

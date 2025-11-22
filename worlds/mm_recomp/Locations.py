@@ -7750,27 +7750,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     # Mountain Village Pots
     
-    "Mountain Village Pots (1)": MMRLocationData(
+    "Mountain Village Rooftop Pot": MMRLocationData(
         region="Mountain Village",
         address=0x3469420205000,
         can_create=lambda options: options.potsanity.value
     ),
-    "Mountain Village Pots (2)": MMRLocationData(
+    "Mountain Village Pots (1)": MMRLocationData(
         region="Mountain Village",
         address=0x34694202050F0,
         can_create=lambda options: options.potsanity.value
     ),
-    "Mountain Village Pots (3)": MMRLocationData(
+    "Mountain Village Pots (2)": MMRLocationData(
         region="Mountain Village",
         address=0x34694202050F1,
         can_create=lambda options: options.potsanity.value
     ),
-    "Mountain Smithy Pots (1)": MMRLocationData(
+    "Mountain Smithy Pots Inside at Night (1)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420202CF0,
         can_create=lambda options: options.potsanity.value
     ),
-    "Mountain Smithy Pots (2)": MMRLocationData(
+    "Mountain Smithy Pots Inside at Night (2)": MMRLocationData(
         region="Mountain Village",
         address=0x3469420202CF1,
         can_create=lambda options: options.potsanity.value
