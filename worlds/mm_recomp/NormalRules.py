@@ -1713,14 +1713,17 @@ def get_location_rules(player, options):
             ), 
         "Deku Palace Bean Seller":
             lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
                 has_soul_npc(state, player, options, "Bean Daddy") and
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Bean Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                (can_plant_beans(state, player, options) or 
-                state.has("Hookshot", player))
+                (
+                    can_plant_beans(state, player, options) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Deku Palace HP":
             lambda state: state.has("Deku Mask", player),    
@@ -14894,11 +14897,20 @@ def get_location_rules(player, options):
             lambda state: has_bottle(state, player),
         # Deku Palace Bean Seller Soil
         "Deku Palace Bean Seller Soil (0)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_bottle(state, player)
+            ),
         "Deku Palace Bean Seller Soil (1)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_bottle(state, player)
+            ),
         "Deku Palace Bean Seller Soil (2)":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_bottle(state, player)
+            ),
         # Deku Palace Exterior Soil
         "Deku Palace Exterior Soil (0)":
             lambda state: has_bottle(state, player),
@@ -17928,13 +17940,25 @@ def get_location_rules(player, options):
         # Deku Palace Butterflies
 
         "Deku Palace Bean Seller Butterfly Fairy (1)":
-            lambda state: has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         "Deku Palace Bean Seller Butterfly Fairy (2)":
-            lambda state: has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         "Deku Palace Bean Seller Butterfly Fairy (3)":
-            lambda state: has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         "Deku Palace Bean Seller Butterfly Fairy (4)":
-            lambda state: has_soul_misc(state, player, options, "Butterflies"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_misc(state, player, options, "Butterflies")
+            ),
         # Mountain Village Spring Day Butterflies
         "Mountain Village Spring Day Butterfly (1)":
             lambda state: (
