@@ -8588,26 +8588,33 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Deku Mask", player) or
-                state.has("Hookshot", player)
+                (
+                    state.has("Deku Mask", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Woodfall Temple Main Room Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Deku Mask", player) or
-                state.has("Hookshot", player)
+                (
+                    state.has("Deku Mask", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Woodfall Temple Main Room Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Deku Mask", player) or
-                state.has("Hookshot", player)
+                (
+                    state.has("Deku Mask", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Woodfall Temple Deku Elevator Room Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                has_soul_absurd(state, player, options, "Grass") and
                 state.has("Deku Mask", player)
             ),
         "Woodfall Temple Deku Elevator Room Grass (2)":
@@ -12493,14 +12500,37 @@ def get_location_rules(player, options):
         "Stone Tower Temple Lower Basement Armos Pots (4)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Lower Basement Armos Pots (5)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                    (
+                        can_use_light_arrows(state, player) or
+                        has_mirror_shield(state, player)
+                    )
+            ),
         "Stone Tower Temple Lower Basement Armos Pots (6)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                    (
+                        can_use_light_arrows(state, player) or
+                        has_mirror_shield(state, player)
+                    )
+            ),
         "Stone Tower Temple Lower Basement Armos Pots (7)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                    (
+                        can_use_light_arrows(state, player) or
+                        has_mirror_shield(state, player)
+                    )
+            ),
         "Stone Tower Temple Lower Basement Armos Pots (8)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
-        
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                    (
+                        can_use_light_arrows(state, player) or
+                        has_mirror_shield(state, player)
+                    )
+            ),
         "Stone Tower Temple Right Side Near Locked Door Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
@@ -17254,6 +17284,7 @@ def get_location_rules(player, options):
                 state.has("Path to Snowhead Spring Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
+                can_use_lens(state, player) and
                 can_clear_snowhead(state, player)
             ),
         # Twin Islands Scarecrows
@@ -17372,8 +17403,10 @@ def get_location_rules(player, options):
         "Termina Field Gossip Grotto Gossip Fairy":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                (
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player)
+                )
             ),
         "Termina Field Near Songwall Gossip Fairy":
             lambda state: (
@@ -19888,10 +19921,18 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                (
+                    (
+                        state.has("Zora Mask", player) and
+                        state.has("Goron Mask", player) and
+                        has_mirror_shield(state, player) and
+                        state.has("Small Key (Stone Tower)", player, 2)
+                    ) or
+                    (
+                        can_use_light_arrows(state, player) and
+                        state.has("Small Key (Stone Tower)", player, 1)
+                    )
+                )
             ),
         "Stone Tower Temple Inverted Eastern Air Gust Room Flower (1)":
             lambda state: (
