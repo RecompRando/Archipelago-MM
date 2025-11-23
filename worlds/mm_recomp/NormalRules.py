@@ -8568,15 +8568,19 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Deku Mask", player) or
-                state.has("Hookshot", player)
+                (
+                    state.has("Deku Mask", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Woodfall Temple Entrance Room Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Deku Mask", player) or
-                state.has("Hookshot", player)
+                (
+                    state.has("Deku Mask", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Woodfall Temple Entrance Room Grass (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
