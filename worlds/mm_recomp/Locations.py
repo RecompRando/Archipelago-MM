@@ -8848,11 +8848,6 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420204942,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Before Gekko Room Pots (8)": MMRLocationData(
-        region="Great Bay Temple",
-        address=0x3469420204947,
-        can_create=lambda options: options.potsanity.value
-    ),
     "Great Bay Temple Red Valve Underwater Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x3469420204963,

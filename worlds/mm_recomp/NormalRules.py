@@ -10893,8 +10893,6 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Pots (7)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
-        "Great Bay Temple Before Gekko Room Pots (8)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         # Great Bay Temple Red Valve Underwater Pots - Basic temple access
         "Great Bay Temple Red Valve Underwater Pots (1)":
