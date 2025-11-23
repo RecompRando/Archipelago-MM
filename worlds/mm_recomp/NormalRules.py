@@ -2994,6 +2994,7 @@ def get_location_rules(player, options):
             ),
         "Graveyard Captain Keeta Chest":
             lambda state: (
+                has_soul_npc(state, player, options, "Stalchildren") and
                 can_play_song("Sonata of Awakening", state, player) and 
                 can_smack_hard(state, player)
             ),
@@ -16456,13 +16457,15 @@ def get_location_rules(player, options):
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
-        "Pirates' Fortress Leader's Room Crate (0)":
+        "Pirates' Fortress Leader's Room Barrel (1)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
-        "Pirates' Fortress Leader's Room Crate (1)":
+        "Pirates' Fortress Leader's Room Barrel (2)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
@@ -18177,7 +18180,7 @@ def get_location_rules(player, options):
         "Notebook Event Received Garos Mask":
             lambda state: (
                     has_soul_npc(state, player, options, "Gorman Brothers") and
-                    can_play_song("Epona's Song", state, player),
+                    can_play_song("Epona's Song", state, player)
             ),
                 
         "Notebook Event Received Grandma Long Story HP":

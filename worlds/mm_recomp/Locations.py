@@ -13809,12 +13809,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420223B00,
         can_create=lambda options: options.woodsanity.value
     ),         
-    "Pirates' Fortress Leader's Room Crate (0)": MMRLocationData(
+    "Pirates' Fortress Leader's Room Barrel (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x3469420222330,
         can_create=lambda options: options.woodsanity.value        
     ),
-    "Pirates' Fortress Leader's Room Crate (1)": MMRLocationData(
+    "Pirates' Fortress Leader's Room Barrel (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x3469420222331,
         can_create=lambda options: options.woodsanity.value        
