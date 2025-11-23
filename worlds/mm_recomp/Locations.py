@@ -16976,6 +16976,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420310316,
         can_create=lambda options: options.signsanity.value
     ),
+    "Twin Islands Spring Outside Goron Racetrack Cut the Sign": MMRLocationData(
+        region="Twin Islands",
+        address=0x346942031031A,
+        can_create=lambda options: options.signsanity.value
+    ),
     "Romani Ranch Epona Stable Cut the Sign": MMRLocationData(
         region="Romani Ranch",
         address=0x346942031033E,

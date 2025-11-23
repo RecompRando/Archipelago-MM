@@ -20132,6 +20132,11 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Signs") and 
                 can_clear_snowhead(state, player)
             ),
+        "Twin Islands Spring Outside Goron Racetrack Cut the Sign":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and 
+                can_clear_snowhead(state, player)
+            ),
         "Romani Ranch Epona Stable Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and
