@@ -14289,6 +14289,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420303801,
         can_create=lambda options: options.scarecrowsanity.value
     ),
+    "Zora Hall Pervert Scarecrow": MMRLocationData(
+        region="Zora Hall",
+        address=0x3469420303300,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     "Road to Ikana Scarecrow": MMRLocationData(
         region="Road to Ikana",
         address=0x3469420305300,

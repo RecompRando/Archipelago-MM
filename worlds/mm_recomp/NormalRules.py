@@ -426,6 +426,22 @@ def has_enough_items(state, player, required_amount):
     
     return item_count >= required_amount
 
+def can_get_frog_choir_hp(state, player, options):
+    if not state.has("Don Gero Mask", player):
+        return False
+    if not can_clear_snowhead(state, player):
+        return False
+    
+    if options.frogsanity.value:
+        frogs = ["Yellow Frog", "White Frog", "Cyan Frog", "Blue Frog", "Pink Frog"]
+        return all(state.has(frog, player) for frog in frogs)
+    else:
+        return (
+            state.can_reach("Woodfall Temple Gekko Chest", "Location", player) and
+            state.can_reach("Great Bay Temple", "Region", player) and
+            can_use_ice_arrows(state, player) and
+            can_use_fire_arrows(state, player)
+        )
 
 def has_soul_boss(state, player, options, soul_name):
     if not options.boss_souls.value:
@@ -1927,23 +1943,8 @@ def get_location_rules(player, options):
                 can_clear_snowhead(state, player)
             ),
         "Mountain Village Spring Frog Choir HP":
-            lambda state: (
-                state.has("Don Gero Mask", player) and 
-                can_clear_snowhead(state, player) and 
-                (
-                    (
-                        not options.frogsanity.value and
-                        state.can_reach("Woodfall Temple Gekko Chest", 'Location', player) and 
-                        state.can_reach("Great Bay Temple", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        can_use_fire_arrows(state, player)
-                    ) or
-                    (
-                        options.frogsanity.value and
-                        has_all_frogs(state, player, options)
-                    )
-                )
-            ),
+            lambda state: can_get_frog_choir_hp(state, player, options),
+
         "Mountain Village Smithy Upgrade":
             lambda state: (
                 has_soul_npc(state, player, options, "Mountain Smithy") and
@@ -3024,6 +3025,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Canyon Healing Pamela's Father":
             lambda state: (
+                has_soul_npc(state, player, options, "Pamela's Father") and
                 can_use_ice_arrows(state, player) and 
                 can_play_song("Song of Healing", state, player) and 
                 can_play_song("Song of Storms", state, player)
@@ -17333,6 +17335,12 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
+        "Zora Hall Pervert Scarecrow":
+            lambda state: (
+                state.has("Zora Hall Pervert Scarecrow", player) and
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Ocarina of Time", player)
+            ),
         # Ikana Scarecrows
         "Road to Ikana Scarecrow":
             lambda state: (
@@ -18157,7 +18165,16 @@ def get_location_rules(player, options):
                 state.can_reach("Stock Pot Inn Midnight Meeting", 'Location', player)
             ),
         "Notebook Event Delivered Priority Mail":
-            lambda state: state.has("Priority Mail", player),
+            lambda state: (
+                state.has("Priority Mail", player) and
+                (
+                    has_soul_npc(state, player, options, "Postman") or
+                    (
+                        has_soul_npc(state, player, options, "Madame Aroma") and
+                        state.has("Kafei Mask", player)
+                    )
+                )
+            ),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
                 has_soul_utility(state, player, options, "Postboxes") and

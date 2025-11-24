@@ -734,6 +734,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.scarecrowsanity.value
     ),
+    "Zora Hall Pervert Scarecrow": MMRItemData(
+        code=0x3469420303300,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ), 
     "Road to Ikana Scarecrow": MMRItemData(
         code=0x3469420305300,
         type=ItemClassification.progression,
