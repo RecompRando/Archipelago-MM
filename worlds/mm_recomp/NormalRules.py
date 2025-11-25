@@ -3345,20 +3345,20 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Heart Container":
             lambda state: (
                 has_soul_boss(state, player, options, "Twinmold") and
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
                 (
-                    state.has("Progressive Bow", player) or 
-                    state.has("Fierce Deity's Mask", player) or 
+                    state.has("Progressive Bow", player) or
+                    state.has("Fierce Deity's Mask", player) or
                     (
-                        state.has("Giant's Mask", player) and 
-                        state.has("Progressive Magic", player) and 
+                        state.has("Giant's Mask", player) and
+                        state.has("Progressive Magic", player) and
                         state.has("Progressive Sword", player)
                     )
-                ) and 
+                ) and
                 (
-                    state.has("Boss Key (Stone Tower)", player) or 
+                    state.has("Boss Key (Stone Tower)", player) or
                     (
-                        state.has("Twinmold's Remains", player) and 
+                        state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
                     )
                 )
@@ -3366,20 +3366,20 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: (
                 has_soul_boss(state, player, options, "Twinmold") and
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
                 (
-                    state.has("Progressive Bow", player) or 
-                    state.has("Fierce Deity's Mask", player) or 
+                    state.has("Progressive Bow", player) or
+                    state.has("Fierce Deity's Mask", player) or
                     (
-                        state.has("Giant's Mask", player) and 
-                        state.has("Progressive Magic", player) and 
+                        state.has("Giant's Mask", player) and
+                        state.has("Progressive Magic", player) and
                         state.has("Progressive Sword", player)
                     )
-                ) and 
+                ) and
                 (
-                    state.has("Boss Key (Stone Tower)", player) or 
+                    state.has("Boss Key (Stone Tower)", player) or
                     (
-                        state.has("Twinmold's Remains", player) and 
+                        state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
                     )
                 )
@@ -12818,10 +12818,15 @@ def get_location_rules(player, options):
         
         # Inverted Stone Tower Temple Lower Bridge Room Pots
         "Inverted Stone Tower Temple Lower Bridge Room Pots (1)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player)
+            ),
         "Inverted Stone Tower Temple Lower Bridge Room Pots (2)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
-        
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player)
+            ),
         # Inverted Stone Tower Temple Small Poe Room Pots
         "Inverted Stone Tower Temple Small Poe Room Pots (1)":
             lambda state: (
@@ -14990,7 +14995,11 @@ def get_location_rules(player, options):
         "Stone Tower Inverted Soils (0)":
             lambda state: has_bottle(state, player),
         "Stone Tower Inverted Soils (1)":
-            lambda state: has_bottle(state, player),  
+            lambda state: (
+                has_bottle(state, player) and
+                can_plant_beans(state, player)
+            ),
+              
 
         # SNOWBALLS
 
@@ -16895,32 +16904,44 @@ def get_location_rules(player, options):
         "Stone Tower Temple Inverted Thin Hallway Crates (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Stone Tower Temple Inverted Thin Hallway Crates (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Stone Tower Temple Inverted Thin Hallway Crates (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Stone Tower Temple Inverted Thin Hallway Crates (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Stone Tower Temple Inverted Thin Hallway Crates (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
         "Stone Tower Temple Inverted Thin Hallway Crates (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                can_use_light_arrows(state, player) and
+                state.has("Deku Mask", player) and
+                state.has("Small Key (Stone Tower)", player, 3)
             ),
 
         # Icicles (ice ice baby)
@@ -18154,7 +18175,18 @@ def get_location_rules(player, options):
         "Ikana Canyon Owl Statue":
             lambda state: state.can_reach("Upper Ikana Canyon", 'Region', player),
         "Stone Tower Owl Statue":
-            lambda state: state.can_reach("Stone Tower", 'Region', player),
+            lambda state: (
+                (
+                    state.has("Hookshot", player) and
+                    can_play_song("Elegy of Emptiness", state, player) and
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player)
+                ) or
+                (
+                    state.has("Stone Tower Owl Statue", player) and
+                    can_play_song("Song of Soaring", state, player)
+                )
+            ),
 
     # Notebook Events
 
