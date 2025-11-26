@@ -14997,7 +14997,7 @@ def get_location_rules(player, options):
         "Stone Tower Inverted Soils (1)":
             lambda state: (
                 has_bottle(state, player) and
-                can_plant_beans(state, player)
+                can_plant_beans(state, player, options)
             ),
               
 
