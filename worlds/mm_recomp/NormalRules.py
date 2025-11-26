@@ -1500,11 +1500,17 @@ def get_location_rules(player, options):
         "Southern Swamp Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                state.has("Deku Mask", player) and
                 (
-                    has_projectiles(state, player) or
-                    has_bottle(state, player) or
-                    state.has("Pictograph Box", player)
+                    state.has("Deku Mask", player) and
+                    has_hard_projectiles(state, player)
+                ) or
+                (
+                    has_bottle(state, player) and
+                    has_soul_npc(state, player, options, "Kotake")
+                ) or
+                (
+                    state.has("Pictograph Box", player) and
+                    has_soul_npc(state, player, options, "Swamp Tourist Guide")
                 )
             ),
         "Southern Swamp Song Tablet":
@@ -5365,7 +5371,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5384,7 +5390,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5403,7 +5409,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5422,7 +5428,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5441,7 +5447,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5460,7 +5466,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5479,7 +5485,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5498,7 +5504,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5517,7 +5523,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5536,7 +5542,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5555,7 +5561,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5574,7 +5580,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5593,7 +5599,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -5612,7 +5618,7 @@ def get_location_rules(player, options):
                         state.has("Deku Mask", player)
                     ) or 
                     (
-                        has_soul_npc(state, player, options, "Tourist Guide") and
+                        has_soul_npc(state, player, options, "Swamp Tourist Guide") and
                         state.has("Pictograph Box", player) and 
                         state.has("Deku Mask", player)
                     )
@@ -11465,14 +11471,11 @@ def get_location_rules(player, options):
         # IKANA CASTLE POTS
         "Ikana Castle Exterior Corner Pot":
             lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
+                has_soul_absurd(state, player, options, "Pots")
                 ),
         "Ikana Castle Frozen Eyes Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
@@ -11482,20 +11485,15 @@ def get_location_rules(player, options):
         "Ikana Castle Frozen Eyes Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
                     has_mirror_shield(state, player)
                 )
             ),
-        
         "Ikana Castle Left Side Falling Ceiling Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
                 (
                     can_use_light_arrows(state, player) or
@@ -11505,130 +11503,69 @@ def get_location_rules(player, options):
         "Ikana Castle Left Side Falling Ceiling Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
-                can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
+                can_use_fire_arrows(state, player)
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Left Side Broken Floor Room Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Left Side Staircase Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Left Side Staircase Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         
         "Ikana Castle Right Side Staircase Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Ikana Castle Right Side Staircase Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
-
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
-        
         # Ikana Castle Throne Room Pots
         "Ikana Castle Throne Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11645,8 +11582,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11663,8 +11598,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11681,8 +11614,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11699,8 +11630,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11717,8 +11646,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11735,8 +11662,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11753,8 +11678,6 @@ def get_location_rules(player, options):
         "Ikana Castle Throne Room Pots (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player) and
-                state.has("Hookshot", player) and
                 (
                     can_use_light_arrows(state, player) or
                     (
@@ -11768,7 +11691,6 @@ def get_location_rules(player, options):
                     )
                 )
             ),
-        
         # Well Pots
         "Well Left Side Back Room Pots (1)":
             lambda state: (
@@ -15019,7 +14941,11 @@ def get_location_rules(player, options):
                  can_use_fire_arrows(state, player))
             ),
         "Path to Mountains Snowballs (4)":
-            lambda state: True,
+            lambda state: (
+                (state.has("Goron Mask", player) or
+                 has_explosives(state, player) or
+                 can_use_fire_arrows(state, player))
+            ),
         "Path to Mountains Snowballs (5)":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -20277,7 +20203,164 @@ def get_location_rules(player, options):
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Ikana Canyon Outside Well Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
-
+        
+        # Websanity
+        "Swamp Spider House Entrance Web":
+            lambda state: (
+                (
+                    state.has("Deku Mask", player) and
+                    has_hard_projectiles(state, player)
+                ) or
+                (
+                    has_bottle(state, player) and
+                    has_soul_npc(state, player, options, "Kotake")
+                ) or
+                (
+                    state.has("Pictograph Box", player) and
+                    has_soul_npc(state, player, options, "Swamp Tourist Guide")
+                )
+            ),
+        "Ocean Spider House Entrance Web (1)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Entrance Web (2)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Library Web":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Above Door 1st Floor Door":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Over 1st Floor Pot":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web 1st Floor Near Staircase":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Basement Near Staircase":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Basement Covering Crates":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Basement Covering Hole":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Basement Covering Door":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Web Boat Room Covering Crate":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Boat Room Ceiling Web":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Ceiling Web (1)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Ceiling Web (2)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Beneath the Well Left Side Web Near Fairy Fountain (1)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Gibdo") and
+                state.has("Gibdo Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
+                has_bottle(state, player) and
+                (
+                    (
+                        can_afford_price(state, player, 100) and
+                        has_soul_npc(state, player, options, "Business Scrubs")
+                    ) or
+                    (
+                        state.has("Mask of Scents", player) and
+                        has_soul_npc(state, player, options, "Kotake")
+                    )
+                ) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Beneath the Well Left Side Web Near Fairy Fountain (2)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Gibdo") and
+                state.has("Gibdo Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
+                has_bottle(state, player) and
+                (
+                    (
+                        can_afford_price(state, player, 100) and
+                        has_soul_npc(state, player, options, "Business Scrubs")
+                    ) or
+                    (
+                        state.has("Mask of Scents", player) and
+                        has_soul_npc(state, player, options, "Kotake")
+                    )
+                ) and
+                can_use_fire_arrows(state, player)
+            ),
+        "Beneath the Well Right Side Web Near Milk Gibdo":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Gibdo") and
+                state.has("Gibdo Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player) and
+                has_bottle(state, player) and
+                (
+                    (
+                        can_afford_price(state, player, 100) and
+                        has_soul_npc(state, player, options, "Business Scrubs")
+                    ) or
+                    (
+                        state.has("Mask of Scents", player) and
+                        has_soul_npc(state, player, options, "Kotake")
+                    )
+                ) and
+                can_use_fire_arrows(state, player)
+            ),
         "Majora's Soul":
             lambda state: (
                 has_enough_remains(state, player, 4) and

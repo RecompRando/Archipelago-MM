@@ -17081,7 +17081,99 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942031032F,
         can_create=lambda options: options.signsanity.value
     ),
-    # 100% Completion
+
+    # Websanity
+    "Swamp Spider House Entrance Web": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202E4510,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Entrance Web (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2800,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Entrance Web (2)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2801,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Library Web": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2913,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Above Door 1st Floor Door": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2910,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Over 1st Floor Pot": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2915,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web 1st Floor Near Staircase": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2911,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Basement Near Staircase": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2917,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Basement Covering Crates": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2916,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Basement Covering Hole": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2914,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Basement Covering Door": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2912,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Web Boat Room Covering Crate": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2950,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Boat Room Ceiling Web": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2951,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Coloured Mask Ceiling Web (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2830,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Ocean Spider House Coloured Mask Ceiling Web (2)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202E2930,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Beneath the Well Left Side Web Near Fairy Fountain (1)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202E4B50,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Beneath the Well Left Side Web Near Fairy Fountain (2)": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202E4B51,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Beneath the Well Right Side Web Near Milk Gibdo": MMRLocationData(
+        region="Beneath the Well",
+        address=0x34694202E4B70,
+        can_create=lambda options: options.websanity.value
+    ),
+        # 100% Completion
     "Majora's Soul": MMRLocationData(
         region="Clock Town",
         address=0x34694200B012F,
