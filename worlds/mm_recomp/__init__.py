@@ -516,6 +516,7 @@ class MMRWorld(World):
             "treesanity": self.options.treesanity.value,
             "flowersanity": self.options.flowersanity.value,
             "signsanity": self.options.signsanity.value,
+            "websanity": self.options.websanity.value,
             "boss_souls": self.options.boss_souls.value,
             "misc_souls": self.options.misc_souls.value,
             "npc_souls": self.options.npc_souls.value,

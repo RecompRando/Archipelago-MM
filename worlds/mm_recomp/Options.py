@@ -409,8 +409,12 @@ class Flowersanity(Toggle):
 
 class Signsanity(Toggle):
     """Choose whether Square Signposts give shuffled items when cut."""
-    display_name = "Signsanity" 
+    display_name = "Signsanity"
 
+
+class Websanity(Toggle):
+    """Choose whether burning Spider Webs gives shuffled items."""
+    display_name = "Websanity"
 
 class BossSouls(Choice):
     """Add souls for the main bosses in the game.
@@ -575,6 +579,7 @@ class MMROptions(PerGameCommonOptions):
     treesanity: Treesanity
     flowersanity: Flowersanity
     signsanity: Signsanity
+    websanity: Websanity
     boss_souls: BossSouls
     npc_souls: NPCSouls
     enemy_souls: EnemySouls
