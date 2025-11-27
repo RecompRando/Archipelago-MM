@@ -170,7 +170,10 @@ class MMRWorld(World):
             filler_amount += 156
 
         if self.options.signsanity.value != 0:
-            filler_amount += 51
+            filler_amount += 61
+        
+        if self.options.websanity.value != 0:
+            filler_amount += 18
 
         if self.options.boss_souls.value:
             filler_amount -= 4

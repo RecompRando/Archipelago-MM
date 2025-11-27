@@ -2770,7 +2770,7 @@ def get_location_rules(player, options):
         "Zora Cape Pot Game":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 state.has("Zora Mask", player)
             ),
         "Zora Cape Deku Flower Chest":
@@ -2800,19 +2800,19 @@ def get_location_rules(player, options):
             ),
         "Zora Hall Torches Reward":
             lambda state: (
-                has_soul_npc(state, player, options, "Hall Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 can_use_fire_arrows(state, player)
             ),
         "Zora Hall Good Picture of Lulu":
            lambda state: (
-               has_soul_npc(state, player, options, "Hall Zora") and
+               has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                has_soul_npc(state, player, options, "Lulu") and
                state.has("Pictograph Box", player) and 
                state.has("Zora Mask", player)
            ),
         "Zora Hall Bad Picture of Lulu":
            lambda state: (
-               has_soul_npc(state, player, options, "Hall Zora") and
+               has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                has_soul_npc(state, player, options, "Lulu") and
                state.has("Pictograph Box", player) and 
                state.has("Zora Mask", player)
@@ -10795,7 +10795,7 @@ def get_location_rules(player, options):
         "Zora Cape Jar Game Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
@@ -10805,7 +10805,7 @@ def get_location_rules(player, options):
         "Zora Cape Jar Game Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
@@ -10815,7 +10815,7 @@ def get_location_rules(player, options):
         "Zora Cape Jar Game Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
@@ -10825,7 +10825,7 @@ def get_location_rules(player, options):
         "Zora Cape Jar Game Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
@@ -10835,7 +10835,7 @@ def get_location_rules(player, options):
         "Zora Cape Jar Game Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                has_soul_npc(state, player, options, "Pot Game Zora") and
+                has_soul_npc(state, player, options, "Pot Game & Hall Zora") and
                 (
                     state.has("Zora Mask", player) or
                     state.has("Goron Mask", player) and
@@ -14307,14 +14307,15 @@ def get_location_rules(player, options):
         "Woodfall Temple Pre Boss Rupees (4)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                state.has("Zora Mask", player)
             ),
         "Woodfall Temple Pre Boss Rupees (5)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                state.has("Zora Mask", player)
             ),
-
         # Snowhead Temple Icicle Rupees
         "Snowhead Temple Icicle Rupees (1)":
             lambda state: (
@@ -15022,11 +15023,7 @@ def get_location_rules(player, options):
                  can_use_fire_arrows(state, player))
             ),
         "Path to Mountains Snowballs (12)":
-            lambda state: (
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                 can_use_fire_arrows(state, player))
-            ),
+            lambda state: True,
         "Path to Mountains Snowballs (13)":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -15034,11 +15031,7 @@ def get_location_rules(player, options):
                  can_use_fire_arrows(state, player))
             ),
         "Path to Mountains Snowballs (14)":
-            lambda state: (
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                 can_use_fire_arrows(state, player))
-            ),
+            lambda state: True,
         "Path to Mountains Snowballs (15)":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -20256,6 +20249,11 @@ def get_location_rules(player, options):
                     state.has("Pictograph Box", player) and
                     has_soul_npc(state, player, options, "Swamp Tourist Guide")
                 )
+            ),
+        "Woodfall Temple Web Leading to Dark Room":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player)
             ),
         "Ocean Spider House Entrance Web (1)":
             lambda state: (
