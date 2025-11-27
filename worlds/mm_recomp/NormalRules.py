@@ -14270,14 +14270,15 @@ def get_location_rules(player, options):
         "Woodfall Temple Pre Boss Rupees (4)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                state.has("Zora Mask", player)
             ),
         "Woodfall Temple Pre Boss Rupees (5)":
             lambda state: (
                 state.can_reach("Woodfall Temple", 'Region', player) and
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                state.has("Zora Mask", player)
             ),
-
         # Snowhead Temple Icicle Rupees
         "Snowhead Temple Icicle Rupees (1)":
             lambda state: (
