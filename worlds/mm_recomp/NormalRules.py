@@ -2029,7 +2029,7 @@ def get_location_rules(player, options):
                                 state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
                                 can_play_song("Song of Soaring", state, player) and 
                                 options.owlsanity.value and
-                                can_use_owl(state, player, options, "Ikana Canyon")
+                                can_use_owl(state, player, options, "Mountain Village")
                             )
                         ) and 
                         has_bottle(state, player)
