@@ -1098,12 +1098,12 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Hall Zora": MMRItemData(
+    "Soul of Coast Zora": MMRItemData(
         code=0x34694200C0260,
-        type=ItemClassification.progression,
+        type=ItemClassification.useful,
         can_create=lambda options: options.npc_souls.value
     ),
-    "Soul of Pot Game Zora": MMRItemData(
+    "Soul of Pot Game & Hall Zora": MMRItemData(
         code=0x34694200C0228,
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value

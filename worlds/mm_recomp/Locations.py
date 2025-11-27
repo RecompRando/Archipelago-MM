@@ -8697,27 +8697,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Cape Jar Game Pots (1)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203806,
+        address=0x3469420203811,
         can_create=lambda options: options.potsanity.value
     ),
     "Zora Cape Jar Game Pots (2)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203807,
+        address=0x3469420203812,
         can_create=lambda options: options.potsanity.value
     ),
     "Zora Cape Jar Game Pots (3)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203808,
+        address=0x3469420203813,
         can_create=lambda options: options.potsanity.value
     ),
     "Zora Cape Jar Game Pots (4)": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420203809,
+        address=0x3469420203814,
         can_create=lambda options: options.potsanity.value
     ),
     "Zora Cape Jar Game Pots (5)": MMRLocationData(
         region="Zora Cape",
-        address=0x346942020380A,
+        address=0x3469420203815,
         can_create=lambda options: options.potsanity.value
     ),        
 
