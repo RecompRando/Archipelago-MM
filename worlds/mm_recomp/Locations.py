@@ -17088,6 +17088,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202E4510,
         can_create=lambda options: options.websanity.value
     ),
+    "Woodfall Temple Web Leading to Dark Room": MMRLocationData(
+        region="Woodfall Temple",
+        address=0x34694202E1B30,
+        can_create=lambda options: options.websanity.value
+    ),
     "Ocean Spider House Entrance Web (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x34694202E2800,

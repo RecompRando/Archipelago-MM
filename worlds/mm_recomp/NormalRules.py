@@ -14985,11 +14985,7 @@ def get_location_rules(player, options):
                  can_use_fire_arrows(state, player))
             ),
         "Path to Mountains Snowballs (12)":
-            lambda state: (
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                 can_use_fire_arrows(state, player))
-            ),
+            lambda state: True,
         "Path to Mountains Snowballs (13)":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -14997,11 +14993,7 @@ def get_location_rules(player, options):
                  can_use_fire_arrows(state, player))
             ),
         "Path to Mountains Snowballs (14)":
-            lambda state: (
-                (state.has("Goron Mask", player) or
-                 has_explosives(state, player) or
-                 can_use_fire_arrows(state, player))
-            ),
+            lambda state: True,
         "Path to Mountains Snowballs (15)":
             lambda state: (
                 (state.has("Goron Mask", player) or
@@ -20219,6 +20211,11 @@ def get_location_rules(player, options):
                     state.has("Pictograph Box", player) and
                     has_soul_npc(state, player, options, "Swamp Tourist Guide")
                 )
+            ),
+        "Woodfall Temple Web Leading to Dark Room":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Deku Flowers") and
+                state.has("Deku Mask", player)
             ),
         "Ocean Spider House Entrance Web (1)":
             lambda state: (
