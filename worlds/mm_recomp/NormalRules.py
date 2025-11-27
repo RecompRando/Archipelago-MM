@@ -110,6 +110,31 @@ def has_bottle(state, player, need_count=1):
         bottle_count += 1
     return bottle_count >= need_count
 
+def can_get_red_potion(state, player, options):
+    return (
+            has_bottle(state, player) and
+            (
+                has_soul_npc(state, player, options, "Koume") or
+                (
+                    has_soul_npc(state, player, options, "Kotake") and
+                    can_purchase(state, player, SHOP_ID_WITCH_POTION_3)
+                ) or
+                (
+                    state.can_reach("Clock Town Trading Post Shop Item 1", "Location", player) or
+                    state.can_reach("Clock Town Trading Post Shop (Night) Item 1", "Location", player)
+                )
+            )
+    )
+
+def can_get_blue_potion(state, player, options):
+    return (
+            has_bottle(state, player) and
+            (
+                state.can_reach("Southern Swamp Witch Shop Item 1", "Location", player) or
+                state.can_reach("Ikana Canyon Scrub Purchase", "Location", player)
+            )
+    )
+
 def can_plant_beans(state, player, options):
     return (
         can_get_magic_beans(state, player, options) and
@@ -2959,9 +2984,21 @@ def get_location_rules(player, options):
             ),
         "Road to Ikana Invisible Soldier":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
-                has_bottle(state, player) and 
-                can_use_lens(state, player)
+                has_soul_npc(state, player, options, "Shiro") and
+                can_use_lens(state, player) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    options.owlsanity.value 
+                    and
+                    (
+                        can_use_owl(state, player, options, "Ikana Canyon") or
+                        can_use_owl(state, player, options, "Stone Tower")
+                    )                
+                ) and
+                (
+                    can_get_red_potion(state, player, options) or
+                    can_get_blue_potion(state, player, options)
+                )
             ),
             
         "Ikana Graveyard Bombable Grotto Chest":
