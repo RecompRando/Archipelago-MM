@@ -1495,7 +1495,8 @@ def get_location_rules(player, options):
         "Southern Swamp Freestanding HP":
             lambda state: (
                 state.has("Land Title Deed", player) and 
-                state.has("Deku Mask", player)
+                state.has("Deku Mask", player) and
+                has_soul_absurd(state, player, options, "Deku Flowers")
             ),
         "Southern Swamp Kotake Item":
             lambda state: (
@@ -15696,11 +15697,11 @@ def get_location_rules(player, options):
 
         # Lens Cave Boulders
         "Goron Village Lens Cave Bomb Boulder (1)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: has_explosives(state, player),
         "Goron Village Lens Cave Bomb Boulder (2)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: has_explosives(state, player),
         "Goron Village Lens Cave Bomb Boulder (3)":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: has_explosives(state, player),
 
         # Mountain Village Spring Rock Triangle
 
