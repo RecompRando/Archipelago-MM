@@ -3724,9 +3724,10 @@ def get_location_rules(player, options):
         "Lost Woods Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
+                has_soul_npc(state, player, options, "Skull Kid") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
-            ),
+            ),  
         "Lost Woods Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
