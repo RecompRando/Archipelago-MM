@@ -1868,7 +1868,7 @@ def get_location_rules(player, options):
         "Woodfall Temple Deku Baba SF":
             lambda state: True,
         "Woodfall Temple Pot SF":
-            lambda state: True,            
+            lambda state: has_soul_absurd(state, player, options, "Pots"),           
         "Woodfall Temple Main Room Bubble SF":
             lambda state: (
                 (
@@ -11922,82 +11922,58 @@ def get_location_rules(player, options):
         # Well Big Poe Pots
         "Well Big Poe Pots (1)":
             lambda state: (
+                state.has("Progressive Bomb Bag", player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and
                 (
-                    has_soul_absurd(state, player, options, "Pots") and
-                    has_soul_npc(state, player, options, "Gibdos") and
-                    state.has("Gibdo Mask", player) and
-                    has_bottle(state, player) and
-                    can_plant_beans(state, player, options) and
                     (
-                        state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) or
-                (
-                    can_use_light_arrows(state, player) and
-                    state.has("Progressive Bomb Bag", player)
+                        has_bottle(state, player) and
+                        can_plant_beans(state, player, options)
+                    ) or
+                    can_use_light_arrows(state, player)
                 )
             ),
         "Well Big Poe Pots (2)":
             lambda state: (
+                state.has("Progressive Bomb Bag", player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and
                 (
-                    has_soul_absurd(state, player, options, "Pots") and
-                    has_soul_npc(state, player, options, "Gibdos") and
-                    state.has("Gibdo Mask", player) and
-                    has_bottle(state, player) and
-                    can_plant_beans(state, player, options) and
                     (
-                        state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) or
-                (
-                    can_use_light_arrows(state, player) and
-                    state.has("Progressive Bomb Bag", player)
+                        has_bottle(state, player) and
+                        can_plant_beans(state, player, options)
+                    ) or
+                    can_use_light_arrows(state, player)
                 )
             ),
         "Well Big Poe Pots (3)":
             lambda state: (
+                state.has("Progressive Bomb Bag", player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and
                 (
-                    has_soul_absurd(state, player, options, "Pots") and
-                    has_soul_npc(state, player, options, "Gibdos") and
-                    state.has("Gibdo Mask", player) and
-                    has_bottle(state, player) and
-                    can_plant_beans(state, player, options) and
                     (
-                        state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) or
-                (
-                    can_use_light_arrows(state, player) and
-                    state.has("Progressive Bomb Bag", player)
+                        has_bottle(state, player) and
+                        can_plant_beans(state, player, options)
+                    ) or
+                    can_use_light_arrows(state, player)
                 )
             ),
         "Well Big Poe Pots (4)":
             lambda state: (
+                state.has("Progressive Bomb Bag", player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_soul_npc(state, player, options, "Gibdos") and
+                state.has("Gibdo Mask", player) and
                 (
-                    has_soul_absurd(state, player, options, "Pots") and
-                    has_soul_npc(state, player, options, "Gibdos") and
-                    state.has("Gibdo Mask", player) and
-                    has_bottle(state, player) and
-                    can_plant_beans(state, player, options) and
                     (
-                        state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) or
-                (
-                    can_use_light_arrows(state, player) and
-                    state.has("Progressive Bomb Bag", player)
+                        has_bottle(state, player) and
+                        can_plant_beans(state, player, options)
+                    ) or
+                    can_use_light_arrows(state, player)
                 )
             ),
         
