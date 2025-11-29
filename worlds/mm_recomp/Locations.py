@@ -6722,7 +6722,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.grasssanity.value
     ),
     "Beneath the Well Right Side Back Room Grass (2)": MMRLocationData(
-        region="Termina Field",
+        region="Beneath the Well",
         address=0x3469420124B72,
         can_create=lambda options: options.grasssanity.value
     ),
@@ -6756,7 +6756,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Ikana Castle Grass (3)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D02,
+        address=0x3469420121D0B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Castle Grass (4)": MMRLocationData(
@@ -6799,12 +6799,6 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420121D0A,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Ikana Castle Grass (12)": MMRLocationData(
-        region="Ikana Castle",
-        address=0x3469420121D0B,
-        can_create=lambda options: options.grasssanity.value
-    ),
-
     # Dungeon Grass
     # Woodfall Temple
 
@@ -8763,11 +8757,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420204911,
         can_create=lambda options: options.potsanity.value
     ),
-    "Great Bay Temple Red Green Pipe Tunnel Room Pots (3)": MMRLocationData(
-        region="Great Bay Temple",
-        address=0x346942020491B,
-        can_create=lambda options: options.potsanity.value
-    ),
+    #Fairy Pot so no item
+    # "Great Bay Temple Red Green Pipe Tunnel Room Pots (3)": MMRLocationData(
+    #     region="Great Bay Temple",
+    #     address=0x346942020491B,
+    #     can_create=lambda options: options.potsanity.value
+    # ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x346942020491A,

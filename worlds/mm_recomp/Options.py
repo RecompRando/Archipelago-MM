@@ -106,7 +106,7 @@ class MajoraScarecrowsRequired(Range):
     """Set the amount of scarecrows required to fight Majora."""
     display_name = "Majora Scarecrows Required"
     range_start = 0
-    range_end = 15
+    range_end = 17
     default = 0
 
 

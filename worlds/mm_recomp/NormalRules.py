@@ -321,6 +321,8 @@ def has_all_scarecrows(state, player, options, goal_type="majora"):
     
     scarecrow_count = 0
     scarecrows = [
+        "Clock Town Trading Post Scarecrow",
+        "Astral Observatory Scarecrow"
         "Mountain Village Rooftop Scarecrow",
         "Mountain Village Spring Rooftop Scarecrow",
         "Path to Snowhead Scarecrow",
@@ -10945,11 +10947,6 @@ def get_location_rules(player, options):
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (11)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                can_use_ice_arrows(state, player)
-            ),
-        "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)

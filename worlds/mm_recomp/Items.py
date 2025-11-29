@@ -679,6 +679,16 @@ item_data_table: Dict[str, MMRItemData] = {
         can_create=lambda options: options.frogsanity.value
     ),
     # Scarecrows
+    "Clock Town Trading Post Scarecrow": MMRItemData(
+        code=0x3469420303400,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Astral Observatory Scarecrow": MMRItemData(
+        code=0x3469420302910,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     "Mountain Village Rooftop Scarecrow": MMRItemData(
         code=0x3469420305000,
         type=ItemClassification.progression,
