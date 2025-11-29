@@ -1171,52 +1171,52 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     # Absurd Souls
     "Soul of Songwall": MMRItemData(
-        code=0x34694200E01D6,
+        code=0x34694200F01D6,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Trees & Bushes": MMRItemData(
-        code=0x34694200E0041,
+        code=0x34694200F0041,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Grass": MMRItemData(
-        code=0x34694200E010B,
+        code=0x34694200F010B,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Grottos": MMRItemData(
-        code=0x34694200E0055,
+        code=0x34694200F0055,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Deku Flowers": MMRItemData(
-        code=0x34694200E0183,
+        code=0x34694200F0183,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Barrels": MMRItemData(
-        code=0x34694200E022D,
+        code=0x34694200F022D,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Gorman Ranch Bulldozer": MMRItemData(
-        code=0x34694200E0287,
+        code=0x34694200F0287,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Pots": MMRItemData(
-        code=0x34694200E0082,
+        code=0x34694200F0082,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Rocks": MMRItemData(
-        code=0x34694200E00B0,
+        code=0x34694200F00B0,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
     "Soul of Signs": MMRItemData(
-        code=0x34694200E00A8,
+        code=0x34694200F00A8,
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
