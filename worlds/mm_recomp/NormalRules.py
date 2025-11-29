@@ -18175,13 +18175,8 @@ def get_location_rules(player, options):
         "Notebook Event Delivered Priority Mail":
             lambda state: (
                 state.has("Priority Mail", player) and
-                (
-                    has_soul_npc(state, player, options, "Postman") or
-                    (
-                        has_soul_npc(state, player, options, "Madame Aroma") and
-                        state.has("Kafei Mask", player)
-                    )
-                )
+                has_soul_npc(state, player, options, "Madame Aroma") and
+                state.has("Kafei Mask", player)
             ),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
@@ -20141,7 +20136,7 @@ def get_location_rules(player, options):
         "Deku Palace Bean Daddy Grotto Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                has_soul_absurd(state, player, options, "Signs"),
+                has_soul_absurd(state, player, options, "Signs")
             ),
 
         "Path to Mountain Village Cut the Sign":
