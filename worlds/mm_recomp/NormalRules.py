@@ -625,12 +625,17 @@ def get_region_rules(player, options):
                     can_play_song("Goron Lullaby", state, player) and 
                     state.has("Progressive Magic", player)
                 ) or
-                can_use_owl(state, player, options, "Snowhead")
+                can_use_owl(state, player, options, "Snowhead") and
+                can_warp_out(state, player, options)
             ),
         "Path to Snowhead -> Mountain Village":
             lambda state: (
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player)
+                (
+                    state.has("Goron Mask", player) and 
+                    state.has("Progressive Magic", player)
+                ) or
+                can_use_owl(state, player, options, "Snowhead") and
+                can_warp_out(state, player, options)
             ),
         "Snowhead -> Snowhead Temple": lambda state: (
                 state.has("Goron Mask", player) and 
@@ -3091,6 +3096,7 @@ def get_location_rules(player, options):
         "Ikana Canyon Healing Pamela's Father":
             lambda state: (
                 has_soul_npc(state, player, options, "Pamela's Father") and
+                has_soul_npc(state, player, options, "Composer Poe") and
                 can_use_ice_arrows(state, player) and 
                 can_play_song("Song of Healing", state, player) and 
                 can_play_song("Song of Storms", state, player)
