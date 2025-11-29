@@ -418,7 +418,7 @@ class Websanity(Toggle):
 
 
 class Oneoffs(Toggle):
-    """Choose whether one off items like skullkid pictures give shuffled items."""
+    """Choose whether one off locations like skullkid pictures and bombable walls give shuffled items."""
     display_name = "Oneoffs"
 
 

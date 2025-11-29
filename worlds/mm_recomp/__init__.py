@@ -176,7 +176,7 @@ class MMRWorld(World):
             filler_amount += 18
         
         if self.options.oneoffs.value != 0:
-            filler_amount += 8
+            filler_amount += 14
 
         if self.options.boss_souls.value:
             filler_amount -= 4

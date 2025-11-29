@@ -20454,6 +20454,36 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and
                 has_explosives(state, player)
             ),
+        # Bombable Walls 
+        "Bombers Bombable Wall":
+            lambda state: (
+                has_hard_projectiles(state, player) and
+                has_explosives(state, player)
+            ),
+        "Snowhead Temple Bombable Wall":
+            lambda state: (
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Entrance Wall":
+            lambda state: (
+                has_explosives(state, player)
+            ),
+        "Stone Tower Temple Elegy Maze Bombable Wall":
+            lambda state: (
+                has_explosives(state, player)
+            ),
+        "Graveyard Day 2 Bombable Wall":
+            lambda state: (
+                has_explosives(state, player)
+            ),
+        "Link Trial Bombable Wall Iron Knuckle":
+            lambda state: (
+                has_bombchus(state, player)
+            ),
+        "Link Trial Bombable Wall Final Door":
+            lambda state: (
+                has_bombchus(state, player)
+            ),
         "Majora's Soul":
             lambda state: (
                 has_enough_remains(state, player, 4) and

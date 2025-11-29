@@ -17188,7 +17188,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202E4B70,
         can_create=lambda options: options.websanity.value
     ),
-"Ocean Spider House Behind Top Webbed Door Painting (1)": MMRLocationData(
+    
+    #Oneoffs
+    #Paintings
+    "Ocean Spider House Behind Top Webbed Door Painting (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x34694202F2820,
         can_create=lambda options: options.oneoffs.value
@@ -17227,6 +17230,42 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Ocean Spider House",
         address=0x34694202F2833,
         can_create=lambda options: options.oneoffs.value
+    ),
+    # Bombable Walls
+    "Bombers Bombable Wall": MMRLocationData(
+        region="Bomber's Hideout",
+        address=0x34694202F290F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Snowhead Temple Bombable Wall": MMRLocationData(
+        region="Snowhead Temple",
+        address=0x34694202F211F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Ocean Spider House Entrance Wall": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F280F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Stone Tower Temple Elegy Maze Bombable Wall": MMRLocationData(
+        region="Stone Tower Temple",
+        address=0x34694202F162F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Graveyard Day 2 Bombable Wall": MMRLocationData(
+        region="Ikana Graveyard",
+        address=0x34694202F0C3F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Link Trial Bombable Wall Iron Knuckle": MMRLocationData(
+        region="The Moon",
+        address=0x34694202F663F,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+    "Link Trial Bombable Wall Final Door": MMRLocationData(
+        region="The Moon",
+        address=0x34694202F664F,
+        can_create=lambda options: options.oneoffs.value,
     ),
         # 100% Completion
     "Majora's Soul": MMRLocationData(
