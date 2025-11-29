@@ -17188,6 +17188,46 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202E4B70,
         can_create=lambda options: options.websanity.value
     ),
+"Ocean Spider House Behind Top Webbed Door Painting (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2820,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Behind Top Webbed Door Painting (2)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2821,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Behind Top Webbed Door Painting (3)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2822,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Behind Top Webbed Door Painting (4)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2823,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Coloured Mask Painting (1)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2830,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Coloured Mask Painting (2)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2831,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Coloured Mask Painting (3)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2832,
+        can_create=lambda options: options.oneoffs.value
+    ),
+    "Ocean Spider House Coloured Mask Painting (4)": MMRLocationData(
+        region="Ocean Spider House",
+        address=0x34694202F2833,
+        can_create=lambda options: options.oneoffs.value
+    ),
         # 100% Completion
     "Majora's Soul": MMRLocationData(
         region="Clock Town",

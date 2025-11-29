@@ -174,6 +174,9 @@ class MMRWorld(World):
         
         if self.options.websanity.value != 0:
             filler_amount += 18
+        
+        if self.options.oneoffs.value != 0:
+            filler_amount += 8
 
         if self.options.boss_souls.value:
             filler_amount -= 4
@@ -520,6 +523,7 @@ class MMRWorld(World):
             "flowersanity": self.options.flowersanity.value,
             "signsanity": self.options.signsanity.value,
             "websanity": self.options.websanity.value,
+            "oneoffs": self.options.oneoffs.value,
             "boss_souls": self.options.boss_souls.value,
             "misc_souls": self.options.misc_souls.value,
             "npc_souls": self.options.npc_souls.value,

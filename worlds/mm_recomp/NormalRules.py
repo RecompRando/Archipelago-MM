@@ -20412,6 +20412,48 @@ def get_location_rules(player, options):
                 ) and
                 can_use_fire_arrows(state, player)
             ),
+
+        # Oneoffs
+        "Ocean Spider House Behind Top Webbed Door Painting (1)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Behind Top Webbed Door Painting (2)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Behind Top Webbed Door Painting (3)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Behind Top Webbed Door Painting (4)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Painting (1)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Painting (2)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Painting (3)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
+        "Ocean Spider House Coloured Mask Painting (4)":
+            lambda state: (
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
+            ),
         "Majora's Soul":
             lambda state: (
                 has_enough_remains(state, player, 4) and

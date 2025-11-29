@@ -416,6 +416,12 @@ class Websanity(Toggle):
     """Choose whether burning Spider Webs gives shuffled items."""
     display_name = "Websanity"
 
+
+class Oneoffs(Toggle):
+    """Choose whether one off items like skullkid pictures give shuffled items."""
+    display_name = "Oneoffs"
+
+
 class BossSouls(Choice):
     """Add souls for the main bosses in the game.
     They will not spawn unless their soul is obtained.
@@ -580,6 +586,7 @@ class MMROptions(PerGameCommonOptions):
     flowersanity: Flowersanity
     signsanity: Signsanity
     websanity: Websanity
+    oneoffs: Oneoffs
     boss_souls: BossSouls
     npc_souls: NPCSouls
     enemy_souls: EnemySouls
