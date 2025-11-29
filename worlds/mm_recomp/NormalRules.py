@@ -20049,6 +20049,7 @@ def get_location_rules(player, options):
         "West Clock Town Sword School Night 3 Midnight Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and
+                has_soul_npc(state, player, options, "Swordsman") and
                     (
                         state.has("Goron Mask", player) or
                         state.has("Zora Mask", player) or
