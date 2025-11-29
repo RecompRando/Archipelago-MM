@@ -14234,6 +14234,16 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Scarecrow Items
+    "Clock Town Trading Post Scarecrow": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420303400,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
+    "Astral Observatory Scarecrow": MMRLocationData(
+        region="Clock Town",
+        address=0x3469420302910,
+        can_create=lambda options: options.scarecrowsanity.value
+    ),
     "Mountain Village Rooftop Scarecrow": MMRLocationData(
         region="Mountain Village",
         address=0x3469420305000,
@@ -17086,6 +17096,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Swamp Spider House Entrance Web": MMRLocationData(
         region="Southern Swamp",
         address=0x34694202E4510,
+        can_create=lambda options: options.websanity.value
+    ),
+    "Swamp Spider House Entrance Web Cleared Swamp": MMRLocationData(
+        region="Southern Swamp",
+        address=0x34694202E0010,
         can_create=lambda options: options.websanity.value
     ),
     "Woodfall Temple Web Leading to Dark Room": MMRLocationData(

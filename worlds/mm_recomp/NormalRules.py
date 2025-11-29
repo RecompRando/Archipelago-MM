@@ -1800,9 +1800,27 @@ def get_location_rules(player, options):
                 state.has("Stray Fairy (Woodfall)", player, options.required_stray_fairies.value)
             ),
         "Woodfall Owl Statue Chest":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                (
+                    state.has("Deku Mask", player) and
+                    has_soul_absurd(state, player, options, "Deku Flowers")
+                ) 
+                or ( 
+                    can_use_owl(state, player, options, "Woodfall") and
+                    state.has("Hookshot", player)
+                   )
+            ),
         "Woodfall Bridge Chest":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                (
+                    state.has("Deku Mask", player) and
+                    has_soul_absurd(state, player, options, "Deku Flowers")
+                ) 
+                or ( 
+                    state.can_reach("Woodfall", 'Region', player) and
+                    state.has("Hookshot", player)
+                   )
+            ),
         "Woodfall Entrance Chest":
             lambda state: state.has("Deku Mask", player),
         
@@ -17239,16 +17257,24 @@ def get_location_rules(player, options):
         #     ),
 
         #Scarecrowsanity
+        "Clock Town Trading Post Scarecrow":
+            lambda state: (
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Ocarina of Time", player)
+            ),
+        "Astral Observatory Scarecrow":
+            lambda state: (
+                has_soul_npc(state, player, options, "Scarecrow") and
+                state.has("Ocarina of Time", player)
+            ),
         # Mountain Village Scarecrows
         "Mountain Village Rooftop Scarecrow":
             lambda state: (
-                state.has("Mountain Village Rooftop Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Mountain Village Spring Rooftop Scarecrow":
             lambda state: (
-                state.has("Mountain Village Spring Rooftop Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_clear_snowhead(state, player)
@@ -17256,13 +17282,12 @@ def get_location_rules(player, options):
         # Path to Snowhead Scarecrows
         "Path to Snowhead Scarecrow":
             lambda state: (
-                state.has("Path to Snowhead Scarecrow", player) and
+                can_use_lens(state, player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Path to Snowhead Spring Scarecrow":
             lambda state: (
-                state.has("Path to Snowhead Spring Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_use_lens(state, player) and
@@ -17271,13 +17296,11 @@ def get_location_rules(player, options):
         # Twin Islands Scarecrows
         "Twin Islands Scarecrow":
             lambda state: (
-                state.has("Twin Islands Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Twin Islands (Spring) Scarecrow":
             lambda state: (
-                state.has("Twin Islands Spring Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_clear_snowhead(state, player)
@@ -17285,52 +17308,44 @@ def get_location_rules(player, options):
         # Snowhead Temple Scarecrows
         "Snowhead Temple Lower Scarecrow":
             lambda state: (
-                state.has("Snowhead Temple Lower Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Snowhead Temple Hidden Alcove Scarecrow":
             lambda state: (
-                state.has("Snowhead Temple Hidden Alcove Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Great Bay Scarecrows
         "Great Bay Coast Rock Wall Scarecrow":
             lambda state: (
-                state.has("Great Bay Coast Rock Wall Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Zora Cape Beavers Scarecrow":
             lambda state: (
-                state.has("Zora Cape Beavers Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Zora Cape Island Scarecrow":
             lambda state: (
-                state.has("Zora Cape Island Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         "Zora Hall Pervert Scarecrow":
             lambda state: (
-                state.has("Zora Hall Pervert Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Ikana Scarecrows
         "Road to Ikana Scarecrow":
             lambda state: (
-                state.has("Road to Ikana Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player)
             ),
         # Stone Tower Scarecrows
         "Stone Tower Lower Scarecrow":
             lambda state: (
-                state.has("Stone Tower Lower Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 (
@@ -17350,7 +17365,6 @@ def get_location_rules(player, options):
             
         "Stone Tower Upper Scarecrow":
             lambda state: (
-                state.has("Stone Tower Upper Scarecrow", player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 (
@@ -18120,7 +18134,7 @@ def get_location_rules(player, options):
         "Southern Swamp Owl Statue":
             lambda state: True,
         "Woodfall Owl Statue":
-            lambda state: state.can_reach("Woodfall Temple", 'Region', player),
+            lambda state: state.can_reach("Woodfall", 'Region', player),
         "Mountain Village Owl Statue":
             lambda state: state.can_reach("Mountain Village", 'Region', player),
         "Snowhead Owl Statue":
@@ -20251,6 +20265,8 @@ def get_location_rules(player, options):
                     has_soul_npc(state, player, options, "Swamp Tourist Guide")
                 )
             ),
+        "Swamp Spider House Entrance Web Cleared Swamp":
+            lambda state: can_clear_woodfall(state, player),
         "Woodfall Temple Web Leading to Dark Room":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
