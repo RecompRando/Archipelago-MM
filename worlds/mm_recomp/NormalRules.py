@@ -1837,7 +1837,7 @@ def get_location_rules(player, options):
         "Woodfall Temple Ledge Chest":
             lambda state: True,
         "Woodfall Temple Turtle Chest":
-            lambda state: True,     
+            lambda state: has_soul_enemy(state, player, options, "Snappers"),     
         "Woodfall Temple Dragonfly Chest":
             lambda state: (
                 has_soul_enemy(state, player, options, "Dragonflies") and
@@ -1849,6 +1849,7 @@ def get_location_rules(player, options):
         "Woodfall Temple Dark Room Chest SF":
             lambda state: (
                 has_soul_enemy(state, player, options, "Boes") and
+                
                 (
                     state.has("Small Key (Woodfall)", player) or 
                     state.has("Progressive Bow", player)
@@ -18207,7 +18208,7 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Priority Mail", player) and
                 has_soul_npc(state, player, options, "Madame Aroma") and
-                state.has("Kafei Mask", player)
+                state.has("Kafei's Mask", player)
             ),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
@@ -20389,7 +20390,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Left Side Web Near Fairy Fountain (1)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Gibdo") and
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -20408,7 +20409,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Left Side Web Near Fairy Fountain (2)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Gibdo") and
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -20427,7 +20428,7 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Web Near Milk Gibdo":
             lambda state: (
-                has_soul_enemy(state, player, options, "Gibdo") and
+                has_soul_npc(state, player, options, "Gibdos") and
                 state.has("Gibdo Mask", player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and

@@ -1266,6 +1266,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Snappers": MMRItemData(
+        code=0x34694200E01BA,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Giant Bonefish": MMRItemData(
         code=0x34694200E014B,
         type=ItemClassification.filler,
