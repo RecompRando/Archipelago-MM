@@ -727,17 +727,6 @@ def get_region_rules(player, options):
                         options.remains_allow_boss_warps.value
                     )
             ),
-        "Termina Field -> Road to Ikana":
-            lambda state: (
-                can_play_song("Epona's Song", state, player) or
-                (
-                    options.owlsanity.value and
-                    (
-                        can_use_owl(state, player, options, "Ikana Canyon") or
-                        can_use_owl(state, player, options, "Stone Tower")
-                    )
-                )
-            ),
         "Road to Ikana -> Termina Field":
             lambda state: (
                 can_play_song("Epona's Song", state, player) or
@@ -11350,10 +11339,14 @@ def get_location_rules(player, options):
         "Road To Ikana Scarecrow Pillar Pot":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
-                can_play_song("Epona's Song", state, player) and
                 state.has("Hookshot", player) and
                 can_reach_scarecrow(state, player, options) and
-                state.has("Road to Ikana Scarecrow", player)
+                state.has("Road to Ikana Scarecrow", player) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    can_use_owl(state, player, options, "Ikana Canyon") or
+                    can_use_owl(state, player, options, "Stone Tower")
+                )
             ),
         # Ikana Graveyard Day 1 Grave Pots
         "Ikana Graveyard Day 1 Grave Pots (1)":
