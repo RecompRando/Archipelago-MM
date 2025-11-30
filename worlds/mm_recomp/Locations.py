@@ -13328,22 +13328,22 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     # Outside Snowhead Temple Snowballs
     "Outside Snowhead Temple Snowballs (0)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Snowhead",
         address=0x3469420215C01,
         can_create=lambda options: options.snowsanity.value
     ),
     "Outside Snowhead Temple Snowballs (1)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Snowhead",
         address=0x3469420215C03,
         can_create=lambda options: options.snowsanity.value
     ),
     "Outside Snowhead Temple Snowballs (2)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Snowhead",
         address=0x3469420215C00,
         can_create=lambda options: options.snowsanity.value
     ),
     "Outside Snowhead Temple Snowballs (3)": MMRLocationData(
-        region="Snowhead Temple",
+        region="Snowhead",
         address=0x3469420215C02,
         can_create=lambda options: options.snowsanity.value
     ),
@@ -16967,7 +16967,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.signsanity.value
     ),
     "Outside Snowhead Temple Cut the Sign": MMRLocationData(
-        region="Path to Snowhead",
+        region="Snowhead",
         address=0x3469420310320,
         can_create=lambda options: options.signsanity.value
     ),

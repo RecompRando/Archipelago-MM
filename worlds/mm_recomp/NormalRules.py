@@ -613,11 +613,6 @@ def get_region_rules(player, options):
                 (state.has("Powder Keg", player) or
                 can_use_fire_arrows(state, player))
             ),
-        "Mountain Village -> Path to Snowhead": 
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player)
-            ),
         "Path to Snowhead -> Snowhead":
             lambda state: (
                 (
@@ -634,7 +629,7 @@ def get_region_rules(player, options):
                     state.has("Goron Mask", player) and 
                     state.has("Progressive Magic", player)
                 ) or
-                can_use_owl(state, player, options, "Snowhead") and
+                can_use_owl(state, player, options, "Mountain Village") and
                 can_warp_out(state, player, options)
             ),
         "Snowhead -> Snowhead Temple": lambda state: (
@@ -2202,15 +2197,14 @@ def get_location_rules(player, options):
         "Path to Snowhead Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) 
                 has_explosives(state, player)
             ),
         "Path to Snowhead Scarecrow Pillar HP":
             lambda state: (
                 can_reach_scarecrow(state, player, options) and 
                 state.has("Path to Snowhead Scarecrow", player) and
-                state.has("Goron Mask", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 can_use_lens(state, player) and 
                 state.has("Hookshot", player)
             ),
@@ -6795,117 +6789,103 @@ def get_location_rules(player, options):
         "Goron Village Lens Cave Grass (24)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
 
-        # Path To Snowhead Grotto Grass - Requires Goron Mask, Magic, and Explosives
+        # Path To Snowhead Grotto Grass - Requires Explosives and either Goron and Magic or Snowhead
         "Path To Snowhead Grotto Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
         "Path To Snowhead Grotto Grass (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player) and 
+                state.can_reach("Snowhead", 'Region', player) and 
                 has_explosives(state, player)
             ),
 
@@ -15249,28 +15229,25 @@ def get_location_rules(player, options):
         ),
         "Path to Snowhead Snowballs (2)":
             lambda state: (
-                state.has("Goron Mask", player) and
-                 state.has("Progressive Magic", player)
+                state.can_reach("Snowhead", 'Region', player) and
+                (
+                    state.has("Goron Mask", player) or
+                    has_explosives(state, player)
+                )
         ),
         "Path to Snowhead Snowballs (3)":
-            lambda state: (
-                state.has("Goron Mask", player) and
-                 state.has("Progressive Magic", player)
-        ),
+            lambda state: state.can_reach("Snowhead", 'Region', player),
         "Path to Snowhead Snowballs (4)":
-            lambda state: (
-                state.has("Goron Mask", player) and
-                 state.has("Progressive Magic", player)
-        ),
+            lambda state: state.can_reach("Snowhead", 'Region', player),
         "Path to Snowhead Snowballs (5)":
-            lambda state: (
-                state.has("Goron Mask", player) and
-                 state.has("Progressive Magic", player)
-        ),
+            lambda state: state.can_reach("Snowhead", 'Region', player),
         "Path to Snowhead Snowballs (6)":
             lambda state: (
-                state.has("Goron Mask", player) and
-                 state.has("Progressive Magic", player)
+                state.can_reach("Snowhead", 'Region', player) and
+                (
+                    state.has("Goron Mask", player) or
+                    has_explosives(state, player)
+                )
         ),
         # Outside Snowhead Temple Snowballs
         "Outside Snowhead Temple Snowballs (0)":
@@ -17311,14 +17288,17 @@ def get_location_rules(player, options):
             lambda state: (
                 can_use_lens(state, player) and
                 has_soul_npc(state, player, options, "Scarecrow") and
-                state.has("Ocarina of Time", player)
+                state.has("Ocarina of Time", player) and
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path to Snowhead Spring Scarecrow":
             lambda state: (
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_use_lens(state, player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player) and
+                state.can_reach("Snowhead", 'Region', player)
+
             ),
         # Twin Islands Scarecrows
         "Twin Islands Scarecrow":
@@ -18582,11 +18562,20 @@ def get_location_rules(player, options):
 
         # Path To Snowhead - 
         "Path To Snowhead Tree (1)":
-            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
         "Path To Snowhead Tree (2)":
-            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
         "Path To Snowhead Tree (3)":
-            lambda state: has_soul_absurd(state, player, options, "Trees & Bushes"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
 
         # Goron Racetrack - 
         "Goron Racetrack Trees (1)":
@@ -20204,9 +20193,15 @@ def get_location_rules(player, options):
         "Goron Village Outside Goron Shrine":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Path to Snowhead Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
         "Path to Snowhead Upper Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Signs") and
+                state.can_reach("Snowhead", 'Region', player)
+            ),
         "Outside Snowhead Temple Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Mountain Village Owl Statue Spring Cut the Sign":
