@@ -1840,18 +1840,25 @@ def get_location_rules(player, options):
             lambda state: True,     
         "Woodfall Temple Dragonfly Chest":
             lambda state: (
-                state.has("Small Key (Woodfall)", player) or 
-                state.has("Progressive Bow", player)
+                has_soul_enemy(state, player, options, "Dragonflies") and
+                (   
+                    state.has("Small Key (Woodfall)", player) or 
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Dark Room Chest SF":
             lambda state: (
-                state.has("Small Key (Woodfall)", player) or 
-                state.has("Progressive Bow", player)
+                has_soul_enemy(state, player, options, "Boes") and
+                (
+                    state.has("Small Key (Woodfall)", player) or 
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Switch Chest SF":
             lambda state: state.has("Progressive Bow", player),
         "Woodfall Temple Dinolfos Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Dinolfos") and
                 (
                     state.has("Small Key (Woodfall)", player) and 
                     can_smack(state, player)
@@ -1860,13 +1867,14 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Gekko Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
                 state.has("Progressive Bow", player) and 
                 can_smack(state, player)
             ),
         "Woodfall Temple Entrance Freestanding SF":
             lambda state: True,
         "Woodfall Temple Deku Baba SF":
-            lambda state: True,
+            lambda state: has_soul_enemy(state, player, options, "Deku Baba"),
         "Woodfall Temple Pot SF":
             lambda state: has_soul_absurd(state, player, options, "Pots"),           
         "Woodfall Temple Main Room Bubble SF":
@@ -1896,6 +1904,7 @@ def get_location_rules(player, options):
             ),
         "Woodfall Temple Skulltula SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Hanging Skulltulas") and 
                 (
                     state.has("Small Key (Woodfall)", player) and 
                     can_smack(state, player)
@@ -2272,11 +2281,13 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Dinolfos Room First SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Dinolfos") and
                 state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player)
             ),
         "Snowhead Temple Dinolfos Room Second SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Dinolfos") and
                 state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player)
             ),
@@ -2892,7 +2903,9 @@ def get_location_rules(player, options):
         "Great Bay Temple Entrance Torches Chest SF":
             lambda state: True,
         "Great Bay Temple Waterwheel Room Skulltula SF":
-            lambda state: can_smack_hard(state, player),
+            lambda state: 
+            has_soul_enemy(state, player, options, "Hanging Skulltulas") and 
+            can_smack_hard(state, player),
         "Great Bay Temple Waterwheel Room Bubble SF":
             lambda state: (
                 state.has("Zora Mask", player) or 
@@ -2920,7 +2933,7 @@ def get_location_rules(player, options):
                 )
             ),
         "Great Bay Temple Bio-Baba Hall Chest SF":
-            lambda state: True,
+            lambda state: has_soul_enemy(state, player, options, "Deku Baba"),
         "Great Bay Temple Before Gekko Room Pot SF":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Before Gekko Room Upper Chest":
@@ -3143,6 +3156,7 @@ def get_location_rules(player, options):
             
         "Secret Shrine Dinolfos Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Dinolfos") and
                 can_smack_hard(state, player) and 
                 can_use_light_arrows(state, player)
             ),
@@ -9347,24 +9361,28 @@ def get_location_rules(player, options):
         # Woodfall Temple Gekko Pots - Requires bow to access this area
         "Woodfall Temple Gekko Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Gekko Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Gekko Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Gekko Pots (4)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Progressive Bow", player)
@@ -18118,7 +18136,7 @@ def get_location_rules(player, options):
         "Moon Butterfly Fairy (13)":
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
 
-    # Frogs
+        # Frogs
 
         "Laundry Pool Frog":
             lambda state: state.has("Don Gero Mask", player),
@@ -18128,6 +18146,8 @@ def get_location_rules(player, options):
 
         "Woodfall Temple Miniboss Frog":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gekko") and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player) and 
                 can_smack(state, player) and

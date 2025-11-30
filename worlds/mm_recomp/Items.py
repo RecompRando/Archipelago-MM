@@ -1236,6 +1236,41 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Deku Baba": MMRItemData(
+        code=0x34694200E0033,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Dragonflies": MMRItemData(
+        code=0x34694200E0109,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Gekko": MMRItemData(
+        code=0x34694200E0007,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Boes": MMRItemData(
+        code=0x34694200E0164,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Hanging Skulltulas": MMRItemData(
+        code=0x34694200E0024,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Dinolfos": MMRItemData(
+        code=0x34694200E0019,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Giant Bonefish": MMRItemData(
+        code=0x34694200E014B,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}
