@@ -2527,7 +2527,10 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player, options) or
-                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
+                    (
+                        state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                        state.has("Hookshot", player)
+                    )
                 )
             ),
         "Great Bay Feeding Lab Fish":
