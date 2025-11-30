@@ -1220,6 +1220,22 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.absurd_souls.value
     ),
+    # Enemy Souls
+    "Soul of Guays": MMRItemData(
+        code=0x34694200E00F1,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Wolfos": MMRItemData(
+        code=0x34694200E00EC,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Chu Jelly": MMRItemData(
+        code=0x34694200E014A,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

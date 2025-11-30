@@ -2942,29 +2942,37 @@ def get_location_rules(player, options):
                 )
             ),
         "Great Bay Temple Room Behind Waterfall Ceiling Chest SF":
-            lambda state: can_use_ice_arrows(state, player),
+            lambda state: (
+                state.has("Hookshot", player) and
+                can_use_ice_arrows(state, player)
+            ),
         "Great Bay Temple Freezable Waterwheel Upper Chest SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Freezable Waterwheel Lower Chest SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Underwater Barrel SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Chest SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pre-Boss Room Platform Bubble SF":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
@@ -10975,7 +10983,7 @@ def get_location_rules(player, options):
         "Great Bay Temple Before Gekko Room Pots (7)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         
-        # Great Bay Temple Red Valve Underwater Pots - Basic temple access
+        # Great Bay Temple Red Valve Underwater Pots 
         "Great Bay Temple Red Valve Underwater Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Great Bay Temple Red Valve Underwater Pots (2)":
@@ -11047,7 +11055,7 @@ def get_location_rules(player, options):
                 state.has("Small Key (Great Bay)", player)
             ),
         
-        # Great Bay Temple Wart Room Pots - Requires Small Key only
+        # Great Bay Temple Wart Room Pots 
         "Great Bay Temple Wart Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
@@ -11089,44 +11097,52 @@ def get_location_rules(player, options):
                 state.has("Small Key (Great Bay)", player)
             ),
         
-        # Great Bay Temple Green Pipe Frozen Waterwheel Pots - Requires Ice Arrows
+        # Great Bay Temple Green Pipe Frozen Waterwheel Pots 
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (4)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (5)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (6)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (7)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Pots (8)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player)
             ),
@@ -11134,18 +11150,21 @@ def get_location_rules(player, options):
         # Great Bay Temple Seesaw Room Pots - Requires both Ice and Fire Arrows
         "Great Bay Temple Seesaw Room Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
@@ -11154,48 +11173,56 @@ def get_location_rules(player, options):
         # Great Bay Temple Pots Underneath Boss Door Platform - Requires both Ice and Fire Arrows
         "Great Bay Temple Pots Underneath Boss Door Platform (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (4)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (5)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (6)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (7)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pots Underneath Boss Door Platform (8)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
@@ -11204,6 +11231,7 @@ def get_location_rules(player, options):
         # Great Bay Temple Gyorg Pots - Requires Boss Key or Remains warp
         "Great Bay Temple Gyorg Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11215,6 +11243,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11226,6 +11255,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11237,6 +11267,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (4)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11248,6 +11279,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (5)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11259,6 +11291,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (6)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11270,6 +11303,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (7)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -11281,6 +11315,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Gyorg Pots (8)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 has_soul_absurd(state, player, options, "Pots") and 
                 (
                     state.has("Boss Key (Great Bay)", player) or 
@@ -16728,55 +16763,55 @@ def get_location_rules(player, options):
 
         "Great Bay Temple Seesaw Room Crates (0)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (1)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (2)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (3)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (4)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (5)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Seesaw Room Crates (6)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Crates (0)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Green Pipe Frozen Waterwheel Crates (1)":
             lambda state: ( 
-                state.can_reach("Great Bay Temple", 'Region', player) and
+                has_soul_enemy(state, player, options, "Chu Jelly") and
                 can_use_ice_arrows(state, player) and
                 can_use_fire_arrows(state, player)
             ),
