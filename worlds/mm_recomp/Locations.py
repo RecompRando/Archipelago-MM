@@ -14325,17 +14325,17 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Snowhead Temple Entry Block Icicles (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232101,
+        address=0x3469420232105,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Entry Block Icicles (3)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232102,
+        address=0x3469420232101,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Entry Block Icicles (4)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232103,
+        address=0x3469420232106,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Entry Block Icicles (5)": MMRLocationData(
@@ -14345,22 +14345,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Snowhead Temple Grey Door Icicles (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232105,
+        address=0x3469420232103,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Grey Door Icicles (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232106,
+        address=0x3469420232102,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Grey Door Ceiling Icicles (1)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232107,
+        address=0x3469420232108,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Grey Door Ceiling Icicles (2)": MMRLocationData(
         region="Snowhead Temple",
-        address=0x3469420232108,
+        address=0x3469420232107,
         can_create=lambda options: options.iciclesanity.value
     ),
     "Snowhead Temple Frozen Block Ceiling Icicle (1)": MMRLocationData(
