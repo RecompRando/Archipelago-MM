@@ -14343,7 +14343,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420232104,
         can_create=lambda options: options.iciclesanity.value
     ),
-    "Snowhead Temple Grey Door Icicles (2)": MMRLocationData(
+    "Snowhead Temple Grey Door Icicles (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x3469420232105,
         can_create=lambda options: options.iciclesanity.value
