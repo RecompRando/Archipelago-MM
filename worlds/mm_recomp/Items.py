@@ -1241,6 +1241,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Real Bombchu": MMRItemData(
+        code=0x34694200E016F,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Dragonflies": MMRItemData(
         code=0x34694200E0109,
         type=ItemClassification.progression,
@@ -1271,11 +1276,37 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Carnivorous Lilypad": MMRItemData(
+        code=0x34694200E013A,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Freezard": MMRItemData(
+        code=0x34694200E008F,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Wizrobe": MMRItemData(
+        code=0x34694200E015D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Pirate Guards": MMRItemData(
+        code=0x34694200E021E,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Coloured Pirates": MMRItemData(
+        code=0x34694200E021D,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Giant Bonefish": MMRItemData(
         code=0x34694200E014B,
         type=ItemClassification.filler,
         can_create=lambda options: options.enemy_souls.value
     ),
+
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}

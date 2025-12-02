@@ -193,6 +193,7 @@ def can_reach_scarecrow(state, player, options):
 def can_reach_seahorse(state, player, options):
     return (
         has_soul_npc(state, player, options, "Fisherman") and
+        has_soul_enemy(state, player, options, "Pirate Guards") and
         state.can_reach("Fisherman's House", 'Region', player) and 
         state.has("Zora Mask", player) and 
         state.has("Pictograph Box", player) and 
@@ -2294,13 +2295,17 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Bridge Room Freezard Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Freezard") and
                 can_use_fire_arrows(state, player) or 
                 state.has("Hookshot", player)
             ),
         "Snowhead Temple Basement Switch Chest SF":
             lambda state: True,    
         "Snowhead Temple Freezard Torch Room Chest SF":
-            lambda state: can_use_fire_arrows(state, player),
+            lambda state: (
+                has_soul_enemy(state, player, options, "Freezard") and
+                can_use_fire_arrows(state, player)
+            ),
         "Snowhead Temple Stacked Block Upper Chest SF":
             lambda state: (
                 state.has("Hookshot", player) or 
@@ -2363,6 +2368,7 @@ def get_location_rules(player, options):
             lambda state: True,    
         "Snowhead Temple Lower Wizzrobe Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 (
                     state.has("Small Key (Snowhead)", player, 2) and 
                     has_explosives(state, player)
@@ -2388,6 +2394,7 @@ def get_location_rules(player, options):
             ),
         "Snowhead Temple Upper Wizzrobe Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 can_use_fire_arrows(state, player) and 
                 (
                     (
@@ -2520,6 +2527,7 @@ def get_location_rules(player, options):
         "Pinnacle Rock Seahorse HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
+                has_soul_enemy(state, player, options, "Pirate Guards") and
                 can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -2527,6 +2535,7 @@ def get_location_rules(player, options):
         "Pinnacle Rock Upper Eel Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
+                has_soul_enemy(state, player, options, "Pirate Guards") and
                 can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -2534,6 +2543,7 @@ def get_location_rules(player, options):
         "Pinnacle Rock Lower Eel Chest":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
+                has_soul_enemy(state, player, options, "Pirate Guards") and
                 can_reach_seahorse(state, player, options) and 
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
@@ -2544,7 +2554,8 @@ def get_location_rules(player, options):
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player, options) or
-                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
+                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                    state.has("Hookshot", player)
                 )
             ),
         "Great Bay Feeding Lab Fish":
@@ -2787,6 +2798,7 @@ def get_location_rules(player, options):
             ),
         "Pirates' Fortress Interior Tank Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
@@ -3163,6 +3175,7 @@ def get_location_rules(player, options):
             ),
         "Secret Shrine Wizzrobe Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 can_smack_hard(state, player) and 
                 can_use_light_arrows(state, player)
             ),
@@ -3417,6 +3430,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Inverted Wizzrobe Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 can_use_light_arrows(state, player) and 
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
@@ -10774,18 +10788,21 @@ def get_location_rules(player, options):
         # Pirates Fortress Interior Room Past Green Guard Pots
         "Pirates Fortress Interior Room Past Green Guard Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Room Past Green Guard Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Room Past Green Guard Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
@@ -10808,12 +10825,14 @@ def get_location_rules(player, options):
         # Pirates Fortress Interior Room Past Pink Guard Pots
         "Pirates Fortress Interior Room Past Pink Guard Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         "Pirates Fortress Interior Room Past Pink Guard Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
@@ -11558,26 +11577,36 @@ def get_location_rules(player, options):
 
         "Sakons Hideout Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Deku Babas") and
+                has_soul_enemy(state, player, options, "Wolfos") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
                 ),
         "Sakons Hideout Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Deku Babas") and
+                has_soul_enemy(state, player, options, "Wolfos") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
                 ),
         "Sakons Hideout Pots (3)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Deku Babas") and
+                has_soul_enemy(state, player, options, "Wolfos") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
                 ),
         "Sakons Hideout Pots (4)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Deku Babas") and
+                has_soul_enemy(state, player, options, "Wolfos") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
                 ),
         "Sakons Hideout Pots (5)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Deku Babas") and
+                has_soul_enemy(state, player, options, "Wolfos") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.can_reach("Stock Pot Inn Anju and Kafei", 'Location', player)
                 ),
@@ -11664,6 +11693,7 @@ def get_location_rules(player, options):
         
         "Ikana Castle Right Side Staircase Pots (1)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and
                 state.has("Deku Mask", player) and
@@ -11671,6 +11701,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle Right Side Staircase Pots (2)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wizrobe") and
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_fire_arrows(state, player) and
                 state.has("Deku Mask", player) and
@@ -16532,6 +16563,7 @@ def get_location_rules(player, options):
             ),
         "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
             lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
