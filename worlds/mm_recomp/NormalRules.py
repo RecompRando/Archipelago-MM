@@ -2953,6 +2953,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Jellied Gekko") and
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player)
             ),
@@ -2960,6 +2961,7 @@ def get_location_rules(player, options):
             lambda state: True,
         "Great Bay Temple Behind Locked Door Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wart") and
                 state.has("Small Key (Great Bay)", player) and 
                 (
                     can_smack_hard(state, player) or
@@ -3079,6 +3081,7 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Iron Knuckle") and
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack_hard(state, player) and 
@@ -3105,6 +3108,7 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 1 Iron Knuckle Song":
             lambda state: (
+                has_soul_enemy(state, player, options, "Iron Knuckle") and
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack_hard(state, player)
@@ -3181,11 +3185,13 @@ def get_location_rules(player, options):
             ),
         "Secret Shrine Wart Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Wart") and
                 can_smack_hard(state, player) and 
                 can_use_light_arrows(state, player)
             ),
         "Secret Shrine Garo Master Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Garo Master") and
                 can_use_light_arrows(state, player) and 
                 can_smack_hard(state, player)
             ),
@@ -3279,6 +3285,7 @@ def get_location_rules(player, options):
             ),
         "Ikana Castle King Song":
             lambda state: (
+                has_soul_enemy(state, player, options, "Igos") and
                 (
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and 
@@ -3323,6 +3330,7 @@ def get_location_rules(player, options):
             lambda state: state.has("Hookshot", player),
         "Stone Tower Temple Armos Room Lava Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Armos") and
                 (
                     has_explosives(state, player) and 
                     has_mirror_shield(state, player)
@@ -3390,6 +3398,7 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Garo Master Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Garo Master") and
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
                     has_mirror_shield(state, player) and 
@@ -3440,6 +3449,7 @@ def get_location_rules(player, options):
             lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
         "Stone Tower Temple Inverted Gomess Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Gomess") and
                 state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player) and 
                 can_use_light_arrows(state, player) and 
                 can_smack_hard(state, player)
@@ -3520,12 +3530,14 @@ def get_location_rules(player, options):
             
         "Moon Link Trial Garo Master Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Garo Master") and
                 has_soul_npc(state, player, options, "Moon Kids") and
                 can_smack_hard(state, player) and 
                 state.has("Hookshot", player)
             ),
         "Moon Link Trial Iron Knuckle Chest":
-            lambda state:( 
+            lambda state:(
+                has_soul_enemy(state, player, options, "Iron Knuckle") and 
                 has_soul_npc(state, player, options, "Moon Kids") and
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player)
             ),    

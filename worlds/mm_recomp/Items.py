@@ -1306,6 +1306,57 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Wart": MMRItemData(
+        code=0x34694200E012C,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Jellied Gekko": MMRItemData(
+        code=0x34694200E0065,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Iron Knuckle": MMRItemData(
+        code=0x34694200E0084,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Garo": MMRItemData(
+        code=0x34694200E0113,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Garo Master": MMRItemData(
+        code=0x34694200E0182,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Armos": MMRItemData(
+        code=0x34694200E0032,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Death Armos": MMRItemData(
+        code=0x34694200E002D,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Redead": MMRItemData(
+        code=0x34694200E004C,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Igos": MMRItemData(
+        code=0x34694200E0115,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Gomess": MMRItemData(
+        code=0x34694200E0043,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+
 
 }
 
