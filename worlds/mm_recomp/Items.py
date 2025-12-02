@@ -1321,6 +1321,21 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Bad Bats": MMRItemData(
+        code=0x34694200E015B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Keese": MMRItemData(
+        code=0x34694200E000C,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Leevers": MMRItemData(
+        code=0x34694200E0216,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Garo": MMRItemData(
         code=0x34694200E0113,
         type=ItemClassification.filler,

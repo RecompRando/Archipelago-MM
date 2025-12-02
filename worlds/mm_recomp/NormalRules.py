@@ -3070,6 +3070,7 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 1 Bats Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Bad Bats") and
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and 
                 can_smack(state, player)
