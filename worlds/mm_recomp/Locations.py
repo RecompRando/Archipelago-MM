@@ -485,7 +485,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Termina Field",
         address=0x346942006071F
     ),
-    "Termina Peahat Grotto Chest": MMRLocationData(
+    "Termina Peehat Grotto Chest": MMRLocationData(
         region="Termina Field",
         address=0x3469420060704
     ),
@@ -2530,62 +2530,62 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694201052DB,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (1)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D0,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (2)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D1,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (3)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D2,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (4)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D3,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (5)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D4,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (6)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D5,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (7)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D6,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (8)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D7,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (9)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D8,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (10)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062D9,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (11)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062DA,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Grass Near Peahat Grotto (12)": MMRLocationData(
+    "Termina Field Grass Near Peehat Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x34694201062DB,
         can_create=lambda options: options.grasssanity.value
@@ -3684,64 +3684,64 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420105ADB,
         can_create=lambda options: options.grasssanity.value
     ),
-    # Termina Field Peahat Grotto Grass
+    # Termina Field Peehat Grotto Grass
 
-    "Termina Field Peahat Grotto Grass (1)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D0,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (2)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D1,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (3)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D2,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (4)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D3,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (5)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D4,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (6)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D5,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (7)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D6,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (8)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D7,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (9)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D8,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (10)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008D9,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (11)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008DA,
         can_create=lambda options: options.grasssanity.value
     ),
-    "Termina Field Peahat Grotto Grass (12)": MMRLocationData(
+    "Termina Field Peehat Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x34694201008DB,
         can_create=lambda options: options.grasssanity.value
@@ -14946,12 +14946,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     #Butterfly Fairies
     #Termina Field Butterflies
-    "Termina Field Near Peahat Grotto Butterfly Fairy (1)": MMRLocationData(
+    "Termina Field Near Peehat Grotto Butterfly Fairy (1)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF2D00,
         can_create=lambda options: options.realfairysanity.value
     ),
-    "Termina Field Near Peahat Grotto Butterfly Fairy (2)": MMRLocationData(
+    "Termina Field Near Peehat Grotto Butterfly Fairy (2)": MMRLocationData(
         region="Termina Field",
         address=0x3469420BF2D01,
         can_create=lambda options: options.realfairysanity.value

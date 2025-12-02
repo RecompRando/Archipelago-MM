@@ -1246,6 +1246,21 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Eenos": MMRItemData(
+        code=0x34694200E01E6,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Peehats": MMRItemData(
+        code=0x34694200E0014,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Dodongos": MMRItemData(
+        code=0x34694200E000B,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Dragonflies": MMRItemData(
         code=0x34694200E0109,
         type=ItemClassification.progression,

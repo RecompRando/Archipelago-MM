@@ -1368,12 +1368,14 @@ def get_location_rules(player, options):
             ),
         "Termina Underwater Chest":
             lambda state: state.has("Zora Mask", player),
-        "Termina Peahat Grotto Chest":
+        "Termina Peehat Grotto Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Peehats") and
                 has_soul_absurd(state, player, options, "Grottos")
             ),   
         "Termina Dodongo Grotto Chest":
             lambda state: (
+                has_soul_enemy(state, player, options, "Dodongos") and
                 has_soul_absurd(state, player, options, "Grottos")
             ),   
         "Termina Bio Baba Grotto HP":
@@ -4129,30 +4131,30 @@ def get_location_rules(player, options):
         "Termina Field Grass Near Kamaro (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Termina Field Grass Near Peahat Grotto
-        "Termina Field Grass Near Peahat Grotto (1)":
+        # Termina Field Grass Near Peehat Grotto
+        "Termina Field Grass Near Peehat Grotto (1)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (2)":
+        "Termina Field Grass Near Peehat Grotto (2)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (3)":
+        "Termina Field Grass Near Peehat Grotto (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (4)":
+        "Termina Field Grass Near Peehat Grotto (4)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (5)":
+        "Termina Field Grass Near Peehat Grotto (5)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (6)":
+        "Termina Field Grass Near Peehat Grotto (6)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (7)":
+        "Termina Field Grass Near Peehat Grotto (7)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (8)":
+        "Termina Field Grass Near Peehat Grotto (8)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (9)":
+        "Termina Field Grass Near Peehat Grotto (9)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (10)":
+        "Termina Field Grass Near Peehat Grotto (10)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (11)":
+        "Termina Field Grass Near Peehat Grotto (11)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
-        "Termina Field Grass Near Peahat Grotto (12)":
+        "Termina Field Grass Near Peehat Grotto (12)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
         # Termina Field Grass In Front of Log
@@ -4950,63 +4952,63 @@ def get_location_rules(player, options):
                 has_explosives(state, player)
             ),
         
-        # Termina Field Peahat Grotto Grass
-        "Termina Field Peahat Grotto Grass (1)":
+        # Termina Field Peehat Grotto Grass
+        "Termina Field Peehat Grotto Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (2)":
+        "Termina Field Peehat Grotto Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (3)":
+        "Termina Field Peehat Grotto Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (4)":
+        "Termina Field Peehat Grotto Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (5)":
+        "Termina Field Peehat Grotto Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (6)":
+        "Termina Field Peehat Grotto Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (7)":
+        "Termina Field Peehat Grotto Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (8)":
+        "Termina Field Peehat Grotto Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (9)":
+        "Termina Field Peehat Grotto Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (10)":
+        "Termina Field Peehat Grotto Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (11)":
+        "Termina Field Peehat Grotto Grass (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
             ),
-        "Termina Field Peahat Grotto Grass (12)":
+        "Termina Field Peehat Grotto Grass (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass")
@@ -18016,9 +18018,9 @@ def get_location_rules(player, options):
 
         # Butterfly Fairies
 
-        "Termina Field Near Peahat Grotto Butterfly Fairy (1)":
+        "Termina Field Near Peehat Grotto Butterfly Fairy (1)":
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
-        "Termina Field Near Peahat Grotto Butterfly Fairy (2)":
+        "Termina Field Near Peehat Grotto Butterfly Fairy (2)":
             lambda state: has_soul_misc(state, player, options, "Butterflies"),
 
         "Termina Field Cow Grotto Butterfly Fairy (1)":
