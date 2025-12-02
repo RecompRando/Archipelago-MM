@@ -15235,7 +15235,8 @@ def get_location_rules(player, options):
                 state.can_reach("Snowhead", 'Region', player) and
                 (
                     state.has("Goron Mask", player) or
-                    has_explosives(state, player)
+                    has_explosives(state, player) or
+                    can_use_fire_arrows(state, player)
                 )
         ),
         "Path to Snowhead Snowballs (3)":
@@ -15249,7 +15250,8 @@ def get_location_rules(player, options):
                 state.can_reach("Snowhead", 'Region', player) and
                 (
                     state.has("Goron Mask", player) or
-                    has_explosives(state, player)
+                    has_explosives(state, player) or
+                    can_use_fire_arrows(state, player)
                 )
         ),
         # Outside Snowhead Temple Snowballs
