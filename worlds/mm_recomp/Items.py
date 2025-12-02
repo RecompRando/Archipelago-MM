@@ -1326,6 +1326,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Ocotoroks": MMRItemData(
+        code=0x34694200E0008,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Jellied Gekko": MMRItemData(
         code=0x34694200E0065,
         type=ItemClassification.progression,
