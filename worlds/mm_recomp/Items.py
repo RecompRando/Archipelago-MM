@@ -1226,9 +1226,14 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.filler,
         can_create=lambda options: options.enemy_souls.value
     ),
+    "Soul of Takkuri": MMRItemData(
+        code=0x34694200E0291,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.enemy_souls.value
+    ),
     "Soul of Wolfos": MMRItemData(
         code=0x34694200E00EC,
-        type=ItemClassification.filler,
+        type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
     "Soul of Chu Jelly": MMRItemData(
@@ -1248,6 +1253,11 @@ item_data_table: Dict[str, MMRItemData] = {
     ),
     "Soul of Eenos": MMRItemData(
         code=0x34694200E01E6,
+        type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Tektite": MMRItemData(
+        code=0x34694200E0012,
         type=ItemClassification.filler,
         can_create=lambda options: options.enemy_souls.value
     ),
@@ -1374,6 +1384,11 @@ item_data_table: Dict[str, MMRItemData] = {
     "Soul of Death Armos": MMRItemData(
         code=0x34694200E002D,
         type=ItemClassification.filler,
+        can_create=lambda options: options.enemy_souls.value
+    ),
+    "Soul of Eyegore": MMRItemData(
+        code=0x34694200E0184,
+        type=ItemClassification.progression,
         can_create=lambda options: options.enemy_souls.value
     ),
     "Soul of Redead": MMRItemData(

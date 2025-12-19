@@ -6746,7 +6746,7 @@ location_data_table: Dict[str, MMRLocationData] = {
 
     "Ikana Castle Grass (1)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D00,
+        address=0x3469420121D0B,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Castle Grass (2)": MMRLocationData(
@@ -6756,7 +6756,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Ikana Castle Grass (3)": MMRLocationData(
         region="Ikana Castle",
-        address=0x3469420121D0B,
+        address=0x3469420121D02,
         can_create=lambda options: options.grasssanity.value
     ),
     "Ikana Castle Grass (4)": MMRLocationData(
@@ -14855,7 +14855,7 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Goron Trial 2nd Gazebo Gossip (1)": MMRLocationData(
         region="The Moon",
-        address=0x34694201F000D,
+        address=0x34694201F3F0D,
         can_create=lambda options: options.realfairysanity.value
     ),
     "Goron Trial Near Heart Piece Gossip (1)": MMRLocationData(
@@ -17267,6 +17267,12 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x34694202F664F,
         can_create=lambda options: options.oneoffs.value,
     ),
+    "Goron Trial Chests": MMRLocationData(
+        region="The Moon",
+        address=0x3469420063F00,
+        can_create=lambda options: options.oneoffs.value,
+    ),
+
         # 100% Completion
     "Majora's Soul": MMRLocationData(
         region="Clock Town",
