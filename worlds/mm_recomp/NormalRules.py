@@ -2206,7 +2206,7 @@ def get_location_rules(player, options):
         "Path to Snowhead Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                state.can_reach("Snowhead", 'Region', player) 
+                state.can_reach("Path to Snowhead", 'Region', player) and
                 has_explosives(state, player)
             ),
         "Path to Snowhead Scarecrow Pillar HP":
@@ -11411,8 +11411,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
-                state.has("Captain's Hat", player) and
-                has_explosives(state, player)
+                state.has("Captain's Hat", player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Entryway Pots (2)":
             lambda state: (
@@ -11428,15 +11427,13 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
-                has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (2)":
-             lambda state: (
+            lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
-                has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (3)":
@@ -11444,7 +11441,6 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
-                has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         "Ikana Graveyard Day 2 Invisible Path Pots (4)":
@@ -11452,7 +11448,6 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_soul_npc(state, player, options, "Stalchildren") and
                 state.has("Captain's Hat", player) and
-                has_explosives(state, player) and
                 can_use_lens(state, player)
             ),
         
@@ -11528,9 +11523,7 @@ def get_location_rules(player, options):
         "Secret Shrine Underwater Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_light_arrows(state, player) and
-                can_smack_hard(state, player) and
-                state.has("Zora Mask", player)
+                can_use_light_arrows(state, player)
             ),
         "Secret Shrine Underwater Pots (2)":
             lambda state: (
@@ -11611,12 +11604,7 @@ def get_location_rules(player, options):
                 ),
         "Ikana Castle Frozen Eyes Room Pots (1)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
+                has_soul_absurd(state, player, options, "Pots")
             ),
         "Ikana Castle Frozen Eyes Room Pots (2)":
             lambda state: (
@@ -11630,11 +11618,7 @@ def get_location_rules(player, options):
         "Ikana Castle Left Side Falling Ceiling Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_fire_arrows(state, player) and
-                (
-                    can_use_light_arrows(state, player) or
-                    has_mirror_shield(state, player)
-                )
+                can_use_fire_arrows(state, player)
             ),
         "Ikana Castle Left Side Falling Ceiling Room Pots (2)":
             lambda state: (
@@ -11688,17 +11672,13 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_enemy(state, player, options, "Wizrobe") and
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_fire_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                has_soul_absurd(state, player, options, "Deku Flowers")
+                can_use_fire_arrows(state, player)
             ),
         "Ikana Castle Right Side Staircase Pots (2)":
             lambda state: (
                 has_soul_enemy(state, player, options, "Wizrobe") and
                 has_soul_absurd(state, player, options, "Pots") and
-                can_use_fire_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                has_soul_absurd(state, player, options, "Deku Flowers")
+                can_use_fire_arrows(state, player)
             ),
         # Ikana Castle Throne Room Pots
         "Ikana Castle Throne Room Pots (1)":
@@ -12576,7 +12556,6 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Lower Basement Armos Pots (7)":
             lambda state: (
-            lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Goron Mask", player) and
                 has_explosives(state, player) and
@@ -13159,73 +13138,49 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         "Moon Link Trial Pots (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_npc(state, player, options, "Moon Kids") and
-                state.can_reach("The Moon", 'Region', player) and
-                state.can_reach("Moon Link Trial Garo Master Chest", "Location", player) and
-                has_bombchus(state, player) and
-                state.has("Progressive Bow", player)
+                state.can_reach("The Moon", 'Region', player)
             ),
         
         # Majora Lair Pots
@@ -16879,6 +16834,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Goron Mask", player) or
                     can_use_light_arrows(state, player)
+                )
             ),
         "Stone Tower Temple Eyegore Room Crates (1)":
             lambda state: (
@@ -16886,6 +16842,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Goron Mask", player) or
                     can_use_light_arrows(state, player)
+                ),
             ),
         "Stone Tower Temple Eyegore Room Crates (2)":
             lambda state: (
@@ -16893,6 +16850,7 @@ def get_location_rules(player, options):
                 (
                     state.has("Goron Mask", player) or
                     can_use_light_arrows(state, player)
+                )
             ),
 
         "Stone Tower Temple Behind Bombable Wall Crates (0)":
@@ -16945,17 +16903,17 @@ def get_location_rules(player, options):
             lambda state: True,
 
         "Stone Tower Temple Inverted Thin Hallway Crates (0)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Stone Tower Temple Inverted Thin Hallway Crates (1)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Stone Tower Temple Inverted Thin Hallway Crates (2)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Stone Tower Temple Inverted Thin Hallway Crates (3)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Stone Tower Temple Inverted Thin Hallway Crates (4)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
         "Stone Tower Temple Inverted Thin Hallway Crates (5)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", 'Location', player),
 
         # Icicles (ice ice baby)
 
@@ -20478,5 +20436,4 @@ def get_location_rules(player, options):
                 state.has("Swamp Skulltula Token", player, 30) and
                 state.has("Ocean Skulltula Token", player, 30)
             ),
-    }   
-
+    }

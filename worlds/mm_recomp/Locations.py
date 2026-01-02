@@ -13754,34 +13754,42 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Pirates' Fortress Sewers Barrel (14)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BD,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Barrel (15)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BE,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Barrel (16)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x34694202223BF,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Exit Barrel (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222390,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Exit Barrel (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222391,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Exit Barrel (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222392,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Exit Barrel (4)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222393,
+        can_create=lambda options: options.woodsanity.value
     ),
     "Pirates' Fortress Sewers Exit Barrel (5)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x3469420222394,
+        can_create=lambda options: options.woodsanity.value
     ),                                                                
     # Pirates Fortress Interior Crates
     "Pirates Fortress' Interior Crates (0)": MMRLocationData(
@@ -16412,11 +16420,6 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Woodfall Temple Snapping Turtle Flower (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x34694203F1B61,
-        can_create=lambda options: options.flowersanity.value
-    ),
-    "Woodfall Temple Snapping Turtle Flower (3)": MMRLocationData(
-        region="Woodfall Temple",
-        address=0x34694203F1B62,
         can_create=lambda options: options.flowersanity.value
     ),
     "Woodfall Temple Snapping Turtle Flower (3)": MMRLocationData(
