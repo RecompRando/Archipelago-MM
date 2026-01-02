@@ -826,11 +826,11 @@ def get_region_rules(player, options):
                 can_use_owl(state, player, options, "Stone Tower"),
         "Stone Tower -> Stone Tower Temple":
             lambda state:
-                (
-                    state.has("Hookshot", player) and  
+                (  
                     can_play_song("Elegy of Emptiness", state, player) and 
                     (
                         (
+                            state.has("Hookshot", player) and
                             state.has("Goron Mask", player) and 
                             state.has("Zora Mask", player)
                         ) or
@@ -1254,7 +1254,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
                 has_bottle(state, player) and 
-                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", "Location", player)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Curiosity Shop Gold Rupee Trade":
             lambda state: (
@@ -3330,49 +3330,73 @@ def get_location_rules(player, options):
                 state.has("Small Key (Stone Tower)", player, 4) and 
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Temple Armos Room Back Chest":
             lambda state: (
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player) and
+                has_explosives(state, player) and
                 (
-                    has_explosives(state, player) and 
-                    has_mirror_shield(state, player)
-                ) or 
-                can_use_light_arrows(state, player)
+                    has_mirror_shield(state, player) or
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Stone Tower Temple Armos Room Upper Chest":
             lambda state: state.has("Hookshot", player),
         "Stone Tower Temple Armos Room Lava Chest":
             lambda state: (
                 has_soul_enemy(state, player, options, "Armos") and
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player) and
+                has_explosives(state, player) and
                 (
-                    has_explosives(state, player) and 
-                    has_mirror_shield(state, player)
-                ) or 
-                can_use_light_arrows(state, player)
+                    has_mirror_shield(state, player) or
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Stone Tower Temple Eyegore Room Switch Chest":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Zora Mask", player)
+            ),
         "Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 1) or 
-                can_use_light_arrows(state, player)
+                state.has("Zora Mask", player) and
+                (
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
+                )
             ),
         "Stone Tower Temple Eastern Water Room Underwater Chest":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Zora Mask", player)
+            ),
         "Stone Tower Temple Eastern Water Room Sun Block Chest":
             lambda state: (
                 can_use_light_arrows(state, player) or 
                 (
                     state.has("Small Key (Stone Tower)", player, 1) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player) and
+                    has_explosives(state, player)
                 )
             ),
         "Stone Tower Temple Mirror Room Sun Block Chest":
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player) and
+                    has_explosives(state, player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
@@ -3383,7 +3407,10 @@ def get_location_rules(player, options):
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player) and
+                    has_explosives(state, player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
@@ -3396,7 +3423,10 @@ def get_location_rules(player, options):
                     state.has("Small Key (Stone Tower)", player, 2) and 
                     has_mirror_shield(state, player) and 
                     has_soul_absurd(state, player, options, "Deku Flowers") and
-                    state.has("Deku Mask", player)
+                    state.has("Deku Mask", player) and 
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player) and
+                    has_explosives(state, player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
@@ -3413,23 +3443,28 @@ def get_location_rules(player, options):
         "Stone Tower Temple Garo Master Chest":
             lambda state: (
                 has_soul_enemy(state, player, options, "Garo Master") and
+                can_smack_hard(state, player) and
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
                     has_mirror_shield(state, player) and 
                     has_soul_absurd(state, player, options, "Deku Flowers") and
                     state.has("Deku Mask", player) and 
-                    can_smack_hard(state, player)
+                    state.has("Goron Mask", player) and
+                    state.has("Zora Mask", player) and
+                    has_explosives(state, player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
-                    state.has("Small Key (Stone Tower)", player, 1) and 
-                    can_smack_hard(state, player)
+                    state.has("Small Key (Stone Tower)", player, 1) 
                 )
             ),
         "Stone Tower Temple After Garo Upside Down Chest":
             lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Stone Tower Temple Eyegore Chest":
-            lambda state: state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
+            ),
         "Stone Tower Temple Inverted Entrance Room Sun Face Chest":
             lambda state: can_use_light_arrows(state, player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest":
@@ -3457,21 +3492,22 @@ def get_location_rules(player, options):
                 can_use_light_arrows(state, player) and 
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Small Key (Stone Tower)", player, 3) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Temple Inverted Death Armos Maze Chest":
             lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player),
         "Stone Tower Temple Inverted Gomess Chest":
             lambda state: (
                 has_soul_enemy(state, player, options, "Gomess") and
-                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and 
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", "Location", player) and 
                 can_use_light_arrows(state, player) and 
                 can_smack_hard(state, player)
             ),
         "Stone Tower Temple Inverted Eyegore Chest":
             lambda state: (
                 has_soul_enemy(state, player, options, "Eyegore") and
-                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and 
+                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", "Location", player) and 
                 state.has("Small Key (Stone Tower)", player, 4)
             ),
         "Stone Tower Temple Inverted Heart Container":
@@ -8976,48 +9012,54 @@ def get_location_rules(player, options):
         "Stone Tower Temple Entrance Room Grass (3)":
             lambda state: has_soul_absurd(state, player, options, "Grass"),
         
-        # Stone Tower Temple Elegy Maze Grass - Requires Goron, Zora, and Elegy
+        # Stone Tower Temple Elegy Maze Grass - Requires Goron, Zora, Elegy and Explosives
         "Stone Tower Temple Elegy Maze Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
         "Stone Tower Temple Elegy Maze Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
-                can_play_song("Elegy of Emptiness", state, player)
+                can_play_song("Elegy of Emptiness", state, player) and
+                has_explosives(state, player)
             ),
 
         # Clock Town Pots
@@ -12513,19 +12555,37 @@ def get_location_rules(player, options):
         "Stone Tower Temple Entrance Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Stone Tower Temple Entrance Pots (2)":
-            lambda state: True,
+            lambda state: has_soul_absurd(state, player, options, "Pots"),
         
         "Stone Tower Temple Lower Basement Armos Pots (1)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player)
+             ),
         "Stone Tower Temple Lower Basement Armos Pots (2)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player)
+             ),
         "Stone Tower Temple Lower Basement Armos Pots (3)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player)
+             ),
         "Stone Tower Temple Lower Basement Armos Pots (4)":
-            lambda state: has_soul_absurd(state, player, options, "Pots"),
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player)
+             ),
         "Stone Tower Temple Lower Basement Armos Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player) and
                     (
                         can_use_light_arrows(state, player) or
                         has_mirror_shield(state, player)
@@ -12534,6 +12594,8 @@ def get_location_rules(player, options):
         "Stone Tower Temple Lower Basement Armos Pots (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player) and
                     (
                         can_use_light_arrows(state, player) or
                         has_mirror_shield(state, player)
@@ -12541,7 +12603,10 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Temple Lower Basement Armos Pots (7)":
             lambda state: (
+            lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player) and
                     (
                         can_use_light_arrows(state, player) or
                         has_mirror_shield(state, player)
@@ -12550,6 +12615,8 @@ def get_location_rules(player, options):
         "Stone Tower Temple Lower Basement Armos Pots (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
+                state.has("Goron Mask", player) and
+                has_explosives(state, player) and
                     (
                         can_use_light_arrows(state, player) or
                         has_mirror_shield(state, player)
@@ -12558,70 +12625,93 @@ def get_location_rules(player, options):
         "Stone Tower Temple Right Side Near Locked Door Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        state.has("Zora Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         "Stone Tower Temple Right Side Near Locked Door Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        state.has("Zora Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         
         "Stone Tower Temple Right Side Underwater Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         "Stone Tower Temple Right Side Underwater Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         "Stone Tower Temple Right Side Underwater Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         "Stone Tower Temple Right Side Underwater Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         "Stone Tower Temple Right Side Underwater Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple", 'Region', player) and
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Small Key (Stone Tower)", player, 1) or
-                    can_use_light_arrows(state, player)
+                    can_use_light_arrows(state, player) or
+                    (
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        state.has("Goron Mask", player) and
+                        has_explosives(state, player)
+                    )
                 )
             ),
         
@@ -12689,42 +12779,42 @@ def get_location_rules(player, options):
         "Stone Tower Temple Lower Spike Roller Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         "Stone Tower Temple Lower Spike Roller Pots (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Deku Updraft Pots (1)", "Location", player)
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player)
             ),
         
         # Inverted Stone Tower Pots
@@ -12810,7 +12900,8 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Small Key (Stone Tower)", player, 3) and
+                state.has("Hookshot", player)
             ),
         "Inverted Stone Tower Temple Gomess Pots (2)":
             lambda state: (
@@ -12818,7 +12909,8 @@ def get_location_rules(player, options):
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Small Key (Stone Tower)", player, 3) and
+                state.has("Hookshot", player)
             ),
         "Inverted Stone Tower Temple Gomess Pots (3)":
             lambda state: (
@@ -12826,7 +12918,8 @@ def get_location_rules(player, options):
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Small Key (Stone Tower)", player, 3) and
+                state.has("Hookshot", player)
             ),
         "Inverted Stone Tower Temple Gomess Pots (4)":
             lambda state: (
@@ -12834,7 +12927,8 @@ def get_location_rules(player, options):
                 can_use_light_arrows(state, player) and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Small Key (Stone Tower)", player, 3) and
+                state.has("Hookshot", player)
             ),
         
         # Inverted Stone Tower Temple Lower Bridge Room Pots
@@ -12862,43 +12956,43 @@ def get_location_rules(player, options):
         "Inverted Stone Tower Temple Small Poe Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", "Location", player)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Inverted Stone Tower Temple Small Poe Room Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest", "Location", player)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         
         # Inverted Stone Tower Temple Wizzrobe Room Pots
         "Inverted Stone Tower Temple Wizzrobe Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", "Location", player) and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", "Location", player) and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", "Location", player) and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", "Location", player) and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and
                 can_smack_hard(state, player)
             ),
         "Inverted Stone Tower Temple Wizzrobe Room Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                state.can_reach("Stone Tower Temple Inverted Gomess Chest", "Location", player) and
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player) and
                 can_smack_hard(state, player)
             ),
         
@@ -14659,106 +14753,74 @@ def get_location_rules(player, options):
             ),
         "Stone Tower Bridge Room Rupees (1)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (2)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (3)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (4)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (5)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (6)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Bridge Room Rupees (7)":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 2) and 
-                (has_mirror_shield(state, player)
-                or 
-                can_use_light_arrows(state, player))
+                state.can_reach("Stone Tower Temple Garo Master Chest", "Location", player) and
+                state.has("Hookshot", player)
             ),
         "Stone Tower Deku Updraft Rupees (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         "Stone Tower Deku Updraft Rupees (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         "Stone Tower Deku Updraft Rupees (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         "Stone Tower Deku Updraft Rupees (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         "Stone Tower Deku Updraft Rupees (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         "Stone Tower Deku Updraft Rupees (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
-                (state.has("Zora Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 2) or
-                can_use_light_arrows(state, player) and
-                state.has("Small Key (Stone Tower)", player, 1))
+                state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player)
             ),
         # Stone Tower Eyegore Room Light Block Rupees
         "Stone Tower Eyegore Room Light Block Rupees (0)":
@@ -14786,70 +14848,38 @@ def get_location_rules(player, options):
 
         # Inverted Stone Tower Pre Boss Rupees
         "Inverted Stone Tower Pre Boss Rupees (0)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (3)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (4)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (6)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (7)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (8)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
         "Inverted Stone Tower Pre Boss Rupees (9)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (10)":
             lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Small Key (Stone Tower)", player, 4) and 
-                state.has("Deku Mask", player)
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
             ),
 
         # INVISIBLE RUPEES
@@ -16868,23 +16898,30 @@ def get_location_rules(player, options):
             lambda state: True,
 
         "Stone Tower Temple Mirror Room Crates (0)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple", 'Region', player) and
-                (can_use_light_arrows(state, player) or
-                state.has("Mirror Shield", player))
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player),
         "Stone Tower Temple Mirror Room Crates (1)":
-            lambda state: (
-                state.can_reach("Stone Tower Temple", 'Region', player) and
-                (can_use_light_arrows(state, player) or
-                state.has("Mirror Shield", player))
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Mirror Room Sun Face Chest", "Location", player),
         "Stone Tower Temple Eyegore Room Crates (0)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Zora Mask", player) and
+                (
+                    state.has("Goron Mask", player) or
+                    can_use_light_arrows(state, player)
+            ),
         "Stone Tower Temple Eyegore Room Crates (1)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Zora Mask", player) and
+                (
+                    state.has("Goron Mask", player) or
+                    can_use_light_arrows(state, player)
+            ),
         "Stone Tower Temple Eyegore Room Crates (2)":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Zora Mask", player) and
+                (
+                    state.has("Goron Mask", player) or
+                    can_use_light_arrows(state, player)
+            ),
 
         "Stone Tower Temple Behind Bombable Wall Crates (0)":
             lambda state: (
@@ -16936,47 +16973,17 @@ def get_location_rules(player, options):
             lambda state: True,
 
         "Stone Tower Temple Inverted Thin Hallway Crates (0)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
         "Stone Tower Temple Inverted Thin Hallway Crates (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
         "Stone Tower Temple Inverted Thin Hallway Crates (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
         "Stone Tower Temple Inverted Thin Hallway Crates (3)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
         "Stone Tower Temple Inverted Thin Hallway Crates (4)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
         "Stone Tower Temple Inverted Thin Hallway Crates (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
-                state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
-            ),
+            lambda state: state.can_reach("Stone Tower Temple Inverted Death Armos Maze Chest),
 
         # Icicles (ice ice baby)
 
@@ -19952,37 +19959,32 @@ def get_location_rules(player, options):
         "Inverted Stone Tower Temple Small Poe Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Inverted Stone Tower Temple Small Poe Room Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Inverted Stone Tower Temple Lower Bridge Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Inverted Stone Tower Temple Lower Bridge Room Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "Inverted Stone Tower Temple Lower Bridge Room Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_use_light_arrows(state, player) and
                 state.has("Deku Mask", player) and
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", "Location", player)
             ),
         "The Moon Deku Trial Flower (1)":
             lambda state: (
