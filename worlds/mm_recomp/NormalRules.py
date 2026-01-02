@@ -2206,7 +2206,7 @@ def get_location_rules(player, options):
         "Path to Snowhead Grotto Chest":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                state.can_reach("Path to Snowhead", 'Region', player) and
+                state.can_reach("Snowhead", 'Region', player) and
                 has_explosives(state, player)
             ),
         "Path to Snowhead Scarecrow Pillar HP":
