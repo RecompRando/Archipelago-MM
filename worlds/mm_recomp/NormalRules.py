@@ -2029,14 +2029,17 @@ def get_location_rules(player, options, prices):
 
         "Tingle Stone Tower Map Purchase":
             lambda state: (
-                has_projectiles(state, player) and 
                 (
+                    state.can_reach("Ikana Canyon", 'Region', player) and 
+                    can_use_ice_arrows(state, player) and 
+                    state.has("Hookshot", player)
+                ) or 
+                (
+                    state.can_reach("Great Bay", 'Region', player) and
                     (
-                        state.can_reach("Ikana Canyon", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player)
-                    ) or 
-                    state.can_reach("Great Bay", 'Region', player)
+                        state.has("Hookshot", player) or
+                        state.has("Progressive Bow", player)
+                    )
                 )
             ),
         "Ikana Canyon Spirit House":
