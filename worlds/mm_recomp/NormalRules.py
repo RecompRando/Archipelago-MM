@@ -17095,12 +17095,14 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Snowhead Temple 4F Outside Wizzrobe Icicles (2)":
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
 
@@ -17140,9 +17142,21 @@ def get_location_rules(player, options):
         # Well
 
        "Bottom of the Well Icicle (1)":
-            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", "Location", player),
+            lambda state: (
+                can_use_light_arrows(state, player) or
+                (
+                    can_plant_beans(state, player, options) and
+                    state.has("Gibdo Mask", player)
+                )
+            ),
        "Bottom of the Well Icicle (2)":
-            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", "Location", player),
+            lambda state: (
+                can_use_light_arrows(state, player) or
+                (
+                    can_plant_beans(state, player, options) and
+                    state.has("Gibdo Mask", player)
+                )
+            ),
 
         # Goron Trial
 
@@ -17235,12 +17249,20 @@ def get_location_rules(player, options):
             lambda state: has_projectiles(state, player),
 
         "Woodfall Temple Push Block Hive (1)":
-            lambda state: has_projectiles(state, player),
+            lambda state: (
+                    state.has("Small Key (Woodfall)", player) and 
+                    has_projectiles(state, player)
+                ) or 
+                state.has("Progressive Bow", player)
+            ),
 
         # Mountain Village Spring Hives
 
         "Mountain Village Spring Tree Hive (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: (
+                can_clear_snowhead(state, player) and
+                has_projectiles(state, player)
+            ),
         "Great Bay Coast Cow Grotto Hive":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
@@ -17547,16 +17569,17 @@ def get_location_rules(player, options):
         # Ikana Canyon Gossip Fairy
 
         "Ikana Canyon Near Octoroks Gossip Fairy":
-            lambda state: (
-                can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+            lambda state: 
+            (
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Healing", state, player)
             ),
-
         "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy":
             lambda state:
             (
                 state.has("Zora Mask", player) and
                 state.has("Ocean Title Deed", player) and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
                 (
@@ -17565,12 +17588,9 @@ def get_location_rules(player, options):
                   )
             ),
         "Ikana Canyon Near Ghost House Gossip Fairy":
-            lambda state:
-            (
-                (
-                        can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
-                )
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player)
             ),
 
         # Moon Gossip Fairies
@@ -17765,6 +17785,8 @@ def get_location_rules(player, options):
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Hookshot", player) and
+                    has_bombchus(state, player) and
+                    state.has("Progressive Bow", player, 1)
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -17772,14 +17794,14 @@ def get_location_rules(player, options):
             ),
         "Link Trial Gossip (4)":
             lambda state:
-            (       
+            (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.can_reach("Link Trial Gossip (3)", "Location", player) and
-                    can_use_fire_arrows(state, player) and
+                    state.has("Hookshot", player) and
                     has_bombchus(state, player) and
-                        (
-                        can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                    state.has("Progressive Bow", player, 1)
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player)
                     )
             ),
 
@@ -17788,8 +17810,6 @@ def get_location_rules(player, options):
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
                     state.can_reach("Link Trial Gossip (3)", "Location", player) and
-                    can_use_fire_arrows(state, player) and
-                    has_bombchus(state, player) and
                     (
                             can_play_song("Song of Healing", state, player) or
                             can_play_song("Epona's Song", state, player)
@@ -18121,6 +18141,7 @@ def get_location_rules(player, options):
             ),
         "Great Bay Temple Miniboss Frog":
             lambda state: (
+                has_soul_enemy(state, player, options, "Jellied Gekko") and
                 state.has("Zora Mask", player) and 
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player) and
@@ -18173,7 +18194,8 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Priority Mail", player) and
                 has_soul_npc(state, player, options, "Madame Aroma") and
-                state.has("Kafei's Mask", player)
+                state.has("Kafei's Mask", player) and
+                state.has("Romani Mask", player)
             ),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
@@ -18407,8 +18429,13 @@ def get_location_rules(player, options):
                 state.has("Progressive Magic", player) and
                 (
                     can_play_song("Epona's Song", state, player) or
-                    options.owlsanity.value 
-                    and can_use_owl(state, player, options, "Ikana Canyon")
+                    (
+                        options.owlsanity.value and
+                        (
+                            can_use_owl(state, player, options, "Ikana Canyon") or
+                            can_use_owl(state, player, options, "Stone Tower")
+                        )
+                    )
                 )
             ),
                 
@@ -18550,6 +18577,14 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 can_clear_snowhead(state, player)
+                and (
+                    state.has("Goron Mask", player) 
+                    or (
+                        state.has("Hookshot", player) 
+                        and state.has("Twin Islands Scarecrow", player) 
+                        and has_soul_npc(state, player, options, "Scarecrow")
+                    )
+                )
             ),
 
         # Path To Snowhead - 
@@ -18567,6 +18602,11 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Mountain Village", 'Region', player)
+            ),
+        "Path To Snowhead Tree Near Ledge":
+            lambda.state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                can_clear_snowhead(state, player)
             ),
 
         # Goron Racetrack - 
@@ -19713,23 +19753,37 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                (can_use_fire_arrows(state, player) or
-                state.has("Small Key (Snowhead)", player, 2)) 
+                state.has("Hookshot", player) and
+                can_reach_scarecrow(state, player, options) and
+                state.has("Snowhead Temple Hidden Scarecrow", player) and
+                (
+                    has_explosives(state, player) and
+                    state.has("Small Key (Snowhead)", player, 2)
+                ) or
+                (
+                    can_use_fire_arrows(state, player)
+                ) or
+                (
+                    can_reach_scarecrow(state, player, options) and
+                    state.has("Snowhead Temple Lower Scarecrow", player)
+                ) 
             ),
+            # Is scarecrow needed below since fire arrows are already a hard requirement? It's not really adding anything alternative here. Suggested edit:
         "Snowhead Temple Flower Outside Goht":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                can_use_fire_arrows(state, player) and 
-                (
-                    state.has("Small Key (Snowhead)", player, 3) or 
-                    (
-                        state.has("Small Key (Snowhead)", player, 2) and 
-                        state.has("Hookshot", player) and 
-                        can_reach_scarecrow(state, player, options) and
-                        state.has("Snowhead Temple Lower Scarecrow", player)
-                    )
-                )
+                can_use_fire_arrows(state, player) and
+                state.has("Small Key (Snowhead)", player, 1)
+                #(
+                    #state.has("Small Key (Snowhead)", player, 3) or 
+                    #(
+                        #state.has("Small Key (Snowhead)", player, 2) and 
+                        #state.has("Hookshot", player) and 
+                        #can_reach_scarecrow(state, player, options) and
+                        #state.has("Snowhead Temple Lower Scarecrow", player)
+                    #)
+                #)
             ),
             #Great Bay Flowers
         "Zora Cape Lower Wall Flower Near Beavers":
@@ -19741,6 +19795,7 @@ def get_location_rules(player, options):
         "Zora Hall Business Scrub Flower":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.has("Zora Mask", player) and 
                 state.has("Goron Mask", player) and
@@ -20076,7 +20131,8 @@ def get_location_rules(player, options):
                     (
                         state.has("Goron Mask", player) or
                         has_explosives(state, player) or
-                        can_use_fire_arrows(state, player)
+                        can_use_fire_arrows(state, player) or
+                        can_use_owl("Mountain Village", player)
                     )
                 ),
         "Mountain Village Owl Statue Cut the Sign":
@@ -20205,7 +20261,11 @@ def get_location_rules(player, options):
         "Woodfall Temple Web Leading to Dark Room":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                state.has("Deku Mask", player) and
+                (
+                    state.has("Small Key (Woodfall)", player, 1) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Ocean Spider House Entrance Web (1)":
             lambda state: (
@@ -20222,8 +20282,7 @@ def get_location_rules(player, options):
         "Ocean Spider House Library Web":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Above Door 1st Floor Door":
             lambda state: (
@@ -20234,8 +20293,7 @@ def get_location_rules(player, options):
         "Ocean Spider House Web Over 1st Floor Pot":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web 1st Floor Near Staircase":
             lambda state: (
@@ -20246,26 +20304,22 @@ def get_location_rules(player, options):
         "Ocean Spider House Web Basement Near Staircase":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Crates":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Hole":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Door":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Boat Room Covering Crate":
             lambda state: (
@@ -20331,20 +20385,15 @@ def get_location_rules(player, options):
             ),
         "Beneath the Well Right Side Web Near Milk Gibdo":
             lambda state: (
-                has_soul_npc(state, player, options, "Gibdos") and
-                state.has("Gibdo Mask", player) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                has_bottle(state, player) and
                 (
-                    (
-                        can_afford_price(state, player, 100) and
-                        has_soul_npc(state, player, options, "Business Scrubs")
-                    ) or
-                    (
-                        state.has("Mask of Scents", player) and
-                        has_soul_npc(state, player, options, "Kotake")
-                    )
+                    has_soul_npc(state, player, options, "Gibdos") and
+                    state.has("Gibdo Mask", player) and
+                    has_bottle(state, player) and
+                    can_plant_beans(state, player, options) and
+                    state.has("Progressive Bomb Bag", player)
+                ) or
+                (
+                    can_use_light_arrows(state, player)
                 ) and
                 can_use_fire_arrows(state, player)
             ),
@@ -20410,8 +20459,17 @@ def get_location_rules(player, options):
             ),
         "Graveyard Day 2 Bombable Wall":
             lambda state: (
+                state.has("Captain's Hat", player) and
+                has_soul_npc(state, player, options, "Stalchilden") and
+                state.has("Lens of Truth", player) and
                 has_explosives(state, player)
             ),
+        # Has an associated address, but unsure if properly implemented.
+        #"Goron Trial Chests":
+        #    lambda state: (
+        #        state.has{"Goron Mask", player) and
+        #        state.has("Progressive Magic", player)
+        #    ),
         "Link Trial Bombable Wall Iron Knuckle":
             lambda state: (
                 has_bombchus(state, player)
