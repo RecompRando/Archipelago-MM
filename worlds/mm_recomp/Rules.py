@@ -1,5 +1,3 @@
-from .Locations import prices_ints
-
 from .Constants import *
 
 def baby_has_bombchus(state, player):

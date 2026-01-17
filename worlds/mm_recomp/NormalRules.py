@@ -1,5 +1,3 @@
-from .Locations import prices_ints
-
 from .Constants import *
 
 def can_play_song(song, state, player):
@@ -39,6 +37,12 @@ def can_smack(state, player):
 def can_damage(state, player):
     return can_smack(state, player) or has_hard_projectiles(state, player) or has_explosives(state, player)
 
+def can_reach_stonetower(state, player):
+    return (can_use_ice_arrows(state, player) and 
+            can_play_song("Elegy of Emptiness", state, player) and 
+            state.has("Goron Mask", player) and 
+            state.has("Zora Mask", player))
+
 def can_clear_woodfall(state, player):
     return state.can_reach("Woodfall Temple Odolwa's Remains", 'Location', player)
     
@@ -72,7 +76,7 @@ def can_get_cow_milk(state, player):
               can_use_light_arrows(state, player) and 
               (state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
                (state.has("Goron Mask", player) and 
-                state.can_reach("Mountain Village Healing Darmani", 'Location', player)) or 
+                can_use_lens(state, player)) or 
                state.can_reach("Ikana Well Invisible Chest", 'Location', player)))))
 
 def has_bottle(state, player, need_count=1):
@@ -139,8 +143,8 @@ def can_afford_price(state, player, price):
         return state.has("Progressive Wallet", player)
     return True
 
-def can_purchase(state, player, price_index):
-    price = prices_ints[price_index]
+def can_purchase(state, player, prices, price_index):
+    price = prices[price_index]
     if price > 200:
         return state.has("Progressive Wallet", player, 2)
     elif price > 99:
@@ -387,7 +391,7 @@ def get_region_rules(player, options):
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
-                state.can_reach("Stone Tower Temple", 'Region', player) and 
+                can_reach_stonetower(state, player) and 
                 can_use_light_arrows(state, player) and 
                 can_play_song("Elegy of Emptiness", state, player)
             ),
@@ -395,7 +399,7 @@ def get_region_rules(player, options):
             lambda state: True,    
     }
 
-def get_location_rules(player, options):
+def get_location_rules(player, options, prices):
     return {
         "Link's Inventory (Kokiri Sword)":
             lambda state: True,
@@ -583,49 +587,49 @@ def get_location_rules(player, options):
         "West Clock Town Priority Mail to Postman":
             lambda state: state.has("Priority Mail", player),
         "Clock Town Trading Post Shop Item 1":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_1),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_1),
         "Clock Town Trading Post Shop Item 2":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_2),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_2),
         "Clock Town Trading Post Shop Item 3":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_3),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_3),
         "Clock Town Trading Post Shop Item 4":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_4),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_4),
         "Clock Town Trading Post Shop Item 5":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_5),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_5),
         "Clock Town Trading Post Shop Item 6":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_6),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_6),
         "Clock Town Trading Post Shop Item 7":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_7),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_7),
         "Clock Town Trading Post Shop Item 8":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_8),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_8),
         "Clock Town Trading Post Shop (Night) Item 1":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_1),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_1),
         "Clock Town Trading Post Shop (Night) Item 2":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_2),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_2),
         "Clock Town Trading Post Shop (Night) Item 3":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_3),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_3),
         "Clock Town Trading Post Shop (Night) Item 4":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_4),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_4),
         "Clock Town Trading Post Shop (Night) Item 5":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_5),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_5),
         "Clock Town Trading Post Shop (Night) Item 6":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_6),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_6),
         "Clock Town Trading Post Shop (Night) Item 7":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_7),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_7),
         "Clock Town Trading Post Shop (Night) Item 8":
-            lambda state: can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_8),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_8),
         "Clock Town Bomb Shop Item 1":
-            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_1),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_1),
         "Clock Town Bomb Shop Item 2":
-            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_2),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_2),
         "Clock Town Bomb Shop Item 3":
-            lambda state: can_purchase(state, player, SHOP_ID_BOMB_SHOP_3),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_3),
         "Clock Town Bomb Shop Powder Keg Goron":
             lambda state: can_use_powder_keg(state, player),
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: (
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player) and 
-                can_purchase(state, player, SHOP_ID_BOMB_SHOP_3_UPGRADE)
+                can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_3_UPGRADE)
             ),
         "Curiosity Shop Blue Rupee Trade":
             lambda state: (
@@ -662,11 +666,11 @@ def get_location_rules(player, options):
             ),
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: (
-                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and 
+                can_purchase(state, player, prices, SHOP_ID_CURIOSITY_SHOP_MASK) and 
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player)
             ),
         "Curiosity Shop Night 3 Thief Stolen Item":
-            lambda state: can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG),
 
         "Stock Pot Inn Reservation":
             lambda state: True,        
@@ -891,15 +895,15 @@ def get_location_rules(player, options):
             lambda state: (
                 state.has("Mask of Scents", player) and 
                 has_bottle(state, player) and 
-                can_purchase(state, player, SHOP_ID_WITCH_POTION_1)
+                can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_1)
             ),
         "Southern Swamp Witch Shop Item 2":
-            lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_2),
+            lambda state: can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_2),
         "Southern Swamp Witch Shop Item 3":
             lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_3),
-        #This cannot come up without entrance randomization, but I am not letting the player
-        #be forced to kill Gold Skulltulas with Deku Sticks due to tedium.
-
+        
+        # This cannot come up without entrance randomization, but I am not letting the player
+        # be forced to kill Gold Skulltulas with Deku Sticks due to tedium.
         "Swamp Spider House First Room Pot Near Entrance Token":
             lambda state: can_damage(state, player),
         "Swamp Spider House First Room Crawling In Water Token":
@@ -1001,7 +1005,7 @@ def get_location_rules(player, options):
         "Swamp Spider House Tree Room Beehive Token":
             lambda state: has_projectiles(state, player),
         "Swamp Spider House Reward":
-            lambda state: state.has("Swamp Skulltula Token", player, 30),
+            lambda state: state.has("Swamp Skulltula Token", player, options.required_skull_tokens.value),
 
         "Deku Palace Bean Seller":
             lambda state: state.has("Deku Mask", player),
@@ -1030,7 +1034,7 @@ def get_location_rules(player, options):
             ),
 
         "Woodfall Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Woodfall)", player, 15),
+            lambda state: state.has("Stray Fairy (Woodfall)", player, options.required_stray_fairies.value),
         "Woodfall Owl Statue Chest":
             lambda state: state.has("Deku Mask", player),
         "Woodfall Bridge Chest":
@@ -1327,19 +1331,19 @@ def get_location_rules(player, options):
         "Goron Village Shop (Spring) Item 1":
             lambda state: (
                 state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_1) and 
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_SPRING_1) and 
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 2":
             lambda state: (
                 state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_2) and 
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_SPRING_2) and 
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 3":
             lambda state: (
                 state.has("Goron Mask", player) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_SPRING_3) and 
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_SPRING_3) and 
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Freestanding HP (Spring)":
@@ -1365,7 +1369,7 @@ def get_location_rules(player, options):
             ),
             
         "Snowhead Great Fairy Reward":
-            lambda state: state.has("Stray Fairy (Snowhead)", player, 15),
+            lambda state: state.has("Stray Fairy (Snowhead)", player, options.required_stray_fairies.value),
             
         "Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
@@ -1726,7 +1730,10 @@ def get_location_rules(player, options):
                 (
                     logic_trick(options, "Pinnacle Rock without Seahorse") or
                     can_reach_seahorse(state, player) or
-                    state.has("Hookshot", player)
+                    (
+                        state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                        state.has("Hookshot", player)
+                    )
                 )
             ),
         "Great Bay Feeding Lab Fish":
@@ -1736,21 +1743,19 @@ def get_location_rules(player, options):
         
         "Ocean Spider House Ramp Upper Token":
             lambda state: (
-                state.has("Hookshot", player) or
-                state.has("Zora Mask", player)
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
             ),
         "Ocean Spider House Ramp Lower Token":
             lambda state: (
-                state.has("Hookshot", player) or
-                state.has("Zora Mask", player)
+                state.has("Hookshot", player) and
+                has_explosives(state, player)
             ),
         "Ocean Spider House Lobby Ceiling Token":
             lambda state: (
-                state.has("Hookshot", player) or
-                (
-                    state.has("Zora Mask", player) and
-                    state.has("Progressive Bow", player)
-                )
+                state.has("Hookshot", player) and 
+                can_use_fire_arrows(state, player) and
+                has_explosives(state, player)
             ),
         "Ocean Spider House First Room Rafter Token":
             lambda state: (
@@ -1846,7 +1851,7 @@ def get_location_rules(player, options):
                 )
             ),
         "Ocean Spider House Reward":
-            lambda state: state.has("Ocean Skulltula Token", player, 30),
+            lambda state: state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value),
         
         "Pirates' Fortress Exterior Underwater Log Chest":
             lambda state: state.has("Zora Mask", player),
@@ -1965,7 +1970,7 @@ def get_location_rules(player, options):
 
         "Great Bay Great Fairy Reward":
             lambda state: (
-                state.has("Stray Fairy (Great Bay)", player, 15) and 
+                state.has("Stray Fairy (Great Bay)", player, options.required_stray_fairies.value) and 
                 state.has("Hookshot", player)
             ),
             
@@ -2163,7 +2168,7 @@ def get_location_rules(player, options):
 
         "Stone Tower Great Fairy Reward":
             lambda state: (
-                state.has("Stray Fairy (Stone Tower)", player, 15) and 
+                state.has("Stray Fairy (Stone Tower)", player, options.required_stray_fairies.value) and 
                 ikana_climb(state, player, options)
             ),
             

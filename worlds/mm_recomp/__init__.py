@@ -1,10 +1,11 @@
 from typing import List
 from typing import Dict
+from typing import TextIO
 
 from BaseClasses import Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, prices_ints
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
 from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
@@ -20,7 +21,7 @@ class MMRWebWorld(WebWorld):
         language="English",
         file_name="guide_en.md",
         link="guide/en",
-        authors=["LittleCube"]
+        authors=["LittleCube", "ThatHypedPerson", "PixelShake92", "Muervo_"]
     )
     
     tutorials = [setup_en]
@@ -36,10 +37,35 @@ class MMRWorld(World):
     options = MMROptions
     location_name_to_id = location_table
     item_name_to_id = item_table
-    prices = ""
+    
+    prices_ints: List[int]
+    prices: str
 
     def generate_early(self):
-        pass
+        # Create shop prices.
+        self.prices_ints = []
+        self.prices = ""
+
+        if self.options.shopsanity.value != 0:
+            price_max = 0
+
+            if self.options.shop_prices.value == 2:
+                price_max = 99
+            elif self.options.shop_prices.value == 3:
+                price_max = 200
+            elif self.options.shop_prices.value == 4:
+                price_max = 500
+
+            # There are 34 (+2 fake) shop locations that need prices
+            for i in range(0, 36):
+                if self.options.shop_prices.value == 0:
+                    price = default_shop_prices[i]
+                else:
+                    price = self.random.randint(0, price_max)
+                self.prices_ints.append(price)
+                self.prices += str(price) + " "
+
+            self.prices = self.prices[:-1]
     
     def create_item(self, name: str) -> MMRItem:
         return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
@@ -123,28 +149,6 @@ class MMRWorld(World):
     def create_regions(self) -> None:
         player = self.player
         mw = self.multiworld
-
-        # Create shop prices.
-        if self.options.shopsanity.value != 0:
-            price_max = 0
-
-            if self.options.shop_prices.value == 2:
-                price_max = 99
-            elif self.options.shop_prices.value == 3:
-                price_max = 200
-            elif self.options.shop_prices.value == 4:
-                price_max = 500
-
-            # There are 34 (+2 fake) shop locations that need prices
-            for i in range(0, 36):
-                if self.options.shop_prices.value == 0:
-                    price = default_shop_prices[i]
-                else:
-                    price = self.random.randint(0, price_max)
-                prices_ints.append(price)
-                self.prices += str(price) + " "
-
-            self.prices = self.prices[:-1]
 
         # Create regions.
         for region_name in region_data_table.keys():
@@ -347,6 +351,7 @@ class MMRWorld(World):
         player = self.player
         mw = self.multiworld
         options = self.options
+        prices = self.prices_ints
 
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
@@ -359,7 +364,7 @@ class MMRWorld(World):
             # ~ location_rules = get_baby_location_rules(player, options)
         if (self.options.logic_difficulty.value == 1):
             region_rules = get_region_rules(player, options)
-            location_rules = get_location_rules(player, options)
+            location_rules = get_location_rules(player, options, prices)
 
         for entrance_name, rule in region_rules.items():
             entrance = mw.get_entrance(entrance_name, player)
@@ -377,6 +382,12 @@ class MMRWorld(World):
             if name in location_rules and location_data_table[name].can_create(self.options):
                 location.access_rule = location_rules[name]
 
+    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
+        if self.options.shopsanity.value:
+            spoiler_handle.write("\nShop Prices:\n")
+            for location, shop_id in shop_location_to_id.items():
+                spoiler_handle.write(f"\n{location}: {self.prices_ints[shop_id]} Rupees")
+
     def fill_slot_data(self):
         shp = self.options.starting_hearts.value
         starting_containers = int(shp/4) - 1
@@ -389,6 +400,7 @@ class MMRWorld(World):
             "shopsanity": self.options.shopsanity.value,
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
+            "shop_prices_ints": self.prices_ints,
             "cowsanity": self.options.cowsanity.value,
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
@@ -401,6 +413,8 @@ class MMRWorld(World):
             "starting_heart_locations": 8 if self.options.starting_hearts_are_containers_or_pieces.value == 1 else starting_containers + starting_pieces + shuffled_containers + shuffled_pieces,
             "majora_remains_required": self.options.majora_remains_required.value,
             "moon_remains_required": self.options.moon_remains_required.value,
+            "required_skull_tokens": self.options.required_skull_tokens.value,
+            "required_stray_fairies": self.options.required_stray_fairies.value,
             "start_with_consumables": self.options.start_with_consumables.value,
             "permanent_chateau_romani": self.options.permanent_chateau_romani.value,
             "start_with_inverted_time": self.options.start_with_inverted_time.value,
