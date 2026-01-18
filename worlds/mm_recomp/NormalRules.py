@@ -26,14 +26,16 @@ def has_projectiles(state, player):
             has_hard_projectiles(state, player))
 
 def can_smack_hard(state, player):
-    return (state.has("Progressive Sword", player) or 
-            state.has("Fierce Deity's Mask", player) or 
+    return (state.has("Progressive Sword", player) or
             state.has("Great Fairy Sword", player) or 
             state.has("Goron Mask", player) or 
             state.has("Zora Mask", player))
 
 def can_smack(state, player):
     return can_smack_hard(state, player) or state.has("Deku Mask", player)
+
+def can_damage(state, player):
+    return can_smack(state, player) or has_hard_projectiles(state, player) or has_explosives(state, player)
 
 def can_reach_stonetower(state, player):
     return (can_use_ice_arrows(state, player) and 
@@ -161,6 +163,94 @@ def has_enough_remains(state, player, need_count):
         remains_count += 1
     return remains_count >= need_count
 
+def logic_trick(options, trick_name):
+    return (trick_name in options.logic_tricks.value)
+
+def can_use_hot_spring_water(state, player, options, region = "Mountain"):
+    return
+    (
+        has_bottle(state, player) and
+        (
+            (region == "Mountain" or can_play_song("Song of Soaring", state, player)) and
+            (
+                # Twin Island Grotto
+                can_use_fire_arrows(state, player) or
+                # Darmani's Grave
+                (
+                    state.can_reach("Mountain Village", 'Region', player) and
+                    state.has("Goron Mask", player) and
+                    (
+                        can_use_lens(state, player) or
+                        logic_trick(options, "Climb Mountain Village Wall with Nothing")
+                    )
+                )
+            ) or
+            # Beneath the Well
+            (
+                (region == "Ikana" or can_play_song("Song of Soaring", state, player)) and
+                state.can_reach("Ikana Well Invisible Chest", 'Location', player)
+            )
+        )
+    )
+
+#This function allows the use of the Logic Trick "Goron Bomb Jump"
+def goron_bomb_jump(state, player, options):
+    return
+    (
+        logic_trick(options, "Goron Bomb Jumps") and
+        state.has("Goron Mask", player) and
+        state.has("Progressive Bomb Bag", player)
+    )
+
+#This controls the player's ability to go from the lower part of the main Ikana Canyon screen to the upper part.
+def ikana_climb(state, player, options):
+    return
+    (
+        state.has("Hookshot", player) and
+        (
+            can_use_ice_arrows(state, player) or
+            logic_trick(options, "Climb Ikana Canyon without Ice Arrows")
+        )
+    )
+
+#This controls Lens of Truth requirements which can be avoided by simply knowing where the invisible things are.
+#The big wall in Mountain Village will not use this due to having a separate trick and being much harder than the rest.
+def soft_lens(state, player, options):
+    return
+    (
+        can_use_lens(state, player) or
+        logic_trick(options, "Fewer Lens Requirements")
+    )
+
+#This function allows the use of the Logic Trick "Powder Keg as Explosive".
+def has_explosives_or_keg(state, player, options):
+    return
+    (
+        has_explosives(state, player) or
+        (
+            logic_trick(options, "Powder Keg as Explosive") and
+            can_use_powder_keg(state, player)
+        )
+    )
+
+def osh_helper(state, player, options):
+    return
+    (
+        state.has("Hookshot", player) or
+        goron_bomb_jump(state, player, options)
+    )
+
+def mask_total(state, player):
+    mask_list = ["Captain's Hat", "All-Night Mask", "Bunny Hood", "Keaton Mask", "Garo Mask", "Romani Mask",
+                 "Circus Leader's Mask", "Postman's Hat", "Couple's Mask", "Great Fairy Mask", "Gibdo Mask",
+                 "Don Gero Mask", "Kamaro Mask", "Mask of Truth", "Stone Mask", "Bremen Mask", "Blast Mask",
+                 "Mask of Scents", "Kafei's Mask", "Giant's Mask"]
+    mask_count = 0
+    for mask in mask_list:
+        if state.has(mask, player):
+            mask_count += 1
+    return mask_count
+
 def get_region_rules(player, options):
     return {
         "Clock Town -> The Moon":
@@ -171,18 +261,33 @@ def get_region_rules(player, options):
             ),
         "Southern Swamp -> Southern Swamp (Deku Palace)":
             lambda state: (
-                has_bottle(state, player) or 
+                has_bottle(state, player) or
+                state.has("Pictograph Box", player) or
                 (
                     has_hard_projectiles(state, player) and 
-                    state.has("Deku Mask", player)
-                ) or 
-                (
-                    state.has("Pictograph Box", player) and 
-                    state.has("Deku Mask", player)
+                    (
+                        state.has("Deku Mask", player) or
+                        (
+                            logic_trick(options, "Cross Poisoned Swamp as Goron or Zora") and
+                            (
+                                state.has("Goron Mask", player) or
+                                state.has("Zora Mask", player)
+                            )
+                        )
+                    )
                 )
             ),
         "Southern Swamp (Deku Palace) -> Swamp Spider House":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) or
+                (
+                    logic_trick(options, "Cross Poisoned Swamp as Goron or Zora") and
+                    (
+                        state.has("Goron Mask", player) or
+                        state.has("Zora Mask", player)
+                    )
+                )
+            ),
         "Southern Swamp (Deku Palace) -> Deku Palace":
             lambda state: state.has("Deku Mask", player),
         "Southern Swamp (Deku Palace) -> Woodfall":
@@ -207,9 +312,12 @@ def get_region_rules(player, options):
                 state.has("Goron Mask", player) and 
                 can_play_song("Goron Lullaby", state, player) and 
                 state.has("Progressive Magic", player)
-            ),            
+            ),
         "Termina Field -> Great Bay":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                goron_bomb_jump(state, player, options)
+            ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
         "Great Bay -> Pirates' Fortress":
@@ -221,7 +329,10 @@ def get_region_rules(player, options):
         "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
         "Zora Cape -> Zora Hall":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Zora Mask", player) or
+                logic_trick(options, "Zora Hall as Human")
+            ),
         "Zora Cape -> Great Bay Temple":
             lambda state: (
                 can_play_song("New Wave Bossa Nova", state, player) and 
@@ -229,59 +340,54 @@ def get_region_rules(player, options):
                 state.has("Zora Mask", player)
             ),
         "Road to Ikana -> Ikana Graveyard":
-            lambda state: can_play_song("Epona's Song", state, player),
+            lambda state: (
+                can_play_song("Epona's Song", state, player) or
+                goron_bomb_jump(state, player, options)
+            ),
         "Road to Ikana -> Ikana Canyon":
             lambda state: (
+                state.has("Hookshot", player) and
                 (
-                    state.has("Garo Mask", player) and 
-                    can_play_song("Epona's Song", state, player) and 
-                    state.has("Hookshot", player)
-                ) or 
+                    state.has("Garo Mask", player) or
+                    state.has("Gibdo Mask", player)
+                ) and
                 (
-                    state.has("Gibdo Mask", player) and 
-                    can_play_song("Epona's Song", state, player) and 
-                    state.has("Hookshot", player)
+                    can_play_song("Epona's Song", state, player) or
+                    goron_bomb_jump(state, player, options)
                 )
             ),
         "Ikana Canyon -> Secret Shrine":
             lambda state: can_use_light_arrows(state, player),
         "Ikana Canyon -> Beneath the Well":
-            lambda state: (
-                can_use_ice_arrows(state, player) and 
-                state.has("Hookshot", player) and 
-                state.has("Gibdo Mask", player) and 
-                has_bottle(state, player)
-            ),
+            lambda state: ikana_climb(state, player, options),
+        # There is no circumstance this connection is logically superior to coming from the canyon.
+        "Beneath the Well -> Ikana Castle":
+            lambda state: False,
         "Ikana Canyon -> Ikana Castle":
             lambda state: (
-                can_use_ice_arrows(state, player) and 
-                state.has("Hookshot", player) and 
+                ikana_climb(state, player, options) and
                 (
                     can_use_light_arrows(state, player) or 
                     has_mirror_shield(state, player)
                 )
             ),
-        "Beneath the Well -> Ikana Castle":
-            lambda state: (
-                ( # Ikana Well Final Chest Logic
-                    state.has("Gibdo Mask", player) and 
-                    has_bottle(state, player) and 
-                    can_plant_beans(state, player) and 
-                    (
-                        state.has("Progressive Bomb Bag", player) or 
-                        (
-                            state.has("Captain's Hat", player) and 
-                            state.has("Progressive Bow", player)
-                        )
-                    )
-                ) and (
-                    can_use_light_arrows(state, player) or 
-                    has_mirror_shield(state, player)
-                )
-            ),
+        "Ikana Canyon -> Stone Tower":
+            lambda state: ikana_climb(state, player, options),
         "Stone Tower -> Stone Tower Temple":
-            lambda state: (
-                can_reach_stonetower(state, player)
+            lambda state: ( 
+                can_play_song("Elegy of Emptiness", state, player) and
+                state.has("Hookshot", player) and
+                (
+                    state.has("Goron Mask", player) and 
+                    state.has("Zora Mask", player)
+                ) or
+                (
+                    logic_trick(options, "One Mask Stone Tower Climb") and
+                    (
+                        state.has("Goron Mask", player) or
+                        state.has("Zora Mask", player)
+                    )
+                )
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
@@ -358,8 +464,7 @@ def get_location_rules(player, options, prices):
                     state.can_reach("Clock Town", 'Region', player) or 
                     (
                         state.can_reach("Ikana Canyon", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player)
+                        ikana_climb(state, player, options)
                     )
                 )
             ),
@@ -424,12 +529,15 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Zora Mask", player),
         "Bomber's Hideout Chest":
             lambda state: (
-                state.can_reach("Clock Town Hide-and-Seek", 'Location', player) and 
-                has_explosives(state, player)
+                state.can_reach("Clock Town Hide-and-Seek", 'Location', player) and
+                has_explosives_or_keg(state, player, options)
             ),
         "Bomber's Hideout Astral Observatory":
-            lambda state: has_projectiles(state, player) or
-                            state.has("Deku Mask", player),
+            lambda state: (
+                has_projectiles(state, player) or
+                state.has("Deku Mask", player) or
+                goron_bomb_jump(state, player, options)
+            ),
         "Milk Bar Show":
             lambda state: (
                 state.has("Romani Mask", player) and 
@@ -440,7 +548,6 @@ def get_location_rules(player, options, prices):
             ),
         "Milk Bar Priority Mail to Aroma":
             lambda state: (
-                state.has("Romani Mask", player) and 
                 state.has("Kafei's Mask", player) and 
                 state.has("Priority Mail", player)
             ),
@@ -459,15 +566,24 @@ def get_location_rules(player, options, prices):
         "West Clock Town Swordsman Expert Course":
             lambda state: state.has("Progressive Sword", player),
         "West Clock Town Postman Counting":
-            lambda state: state.has("Bunny Hood", player),
+            lambda state: (
+                state.has("Bunny Hood", player) or
+                logic_trick(options, "Postman Game with Nothing")
+            ),
         "West Clock Town Dancing Sisters":
             lambda state: state.has("Kamaro Mask", player),
         "West Clock Town Bank 200 Rupees":
             lambda state: True,
         "West Clock Town Bank 500 Rupees":
-            lambda state: state.has("Progressive Wallet", player),
+            lambda state: (
+                state.has("Progressive Wallet", player) or
+                logic_trick(options, "Bank Checks without Wallets")
+            ),
         "West Clock Town Bank 1000 Rupees":
-            lambda state: state.has("Progressive Wallet", player, 2),
+            lambda state: (
+                state.has("Progressive Wallet", player, 2) or
+                logic_trick(options, "Bank Checks without Wallets")
+            ),
         "West Clock Town Priority Mail to Postman":
             lambda state: state.has("Priority Mail", player),
         "Clock Town Trading Post Shop Item 1":
@@ -509,7 +625,7 @@ def get_location_rules(player, options, prices):
         "Clock Town Bomb Shop Item 3":
             lambda state: can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_3),
         "Clock Town Bomb Shop Powder Keg Goron":
-            lambda state: state.has("Goron Mask", player) and state.has("Powder Keg", player),
+            lambda state: can_use_powder_keg(state, player),
         "Clock Town Bomb Shop Item 3 (Stop Thief)":
             lambda state: (
                 state.can_reach("North Clock Town Save Old Lady", 'Location', player) and 
@@ -563,7 +679,8 @@ def get_location_rules(player, options, prices):
                 state.has("Kafei's Mask", player) and 
                 (
                     state.has("Deku Mask", player) or 
-                    state.has("Room Key", player)
+                    state.has("Room Key", player) or
+                    logic_trick(options, "Stock Pot Inn at Night with Nothing")
                 )
             ),
         "Stock Pot Inn Employee Room Chest":
@@ -579,9 +696,17 @@ def get_location_rules(player, options, prices):
         "Stock Pot Inn Anju and Kafei":
             lambda state: (
                 state.has("Kafei's Mask", player) and 
-                can_play_song("Epona's Song", state, player) and 
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    goron_bomb_jump(state, player, options)
+                )and 
                 state.has("Letter to Kafei", player) and 
-                state.has("Pendant of Memories", player) and 
+                state.has("Pendant of Memories", player) and
+                (
+                    state.has("Deku Mask", player) or 
+                    state.has("Room Key", player) or
+                    logic_trick(options, "Stock Pot Inn at Night with Nothing")
+                ) and
                 state.has("Hookshot", player) and 
                 (
                     state.has("Garo Mask", player) or 
@@ -614,9 +739,23 @@ def get_location_rules(player, options, prices):
         "Termina Underwater Chest":
             lambda state: state.has("Zora Mask", player),
         "Termina Peahat Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                logic_trick(options, "Earlygame Hard Combat") or
+                (
+                    can_smack_hard(state, player) or
+                    state.has("Progressive Bow", player)
+                )
+            ),
         "Termina Dodongo Grotto Chest":
-            lambda state: True,
+            lambda state: (
+                logic_trick(options, "Earlygame Hard Combat") or
+                (
+                    can_smack_hard(state, player) or
+                    state.has("Progressive Bow", player) or
+                    state.has("Progressive Bomb Bag", player) or
+                    has_bombchus(state, player)
+                )
+            ),
         "Termina Bio Baba Grotto HP":
             lambda state: (
                 (
@@ -666,20 +805,17 @@ def get_location_rules(player, options, prices):
             ),
         "Termina Log Bombable Grotto Left Cow":
             lambda state: (
-                has_explosives(state, player) and 
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) and
+                has_explosives_or_keg(state, player, options)
             ),
         "Termina Log Bombable Grotto Right Cow":
             lambda state: (
-                has_explosives(state, player) and 
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) and
+                has_explosives_or_keg(state, player, options)
             ),
 
         "Milk Road Gorman Ranch Race":
-            lambda state: (
-                state.has("Ocarina of Time", player) and 
-                state.has("Epona's Song", player)
-            ),
+            lambda state: can_play_song("Epona's Song", state, player),
         "Milk Road Gorman Ranch Purchase":
             lambda state: True,
         "Tingle Romani Ranch Map Purchase":
@@ -724,8 +860,14 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Land Title Deed", player),
         "Southern Swamp Freestanding HP":
             lambda state: (
-                state.has("Land Title Deed", player) and 
-                state.has("Deku Mask", player)
+                (
+                    state.has("Land Title Deed", player) and 
+                    state.has("Deku Mask", player)
+                ) or
+                (
+                    logic_trick(options, "Goron Pound to Swamp Tour Roof") and
+                    state.has("Goron Mask", player)
+                )
             ),
         "Southern Swamp Kotake Item":
             lambda state: True,    
@@ -738,12 +880,11 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Okay Picture":
             lambda state: state.has("Pictograph Box", player),
         "Southern Swamp Grotto Chest":
-            lambda state: ( 
-                state.has("Deku Mask", player) and
+            lambda state: (
+                state.has("Deku Mask", player) or
                 (
-                    has_projectiles(state, player) or
-                    has_bottle(state, player) or
-                    state.has("Pictograph Box", player)
+                    logic_trick(options, "Cross Poisoned Swamp as Goron or Zora") and
+                    state.has("Zora Mask", player)
                 )
             ),
         "Southern Swamp Song Tablet":
@@ -759,126 +900,110 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Witch Shop Item 2":
             lambda state: can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_2),
         "Southern Swamp Witch Shop Item 3":
-            lambda state: can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_3),
-
+            lambda state: can_purchase(state, player, SHOP_ID_WITCH_POTION_3),
+        
+        # This cannot come up without entrance randomization, but I am not letting the player
+        # be forced to kill Gold Skulltulas with Deku Sticks due to tedium.
         "Swamp Spider House First Room Pot Near Entrance Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House First Room Crawling In Water Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House First Room Crawling Right Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House First Room Crawling Left Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House First Room Against Far Wall Token":
             lambda state: (
+                can_bring_to_player(state, player) or
                 (
-                    can_bring_to_player(state, player) and 
-                    has_projectiles(state, player)
-                ) or 
-                (
-                    state.has("Deku Mask", player) and 
-                    state.has("Progressive Magic", player)
-                ) or 
-                (
-                    state.has("Deku Mask", player) and 
-                    state.has("Progressive Bow", player)
+                    state.has("Deku Mask", player) and
+                    (
+                        state.has("Progressive Magic", player) or
+                        state.has("Progressive Bow", player)
+                    )
                 )
             ),
         "Swamp Spider House First Room Lower Left Bugpatch Token":
             lambda state: (
-                can_smack(state, player) and 
+                can_damage(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House First Room Lower Right Bugpatch Token":
             lambda state: (
-                can_smack(state, player) and 
+                can_damage(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House First Room Upper Right Bugpatch Token":
             lambda state: (
-                can_smack(state, player) and 
+                can_damage(state, player) and 
                 has_bottle(state, player)
             ),
         "Swamp Spider House Monument Room Left Crate Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Monument Room Right Crate Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Monument Room Crawling Wall Token":
             lambda state: (
                 can_bring_to_player(state, player) or 
                 (
-                    can_smack(state, player) and 
                     can_plant_beans(state, player) and 
                     (
                         has_explosives(state, player) or 
                         state.has("Goron Mask", player)
+                    ) and
+                    (
+                        can_smack(state, player) or
+                        state.has("Progressive Bow", player)
                     )
                 )
             ),
         "Swamp Spider House Monument Room Crawling On Monument Token":
-            lambda state: (
-                can_smack(state, player) and 
-                can_bring_to_player(state, player) and 
-                has_projectiles(state, player)
-            ),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Monument Room Behind Torch Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Pottery Room Beehive #1 Token":
-            lambda state: (
-                can_smack(state, player) and 
-                has_projectiles(state, player)
-            ),
+            lambda state: has_projectiles(state, player),
         "Swamp Spider House Pottery Room Beehive #2 Token":
-            lambda state: (
-                can_smack(state, player) and 
-                has_projectiles(state, player)
-            ),
+            lambda state: has_projectiles(state, player),
         "Swamp Spider House Pottery Room Small Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Pottery Room Left Large Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Pottery Room Right Large Pot Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Pottery Room Behind Vines Token":
             lambda state: (
                 state.has("Progressive Sword", player) or 
-                state.has("Great Fairy Sword", player) or 
-                state.has("Fierce Deity's Mask", player)
+                state.has("Great Fairy Sword", player)
             ),
         "Swamp Spider House Pottery Room Upper Wall Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Golden Room Crawling Left Wall Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Golden Room Crawling Right Column Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Golden Room Against Far Wall Token":
             lambda state: (
-                can_smack(state, player) and 
+                can_damage(state, player) and 
                 (
                     can_bring_to_player(state, player) or 
                     can_plant_beans(state, player)
                 )
             ),
         "Swamp Spider House Golden Room Beehive Token":
-            lambda state: (
-                can_smack(state, player) and 
-                has_projectiles(state, player)
-            ),
+            lambda state: has_projectiles(state, player),
         "Swamp Spider House Tree Room Tall Grass #1 Token":
             lambda state: can_smack(state, player),
         "Swamp Spider House Tree Room Tall Grass #2 Token":
             lambda state: can_smack(state, player),
         "Swamp Spider House Tree Room Tree #1 Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Tree Room Tree #2 Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Tree Room Tree #3 Token":
-            lambda state: can_smack(state, player),
+            lambda state: can_damage(state, player),
         "Swamp Spider House Tree Room Beehive Token":
-            lambda state: (
-                can_smack(state, player) and 
-                has_projectiles(state, player)
-            ),
+            lambda state: has_projectiles(state, player),
         "Swamp Spider House Reward":
             lambda state: state.has("Swamp Skulltula Token", player, options.required_skull_tokens.value),
 
@@ -891,10 +1016,11 @@ def get_location_rules(player, options, prices):
             ),
         "Deku Palace HP":
             lambda state: state.has("Deku Mask", player),    
+        #Day 2 rain can water the bean outside Deku Palace!
         "Deku Palace Monkey Song":
             lambda state: (
                 state.has("Ocarina of Time", player) and 
-                can_plant_beans(state, player) and 
+                can_get_magic_beans(state, player) and 
                 state.has("Deku Mask", player)
             ),
         "Deku Palace Butler Race":
@@ -903,8 +1029,7 @@ def get_location_rules(player, options, prices):
                 has_bottle(state, player) and 
                 (
                     state.has("Progressive Sword", player) or 
-                    state.has("Great Fairy Sword", player) or 
-                    state.has("Fierce Deity's Mask", player)
+                    state.has("Great Fairy Sword", player)
                 )
             ),
 
@@ -935,7 +1060,11 @@ def get_location_rules(player, options, prices):
                 state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Switch Chest SF":
-            lambda state: state.has("Progressive Bow", player),
+            lambda state: (
+                state.has("Small Key (Woodfall)", player) or 
+                state.has("Progressive Bow", player)
+            ),
+        # Deku Spins cannot harm this guy, but they let you farm Deku Sticks within the dungeon so it's fine I guess.
         "Woodfall Temple Dinolfos Chest":
             lambda state: (
                 (
@@ -957,11 +1086,8 @@ def get_location_rules(player, options, prices):
             lambda state: True,            
         "Woodfall Temple Main Room Bubble SF":
             lambda state: (
-                (
-                    state.has("Progressive Bow", player) and 
-                    state.has("Great Fairy Mask", player)
-                ) or 
-                can_use_fire_arrows(state, player)
+                state.has("Small Key (Woodfall)", player) or 
+                state.has("Progressive Bow", player)
             ),
         "Woodfall Temple Platform Hive SF":
             lambda state: (
@@ -988,51 +1114,42 @@ def get_location_rules(player, options, prices):
                 ) or 
                 state.has("Progressive Bow", player)
             ),
+        # If you cannot clear the poisoned swamp, there really isn't a good angle from
+        # which to shoot the bubble. A bomb works, but this is probably overly hard with
+        # alternate explosives though certainly possible.
         "Woodfall Temple Bridge Room Bubble SF":
             lambda state: (
-                state.has("Great Fairy Mask", player) and 
+                state.has("Progressive Bow", player) or 
                 (
-                    (
-                        state.has("Small Key (Woodfall)", player) and 
-                        has_projectiles(state, player)
-                    ) or 
-                    state.has("Progressive Bow", player)
+                    state.has("Small Key (Woodfall)", player) and
+                    state.has("Great Fairy Mask", player) and
+                    state.has("Progressive Bomb Bag", player)
                 )
             ),
         "Woodfall Temple Bridge Room Hive SF":
             lambda state: (
-                state.has("Great Fairy Mask", player) and 
+                state.has("Progressive Bow", player) or 
                 (
+                    state.has("Small Key (Woodfall)", player) and
+                    has_projectiles(state, player) and
                     (
-                        state.has("Small Key (Woodfall)", player) and 
-                        has_projectiles(state, player)
-                    ) or 
-                    state.has("Progressive Bow", player)
+                        state.has("Great Fairy Mask", player) or
+                        state.has("Progressive Magic", player)
+                    )
                 )
             ),
         "Woodfall Temple Pre-Boss Lower Right Bubble SF":
-            lambda state: (
-                state.has("Progressive Bow", player) or 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: state.has("Progressive Bow", player),
         "Woodfall Temple Pre-Boss Upper Right Bubble SF":
-            lambda state: (
-                state.has("Progressive Bow", player) or 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: state.has("Progressive Bow", player),
         "Woodfall Temple Pre-Boss Upper Left Bubble SF":
-            lambda state: (
-                state.has("Progressive Bow", player) or 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: state.has("Progressive Bow", player),
         "Woodfall Temple Pre-Boss Pillar Bubble SF":
-            lambda state: (
-                state.has("Progressive Bow", player) or 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: state.has("Progressive Bow", player),
+        # Upon testing, I am pretty convinced being forced to fight this
+        # boss without a real melee weapon is completely unfair to the player.
         "Woodfall Temple Heart Container":
             lambda state: (
-                can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
                     state.has("Boss Key (Woodfall)", player) or 
@@ -1040,11 +1157,14 @@ def get_location_rules(player, options, prices):
                         state.has("Odolwa's Remains", player) and 
                         options.remains_allow_boss_warps.value
                     )
+                ) and
+                (
+                    can_smack_hard(state, player) or
+                    state.has("Fierce Deity's Mask", player)
                 )
             ),
         "Woodfall Temple Odolwa's Remains":
             lambda state: (
-                can_smack(state, player) and 
                 state.has("Progressive Bow", player) and 
                 (
                     state.has("Boss Key (Woodfall)", player) or 
@@ -1052,6 +1172,10 @@ def get_location_rules(player, options, prices):
                         state.has("Odolwa's Remains", player) and 
                         options.remains_allow_boss_warps.value
                     )
+                ) and
+                (
+                    can_smack_hard(state, player) or
+                    state.has("Fierce Deity's Mask", player)
                 )
             ),
             
@@ -1094,7 +1218,7 @@ def get_location_rules(player, options, prices):
                 can_afford_price(state, player, 100) and 
                 (
                     can_use_fire_arrows(state, player) or 
-                    state.can_reach("Twin Islands Hot Water Grotto Chest", 'Location', player) or 
+                    can_use_hot_spring_water(state, player, options) or 
                     can_clear_snowhead(state, player)
                 )
             ),
@@ -1113,9 +1237,10 @@ def get_location_rules(player, options, prices):
                     state.can_reach("Southern Swamp", 'Region', player)
                 )
             ),
+        # Technically this could be done during the keg trial, but that's a bit too mean for me.
         "Twin Islands Ramp Grotto Chest":
             lambda state: (
-                has_explosives(state, player) and 
+                has_explosives_or_keg(state, player, options) and 
                 (
                     state.has("Goron Mask", player) or 
                     state.has("Hookshot", player)
@@ -1126,36 +1251,16 @@ def get_location_rules(player, options, prices):
                 state.has("Goron Mask", player) and 
                 (
                     can_use_fire_arrows(state, player) or 
-                    (
-                        (
-                            can_use_lens(state, player) or 
-                            (
-                                state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
-                                can_play_song("Song of Soaring", state, player)
-                            )
-                        ) and 
-                        has_bottle(state, player)
-                    )
+                    can_use_hot_spring_water(state, player, options)
                 )
             ),
         "Twin Islands Hot Water Grotto Chest":
             lambda state: (
+                has_explosives_or_keg(state, player, options) and
                 (
-                    has_explosives(state, player) and 
-                    can_use_fire_arrows(state, player)
-                ) or 
-                (
-                    can_use_lens(state, player) and 
-                    has_bottle(state, player) and 
-                    state.has("Goron Mask", player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    can_clear_snowhead(state, player) or 
-                    (
-                        state.can_reach("Ikana Well Invisible Chest", 'Location', player) and 
-                        can_play_song("Song of Soaring", state, player)
-                    )
+                    can_clear_snowhead(state, player) or
+                    can_use_fire_arrows(state, player) or
+                    can_use_hot_spring_water(state, player, options)
                 )
             ),
         "Twin Islands Spring Underwater Cave Chest":
@@ -1178,7 +1283,7 @@ def get_location_rules(player, options, prices):
             ),
             
         "Goron Village Lens Cave Rock Chest":
-            lambda state: has_explosives(state, player),
+            lambda state: has_explosives_or_keg(state, player, options),
         "Goron Village Lens Cave Invisible Chest":
             lambda state: True,
         "Goron Village Lens Cave Center Chest":
@@ -1206,10 +1311,10 @@ def get_location_rules(player, options, prices):
             ),
         "Powder Keg Goron Reward":
             lambda state: (
-                can_clear_snowhead(state, player) or 
+                state.has("Goron Mask", player) and 
                 (
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Goron Mask", player)
+                    can_use_fire_arrows(state, player) or 
+                    can_clear_snowhead(state, player)
                 )
             ),
         "Goron Village Baby Goron Lullaby":
@@ -1218,20 +1323,11 @@ def get_location_rules(player, options, prices):
                 can_play_song("Goron Lullaby", state, player)
             ),
         "Goron Village Shop Item 1":
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_GORON_SHOP_1),
         "Goron Village Shop Item 2":
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_2)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_GORON_SHOP_2),
         "Goron Village Shop Item 3":
-            lambda state: (
-                state.has("Goron Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_3)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_GORON_SHOP_3),
         "Goron Village Shop (Spring) Item 1":
             lambda state: (
                 state.has("Goron Mask", player) and 
@@ -1261,14 +1357,15 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 state.has("Goron Mask", player) and 
                 state.has("Progressive Magic", player) and 
-                has_explosives(state, player)
+                has_explosives_or_keg(state, player, options)
             ),
         "Path to Snowhead Scarecrow Pillar HP":
             lambda state: (
                 can_reach_scarecrow(state, player) and 
                 state.has("Goron Mask", player) and 
-                can_use_lens(state, player) and 
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and
+                state.has("Progressive Magic", player) and
+                soft_lens(state, player, options)
             ),
             
         "Snowhead Great Fairy Reward":
@@ -1276,64 +1373,76 @@ def get_location_rules(player, options, prices):
             
         "Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
-                state.has("Progressive Bow", player) and 
+                has_projectiles(state, player) and 
                 state.has("Great Fairy Mask", player)
             ),
         "Snowhead Temple Bridge Room Pillar Bubble SF":
             lambda state: (
-                state.has("Progressive Bow", player) and 
-                state.has("Great Fairy Mask", player)
+                state.has("Great Fairy Mask", player) and
+                (
+                    state.has("Progressive Bow", player) or
+                    state.has("Hookshot", player)
+                )
             ),
         "Snowhead Temple Bombable Stairs Crate SF":
             lambda state: (
                 (
-                    state.has("Small Key (Snowhead)", player) and 
-                    state.has("Great Fairy Mask", player) and 
-                    has_explosives(state, player)
-                ) or 
+                    state.has("Progressive Bomb Bag", player) or
+                    has_bombchus(state, player)
+                ) and
                 (
-                    state.has("Hookshot", player) and 
-                    state.can_reach("Snowhead Temple Bridge Room Under Platform Bubble SF", 'Location', player) and 
-                    has_explosives(state, player)
+                    state.has("Small Key (Snowhead)", player) or
+                    state.has("Hookshot", player) or
+                    state.has("Zora Mask", player)
+                ) and
+                (
+                    state.has("Great Fairy Mask", player) or
+                    state.has("Zora Mask", player) or
+                    can_use_fire_arrows(state, player)
                 )
             ),
         "Snowhead Temple Timed Switch Room Bubble SF":
             lambda state: (
+                state.has("Great Fairy Mask", player) and
+                state.has("Progressive Bow", player) and
+                soft_lens(state, player, options) and
                 (
-                    state.has("Small Key (Snowhead)", player, 2) and 
-                    state.has("Great Fairy Mask", player) and 
-                    state.has("Progressive Bow", player) and 
-                    can_use_lens(state, player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    can_reach_scarecrow(state, player) and 
-                    state.has("Hookshot", player) and 
-                    state.has("Great Fairy Mask", player) and 
-                    state.has("Progressive Bow", player) and 
-                    can_use_lens(state, player)
-                ) or 
-                (
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Great Fairy's Mask", player) and 
-                    can_use_lens(state, player)
+                    state.has("Hookshot", player) or
+                    can_use_fire_arrows(state, player) or
+                    (
+                        has_explosives(state, player) and
+                        state.has("Small Key (Snowhead)", player) and
+                        (
+                            state.has("Zora Mask", player) or
+                            state.has("Small Key (Snowhead)", player, 2)
+                        )
+                    )
                 )
             ),
         "Snowhead Temple Snowmen Bubble SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
                 can_use_fire_arrows(state, player) and 
-                state.has("Great Fairy Mask", player)
+                state.has("Great Fairy Mask", player) and
+                (
+                    state.has("Small Key (Snowhead)", player) or
+                    logic_trick(options, "Snowhead Temple Final Key Skip")
+                )
             ),
         "Snowhead Temple Dinolfos Room First SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
-                can_use_fire_arrows(state, player)
+                can_use_fire_arrows(state, player) and
+                (
+                    state.has("Small Key (Snowhead)", player) or
+                    logic_trick(options, "Snowhead Temple Final Key Skip")
+                )
             ),
         "Snowhead Temple Dinolfos Room Second SF":
             lambda state: (
-                state.has("Small Key (Snowhead)", player) and 
-                can_use_fire_arrows(state, player)
+                can_use_fire_arrows(state, player) and
+                (
+                    state.has("Small Key (Snowhead)", player) or
+                    logic_trick(options, "Snowhead Temple Final Key Skip")
+                )
             ),
         "Snowhead Temple Bridge Room Freezard Chest":
             lambda state: (
@@ -1343,10 +1452,17 @@ def get_location_rules(player, options, prices):
         "Snowhead Temple Basement Switch Chest SF":
             lambda state: True,    
         "Snowhead Temple Freezard Torch Room Chest SF":
-            lambda state: can_use_fire_arrows(state, player),
+            lambda state: (
+                can_use_fire_arrows(state, player) or
+                (
+                    logic_trick(options, "Hot Spring Water on Snowhead Temple 1f") and
+                    can_use_hot_spring_water(state, player, options, "Either")
+                )
+            ),
         "Snowhead Temple Stacked Block Upper Chest SF":
             lambda state: (
-                state.has("Hookshot", player) or 
+                state.has("Hookshot", player) or
+                state.has("Zora Mask", player) or
                 (
                     state.has("Small Key (Snowhead)", player) and 
                     can_use_fire_arrows(state, player)
@@ -1361,48 +1477,74 @@ def get_location_rules(player, options, prices):
             ),
         "Snowhead Temple Frozen Block Upper Chest SF":
             lambda state: (
-                can_use_fire_arrows(state, player) and 
+                (
+                    can_use_fire_arrows(state, player) or
+                    (
+                        logic_trick(options, "Hot Spring Water on Snowhead Temple 1f") and
+                        can_use_hot_spring_water(state, player, options, "Either")
+                    )
+                ) and
                 (
                     state.has("Small Key (Snowhead)", player) or 
-                    state.has("Hookshot", player)
+                    state.has("Hookshot", player) or
+                    state.has("Zora Mask", player)
                 )
             ),
         "Snowhead Temple Icicle Room Hidden Chest SF":
             lambda state: (
-                can_use_lens(state, player) and 
-                has_explosives(state, player) and 
-                state.has("Progressive Bow", player) and 
+                soft_lens(state, player, options) and
                 (
-                    state.has("Small Key (Snowhead)", player) or 
-                    state.has("Hookshot", player)
+                    (
+                        has_explosives(state, player) and
+                        (
+                            state.has("Hookshot", player) or
+                            state.has("Zora Mask", player) or
+                            state.has("Small Key (Snowhead)", player)
+                        )
+                    ) or
+                    (
+                        state.has("Hookshot", player) and
+                        state.has("Small Key (Snowhead)", player)
+                    )
                 )
             ),
         "Snowhead Temple Icicle Room Snowball Chest":
             lambda state: (
-                has_explosives(state, player) and 
+                (
+                    state.has("Zora Mask", player) or
+                    state.has("Progressive Bow", player)
+                ) and
                 (
                     (
-                        state.has("Small Key (Snowhead)", player) and 
-                        state.has("Progressive Bow", player)
-                    ) or 
-                    state.has("Hookshot", player)
+                        has_explosives(state, player) and
+                        (
+                            state.has("Hookshot", player) or
+                            state.has("Zora Mask", player) or
+                            state.has("Small Key (Snowhead)", player)
+                        )
+                    ) or
+                    (
+                        state.has("Hookshot", player) and
+                        state.has("Small Key (Snowhead)", player)
+                    )
                 )
             ),
         "Snowhead Temple Elevator Room Invisible Platform Chest SF":
             lambda state: (
+                soft_lens(state, player, options) and
                 (
-                    can_use_lens(state, player) and 
-                    state.has("Small Key (Snowhead)", player, 2) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    can_use_lens(state, player) and 
-                    can_use_fire_arrows(state, player)
-                ) or 
-                (
-                    can_use_lens(state, player) and 
-                    state.has("Hookshot", player)
+                    can_use_fire_arrows(state, player) or
+                    state.has("Hookshot", player) or
+                    (
+                        has_explosives(state, player) and
+                        state.has("Small Key (Snowhead)", player) and
+                        (
+                            state.has("Zora Mask", player) or
+                            state.has("Small Key (Snowhead)", player, 2)
+                        )
+                    )
                 )
+                    
             ),
         "Snowhead Temple Elevator Room Lower Chest":
             lambda state: True,
@@ -1414,35 +1556,39 @@ def get_location_rules(player, options, prices):
                     state.has("Small Key (Snowhead)", player, 2) and 
                     has_explosives(state, player)
                 ) or 
-                can_use_fire_arrows(state, player)
+                can_use_fire_arrows(state, player) or
+                state.has("Hookshot", player) or
+                (
+                    state.has("Small Key (Snowhead)", player) and
+                    has_explosives(state, player) and
+                    state.has("Zora Mask", player)
+                )
             ),
         "Snowhead Temple Main Room Wall Chest SF":
             lambda state: (
+                soft_lens(state, player, options) and
                 (
-                    state.has("Small Key (Snowhead)", player, 3) and 
-                    can_use_fire_arrows(state, player) and 
-                    can_use_lens(state, player) and 
-                    has_explosives(state, player) and 
-                    state.has("Deku Mask", player)
-                ) or 
-                (
-                    can_use_fire_arrows(state, player) and 
-                    can_reach_scarecrow(state, player) and 
-                    state.has("Hookshot", player) and 
-                    can_use_lens(state, player)
+                    state.has("Hookshot", player) or
+                    (
+                        state.has("Small Key (Snowhead)", player) and 
+                        can_use_fire_arrows(state, player) and 
+                        state.has("Deku Mask", player) and
+                        (
+                            state.has("Small Key (Snowhead)", player) or
+                            logic_trick(options, "Snowhead Temple Final Key Skip")
+                        )
+                    )
                 )
             ),
         "Snowhead Temple Upper Wizzrobe Chest":
             lambda state: (
+                can_use_fire_arrows(state, player) and
                 (
-                    state.has("Small Key (Snowhead)", player, 3) and 
-                    can_use_fire_arrows(state, player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Snowhead)", player, 1) and 
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Deku Mask", player)
+                    state.has("Small Key (Snowhead)", player, 1) or
+                    (
+                        logic_trick(options, "Snowhead Temple Final Key Skip") and
+                        state.has("Deku Mask", player)
+                    )
                 )
             ),
         "Snowhead Temple Heart Container":
@@ -1450,8 +1596,11 @@ def get_location_rules(player, options, prices):
                 can_use_fire_arrows(state, player) and 
                 (
                     (
-                        state.has("Small Key (Snowhead)", player, 1) and 
-                        state.has("Boss Key (Snowhead)", player)
+                        state.has("Boss Key (Snowhead)", player) and
+                        (
+                            logic_trick(options, "Snowead Temple Final Key Skip") or
+                            state.has("Small Key (Snowhead)", player, 1)
+                        )
                     ) or 
                     (
                         state.has("Goht's Remains", player) and 
@@ -1464,8 +1613,11 @@ def get_location_rules(player, options, prices):
                 can_use_fire_arrows(state, player) and 
                 (
                     (
-                        state.has("Small Key (Snowhead)", player, 1) and 
-                        state.has("Boss Key (Snowhead)", player)
+                        state.has("Boss Key (Snowhead)", player) and
+                        (
+                            logic_trick(options, "Snowead Temple Final Key Skip") or
+                            state.has("Small Key (Snowhead)", player, 1)
+                        )
                     ) or 
                     (
                         state.has("Goht's Remains", player) and 
@@ -1550,23 +1702,38 @@ def get_location_rules(player, options, prices):
                 state.has("Zora Mask", player)
             ),
         "Pinnacle Rock Upper Eel Chest":
-            lambda state: (
-                can_reach_seahorse(state, player) and 
-                has_bottle(state, player) and 
-                state.has("Zora Mask", player)
+            lambda state: ( 
+                state.has("Zora Mask", player) and
+                (
+                    logic_trick(options, "Pinnacle Rock without Seahorse") or
+                    (
+                        can_reach_seahorse(state, player) and
+                        has_bottle(state, player)
+                    )
+                )
             ),
         "Pinnacle Rock Lower Eel Chest":
-            lambda state: (
-                can_reach_seahorse(state, player) and 
-                has_bottle(state, player) and 
-                state.has("Zora Mask", player)
+            lambda state: ( 
+                state.has("Zora Mask", player) and
+                (
+                    logic_trick(options, "Pinnacle Rock without Seahorse") or
+                    (
+                        can_reach_seahorse(state, player) and
+                        has_bottle(state, player)
+                    )
+                )
             ),
         "Great Bay Baby Zora Song":
             lambda state: (
-                has_bottle(state, player) and 
+                has_bottle(state, player) and
+                state.has("Zora Mask", player) and
                 (
+                    logic_trick(options, "Pinnacle Rock without Seahorse") or
                     can_reach_seahorse(state, player) or
-                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player)
+                    (
+                        state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                        state.has("Hookshot", player)
+                    )
                 )
             ),
         "Great Bay Feeding Lab Fish":
@@ -1592,146 +1759,96 @@ def get_location_rules(player, options, prices):
             ),
         "Ocean Spider House First Room Rafter Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House First Room Open Pot #1 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House First Room Open Pot #2 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House First Room Wall Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House Library Top Bookcase Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Library Passage Behind Bookcase Front Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Library Passage Behind Bookcase Rear Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Libary Painting #1 Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
+        #I am taking a blind guess that this is the one further from the door.
+        #Flip the logic if I'm wrong.
         "Ocean Spider House Library Painting #2 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Ocean Spider House Library Rafter Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House Library Bookshelf Hole Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Ocean Spider House First Room Downstairs Rafter Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House First Room Downstairs Open Pot Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House First Room Downstairs Behind Staircase Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House First Room Downstairs Crate Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House First Room Downstairs Wall Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Ocean Spider House Dining Room Open Pot Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Dining Room Painting Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House Dining Room Ceiling Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House Dining Room Chandelier #1 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Dining Room Chandelier #2 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Dining Room Chandelier #3 Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Storage Room Web Token":
             lambda state: (
-                state.has("Hookshot", player) and 
                 can_use_fire_arrows(state, player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)                    
             ),
         "Ocean Spider House Storage Room North Wall Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Storage Room Crate Token":
-            lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: osh_helper(state, player, options),
         "Ocean Spider House Storage Room Hidden Hole Token":
             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                can_bring_to_player(state, player)
             ),
         "Ocean Spider House Storage Room Ceiling Pot Token":
-             lambda state: (
-                state.has("Hookshot", player) and
-                has_explosives(state, player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Ocean Spider House Coloured Mask Sequence HP":
             lambda state: (
-                state.has("Hookshot", player) and 
-                state.has("Captain's Hat", player) and 
-                state.has("Progressive Bow", player) and 
-                has_explosives(state, player)
+                osh_helper(state, player, options) and
+                state.has("Progressive Bow", player) and
+                (
+                    logic_trick(options, "Brute Force Oceanside Spider House Code") or
+                    state.has("Captain's Hat", player)
+                )
             ),
         "Ocean Spider House Reward":
             lambda state: state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value),
@@ -1744,13 +1861,13 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Zora Mask", player),
         
         "Pirates' Fortress Sewers Maze Chest":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: True,
         "Pirates' Fortress Sewers Cage HP":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: True,
         "Pirates' Fortress Sewers Underwater Upper Chest":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: True,
         "Pirates' Fortress Sewers Underwater Lower Chest":
-            lambda state: state.has("Goron Mask", player),
+            lambda state: True,
         
         "Pirates' Fortress Hub Lower Chest":
             lambda state: True,
@@ -1759,8 +1876,9 @@ def get_location_rules(player, options, prices):
         "Pirates' Fortress Leader's Room Chest":
             lambda state: (
                 (
-                    state.has("Hookshot", player) or 
-                    state.has("Goron Mask", player)
+                    state.has("Progressive Bow", player) or 
+                    state.has("Stone Mask", player) or
+                    state.has("Hookshot", player)
                 ) and 
                 (
                     state.has("Progressive Bow", player) or 
@@ -1792,10 +1910,7 @@ def get_location_rules(player, options, prices):
         "Zora Cape Deku Flower Chest":
             lambda state: state.has("Hookshot", player),
         "Zora Cape Scarecrow Chest":
-            lambda state: (
-                state.has("Hookshot", player) and 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: state.has("Hookshot", player),
         "Beaver Bros. Race 1":
             lambda state: (
                 state.has("Hookshot", player) and 
@@ -1811,7 +1926,6 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Zora Mask", player),
         "Zora Hall Torches Reward":
             lambda state: (
-                state.has("Zora Mask", player) and 
                 can_use_fire_arrows(state, player)
             ),
         "Zora Hall Good Picture of Lulu":
@@ -1837,24 +1951,22 @@ def get_location_rules(player, options, prices):
             ),
         "Zora Hall Goron Scrub Trade Freestanding HP":
             lambda state: (
-                state.has("Deku Mask", player) and 
-                state.can_reach("Zora Hall Goron Scrub Trade", 'Location', player)
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player) and
+                (
+                    logic_trick(options, "Goron Pound in Zora Hall") or
+                    (
+                        state.has("Deku Mask", player) and
+                        state.has("Mountain Title Deed", player)
+                    )
+                )
             ),
         "Zora Hall Shop Item 1":
-            lambda state: (
-                state.has("Zora Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_1)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_ZORA_SHOP_1),
         "Zora Hall Shop Item 2":
-            lambda state: (
-                state.has("Zora Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_2)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_ZORA_SHOP_2),
         "Zora Hall Shop Item 3":
-            lambda state: (
-                state.has("Zora Mask", player) and 
-                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_3)
-            ),
+            lambda state: can_purchase(state, player, SHOP_ID_ZORA_SHOP_3),
 
         "Great Bay Great Fairy Reward":
             lambda state: (
@@ -1864,31 +1976,20 @@ def get_location_rules(player, options, prices):
             
         "Great Bay Temple Entrance Torches Chest SF":
             lambda state: True,
+        # I'm going to really hard assume Zora Mask and Hookshot for the rest of this dungeon.
+        # This is accurate pre-ER, and with major dungeons being one big region blob, it's really not worth refactoring for now.
         "Great Bay Temple Waterwheel Room Skulltula SF":
-            lambda state: can_smack_hard(state, player),
+            lambda state: True,
         "Great Bay Temple Waterwheel Room Bubble SF":
-            lambda state: (
-                state.has("Zora Mask", player) or 
-                (
-                    has_projectiles(state, player) and 
-                    state.has("Great Fairy Mask", player)
-                )
-            ),
+            lambda state: True,
         "Great Bay Temple Blender Room Barrel SF":
             lambda state: True,
         "Great Bay Temple Blender Pot SF":
             lambda state: True,
         "Great Bay Temple Before Red Valve Room Chest":
-            lambda state: can_use_ice_arrows(state, player),
+            lambda state: True,
         "Great Bay Temple Before Red Valve Room Pot SF":
-            lambda state: (
-                can_use_ice_arrows(state, player) or 
-                (
-                    has_projectiles(state, player) and 
-                    state.has("Great Fairy Mask", player)
-                ) or 
-                state.has("Deku Mask", player)
-            ),
+            lambda state: True,
         "Great Bay Temple Bio-Baba Hall Chest SF":
             lambda state: True,
         "Great Bay Temple Caged Chest Room Pot SF":
@@ -1897,28 +1998,19 @@ def get_location_rules(player, options, prices):
             lambda state: True,
         "Great Bay Temple Mad Jellied Gekko Chest":
             lambda state: (
-                can_use_ice_arrows(state, player) and 
-                can_use_fire_arrows(state, player)
+                can_use_ice_arrows(state, player) and
+                (
+                    logic_trick(options, "Great Bay Temple Skip Frog Miniboss") or
+                    can_use_fire_arrows(state, player)
+                )
             ),
         "Great Bay Temple Caged Chest Room Underwater Chest":
             lambda state: True,
         "Great Bay Temple Behind Locked Door Chest":
-            lambda state: (
-                (
-                    state.has("Small Key (Great Bay)", player) and 
-                    can_smack_hard(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Great Bay)", player) and 
-                    has_explosives(state, player)
-                ) or 
-                (
-                    state.has("Small Key (Great Bay)", player) and 
-                    state.has("Progressive Bow", player)
-                )
-            ),
+            lambda state: state.has("Small Key (Great Bay)", player),
         "Great Bay Temple Room Behind Waterfall Ceiling Chest SF":
             lambda state: can_use_ice_arrows(state, player),
+        # Fire Arrows aren't strictly required for these next three chests, but maybe it's too mean to be forced to SoT if you fall.
         "Great Bay Temple Freezable Waterwheel Upper Chest SF":
             lambda state: (
                 can_use_ice_arrows(state, player) and 
@@ -1940,18 +2032,17 @@ def get_location_rules(player, options, prices):
                 can_use_fire_arrows(state, player)
             ),
         "Great Bay Temple Pre-Boss Room Platform Bubble SF":
-            lambda state: (
-                can_use_ice_arrows(state, player) and 
-                can_use_fire_arrows(state, player)
-            ),
+            lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Pre-Boss Room Tunnel Bubble SF":
-            lambda state: state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player),
+            lambda state: can_use_ice_arrows(state, player),
         "Great Bay Temple Heart Container":
             lambda state: (
-                state.has("Hookshot", player) and 
+                state.has("Zora Mask", player) and
                 (
                     (
-                        state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
+                        can_use_ice_arrows(state, player) and
+                        can_use_fire_arrows(state, player) and
+                        state.has("Hookshot", player) and
                         state.has("Boss Key (Great Bay)", player)
                     ) or 
                     (
@@ -1962,10 +2053,12 @@ def get_location_rules(player, options, prices):
             ),
         "Great Bay Temple Gyorg's Remains":
             lambda state: (
-                state.has("Hookshot", player) and 
+                state.has("Zora Mask", player) and
                 (
                     (
-                        state.can_reach("Great Bay Temple Pre-Boss Room Platform Bubble SF", 'Location', player) and 
+                        can_use_ice_arrows(state, player) and
+                        can_use_fire_arrows(state, player) and
+                        state.has("Hookshot", player) and
                         state.has("Boss Key (Great Bay)", player)
                     ) or 
                     (
@@ -1981,36 +2074,43 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Goron Mask", player),
         "Road to Ikana Invisible Soldier":
             lambda state: (
-                can_play_song("Epona's Song", state, player) and 
                 has_bottle(state, player) and 
-                can_use_lens(state, player)
+                can_use_lens(state, player) and
+                (
+                    can_play_song("Epona's Song", state, player) or
+                    goron_bomb_jump(state, player, options)
+                )
             ),
             
         "Ikana Graveyard Bombable Grotto Chest":
-            lambda state: has_explosives(state, player),
+            lambda state: has_explosives_or_keg(state, player, options),
         "Graveyard Day 1 Bats Chest":
             lambda state: (
-                state.has("Captain's Hat", player) and 
-                can_smack(state, player)
+                state.has("Captain's Hat", player) and
+                (
+                    can_smack(state, player) or
+                    has_projectiles(state, player)
+                )
             ),
         "Graveyard Day 2 Dampe Bats":
             lambda state: has_projectiles(state, player),
         "Graveyard Day 2 Iron Knuckle Chest":
             lambda state: (
                 state.has("Captain's Hat", player) and 
-                can_smack_hard(state, player) and 
-                has_explosives(state, player) and 
-                can_use_lens(state, player)
+                has_explosives_or_keg(state, player, options) and
+                soft_lens(state, player, options) and
+                (
+                    can_smack_hard(state, player) or
+                    has_bombchus(state, player) or
+                    state.has("Progressive Bomb Bag", player)
+                )
             ),
         "Graveyard Day 3 Dampe Big Poe Chest":
             lambda state: (
+                state.has("Captain's Hat", player) and
                 (
-                    state.has("Captain's Hat", player) and 
+                    state.has("Zora Mask", player) or
                     state.has("Progressive Bow", player)
-                ) or 
-                (
-                    state.has("Captain's Hat", player) and 
-                    state.has("Zora Mask", player)
                 )
             ),
         "Graveyard Captain Keeta Chest":
@@ -2021,7 +2121,11 @@ def get_location_rules(player, options, prices):
         "Graveyard Day 1 Iron Knuckle Song":
             lambda state: (
                 state.has("Captain's Hat", player) and 
-                can_smack_hard(state, player)
+                (
+                    can_smack_hard(state, player) or
+                    has_bombchus(state, player) or
+                    state.has("Progressive Bomb Bag", player)
+                )
             ),
 
         "Tingle Stone Tower Map Purchase":
@@ -2030,22 +2134,18 @@ def get_location_rules(player, options, prices):
                 (
                     (
                         state.can_reach("Ikana Canyon", 'Region', player) and 
-                        can_use_ice_arrows(state, player) and 
-                        state.has("Hookshot", player)
+                        ikana_climb(state, player, options)
                     ) or 
                     state.can_reach("Great Bay", 'Region', player)
                 )
             ),
         "Ikana Canyon Spirit House":
-            lambda state: (
-                can_use_ice_arrows(state, player) and 
-                state.has("Hookshot", player)
-            ),
+            lambda state: ikana_climb(state, player, options),
         "Ikana Canyon Healing Pamela's Father":
             lambda state: (
-                can_use_ice_arrows(state, player) and 
                 can_play_song("Song of Healing", state, player) and 
-                can_play_song("Song of Storms", state, player)
+                can_play_song("Song of Storms", state, player) and
+                ikana_climb(state, player, options)
             ),
         "Ikana Canyon Scrub Purchase":
             lambda state: (
@@ -2069,7 +2169,7 @@ def get_location_rules(player, options, prices):
         "Stone Tower Great Fairy Reward":
             lambda state: (
                 state.has("Stray Fairy (Stone Tower)", player, options.required_stray_fairies.value) and 
-                can_use_ice_arrows(state, player)
+                ikana_climb(state, player, options)
             ),
             
         "Secret Shrine Dinolfos Chest":
@@ -2078,10 +2178,8 @@ def get_location_rules(player, options, prices):
                 can_use_light_arrows(state, player)
             ),
         "Secret Shrine Wizzrobe Chest":
-            lambda state: (
-                can_smack_hard(state, player) and 
-                can_use_light_arrows(state, player)
-            ),
+            lambda state: can_use_light_arrows(state, player),
+        # I am unsure what the minimum requirements for Wart should be. A melee weapon isn't strictly needed, but he's harder than the rest.
         "Secret Shrine Wart Chest":
             lambda state: (
                 can_smack_hard(state, player) and 
@@ -2109,26 +2207,36 @@ def get_location_rules(player, options, prices):
                     can_use_light_arrows(state, player)
                 )
             ),
+        # I am assuming that in scrubsanity you cannot buy the blue potion and hard require Mask of Scents.
         "Ikana Well Invisible Chest":
             lambda state: (
                 state.has("Gibdo Mask", player) and 
                 has_bottle(state, player) and 
                 (
-                    can_afford_price(state, player, 100) or 
-                    state.has("Mask of Scents", player)
+                    state.has("Mask of Scents", player) or
+                    (
+                        can_afford_price(state, player, 100) and
+                        not options.scrubsanity.value
+                    )
                 )
             ),
+        # I am assuming here that the Gorman Bros. milk purchase may be unavailable. It's not obvious how all shuffles interact.
         "Ikana Well Final Chest":
             lambda state: (
                 (
                     state.has("Gibdo Mask", player) and 
-                    has_bottle(state, player) and 
-                    can_plant_beans(state, player) and 
+                    can_get_cow_milk(state, player) and
                     (
-                        state.has("Progressive Bomb Bag", player) or 
                         (
-                            state.has("Captain's Hat", player) and 
-                            state.has("Progressive Bow", player)
+                            state.has("Captain's Hat", player) and
+                            (
+                                state.has("Progressive Bow", player) or
+                                state.has("Zora Mask", player)
+                            )
+                        ) or
+                        (
+                            can_plant_beans(state, player) and
+                            state.has("Progressive Bomb Bag", player)
                         )
                     )
                 ) or 
@@ -2140,53 +2248,31 @@ def get_location_rules(player, options, prices):
         "Ikana Well Cow":
             lambda state: (
                 state.has("Gibdo Mask", player) and 
-                has_bottle(state, player) and 
+                can_use_hot_spring_water(state, player, options, "Ikana") and
+                can_play_song("Epona's Song", state, player) and
                 (
-                    can_play_song("Epona's Song", state, player) and 
-                    (
-                        can_plant_beans(state, player) or 
-                        can_use_light_arrows(state, player)
-                    ) and 
-                    (
-                        (
-                            can_play_song("Song of Soaring", state, player) and 
-                            (
-                                (
-                                    state.can_reach("Twin Islands", 'Region', player) and 
-                                    can_use_fire_arrows(state, player)
-                                ) or 
-                                (
-                                    can_use_lens(state, player) and 
-                                    state.has("Goron Mask", player)
-                                )
-                            )
-                        ) or 
-                        state.can_reach("Ikana Well Invisible Chest", 'Location', player)
-                    )
+                    can_plant_beans(state, player) or
+                    can_use_light_arrows(state, player)
                 )
             ),
             
         "Ikana Castle Pillar Freestanding HP":
             lambda state: (
                 state.has("Deku Mask", player) and 
-                can_use_lens(state, player) and 
-                can_use_fire_arrows(state, player)
+                can_use_fire_arrows(state, player) and
+                soft_lens(state, player, options)
             ),
         "Ikana Castle King Song":
             lambda state: (
+                can_smack_hard(state, player) and
+                can_use_fire_arrows(state, player) and
+                has_mirror_shield(state, player) and
                 (
                     state.has("Deku Mask", player) and 
-                    can_use_lens(state, player) and 
-                    can_use_fire_arrows(state, player) and 
-                    state.has("Powder Keg", player) and 
-                    state.has("Goron Mask", player) and 
-                    has_mirror_shield(state, player)
+                    can_use_powder_keg(state, player) and
+                    soft_lens(state, player, options)
                 ) or 
-                (
-                    can_use_fire_arrows(state, player) and 
-                    has_mirror_shield(state, player) and 
-                    can_use_light_arrows(state, player)
-                )
+                can_use_light_arrows(state, player)
             ),
 
         "Stone Tower Inverted Left Chest":
@@ -2200,65 +2286,104 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Progressive Bow", player),
         "Stone Tower Temple Entrance Room Lower Chest":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player, 4) and 
                 state.has("Deku Mask", player) and 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or
+                    logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
+                )
             ),
+        # This room is tricky with how the enemies work. While Zora is probably mechanically possible,
+        # I believe in at least a little mercy. The damage check is to make sure this is OHKO mode safe.
         "Stone Tower Temple Armos Room Back Chest":
             lambda state: (
                 (
-                    has_explosives(state, player) and 
-                    has_mirror_shield(state, player)
-                ) or 
-                can_use_light_arrows(state, player)
+                    state.has("Goron Mask", player) or
+                    options.damage_multiplier != 4
+                 ) and
+                (
+                    can_use_light_arrows(state, player) or
+                    (
+                        has_explosives(state, player) and 
+                        has_mirror_shield(state, player)
+                    )
+                )
             ),
         "Stone Tower Temple Armos Room Upper Chest":
             lambda state: state.has("Hookshot", player),
         "Stone Tower Temple Armos Room Lava Chest":
             lambda state: (
                 (
-                    has_explosives(state, player) and 
-                    has_mirror_shield(state, player)
-                ) or 
-                can_use_light_arrows(state, player)
+                    state.has("Goron Mask", player) or
+                    (
+                        options.damage_multiplier != 4 and
+                        (
+                            state.has("Progressive Sword", player) or
+                            state.has("Great Fairy Sword", player) or
+                            state.has("Progressive Bomb Bag", player) or
+                            has_bombchus(state, player)
+                        )
+                    )
+                ) and
+                (
+                    can_use_light_arrows(state, player) or
+                    (
+                        has_explosives(state, player) and 
+                        has_mirror_shield(state, player)
+                    )
+                )
             ),
         "Stone Tower Temple Eyegore Room Switch Chest":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Zora Mask", player)
+            ),
         "Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest":
             lambda state: (
-                state.has("Small Key (Stone Tower)", player) or 
-                can_use_light_arrows(state, player)
+                state.has("Zora Mask", player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or 
+                    can_use_light_arrows(state, player)
+                )
             ),
         "Stone Tower Temple Eastern Water Room Underwater Chest":
-            lambda state: can_use_light_arrows(state, player),
+            lambda state: (
+                can_use_light_arrows(state, player) and
+                state.has("Zora Mask", player)
+            ),
         "Stone Tower Temple Eastern Water Room Sun Block Chest":
             lambda state: (
                 can_use_light_arrows(state, player) or 
                 (
                     state.has("Small Key (Stone Tower)", player) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Zora Mask", player)
                 )
             ),
         "Stone Tower Temple Mirror Room Sun Block Chest":
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Zora Mask", player) and
+                    state.has("Goron Mask", player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
-                    state.has("Small Key (Stone Tower)", player, 1)
+                    state.has("Small Key (Stone Tower)", player)
                 )
             ),
         "Stone Tower Temple Mirror Room Sun Face Chest":
             lambda state: (
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
-                    has_mirror_shield(state, player)
+                    has_mirror_shield(state, player) and
+                    state.has("Zora Mask", player) and
+                    state.has("Goron Mask", player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
-                    state.has("Small Key (Stone Tower)", player, 1)
+                    state.has("Small Key (Stone Tower)", player)
                 )
             ),
         "Stone Tower Temple Air Gust Room Side Chest":
@@ -2266,11 +2391,12 @@ def get_location_rules(player, options, prices):
                 (
                     state.has("Small Key (Stone Tower)", player, 2) and 
                     has_mirror_shield(state, player) and 
-                    state.has("Deku Mask", player)
+                    state.has("Deku Mask", player) and
+                    state.has("Zora Mask", player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
-                    state.has("Small Key (Stone Tower)", player, 1) and 
+                    state.has("Small Key (Stone Tower)", player) and 
                     state.has("Deku Mask", player)
                 )
             ),
@@ -2285,24 +2411,39 @@ def get_location_rules(player, options, prices):
                     state.has("Small Key (Stone Tower)", player, 2) and 
                     has_mirror_shield(state, player) and 
                     state.has("Deku Mask", player) and 
-                    can_smack_hard(state, player)
+                    can_smack_hard(state, player) and
+                    state.has("Zora Mask", player) and
+                    state.has("Goron Mask", player)
                 ) or 
                 (
                     can_use_light_arrows(state, player) and 
-                    state.has("Small Key (Stone Tower)", player, 1) and 
+                    state.has("Small Key (Stone Tower)", player) and 
                     can_smack_hard(state, player)
                 )
             ),
         "Stone Tower Temple After Garo Upside Down Chest":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Garo Master Chest", 'Location', player) and
+                (
+                    state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) or
+                    has_explosives(state, player)
+                )
+            ),
         "Stone Tower Temple Eyegore Chest":
-            lambda state: state.can_reach("Stone Tower Temple Garo Master Chest", 'Location', player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Garo Master Chest", 'Location', player) and
+                (
+                    can_use_light_arrows(state, player) or
+                    has_explosives(state, player)
+                )
+            ),
         "Stone Tower Temple Inverted Entrance Room Sun Face Chest":
             lambda state: can_use_light_arrows(state, player),
         "Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest":
             lambda state: (
                 state.has("Deku Mask", player) and 
-                can_use_light_arrows(state, player)
+                can_use_light_arrows(state, player) and
+                state.has("Zora Mask", player)
             ),
         "Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest":
             lambda state: (
@@ -2318,25 +2459,54 @@ def get_location_rules(player, options, prices):
         "Stone Tower Temple Inverted Wizzrobe Chest":
             lambda state: (
                 can_use_light_arrows(state, player) and 
-                state.has("Deku Mask", player) and 
-                state.has("Small Key (Stone Tower)", player, 3)
+                state.has("Deku Mask", player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or
+                    logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
+                )
             ),
         "Stone Tower Temple Inverted Death Armos Maze Chest":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player),
+            lambda state: (
+                can_use_light_arrows(state, player) and 
+                state.has("Deku Mask", player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or
+                    logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
+                )
+            ),
         "Stone Tower Temple Inverted Gomess Chest":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player) and 
                 can_use_light_arrows(state, player) and 
-                can_smack_hard(state, player)
+                state.has("Deku Mask", player) and
+                can_smack_hard(state, player) and
+                (
+                    state.has("Small Key (Stone Tower)", player) or
+                    logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
+                )
             ),
+        # We're going to require 2 keys to the end of the dungeon with no tricks to avoid very painful backtracks with SoT. Tricks can bypass this.
         "Stone Tower Temple Inverted Eyegore Chest":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Wizzrobe Chest", 'Location', player) and 
-                state.has("Small Key (Stone Tower)", player, 4)
+                can_use_light_arrows(state, player) and 
+                state.has("Deku Mask", player) and
+                (
+                    state.has("Small Key (Stone Tower)", player, 2) or
+                    (
+                        logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area") and
+                        state.has("Small Key (Stone Tower", player)
+                    ) or
+                    (
+                        logic_trick(options, "Inverted Stone Tower Temple Early Eyegore") and
+                        state.has("Small Key (Stone Tower", player)
+                    ) or
+                    (
+                        logic_trick(options, "Inverted Stone Tower Temple Early Eyegore") and
+                        logic_trick(options, "Inverted Stone Tower Temple Deku Spin to Boss Key Area")
+                    )
+                )
             ),
         "Stone Tower Temple Inverted Heart Container":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
                     state.has("Fierce Deity's Mask", player) or 
@@ -2345,9 +2515,13 @@ def get_location_rules(player, options, prices):
                         state.has("Progressive Magic", player) and 
                         state.has("Progressive Sword", player)
                     )
-                ) and 
+                ) and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
-                    state.has("Boss Key (Stone Tower)", player) or 
+                    (
+                        state.has("Boss Key (Stone Tower)", player) and
+                        state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+                    ) or
                     (
                         state.has("Twinmold's Remains", player) and 
                         options.remains_allow_boss_warps.value
@@ -2356,7 +2530,6 @@ def get_location_rules(player, options, prices):
             ),
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
                     state.has("Progressive Bow", player) or 
                     state.has("Fierce Deity's Mask", player) or 
@@ -2365,9 +2538,13 @@ def get_location_rules(player, options, prices):
                         state.has("Progressive Magic", player) and 
                         state.has("Progressive Sword", player)
                     )
-                ) and 
+                ) and
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and 
                 (
-                    state.has("Boss Key (Stone Tower)", player) or 
+                    (
+                        state.has("Boss Key (Stone Tower)", player) and
+                        state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player)
+                    ) or
                     (
                         state.has("Twinmold's Remains", player) and 
                         options.remains_allow_boss_warps.value
@@ -2384,26 +2561,39 @@ def get_location_rules(player, options, prices):
             ),
 
         "Moon Deku Trial HP":
-            lambda state: state.has("Deku Mask", player),
+            lambda state: (
+                state.has("Deku Mask", player) and
+                mask_total(state, player) >= 1
+            ),
         "Moon Goron Trial HP":
             lambda state: (
                 state.has("Goron Mask", player) and 
-                state.has("Progressive Magic", player)
+                state.has("Progressive Magic", player) and
+                mask_total(state, player) >= 2
             ),
         "Moon Zora Trial HP":
-            lambda state: state.has("Zora Mask", player),
+            lambda state: (
+                state.has("Zora Mask", player) and
+                mask_total(state, player) >= 3
+            ),
         "Moon Link Trial Garo Master Chest":
             lambda state: (
                 can_smack_hard(state, player) and 
-                state.has("Hookshot", player)
+                state.has("Hookshot", player) and
+                mask_total(state, player) >=4
             ),
         "Moon Link Trial Iron Knuckle Chest":
-            lambda state: state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player),
+            lambda state: (
+                can_smack_hard(state, player) and 
+                state.has("Hookshot", player) and
+                mask_total(state, player) >= 4
+            ),
         "Moon Link Trial HP":
             lambda state: (
                 state.can_reach("Moon Link Trial Garo Master Chest", 'Location', player) and 
                 has_bombchus(state, player) and 
-                state.has("Progressive Bow", player)
+                state.has("Progressive Bow", player) and
+                mask_total(state, player) >=4
             ),
         "Moon Trade All Masks":
             lambda state: (
@@ -2411,7 +2601,8 @@ def get_location_rules(player, options, prices):
                 state.can_reach("Moon Goron Trial HP", 'Location', player) and 
                 state.can_reach("Moon Zora Trial HP", 'Location', player) and 
                 state.can_reach("Moon Link Trial HP", 'Location', player) and 
-                can_use_fire_arrows(state, player) and 
+                can_use_fire_arrows(state, player) and
+                has_bombchus(state, player) and
                 state.has("Captain's Hat", player) and 
                 state.has("Giant's Mask", player) and 
                 state.has("All-Night Mask", player) and 
@@ -2451,4 +2642,4 @@ def get_location_rules(player, options, prices):
                 ) and 
                 has_enough_remains(state, player, options.majora_remains_required.value)
             ),
-        }
+    }

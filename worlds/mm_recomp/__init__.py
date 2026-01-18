@@ -300,7 +300,7 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
-            
+
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
             sword_location.item_rule = lambda item: item.name != "Progressive Sword"
@@ -373,8 +373,9 @@ class MMRWorld(World):
         for location in mw.get_locations(player):
             name = location.name
 
-            if name not in location_rules:
-                print(f"Location '{name}' does not have any logic")
+            # Debug Printing
+            # if name not in location_rules:
+            #     print(f"Location '{name}' does not have any logic")
             
             if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
                 continue
@@ -396,7 +397,7 @@ class MMRWorld(World):
         return {
             "skullsanity": self.options.skullsanity.value,
             "fairysanity": self.options.fairysanity.value,
-            "shopsanity": self.options.shopsanity.value,                                                                
+            "shopsanity": self.options.shopsanity.value,
             "scrubsanity": self.options.scrubsanity.value,
             "shop_prices": self.prices,
             "shop_prices_ints": self.prices_ints,
@@ -425,5 +426,6 @@ class MMRWorld(World):
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
             "random_seed": self.random.getrandbits(32),
-            "logic_difficulty": self.options.logic_difficulty.value
+            "logic_difficulty": self.options.logic_difficulty.value,
+            "logic_tricks": self.options.logic_tricks.value
         }
