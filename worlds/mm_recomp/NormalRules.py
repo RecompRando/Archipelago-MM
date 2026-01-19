@@ -626,8 +626,10 @@ def get_region_rules(player, options):
                     can_play_song("Goron Lullaby", state, player) and 
                     state.has("Progressive Magic", player)
                 ) or
-                can_use_owl(state, player, options, "Snowhead") and
-                can_warp_out(state, player, options)
+                (
+                    can_use_owl(state, player, options, "Snowhead") and
+                    can_warp_out(state, player, options)
+                )
             ),
         "Path to Snowhead -> Mountain Village":
             lambda state: (
@@ -635,8 +637,10 @@ def get_region_rules(player, options):
                     state.has("Goron Mask", player) and 
                     state.has("Progressive Magic", player)
                 ) or
-                can_use_owl(state, player, options, "Mountain Village") and
-                can_warp_out(state, player, options)
+                (
+                    can_use_owl(state, player, options, "Mountain Village") and
+                    can_warp_out(state, player, options)
+                )
             ),
         "Snowhead -> Snowhead Temple": lambda state: (
                 state.has("Goron Mask", player) and 
