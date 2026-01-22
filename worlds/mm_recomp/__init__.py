@@ -587,12 +587,6 @@ class MMRWorld(World):
                 pos += 1
         else:
             er_placements += 0x76540000
-        
-        print("!!! ER Placements", hex(er_placements))
-
-        # debug
-        from Utils import visualize_regions
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml", show_locations=False)
 
         return {
             "skullsanity": self.options.skullsanity.value,
