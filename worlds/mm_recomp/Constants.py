@@ -128,3 +128,36 @@ shop_location_to_id = {
 	"Zora Hall Shop Item 2": SHOP_ID_ZORA_SHOP_2,
 	"Zora Hall Shop Item 3": SHOP_ID_ZORA_SHOP_3,
 }
+
+# rough grouping for entrance rando
+dungeon_entrances_er = [
+	"Woodfall -> Woodfall Temple",
+    "Snowhead -> Snowhead Temple",
+    "Zora Cape -> Great Bay Temple",
+    "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)",
+]
+
+dungeon_bosses_er = [
+	"Woodfall Temple -> Odolwa's Lair",
+    "Snowhead Temple -> Goht's Lair",
+    "Great Bay Temple -> Gyorg's Lair",
+    "Stone Tower Temple (Inverted) -> Twinmold's Lair",
+]
+
+# extra_entrances_er = [
+# 	"Southern Swamp (Deku Palace) -> Swamp Spider House",
+# 	"Great Bay -> Ocean Spider House",
+# 	"Upper Ikana Canyon -> Beneath the Well",
+# ]
+
+# arbitrary mapping for the mod to interpret
+er_to_id = {
+	"Woodfall Temple": 0,
+	"Snowhead Temple": 1,
+    "Great Bay Temple": 2,
+    "Stone Tower Temple (Inverted)": 3,
+	"Odolwa's Lair": 4,
+    "Goht's Lair": 5,
+    "Gyorg's Lair": 6,
+    "Twinmold's Lair": 7,
+}
