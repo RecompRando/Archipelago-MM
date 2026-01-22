@@ -74,6 +74,9 @@ class MMRWorld(World):
             name == "Stray Fairy (Great Bay)" or
             name == "Stray Fairy (Stone Tower)") and self.options.shuffle_great_fairy_rewards == 0:
             return MMRItem(name, ItemClassification.filler, item_data_table[name].code, self.player)
+        elif (name == "Swamp Skulltula Token" or
+              name == "Ocean Skulltula Token") and self.options.shuffle_spiderhouse_reward == 0:
+            return MMRItem(name, ItemClassification.filler, item_data_table[name].code, self.player)
         else:
             return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
 
@@ -110,7 +113,7 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Song of Soaring"))
             self.create_and_add_filler_items()
 
-        if self.options.shuffle_spiderhouse_reward.value:
+        if self.options.shuffle_spiderhouse_reward.value != 1:
             mw.itempool.append(self.create_item("Progressive Wallet"))
 
         if self.options.shuffle_regional_maps.value == 1:
@@ -145,6 +148,9 @@ class MMRWorld(World):
 
         if self.options.shuffle_great_fairy_rewards.value != 0:
             self.create_and_add_filler_items(6)
+
+        if self.options.shuffle_spiderhouse_reward.value != 0:
+            self.create_and_add_filler_items(2)
 
         shp = self.options.starting_hearts.value
         if self.options.starting_hearts_are_containers_or_pieces.value == 0:
@@ -204,7 +210,7 @@ class MMRWorld(World):
             self.place("Great Bay Temple Gyorg's Remains", remains_list.pop(self.random.randint(0, 1)))
             self.place("Stone Tower Temple Inverted Twinmold's Remains", remains_list[0])
 
-        if not self.options.shuffle_spiderhouse_reward.value:
+        if self.options.shuffle_spiderhouse_reward.value == 1:
             self.place("Swamp Spider House Reward", "Mask of Truth")
             self.place("Ocean Spider House Reward", "Progressive Wallet")
 

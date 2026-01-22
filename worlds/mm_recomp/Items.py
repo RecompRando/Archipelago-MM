@@ -212,7 +212,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Mask of Truth": MMRItemData(
         code=0x346942000008A,
         type=ItemClassification.progression,
-        can_create=lambda options: options.shuffle_spiderhouse_reward.value
+        can_create=lambda options: options.shuffle_spiderhouse_reward.value != 1
     ),
     "Stone Mask": MMRItemData(
         code=0x346942000008B,
@@ -514,7 +514,7 @@ item_data_table: Dict[str, MMRItemData] = {
     "Red Rupee": MMRItemData(
         code=0x3469420000004,
         type=ItemClassification.filler,
-        num_exist=41
+        num_exist=39
         # ~ num_exist=29
     ),
     "Purple Rupee": MMRItemData(

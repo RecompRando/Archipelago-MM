@@ -98,9 +98,16 @@ class BossWarpsWithRemains(DefaultOnToggle):
     display_name = "Warp to Bosses Using Remains"
 
 
-class ShuffleSpiderHouseReward(Toggle):
-    """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
+class ShuffleSpiderHouseReward(Choice):
+    """Choose how Swamp Spider House and Ocean Spider House rewards are shuffled.
+    
+    disabled: Spider House rewards won't be shuffled into the pool.
+    vanilla: Spider House rewards will be vanilla. Mask of Truth will be in Swamp and a wallet upgrade in Ocean.
+    enabled: Spider House rewards will be shuffled. Any item can be shuffled at their locations."""
     display_name = "Shuffle Spider House Rewards"
+    option_disabled = 0
+    option_vanilla = 1
+    option_enabled = 2
 
 
 class RequiredSkullTokens(Range):
