@@ -152,11 +152,13 @@ dungeon_bosses_er = [
 
 # arbitrary mapping for the mod to interpret
 er_to_id = {
+	# Temples
 	"Woodfall Temple": 0,
 	"Snowhead Temple": 1,
     "Great Bay Temple": 2,
     "Stone Tower Temple (Inverted)": 3,
-	"Odolwa's Lair": 4,
+	# Bosses
+    "Odolwa's Lair": 4,
     "Goht's Lair": 5,
     "Gyorg's Lair": 6,
     "Twinmold's Lair": 7,

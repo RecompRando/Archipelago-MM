@@ -4,6 +4,7 @@ from typing import TextIO
 
 from BaseClasses import Region, Tutorial, EntranceType
 from worlds.AutoWorld import WebWorld, World
+from entrance_rando import randomize_entrances, disconnect_entrance_for_randomization
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
 from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, prices_ints
 from .Options import MMROptions
@@ -11,8 +12,6 @@ from .Regions import region_data_table, get_exit
 from .Rules import *
 from .NormalRules import *
 from .Constants import default_shop_prices
-
-from entrance_rando import randomize_entrances, disconnect_entrance_for_randomization
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
@@ -40,7 +39,8 @@ class MMRWorld(World):
     location_name_to_id = location_table
     item_name_to_id = item_table
     prices = ""
-    entrance_rando_results = []
+    entrance_rando_dungeon_results = []
+    entrance_rando_boss_results = []
 
     def generate_early(self):
         pass
@@ -484,48 +484,74 @@ class MMRWorld(World):
                 location.access_rule = location_rules[name]
 
     def connect_entrances(self) -> None:
-        if not self.options.entrance_rando.value:
-            return
-        
         player = self.player
         mw = self.multiworld
-        
-        # could be a lot nicer, but PoC
-        for entrance in mw.get_entrances(player):
-            if entrance.name in dungeon_entrances_er:
-                # entrance.randomization_type = EntranceType.TWO_WAY # why do you not work
-                disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
-                entrance.access_rule = entrance.access_rule # i don't know the purpose of this
-        
-        no_target_groups = {0: [0]}
-        placement = randomize_entrances(self, coupled=True, target_group_lookup=no_target_groups)
-        # self.entrance_rando_results += placement.pairings
+        no_target_groups = {0: [0]} # unsure how target groups work
 
-        # scuffed way of ordering results
-        for dungeon_entrance in dungeon_entrances_er:
-            for pairing in placement.pairings:
-                if pairing[0] == dungeon_entrance:
-                    self.entrance_rando_results.append(pairing)
-                    continue
+        # could be a lot nicer, but PoC (this won't work for full entrance rando)
+        # Dungeon Chaining
+        if self.options.dungeon_chaining.value and self.options.dungeon_entrance_rando.value and self.options.boss_entrance_rando.value:
+            # disconnect dungeons
+            for entrance in mw.get_entrances(player):
+                if entrance.name in dungeon_entrances_er:
+                    disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
+                    entrance.access_rule = entrance.access_rule
+            
+            # disconnect bosses
+            for entrance in mw.get_entrances(player):
+                    if entrance.name in dungeon_bosses_er:
+                        disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
+                        entrance.access_rule = entrance.access_rule
+            
+            placement = randomize_entrances(self, coupled=True, target_group_lookup=no_target_groups)
 
-        # bosses (in a seperate loop to separate groups because i don't understand them)
-        for entrance in mw.get_entrances(player):
-            if entrance.name in dungeon_bosses_er:
-                disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
-                entrance.access_rule = entrance.access_rule
-        
-        placement = randomize_entrances(self, coupled=True, target_group_lookup=no_target_groups)
-        # self.entrance_rando_results += placement.pairings
+            # scuffed way of ordering results
+            for dungeon_entrance in dungeon_entrances_er:
+                for pairing in placement.pairings:
+                    if pairing[0] == dungeon_entrance:
+                        self.entrance_rando_dungeon_results.append(pairing)
+                        continue
+            for boss_entrance in dungeon_bosses_er:
+                for pairing in placement.pairings:
+                    if pairing[0] == boss_entrance:
+                        self.entrance_rando_boss_results.append(pairing)
+                        continue
+        else:
+            # Dungeon Entrances
+            if self.options.dungeon_entrance_rando.value:
+                for entrance in mw.get_entrances(player):
+                    if entrance.name in dungeon_entrances_er:
+                        # entrance.randomization_type = EntranceType.TWO_WAY # why do you not work
+                        disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
+                        entrance.access_rule = entrance.access_rule # i don't know the purpose of this
+                
+                placement = randomize_entrances(self, coupled=True, target_group_lookup=no_target_groups)
 
-        # scuffed way of ordering results
-        for boss_entrance in dungeon_bosses_er:
-            for pairing in placement.pairings:
-                if pairing[0] == boss_entrance:
-                    self.entrance_rando_results.append(pairing)
-                    continue
+                # scuffed way of ordering results
+                for dungeon_entrance in dungeon_entrances_er:
+                    for pairing in placement.pairings:
+                        if pairing[0] == dungeon_entrance:
+                            self.entrance_rando_dungeon_results.append(pairing)
+                            continue
+
+            # Boss Entrances
+            if self.options.boss_entrance_rando.value:
+                for entrance in mw.get_entrances(player):
+                    if entrance.name in dungeon_bosses_er:
+                        disconnect_entrance_for_randomization(entrance, None, entrance.connected_region.name)
+                        entrance.access_rule = entrance.access_rule
+                
+                placement = randomize_entrances(self, coupled=True, target_group_lookup=no_target_groups)
+
+                # scuffed way of ordering results
+                for boss_entrance in dungeon_bosses_er:
+                    for pairing in placement.pairings:
+                        if pairing[0] == boss_entrance:
+                            self.entrance_rando_boss_results.append(pairing)
+                            continue
 
         # spoiler log entrances
-        for pairing in self.entrance_rando_results:
+        for pairing in (self.entrance_rando_dungeon_results + self.entrance_rando_boss_results):
             original_entrance = pairing[0]
             original_entrance = original_entrance[original_entrance.index("->") + 3:]
             replaced_entrance = pairing[1]
@@ -544,16 +570,29 @@ class MMRWorld(World):
         shuffled_containers = int((12 - shp)/4)
         shuffled_pieces = (12 - shp) % 4
 
-        er_placements = []
-
         # need to figure out a better way of doing this
-        if self.options.entrance_rando.value:
-            # debug
-            # from Utils import visualize_regions
-            # visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml", show_locations=False)
+        er_placements = 0x00000000
+        if self.options.dungeon_entrance_rando.value:
+            pos = 0
+            for pairing in self.entrance_rando_dungeon_results:
+                er_placements += er_to_id[pairing[1]] << (pos * 4);
+                pos += 1
+        else:
+            er_placements += 0x3210
 
-            for pairing in self.entrance_rando_results:
-                er_placements.append(er_to_id[pairing[1]])
+        if self.options.boss_entrance_rando.value:
+            pos = 4
+            for pairing in self.entrance_rando_boss_results:
+                er_placements += er_to_id[pairing[1]] << (pos * 4);
+                pos += 1
+        else:
+            er_placements += 0x76540000
+        
+        print("!!! ER Placements", hex(er_placements))
+
+        # debug
+        from Utils import visualize_regions
+        visualize_regions(self.multiworld.get_region("Menu", self.player), "my_world.puml", show_locations=False)
 
         return {
             "skullsanity": self.options.skullsanity.value,
@@ -626,8 +665,9 @@ class MMRWorld(World):
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
             "random_seed": self.random.getrandbits(32),
-            "entrance_rando": self.options.entrance_rando.value,
-            "er_placement_ids": er_placements,
-            "er_placement_count": len(er_placements),
+            "dungeon_entrance_rando": self.options.dungeon_entrance_rando.value,
+            "boss_entrance_rando": self.options.boss_entrance_rando.value,
+            "dungeon_chaining": self.options.dungeon_chaining.value,
+            "er_placements": er_placements,
             "logic_difficulty": self.options.logic_difficulty.value
         }

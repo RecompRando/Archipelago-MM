@@ -137,9 +137,18 @@ class CAMC(DefaultOnToggle):
 
 
 # TODO: separate dungeons and bosses into more groups
-class EntranceRando(Toggle):
-    """Set whether dungeons and bosses are randomized amongst themselves."""
-    display_name = "Entrance Rando"
+class DungeonEntranceRando(Toggle):
+    """Set whether dungeons are randomized amongst themselves."""
+    display_name = "Dungeon Entrance Rando"
+
+
+class BossEntranceRando(Toggle):
+    """Set whether bosses are randomized amongst themselves."""
+
+
+class DungeonChaining(Toggle):
+    """When Dungeon Entrance Rando and Boss Entrance Rando are enabled, set whether dungeons can lead into each other/only have bosses."""
+    display_name = "Dungeon Chaining"
 
 
 class Ocarinaless(Toggle):
@@ -548,7 +557,9 @@ class MMROptions(PerGameCommonOptions):
     majora_items_required: MajoraItemsRequired
     completion_goal: CompletionGoal
     camc: CAMC
-    entrance_rando: EntranceRando
+    dungeon_entrance_rando: DungeonEntranceRando
+    boss_entrance_rando: BossEntranceRando
+    dungeon_chaining: DungeonChaining
     ocarinaless: Ocarinaless
     timeless: Timeless
     swordless: Swordless
