@@ -299,19 +299,23 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "East Clock Town Treasure Game Chest (Human)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420061705
+        address=0x3469420061705,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "East Clock Town Treasure Game Chest (Deku)": MMRLocationData(
         region="Clock Town",
-        address=0x346942006172A
+        address=0x346942006172A,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "East Clock Town Treasure Game Chest (Goron)": MMRLocationData(
         region="Clock Town",
-        address=0x346942006170C
+        address=0x346942006170C,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value != 0
     ),
     "East Clock Town Treasure Game Chest (Zora)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420061704
+        address=0x3469420061704,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "Bomber's Hideout Chest": MMRLocationData(
         region="Clock Town",

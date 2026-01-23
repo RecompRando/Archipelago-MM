@@ -222,6 +222,18 @@ class IntroChecks(Toggle):
     A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
     display_name = "Enable Intro Checks"
 
+class ShuffleTreasureChestGame(Choice):
+    """Choose which chests in the Treasure Chest minigame are shuffled.
+    
+    disabled: Chests are not shuffled.
+    goron_only: Only the reward as Goron is shuffled.
+    everything: Rewards for human, Deku, Goron, and Zora are shuffled."""
+    display_name = "Treasure Chest Minigame Shuffle"
+    option_disabled = 0
+    option_goron_only = 1
+    option_everything = 2
+    default = 1
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -310,6 +322,7 @@ class MMROptions(PerGameCommonOptions):
     bosskeysanity: BossKeysanity
     curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
+    shuffle_treasure_chest_game: ShuffleTreasureChestGame
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
