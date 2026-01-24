@@ -17410,41 +17410,48 @@ def get_location_rules(player, options):
         "Termina Field Southern Tree Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Near Thieving Bird Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Near Bombable Rock Grotto Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Gossip Grotto Gossip Fairy":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
         "Termina Field Near Songwall Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Eastern Corner Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Observatory Gossip Fairy":
             lambda state: (
                 state.can_reach("Bomber's Hideout Astral Observatory", "Location", player) and
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Road to Southern Swamp Gossip Fairy
@@ -17452,7 +17459,8 @@ def get_location_rules(player, options):
         "Road to Southern Swamp Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Southern Swamp Gossip Fairies
@@ -17460,7 +17468,8 @@ def get_location_rules(player, options):
         "Southern Swamp Near Witch Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         
         "Southern Swamp Near Witch Post Dungeon Gossip Fairy":
@@ -17468,7 +17477,8 @@ def get_location_rules(player, options):
                 can_clear_woodfall(state, player) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17476,7 +17486,8 @@ def get_location_rules(player, options):
         "Swamp Spider House Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Milk Road Gossip Fairy
@@ -17484,7 +17495,8 @@ def get_location_rules(player, options):
         "Milk Road Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Romani Ranch Gossip Fairies
@@ -17492,27 +17504,32 @@ def get_location_rules(player, options):
         "Romani Ranch Entry Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Tree Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Near Barn Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Baby Cuccoos Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Doggy Racetrack Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Path to Mountain Village Gossip Fairy
@@ -17520,7 +17537,8 @@ def get_location_rules(player, options):
         "Path To Mountain Village Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Mountain Village Gossip Fairies
@@ -17530,7 +17548,8 @@ def get_location_rules(player, options):
                 can_clear_snowhead(state, player) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
         "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
@@ -17538,7 +17557,8 @@ def get_location_rules(player, options):
                 can_clear_snowhead(state, player) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17547,7 +17567,8 @@ def get_location_rules(player, options):
         "Great Bay Coast Rock Wall Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Zora Cape
@@ -17555,7 +17576,8 @@ def get_location_rules(player, options):
         "Zora Cape Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Road to Ikana Gossip Fairy
@@ -17563,7 +17585,8 @@ def get_location_rules(player, options):
         "Road To Ikana Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Ikana Canyon Gossip Fairy
@@ -17572,7 +17595,8 @@ def get_location_rules(player, options):
             lambda state: 
             (
                 can_play_song("Epona's Song", state, player) or
-                can_play_song("Song of Healing", state, player)
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy":
             lambda state:
@@ -17584,13 +17608,15 @@ def get_location_rules(player, options):
                 state.has("Deku Mask", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                   )
             ),
         "Ikana Canyon Near Ghost House Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Moon Gossip Fairies
@@ -17603,7 +17629,8 @@ def get_location_rules(player, options):
                 state.has("Deku Mask", player) and
             (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
             )
         ),
         "Deku Trial Back Left Gossip":
@@ -17614,7 +17641,8 @@ def get_location_rules(player, options):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Front Right Gossip":
@@ -17625,7 +17653,8 @@ def get_location_rules(player, options):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Back Right Gossip":
@@ -17636,7 +17665,8 @@ def get_location_rules(player, options):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Furthest Back Gossip":
@@ -17647,7 +17677,8 @@ def get_location_rules(player, options):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17661,7 +17692,8 @@ def get_location_rules(player, options):
                 state.has("Progressive Magic", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                 )
             ),
         "Goron Trial 1st Gazebo Gossip (1)":
@@ -17672,7 +17704,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial 2nd Gazebo Gossip (0)":
@@ -17683,7 +17716,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial 2nd Gazebo Gossip (1)":
@@ -17694,7 +17728,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial Near Heart Piece Gossip (1)":
@@ -17705,7 +17740,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17737,7 +17773,8 @@ def get_location_rules(player, options):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Zora Trial LRLL Path Gossip":
@@ -17747,7 +17784,8 @@ def get_location_rules(player, options):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Zora Trial LLL Path Gossip":
@@ -17757,7 +17795,8 @@ def get_location_rules(player, options):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17766,8 +17805,11 @@ def get_location_rules(player, options):
         "Link Trial Gossip (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
-                can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                (
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
+                 )
             ),
         "Link Trial Gossip (2)":
             lambda state:
@@ -17776,7 +17818,8 @@ def get_location_rules(player, options):
                 state.has("Hookshot", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17789,7 +17832,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Bow", player, 1)
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Link Trial Gossip (4)":
@@ -17801,7 +17845,8 @@ def get_location_rules(player, options):
                     state.has("Progressive Bow", player, 1)
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17812,7 +17857,8 @@ def get_location_rules(player, options):
                     state.can_reach("Link Trial Gossip (3)", "Location", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
