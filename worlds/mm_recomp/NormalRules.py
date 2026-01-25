@@ -19198,48 +19198,56 @@ def get_location_rules(player, options):
         "North Clock Town Deku Playground Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
