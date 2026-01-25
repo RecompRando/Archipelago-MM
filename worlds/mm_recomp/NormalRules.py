@@ -16311,7 +16311,11 @@ def get_location_rules(player, options):
         # Goron Village
 
         "Goron Village Keg Goron Crate (1)":
-            lambda state: can_use_fire_arrows(state,player),
+            lambda state: can_use_fire_arrows(state,player) and
+            (
+                state.has("Goron Mask", player) or
+                can_warp_out(state, player, options)
+            ),
         "Goron Village Keg Goron Crate (Spring) (1)":
             lambda state: can_clear_snowhead(state, player),
 
