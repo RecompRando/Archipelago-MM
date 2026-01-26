@@ -6743,7 +6743,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Ikana Castle Grass
-
+    
+    "Ikana Castle Grass (0)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x3469420121D00,
+        can_create=lambda options: options.grasssanity.value
+    ),
     "Ikana Castle Grass (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x3469420121D0B,
