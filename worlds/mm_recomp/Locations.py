@@ -7754,6 +7754,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420205000,
         can_create=lambda options: options.potsanity.value
     ),
+    "Mountain Village Spring Rooftop Pot": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420205A00,
+        can_create=lambda options: options.potsanity.value
+    ),
     "Mountain Village Pots (1)": MMRLocationData(
         region="Mountain Village",
         address=0x34694202050F0,
