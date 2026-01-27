@@ -18659,22 +18659,22 @@ def get_location_rules(player, options):
         "Path To Snowhead Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.can_reach("Mountain Village", 'Region', player)
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path To Snowhead Tree (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.can_reach("Mountain Village", 'Region', player)
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path To Snowhead Tree (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.can_reach("Mountain Village", 'Region', player)
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path To Snowhead Tree Near Ledge":
             lambda.state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                can_clear_snowhead(state, player)
+                state.can_reach("Mountain Village", 'Region', player)
             ),
 
         # Goron Racetrack - 
