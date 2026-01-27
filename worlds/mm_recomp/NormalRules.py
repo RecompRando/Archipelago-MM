@@ -14792,13 +14792,25 @@ def get_location_rules(player, options):
                 state.has("Zora Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (5)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (6)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (7)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (8)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (9)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
