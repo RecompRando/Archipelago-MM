@@ -16944,6 +16944,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420310315,
         can_create=lambda options: options.signsanity.value
     ),
+    "Mountain Village Pond Sring Cut the Sign": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420310318,
+        can_create=lambda options: options.signsanity.value
+    ),
     "Mountain Village Twin Island Entrance Cut the Sign": MMRLocationData(
         region="Mountain Village",
         address=0x3469420310313,
