@@ -9416,6 +9416,12 @@ def get_location_rules(player, options):
                 has_soul_absurd(state, player, options, "Pots") and
                 has_hard_projectiles(state, player)
             ),
+        "Mountain Village Spring Rooftop Pot":
+            lambda state: (
+                can_clear_snowhead(state, player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_hard_projectiles(state, player)
+            ),
         "Mountain Village Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Mountain Village Pots (2)":
