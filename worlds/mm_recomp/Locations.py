@@ -283,19 +283,23 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "East Clock Town Shooting Gallery 40-49 Points": MMRLocationData(
         region="Clock Town",
-        address=0x3469420000023
+        address=0x3469420000023,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "East Clock Town Shooting Gallery Perfect 50 Points": MMRLocationData(
         region="Clock Town",
-        address=0x346942007011D
+        address=0x346942007011D,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "East Clock Town Honey and Darling Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x34694200800B5
+        address=0x34694200800B5,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "East Clock Town Honey and Darling All Days": MMRLocationData(
         region="Clock Town",
-        address=0x34694200700B5
+        address=0x34694200700B5,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "East Clock Town Treasure Game Chest (Human)": MMRLocationData(
         region="Clock Town",
@@ -331,11 +335,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "North Clock Town Deku Playground Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x34694200801C9
+        address=0x34694200801C9,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "North Clock Town Deku Playground All Days": MMRLocationData(
         region="Clock Town",
-        address=0x34694200701C9
+        address=0x34694200701C9,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "North Clock Town Save Old Lady": MMRLocationData(
         region="Clock Town",
@@ -529,11 +535,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Swamp Shooting Gallery 2120 Points": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420000024
+        address=0x3469420000024,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "Swamp Shooting Gallery 2180 Points": MMRLocationData(
         region="Southern Swamp",
-        address=0x346942008011D
+        address=0x346942008011D,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "Southern Swamp Deku Trade": MMRLocationData(
         region="Southern Swamp",
@@ -1188,7 +1196,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Fisherman Game": MMRLocationData(
         region="Great Bay",
-        address=0x3469420070292
+        address=0x3469420070292,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "Zora Cape Underwater Like-Like HP": MMRLocationData(
         region="Zora Cape",

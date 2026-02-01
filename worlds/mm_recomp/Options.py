@@ -222,6 +222,22 @@ class IntroChecks(Toggle):
     A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
     display_name = "Enable Intro Checks"
 
+class ShuffleMinigames(Choice):
+    """Choose whether the minigames are shuffled or not. The minigames affected are:
+    - Town and Swamp Shooting Galleries;
+    - Honey & Darling;
+    - Deku Playground;
+    - Great Bay Fisherman Game.
+    
+    disabled: Listed minigames are not shuffled.
+    single: Listed minigames only have one location. Where applicable, the easier locations (any day/lowest points requirements) are shuffled.
+    everything: Listed minigames are fully shuffled."""
+    display_name = "Shuffle Minigames"
+    option_disabled = 0
+    option_single = 1
+    option_everything = 2
+    default = 1
+
 class ShuffleTreasureChestGame(Choice):
     """Choose which chests in the Treasure Chest minigame are shuffled.
     
@@ -322,6 +338,7 @@ class MMROptions(PerGameCommonOptions):
     bosskeysanity: BossKeysanity
     curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
+    shuffle_minigames: ShuffleMinigames
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani

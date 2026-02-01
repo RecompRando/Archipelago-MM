@@ -151,6 +151,11 @@ class MMRWorld(World):
 
         if self.options.shuffle_spiderhouse_reward.value != 0:
             self.create_and_add_filler_items(2)
+        
+        if self.options.shuffle_minigames.value == 1:
+            self.create_and_add_filler_items(5)
+        elif self.options.shuffle_minigames.value == 2:
+            self.create_and_add_filler_items(9)
 
         if self.options.shuffle_treasure_chest_game.value == 1:
             self.create_and_add_filler_items(1)
@@ -443,6 +448,7 @@ class MMRWorld(World):
             "shuffle_regional_maps": self.options.shuffle_regional_maps.value,
             "shuffle_spiderhouse_reward": self.options.shuffle_spiderhouse_reward.value,
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
+            "shuffle_minigames": self.options.shuffle_minigames.value,
             "shuffle_treasure_chest_game": self.options.shuffle_treasure_chest_game.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
             "random_seed": self.random.getrandbits(32),
