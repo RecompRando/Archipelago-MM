@@ -185,9 +185,11 @@ def can_bring_to_player(state, player):
     return state.has("Hookshot", player) or state.has("Zora Mask", player)
 
 def can_break_balls(state, player):
-    return state.has("Goron Mask", player) or
-        (can_use_fire_arrows(state, player) or
-        has_explosives(state, player)),
+    return (
+            state.has("Goron Mask", player) or
+            can_use_fire_arrows(state, player) or
+            has_explosives(state, player)
+    )
 
 def can_reach_scarecrow(state, player, options):
     return (
