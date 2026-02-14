@@ -17407,8 +17407,7 @@ def get_location_rules(player, options):
                     ) or
                     (
                         state.has("Stone Tower Owl Statue", player) and
-                        can_play_song("Song of Soaring", state, player) and
-                        can_play_song("Elegy of Emptiness", state, player)
+                        can_play_song("Song of Soaring", state, player)
                     )
                 )
             ),
@@ -17426,8 +17425,7 @@ def get_location_rules(player, options):
                     ) or
                     (
                         state.has("Stone Tower Owl Statue", player) and
-                        can_play_song("Song of Soaring", state, player) and
-                        can_play_song("Elegy of Emptiness", state, player)
+                        can_play_song("Song of Soaring", state, player)
                     )
                 )
             ),
