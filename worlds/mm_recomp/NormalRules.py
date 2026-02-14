@@ -184,6 +184,13 @@ def can_use_lens(state, player):
 def can_bring_to_player(state, player):
     return state.has("Hookshot", player) or state.has("Zora Mask", player)
 
+def can_break_balls(state, player):
+    return (
+            state.has("Goron Mask", player) or
+            can_use_fire_arrows(state, player) or
+            has_explosives(state, player)
+    )
+
 def can_reach_scarecrow(state, player, options):
     return (
         has_soul_npc(state, player, options, "Scarecrow") and
@@ -15085,31 +15092,31 @@ def get_location_rules(player, options):
 
         # Mountain Village Day 1 Snowballs
         "Mountain Village Day 1 Snowballs (0)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (1)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (2)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (3)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (4)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (5)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (6)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (7)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (8)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (9)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (10)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (11)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (12)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
 
         # Snowballs Outside Goron Graveyard
         "Snowballs Outside Goron Graveyard (0)":
@@ -15127,37 +15134,37 @@ def get_location_rules(player, options):
 
         # Twin Islands Day 1 Snowballs
         "Twin Islands Day 1 Snowballs (0)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (1)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (2)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (3)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (4)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (5)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (6)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (7)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (8)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (9)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (10)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (11)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (12)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (13)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (14)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Twin Islands Day 1 Snowballs (15)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
 
         # Twin Isles Snowballs Near Grotto
         "Twin Isles Snowballs Near Grotto (1)":
@@ -15192,47 +15199,47 @@ def get_location_rules(player, options):
             ),
         # Goron Village Snowballs
         "Goron Village Snowballs (0)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (1)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (2)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (3)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (4)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (5)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (6)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (7)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (8)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (9)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (10)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (11)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (12)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (13)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (14)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (15)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (16)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (17)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (18)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (19)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
         "Goron Village Snowballs (20)":
-            lambda state: True,
+            lambda state: can_break_balls(state, player),
 
         # Path to Snowhead Snowballs
         "Path to Snowhead Snowballs (0)":
