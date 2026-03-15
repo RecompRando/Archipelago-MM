@@ -9444,272 +9444,152 @@ def get_location_rules(player, options):
         "Goron Racetrack Pots (1)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (2)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (3)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (4)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (5)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (6)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (7)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (8)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (9)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (10)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (11)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (12)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (13)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (14)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (15)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (16)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (17)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (18)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (19)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (20)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (21)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (22)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (23)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (24)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (25)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (26)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (27)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (28)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (29)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (30)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         
         # Goron Shrine Pots 
