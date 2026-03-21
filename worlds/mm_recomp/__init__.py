@@ -39,13 +39,13 @@ class MMRWorld(World):
     location_name_to_id = location_table
     item_name_to_id = item_table
     
-    prices = List[int]
+    shop_prices = List[int]
     
     entrance_rando_dungeon_results = []
     entrance_rando_boss_results = []
 
     def generate_early(self):
-        self.prices = []
+        self.shop_prices = []
         
         # Create shop prices.
         if self.options.shopsanity.value != 0:
@@ -64,12 +64,12 @@ class MMRWorld(World):
                     price = default_shop_prices[i]
                 else:
                     price = self.random.randint(0, price_max)
-                self.prices.append(price)
+                self.shop_prices.append(price)
         else:
             # populate stored prices with default prices if shopsanity is disabled
             for i in range(0, 36):
                 price = default_shop_prices[i]
-                self.prices.append(price)
+                self.shop_prices.append(price)
     
     def create_item(self, name: str) -> MMRItem:
         return MMRItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
@@ -455,7 +455,7 @@ class MMRWorld(World):
         player = self.player
         mw = self.multiworld
         options = self.options
-        prices = self.prices
+        prices = self.shop_prices
 
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
@@ -559,7 +559,7 @@ class MMRWorld(World):
         if self.options.shopsanity.value:
             spoiler_handle.write("\nShop Prices:\n")
             for location, shop_id in shop_location_to_id.items():
-                spoiler_handle.write(f"\n{location}: {self.prices[shop_id]} Rupees")
+                spoiler_handle.write(f"\n{location}: {self.shop_prices[shop_id]} Rupees")
 
     def fill_slot_data(self):
         shp = self.options.starting_hearts.value
@@ -591,7 +591,7 @@ class MMRWorld(World):
             "fairysanity": self.options.fairysanity.value,
             "shopsanity": self.options.shopsanity.value,                                                                
             "scrubsanity": self.options.scrubsanity.value,
-            "shop_prices": self.prices,
+            "shop_prices": self.shop_prices,
             "cowsanity": self.options.cowsanity.value,
             "keysanity": self.options.keysanity.value,
             "bosskeysanity": self.options.bosskeysanity.value,
