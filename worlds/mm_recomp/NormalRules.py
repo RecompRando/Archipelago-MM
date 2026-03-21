@@ -1,5 +1,3 @@
-from .Locations import prices_ints
-
 from .Constants import *
 
 def can_play_song(song, state, player):
@@ -117,7 +115,7 @@ def can_get_red_potion(state, player, options):
                 has_soul_npc(state, player, options, "Koume") or
                 (
                     has_soul_npc(state, player, options, "Kotake") and
-                    can_purchase(state, player, SHOP_ID_WITCH_POTION_3)
+                    can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_3)
                 ) or
                 (
                     state.can_reach("Clock Town Trading Post Shop Item 1", "Location", player) or
@@ -221,8 +219,8 @@ def can_afford_price(state, player, price):
         return state.has("Progressive Wallet", player)
     return True
 
-def can_purchase(state, player, price_index):
-    price = prices_ints[price_index]
+def can_purchase(state, player, prices, price_index):
+    price = prices[price_index]
     if price > 200:
         return state.has("Progressive Wallet", player, 2)
     elif price > 99:
@@ -860,7 +858,7 @@ def get_region_rules(player, options):
             ),
     }
 
-def get_location_rules(player, options):
+def get_location_rules(player, options, prices):
     return {
         "Link's Inventory (Kokiri Sword)":
             lambda state: True,
@@ -1124,97 +1122,97 @@ def get_location_rules(player, options):
         "Clock Town Trading Post Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_1)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_1)
             ),
         "Clock Town Trading Post Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_2)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_2)
             ),
         "Clock Town Trading Post Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_3)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_3)
             ),
         "Clock Town Trading Post Shop Item 4":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_4)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_4)
             ),
         "Clock Town Trading Post Shop Item 5":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_5)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_5)
             ),
         "Clock Town Trading Post Shop Item 6":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_6)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_6)
             ),
         "Clock Town Trading Post Shop Item 7":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_7)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_7)
             ),
         "Clock Town Trading Post Shop Item 8":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_8)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_8)
             ),
         "Clock Town Trading Post Shop (Night) Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_1)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_1)
             ),
         "Clock Town Trading Post Shop (Night) Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_2)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_2)
             ),
         "Clock Town Trading Post Shop (Night) Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_3)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_3)
             ),
         "Clock Town Trading Post Shop (Night) Item 4":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_4)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_4)
             ),
         "Clock Town Trading Post Shop (Night) Item 5":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_5)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_5)
             ),
         "Clock Town Trading Post Shop (Night) Item 6":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_6)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_6)
             ),
         "Clock Town Trading Post Shop (Night) Item 7":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_7)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_7)
             ),
         "Clock Town Trading Post Shop (Night) Item 8":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_TRADING_POST_NIGHT_8)
+                can_purchase(state, player, prices, SHOP_ID_TRADING_POST_NIGHT_8)
             ),
         "Clock Town Bomb Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_BOMB_SHOP_1)
+                can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_1)
             ),
         "Clock Town Bomb Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_BOMB_SHOP_2)
+                can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_2)
             ),
         "Clock Town Bomb Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
-                can_purchase(state, player, SHOP_ID_BOMB_SHOP_3)
+                can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_3)
             ),
         "Clock Town Bomb Shop Powder Keg Goron":
             lambda state: (
@@ -1225,7 +1223,7 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 state.can_reach("North Clock Town Save Old Lady", "Location", player) and 
-                can_purchase(state, player, SHOP_ID_BOMB_SHOP_3_UPGRADE)
+                can_purchase(state, player, prices, SHOP_ID_BOMB_SHOP_3_UPGRADE)
             ),
         "Curiosity Shop Blue Rupee Trade":
             lambda state: (
@@ -1269,13 +1267,13 @@ def get_location_rules(player, options):
         "Curiosity Shop Night 3 (Stop Thief)":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and
+                can_purchase(state, player, prices, SHOP_ID_CURIOSITY_SHOP_MASK) and
                 state.can_reach("North Clock Town Save Old Lady", "Location", player)
             ),
         "Curiosity Shop Night 3 Thief Stolen Item":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG)
+                can_purchase(state, player, prices, SHOP_ID_CURIOSITY_SHOP_BOMB_BAG)
             ),
         "Stock Pot Inn Reservation":
             lambda state: has_soul_npc(state, player, options, "Anju"),        
@@ -1561,17 +1559,17 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Kotake") and
                 state.has("Mask of Scents", player) and 
                 has_bottle(state, player) and 
-                can_purchase(state, player, SHOP_ID_WITCH_POTION_1)
+                can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_1)
             ),
         "Southern Swamp Witch Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Kotake") and
-                can_purchase(state, player, SHOP_ID_WITCH_POTION_2)
+                can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_2)
             ),
         "Southern Swamp Witch Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Kotake") and
-                can_purchase(state, player, SHOP_ID_WITCH_POTION_3)
+                can_purchase(state, player, prices, SHOP_ID_WITCH_POTION_3)
             ),
         "Swamp Spider House First Room Pot Near Entrance Token":
             lambda state: (
@@ -2163,28 +2161,28 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1)
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1)
             ),
         "Goron Village Shop (Spring) Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 2":
@@ -2192,7 +2190,7 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Shop (Spring) Item 3":
@@ -2200,7 +2198,7 @@ def get_location_rules(player, options):
                 has_soul_npc(state, player, options, "Shop Owners") and
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
-                can_purchase(state, player, SHOP_ID_GORON_SHOP_1) and
+                can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
                 can_clear_snowhead(state, player)
             ),
         "Goron Village Freestanding HP (Spring)":
@@ -2888,19 +2886,19 @@ def get_location_rules(player, options):
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 state.has("Zora Mask", player) and 
-                can_purchase(state, player, SHOP_ID_ZORA_SHOP_1)
+                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_1)
             ),
         "Zora Hall Shop Item 2":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 state.has("Zora Mask", player) and 
-                can_purchase(state, player, SHOP_ID_ZORA_SHOP_2)
+                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_2)
             ),
         "Zora Hall Shop Item 3":
             lambda state: (
                 has_soul_npc(state, player, options, "Shop Owners") and
                 state.has("Zora Mask", player) and 
-                can_purchase(state, player, SHOP_ID_ZORA_SHOP_3)
+                can_purchase(state, player, prices, SHOP_ID_ZORA_SHOP_3)
             ),
 
         "Great Bay Great Fairy Reward":
@@ -18217,7 +18215,7 @@ def get_location_rules(player, options):
         "Notebook Event Received All Night Mask":
             lambda state: (
                 has_soul_npc(state, player, options, "Curiosity Shop Man") and
-                can_purchase(state, player, SHOP_ID_CURIOSITY_SHOP_MASK) and 
+                can_purchase(state, player, prices, SHOP_ID_CURIOSITY_SHOP_MASK) and 
                 state.can_reach("North Clock Town Save Old Lady", "Location", player)
             ),
         "Notebook Event Received Blast Mask":
