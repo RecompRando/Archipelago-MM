@@ -108,7 +108,7 @@ def has_bottle(state, player, need_count=1):
         bottle_count += 1
     return bottle_count >= need_count
 
-def can_get_red_potion(state, player, options):
+def can_get_red_potion(state, player, prices, options):
     return (
             has_bottle(state, player) and
             (
@@ -124,7 +124,7 @@ def can_get_red_potion(state, player, options):
             )
     )
 
-def can_get_blue_potion(state, player, options):
+def can_get_blue_potion(state, player, prices, options):
     return (
             has_bottle(state, player) and
             (
@@ -3059,8 +3059,8 @@ def get_location_rules(player, options, prices):
                     )                
                 ) and
                 (
-                    can_get_red_potion(state, player, options) or
-                    can_get_blue_potion(state, player, options)
+                    can_get_red_potion(state, player, prices, options) or
+                    can_get_blue_potion(state, player, prices, options)
                 )
             ),
             
