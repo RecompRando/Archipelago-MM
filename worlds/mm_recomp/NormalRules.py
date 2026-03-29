@@ -693,16 +693,16 @@ def get_region_rules(player, options):
                 ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
-        "Great Bay -> Pirates' Fortress":
+        "Great Bay -> Pirates' ' Fortress":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress -> Pirates' Fortress (Interior)":
+        "Pirates' ' Fortress -> Pirates' ' Fortress (Interior)":
             lambda state: state.has("Hookshot", player),
-        "Pirates' Fortress -> Pirates' Fortress Sewers":
+        "Pirates' ' Fortress -> Pirates' ' Fortress Sewers":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and 
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
+        "Pirates' ' Fortress Sewers -> Pirates' ' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
         "Great Bay -> Zora Cape":
             lambda state: True,
@@ -2550,7 +2550,7 @@ def get_location_rules(player, options, prices):
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player, options) or
-                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                    state.can_reach("Pirates' ' Fortress Leader's Room Chest", "Location", player) and
                     state.has("Hookshot", player)
                 )
             ),
@@ -2758,27 +2758,27 @@ def get_location_rules(player, options, prices):
                 state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value) and
                 has_soul_npc(state, player, options, "Spider Man")
             ),
-        "Pirates' Fortress Exterior Underwater Log Chest":
+        "Pirates' ' Fortress Exterior Underwater Log Chest":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress Exterior Underwater Near Entrance Chest":
+        "Pirates' ' Fortress Exterior Underwater Near Entrance Chest":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress Exterior Underwater Corner Chest":
+        "Pirates' ' Fortress Exterior Underwater Corner Chest":
             lambda state: state.has("Zora Mask", player),
         
-        "Pirates' Fortress Sewers Maze Chest":
+        "Pirates' ' Fortress Sewers Maze Chest":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Cage HP":
+        "Pirates' ' Fortress Sewers Cage HP":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Underwater Upper Chest":
+        "Pirates' ' Fortress Sewers Underwater Upper Chest":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Underwater Lower Chest":
+        "Pirates' ' Fortress Sewers Underwater Lower Chest":
             lambda state: state.has("Goron Mask", player),
         
-        "Pirates' Fortress Hub Lower Chest":
+        "Pirates' ' Fortress Hub Lower Chest":
             lambda state: True,
-        "Pirates' Fortress Hub Upper Chest":
+        "Pirates' ' Fortress Hub Upper Chest":
             lambda state: state.has("Hookshot", player),
-        "Pirates' Fortress Leader's Room Chest":
+        "Pirates' ' Fortress Leader's Room Chest":
             lambda state: (
                 (
                     state.has("Hookshot", player) or 
@@ -2792,13 +2792,13 @@ def get_location_rules(player, options, prices):
                     )
                 )
             ),
-        "Pirates' Fortress Interior Tank Chest":
+        "Pirates' ' Fortress Interior Tank Chest":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates' Fortress Interior Guarded Chest":
+        "Pirates' ' Fortress Interior Guarded Chest":
             lambda state: state.has("Hookshot", player),
             
         "Zora Cape Grotto Chest":
@@ -10338,9 +10338,9 @@ def get_location_rules(player, options, prices):
                 state.has("Hookshot", player)
             ),  
 
-        "Great Bay Coast Beside Pirates Fortress Pots (1)":
+        "Great Bay Coast Beside Pirates'  Fortress Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),                   
-        "Great Bay Coast Beside Pirates Fortress Pots (2)":
+        "Great Bay Coast Beside Pirates'  Fortress Pots (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),           
         # Ocean Spider House Pots - All require region access, explosives, and hookshot
 
@@ -10553,24 +10553,24 @@ def get_location_rules(player, options, prices):
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
-        # Pirates' Fortress Pots
+        # Pirates' ' Fortress Pots
         
-        # Pirates Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
-        "Pirates Fortress Sewers Cage Room Pots (1)":
+        # Pirates'  Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
+        "Pirates'  Fortress Sewers Cage Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress Sewers Cage Room Pots (2)":
+        "Pirates'  Fortress Sewers Cage Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
         
-        # Pirates Fortress Sewers After Gate Hidden Ladder Pots
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)":
+        # Pirates'  Fortress Sewers After Gate Hidden Ladder Pots
+        "Pirates'  Fortress Sewers After Gate Hidden Ladder Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 (
@@ -10579,36 +10579,7 @@ def get_location_rules(player, options, prices):
                     state.has("Hookshot", player)
                 )
             ),
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        
-        # Pirates Fortress Sewers Exit Pots
-        "Pirates Fortress Sewers Exit Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        "Pirates Fortress Sewers Exit Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        "Pirates Fortress Sewers Exit Pots (3)":
+        "Pirates'  Fortress Sewers After Gate Hidden Ladder Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 (
@@ -10618,74 +10589,103 @@ def get_location_rules(player, options, prices):
                 )
             ),
         
-        # Pirates Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
-        "Pirates Fortress Interior Underwater Chest Room Pots (1)":
+        # Pirates'  Fortress Sewers Exit Pots
+        "Pirates'  Fortress Sewers Exit Pots (1)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Pirates'  Fortress Sewers Exit Pots (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Pirates'  Fortress Sewers Exit Pots (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        
+        # Pirates'  Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Underwater Chest Room Pots (2)":
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Underwater Chest Room Pots (3)":
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         
-        # Pirates Fortress Interior Room Past Green Guard Pots
-        "Pirates Fortress Interior Room Past Green Guard Pots (1)":
+        # Pirates'  Fortress Interior Room Past Green Guard Pots
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (1)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Green Guard Pots (2)":
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (2)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Green Guard Pots (3)":
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (3)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
-                has_soul_absurd(state, player, options, "Pots") and
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
-        
-        # Pirates Fortress Interior Upper Beehive Room Pots
-        "Pirates Fortress Interior Upper Beehive Room Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
-        "Pirates Fortress Interior Upper Beehive Room Pots (2)":
-            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         
-        # Pirates Fortress Interior Room Past Pink Guard Pots
-        "Pirates Fortress Interior Room Past Pink Guard Pots (1)":
+        # Pirates'  Fortress Interior Upper Beehive Room Pots
+        "Pirates'  Fortress Interior Upper Beehive Room Pots (1)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Pink Guard Pots (2)":
+        "Pirates'  Fortress Interior Upper Beehive Room Pots (2)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        
+        # Pirates'  Fortress Interior Room Past Pink Guard Pots
+        "Pirates'  Fortress Interior Room Past Pink Guard Pots (1)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        "Pirates'  Fortress Interior Room Past Pink Guard Pots (2)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
@@ -13311,51 +13311,51 @@ def get_location_rules(player, options, prices):
                 state.has("Hookshot", player)
             ),
         
-        # Pirates Fortress Interior Hitspots
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)":
+        # Pirates'  Fortress Interior Hitspots
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (0)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (1)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (2)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
@@ -14380,54 +14380,54 @@ def get_location_rules(player, options, prices):
         "Great Bay Temple Before Gekko Room Underwater Rupees (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
-        "Pirates' Fortress Sewers Rupees Under Barrel (0)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (0)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers Rupees Under Barrel (1)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (1)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers Rupees Under Barrel (3)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (3)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers Rupees Under Barrel (4)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (4)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (0)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (0)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (1)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (1)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (2)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (2)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (0)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (1)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (2)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
 
@@ -16231,189 +16231,189 @@ def get_location_rules(player, options, prices):
                 state.has("Hookshot", player)
             ),
 
-        # Pirates' Fortress Related
+        # Pirates' ' Fortress Related
 
-        "Pirates Fortress Entrance Bonk Board (0)":
+        "Pirates'  Fortress Entrance Bonk Board (0)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (1)":
+        "Pirates'  Fortress Entrance Bonk Board (1)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (2)":
+        "Pirates'  Fortress Entrance Bonk Board (2)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (3)":
+        "Pirates'  Fortress Entrance Bonk Board (3)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Sewers Bonk Board (0)":
+        "Pirates'  Fortress Sewers Bonk Board (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates Fortress Sewers Bonk Board (1)":
+        "Pirates'  Fortress Sewers Bonk Board (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates Fortress Sewers Bonk Board (2)":
+        "Pirates'  Fortress Sewers Bonk Board (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
 
         # Pirate Fortress Sewers Barrels/Crates
 
-        "Pirates' Fortress Sewers Barrel (1)":
+        "Pirates' ' Fortress Sewers Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (2)":
+        "Pirates' ' Fortress Sewers Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (3)":
+        "Pirates' ' Fortress Sewers Barrel (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (4)":
+        "Pirates' ' Fortress Sewers Barrel (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (5)":
+        "Pirates' ' Fortress Sewers Barrel (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (6)":
+        "Pirates' ' Fortress Sewers Barrel (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (7)":
+        "Pirates' ' Fortress Sewers Barrel (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (8)":
+        "Pirates' ' Fortress Sewers Barrel (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (9)":
+        "Pirates' ' Fortress Sewers Barrel (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (10)":
+        "Pirates' ' Fortress Sewers Barrel (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (11)":
+        "Pirates' ' Fortress Sewers Barrel (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (12)":
+        "Pirates' ' Fortress Sewers Barrel (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (13)":
+        "Pirates' ' Fortress Sewers Barrel (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (14)":
+        "Pirates' ' Fortress Sewers Barrel (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (15)":
+        "Pirates' ' Fortress Sewers Barrel (15)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (16)":
+        "Pirates' ' Fortress Sewers Barrel (16)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (1)":
+        "Pirates' ' Fortress Sewers Exit Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (2)":
+        "Pirates' ' Fortress Sewers Exit Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (3)":
+        "Pirates' ' Fortress Sewers Exit Barrel (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (4)":
+        "Pirates' ' Fortress Sewers Exit Barrel (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (5)":
+        "Pirates' ' Fortress Sewers Exit Barrel (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
 
-        # Pirates' Fortress Interior Crates
+        # Pirates' ' Fortress Interior Crates
 
-        "Pirates Fortress' Interior Crates (0)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Interior Crates (1)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Interior Crates (2)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Exterior Balcony Barrel (1)":
+        "Pirates'  Fortress' Interior Crates (0)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Interior Crates (1)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Interior Crates (2)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Exterior Balcony Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
-        "Pirates' Fortress Leader's Room Barrel (1)":
+        "Pirates' ' Fortress Leader's Room Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
-        "Pirates' Fortress Leader's Room Barrel (2)":
+        "Pirates' ' Fortress Leader's Room Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
-        "Pirates' Fortress Guarded Bridge Barrel (0)":
+        "Pirates' ' Fortress Guarded Bridge Barrel (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
-        "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
+        "Pirates'  Fortress Interior Room Past Pink Guard Barrel (0)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
 
@@ -17175,7 +17175,7 @@ def get_location_rules(player, options, prices):
                 has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Hookshot", player)
             ),
-        # "Pirates Fortress Interior Leaders Hive From Lower Barrels":
+        # "Pirates'  Fortress Interior Leaders Hive From Lower Barrels":
         #     lambda state: (
         #         state.has("Hookshot", player) and 
         #         state.has("Stone Mask", player)
