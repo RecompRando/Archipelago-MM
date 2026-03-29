@@ -10344,118 +10344,118 @@ def get_location_rules(player, options, prices):
             lambda state: has_soul_absurd(state, player, options, "Pots"),           
         # Ocean Spider House Pots - All require region access, explosives, and hookshot
 
-        # Ocean Spiderhouse Bottom of Ramp Pots
-        "Ocean Spiderhouse Bottom of Ramp Pots (1)":
+        # Ocean Spider House Bottom of Ramp Pots
+        "Ocean Spider House Bottom of Ramp Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (2)":
+        "Ocean Spider House Bottom of Ramp Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (3)":
+        "Ocean Spider House Bottom of Ramp Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (4)":
+        "Ocean Spider House Bottom of Ramp Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
         
-        # Ocean Spiderhouse Main Room Lower Pots
-        "Ocean Spiderhouse Main Room Lower Pots (1)":
+        # Ocean Spider House Main Room Lower Pots
+        "Ocean Spider House Main Room Lower Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (2)":
+        "Ocean Spider House Main Room Lower Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (3)":
+        "Ocean Spider House Main Room Lower Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (4)":
+        "Ocean Spider House Main Room Lower Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        
-        # Ocean Spiderhouse Crate Room Pots
-        "Ocean Spiderhouse Crate Room Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (3)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (4)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (6)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (7)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (8)":
+        "Ocean Spider House Main Room Lower Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         
-        # Ocean Spiderhouse Coloured Skulls Room Pots
-        "Ocean Spiderhouse Coloured Skulls Room Pots (1)":
+        # Ocean Spider House Crate Room Pots
+        "Ocean Spider House Crate Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Coloured Skulls Room Pots (2)":
+        "Ocean Spider House Crate Room Pots (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (4)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (5)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (6)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (7)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (8)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        
+        # Ocean Spider House Coloured Skulls Room Pots
+        "Ocean Spider House Coloured Skulls Room Pots (1)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Coloured Skulls Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
@@ -13194,117 +13194,117 @@ def get_location_rules(player, options, prices):
             ),
         
         # Swamp Spider House Hitspots
-        "Swamp Spiderhouse Totem Eye Hitspots (0)":
+        "Swamp Spider House Totem Eye Hitspots (0)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (1)":
+        "Swamp Spider House Totem Eye Hitspots (1)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (2)":
+        "Swamp Spider House Totem Eye Hitspots (2)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (3)":
+        "Swamp Spider House Totem Eye Hitspots (3)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (4)":
+        "Swamp Spider House Totem Eye Hitspots (4)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (5)":
+        "Swamp Spider House Totem Eye Hitspots (5)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (6)":
+        "Swamp Spider House Totem Eye Hitspots (6)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (7)":
+        "Swamp Spider House Totem Eye Hitspots (7)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (8)":
+        "Swamp Spider House Totem Eye Hitspots (8)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (9)":
+        "Swamp Spider House Totem Eye Hitspots (9)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (10)":
+        "Swamp Spider House Totem Eye Hitspots (10)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (11)":
+        "Swamp Spider House Totem Eye Hitspots (11)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
         # Ocean Spider House Hitspots
-        "Ocean Spiderhouse Mask Hitspots (0)":
+        "Ocean Spider House Mask Hitspots (0)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (1)":
+        "Ocean Spider House Mask Hitspots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (2)":
+        "Ocean Spider House Mask Hitspots (2)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (3)":
+        "Ocean Spider House Mask Hitspots (3)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (4)":
+        "Ocean Spider House Mask Hitspots (4)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (5)":
+        "Ocean Spider House Mask Hitspots (5)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (6)":
+        "Ocean Spider House Mask Hitspots (6)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (7)":
+        "Ocean Spider House Mask Hitspots (7)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (8)":
+        "Ocean Spider House Mask Hitspots (8)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
@@ -14771,16 +14771,16 @@ def get_location_rules(player, options, prices):
         "Romani Ranch Invisible Fence Rupees (5)":
             lambda state: state.can_reach("Romani Ranch", 'Region', player),
 
-        # Swamp Spiderhouse Invisible Rupees Above Giant Jars
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)":
+        # Swamp Spider House Invisible Rupees Above Giant Jars
+        "Swamp Spider House Invisible Rupees Above Giant Jars (0)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (2)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (3)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (4)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),    
         
         # SOILS
@@ -16224,7 +16224,7 @@ def get_location_rules(player, options, prices):
 
         # Ocean Spider House
 
-        "Ocean Spiderhouse Basement Crate (1)":
+        "Ocean Spider House Basement Crate (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
@@ -19327,30 +19327,30 @@ def get_location_rules(player, options, prices):
                 state.has("Deku Mask", player)
             ),
         # Swamp Spider Flowers
-        "Swamp Spiderhouse Main Room Flowers (1)":
+        "Swamp Spider House Main Room Flowers (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         
-        "Swamp Spiderhouse Main Room Flowers (2)":
+        "Swamp Spider House Main Room Flowers (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Swamp Spiderhouse Main Room Flower (3)":
+        "Swamp Spider House Main Room Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         
-        "Swamp Spiderhouse Giant Pot Room Flower (1)":
+        "Swamp Spider House Giant Pot Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
             # Requires Sonata
-        "Swamp Spiderhouse Giant Pot Room Flower (2)":
+        "Swamp Spider House Giant Pot Room Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
