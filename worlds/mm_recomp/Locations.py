@@ -8419,99 +8419,99 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.potsanity.value
     ),
     
-    # Ocean Spiderhouse Pots
+    # Ocean Spider House Pots
     
-    "Ocean Spiderhouse Bottom of Ramp Pots (1)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202803,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (2)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202800,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (3)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202801,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (4)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202802,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (1)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202813,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (2)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202814,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (3)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202810,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (4)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202811,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (5)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202812,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (1)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202857,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (2)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202851,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (3)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202856,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (4)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202855,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (5)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202850,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (6)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (6)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202854,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (7)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (7)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202852,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Crate Room Pots (8)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (8)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202853,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Coloured Skulls Room Pots (1)": MMRLocationData(
+    "Ocean Spider House Coloured Skulls Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202831,
         can_create=lambda options: options.potsanity.value
     ),
-    "Ocean Spiderhouse Coloured Skulls Room Pots (2)": MMRLocationData(
+    "Ocean Spider House Coloured Skulls Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202830,
         can_create=lambda options: options.potsanity.value
@@ -10298,110 +10298,110 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Swamp Spiderhouse Totem Eye Hitspots
-    "Swamp Spiderhouse Totem Eye Hitspots (0)": MMRLocationData(
+    # Swamp Spider House Totem Eye Hitspots
+    "Swamp Spider House Totem Eye Hitspots (0)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152810,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (1)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152811,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (2)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152812,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (3)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152820,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (4)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152821,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (5)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (5)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152822,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (6)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (6)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152830,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (7)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (7)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152831,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (8)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (8)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152832,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (9)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (9)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152800,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (10)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (10)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152801,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (11)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (11)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152802,
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Ocean Spiderhouse Mask Hitspots
-    "Ocean Spiderhouse Mask Hitspots (0)": MMRLocationData(
+    # Ocean Spider House Mask Hitspots
+    "Ocean Spider House Mask Hitspots (0)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152900,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (1)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152901,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (2)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152902,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (3)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152910,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (4)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152911,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (5)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152912,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (6)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (6)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152920,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (7)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (7)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152921,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (8)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (8)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152922,
         can_create=lambda options: options.hitsanity.value
@@ -10620,28 +10620,28 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.invisisanity.value
     ),
 
-    # Swamp Spiderhouse Invisible Rupees Above Giant Jars
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)": MMRLocationData(
+    # Swamp Spider House Invisible Rupees Above Giant Jars
+    "Swamp Spider House Invisible Rupees Above Giant Jars (0)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162744,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162743,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162742,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162741,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162740,
         can_create=lambda options: options.invisisanity.value
@@ -13651,7 +13651,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x274810,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Ocean Spiderhouse Basement Crate (1)": MMRLocationData(
+    "Ocean Spider House Basement Crate (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x272850,
         can_create=lambda options: options.woodsanity.value
@@ -16277,28 +16277,28 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.flowersanity.value
     ),
     # Swamp Spider Flowers
-    "Swamp Spiderhouse Main Room Flowers (1)": MMRLocationData(
+    "Swamp Spider House Main Room Flowers (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2710,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Main Room Flowers (2)": MMRLocationData(
+    "Swamp Spider House Main Room Flowers (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2711,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Main Room Flower (3)": MMRLocationData(
+    "Swamp Spider House Main Room Flower (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2712,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Giant Pot Room Flower (1)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Flower (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2740,
         can_create=lambda options: options.flowersanity.value
     ),
     # Requires Sonata 
-    "Swamp Spiderhouse Giant Pot Room Flower (2)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Flower (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2741,
         can_create=lambda options: options.flowersanity.value
