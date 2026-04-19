@@ -6797,9 +6797,13 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x121D0A,
         can_create=lambda options: options.grasssanity.value
     ),
+    "Ikana Castle Grass (12)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x121D00,
+        can_create=lambda options: options.grasssanity.value
+    ),
     # Dungeon Grass
     # Woodfall Temple
-
     "Woodfall Temple Entrance Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B20,
