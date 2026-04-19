@@ -1859,10 +1859,12 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_enemy(state, player, options, "Dinolfos") and
                 (
-                    state.has("Small Key (Woodfall)", player) and 
-                    can_smack(state, player)
-                ) or 
-                state.has("Progressive Bow", player)
+                    (
+                        state.has("Small Key (Woodfall)", player) and
+                        can_smack(state, player)
+                    ) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Gekko Chest":
             lambda state: (
@@ -1903,12 +1905,14 @@ def get_location_rules(player, options, prices):
             ),
         "Woodfall Temple Skulltula SF":
             lambda state: (
-                has_soul_enemy(state, player, options, "Hanging Skulltulas") and 
+                has_soul_enemy(state, player, options, "Hanging Skulltulas") and
                 (
-                    state.has("Small Key (Woodfall)", player) and 
-                    can_smack(state, player)
-                ) or 
-                state.has("Progressive Bow", player)
+                    (
+                        state.has("Small Key (Woodfall)", player) and
+                        can_smack(state, player)
+                    ) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Bridge Room Bubble SF":
             lambda state: (
