@@ -405,7 +405,7 @@ def has_all_frogs(state, player, options, goal_type="majora"):
 
 def can_use_owl(state, player, options, owl_region):
     if not options.owlsanity.value:
-        return True  
+        return False  
     return (
         state.has(owl_region + " Owl Statue", player) and 
         can_play_song("Song of Soaring", state, player)
