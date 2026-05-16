@@ -196,19 +196,80 @@ class RequiredStrayFairies(Range):
     range_end = 15
     default = 15
 
+class DungeonItems(Choice):
+    """Base class for shuffle options for dungeon items (keys, maps, compasses)."""
+    value: int
+    option_vanilla = 1
+    #option_dungeon = 2
+    #option_any_dungeon = 3
+    option_local = 4
+    option_keysanity = 5
+    default = 4
 
-class Fairysanity(Toggle):
-    """Choose whether Stray Fairies are shuffled into the pool."""
-    display_name = "Fairysanity"
+    @property
+    def in_dungeon(self) -> bool:
+        """
+        Return whether the item should be shuffled into a dungeon.
+
+        :return: Whether the item is shuffled into a dungeon.
+        """
+        return self.value in (2, 3)
 
 
-class Keysanity(Toggle):
-    """Choose whether Small Keys are shuffled into the pool or placed in their vanilla locations."""
-    display_name = "Keysanity"
+class ShuffleStrayFairies(DungeonItems):
+    """
+    Choose how stray fairies will be shuffled in the pool.
 
-class BossKeysanity(Toggle):
-    """Choose whether Boss Keys are shuffled into the pool or placed in their vanilla locations."""
-    display_name = "BossKeysanity"    
+    Vanilla: Stray fairies will be places where they can be found in vanilla.
+    Local: Stray fairies will be placed anywhere in your own world.
+    Fairysanity: Stray fairies will be placed in any world.
+    """
+    item_name_group = "Stray Fairies"
+    display_name = "Shuffle Stray Fairies"
+    option_fairysanity = 5
+    default = 4
+
+class ShuffleMapsAndCompasses(DungeonItems):
+    """
+    Choose how dungeon maps and compasses will be shuffled in the pool.
+
+    Start With: Start the seed with dungeon maps and compasses.
+    Vanilla: Dungeon maps and compasses will be placed where they can be found in vanilla.
+    Local: Dungeon maps and compasses will be placed anywhere in your own world.
+    Keysanity: Dungeon maps and compasses will be placed in any world.
+    """
+    item_name_group = "Maps and Compasses"
+    display_name = "Shuffle Maps and Compasses"
+    option_start_with = 0
+    default = 4
+
+class ShuffleSmallKeys(DungeonItems):
+    """
+    Choose how small keys will be shuffled in the pool.
+
+    Start With: Start the seed with small keys.
+    Vanilla: Small keys will be placed where they can be found in vanilla.
+    Local: Small keys will be placed anywhere in your own world.
+    Keysanity: Small keys will be placed in any world.
+    """
+    item_name_group = "Small Keys"
+    display_name = "Shuffle Small Keys"
+    option_start_with = 0
+    default = 4
+
+class ShuffleBossKeys(DungeonItems):
+    """
+    Choose how boss keys will be shuffled in the pool.
+
+    Start With: Start the seed with boss keys.
+    Vanilla: Boss keys will be placed where they can be found in vanilla.
+    Local: Boss keys will be placed anywhere in your own world.
+    Keysanity: Boss keys will be placed in any world.
+    """
+    item_name_group = "Boss Keys"
+    display_name = "Shuffle Boss Keys"
+    option_start_with = 0
+    default = 4
 
 
 class CuriostityShopTrades(Toggle):
@@ -333,9 +394,10 @@ class MMROptions(PerGameCommonOptions):
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     required_stray_fairies: RequiredStrayFairies
-    fairysanity: Fairysanity
-    keysanity: Keysanity
-    bosskeysanity: BossKeysanity
+    shuffle_stray_fairies: ShuffleStrayFairies
+    shuffle_maps_and_compasses: ShuffleMapsAndCompasses
+    shuffle_small_keys: ShuffleSmallKeys
+    shuffle_boss_keys: ShuffleBossKeys
     curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
     shuffle_minigames: ShuffleMinigames

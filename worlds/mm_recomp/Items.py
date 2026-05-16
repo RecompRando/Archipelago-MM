@@ -8,6 +8,7 @@ class MMRItem(Item):
 
 
 class MMRItemData(NamedTuple):
+    category: str = "Item"
     code: Optional[int] = None
     type: ItemClassification = ItemClassification.filler
     num_exist: int = 1
@@ -16,9 +17,10 @@ class MMRItemData(NamedTuple):
 
 item_data_table: Dict[str, MMRItemData] = {
     "Stray Fairy (Clock Town)": MMRItemData(
+        category="Stray Fairy",
         code=0x346942001007F,
         type=ItemClassification.progression,
-        can_create=lambda options: options.fairysanity.value
+        can_create=lambda options: options.shuffle_stray_fairies.value == 4 or 5
     ),
     "Progressive Magic": MMRItemData(
         code=0x3469420020000,
@@ -356,101 +358,109 @@ item_data_table: Dict[str, MMRItemData] = {
         code=0x3469420010000,
         type=ItemClassification.progression,
         num_exist=15,
-        can_create=lambda options: options.fairysanity.value
+        can_create=lambda options: options.shuffle_stray_fairies.value == 4 or options.shuffle_stray_fairies.value == 5
     ),
     "Stray Fairy (Snowhead)": MMRItemData(
         code=0x3469420010001,
         type=ItemClassification.progression,
         num_exist=15,
-        can_create=lambda options: options.fairysanity.value
+        can_create=lambda options: options.shuffle_stray_fairies.value == 4 or options.shuffle_stray_fairies.value == 5
     ),
     "Stray Fairy (Great Bay)": MMRItemData(
         code=0x3469420010002,
         type=ItemClassification.progression,
         num_exist=15,
-        can_create=lambda options: options.fairysanity.value
+        can_create=lambda options: options.shuffle_stray_fairies.value == 4 or options.shuffle_stray_fairies.value == 5
     ),
     "Stray Fairy (Stone Tower)": MMRItemData(
         code=0x3469420010003,
         type=ItemClassification.progression,
         num_exist=15,
-        can_create=lambda options: options.fairysanity.value
+        can_create=lambda options: options.shuffle_stray_fairies.value == 4 or options.shuffle_stray_fairies.value == 5
     ),
     "Small Key (Woodfall)": MMRItemData(
         code=0x3469420090078,
         type=ItemClassification.progression,
         num_exist=1,
-        can_create=lambda options: options.keysanity.value
+        can_create=lambda options: options.shuffle_small_keys.value == 4 or options.shuffle_small_keys.value == 5
     ),
     "Small Key (Snowhead)": MMRItemData(
         code=0x3469420090178,
         type=ItemClassification.progression,
         num_exist=3,
-        can_create=lambda options: options.keysanity.value
+        can_create=lambda options: options.shuffle_small_keys.value == 4 or options.shuffle_small_keys.value == 5
     ),
     "Small Key (Great Bay)": MMRItemData(
         code=0x3469420090278,
         type=ItemClassification.progression,
         num_exist=1,
-        can_create=lambda options: options.keysanity.value
+        can_create=lambda options: options.shuffle_small_keys.value == 4 or options.shuffle_small_keys.value == 5
     ),
     "Small Key (Stone Tower)": MMRItemData(
         code=0x3469420090378,
         type=ItemClassification.progression,
         num_exist=4,
-        can_create=lambda options: options.keysanity.value
+        can_create=lambda options: options.shuffle_small_keys.value == 4 or options.shuffle_small_keys.value == 5
     ),
     "Dungeon Map (Woodfall)": MMRItemData(
         code=0x3469420090076,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Dungeon Map (Snowhead)": MMRItemData(
         code=0x3469420090176,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Dungeon Map (Great Bay)": MMRItemData(
         code=0x3469420090276,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Dungeon Map (Stone Tower)": MMRItemData(
         code=0x3469420090376,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Compass (Woodfall)": MMRItemData(
         code=0x3469420090075,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Compass (Snowhead)": MMRItemData(
         code=0x3469420090175,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Compass (Great Bay)": MMRItemData(
         code=0x3469420090275,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Compass (Stone Tower)": MMRItemData(
         code=0x3469420090375,
-        type=ItemClassification.useful
+        type=ItemClassification.useful,
+        can_create=lambda options: options.shuffle_maps_and_compasses.value == 4 or options.shuffle_maps_and_compasses.value == 5
     ),
     "Boss Key (Woodfall)": MMRItemData(
         code=0x3469420090074,
         type=ItemClassification.progression,
-        can_create=lambda options: options.bosskeysanity.value
+        can_create=lambda options: options.shuffle_boss_keys.value == 4 or options.shuffle_boss_keys.value == 5
     ),
     "Boss Key (Snowhead)": MMRItemData(
         code=0x3469420090174,
         type=ItemClassification.progression,
-        can_create=lambda options: options.bosskeysanity.value
+        can_create=lambda options: options.shuffle_boss_keys.value == 4 or options.shuffle_boss_keys.value == 5
     ),
     "Boss Key (Great Bay)": MMRItemData(
         code=0x3469420090274,
         type=ItemClassification.progression,
-        can_create=lambda options: options.bosskeysanity.value
+        can_create=lambda options: options.shuffle_boss_keys.value == 4 or options.shuffle_boss_keys.value == 5
     ),
     "Boss Key (Stone Tower)": MMRItemData(
         code=0x3469420090374,
         type=ItemClassification.progression,
-        can_create=lambda options: options.bosskeysanity.value
+        can_create=lambda options: options.shuffle_boss_keys.value == 4 or options.shuffle_boss_keys.value == 5
     ),
     "Odolwa's Remains": MMRItemData(
         code=0x3469420000055,
