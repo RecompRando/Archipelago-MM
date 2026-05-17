@@ -238,6 +238,9 @@ class MMRWorld(World):
         elif self.options.shuffle_treasure_chest_game.value == 2:
             self.create_and_add_filler_items(4)
 
+        if self.options.shuffle_lottery.value:
+            self.create_and_add_filler_items(1)
+
         if self.options.shuffle_maps_and_compasses.value == 0:
             self.create_and_add_filler_items(8)
 
@@ -727,6 +730,7 @@ class MMRWorld(World):
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "shuffle_minigames": self.options.shuffle_minigames.value,
             "shuffle_treasure_chest_game": self.options.shuffle_treasure_chest_game.value,
+            "shuffle_lottery": self.options.shuffle_lottery.value,
             "link_tunic_color": ((self.options.link_tunic_color.value[0] & 0xFF) << 16) | ((self.options.link_tunic_color.value[1] & 0xFF) << 8) | (self.options.link_tunic_color.value[2] & 0xFF),
             "random_seed": self.random.getrandbits(32),
             "logic_difficulty": self.options.logic_difficulty.value

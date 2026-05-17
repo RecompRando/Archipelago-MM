@@ -311,6 +311,10 @@ class ShuffleTreasureChestGame(Choice):
     option_everything = 2
     default = 1
 
+class ShuffleLottery(Toggle):
+    """Choose whether to shuffle lottery reward or not."""
+    display_name = "Shuffle Lottery"
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -402,6 +406,7 @@ class MMROptions(PerGameCommonOptions):
     intro_checks: IntroChecks
     shuffle_minigames: ShuffleMinigames
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
+    shuffle_lottery: ShuffleLottery
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime

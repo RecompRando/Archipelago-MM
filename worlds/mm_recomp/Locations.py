@@ -359,7 +359,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "West Clock Town Lottery Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x3469420080239
+        address=0x3469420080239,
+        can_create=lambda options: options.shuffle_lottery.value
     ),
     "West Clock Town Swordsman Expert Course": MMRLocationData(
         region="Clock Town",
