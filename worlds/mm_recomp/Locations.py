@@ -1226,11 +1226,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Beaver Bros. Race 1": MMRLocationData(
         region="Zora Cape",
-        address=0x346942009018D
+        address=0x346942009018D,
+        can_create=lambda options: options.shuffle_beaver_races.value
     ),
     "Beaver Bros. Race 2 HP": MMRLocationData(
         region="Zora Cape",
-        address=0x346942007018D
+        address=0x346942007018D,
+        can_create=lambda options: options.shuffle_beaver_races.value == 2
     ),
     "Great Bay Great Fairy Reward": MMRLocationData(
         region="Zora Cape",

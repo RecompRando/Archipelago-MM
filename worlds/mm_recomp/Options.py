@@ -311,6 +311,17 @@ class ShuffleTreasureChestGame(Choice):
     option_everything = 2
     default = 1
 
+class ShuffleBeaverRace(Range):
+    """
+    Choose how many beaver race rewards are shuffled.
+    
+    Valid amounts are within the range 0-2.
+    """
+    display_name = "Shuffle Beaver Race"
+    range_start = 0
+    range_end = 2
+    default = 0
+
 class ShuffleLottery(Toggle):
     """Choose whether to shuffle lottery reward or not."""
     display_name = "Shuffle Lottery"
@@ -406,6 +417,7 @@ class MMROptions(PerGameCommonOptions):
     intro_checks: IntroChecks
     shuffle_minigames: ShuffleMinigames
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
+    shuffle_beaver_races: ShuffleBeaverRace
     shuffle_lottery: ShuffleLottery
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
