@@ -571,15 +571,18 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Southern Swamp Winning Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x34694200701C5
+        address=0x34694200701C5,
+        can_create=lambda options: options.shuffle_picture_rewards
     ),
     "Southern Swamp Good Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420071C54
+        address=0x3469420071C54,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Southern Swamp Okay Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420071C52
+        address=0x3469420071C52,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Southern Swamp Witch Shop Item 1": MMRLocationData(
         region="Southern Swamp",
@@ -1277,11 +1280,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Hall Good Picture of Lulu": MMRLocationData(
         region="Zora Hall",
-        address=0x3469420082284
+        address=0x3469420082284,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Zora Hall Bad Picture of Lulu": MMRLocationData(
         region="Zora Hall",
-        address=0x3469420082282
+        address=0x3469420082282,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Pirates' Fortress Sewers Cage HP": MMRLocationData(
         region="Pirates' Fortress Sewers",

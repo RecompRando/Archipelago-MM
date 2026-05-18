@@ -326,6 +326,20 @@ class ShuffleLottery(Toggle):
     """Choose whether to shuffle lottery reward or not."""
     display_name = "Shuffle Lottery"
 
+class ShufflePictureRewards(Choice):
+    """
+    Choose whether the rewards for the Tourist Center picture contest and the Lulu fan are shuffled or not.
+
+    disabled: Picture rewards will be disabled.
+    winning_only: Only the winning picture for the Tourist Center reward will be shuffled.
+    all_pictures: All picture rewards will be shuffled.
+    """
+    display_name = "Shuffle Picture Rewards"
+    option_disabled = 0
+    option_winning_only = 1
+    option_all_pictures = 2
+    default = 1
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
@@ -419,6 +433,7 @@ class MMROptions(PerGameCommonOptions):
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
     shuffle_beaver_races: ShuffleBeaverRace
     shuffle_lottery: ShuffleLottery
+    shuffle_picture_rewards: ShufflePictureRewards
     start_with_consumables: StartWithConsumables
     permanent_chateau_romani: PermanentChateauRomani
     start_with_inverted_time: StartWithInvertedTime
