@@ -119,7 +119,10 @@ def can_get_red_potion(state, player, prices, options):
                 ) or
                 (
                     state.can_reach("Clock Town Trading Post Shop Item 1", "Location", player) or
-                    state.can_reach("Clock Town Trading Post Shop (Night) Item 1", "Location", player)
+                    (
+                        options.shopsanity.value == 2 and
+                        state.can_reach("Clock Town Trading Post Shop (Night) Item 1", "Location", player)
+                    )
                 )
             )
     )
@@ -10975,6 +10978,11 @@ def get_location_rules(player, options, prices):
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
             ),
+        "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_ice_arrows(state, player)
+            ),
         
         # Great Bay Temple Before Gekko Room Pots 
         "Great Bay Temple Before Gekko Room Pots (1)":
@@ -14508,6 +14516,11 @@ def get_location_rules(player, options, prices):
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
+        "Pirates' Fortress Sewers Rupees Under Barrel (2)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
         "Pirates' Fortress Sewers Rupees Under Barrel (3)":
             lambda state: (
                 state.has("Zora Mask", player) and
@@ -15100,6 +15113,8 @@ def get_location_rules(player, options, prices):
         "Mountain Village Day 1 Snowballs (11)":
             lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (12)":
+            lambda state: can_break_balls(state, player),
+        "Mountain Village Day 1 Snowballs (13)":
             lambda state: can_break_balls(state, player),
 
         # Snowballs Outside Goron Graveyard
@@ -15936,6 +15951,11 @@ def get_location_rules(player, options, prices):
         "Zora Cape Beach Rocks (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")
+            ),
+        "Zora Cape Boulder Over Grotto":
+            lambda state: (
+                state.has("Goron Mask", player) or 
+                has_explosives(state, player)
             ),
 
         # Zora Cape Island Rocks (Req Hook)
@@ -18562,6 +18582,11 @@ def get_location_rules(player, options, prices):
             ),
 
         # Path To Snowhead - 
+        "Path To Snowhead Tree Near Ledge":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
         "Path To Snowhead Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
@@ -20428,6 +20453,10 @@ def get_location_rules(player, options, prices):
         "Link Trial Bombable Wall Final Door":
             lambda state: (
                 has_bombchus(state, player)
+            ),
+        "Goron Trial Chests":
+            lambda state: (
+                state.has("Goron Mask", player)
             ),
         "Majora's Soul":
             lambda state: (

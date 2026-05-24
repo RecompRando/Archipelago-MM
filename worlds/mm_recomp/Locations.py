@@ -12540,7 +12540,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x183809,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Zora Cape Boulder Over Grotto (0)": MMRLocationData(
+    "Zora Cape Boulder Over Grotto": MMRLocationData(
         region="Zora Cape",
         address=0x1B3802,
         can_create=lambda options: options.rocksanity.value
