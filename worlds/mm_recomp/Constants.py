@@ -150,16 +150,21 @@ dungeon_bosses_er = [
 # 	"Upper Ikana Canyon -> Beneath the Well",
 # ]
 
-# arbitrary mapping for the mod to interpret
-er_to_id = {
-	# Temples
-	"Woodfall Temple": 0,
-	"Snowhead Temple": 1,
-    "Great Bay Temple": 2,
-    "Stone Tower Temple (Inverted)": 3,
-	# Bosses
-    "Odolwa's Lair": 4,
-    "Goht's Lair": 5,
-    "Gyorg's Lair": 6,
-    "Twinmold's Lair": 7,
+# direct ENTRANCE() ids from the game, these are all the "to" ids (i.e. "Woodfall -> Woodfall Temple" is "Woodfall Temple")
+er_to_entrance_id_lookup = {
+	"Woodfall": 0x8610,
+	"Woodfall Temple": 0x3000,
+    "Odolwa's Lair": 0x3800,
+	
+	"Snowhead": 0xB210,
+	"Snowhead Temple": 0x3C00,
+	"Goht's Lair": 0x8200,
+	
+	"Zora Cape": 0x6A70,
+    "Great Bay Temple": 0x8C00,
+	"Gyorg's Lair": 0xB800,
+	
+	"Stone Tower (Inverted)": 0xAC10,
+    "Stone Tower Temple (Inverted)": 0x2A00,
+	"Twinmold's Lair": 0x6600,
 }

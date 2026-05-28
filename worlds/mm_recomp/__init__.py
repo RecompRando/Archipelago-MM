@@ -41,8 +41,7 @@ class MMRWorld(World):
     
     shop_prices = List[int]
     
-    entrance_rando_dungeon_results = []
-    entrance_rando_boss_results = []
+    entrance_rando_results = {}
 
     def generate_early(self):
         self.shop_prices = []
@@ -225,7 +224,7 @@ class MMRWorld(World):
         if self.options.absurd_souls.value:
             filler_amount -= 1
 
-        filler_amount += 11 #temp
+        filler_amount += 100 #temp
 
         self.create_and_add_filler_items(filler_amount)
 
@@ -476,6 +475,11 @@ class MMRWorld(World):
 
         for location in mw.get_locations(player):
             name = location.name
+
+            # Debug Printing
+            # if name not in location_rules:
+            #     print(f"Location '{name}' does not have any logic")
+
             if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
                 continue
             if name in location_rules and location_data_table[name].can_create(self.options):
@@ -485,6 +489,12 @@ class MMRWorld(World):
         player = self.player
         mw = self.multiworld
         no_target_groups = {0: [0]} # unsure how target groups work
+
+        entrance_rando_dungeon_results = []
+        entrance_rando_boss_results = []
+
+        if not self.options.dungeon_entrance_rando.value and not self.options.boss_entrance_rando.value:
+            return
 
         # could be a lot nicer, but PoC (this won't work for full entrance rando)
         # Dungeon Chaining
@@ -507,12 +517,12 @@ class MMRWorld(World):
             for dungeon_entrance in dungeon_entrances_er:
                 for pairing in placement.pairings:
                     if pairing[0] == dungeon_entrance:
-                        self.entrance_rando_dungeon_results.append(pairing)
+                        entrance_rando_dungeon_results.append(pairing)
                         continue
             for boss_entrance in dungeon_bosses_er:
                 for pairing in placement.pairings:
                     if pairing[0] == boss_entrance:
-                        self.entrance_rando_boss_results.append(pairing)
+                        entrance_rando_boss_results.append(pairing)
                         continue
         else:
             # Dungeon Entrances
@@ -529,8 +539,12 @@ class MMRWorld(World):
                 for dungeon_entrance in dungeon_entrances_er:
                     for pairing in placement.pairings:
                         if pairing[0] == dungeon_entrance:
-                            self.entrance_rando_dungeon_results.append(pairing)
+                            entrance_rando_dungeon_results.append(pairing)
                             continue
+            else:
+                for entrance in dungeon_entrances_er:
+                    original_exit = entrance[entrance.index("->") + 3:]
+                    entrance_rando_dungeon_results.append((entrance, original_exit))
 
             # Boss Entrances
             if self.options.boss_entrance_rando.value:
@@ -545,15 +559,40 @@ class MMRWorld(World):
                 for boss_entrance in dungeon_bosses_er:
                     for pairing in placement.pairings:
                         if pairing[0] == boss_entrance:
-                            self.entrance_rando_boss_results.append(pairing)
+                            entrance_rando_boss_results.append(pairing)
                             continue
-
-        # spoiler log entrances
-        for pairing in (self.entrance_rando_dungeon_results + self.entrance_rando_boss_results):
+            else:
+                for entrance in dungeon_bosses_er:
+                    original_exit = entrance[entrance.index("->") + 3:]
+                    entrance_rando_dungeon_results.append((entrance, original_exit))
+        
+        # save entrance rando results
+        for pairing in (entrance_rando_dungeon_results + entrance_rando_boss_results):
             original_entrance = pairing[0]
-            original_entrance = original_entrance[original_entrance.index("->") + 3:]
+            original_entrance = original_entrance[:original_entrance.index(" ->")]
             replaced_entrance = pairing[1]
+            
+            if not original_entrance in self.entrance_rando_results:
+                self.entrance_rando_results[original_entrance] = {
+                    "from": "",
+                    "to": replaced_entrance,
+                    "entrance_id": er_to_entrance_id_lookup[original_entrance]
+                }
+            else:
+                self.entrance_rando_results[original_entrance]["to"] = replaced_entrance
+            
+            if not replaced_entrance in self.entrance_rando_results:
+                self.entrance_rando_results[replaced_entrance] = {
+                    "from": original_entrance,
+                    "to": "",
+                    "entrance_id": er_to_entrance_id_lookup[replaced_entrance]
+                }
+            else:
+                self.entrance_rando_results[replaced_entrance]["from"] = original_entrance
+            
             self.multiworld.spoiler.set_entrance(original_entrance, replaced_entrance, "", self.player)
+        # import json
+        # print(json.dumps(self.entrance_rando_results, indent=4))
 
     def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
         if self.options.shopsanity.value:
@@ -567,24 +606,6 @@ class MMRWorld(World):
         starting_pieces = shp % 4
         shuffled_containers = int((12 - shp)/4)
         shuffled_pieces = (12 - shp) % 4
-
-        # need to figure out a better way of doing this
-        er_placements = 0x00000000
-        if self.options.dungeon_entrance_rando.value:
-            pos = 0
-            for pairing in self.entrance_rando_dungeon_results:
-                er_placements += er_to_id[pairing[1]] << (pos * 4);
-                pos += 1
-        else:
-            er_placements += 0x3210
-
-        if self.options.boss_entrance_rando.value:
-            pos = 4
-            for pairing in self.entrance_rando_boss_results:
-                er_placements += er_to_id[pairing[1]] << (pos * 4);
-                pos += 1
-        else:
-            er_placements += 0x76540000
 
         return {
             "skullsanity": self.options.skullsanity.value,
@@ -660,6 +681,6 @@ class MMRWorld(World):
             "dungeon_entrance_rando": self.options.dungeon_entrance_rando.value,
             "boss_entrance_rando": self.options.boss_entrance_rando.value,
             "dungeon_chaining": self.options.dungeon_chaining.value,
-            "er_placements": er_placements,
+            "entrance_rando_results": self.entrance_rando_results,
             "logic_difficulty": self.options.logic_difficulty.value
         }
