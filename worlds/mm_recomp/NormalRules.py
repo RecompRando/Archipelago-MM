@@ -1557,6 +1557,12 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos")
             ),   
+        "Southern Swamp Witch Shop Mushroom Item":
+            lambda state: (
+                has_soul_npc(state, player, options, "Kotake") and
+                state.has("Mask of Scents", player) and 
+                has_bottle(state, player)
+            ),
         "Southern Swamp Witch Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Kotake") and

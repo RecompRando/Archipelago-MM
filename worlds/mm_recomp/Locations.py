@@ -574,6 +574,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Southern Swamp",
         address=0x071C52
     ),
+    "Southern Swamp Witch Shop Mushroom Item": MMRLocationData(
+        region="Southern Swamp",
+        address=0x00005D
+    ),
     "Southern Swamp Witch Shop Item 1": MMRLocationData(
         region="Southern Swamp",
         address=0x090002,
