@@ -11,7 +11,7 @@ from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
 from .NormalRules import *
-from .Constants import default_shop_prices
+from .Constants import *
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
@@ -42,6 +42,7 @@ class MMRWorld(World):
     shop_prices = List[int]
     
     entrance_rando_results = {}
+    boss_regions = {} # what region a boss clears
 
     def generate_early(self):
         self.shop_prices = []
@@ -104,7 +105,7 @@ class MMRWorld(World):
         else:
             mw.push_precollected(self.create_item("Song of Time"))
 
-        filler_amount += 18
+        filler_amount += 19
 
         if self.options.swordless.value:
             mw.itempool.append(self.create_item("Progressive Sword"))
@@ -455,6 +456,18 @@ class MMRWorld(World):
         mw = self.multiworld
         options = self.options
         prices = self.shop_prices
+        boss_regions = self.boss_regions
+
+        # Set "boss_regions" to their vanilla values when dungeon and boss randomization is disabled
+        # this has to be here instead of "connect_entrances" to not fail generation
+        if not self.options.dungeon_entrance_rando.value and not self.options.boss_entrance_rando.value:
+            self.boss_regions = {
+                DUNGEON_WOODFALL: DUNGEON_WOODFALL,
+                DUNGEON_SNOWHEAD: DUNGEON_SNOWHEAD,
+                DUNGEON_GREAT_BAY: DUNGEON_GREAT_BAY,
+                DUNGEON_STONE_TOWER: DUNGEON_STONE_TOWER
+            }
+            boss_regions = self.boss_regions
 
         # Completion condition.
         mw.completion_condition[player] = lambda state: state.has("Victory", player)
@@ -467,7 +480,7 @@ class MMRWorld(World):
             # ~ location_rules = get_baby_location_rules(player, options)
         if (self.options.logic_difficulty.value == 1):
             region_rules = get_region_rules(player, options)
-            location_rules = get_location_rules(player, options, prices)
+            location_rules = get_location_rules(player, options, prices, boss_regions)
 
         for entrance_name, rule in region_rules.items():
             entrance = mw.get_entrance(entrance_name, player)
@@ -565,34 +578,51 @@ class MMRWorld(World):
                 for entrance in dungeon_bosses_er:
                     original_exit = entrance[entrance.index("->") + 3:]
                     entrance_rando_dungeon_results.append((entrance, original_exit))
-        
+
         # save entrance rando results
         for pairing in (entrance_rando_dungeon_results + entrance_rando_boss_results):
-            original_entrance = pairing[0]
-            original_entrance = original_entrance[:original_entrance.index(" ->")]
-            replaced_entrance = pairing[1]
+            original_entrance_full = pairing[0]
+            original_entrance = original_entrance_full[:original_entrance_full.index(" ->")]
+            original_exit = original_entrance_full[original_entrance_full.index("-> ") + 3:]
+            replaced_exit = pairing[1]
             
-            if not original_entrance in self.entrance_rando_results:
-                self.entrance_rando_results[original_entrance] = {
-                    "from": "",
-                    "to": replaced_entrance,
-                    "entrance_id": er_to_entrance_id_lookup[original_entrance]
-                }
+            replaced_entrance = original_entrance_lookup[replaced_exit]
+
+            original_entrance_id = entrance_to_id_lookup[original_entrance_full]
+            replaced_entrance_id = entrance_to_id_lookup[replaced_entrance]
+            self.entrance_rando_results[original_entrance_id] = replaced_entrance_id
+
+            self.multiworld.spoiler.set_entrance(original_entrance, replaced_exit, "", self.player)
+
+            # reversing entrances (going back to dungeon entrances)
+            is_boss = replaced_exit in mm_bosses
+            new_exit = original_entrance_full
+            count = 0
+            while self.get_entrance(new_exit).parent_region.name not in dungeon_entrances:                
+                if count > 10: # arbitrary number, shouldn't occur unless something goes really wrong
+                    raise Exception("reverse entrances looped too much")
+                
+                new_exit = self.get_entrance(new_exit).parent_region.entrances[0].name # assuming there's only one entrance
+                count += 1
+
+            new_exit_region = self.get_entrance(new_exit).parent_region.name
+            
+            if is_boss:
+                original_boss_region = mm_bosses.index(replaced_exit)
+                new_boss_region = dungeon_entrances.index(new_exit_region)
+                
+                self.boss_regions[original_boss_region] = new_boss_region
             else:
-                self.entrance_rando_results[original_entrance]["to"] = replaced_entrance
-            
-            if not replaced_entrance in self.entrance_rando_results:
-                self.entrance_rando_results[replaced_entrance] = {
-                    "from": original_entrance,
-                    "to": "",
-                    "entrance_id": er_to_entrance_id_lookup[replaced_entrance]
-                }
-            else:
-                self.entrance_rando_results[replaced_entrance]["from"] = original_entrance
-            
-            self.multiworld.spoiler.set_entrance(original_entrance, replaced_entrance, "", self.player)
+                original_dungeon_exit = replaced_entrance[:replaced_entrance.index(" ->")]
+                
+                original_exit_id = entrance_to_id_lookup[original_dungeon_exit]
+                replaced_exit_id = entrance_to_id_lookup[new_exit_region] # dungeon at the start of chain's exit
+
+                self.entrance_rando_results[original_exit_id] = replaced_exit_id
+
         # import json
         # print(json.dumps(self.entrance_rando_results, indent=4))
+        # print(json.dumps(self.boss_regions, indent=4))
 
     def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
         if self.options.shopsanity.value:
@@ -682,5 +712,6 @@ class MMRWorld(World):
             "boss_entrance_rando": self.options.boss_entrance_rando.value,
             "dungeon_chaining": self.options.dungeon_chaining.value,
             "entrance_rando_results": self.entrance_rando_results,
+            "boss_regions": self.boss_regions,
             "logic_difficulty": self.options.logic_difficulty.value
         }
