@@ -217,7 +217,7 @@ class MMRWorld(World):
             filler_amount -= 4
 
         if self.options.npc_souls.value:
-            filler_amount -= 70
+            filler_amount -= 74
 
         if self.options.utility_souls.value:
             filler_amount -= 1

@@ -2578,7 +2578,10 @@ def get_location_rules(player, options, prices, boss_placements):
                 )
             ),
         "Great Bay Feeding Lab Fish":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Marine Lab Fish") and
+                has_bottle(state, player)
+            ),
         "Great Bay Fisherman Game":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
@@ -2864,6 +2867,7 @@ def get_location_rules(player, options, prices, boss_placements):
             
         "Zora Hall Evan's Song":
             lambda state: (
+                has_soul_npc(state, player, options, "Evan") and
                 state.has("Ocarina of Time", player) and
                 state.has("Zora Mask", player)
             ),
