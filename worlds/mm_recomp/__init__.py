@@ -41,11 +41,14 @@ class MMRWorld(World):
     
     shop_prices = List[int]
     
-    entrance_rando_results = {}
-    boss_regions = {} # what region a boss clears
+    entrance_rando_results: Dict[int, int]
+    boss_regions: Dict[int, int] # what region a boss clears
 
     def generate_early(self):
+        # initialize empty data
         self.shop_prices = []
+        self.entrance_rando_results = {}
+        self.boss_regions = {}
         
         # Create shop prices.
         if self.options.shopsanity.value != 0:
