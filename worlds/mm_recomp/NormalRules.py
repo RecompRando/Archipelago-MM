@@ -152,7 +152,8 @@ def can_plant_beans(state, player, options):
         (
             has_bottle(state, player) or
             can_play_song("Song of Storms", state, player)
-        )
+        ) and
+        state.has("Magic Bean", player)
     )
 
 def can_use_powder_keg(state, player, options):
