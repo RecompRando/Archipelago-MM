@@ -2,16 +2,18 @@ from typing import List
 from typing import Dict
 from typing import TextIO
 
-from BaseClasses import Region, Tutorial, EntranceType
+from BaseClasses import Region, Location, Tutorial, EntranceType
 from worlds.AutoWorld import WebWorld, World
 from entrance_rando import randomize_entrances, disconnect_entrance_for_randomization
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, location_name_groups
 from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
 from .NormalRules import *
 from .Constants import *
+
+import copy
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
@@ -37,6 +39,7 @@ class MMRWorld(World):
     options_dataclass = MMROptions
     options = MMROptions
     location_name_to_id = location_table
+    location_name_groups = location_name_groups
     item_name_to_id = item_table
     
     shop_prices = List[int]
@@ -44,11 +47,14 @@ class MMRWorld(World):
     entrance_rando_results: Dict[int, int]
     boss_regions: Dict[int, int] # what region a boss clears
 
+    hints: Dict[int, Dict[int, any]] # hints are up here to populate them easier
+
     def generate_early(self):
         # initialize empty data
         self.shop_prices = []
         self.entrance_rando_results = {}
         self.boss_regions = {}
+        self.hints = {}
         
         # Create shop prices.
         if self.options.shopsanity.value != 0:
@@ -153,11 +159,22 @@ class MMRWorld(World):
         if self.options.intro_checks.value:
             filler_amount += 1
     
-        if self.options.intro_checks.value and self.options.grasssanity.value:
+        grass_mode = self.options.grasssanity.value
+        if grass_mode == 1:  # normal
+            grass_filler = 1022
+        elif grass_mode == 2:  # no_termina_field
+            grass_filler = 682
+        elif grass_mode == 3:  # grotto_and_cave_only
+            grass_filler = 415
+        elif grass_mode == 4:  # dungeon_only
+            grass_filler = 112
+        else:
+            grass_filler = 0
+
+        if self.options.intro_checks.value and grass_mode in (1, 2):
             filler_amount += 51
-        
-        if self.options.grasssanity.value != 0:
-            filler_amount += 1022
+
+        filler_amount += grass_filler
 
         if self.options.potsanity.value != 0:
             filler_amount += 542
@@ -627,18 +644,77 @@ class MMRWorld(World):
         # print(json.dumps(self.entrance_rando_results, indent=4))
         # print(json.dumps(self.boss_regions, indent=4))
 
-    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
-        if self.options.shopsanity.value:
-            spoiler_handle.write("\nShop Prices:\n")
-            for location, shop_id in shop_location_to_id.items():
-                spoiler_handle.write(f"\n{location}: {self.shop_prices[shop_id]} Rupees")
+    def location_to_slotdata(self, location: Location):
+        mw = self.multiworld
+        return {
+            "location_name": location.name,
+            "item_name": location.item.name,
+            "player": location.player,
+            "address": location.address,
+        }
+    
+    def locations_to_slotdata(self, locations: List[Location]):
+        formatted = []
+        for location in locations:
+            formatted.append(self.location_to_slotdata(location))
+        return formatted
+    
+    # Grab hints for gossip stones
+    def generate_hints(self):
+        mw = self.multiworld
+        hints = self.hints
+
+        # Fill moon gossip stones with their original mask hints
+        for gossip_stone, item in moon_gossip_lookup.items():
+            location = mw.find_item(item, self.player)
+            hints[gossip_stone]["item"] = item
+            hints[gossip_stone]["location"] = location.name
+            hints[gossip_stone]["location_id"] = location.address
+            hints[gossip_stone]["from_player"] = location.player
+            hints[gossip_stone]["to_player"] = location.item.player # redundant for moon gossips
+            hints[gossip_stone]["type"] = HINT_TYPE_NORMAL
+            hints[gossip_stone]["filled"] = True
 
     def fill_slot_data(self):
+        mw = self.multiworld
+        self.hints = copy.deepcopy(gossip_stones) # create a copy of the base dictionary
+
         shp = self.options.starting_hearts.value
         starting_containers = int(shp/4) - 1
         starting_pieces = shp % 4
         shuffled_containers = int((12 - shp)/4)
         shuffled_pieces = (12 - shp) % 4
+
+        self.generate_hints()
+
+        fairy_locations = {
+            "Clock Town": self.location_to_slotdata(mw.find_item("Stray Fairy (Clock Town)", self.player)),
+            "Woodfall": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Woodfall)", self.player)),
+            "Snowhead": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Snowhead)", self.player)),
+            "Great Bay": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Great Bay)", self.player)),
+            "Stone Tower": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Stone Tower)", self.player)),
+        }
+
+        skull_locations = {
+            "Swamp": self.locations_to_slotdata(mw.find_item_locations("Swamp Skulltula Token", self.player)),
+            "Ocean": self.locations_to_slotdata(mw.find_item_locations("Ocean Skulltula Token", self.player)),
+        }
+
+        # print()
+        # print(fairy_locations)
+        # print(skull_locations)
+        # import json
+        # print(json.dumps(fairy_locations, indent=4))
+        # print(json.dumps(skull_locations, indent=4))
+
+        # print()
+        # # print(list(mw.get_locations()))
+        # print()
+        # item_location = mw.find_item("Fierce Deity's Mask", self.player)
+        # print(item_location.name, mw.get_player_name(item_location.player))
+
+        # item_locations = mw.find_item_locations("Stray Fairy (Woodfall)", self.player)
+        # print(item_locations) # prints all 15 Locations
 
         return {
             "skullsanity": self.options.skullsanity.value,
@@ -716,5 +792,25 @@ class MMRWorld(World):
             "dungeon_chaining": self.options.dungeon_chaining.value,
             "entrance_rando_results": self.entrance_rando_results,
             "boss_regions": self.boss_regions,
+            "fairy_locations": fairy_locations,
+            "skull_locations": skull_locations,
+            "hints": self.hints,
             "logic_difficulty": self.options.logic_difficulty.value
         }
+
+    def write_spoiler(self, spoiler_handle: TextIO) -> None:
+        mw = self.multiworld
+        
+        # Shopsanity Spoilers
+        if self.options.shopsanity.value:
+            spoiler_handle.write("\nShop Prices:\n")
+            for location, shop_id in shop_location_to_id.items():
+                spoiler_handle.write(f"\n{location}: {self.shop_prices[shop_id]} Rupees")
+
+        spoiler_handle.write("\nIn-Game Hints:\n")
+        for text_id, hint in self.hints.items():
+            print(hint)
+            if hint["filled"]:
+                spoiler_handle.write(f"\n{hint["name"]}: {mw.get_player_name(hint["to_player"])}'s {hint["item"]} at {mw.get_player_name(hint["from_player"])}'s {hint["location"]}")
+            else:
+                spoiler_handle.write(f"\n{hint["name"]}: Filler")

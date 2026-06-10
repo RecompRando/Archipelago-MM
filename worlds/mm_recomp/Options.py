@@ -332,9 +332,18 @@ class IntroChecks(Toggle):
     display_name = "Enable Intro Checks"
 
 
-class Grasssanity(Toggle):
-    """Choose whether grass is shuffled into the pool."""
+class Grasssanity(Choice):
+    """Choose how grass is shuffled into the pool.
+    normal: all grass.
+    no_termina_field: all grass except Termina Field (including its grottos).
+    grotto_and_cave_only: only grass found in grottos and caves.
+    dungeon_only: only grass found in dungeons."""
     display_name = "Grasssanity"
+    option_off = 0
+    option_normal = 1
+    option_no_termina_field = 2
+    option_grotto_and_cave_only = 3
+    option_dungeon_only = 4
 
 
 class Potsanity(Toggle):
