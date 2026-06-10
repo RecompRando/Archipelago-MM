@@ -130,6 +130,11 @@ shop_location_to_id = {
 }
 
 # rough grouping for entrance rando
+DUNGEON_WOODFALL = 0
+DUNGEON_SNOWHEAD = 1
+DUNGEON_GREAT_BAY = 2
+DUNGEON_STONE_TOWER = 3
+
 dungeon_entrances_er = [
 	"Woodfall -> Woodfall Temple",
     "Snowhead -> Snowhead Temple",
@@ -150,16 +155,62 @@ dungeon_bosses_er = [
 # 	"Upper Ikana Canyon -> Beneath the Well",
 # ]
 
-# arbitrary mapping for the mod to interpret
-er_to_id = {
-	# Temples
-	"Woodfall Temple": 0,
-	"Snowhead Temple": 1,
-    "Great Bay Temple": 2,
-    "Stone Tower Temple (Inverted)": 3,
-	# Bosses
-    "Odolwa's Lair": 4,
-    "Goht's Lair": 5,
-    "Gyorg's Lair": 6,
-    "Twinmold's Lair": 7,
+# direct ENTRANCE() ids from the game
+# note: dungeon exits omit the "dungeon ->" part as they do not have apworld entrances
+entrance_to_id_lookup = {
+	"Woodfall": 0x8610,
+	"Woodfall -> Woodfall Temple": 0x3000,
+    "Woodfall Temple -> Odolwa's Lair": 0x3800,
+	
+	"Snowhead": 0xB210,
+	"Snowhead -> Snowhead Temple": 0x3C00,
+	"Snowhead Temple -> Goht's Lair": 0x8200,
+	
+	"Zora Cape": 0x6A70,
+    "Zora Cape -> Great Bay Temple": 0x8C00,
+	"Great Bay Temple -> Gyorg's Lair": 0xB800,
+	
+	"Stone Tower (Inverted)": 0xAC10,
+    "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)": 0x2A00,
+	"Stone Tower Temple (Inverted) -> Twinmold's Lair": 0x6600,
 }
+
+# this only works under standard dungeon entrance rando
+original_entrance_lookup = {
+	"Woodfall": "Woodfall Temple -> Woodfall",
+	"Woodfall Temple": "Woodfall -> Woodfall Temple",
+    "Odolwa's Lair": "Woodfall Temple -> Odolwa's Lair",
+	
+    "Snowhead": "Snowhead Temple -> Snowhead",
+	"Snowhead Temple": "Snowhead -> Snowhead Temple",
+	"Goht's Lair": "Snowhead Temple -> Goht's Lair",
+	
+	"Zora Cape": "Great Bay Temple -> Zora Cape",
+	"Great Bay Temple": "Zora Cape -> Great Bay Temple",
+	"Gyorg's Lair": "Great Bay Temple -> Gyorg's Lair",
+	
+    "Stone Tower (Inverted)": "Stone Tower Temple (Inverted) -> Stone Tower (Inverted)",
+	"Stone Tower Temple (Inverted)": "Stone Tower (Inverted) -> Stone Tower Temple (Inverted)",
+	"Twinmold's Lair": "Stone Tower Temple (Inverted) -> Twinmold's Lair",
+}
+
+dungeon_entrances = [
+	"Woodfall",
+	"Snowhead",
+	"Zora Cape",
+	"Stone Tower (Inverted)",
+]
+
+mm_dungeons = [
+	"Woodfall Temple",
+	"Snowhead Temple",
+	"Great Bay Temple",
+	"Stone Tower Temple (Inverted)",
+]
+
+mm_bosses = [
+	"Odolwa's Lair",
+	"Goht's Lair",
+	"Gyorg's Lair",
+	"Twinmold's Lair",
+]

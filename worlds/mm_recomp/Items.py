@@ -1108,6 +1108,11 @@ item_data_table: Dict[str, MMRItemData] = {
         type=ItemClassification.progression,
         can_create=lambda options: options.npc_souls.value
     ),
+    "Soul of Marine Lab Fish": MMRItemData(
+        code=0x0C01F1,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
     "Soul of Coast Zora": MMRItemData(
         code=0x0C0260,
         type=ItemClassification.useful,
@@ -1121,6 +1126,21 @@ item_data_table: Dict[str, MMRItemData] = {
     "Soul of Lulu": MMRItemData(
         code=0x0C0252,
         type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Evan": MMRItemData(
+        code=0x0C0241,
+        type=ItemClassification.progression,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Japas": MMRItemData(
+        code=0x0C0231,
+        type=ItemClassification.useful,
+        can_create=lambda options: options.npc_souls.value
+    ),
+    "Soul of Tijo": MMRItemData(
+        code=0x0C0238,
+        type=ItemClassification.useful,
         can_create=lambda options: options.npc_souls.value
     ),
     "Soul of Shiro": MMRItemData(

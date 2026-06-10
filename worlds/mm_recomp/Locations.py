@@ -574,6 +574,10 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Southern Swamp",
         address=0x071C52
     ),
+    "Southern Swamp Witch Shop Mushroom Item": MMRLocationData(
+        region="Southern Swamp",
+        address=0x00005D
+    ),
     "Southern Swamp Witch Shop Item 1": MMRLocationData(
         region="Southern Swamp",
         address=0x090002,
@@ -6802,9 +6806,13 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x121D0A,
         can_create=lambda options: options.grasssanity.value
     ),
+    "Ikana Castle Grass (12)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x121D00,
+        can_create=lambda options: options.grasssanity.value
+    ),
     # Dungeon Grass
     # Woodfall Temple
-
     "Woodfall Temple Entrance Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B20,
@@ -12546,7 +12554,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x183809,
         can_create=lambda options: options.rocksanity.value
     ),
-    "Zora Cape Boulder Over Grotto (0)": MMRLocationData(
+    "Zora Cape Boulder Over Grotto": MMRLocationData(
         region="Zora Cape",
         address=0x1B3802,
         can_create=lambda options: options.rocksanity.value

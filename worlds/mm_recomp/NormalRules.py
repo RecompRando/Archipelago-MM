@@ -38,17 +38,27 @@ def can_smack_hard(state, player):
 def can_smack(state, player):
     return can_smack_hard(state, player) or state.has("Deku Mask", player)
 
-def can_clear_woodfall(state, player):
-    return state.can_reach("Woodfall Temple Odolwa's Remains", "Location", player)
+def can_clear_area(state, player, dungeon):
+    if dungeon == DUNGEON_WOODFALL:
+        return state.can_reach("Woodfall Temple Odolwa's Remains", "Location", player)
+    elif dungeon == DUNGEON_SNOWHEAD:
+        return state.can_reach("Snowhead Temple Goht's Remains", "Location", player)
+    elif dungeon == DUNGEON_GREAT_BAY:
+        return state.can_reach("Great Bay Temple Gyorg's Remains", "Location", player)
+    elif dungeon == DUNGEON_STONE_TOWER:
+        return state.can_reach("Stone Tower Temple Inverted Twinmold's Remains", "Location", player)
+
+def can_clear_woodfall(state, player, boss_placements):
+    return can_clear_area(state, player, boss_placements[DUNGEON_WOODFALL])
     
-def can_clear_snowhead(state, player):
-    return state.can_reach("Snowhead Temple Goht's Remains", "Location", player)
+def can_clear_snowhead(state, player, boss_placements):
+    return can_clear_area(state, player, boss_placements[DUNGEON_SNOWHEAD])
     
-def can_clear_greatbay(state, player):
-    return state.can_reach("Great Bay Temple Gyorg's Remains", "Location", player)
+def can_clear_greatbay(state, player, boss_placements):
+    return can_clear_area(state, player, boss_placements[DUNGEON_GREAT_BAY])
     
-def can_clear_stonetower(state, player):
-    return state.can_reach("Stone Tower Temple Inverted Twinmold's Remains", "Location", player)
+def can_clear_stonetower(state, player, boss_placements):
+    return can_clear_area(state, player, boss_placements[DUNGEON_STONE_TOWER])
 
 def has_notebook(state, player):
     return (state.has("Bomber's Notebook", player))
@@ -119,7 +129,10 @@ def can_get_red_potion(state, player, prices, options):
                 ) or
                 (
                     state.can_reach("Clock Town Trading Post Shop Item 1", "Location", player) or
-                    state.can_reach("Clock Town Trading Post Shop (Night) Item 1", "Location", player)
+                    (
+                        options.shopsanity.value == 2 and
+                        state.can_reach("Clock Town Trading Post Shop (Night) Item 1", "Location", player)
+                    )
                 )
             )
     )
@@ -227,10 +240,10 @@ def can_purchase(state, player, prices, price_index):
         return state.has("Progressive Wallet", player)
     return True
 
-def can_get_frog_choir_hp(state, player, options):
+def can_get_frog_choir_hp(state, player, options, boss_placements):
     if not state.has("Don Gero Mask", player):
         return False
-    if not can_clear_snowhead(state, player):
+    if not can_clear_snowhead(state, player, boss_placements):
         return False
     
     if options.frogsanity.value:
@@ -405,7 +418,7 @@ def has_all_frogs(state, player, options, goal_type="majora"):
 
 def can_use_owl(state, player, options, owl_region):
     if not options.owlsanity.value:
-        return True  
+        return False  
     return (
         state.has(owl_region + " Owl Statue", player) and 
         can_play_song("Song of Soaring", state, player)
@@ -858,7 +871,7 @@ def get_region_rules(player, options):
             ),
     }
 
-def get_location_rules(player, options, prices):
+def get_location_rules(player, options, prices, boss_placements):
     return {
         "Link's Inventory (Kokiri Sword)":
             lambda state: True,
@@ -1554,6 +1567,12 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos")
             ),   
+        "Southern Swamp Witch Shop Mushroom Item":
+            lambda state: (
+                has_soul_npc(state, player, options, "Kotake") and
+                state.has("Mask of Scents", player) and 
+                has_bottle(state, player)
+            ),
         "Southern Swamp Witch Shop Item 1":
             lambda state: (
                 has_soul_npc(state, player, options, "Kotake") and
@@ -1790,7 +1809,7 @@ def get_location_rules(player, options, prices):
             ),
         "Deku Palace Butler Race":
             lambda state: (
-                can_clear_woodfall(state, player) and 
+                can_clear_woodfall(state, player, boss_placements) and 
                 has_bottle(state, player) and 
                 (
                     state.has("Progressive Sword", player) or 
@@ -1859,10 +1878,12 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_enemy(state, player, options, "Dinolfos") and
                 (
-                    state.has("Small Key (Woodfall)", player) and 
-                    can_smack(state, player)
-                ) or 
-                state.has("Progressive Bow", player)
+                    (
+                        state.has("Small Key (Woodfall)", player) and
+                        can_smack(state, player)
+                    ) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Gekko Chest":
             lambda state: (
@@ -1903,12 +1924,14 @@ def get_location_rules(player, options, prices):
             ),
         "Woodfall Temple Skulltula SF":
             lambda state: (
-                has_soul_enemy(state, player, options, "Hanging Skulltulas") and 
+                has_soul_enemy(state, player, options, "Hanging Skulltulas") and
                 (
-                    state.has("Small Key (Woodfall)", player) and 
-                    can_smack(state, player)
-                ) or 
-                state.has("Progressive Bow", player)
+                    (
+                        state.has("Small Key (Woodfall)", player) and
+                        can_smack(state, player)
+                    ) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Woodfall Temple Bridge Room Bubble SF":
             lambda state: (
@@ -1981,7 +2004,7 @@ def get_location_rules(player, options, prices):
             
         "Southern Swamp Boat Archery":
             lambda state: (
-                can_clear_woodfall(state, player) and 
+                can_clear_woodfall(state, player, boss_placements) and 
                 has_bottle(state, player) and 
                 state.has("Progressive Bow", player) and
                 has_soul_npc(state, player, options, "Koume")
@@ -2002,14 +2025,14 @@ def get_location_rules(player, options, prices):
                 )
             ),
         "Mountain Village Spring Waterfall Chest":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: can_clear_snowhead(state, player, boss_placements),
         "Mountain Village Spring Ramp Grotto":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Frog Choir HP":
-            lambda state: can_get_frog_choir_hp(state, player, options),
+            lambda state: can_get_frog_choir_hp(state, player, options, boss_placements),
 
         "Mountain Village Smithy Upgrade":
             lambda state: (
@@ -2018,7 +2041,7 @@ def get_location_rules(player, options, prices):
                 (
                     can_use_fire_arrows(state, player) or 
                     state.can_reach("Twin Islands Hot Water Grotto Chest", "Location", player) or 
-                    can_clear_snowhead(state, player)
+                    can_clear_snowhead(state, player, boss_placements)
                 )
             ),
         "Mountain Village Smithy Gold Dust Upgrade":
@@ -2084,7 +2107,7 @@ def get_location_rules(player, options, prices):
                     has_explosives(state, player)
                 ) or 
                 (
-                    can_clear_snowhead(state, player) or 
+                    can_clear_snowhead(state, player, boss_placements) or 
                     (
                         state.can_reach("Ikana Well Invisible Chest", "Location", player) and 
                         can_play_song("Song of Soaring", state, player) and
@@ -2096,12 +2119,12 @@ def get_location_rules(player, options, prices):
         "Twin Islands Spring Underwater Cave Chest":
             lambda state: (
                 state.has("Zora Mask", player) and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Spring Underwater Ramp Chest":
             lambda state: (
                 state.has("Zora Mask", player) and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Goron Racetrack Prize":
             lambda state: (
@@ -2109,7 +2132,7 @@ def get_location_rules(player, options, prices):
                     can_use_powder_keg(state, player, options) or 
                     state.can_reach("Powder Keg Goron Reward", "Location", player)
                 ) and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
             
         "Goron Village Lens Cave Rock Chest":
@@ -2145,7 +2168,7 @@ def get_location_rules(player, options, prices):
         "Powder Keg Goron Reward":
             lambda state: (
                 has_soul_npc(state, player, options, "Gatekeeper & Medigoron") and
-                (can_clear_snowhead(state, player) or 
+                (can_clear_snowhead(state, player, boss_placements) or 
                 (
                     can_use_fire_arrows(state, player) and 
                     state.has("Goron Mask", player))
@@ -2183,7 +2206,7 @@ def get_location_rules(player, options, prices):
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
                 can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Goron Village Shop (Spring) Item 2":
             lambda state: (
@@ -2191,7 +2214,7 @@ def get_location_rules(player, options, prices):
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
                 can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Goron Village Shop (Spring) Item 3":
             lambda state: (
@@ -2199,11 +2222,11 @@ def get_location_rules(player, options, prices):
                 (has_soul_npc(state, player, options, "Gatekeeper & Medigoron") or
                 state.has("Goron Mask", player)) and 
                 can_purchase(state, player, prices, SHOP_ID_GORON_SHOP_1) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Goron Village Freestanding HP (Spring)":
             lambda state: (
-                can_clear_snowhead(state, player) and 
+                can_clear_snowhead(state, player, boss_placements) and 
                 state.has("Deku Mask", player) and 
                 state.has("Swamp Title Deed", player)
             ),
@@ -2555,11 +2578,14 @@ def get_location_rules(player, options, prices):
                 )
             ),
         "Great Bay Feeding Lab Fish":
-            lambda state: has_bottle(state, player),
+            lambda state: (
+                has_soul_npc(state, player, options, "Marine Lab Fish") and
+                has_bottle(state, player)
+            ),
         "Great Bay Fisherman Game":
             lambda state: (
                 has_soul_npc(state, player, options, "Fisherman") and
-                can_clear_greatbay(state, player)
+                can_clear_greatbay(state, player, boss_placements)
             ),
         "Ocean Spider House Ramp Upper Token":
             lambda state: (
@@ -2841,6 +2867,7 @@ def get_location_rules(player, options, prices):
             
         "Zora Hall Evan's Song":
             lambda state: (
+                has_soul_npc(state, player, options, "Evan") and
                 state.has("Ocarina of Time", player) and
                 state.has("Zora Mask", player)
             ),
@@ -3543,10 +3570,10 @@ def get_location_rules(player, options, prices):
 
         "Oath to Order":
             lambda state: (
-                can_clear_woodfall(state, player) or 
-                can_clear_snowhead(state, player) or 
-                can_clear_greatbay(state, player) or 
-                can_clear_stonetower(state, player)
+                can_clear_woodfall(state, player, boss_placements) or 
+                can_clear_snowhead(state, player, boss_placements) or 
+                can_clear_greatbay(state, player, boss_placements) or 
+                can_clear_stonetower(state, player, boss_placements)
             ),
 
         "Moon Deku Trial HP":
@@ -5782,172 +5809,172 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Owl Post Dungeon Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Owl Post Dungeon Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Tourist Centre (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (15)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (16)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (17)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Grass Near Witch Shop (18)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Gossip Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Gossip Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         
         # Deku Palace Bean Grotto Grass
@@ -6689,62 +6716,62 @@ def get_location_rules(player, options, prices):
         "Twin Islands Springtime Grass Group 1 (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Springtime Grass Group 1 (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Goron Village Lens Cave Grass
@@ -6903,199 +6930,199 @@ def get_location_rules(player, options, prices):
         "Mountain Village Springtime Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (15)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (16)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (17)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (18)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (19)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (20)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (21)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (22)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (23)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (24)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (25)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (26)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (27)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (28)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (29)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Grass (30)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         
         # Mountain Village Springtime Keaton Grass
         "Mountain Village Keaton Grass (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Keaton Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         
         # Mountain Village Spring Grotto Grass
@@ -7103,85 +7130,85 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Grotto Grass (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and 
                 has_soul_absurd(state, player, options, "Grass") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Great Bay Coast Grotto Grass -
@@ -9247,14 +9274,14 @@ def get_location_rules(player, options, prices):
         "Deku Butler Race Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_clear_woodfall(state, player) and 
+                can_clear_woodfall(state, player, boss_placements) and 
                 state.has("Progressive Sword", player) and 
                 has_bottle(state, player)
             ),
         "Deku Butler Race Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_clear_woodfall(state, player) and 
+                can_clear_woodfall(state, player, boss_placements) and 
                 state.has("Progressive Sword", player) and 
                 has_bottle(state, player)
             ),
@@ -9402,17 +9429,17 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Post Dungeon Witch Pot (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Witch Pot (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         "Southern Swamp Post Dungeon Witch Pot (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ),
         # Mountain Village Pots
         
@@ -10267,17 +10294,17 @@ def get_location_rules(player, options, prices):
         "Mountain Village Springtime Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Springtime Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Romani Ranch Pots
@@ -10853,6 +10880,11 @@ def get_location_rules(player, options, prices):
                 can_use_ice_arrows(state, player)
             ),
         "Great Bay Temple Red Green Pipe Tunnel Room Pots (11)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                can_use_ice_arrows(state, player)
+            ),
+        "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 can_use_ice_arrows(state, player)
@@ -14046,210 +14078,210 @@ def get_location_rules(player, options, prices):
         "Deku Butler Rupees (0)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (1)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (2)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (3)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (4)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (5)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (6)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (7)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (8)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (9)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (10)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (11)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (12)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (13)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (14)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (15)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (16)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (17)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (18)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (19)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (20)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (21)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (22)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (23)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (24)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (25)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (26)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (27)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (28)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
         "Deku Butler Rupees (29)":
             lambda state: (
                 state.can_reach("Deku Palace", 'Region', player) and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Progressive Sword", player) and
                 has_bottle(state, player)
             ),
@@ -14324,31 +14356,31 @@ def get_location_rules(player, options, prices):
             ),
         # Mountain Village Spring Boulder Under Smithy Rupee
         "Mountain Village Spring Boulder Under Smithy Rupee":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: can_clear_snowhead(state, player, boss_placements),
 
         # Twin Islands Spring Underwater Rupees
         "Twin Islands Spring Underwater Rupees (0)":
             lambda state: (
                 state.can_reach("Twin Islands", 'Region', player) and
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 state.has("Zora Mask", player)
             ),
         "Twin Islands Spring Underwater Rupees (1)":
             lambda state: (
                 state.can_reach("Twin Islands", 'Region', player) and
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 state.has("Zora Mask", player)
             ),
         "Twin Islands Spring Underwater Rupees (2)":
             lambda state: (
                 state.can_reach("Twin Islands", 'Region', player) and
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 state.has("Zora Mask", player)
             ),
         "Twin Islands Spring Underwater Rupees (3)":
             lambda state: (
                 state.can_reach("Twin Islands", 'Region', player) and
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 state.has("Zora Mask", player)
             ),
 
@@ -14390,7 +14422,12 @@ def get_location_rules(player, options, prices):
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' ' Fortress Sewers Rupees Under Barrel (3)":
+        "Pirates' Fortress Sewers Rupees Under Barrel (2)":
+            lambda state: (
+                state.has("Zora Mask", player) and
+                state.has("Goron Mask", player)
+            ),
+        "Pirates' Fortress Sewers Rupees Under Barrel (3)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
@@ -14995,6 +15032,8 @@ def get_location_rules(player, options, prices):
             lambda state: can_break_balls(state, player),
         "Mountain Village Day 1 Snowballs (12)":
             lambda state: can_break_balls(state, player),
+        "Mountain Village Day 1 Snowballs (13)":
+            lambda state: can_break_balls(state, player),
 
         # Snowballs Outside Goron Graveyard
         "Snowballs Outside Goron Graveyard (0)":
@@ -15331,23 +15370,23 @@ def get_location_rules(player, options, prices):
         # Mountain Village Spring Snowballs
         "Mountain Village Spring Snowballs (0)":
             lambda state: (
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Snowballs (1)":
             lambda state: (
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Snowballs (2)":
             lambda state: (
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Snowballs (3)":
             lambda state: (
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Snowballs (4)":
             lambda state: (
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),    
         # ROCKS
 
@@ -15635,48 +15674,48 @@ def get_location_rules(player, options, prices):
         "Mountain Village Boulders Under Stairs (0)":
             lambda state: (
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Boulders Under Stairs (1)":
             lambda state: (
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Boulders Under Stairs (2)":
             lambda state: (
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),                                      
         
         "Mountain Village Spring Rock Triangle (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Rock Triangle (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Rock Triangle (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Rock Triangle (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Rock Triangle (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Mountain Village Spring Outside Goron Graveyard
@@ -15684,30 +15723,30 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Outside Goron Graveyard Rocks (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
                 state.can_reach("Mountain Village", 'Region', player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Twin Isles Spring Above Grotto Rocks
         "Twin Isles Spring Above Grotto Rocks (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Isles Spring Above Grotto Rocks (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Isles Spring Above Grotto Rocks (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")  and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         # Great Bay Coast Scattered Beach Rocks
         "Great Bay Coast Scattered Beach Rocks (0)":
@@ -15830,6 +15869,11 @@ def get_location_rules(player, options, prices):
         "Zora Cape Beach Rocks (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Rocks")
+            ),
+        "Zora Cape Boulder Over Grotto":
+            lambda state: (
+                state.has("Goron Mask", player) or 
+                has_explosives(state, player)
             ),
 
         # Zora Cape Island Rocks (Req Hook)
@@ -16220,7 +16264,7 @@ def get_location_rules(player, options, prices):
                 can_warp_out(state, player, options)
             ),
         "Goron Village Keg Goron Crate (Spring) (1)":
-            lambda state: can_clear_snowhead(state, player),
+            lambda state: can_clear_snowhead(state, player, boss_placements),
 
         # Ocean Spider House
 
@@ -17166,10 +17210,7 @@ def get_location_rules(player, options, prices):
         # Mountain Village Spring Hives
 
         "Mountain Village Spring Tree Hive (1)":
-            lambda state: (
-                can_clear_snowhead(state, player) and
-                has_projectiles(state, player)
-            ),
+            lambda state: can_clear_snowhead(state, player, boss_placements),
         "Great Bay Coast Cow Grotto Hive":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
@@ -17202,7 +17243,7 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         # Path to Snowhead Scarecrows
         "Path to Snowhead Scarecrow":
@@ -17217,7 +17258,7 @@ def get_location_rules(player, options, prices):
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
                 can_use_lens(state, player) and
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 state.can_reach("Snowhead", 'Region', player)
 
             ),
@@ -17231,7 +17272,7 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_soul_npc(state, player, options, "Scarecrow") and
                 state.has("Ocarina of Time", player) and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         # Snowhead Temple Scarecrows
         "Snowhead Temple Lower Scarecrow":
@@ -17379,7 +17420,7 @@ def get_location_rules(player, options, prices):
         
         "Southern Swamp Near Witch Post Dungeon Gossip Fairy":
             lambda state: (
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
                     can_play_song("Epona's Song", state, player) or
@@ -17450,7 +17491,7 @@ def get_location_rules(player, options, prices):
 
         "Mountain Village Spring Waterfall Gossip Fairy":
             lambda state: (
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
                     can_play_song("Epona's Song", state, player) or
@@ -17459,7 +17500,7 @@ def get_location_rules(player, options, prices):
             ),
         "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
             lambda state: (
-                can_clear_snowhead(state, player) and
+                can_clear_snowhead(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
                     can_play_song("Epona's Song", state, player) or
@@ -17975,47 +18016,47 @@ def get_location_rules(player, options, prices):
         "Mountain Village Spring Day Butterfly (1)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ), 
         "Mountain Village Spring Day Butterfly (2)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Day Butterfly (3)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Spring Day Butterfly (4)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Spring Day Butterfly (5)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Spring Day Butterfly (6)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Spring Day Butterfly (7)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),   
         "Mountain Village Spring Day Butterfly (8)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),  
         "Mountain Village Spring Day Butterfly (9)":
             lambda state: (
                 has_soul_misc(state, player, options, "Butterflies") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Great Bay Coast Butterflies
@@ -18517,28 +18558,25 @@ def get_location_rules(player, options, prices):
         "Twin Islands (Spring) Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands (Spring) Tree (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands (Spring) Tree (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                can_clear_snowhead(state, player)
-                and (
-                    state.has("Goron Mask", player) 
-                    or (
-                        state.has("Hookshot", player) 
-                        and state.has("Twin Islands Scarecrow", player) 
-                        and has_soul_npc(state, player, options, "Scarecrow")
-                    )
-                )
+                can_clear_snowhead(state, player, boss_placements)
             ),
 
         # Path To Snowhead - 
+        "Path To Snowhead Tree Near Ledge":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Mountain Village", 'Region', player)
+            ),
         "Path To Snowhead Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
@@ -18893,7 +18931,7 @@ def get_location_rules(player, options, prices):
         "Great Bay Coast Fisherman Island Nut Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                can_clear_greatbay(state, player)
+                can_clear_greatbay(state, player, boss_placements)
             ),
 
         # Zora Cape Nut Trees 
@@ -19674,20 +19712,20 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Post Dungeon Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Deku Mask", player) 
             ),
         "Southern Swamp Post Dungeon Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                can_clear_woodfall(state, player) and
+                can_clear_woodfall(state, player, boss_placements) and
                 state.has("Deku Mask", player) 
             ),
         "Southern Swamp Post Dungeon Business Scrub Flower":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                can_clear_woodfall(state, player)
+                can_clear_woodfall(state, player, boss_placements)
             ), 
             #Snowhead Flowers
         "Goron Village Business Scrub Flower":
@@ -20038,7 +20076,7 @@ def get_location_rules(player, options, prices):
         "Southern Swamp Outside Woods of Mystery Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Southern Swamp (Clear State) Witch's Hut Cut the Sign":
-            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_woodfall(state, player),
+            lambda state: has_soul_absurd(state, player, options, "Signs") and can_clear_woodfall(state, player, boss_placements),
         "Woods of Mystery Cut the Sign Day 1 (1)":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Woods of Mystery Cut the Sign Day 1 (2)":
@@ -20137,22 +20175,22 @@ def get_location_rules(player, options, prices):
         "Mountain Village Owl Statue Spring Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Near Graveyard Pond Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Mountain Village Spring Path to Twin Islands Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Twin Islands Spring Outside Goron Racetrack Cut the Sign":
             lambda state: (
                 has_soul_absurd(state, player, options, "Signs") and 
-                can_clear_snowhead(state, player)
+                can_clear_snowhead(state, player, boss_placements)
             ),
         "Romani Ranch Epona Stable Cut the Sign":
             lambda state: (
@@ -20176,7 +20214,7 @@ def get_location_rules(player, options, prices):
         "Great Bay Coast Rock Pools Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Great Bay Coast (Clear) Fisherman Boat Cut the Sign":
-            lambda state: can_clear_greatbay(state, player) and has_soul_absurd(state, player, options, "Signs"),
+            lambda state: can_clear_greatbay(state, player, boss_placements) and has_soul_absurd(state, player, options, "Signs"),
         "Zora Cape Jar Game Cut the Sign":
             lambda state: has_soul_absurd(state, player, options, "Signs"),
         "Zora Cape Waterfall Cut the Sign":
@@ -20216,7 +20254,7 @@ def get_location_rules(player, options, prices):
                 )
             ),
         "Swamp Spider House Entrance Web Cleared Swamp":
-            lambda state: can_clear_woodfall(state, player),
+            lambda state: can_clear_woodfall(state, player, boss_placements),
         "Woodfall Temple Web Leading to Dark Room":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
@@ -20436,6 +20474,10 @@ def get_location_rules(player, options, prices):
         "Link Trial Bombable Wall Final Door":
             lambda state: (
                 has_bombchus(state, player)
+            ),
+        "Goron Trial Chests":
+            lambda state: (
+                state.has("Goron Mask", player)
             ),
         "Majora's Soul":
             lambda state: (
