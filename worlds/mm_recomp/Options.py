@@ -334,10 +334,11 @@ class IntroChecks(Toggle):
 
 class Grasssanity(Choice):
     """Choose how grass is shuffled into the pool.
-    normal: all grass.
-    no_termina_field: all grass except Termina Field (including its grottos).
-    grotto_and_cave_only: only grass found in grottos and caves.
-    dungeon_only: only grass found in dungeons."""
+    
+    normal: All grass found throughout the game is shuffled.
+    no_termina_field: All grass except Termina Field (including its grottos).
+    grotto_and_cave_only: Only grass found in grottos and caves.
+    dungeon_only: Only grass found in dungeons."""
     display_name = "Grasssanity"
     option_off = 0
     option_normal = 1
