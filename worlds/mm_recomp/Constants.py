@@ -150,6 +150,7 @@ class HintEnum(Enum):
     HD_3 = auto() # honey and darling all days
     DP_3 = auto() # deku playground all days
     BEAVERS = auto() # both beaver rewards
+    ANJU_KAFEI = auto() # final anju and kafei reward
 
 priority_hints = [
     HintEnum.DEKU,
@@ -168,6 +169,7 @@ other_hints = [
     HintEnum.HD_3,
     HintEnum.DP_3,
     HintEnum.BEAVERS,
+    HintEnum.ANJU_KAFEI,
 ]
 
 gossip_stones = {

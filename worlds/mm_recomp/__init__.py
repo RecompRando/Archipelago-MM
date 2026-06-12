@@ -736,6 +736,8 @@ class MMRWorld(World):
                     "player": extra_location.item.player,
                     "location_id": extra_location.address
                 }
+            elif hint_choice == HintEnum.ANJU_KAFEI:
+                hint_location = "Stock Pot Inn Anju and Kafei"
 
             # hint revolves around an item
             if hint_item:
