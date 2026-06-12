@@ -517,6 +517,14 @@ class MagicIsATrap(Toggle):
     display_name = "Magic Is a Trap"
 
 
+class UsefulHints(Range):
+    """The percentage of gossip stones which provide useful hints for items placed within the multiworld."""
+    display_name = "Useful Hint Percentage"
+    range_start = 0
+    range_end = 100
+    default = 70
+
+
 class DamageMultiplier(Choice):
     """Adjust the amount of damage taken."""
     display_name = "Damage Multiplier"
@@ -626,6 +634,7 @@ class MMROptions(PerGameCommonOptions):
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
     magic_is_a_trap: MagicIsATrap
+    hint_percentage: UsefulHints
     damage_multiplier: DamageMultiplier
     death_behavior: DeathBehavior
     death_link: DeathLink
