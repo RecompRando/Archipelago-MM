@@ -667,16 +667,19 @@ class MMRWorld(World):
 
         # Fill moon gossip stones with their original mask hints
         for gossip_stone, item in moon_gossip_lookup.items():
-            location = mw.find_item(item, player)
-            hints[gossip_stone]["item"] = item
-            hints[gossip_stone]["item_type"] = ItemClassification.progression
-            hints[gossip_stone]["location"] = location.name
-            hints[gossip_stone]["location_id"] = location.address
-            hints[gossip_stone]["from_player"] = location.player
-            hints[gossip_stone]["to_player"] = location.item.player # redundant for moon gossips
-            hints[gossip_stone]["region"] = location.parent_region.name or "" # might not exist sometimes?
-            hints[gossip_stone]["type"] = HintEnum.MOON.value
-            hints[gossip_stone]["filled"] = True
+            try:
+                location = mw.find_item(item, player)
+                hints[gossip_stone]["item"] = item
+                hints[gossip_stone]["item_type"] = ItemClassification.progression
+                hints[gossip_stone]["location"] = location.name
+                hints[gossip_stone]["location_id"] = location.address
+                hints[gossip_stone]["from_player"] = location.player
+                hints[gossip_stone]["to_player"] = location.item.player # redundant for moon gossips
+                hints[gossip_stone]["region"] = location.parent_region.name or "" # might not exist sometimes?
+                hints[gossip_stone]["type"] = HintEnum.MOON.value
+                hints[gossip_stone]["filled"] = True
+            except StopIteration:
+                continue # replaces hint with junk (starting item from pool)
 
         hint_count = 0
         hint_pool = []
@@ -741,16 +744,19 @@ class MMRWorld(World):
 
             # hint revolves around an item
             if hint_item:
-                location = mw.find_item(hint_item, player)
-                hints[fill_choice]["item"] = hint_item
-                hints[fill_choice]["location"] = location.name
-                hints[fill_choice]["item_type"] = location.item.classification
-                hints[fill_choice]["location_id"] = location.address
-                hints[fill_choice]["from_player"] = location.player
-                hints[fill_choice]["to_player"] = location.item.player # equal to current slot
-                hints[fill_choice]["region"] = location.parent_region.name # might not exist sometimes?
-                hints[fill_choice]["type"] = hint_choice.value
-                hints[fill_choice]["filled"] = True
+                try:
+                    location = mw.find_item(hint_item, player)
+                    hints[fill_choice]["item"] = hint_item
+                    hints[fill_choice]["location"] = location.name
+                    hints[fill_choice]["item_type"] = location.item.classification
+                    hints[fill_choice]["location_id"] = location.address
+                    hints[fill_choice]["from_player"] = location.player
+                    hints[fill_choice]["to_player"] = location.item.player # equal to current slot
+                    hints[fill_choice]["region"] = location.parent_region.name # might not exist sometimes?
+                    hints[fill_choice]["type"] = hint_choice.value
+                    hints[fill_choice]["filled"] = True
+                except StopIteration:
+                    continue # ignore hint where item isn't found (starting item from pool)
             elif hint_location:
                 location = mw.get_location(hint_location, player)
                 hints[fill_choice]["item"] = location.item.name
