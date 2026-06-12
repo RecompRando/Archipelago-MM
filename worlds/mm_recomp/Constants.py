@@ -733,3 +733,9 @@ mm_bosses = [
 	"Gyorg's Lair",
 	"Twinmold's Lair",
 ]
+
+GRASS_OFF = 0
+GRASS_NORMAL = 1
+GRASS_NO_TERMINA_FIELD = 2
+GRASS_GROTTO_AND_CAVE_ONLY = 3
+GRASS_DUNGEON_ONLY = 4

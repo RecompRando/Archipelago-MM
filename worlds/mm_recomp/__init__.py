@@ -6,7 +6,7 @@ from BaseClasses import Region, Location, Tutorial, EntranceType
 from worlds.AutoWorld import WebWorld, World
 from entrance_rando import randomize_entrances, disconnect_entrance_for_randomization
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, location_name_groups
 from .Options import MMROptions
 from .Regions import region_data_table, get_exit
 from .Rules import *
@@ -39,6 +39,7 @@ class MMRWorld(World):
     options_dataclass = MMROptions
     options = MMROptions
     location_name_to_id = location_table
+    location_name_groups = location_name_groups
     item_name_to_id = item_table
     
     shop_prices = List[int]
@@ -158,11 +159,22 @@ class MMRWorld(World):
         if self.options.intro_checks.value:
             filler_amount += 1
     
-        if self.options.intro_checks.value and self.options.grasssanity.value:
+        grass_mode = self.options.grasssanity.value
+        if grass_mode == 1:  # normal
+            grass_filler = 1022
+        elif grass_mode == 2:  # no_termina_field
+            grass_filler = 682
+        elif grass_mode == 3:  # grotto_and_cave_only
+            grass_filler = 415
+        elif grass_mode == 4:  # dungeon_only
+            grass_filler = 112
+        else:
+            grass_filler = 0
+
+        if self.options.intro_checks.value and grass_mode in (1, 2):
             filler_amount += 51
-        
-        if self.options.grasssanity.value != 0:
-            filler_amount += 1022
+
+        filler_amount += grass_filler
 
         if self.options.potsanity.value != 0:
             filler_amount += 542

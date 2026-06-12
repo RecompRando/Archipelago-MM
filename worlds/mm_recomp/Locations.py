@@ -2,6 +2,14 @@ from typing import Callable, Dict, NamedTuple, Optional
 
 from BaseClasses import Location, MultiWorld
 
+from .Constants import (
+    GRASS_OFF,
+    GRASS_NORMAL,
+    GRASS_NO_TERMINA_FIELD,
+    GRASS_GROTTO_AND_CAVE_ONLY,
+    GRASS_DUNGEON_ONLY,
+)
+
 
 class MMRLocation(Location):
     game = "Majora's Mask Recompiled"
@@ -23,6 +31,21 @@ def can_create_heart_location(shp, c_or_p, loc_index):
         return starting_containers + starting_pieces + shuffled_containers + shuffled_pieces >= loc_index
     else:
         return True
+
+
+def grass_enabled(options, is_termina_field=False, is_grotto_or_cave=False, is_dungeon=False):
+    mode = options.grasssanity.value
+    if mode == GRASS_OFF:
+        return False
+    if mode == GRASS_NORMAL:
+        return True
+    if mode == GRASS_NO_TERMINA_FIELD:
+        return not is_termina_field
+    if mode == GRASS_GROTTO_AND_CAVE_ONLY:
+        return is_grotto_or_cave
+    if mode == GRASS_DUNGEON_ONLY:
+        return is_dungeon
+    return False
 
 location_data_table: Dict[str, MMRLocationData] = {
     "Link's Inventory (Ocarina of Time)": MMRLocationData(
@@ -1856,2379 +1879,2379 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Before Clock Town Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x131A09,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x131A10,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),    
     "Before Clock Town Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x131A0A,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x131A0B,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x131A0C,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x131A0D,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x131A0E,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x131A0F,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x131A11,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),        
     "Before Clock Town Skullkid Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x131A00,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Skullkid Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x131A01,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Skullkid Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x131A02,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Skullkid Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x131A03,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),    
     "Before Clock Town Skullkid Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x131A04,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),    
     "Before Clock Town Skullkid Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x131A05,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),    
     "Before Clock Town Skullkid Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x131A06,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Skullkid Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x131A07,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Before Clock Town Skullkid Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x131A08,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x146511,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x146516,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x146515,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x146510,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x146514,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x146512,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x146519,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x146518,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x146513,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (10)": MMRLocationData(
         region="Clock Town",
         address=0x146517,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (11)": MMRLocationData(
         region="Clock Town",
         address=0x14651A,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass (12)": MMRLocationData(
         region="Clock Town",
         address=0x14651B,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
 
     "Lost Woods Grass Patch 2 (1)": MMRLocationData(
         region="Clock Town",
         address=0x146505,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (2)": MMRLocationData(
         region="Clock Town",
         address=0x146500,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (3)": MMRLocationData(
         region="Clock Town",
         address=0x14650B,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (4)": MMRLocationData(
         region="Clock Town",
         address=0x146504,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (5)": MMRLocationData(
         region="Clock Town",
         address=0x14650A,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (6)": MMRLocationData(
         region="Clock Town",
         address=0x146509,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (7)": MMRLocationData(
         region="Clock Town",
         address=0x146508,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (8)": MMRLocationData(
         region="Clock Town",
         address=0x146503,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (9)": MMRLocationData(
         region="Clock Town",
         address=0x146502,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (10)": MMRLocationData(
         region="Clock Town",
         address=0x146501,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (11)": MMRLocationData(
         region="Clock Town",
         address=0x146506,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Grass Patch 2 (12)": MMRLocationData(
         region="Clock Town",
         address=0x146507,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x136502,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x136501,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x136507,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x136506,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x136505,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x136504,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x136503,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x136500,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Lost Woods Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x136508,
-        can_create=lambda options: options.intro_checks.value and options.grasssanity.value
+        can_create=lambda options: options.intro_checks.value and grass_enabled(options)
     ),
     "Laundry Pool Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x127000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Laundry Pool Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x127001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Laundry Pool Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x127002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # North Clock Town Keaton Grass
     "North Clock Town Keaton Grass (1)": MMRLocationData(
         region="Clock Town",
         address=0x136E00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (2)": MMRLocationData(
         region="Clock Town",
         address=0x136E01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (3)": MMRLocationData(
         region="Clock Town",
         address=0x136E02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (4)": MMRLocationData(
         region="Clock Town",
         address=0x136E03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (5)": MMRLocationData(
         region="Clock Town",
         address=0x136E04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (6)": MMRLocationData(
         region="Clock Town",
         address=0x136E05,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (7)": MMRLocationData(
         region="Clock Town",
         address=0x136E06,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (8)": MMRLocationData(
         region="Clock Town",
         address=0x136E07,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "North Clock Town Keaton Grass (9)": MMRLocationData(
         region="Clock Town",
         address=0x136E08,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Termina Field 
 
     "Termina Field Grass Near Western Water Ramp (1)": MMRLocationData(
         region="Termina Field",
         address=0x1002D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (2)": MMRLocationData(
         region="Termina Field",
         address=0x1002D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (3)": MMRLocationData(
         region="Termina Field",
         address=0x1002D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (4)": MMRLocationData(
         region="Termina Field",
         address=0x1002D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (5)": MMRLocationData(
         region="Termina Field",
         address=0x1002D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (6)": MMRLocationData(
         region="Termina Field",
         address=0x1002D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (7)": MMRLocationData(
         region="Termina Field",
         address=0x1002D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (8)": MMRLocationData(
         region="Termina Field",
         address=0x1002D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (9)": MMRLocationData(
         region="Termina Field",
         address=0x1002D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (10)": MMRLocationData(
         region="Termina Field",
         address=0x1002D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (11)": MMRLocationData(
         region="Termina Field",
         address=0x1002DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Water Ramp (12)": MMRLocationData(
         region="Termina Field",
         address=0x1002DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (1)": MMRLocationData(
         region="Termina Field",
         address=0x1012D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (2)": MMRLocationData(
         region="Termina Field",
         address=0x1012D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (3)": MMRLocationData(
         region="Termina Field",
         address=0x1012D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (4)": MMRLocationData(
         region="Termina Field",
         address=0x1012D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (5)": MMRLocationData(
         region="Termina Field",
         address=0x1012D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (6)": MMRLocationData(
         region="Termina Field",
         address=0x1012D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (7)": MMRLocationData(
         region="Termina Field",
         address=0x1012D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (8)": MMRLocationData(
         region="Termina Field",
         address=0x1012D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (9)": MMRLocationData(
         region="Termina Field",
         address=0x1012D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (10)": MMRLocationData(
         region="Termina Field",
         address=0x1012D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (11)": MMRLocationData(
         region="Termina Field",
         address=0x1012DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri Gossip Tree (12)": MMRLocationData(
         region="Termina Field",
         address=0x1012DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (1)": MMRLocationData(
         region="Termina Field",
         address=0x1022D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (2)": MMRLocationData(
         region="Termina Field",
         address=0x1022D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (3)": MMRLocationData(
         region="Termina Field",
         address=0x1022D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (4)": MMRLocationData(
         region="Termina Field",
         address=0x1022D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (5)": MMRLocationData(
         region="Termina Field",
         address=0x1022D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (6)": MMRLocationData(
         region="Termina Field",
         address=0x1022D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (7)": MMRLocationData(
         region="Termina Field",
         address=0x1022D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (8)": MMRLocationData(
         region="Termina Field",
         address=0x1022D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (9)": MMRLocationData(
         region="Termina Field",
         address=0x1022D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (10)": MMRLocationData(
         region="Termina Field",
         address=0x1022D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (11)": MMRLocationData(
         region="Termina Field",
         address=0x1022DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Southwest Above Rock Ledge (12)": MMRLocationData(
         region="Termina Field",
         address=0x1022DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (1)": MMRLocationData(
         region="Termina Field",
         address=0x1032D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (2)": MMRLocationData(
         region="Termina Field",
         address=0x1032D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (3)": MMRLocationData(
         region="Termina Field",
         address=0x1032D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (4)": MMRLocationData(
         region="Termina Field",
         address=0x1032D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (5)": MMRLocationData(
         region="Termina Field",
         address=0x1032D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (6)": MMRLocationData(
         region="Termina Field",
         address=0x1032D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (7)": MMRLocationData(
         region="Termina Field",
         address=0x1032D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (8)": MMRLocationData(
         region="Termina Field",
         address=0x1032D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (9)": MMRLocationData(
         region="Termina Field",
         address=0x1032D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (10)": MMRLocationData(
         region="Termina Field",
         address=0x1032D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (11)": MMRLocationData(
         region="Termina Field",
         address=0x1032DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Western Fountains (12)": MMRLocationData(
         region="Termina Field",
         address=0x1032DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (1)": MMRLocationData(
         region="Termina Field",
         address=0x1042D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (2)": MMRLocationData(
         region="Termina Field",
         address=0x1042D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (3)": MMRLocationData(
         region="Termina Field",
         address=0x1042D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (4)": MMRLocationData(
         region="Termina Field",
         address=0x1042D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (5)": MMRLocationData(
         region="Termina Field",
         address=0x1042D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (6)": MMRLocationData(
         region="Termina Field",
         address=0x1042D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (7)": MMRLocationData(
         region="Termina Field",
         address=0x1042D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (8)": MMRLocationData(
         region="Termina Field",
         address=0x1042D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (9)": MMRLocationData(
         region="Termina Field",
         address=0x1042D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (10)": MMRLocationData(
         region="Termina Field",
         address=0x1042D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (11)": MMRLocationData(
         region="Termina Field",
         address=0x1042DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Takkuri (12)": MMRLocationData(
         region="Termina Field",
         address=0x1042DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (1)": MMRLocationData(
         region="Termina Field",
         address=0x1052D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (2)": MMRLocationData(
         region="Termina Field",
         address=0x1052D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (3)": MMRLocationData(
         region="Termina Field",
         address=0x1052D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (4)": MMRLocationData(
         region="Termina Field",
         address=0x1052D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (5)": MMRLocationData(
         region="Termina Field",
         address=0x1052D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (6)": MMRLocationData(
         region="Termina Field",
         address=0x1052D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (7)": MMRLocationData(
         region="Termina Field",
         address=0x1052D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (8)": MMRLocationData(
         region="Termina Field",
         address=0x1052D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (9)": MMRLocationData(
         region="Termina Field",
         address=0x1052D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (10)": MMRLocationData(
         region="Termina Field",
         address=0x1052D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (11)": MMRLocationData(
         region="Termina Field",
         address=0x1052DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Kamaro (12)": MMRLocationData(
         region="Termina Field",
         address=0x1052DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x1062D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x1062D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x1062D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x1062D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x1062D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x1062D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x1062D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x1062D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x1062D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x1062D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x1062DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Peehat Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x1062DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (1)": MMRLocationData(
         region="Termina Field",
         address=0x1072D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (2)": MMRLocationData(
         region="Termina Field",
         address=0x1072D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (3)": MMRLocationData(
         region="Termina Field",
         address=0x1072D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (4)": MMRLocationData(
         region="Termina Field",
         address=0x1072D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (5)": MMRLocationData(
         region="Termina Field",
         address=0x1072D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (6)": MMRLocationData(
         region="Termina Field",
         address=0x1072D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (7)": MMRLocationData(
         region="Termina Field",
         address=0x1072D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (8)": MMRLocationData(
         region="Termina Field",
         address=0x1072D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (9)": MMRLocationData(
         region="Termina Field",
         address=0x1072D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (10)": MMRLocationData(
         region="Termina Field",
         address=0x1072D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (11)": MMRLocationData(
         region="Termina Field",
         address=0x1072DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass In Front of Log (12)": MMRLocationData(
         region="Termina Field",
         address=0x1072DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (1)": MMRLocationData(
         region="Termina Field",
         address=0x1082D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (2)": MMRLocationData(
         region="Termina Field",
         address=0x1082D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (3)": MMRLocationData(
         region="Termina Field",
         address=0x1082D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (4)": MMRLocationData(
         region="Termina Field",
         address=0x1082D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (5)": MMRLocationData(
         region="Termina Field",
         address=0x1082D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (6)": MMRLocationData(
         region="Termina Field",
         address=0x1082D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (7)": MMRLocationData(
         region="Termina Field",
         address=0x1082D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (8)": MMRLocationData(
         region="Termina Field",
         address=0x1082D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (9)": MMRLocationData(
         region="Termina Field",
         address=0x1082D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (10)": MMRLocationData(
         region="Termina Field",
         address=0x1082D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (11)": MMRLocationData(
         region="Termina Field",
         address=0x1082DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Northern Ramp (12)": MMRLocationData(
         region="Termina Field",
         address=0x1082DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x1092D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x1092D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x1092D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x1092D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x1092D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x1092D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x1092D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x1092D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x1092D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x1092D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x1092DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Grass Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x1092DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (1)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (2)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (3)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (4)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (5)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (6)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (7)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (8)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (9)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (10)": MMRLocationData(
         region="Termina Field",
         address=0x10A2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (11)": MMRLocationData(
         region="Termina Field",
         address=0x10A2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Below Southeast Hill Fence (12)": MMRLocationData(
         region="Termina Field",
         address=0x10A2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x10B2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x10B2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Bottom of Southeast Hill Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x10B2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (1)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (2)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (3)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (4)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (5)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (6)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (7)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (8)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (9)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (10)": MMRLocationData(
         region="Termina Field",
         address=0x10C2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (11)": MMRLocationData(
         region="Termina Field",
         address=0x10C2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillars (12)": MMRLocationData(
         region="Termina Field",
         address=0x10C2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x10D2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x10D2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Pillar Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x10D2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x10E2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x10E2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Middle of Southeast Hill Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x10E2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x10F2D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x10F2DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Business Scrub Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x10F2DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (1)": MMRLocationData(
         region="Termina Field",
         address=0x1102D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (2)": MMRLocationData(
         region="Termina Field",
         address=0x1102D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (3)": MMRLocationData(
         region="Termina Field",
         address=0x1102D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (4)": MMRLocationData(
         region="Termina Field",
         address=0x1102D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (5)": MMRLocationData(
         region="Termina Field",
         address=0x1102D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (6)": MMRLocationData(
         region="Termina Field",
         address=0x1102D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (7)": MMRLocationData(
         region="Termina Field",
         address=0x1102D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (8)": MMRLocationData(
         region="Termina Field",
         address=0x1102D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (9)": MMRLocationData(
         region="Termina Field",
         address=0x1102D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (10)": MMRLocationData(
         region="Termina Field",
         address=0x1102D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (11)": MMRLocationData(
         region="Termina Field",
         address=0x1102DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Observatory Fence (12)": MMRLocationData(
         region="Termina Field",
         address=0x1102DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (1)": MMRLocationData(
         region="Termina Field",
         address=0x1112D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (2)": MMRLocationData(
         region="Termina Field",
         address=0x1112D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (3)": MMRLocationData(
         region="Termina Field",
         address=0x1112D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (4)": MMRLocationData(
         region="Termina Field",
         address=0x1112D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (5)": MMRLocationData(
         region="Termina Field",
         address=0x1112D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (6)": MMRLocationData(
         region="Termina Field",
         address=0x1112D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (7)": MMRLocationData(
         region="Termina Field",
         address=0x1112D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (8)": MMRLocationData(
         region="Termina Field",
         address=0x1112D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (9)": MMRLocationData(
         region="Termina Field",
         address=0x1112D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (10)": MMRLocationData(
         region="Termina Field",
         address=0x1112D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (11)": MMRLocationData(
         region="Termina Field",
         address=0x1112DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     "Termina Field Grass Near Eastern Gossip Grotto (12)": MMRLocationData(
         region="Termina Field",
         address=0x1112DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True)
     ),
     # Termina Field Grass Grotto Grass
 
     "Termina Field Grass Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x12B040,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x12B041,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x12B042,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x12B043,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x12B044,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x12B045,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x12B046,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x12B047,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x12B048,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x12B049,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x12B04A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x12B04B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (13)": MMRLocationData(
         region="Termina Field",
         address=0x12B04C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Grass Grotto Grass (14)": MMRLocationData(
         region="Termina Field",
         address=0x12B04D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Cow Grotto Grass
 
     "Termina Field Cow Grotto Grass Group 1 (1)": MMRLocationData(
         region="Termina Field",
         address=0x100AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (2)": MMRLocationData(
         region="Termina Field",
         address=0x100AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (3)": MMRLocationData(
         region="Termina Field",
         address=0x100AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (4)": MMRLocationData(
         region="Termina Field",
         address=0x100AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (5)": MMRLocationData(
         region="Termina Field",
         address=0x100AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (6)": MMRLocationData(
         region="Termina Field",
         address=0x100AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (7)": MMRLocationData(
         region="Termina Field",
         address=0x100AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (8)": MMRLocationData(
         region="Termina Field",
         address=0x100AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (9)": MMRLocationData(
         region="Termina Field",
         address=0x100AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (10)": MMRLocationData(
         region="Termina Field",
         address=0x100AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (11)": MMRLocationData(
         region="Termina Field",
         address=0x100ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 1 (12)": MMRLocationData(
         region="Termina Field",
         address=0x100ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (1)": MMRLocationData(
         region="Termina Field",
         address=0x101AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (2)": MMRLocationData(
         region="Termina Field",
         address=0x101AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (3)": MMRLocationData(
         region="Termina Field",
         address=0x101AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (4)": MMRLocationData(
         region="Termina Field",
         address=0x101AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (5)": MMRLocationData(
         region="Termina Field",
         address=0x101AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (6)": MMRLocationData(
         region="Termina Field",
         address=0x101AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (7)": MMRLocationData(
         region="Termina Field",
         address=0x101AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (8)": MMRLocationData(
         region="Termina Field",
         address=0x101AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (9)": MMRLocationData(
         region="Termina Field",
         address=0x101AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (10)": MMRLocationData(
         region="Termina Field",
         address=0x101AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (11)": MMRLocationData(
         region="Termina Field",
         address=0x101ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 2 (12)": MMRLocationData(
         region="Termina Field",
         address=0x101ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (1)": MMRLocationData(
         region="Termina Field",
         address=0x102AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (2)": MMRLocationData(
         region="Termina Field",
         address=0x102AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (3)": MMRLocationData(
         region="Termina Field",
         address=0x102AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (4)": MMRLocationData(
         region="Termina Field",
         address=0x102AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (5)": MMRLocationData(
         region="Termina Field",
         address=0x102AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (6)": MMRLocationData(
         region="Termina Field",
         address=0x102AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (7)": MMRLocationData(
         region="Termina Field",
         address=0x102AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (8)": MMRLocationData(
         region="Termina Field",
         address=0x102AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (9)": MMRLocationData(
         region="Termina Field",
         address=0x102AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (10)": MMRLocationData(
         region="Termina Field",
         address=0x102AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (11)": MMRLocationData(
         region="Termina Field",
         address=0x102ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 3 (12)": MMRLocationData(
         region="Termina Field",
         address=0x102ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (1)": MMRLocationData(
         region="Termina Field",
         address=0x103AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (2)": MMRLocationData(
         region="Termina Field",
         address=0x103AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (3)": MMRLocationData(
         region="Termina Field",
         address=0x103AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (4)": MMRLocationData(
         region="Termina Field",
         address=0x103AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (5)": MMRLocationData(
         region="Termina Field",
         address=0x103AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (6)": MMRLocationData(
         region="Termina Field",
         address=0x103AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (7)": MMRLocationData(
         region="Termina Field",
         address=0x103AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (8)": MMRLocationData(
         region="Termina Field",
         address=0x103AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (9)": MMRLocationData(
         region="Termina Field",
         address=0x103AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (10)": MMRLocationData(
         region="Termina Field",
         address=0x103AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (11)": MMRLocationData(
         region="Termina Field",
         address=0x103ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 4 (12)": MMRLocationData(
         region="Termina Field",
         address=0x103ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (1)": MMRLocationData(
         region="Termina Field",
         address=0x104AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (2)": MMRLocationData(
         region="Termina Field",
         address=0x104AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (3)": MMRLocationData(
         region="Termina Field",
         address=0x104AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (4)": MMRLocationData(
         region="Termina Field",
         address=0x104AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (5)": MMRLocationData(
         region="Termina Field",
         address=0x104AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (6)": MMRLocationData(
         region="Termina Field",
         address=0x104AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (7)": MMRLocationData(
         region="Termina Field",
         address=0x104AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (8)": MMRLocationData(
         region="Termina Field",
         address=0x104AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (9)": MMRLocationData(
         region="Termina Field",
         address=0x104AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (10)": MMRLocationData(
         region="Termina Field",
         address=0x104AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (11)": MMRLocationData(
         region="Termina Field",
         address=0x104ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 5 (12)": MMRLocationData(
         region="Termina Field",
         address=0x104ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (1)": MMRLocationData(
         region="Termina Field",
         address=0x105AD0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (2)": MMRLocationData(
         region="Termina Field",
         address=0x105AD1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (3)": MMRLocationData(
         region="Termina Field",
         address=0x105AD2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (4)": MMRLocationData(
         region="Termina Field",
         address=0x105AD3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (5)": MMRLocationData(
         region="Termina Field",
         address=0x105AD4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (6)": MMRLocationData(
         region="Termina Field",
         address=0x105AD5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (7)": MMRLocationData(
         region="Termina Field",
         address=0x105AD6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (8)": MMRLocationData(
         region="Termina Field",
         address=0x105AD7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (9)": MMRLocationData(
         region="Termina Field",
         address=0x105AD8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (10)": MMRLocationData(
         region="Termina Field",
         address=0x105AD9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (11)": MMRLocationData(
         region="Termina Field",
         address=0x105ADA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Cow Grotto Grass Group 6 (12)": MMRLocationData(
         region="Termina Field",
         address=0x105ADB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Peehat Grotto Grass
 
     "Termina Field Peehat Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x1008D0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x1008D1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x1008D2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x1008D3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x1008D4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x1008D5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x1008D6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x1008D7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x1008D8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x1008D9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x1008DA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Peehat Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x1008DB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Bio Baba Grotto Grass
 
     "Termina Field Bio Baba Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x128BB0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Bio Baba Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x128BB1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Eastern Gossip Grotto Grass
 
     "Termina Field Eastern Gossip Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x128220,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Gossip Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x128221,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Gossip Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x128222,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Gossip Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x128223,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Gossip Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x128224,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Eastern Pillar Grotto Grass
     "Termina Field Eastern Pillar Grotto Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x12AB46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x12AB40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x12AB48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x12AB43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x12AB41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (6)": MMRLocationData(
         region="Termina Field",
         address=0x12AB47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (7)": MMRLocationData(
         region="Termina Field",
         address=0x12AB4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (8)": MMRLocationData(
         region="Termina Field",
         address=0x12AB4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (9)": MMRLocationData(
         region="Termina Field",
         address=0x12AB45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (10)": MMRLocationData(
         region="Termina Field",
         address=0x12AB4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (11)": MMRLocationData(
         region="Termina Field",
         address=0x12AB42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (12)": MMRLocationData(
         region="Termina Field",
         address=0x12AB44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (13)": MMRLocationData(
         region="Termina Field",
         address=0x12AB49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Eastern Pillar Grotto Grass (14)": MMRLocationData(
         region="Termina Field",
         address=0x12AB4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Termina Field Bombable Rock Grass
 
     "Termina Field Bombable Rock Grass (1)": MMRLocationData(
         region="Termina Field",
         address=0x128000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Bombable Rock Grass (2)": MMRLocationData(
         region="Termina Field",
         address=0x128001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Bombable Rock Grass (3)": MMRLocationData(
         region="Termina Field",
         address=0x128002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Bombable Rock Grass (4)": MMRLocationData(
         region="Termina Field",
         address=0x128003,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     "Termina Field Bombable Rock Grass (5)": MMRLocationData(
         region="Termina Field",
         address=0x128004,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_termina_field=True, is_grotto_or_cave=True)
     ),
     # Road to Southern Swamp
      
     "Road to Southern Swamp Outside Archery Grass (1)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x124000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Outside Archery Grass (2)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x124001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (1)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100400,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (2)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100401,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (3)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100402,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (4)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100403,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (5)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100404,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (6)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100405,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (7)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100406,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (8)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100407,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (9)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x100408,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (10)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101400,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (11)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101401,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (12)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101402,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (13)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101403,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (14)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101404,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (15)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101405,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (16)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101406,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (17)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101407,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Road to Southern Swamp Grass (18)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x101408,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Road to Southern Swamp Grotto
     "Road to Southern Swamp Grotto Grass (1)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (2)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (3)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (4)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (5)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (6)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (7)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (8)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (9)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (10)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (11)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (12)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (13)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road to Southern Swamp Grotto Grass (14)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x12AF4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     # Southern Swamp
 
     "Southern Swamp Owl Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x124500,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Owl Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x124501,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x100450,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x100451,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x100452,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x100453,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x100454,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x100455,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x100456,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x100457,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x100458,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x100459,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x10045A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Tourist Centre (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x10045B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x102450,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x102451,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x102452,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x102453,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x102454,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x102455,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x102456,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x102457,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x102458,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x103450,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x103451,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x103452,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (13)": MMRLocationData(
         region="Southern Swamp",
         address=0x103453,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (14)": MMRLocationData(
         region="Southern Swamp",
         address=0x103454,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (15)": MMRLocationData(
         region="Southern Swamp",
         address=0x103455,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (16)": MMRLocationData(
         region="Southern Swamp",
         address=0x103456,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (17)": MMRLocationData(
         region="Southern Swamp",
         address=0x103457,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Grass Near Witch Shop (18)": MMRLocationData(
         region="Southern Swamp",
         address=0x103458,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Near Gossip Stone Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x124520,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Near Gossip Stone Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x124521,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),              
 
     # Woods of Mystery
@@ -4236,834 +4259,834 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Woods of Mystery Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x126410,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x126412,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x126411,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x126400,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x126401,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x126431,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x126430,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x126442,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x126440,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x126441,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x126443,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x126450,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (13)": MMRLocationData(
         region="Southern Swamp",
         address=0x126451,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (14)": MMRLocationData(
         region="Southern Swamp",
         address=0x126482,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (15)": MMRLocationData(
         region="Southern Swamp",
         address=0x126484,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (16)": MMRLocationData(
         region="Southern Swamp",
         address=0x126481,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (17)": MMRLocationData(
         region="Southern Swamp",
         address=0x126480,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (18)": MMRLocationData(
         region="Southern Swamp",
         address=0x126483,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (19)": MMRLocationData(
         region="Southern Swamp",
         address=0x126471,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Grass (20)": MMRLocationData(
         region="Southern Swamp",
         address=0x126470,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Day 2 Unique Grass": MMRLocationData(
         region="Southern Swamp",
         address=0x126420,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Day 3 Unique Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x126460,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Day 3 Unique Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x126461,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woods of Mystery Day 2 Grotto Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (13)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Woods of Mystery Day 2 Grotto Grass (14)": MMRLocationData(
         region="Southern Swamp",
         address=0x12AD4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Southern Swamp Grotto
     "Southern Swamp Grotto Grass (1)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (2)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (3)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (4)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (5)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (6)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (7)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (8)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (9)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (10)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (11)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (12)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (13)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Southern Swamp Grotto Grass (14)": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
         address=0x12AE4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     #Deku Palace Bean Grotto Grass
     "Deku Palace Bean Grotto Grass (1)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (2)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (3)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (4)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (5)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (6)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (7)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (8)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (9)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (10)": MMRLocationData(
         region="Deku Palace",
         address=0x1008C9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (11)": MMRLocationData(
         region="Deku Palace",
         address=0x1008CA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Deku Palace Bean Grotto Grass (12)": MMRLocationData(
         region="Deku Palace",
         address=0x1008CB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Woodfall Grass
     "Woodfall Grass (1)": MMRLocationData(
         region="Woodfall",
         address=0x124600,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woodfall Grass (2)": MMRLocationData(
         region="Woodfall",
         address=0x124601,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woodfall Grass (3)": MMRLocationData(
         region="Woodfall",
         address=0x124602,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woodfall Grass (4)": MMRLocationData(
         region="Woodfall",
         address=0x124603,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woodfall Grass (5)": MMRLocationData(
         region="Woodfall",
         address=0x124604,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Woodfall Grass (6)": MMRLocationData(
         region="Woodfall",
         address=0x124605,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Southern Swamp After Dungeon Clear
     "Southern Swamp Owl Post Dungeon Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x120000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Owl Post Dungeon Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x120001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Milk Road Owl Grass
     "Milk Road Owl Grass (1)": MMRLocationData(
         region="Milk Road",
         address=0x122200,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Owl Grass (2)": MMRLocationData(
         region="Milk Road",
         address=0x122201,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Owl Grass (3)": MMRLocationData(
         region="Milk Road",
         address=0x122202,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Milk Road Keaton Grass
     "Milk Road Keaton Grass (1)": MMRLocationData(
         region="Milk Road",
         address=0x132200,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (2)": MMRLocationData(
         region="Milk Road",
         address=0x132201,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (3)": MMRLocationData(
         region="Milk Road",
         address=0x132202,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (4)": MMRLocationData(
         region="Milk Road",
         address=0x132203,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (5)": MMRLocationData(
         region="Milk Road",
         address=0x132204,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (6)": MMRLocationData(
         region="Milk Road",
         address=0x132205,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (7)": MMRLocationData(
         region="Milk Road",
         address=0x132206,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (8)": MMRLocationData(
         region="Milk Road",
         address=0x132207,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Keaton Grass (9)": MMRLocationData(
         region="Milk Road",
         address=0x132208,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Milk Road Gorman Racetrack Grass
     "Milk Road Gorman Racetrack Grass Group 1 (1)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (2)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (3)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (4)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (5)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (6)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (7)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (8)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (9)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (10)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006A9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (11)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006AA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 1 (12)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1006AB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (1)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (2)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (3)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (4)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (5)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (6)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (7)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (8)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (9)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (10)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016A9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (11)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016AA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Milk Road Gorman Racetrack Grass Group 2 (12)": MMRLocationData(
         region="Inside Gorman Brothers Track",
         address=0x1016AB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Romani Ranch Grass
     "Romani Ranch Grass In Front of Gossip Tree (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x100350,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x100351,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x100352,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x100353,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (5)": MMRLocationData(
         region="Romani Ranch",
         address=0x100354,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (6)": MMRLocationData(
         region="Romani Ranch",
         address=0x100355,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (7)": MMRLocationData(
         region="Romani Ranch",
         address=0x100356,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (8)": MMRLocationData(
         region="Romani Ranch",
         address=0x100357,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (9)": MMRLocationData(
         region="Romani Ranch",
         address=0x100358,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (10)": MMRLocationData(
         region="Romani Ranch",
         address=0x100359,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (11)": MMRLocationData(
         region="Romani Ranch",
         address=0x10035A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass In Front of Gossip Tree (12)": MMRLocationData(
         region="Romani Ranch",
         address=0x10035B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x101350,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x101351,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x101352,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x101353,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (5)": MMRLocationData(
         region="Romani Ranch",
         address=0x101354,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (6)": MMRLocationData(
         region="Romani Ranch",
         address=0x101355,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (7)": MMRLocationData(
         region="Romani Ranch",
         address=0x101356,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (8)": MMRLocationData(
         region="Romani Ranch",
         address=0x101357,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (9)": MMRLocationData(
         region="Romani Ranch",
         address=0x101358,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (10)": MMRLocationData(
         region="Romani Ranch",
         address=0x101359,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (11)": MMRLocationData(
         region="Romani Ranch",
         address=0x10135A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Gossip Tree (12)": MMRLocationData(
         region="Romani Ranch",
         address=0x10135B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x102350,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x102351,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x102352,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x102353,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (5)": MMRLocationData(
         region="Romani Ranch",
         address=0x102354,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (6)": MMRLocationData(
         region="Romani Ranch",
         address=0x102355,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (7)": MMRLocationData(
         region="Romani Ranch",
         address=0x102356,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (8)": MMRLocationData(
         region="Romani Ranch",
         address=0x102357,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (9)": MMRLocationData(
         region="Romani Ranch",
         address=0x102358,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (10)": MMRLocationData(
         region="Romani Ranch",
         address=0x102359,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (11)": MMRLocationData(
         region="Romani Ranch",
         address=0x10235A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Near Entrance (12)": MMRLocationData(
         region="Romani Ranch",
         address=0x10235B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x103350,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x103351,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x103352,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x103353,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (5)": MMRLocationData(
         region="Romani Ranch",
         address=0x103354,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (6)": MMRLocationData(
         region="Romani Ranch",
         address=0x103355,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (7)": MMRLocationData(
         region="Romani Ranch",
         address=0x103356,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (8)": MMRLocationData(
         region="Romani Ranch",
         address=0x103357,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (9)": MMRLocationData(
         region="Romani Ranch",
         address=0x103358,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (10)": MMRLocationData(
         region="Romani Ranch",
         address=0x103359,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (11)": MMRLocationData(
         region="Romani Ranch",
         address=0x10335A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Between Entrance and Barn (12)": MMRLocationData(
         region="Romani Ranch",
         address=0x10335B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x104350,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x104351,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x104352,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x104353,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (5)": MMRLocationData(
         region="Romani Ranch",
         address=0x104354,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (6)": MMRLocationData(
         region="Romani Ranch",
         address=0x104355,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (7)": MMRLocationData(
         region="Romani Ranch",
         address=0x104356,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (8)": MMRLocationData(
         region="Romani Ranch",
         address=0x104357,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Romani Ranch Grass Behind Barn (9)": MMRLocationData(
         region="Romani Ranch",
         address=0x104358,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Twin Isles Grotto Grass
@@ -5071,193 +5094,193 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Twin Isles Grotto Grass (1)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (2)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (3)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (4)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (5)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (6)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (7)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (8)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (9)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (10)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (11)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (12)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (13)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Twin Isles Grotto Grass (14)": MMRLocationData(
         region="Twin Islands",
         address=0x12AA4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     # Goron Village Lens Cave Grass
     "Goron Village Lens Cave Grass (1)": MMRLocationData(
         region="Goron Village",
         address=0x100900,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (2)": MMRLocationData(
         region="Goron Village",
         address=0x100901,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (3)": MMRLocationData(
         region="Goron Village",
         address=0x100902,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (4)": MMRLocationData(
         region="Goron Village",
         address=0x100903,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (5)": MMRLocationData(
         region="Goron Village",
         address=0x100904,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (6)": MMRLocationData(
         region="Goron Village",
         address=0x100905,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (7)": MMRLocationData(
         region="Goron Village",
         address=0x100906,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (8)": MMRLocationData(
         region="Goron Village",
         address=0x100907,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (9)": MMRLocationData(
         region="Goron Village",
         address=0x100908,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (10)": MMRLocationData(
         region="Goron Village",
         address=0x100909,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (11)": MMRLocationData(
         region="Goron Village",
         address=0x10090A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (12)": MMRLocationData(
         region="Goron Village",
         address=0x10090B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (13)": MMRLocationData(
         region="Goron Village",
         address=0x101900,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (14)": MMRLocationData(
         region="Goron Village",
         address=0x101901,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (15)": MMRLocationData(
         region="Goron Village",
         address=0x101902,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (16)": MMRLocationData(
         region="Goron Village",
         address=0x101903,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (17)": MMRLocationData(
         region="Goron Village",
         address=0x101904,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (18)": MMRLocationData(
         region="Goron Village",
         address=0x101905,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (19)": MMRLocationData(
         region="Goron Village",
         address=0x101906,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (20)": MMRLocationData(
         region="Goron Village",
         address=0x101907,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (21)": MMRLocationData(
         region="Goron Village",
         address=0x101908,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (22)": MMRLocationData(
         region="Goron Village",
         address=0x101909,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (23)": MMRLocationData(
         region="Goron Village",
         address=0x10190A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Goron Village Lens Cave Grass (24)": MMRLocationData(
         region="Goron Village",
         address=0x10190B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Path To Snowhead Grotto Grass
@@ -5265,72 +5288,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Path To Snowhead Grotto Grass (1)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A440,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (2)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A441,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (3)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A442,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (4)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A443,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (5)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A444,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (6)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A445,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (7)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A446,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (8)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A447,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (9)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A448,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (10)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A449,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (11)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A44A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (12)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A44B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (13)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A44C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Path To Snowhead Grotto Grass (14)": MMRLocationData(
         region="Path to Snowhead",
         address=0x12A44D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Mountain Village Spring Grass
@@ -5338,152 +5361,152 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Springtime Grass (1)": MMRLocationData( 
         region="Mountain Village",
         address=0x125A00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (2)": MMRLocationData(
         region="Mountain Village",
         address=0x125A01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (3)": MMRLocationData(
         region="Mountain Village",
         address=0x125A02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (4)": MMRLocationData(
         region="Mountain Village",
         address=0x145A00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (5)": MMRLocationData(
         region="Mountain Village",
         address=0x145A01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (6)": MMRLocationData(
         region="Mountain Village",
         address=0x145A02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (7)": MMRLocationData(
         region="Mountain Village",
         address=0x145A03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (8)": MMRLocationData(
         region="Mountain Village",
         address=0x145A04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (9)": MMRLocationData(
         region="Mountain Village",
         address=0x145A05,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (10)": MMRLocationData(
         region="Mountain Village",
         address=0x145A06,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (11)": MMRLocationData(
         region="Mountain Village",
         address=0x145A07,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (12)": MMRLocationData(
         region="Mountain Village",
         address=0x145A08,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (13)": MMRLocationData(
         region="Mountain Village",
         address=0x145A10,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (14)": MMRLocationData(
         region="Mountain Village",
         address=0x145A11,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (15)": MMRLocationData(
         region="Mountain Village",
         address=0x145A12,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (16)": MMRLocationData(
         region="Mountain Village",
         address=0x145A13,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (17)": MMRLocationData(
         region="Mountain Village",
         address=0x145A14,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (18)": MMRLocationData(
         region="Mountain Village",
         address=0x145A15,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (19)": MMRLocationData(
         region="Mountain Village",
         address=0x145A16,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (20)": MMRLocationData(
         region="Mountain Village",
         address=0x145A17,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (21)": MMRLocationData(
         region="Mountain Village",
         address=0x145A18,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (22)": MMRLocationData(
         region="Mountain Village",
         address=0x145A20,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (23)": MMRLocationData(
         region="Mountain Village",
         address=0x145A21,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (24)": MMRLocationData(
         region="Mountain Village",
         address=0x145A22,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (25)": MMRLocationData(
         region="Mountain Village",
         address=0x145A23,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (26)": MMRLocationData(
         region="Mountain Village",
         address=0x145A24,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (27)": MMRLocationData(
         region="Mountain Village",
         address=0x145A25,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (28)": MMRLocationData(
         region="Mountain Village",
         address=0x145A26,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (29)": MMRLocationData(
         region="Mountain Village",
         address=0x145A27,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Springtime Grass (30)": MMRLocationData(
         region="Mountain Village",
         address=0x145A28,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Mountain Village Keaton Grass 
@@ -5491,47 +5514,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Keaton Grass (0)": MMRLocationData(
         region="Mountain Village",
         address=0x135A00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (1)": MMRLocationData(
         region="Mountain Village",
         address=0x135A01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (2)": MMRLocationData(
         region="Mountain Village",
         address=0x135A02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (3)": MMRLocationData(
         region="Mountain Village",
         address=0x135A03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (4)": MMRLocationData(
         region="Mountain Village",
         address=0x135A04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (5)": MMRLocationData(
         region="Mountain Village",
         address=0x135A05,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (6)": MMRLocationData(
         region="Mountain Village",
         address=0x135A06,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (7)": MMRLocationData(
         region="Mountain Village",
         address=0x135A07,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Mountain Village Keaton Grass (8)": MMRLocationData(
         region="Mountain Village",
         address=0x135A08,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Mountain Village Spring Grotto Grass 
@@ -5539,72 +5562,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Spring Grotto Grass (1)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (2)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (3)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (4)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC43,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (5)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC44,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (6)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC45,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (7)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC46,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (8)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC47,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (9)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC48,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (10)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC49,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (11)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC4A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (12)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC4B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (13)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC4C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Mountain Village Spring Grotto Grass (14)": MMRLocationData(
         region="Mountain Village",
         address=0x12AC4D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Twin Isles Spring Grass
@@ -5612,161 +5635,161 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Twin Islands Springtime Grass Group 1 (1)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (2)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (3)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (4)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (5)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (6)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (7)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (8)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (9)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (10)": MMRLocationData(
         region="Twin Islands",
         address=0x1005E9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (11)": MMRLocationData(
         region="Twin Islands",
         address=0x1005EA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Twin Islands Springtime Grass Group 1 (12)": MMRLocationData(
         region="Twin Islands",
         address=0x1005EB,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Great Bay Coast Grotto Grass
 
     "Great Bay Coast Grotto Grass (1)": MMRLocationData(
         region="Great Bay",
         address=0x12A840,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (2)": MMRLocationData(
         region="Great Bay",
         address=0x12A841,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (3)": MMRLocationData(
         region="Great Bay",
         address=0x12A842,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (4)": MMRLocationData(
         region="Great Bay",
         address=0x12A843,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (5)": MMRLocationData(
         region="Great Bay",
         address=0x12A844,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (6)": MMRLocationData(
         region="Great Bay",
         address=0x12A845,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (7)": MMRLocationData(
         region="Great Bay",
         address=0x12A846,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (8)": MMRLocationData(
         region="Great Bay",
         address=0x12A847,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (9)": MMRLocationData(
         region="Great Bay",
         address=0x12A848,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Grotto Grass (10)": MMRLocationData(
         region="Great Bay",
         address=0x12A849,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ), 
     "Great Bay Coast Grotto Grass (11)": MMRLocationData(
         region="Great Bay",
         address=0x12A84A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ), 
     "Great Bay Coast Grotto Grass (12)": MMRLocationData(
         region="Great Bay",
         address=0x12A84B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ), 
     "Great Bay Coast Grotto Grass (13)": MMRLocationData(
         region="Great Bay",
         address=0x12A84C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ), 
     "Great Bay Coast Grotto Grass (14)": MMRLocationData(
         region="Great Bay",
         address=0x12A84D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ), 
 
     # Great Bay Coast Grass - Requires Epona's Song
     "Great Bay Coast Grass (1)": MMRLocationData(
         region="Great Bay",
         address=0x123700,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Great Bay Coast Grass (2)": MMRLocationData(
         region="Great Bay",
         address=0x123701,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Great Bay Coast Grass (3)": MMRLocationData(
         region="Great Bay",
         address=0x123702,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Great Bay Coast Grass (4)": MMRLocationData(
         region="Great Bay",
         address=0x123703,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Great Bay Coast Grass (5)": MMRLocationData(
         region="Great Bay",
         address=0x123704,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Great Bay Coast Cow Grotto Grass
@@ -5774,362 +5797,362 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Great Bay Coast Cow Grotto Grass Group 1 (1)": MMRLocationData(
         region="Great Bay",
         address=0x100B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (2)": MMRLocationData(
         region="Great Bay",
         address=0x100B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (3)": MMRLocationData(
         region="Great Bay",
         address=0x100B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (4)": MMRLocationData(
         region="Great Bay",
         address=0x100B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (5)": MMRLocationData(
         region="Great Bay",
         address=0x100B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (6)": MMRLocationData(
         region="Great Bay",
         address=0x100B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (7)": MMRLocationData(
         region="Great Bay",
         address=0x100B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (8)": MMRLocationData(
         region="Great Bay",
         address=0x100B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (9)": MMRLocationData(
         region="Great Bay",
         address=0x100B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (10)": MMRLocationData(
         region="Great Bay",
         address=0x100B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (11)": MMRLocationData(
         region="Great Bay",
         address=0x100B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 1 (12)": MMRLocationData(
         region="Great Bay",
         address=0x100B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (1)": MMRLocationData(
         region="Great Bay",
         address=0x101B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (2)": MMRLocationData(
         region="Great Bay",
         address=0x101B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (3)": MMRLocationData(
         region="Great Bay",
         address=0x101B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (4)": MMRLocationData(
         region="Great Bay",
         address=0x101B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (5)": MMRLocationData(
         region="Great Bay",
         address=0x101B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (6)": MMRLocationData(
         region="Great Bay",
         address=0x101B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (7)": MMRLocationData(
         region="Great Bay",
         address=0x101B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (8)": MMRLocationData(
         region="Great Bay",
         address=0x101B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (9)": MMRLocationData(
         region="Great Bay",
         address=0x101B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (10)": MMRLocationData(
         region="Great Bay",
         address=0x101B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (11)": MMRLocationData(
         region="Great Bay",
         address=0x101B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 2 (12)": MMRLocationData(
         region="Great Bay",
         address=0x101B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (1)": MMRLocationData(
         region="Great Bay",
         address=0x102B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (2)": MMRLocationData(
         region="Great Bay",
         address=0x102B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (3)": MMRLocationData(
         region="Great Bay",
         address=0x102B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (4)": MMRLocationData(
         region="Great Bay",
         address=0x102B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (5)": MMRLocationData(
         region="Great Bay",
         address=0x102B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (6)": MMRLocationData(
         region="Great Bay",
         address=0x102B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (7)": MMRLocationData(
         region="Great Bay",
         address=0x102B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (8)": MMRLocationData(
         region="Great Bay",
         address=0x102B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (9)": MMRLocationData(
         region="Great Bay",
         address=0x102B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (10)": MMRLocationData(
         region="Great Bay",
         address=0x102B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (11)": MMRLocationData(
         region="Great Bay",
         address=0x102B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 3 (12)": MMRLocationData(
         region="Great Bay",
         address=0x102B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (1)": MMRLocationData(
         region="Great Bay",
         address=0x103B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (2)": MMRLocationData(
         region="Great Bay",
         address=0x103B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (3)": MMRLocationData(
         region="Great Bay",
         address=0x103B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (4)": MMRLocationData(
         region="Great Bay",
         address=0x103B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (5)": MMRLocationData(
         region="Great Bay",
         address=0x103B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (6)": MMRLocationData(
         region="Great Bay",
         address=0x103B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (7)": MMRLocationData(
         region="Great Bay",
         address=0x103B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (8)": MMRLocationData(
         region="Great Bay",
         address=0x103B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (9)": MMRLocationData(
         region="Great Bay",
         address=0x103B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (10)": MMRLocationData(
         region="Great Bay",
         address=0x103B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (11)": MMRLocationData(
         region="Great Bay",
         address=0x103B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 4 (12)": MMRLocationData(
         region="Great Bay",
         address=0x103B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (1)": MMRLocationData(
         region="Great Bay",
         address=0x104B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (2)": MMRLocationData(
         region="Great Bay",
         address=0x104B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (3)": MMRLocationData(
         region="Great Bay",
         address=0x104B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (4)": MMRLocationData(
         region="Great Bay",
         address=0x104B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (5)": MMRLocationData(
         region="Great Bay",
         address=0x104B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (6)": MMRLocationData(
         region="Great Bay",
         address=0x104B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (7)": MMRLocationData(
         region="Great Bay",
         address=0x104B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (8)": MMRLocationData(
         region="Great Bay",
         address=0x104B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (9)": MMRLocationData(
         region="Great Bay",
         address=0x104B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (10)": MMRLocationData(
         region="Great Bay",
         address=0x104B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (11)": MMRLocationData(
         region="Great Bay",
         address=0x104B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 5 (12)": MMRLocationData(
         region="Great Bay",
         address=0x104B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (1)": MMRLocationData(
         region="Great Bay",
         address=0x105B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (2)": MMRLocationData(
         region="Great Bay",
         address=0x105B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (3)": MMRLocationData(
         region="Great Bay",
         address=0x105B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (4)": MMRLocationData(
         region="Great Bay",
         address=0x105B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (5)": MMRLocationData(
         region="Great Bay",
         address=0x105B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (6)": MMRLocationData(
         region="Great Bay",
         address=0x105B75,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (7)": MMRLocationData(
         region="Great Bay",
         address=0x105B76,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (8)": MMRLocationData(
         region="Great Bay",
         address=0x105B77,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (9)": MMRLocationData(
         region="Great Bay",
         address=0x105B78,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (10)": MMRLocationData(
         region="Great Bay",
         address=0x105B79,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (11)": MMRLocationData(
         region="Great Bay",
         address=0x105B7A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Great Bay Coast Cow Grotto Grass Group 6 (12)": MMRLocationData(
         region="Great Bay",
         address=0x105B7B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Zora Cape Grotto Grass
@@ -6137,72 +6160,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Zora Cape Grotto Grass (1)": MMRLocationData(
         region="Zora Cape",
         address=0x12A640,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (2)": MMRLocationData(
         region="Zora Cape",
         address=0x12A641,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (3)": MMRLocationData(
         region="Zora Cape",
         address=0x12A642,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (4)": MMRLocationData(
         region="Zora Cape",
         address=0x12A643,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (5)": MMRLocationData(
         region="Zora Cape",
         address=0x12A644,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (6)": MMRLocationData(
         region="Zora Cape",
         address=0x12A645,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (7)": MMRLocationData(
         region="Zora Cape",
         address=0x12A646,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (8)": MMRLocationData(
         region="Zora Cape",
         address=0x12A647,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (9)": MMRLocationData(
         region="Zora Cape",
         address=0x12A648,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (10)": MMRLocationData(
         region="Zora Cape",
         address=0x12A649,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (11)": MMRLocationData(
         region="Zora Cape",
         address=0x12A64A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (12)": MMRLocationData(
         region="Zora Cape",
         address=0x12A64B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (13)": MMRLocationData(
         region="Zora Cape",
         address=0x12A64C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Zora Cape Grotto Grass (14)": MMRLocationData(
         region="Zora Cape",
         address=0x12A64D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Road To Ikana Grotto Grass
@@ -6210,72 +6233,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Road To Ikana Grotto Grass (1)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A740,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (2)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A741,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (3)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A742,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (4)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A743,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (5)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A744,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (6)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A745,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (7)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A746,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (8)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A747,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (9)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A748,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (10)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A749,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (11)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A74A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (12)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A74B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (13)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A74C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Road To Ikana Grotto Grass (14)": MMRLocationData(
         region="Road to Ikana",
         address=0x12A74D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Ikana Graveyard Lower Region Grass
@@ -6283,27 +6306,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Graveyard Lower Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x124300,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Lower Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x124301,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Lower Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x124302,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Lower Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x124303,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Lower Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x124304,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Ikana Graveyard Upper Region Grass
@@ -6311,47 +6334,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Graveyard Upper Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144320,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144321,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144322,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144323,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144324,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (6)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144325,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (7)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144326,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (8)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144327,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Graveyard Upper Grass (9)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x144328,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Ikana Graveyard Bombable Grotto Grass
@@ -6359,72 +6382,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Graveyard Bombable Grotto Grass (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A940,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A941,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A942,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A943,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (5)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A944,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (6)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A945,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (7)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A946,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (8)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A947,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (9)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A948,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (10)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A949,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (11)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A94A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (12)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A94B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (13)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A94C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Graveyard Bombable Grotto Grass (14)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x12A94D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Ikana Canyon Grass
@@ -6432,22 +6455,22 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Canyon Grass (1)": MMRLocationData(
         region="Upper Ikana Canyon",
         address=0x121300,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Canyon Grass (2)": MMRLocationData(
         region="Upper Ikana Canyon",
         address=0x121301,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Canyon Grass (3)": MMRLocationData(
         region="Upper Ikana Canyon",
         address=0x121302,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Canyon Grass (4)": MMRLocationData(
         region="Upper Ikana Canyon",
         address=0x121303,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Ikana Canyon Grotto Grass
@@ -6455,72 +6478,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Canyon Grotto Grass (1)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A540,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (2)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A541,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (3)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A542,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (4)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A543,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (5)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A544,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (6)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A545,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (7)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A546,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (8)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A547,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (9)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A548,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (10)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A549,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (11)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A54A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (12)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A54B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (13)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A54C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
     "Ikana Canyon Grotto Grass (14)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x12A54D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True)
     ),
 
     # Secret Shrine Grass
@@ -6528,147 +6551,147 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Secret Shrine Entrance Grass (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x126000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Entrance Grass (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x126001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Entrance Grass (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x126002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Entrance Grass (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x126003,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Entrance Grass (5)": MMRLocationData(
         region="Secret Shrine",
         address=0x126004,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Entrance Grass (6)": MMRLocationData(
         region="Secret Shrine",
         address=0x126005,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Dinolfos Grass (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x126020,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Dinolfos Grass (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x126021,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Dinolfos Grass (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x126022,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Dinolfos Grass (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x126023,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wizzrobe Grass (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x126033,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wizzrobe Grass (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x126032,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wizzrobe Grass (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x126030,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wizzrobe Grass (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x126031,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wizzrobe Grass (5)": MMRLocationData(
         region="Secret Shrine",
         address=0x126034,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x126042,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x126043,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x126045,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x126044,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (5)": MMRLocationData(
         region="Secret Shrine",
         address=0x126047,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (6)": MMRLocationData(
         region="Secret Shrine",
         address=0x126046,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (7)": MMRLocationData(
         region="Secret Shrine",
         address=0x126040,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Wart Grass (8)": MMRLocationData(
         region="Secret Shrine",
         address=0x126041,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x126055,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x126052,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x126051,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x126050,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (5)": MMRLocationData(
         region="Secret Shrine",
         address=0x126054,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
     "Secret Shrine Garo Master Grass (6)": MMRLocationData(
         region="Secret Shrine",
         address=0x126053,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_grotto_or_cave=True, is_dungeon=True)
     ),
 
     # Beneath the Well Grass
@@ -6676,72 +6699,72 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Beneath the Well Left Side Back Room Grass (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B51,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Left Side Back Room Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B50,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B30,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B31,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B32,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Before Big Poe and Cow Grass (4)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B33,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Cow Grass (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B92,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Cow Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B91,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Cow Grass (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B90,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Back Room Grass (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B71,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Back Room Grass (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B72,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Back Room Grass (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B74,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Back Room Grass (4)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B73,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Beneath the Well Right Side Back Room Grass (5)": MMRLocationData(
         region="Beneath the Well",
         address=0x124B70,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
 
     # Ikana Castle Grass
@@ -6749,314 +6772,314 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Castle Grass (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D0B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (3)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (4)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (5)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (6)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D05,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (7)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D06,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (8)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D07,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (9)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D08,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (10)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D09,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (11)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D0A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Ikana Castle Grass (12)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     # Dungeon Grass
     # Woodfall Temple
     "Woodfall Temple Entrance Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B20,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Entrance Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B21,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Entrance Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B22,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Entrance Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B23,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Entrance Room Grass (5)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B24,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B10,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B11,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B12,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B50,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B51,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Snapping Turtle Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B60,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Snapping Turtle Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B61,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Snapping Turtle Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B62,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Snapping Turtle Grass (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B63,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Snapping Turtle Grass (5)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B64,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B40,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B41,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Dragonfly Chest Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B42,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA1,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA3,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA5,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA4,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (5)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA9,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (6)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA7,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (7)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA0,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (8)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA2,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (9)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BAA,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (10)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA8,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple 2F Moving Flower Platform Room Grass (11)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121BA6,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Room Grass (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Room Grass (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Room Grass (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Room Grass (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Room Grass (5)": MMRLocationData(
         region="Woodfall Temple",
         address=0x121B04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (1)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F00,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (2)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F01,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (3)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F02,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (4)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F03,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (5)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F04,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (6)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F05,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (7)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F06,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (8)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F07,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (9)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F08,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (10)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F09,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (11)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (12)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (13)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0C,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (14)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0D,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (15)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0E,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Odolwas Lair Grass (16)": MMRLocationData(
         region="Odolwa's Lair",
         address=0x121F0F,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
 
     # Southern Swamp Post Dungeon Grass Near Tourist Centre
@@ -7064,62 +7087,62 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x100000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x100001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x100002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x100003,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x100004,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x100005,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x100006,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x100007,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x100008,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x100009,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x10000A,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Tourist Centre (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x10000B,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Southern Swamp Post Dungeon Grass Near Witch Shop
@@ -7127,47 +7150,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Southern Swamp Post Dungeon Grass Near Witch Shop (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x102000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x102001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x102002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (4)": MMRLocationData(
         region="Southern Swamp",
         address=0x102003,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (5)": MMRLocationData(
         region="Southern Swamp",
         address=0x102004,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (6)": MMRLocationData(
         region="Southern Swamp",
         address=0x102005,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (7)": MMRLocationData(
         region="Southern Swamp",
         address=0x102006,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (8)": MMRLocationData(
         region="Southern Swamp",
         address=0x102007,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (9)": MMRLocationData(
         region="Southern Swamp",
         address=0x102008,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Southern Swamp Post Dungeon Grass Near Witch Shop
@@ -7175,47 +7198,47 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Southern Swamp Post Dungeon Grass Near Witch Shop (10)": MMRLocationData(
         region="Southern Swamp",
         address=0x103000,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (11)": MMRLocationData(
         region="Southern Swamp",
         address=0x103001,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (12)": MMRLocationData(
         region="Southern Swamp",
         address=0x103002,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (13)": MMRLocationData(
         region="Southern Swamp",
         address=0x103003,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (14)": MMRLocationData(
         region="Southern Swamp",
         address=0x103004,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (15)": MMRLocationData(
         region="Southern Swamp",
         address=0x103005,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (16)": MMRLocationData(
         region="Southern Swamp",
         address=0x103006,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (17)": MMRLocationData(
         region="Southern Swamp",
         address=0x103007,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Grass Near Witch Shop (18)": MMRLocationData(
         region="Southern Swamp",
         address=0x103008,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
     # Southern Swamp Post Dungeon Gossip Grass
@@ -7223,12 +7246,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Southern Swamp Post Dungeon Gossip Grass (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x120020,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
     "Southern Swamp Post Dungeon Gossip Grass (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x120021,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options)
     ),
 
 
@@ -7236,100 +7259,100 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Snowhead Temple Basement Grass (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122140,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122141,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (3)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122142,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (4)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122143,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (5)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122144,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (6)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122145,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (7)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122146,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (8)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122147,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (9)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122148,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Basement Grass (10)": MMRLocationData(
         region="Snowhead Temple",
         address=0x122149,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
         # Stone Tower Temple Grass
 
-    "Stone Tower Temple Entrance Room Grass (1)":MMRLocationData(
+    "Stone Tower Temple Entrance Room Grass (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121600,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
 
-    "Stone Tower Temple Entrance Room Grass (2)":MMRLocationData(
+    "Stone Tower Temple Entrance Room Grass (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121601,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Entrance Room Grass (3)":MMRLocationData(
+    "Stone Tower Temple Entrance Room Grass (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121602,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (1)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121623,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (2)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121621,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (3)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121624,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (4)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121620,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (5)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (5)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121622,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
-    "Stone Tower Temple Elegy Maze Grass (6)":MMRLocationData(
+    "Stone Tower Temple Elegy Maze Grass (6)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x121625,
-        can_create=lambda options: options.grasssanity.value
+        can_create=lambda options: grass_enabled(options, is_dungeon=True)
     ),
       # Clock Town Pots
     "Trading Post Pot": MMRLocationData(
@@ -17293,3 +17316,27 @@ location_data_table: Dict[str, MMRLocationData] = {
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}
 code_to_location_table = {data.address: name for name, data in location_data_table.items() if data.address is not None}
 locked_locations = {name: data for name, data in location_data_table.items() if data.locked_item}
+
+
+_DUNGEON_GRASS_REGIONS = {
+    "Woodfall Temple", "Snowhead Temple", "Stone Tower Temple",
+    "Odolwa's Lair", "Beneath the Well", "Secret Shrine",
+}
+
+_grass_pool = {
+    name for name, data in location_data_table.items()
+    if "grass_enabled" in data.can_create.__code__.co_names
+}
+
+location_name_groups: Dict[str, set] = {
+    "Grass": _grass_pool,
+    "Termina Field Grass": {n for n in _grass_pool if location_data_table[n].region == "Termina Field"},
+    "Grotto and Cave Grass": {
+        n for n in _grass_pool
+        if ("Grotto" in n and "Near" not in n)
+        or "Lens Cave" in n
+        or location_data_table[n].region == "Secret Shrine"
+        or ("Bombable Rock Grass" in n and location_data_table[n].region == "Termina Field")
+    },
+    "Dungeon Grass": {n for n in _grass_pool if location_data_table[n].region in _DUNGEON_GRASS_REGIONS},
+}
