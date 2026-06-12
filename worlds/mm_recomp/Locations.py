@@ -15362,7 +15362,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x0B0024,
         can_create=lambda options: options.notebooksanity.value
     ),
-    "Notebook Event Received Bombers NotebooK": MMRLocationData(
+    "Notebook Event Received Bombers Notebook": MMRLocationData(
         region="Clock Town",
         address=0x0B0025,
         can_create=lambda options: options.notebooksanity.value
