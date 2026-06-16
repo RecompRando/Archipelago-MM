@@ -16881,7 +16881,11 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Goron Mask", player) and
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        has_explosives(state, player)
+                    ) or
                     can_use_light_arrows(state, player)
                 )
             ),
@@ -16889,15 +16893,23 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Goron Mask", player) and
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        has_explosives(state, player)
+                    ) or
                     can_use_light_arrows(state, player)
-                ),
+                )
             ),
         "Stone Tower Temple Eyegore Room Crates (2)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 (
-                    state.has("Goron Mask", player) or
+                    (
+                        state.has("Goron Mask", player) and
+                        state.has("Small Key (Stone Tower)", player, 1) and
+                        has_explosives(state, player)
+                    ) or
                     can_use_light_arrows(state, player)
                 )
             ),
