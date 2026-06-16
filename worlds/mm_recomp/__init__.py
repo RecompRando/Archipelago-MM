@@ -178,8 +178,13 @@ class MMRWorld(World):
 
         filler_amount += grass_filler
 
-        if self.options.potsanity.value != 0:
-            filler_amount += 542
+        pot_mode = self.options.potsanity.value
+        if pot_mode == 1:  # all
+            filler_amount += 540
+        elif pot_mode == 2:  # overworld_only
+            filler_amount += 183
+        elif pot_mode == 3:  # dungeon_only
+            filler_amount += 357
         
         if self.options.rocksanity.value != 0:
             filler_amount += 129
@@ -807,7 +812,7 @@ class MMRWorld(World):
             self.location_to_slotdata(mw.find_item("Gyorg's Remains", self.player)),
             self.location_to_slotdata(mw.find_item("Twinmold's Remains", self.player)),
         ]
-
+        
         # print()
         # print(fairy_locations)
         # print(skull_locations)

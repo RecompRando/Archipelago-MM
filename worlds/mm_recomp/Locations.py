@@ -3,11 +3,9 @@ from typing import Callable, Dict, NamedTuple, Optional
 from BaseClasses import Location, MultiWorld
 
 from .Constants import (
-    GRASS_OFF,
-    GRASS_NORMAL,
-    GRASS_NO_TERMINA_FIELD,
-    GRASS_GROTTO_AND_CAVE_ONLY,
-    GRASS_DUNGEON_ONLY,
+    GRASS_OFF, GRASS_NORMAL, GRASS_NO_TERMINA_FIELD,
+    GRASS_GROTTO_AND_CAVE_ONLY, GRASS_DUNGEON_ONLY,
+    POT_OFF, POT_ALL, POT_OVERWORLD_ONLY, POT_DUNGEON_ONLY,
 )
 
 
@@ -44,6 +42,31 @@ def grass_enabled(options, is_termina_field=False, is_grotto_or_cave=False, is_d
     if mode == GRASS_GROTTO_AND_CAVE_ONLY:
         return is_grotto_or_cave
     if mode == GRASS_DUNGEON_ONLY:
+        return is_dungeon
+    return False
+
+
+POT_DUNGEON_REGIONS = {
+    "Woodfall Temple", "Snowhead Temple", "Great Bay Temple",
+    "Stone Tower Temple", "Stone Tower Temple (Inverted)",
+    "Odolwa's Lair", "Goht's Lair", "Gyorg's Lair", "Twinmold's Lair",
+    "Beneath the Well",
+    "Swamp Spider House", "Ocean Spider House",
+    "Pirates' Fortress (Interior)", "Pirates' Fortress Sewers",
+    "Ikana Castle",
+    "Secret Shrine", "The Moon",
+}
+
+
+def pot_enabled(options, is_dungeon=False):
+    mode = options.potsanity.value
+    if mode == POT_OFF:
+        return False
+    if mode == POT_ALL:
+        return True
+    if mode == POT_OVERWORLD_ONLY:
+        return not is_dungeon
+    if mode == POT_DUNGEON_ONLY:
         return is_dungeon
     return False
 
@@ -7358,87 +7381,87 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Trading Post Pot": MMRLocationData(
         region="Clock Town",
         address=0x203400,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sword School Night 3 Midnight Pots (1)": MMRLocationData(
         region="Clock Town",
         address=0x205403,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sword School Night 3 Midnight Pots (2)": MMRLocationData(
         region="Clock Town",
         address=0x205402,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sword School Night 3 Midnight Pots (3)": MMRLocationData(
         region="Clock Town",
         address=0x205404,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sword School Night 3 Midnight Pots (4)": MMRLocationData(
         region="Clock Town",
         address=0x205401,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sword School Night 3 Midnight Pots (5)": MMRLocationData(
         region="Clock Town",
         address=0x205400,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Top of Clock Tower Pots (1)": MMRLocationData(
         region="Clock Town",
         address=0x201900,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Top of Clock Tower Pots (2)": MMRLocationData(
         region="Clock Town",
         address=0x201901,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Top of Clock Tower Pots (3)": MMRLocationData(
         region="Clock Town",
         address=0x201902,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ), 
     "Top of Clock Tower Pots (4)": MMRLocationData(
         region="Clock Town",
         address=0x201903,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Bombers Hideout Pots (1)": MMRLocationData(
         region="Clock Town",
         address=0x202901,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Bombers Hideout Pots (2)": MMRLocationData(
         region="Clock Town",
         address=0x202900,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Bombers Hideout Pots (3)": MMRLocationData(
         region="Clock Town",
         address=0x202902,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Bombers Hideout Pots (4)": MMRLocationData(
         region="Clock Town",
         address=0x202903,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Astral Observatory Pots (1)": MMRLocationData(
         region="Clock Town",
         address=0x202911,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Astral Observatory Pots (2)": MMRLocationData(
         region="Clock Town",
         address=0x202910,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Astral Observatory Pots (3)": MMRLocationData(
         region="Clock Town",
         address=0x202912,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Termina Field Pots
@@ -7446,12 +7469,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Termina Field Eastern Pillar Pot": MMRLocationData(
         region="Termina Field",
         address=0x202D00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Termina Field Deku Business Scrub Grotto Pot": MMRLocationData(
         region="Termina Field",
         address=0x200790,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Southern Swamp Pots
@@ -7459,27 +7482,27 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Road to Southern Swamp Outside Archery Pots (1)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x2040F1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Road to Southern Swamp Outside Archery Pots (2)": MMRLocationData(
         region="Road to Southern Swamp",
         address=0x2040F0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Southern Swamp Beneath Witch Shop Pots (1)": MMRLocationData(
         region="Southern Swamp",
         address=0x204522,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Southern Swamp Beneath Witch Shop Pots (2)": MMRLocationData(
         region="Southern Swamp",
         address=0x204521,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Southern Swamp Beneath Witch Shop Pots (3)": MMRLocationData(
         region="Southern Swamp",
         address=0x204520,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Swamp Spider House Pots
@@ -7487,135 +7510,135 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Swamp Spider House Main Room Pots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202710,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202711,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202712,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202713,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (5)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202714,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (6)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202715,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (7)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202716,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Main Room Pots (8)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202717,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),    
     "Swamp Spider House Tablet Room Pots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202730,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Tablet Room Pots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202731,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),        
 
     "Swamp Spider House Giant Jar Room Pots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202740,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202741,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202742,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202743,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (5)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202744,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (6)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202745,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (7)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202746,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Giant Jar Room Pots (8)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202747,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),    
     "Swamp Spider House Gold Room Pots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202720,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Gold Room Pots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202721,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Gold Room Pots (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202722,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Gold Room Pots (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202723,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Gold Room Pots (5)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202724,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Swamp Spider House Gold Room Pots (6)": MMRLocationData(
         region="Swamp Spider House",
         address=0x202725,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     
     # Deku Palace Pots
     "Deku Palace Right Side Upper Pots (1)": MMRLocationData(
         region="Deku Palace",
         address=0x202B10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Deku Palace Right Side Upper Pots (2)": MMRLocationData(
         region="Deku Palace",
         address=0x202B11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Butler Race Pots
@@ -7623,12 +7646,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Deku Butler Race Pots (1)": MMRLocationData(
         region="Deku Palace",
         address=0x205200,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Deku Butler Race Pots (2)": MMRLocationData(
         region="Deku Palace",
         address=0x205201,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Woodfall Pots
@@ -7636,17 +7659,17 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Woodfall Owl Pots (1)": MMRLocationData(
         region="Woodfall",
         address=0x204601,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Woodfall Owl Pots (2)": MMRLocationData(
         region="Woodfall",
         address=0x204600,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Woodfall Owl Pots (3)": MMRLocationData(
         region="Woodfall",
         address=0x204602,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Woodfall Temple Pots
@@ -7654,149 +7677,149 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Woodfall Temple Entrance Pot": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B20,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B12,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B13,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (5)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B14,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (6)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B15,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (7)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B17,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Main Room Pots (8)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B18,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Pots (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B51,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Pots (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B50,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Pots (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B53,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Deku Elevator Pots (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B52,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Gekko Pots (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B83,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Gekko Pots (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B82,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Gekko Pots (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B81,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Gekko Pots (4)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B80,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Left Side Bridge Pots (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B30,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Left Side Bridge Pots (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B31,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Pots (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Woodfall Temple Pre Boss Pots (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x201B00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Southern Swamp Post Dungeon Witch Pot (1)": MMRLocationData(
         region="Woodfall Temple",
         address=0x200020,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Southern Swamp Post Dungeon Witch Pot (2)": MMRLocationData(
         region="Woodfall Temple",
         address=0x200021,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Southern Swamp Post Dungeon Witch Pot (3)": MMRLocationData(
         region="Woodfall Temple",
         address=0x200022,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     # Mountain Village Pots
     
     "Mountain Village Rooftop Pot": MMRLocationData(
         region="Mountain Village",
         address=0x205000,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Mountain Village Pots (1)": MMRLocationData(
         region="Mountain Village",
         address=0x2050F0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Mountain Village Pots (2)": MMRLocationData(
         region="Mountain Village",
         address=0x2050F1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Mountain Smithy Pots Inside at Night (1)": MMRLocationData(
         region="Mountain Village",
         address=0x202CF0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Mountain Smithy Pots Inside at Night (2)": MMRLocationData(
         region="Mountain Village",
         address=0x202CF1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Goron Racetrack Pots
@@ -7804,152 +7827,152 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Goron Racetrack Pots (1)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B14,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (2)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B15,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (3)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B17,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (4)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B16,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (5)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B12,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (6)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (7)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B13,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (8)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0F,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (9)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (10)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (11)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B02,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (12)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B05,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (13)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B04,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (14)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B03,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (15)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B07,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (16)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B06,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (17)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B09,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (18)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B08,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (19)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (20)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (21)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0E,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (22)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B18,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (23)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B19,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (24)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B1A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (25)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B1D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (26)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B1B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (27)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B1C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (28)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (29)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Racetrack Pots (30)": MMRLocationData(
         region="Goron Racetrack",
         address=0x206B0B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Goron Shrine Pots
@@ -7957,376 +7980,376 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Goron Shrine Pots (1)": MMRLocationData(
         region="Goron Shrine",
         address=0x203204,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (2)": MMRLocationData(
         region="Goron Shrine",
         address=0x203203,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (3)": MMRLocationData(
         region="Goron Shrine",
         address=0x203207,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (4)": MMRLocationData(
         region="Goron Shrine",
         address=0x203202,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (5)": MMRLocationData(
         region="Goron Shrine",
         address=0x203200,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (6)": MMRLocationData(
         region="Goron Shrine",
         address=0x203205,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (7)": MMRLocationData(
         region="Goron Shrine",
         address=0x203201,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (8)": MMRLocationData(
         region="Goron Shrine",
         address=0x203206,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (9)": MMRLocationData(
         region="Goron Shrine",
         address=0x203210,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (10)": MMRLocationData(
         region="Goron Shrine",
         address=0x203211,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Goron Shrine Pots (11)": MMRLocationData(
         region="Goron Shrine",
         address=0x203212,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Snowhead Temple Pots
     "Snowhead Temple Entrance Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202100,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Entrance Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202101,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     "Snowhead Temple Blue Door Lava Bridge Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202123,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202125,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (3)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202124,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (4)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202126,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (5)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202122,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (6)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202120,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Blue Door Lava Bridge Pots (7)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202121,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room Pots Basement (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202146,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room Pots Basement (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202147,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room Scarecrow Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202140,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room Scarecrow Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202141,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x20215B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x20215C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (3)": MMRLocationData(
         region="Snowhead Temple",
         address=0x20215A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (4)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202157,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (5)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202158,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (6)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202159,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (7)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202156,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (8)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202153,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (9)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202151,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (10)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202155,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (11)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202154,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (12)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202150,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Frozen Green Door Pots (13)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202152,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Orange Door Push Block Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202131,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Orange Door Push Block Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202130,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Orange Door Push Block Ghost Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202132,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Orange Door Push Block Ghost Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202133,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),         
     "Snowhead Temple Locked Grey Door Wolfos Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202112,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Locked Grey Door Wolfos Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202113,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Locked Grey Door Wolfos Pots (3)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202110,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Locked Grey Door Wolfos Pots (4)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202114,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Locked Grey Door Wolfos Pots (5)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202111,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Goron Pound Puzzle Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202181,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Goron Pound Puzzle Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202180,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room 2nd Floor Bridge Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202144,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room 2nd Floor Bridge Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202145,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room 4th Floor Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202143,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple Main Room 4th Floor Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x202142,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (1)": MMRLocationData(
         region="Snowhead Temple",
         address=0x2021C0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (2)": MMRLocationData(
         region="Snowhead Temple",
         address=0x2021C1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (3)": MMRLocationData(
         region="Snowhead Temple",
         address=0x2021C2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (4)": MMRLocationData(
         region="Snowhead Temple",
         address=0x2021C3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Snowhead Temple 4th Floor Wizzrobe Pots (5)": MMRLocationData(
         region="Snowhead Temple",
         address=0x2021C4,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),        
     "Goht Boss Room Pots (1)": MMRLocationData(
         region="Goht's Lair",
         address=0x20440C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (2)": MMRLocationData(
         region="Goht's Lair",
         address=0x20440D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (3)": MMRLocationData(
         region="Goht's Lair",
         address=0x204408,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (4)": MMRLocationData(
         region="Goht's Lair",
         address=0x204400,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (5)": MMRLocationData(
         region="Goht's Lair",
         address=0x204402,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (6)": MMRLocationData(
         region="Goht's Lair",
         address=0x204409,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (7)": MMRLocationData(
         region="Goht's Lair",
         address=0x204407,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (8)": MMRLocationData(
         region="Snowhead Temple",
         address=0x204406,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (9)": MMRLocationData(
         region="Goht's Lair",
         address=0x20440A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (10)": MMRLocationData(
         region="Goht's Lair",
         address=0x204401,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (11)": MMRLocationData(
         region="Goht's Lair",
         address=0x204403,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (12)": MMRLocationData(
         region="Goht's Lair",
         address=0x20440B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (13)": MMRLocationData(
         region="Goht's Lair",
         address=0x204404,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Goht Boss Room Pots (14)": MMRLocationData(
         region="Goht's Lair",
         address=0x204405,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     
     "Mountain Village Springtime Pots (1)": MMRLocationData(
         region="Mountain Village",
         address=0x205AF0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),         
     "Mountain Village Springtime Pots (2)": MMRLocationData(
         region="Mountain Village",
         address=0x205AF1   ,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),   
     "Mountain Village Springtime Pots (3)": MMRLocationData(
         region="Mountain Village",
         address=0x205A00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),   
 
 
@@ -8335,109 +8358,109 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Romani Ranch Baby Cuccoos Pots (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x2042F0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Romani Ranch Baby Cuccoos Pots (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x2042F1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Romani Ranch Doggy Racetrack Pots (1)": MMRLocationData(
         region="Romani Ranch",
         address=0x204102,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Romani Ranch Doggy Racetrack Pots (2)": MMRLocationData(
         region="Romani Ranch",
         address=0x204101,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Romani Ranch Doggy Racetrack Pots (3)": MMRLocationData(
         region="Romani Ranch",
         address=0x204100,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Romani Ranch Doggy Racetrack Pots (4)": MMRLocationData(
         region="Romani Ranch",
         address=0x204103,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     # Great Bay Coast Pots
     
     "Great Bay Coast Behind Marine Lab Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x203707,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Behind Marine Lab Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x203709,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Behind Marine Lab Pots (3)": MMRLocationData(
         region="Great Bay",
         address=0x203708,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Behind Marine Lab Pots (4)": MMRLocationData(
         region="Great Bay",
         address=0x20370E,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Rock Pools Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x203704,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Rock Pools Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x20370B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Lower Rock Wall Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x20370D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Lower Rock Wall Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x203706,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Lower Rock Wall Pots (3)": MMRLocationData(
         region="Great Bay",
         address=0x203705,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Lower Rock Wall Pots (4)": MMRLocationData(
         region="Great Bay",
         address=0x20370C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Upper Rock Wall Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x203702,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Upper Rock Wall Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x203701,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Upper Rock Wall Pots (3)": MMRLocationData(
         region="Great Bay",
         address=0x203700,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Beside Pirates Fortress Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x203703,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Great Bay Coast Beside Pirates Fortress Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x20370A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Ocean Spiderhouse Pots
@@ -8445,97 +8468,97 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ocean Spiderhouse Bottom of Ramp Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202803,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Bottom of Ramp Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202800,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Bottom of Ramp Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202801,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Bottom of Ramp Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202802,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Main Room Lower Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202813,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Main Room Lower Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202814,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Main Room Lower Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202810,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Main Room Lower Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202811,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Main Room Lower Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202812,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202857,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202851,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202856,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202855,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202850,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (6)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202854,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (7)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202852,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Crate Room Pots (8)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202853,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Coloured Skulls Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202831,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ocean Spiderhouse Coloured Skulls Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202830,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
 
@@ -8544,57 +8567,57 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Pinnacle Rock Pots (1)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202500,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (2)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202501,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (3)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202502,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (4)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202503,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (5)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202504,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (6)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202505,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (7)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202506,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (8)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202507,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (9)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202508,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (10)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x202509,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Pinnacle Rock Pots (11)": MMRLocationData(
         region="Pinnacle Rock",
         address=0x20250A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
         # Pirates' Fortress Pots
@@ -8602,87 +8625,87 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Pirates Fortress Sewers Cage Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023B0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers Cage Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023B1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023A1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023A0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers Exit Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202391,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers Exit Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202390,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Sewers Exit Pots (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202392,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202360,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202361,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Underwater Chest Room Pots (3)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202362,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202380,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202381,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Room Past Green Guard Pots (3)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202382,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Upper Beehive Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202331,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Upper Beehive Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202330,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Room Past Pink Guard Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x2023D1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Pirates Fortress Interior Room Past Pink Guard Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x2023D0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     # Zora Cape Pots
@@ -8691,57 +8714,57 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Zora Cape Like Like Pool Pots (1)": MMRLocationData(
         region="Zora Cape",
         address=0x203800,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Like Like Pool Pots (2)": MMRLocationData(
         region="Zora Cape",
         address=0x203801,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Owl Pots (1)": MMRLocationData(
         region="Zora Cape",
         address=0x203802,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Owl Pots (2)": MMRLocationData(
         region="Zora Cape",
         address=0x203803,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Owl Pots (3)": MMRLocationData(
         region="Zora Cape",
         address=0x203804,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Owl Pots (4)": MMRLocationData(
         region="Zora Cape",
         address=0x203805,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Jar Game Pots (1)": MMRLocationData(
         region="Zora Cape",
         address=0x203811,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Jar Game Pots (2)": MMRLocationData(
         region="Zora Cape",
         address=0x203812,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Jar Game Pots (3)": MMRLocationData(
         region="Zora Cape",
         address=0x203813,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Jar Game Pots (4)": MMRLocationData(
         region="Zora Cape",
         address=0x203814,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Zora Cape Jar Game Pots (5)": MMRLocationData(
         region="Zora Cape",
         address=0x203815,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),        
 
     # Great Bay Temple Pots
@@ -8749,383 +8772,383 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Great Bay Temple Above Blender Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204901,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Above Blender Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204900,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Room Behind 1F Waterfall Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049C3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Room Behind 1F Waterfall Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049C2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Room Behind 1F Waterfall Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049C0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Room Behind 1F Waterfall Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049C1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204910,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204911,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     #Fairy Pot so no item
     # "Great Bay Temple Red Green Pipe Tunnel Room Pots (3)": MMRLocationData(
     #     region="Great Bay Temple",
     #     address=0x20491B,
-    #     can_create=lambda options: options.potsanity.value
+    #     can_create=lambda options: pot_enabled(options, is_dungeon=True)
     # ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x20491A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204913,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204915,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204916,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204917,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (9)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204914,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (10)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204912,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (11)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204918,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Green Pipe Tunnel Room Pots (12)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204919,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204945,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204940,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204946,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204941,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204943,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204944,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Before Gekko Room Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204942,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Valve Underwater Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204963,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Valve Underwater Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204962,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Valve Underwater Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204961,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Red Valve Underwater Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204960,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049EA,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E8,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E5,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E4,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E6,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (9)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E7,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (10)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (11)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049EB,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Behind Locked Door Pots (12)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049E9,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204972,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204970,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204976,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204971,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204977,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204974,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204975,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Wart Room Pots (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204973,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204996,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204997,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204990,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204991,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204994,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204995,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204993,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Green Pipe Frozen Waterwheel Pots (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x204992,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Seesaw Room Pots (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049A2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Seesaw Room Pots (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049A0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Seesaw Room Pots (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049A1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (1)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B5,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (2)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (3)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (4)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B7,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (5)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B6,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (6)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (7)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B4,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Pots Underneath Boss Door Platform (8)": MMRLocationData(
         region="Great Bay Temple",
         address=0x2049B2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (1)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F07,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (2)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F06,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (3)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F05,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (4)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F04,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (5)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (6)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F03,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (7)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F02,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Great Bay Temple Gyorg Pots (8)": MMRLocationData(
         region="Gyorg's Lair",
         address=0x205F01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     # Ikana Road and Gravyard Pots
@@ -9133,117 +9156,117 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Road To Ikana Scarecrow Pillar Pot": MMRLocationData(
         region="Road to Ikana",
         address=0x205300,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 1 Grave Pots (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 1 Grave Pots (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 1 Grave Pots (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 1 Grave Pots (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 1 Grave Pots (5)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C12,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Entrance Grave Pot": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C02,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Entryway Pots (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C32,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Entryway Pots (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C33,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Pots (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C30,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Pots (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C31,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Pots (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C35,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 2 Invisible Path Pots (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x200C34,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (1)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203001,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (2)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203003,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (3)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203005,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (4)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203002,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (5)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203000,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (6)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203004,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (7)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203009,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (8)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203007,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (9)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203006,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Ikana Graveyard Day 3 Pots (10)": MMRLocationData(
         region="Ikana Graveyard",
         address=0x203008,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Secret Shrine Pots
@@ -9251,74 +9274,74 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Secret Shrine Entrance Pots (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x206001,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Entrance Pots (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x206002,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Entrance Pots (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x206000,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (1)": MMRLocationData(
         region="Secret Shrine",
         address=0x206015,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (2)": MMRLocationData(
         region="Secret Shrine",
         address=0x206014,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (3)": MMRLocationData(
         region="Secret Shrine",
         address=0x206013,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (4)": MMRLocationData(
         region="Secret Shrine",
         address=0x206012,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (5)": MMRLocationData(
         region="Secret Shrine",
         address=0x206010,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Secret Shrine Underwater Pots (6)": MMRLocationData(
         region="Secret Shrine",
         address=0x206011,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     #Sakons Hideout
     "Sakons Hideout Pots (1)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x204F10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sakons Hideout Pots (2)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x204F11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),          
     "Sakons Hideout Pots (3)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x204F12,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sakons Hideout Pots (4)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x204F13,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Sakons Hideout Pots (5)": MMRLocationData(
         region="Lower Ikana Canyon",
         address=0x204F14,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),      
 
     
@@ -9326,107 +9349,107 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Ikana Castle Exterior Corner Pot": MMRLocationData(
         region="Ikana Castle",
         address=0x201D00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Frozen Eyes Room Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D11,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Frozen Eyes Room Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D10,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Falling Ceiling Room Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D20,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Falling Ceiling Room Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D21,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D42,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D41,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (3)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D40,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Broken Floor Room Pots (4)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D43,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Staircase Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D60,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Left Side Staircase Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D61,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Right Side Staircase Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D71,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Right Side Staircase Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x201D70,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x205601,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (2)": MMRLocationData(
         region="Ikana Castle",
         address=0x205600,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (3)": MMRLocationData(
         region="Ikana Castle",
         address=0x205603,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (4)": MMRLocationData(
         region="Ikana Castle",
         address=0x205602,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (5)": MMRLocationData(
         region="Ikana Castle",
         address=0x205611,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (6)": MMRLocationData(
         region="Ikana Castle",
         address=0x205612,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (7)": MMRLocationData(
         region="Ikana Castle",
         address=0x205613,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Ikana Castle Throne Room Pots (8)": MMRLocationData(
         region="Ikana Castle",
         address=0x205610,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     
     # Well Pots
@@ -9434,97 +9457,97 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Well Left Side Back Room Pots (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B52,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Left Side Back Room Pots (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B50,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Left Side Back Room Pots (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B54,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Left Side Back Room Pots (4)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B51,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Left Side Back Room Pots (5)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B53,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B69,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B68,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B67,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (4)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B66,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (5)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B65,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (6)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B64,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (7)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B63,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (8)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B62,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (9)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B61,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Right Side Before Chest Room Pots (10)": MMRLocationData(
         region="Beneath the Well",
         address=0x204B60,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Big Poe Pots (1)": MMRLocationData(
         region="Beneath the Well",
         address=0x204BC2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Big Poe Pots (2)": MMRLocationData(
         region="Beneath the Well",
         address=0x204BC3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Big Poe Pots (3)": MMRLocationData(
         region="Beneath the Well",
         address=0x204BC1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Well Big Poe Pots (4)": MMRLocationData(
         region="Beneath the Well",
         address=0x204BC0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
 
@@ -9532,138 +9555,138 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Stone Tower Climb Pots (1)": MMRLocationData(
         region="Stone Tower",
         address=0x205815,
-        can_create=lambda options: options.potsanity.value    
+        can_create=lambda options: pot_enabled(options)    
      ),
     "Stone Tower Climb Pots (2)": MMRLocationData(
         region="Stone Tower",
         address=0x205816,
-        can_create=lambda options: options.potsanity.value    
+        can_create=lambda options: pot_enabled(options)    
     ),  
     # Stone Tower Lower Scarecrow Pots
     "Stone Tower Lower Scarecrow Pots (1)": MMRLocationData(
         region="Stone Tower",
         address=0x205805,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (2)": MMRLocationData(
         region="Stone Tower",
         address=0x205814,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (3)": MMRLocationData(
         region="Stone Tower",
         address=0x205808,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (4)": MMRLocationData(
         region="Stone Tower",
         address=0x205807,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (5)": MMRLocationData(
         region="Stone Tower",
         address=0x205804,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (6)": MMRLocationData(
         region="Stone Tower",
         address=0x205806,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (7)": MMRLocationData(
         region="Stone Tower",
         address=0x205802,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (8)": MMRLocationData(
         region="Stone Tower",
         address=0x205801,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (9)": MMRLocationData(
         region="Stone Tower",
         address=0x205803,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (10)": MMRLocationData(
         region="Stone Tower",
         address=0x205800,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (11)": MMRLocationData(
         region="Stone Tower",
         address=0x205809,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Lower Scarecrow Pots (12)": MMRLocationData(
         region="Stone Tower",
         address=0x20580A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (1)": MMRLocationData(
         region="Stone Tower",
         address=0x205812,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (2)": MMRLocationData(
         region="Stone Tower",
         address=0x205813,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (3)": MMRLocationData(
         region="Stone Tower",
         address=0x205811,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (4)": MMRLocationData(
         region="Stone Tower",
         address=0x20580F,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (5)": MMRLocationData(
         region="Stone Tower",
         address=0x205810,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (6)": MMRLocationData(
         region="Stone Tower",
         address=0x20580E,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (7)": MMRLocationData(
         region="Stone Tower",
         address=0x20580C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (8)": MMRLocationData(
         region="Stone Tower",
         address=0x20580D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Upper Scarecrow Pots (9)": MMRLocationData(
         region="Stone Tower",
         address=0x20580B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Owl Pots (1)": MMRLocationData(
         region="Stone Tower",
         address=0x20581A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Owl Pots (2)": MMRLocationData(
         region="Stone Tower",
         address=0x205817,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Owl Pots (3)": MMRLocationData(
         region="Stone Tower",
         address=0x205818,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Stone Tower Owl Pots (4)": MMRLocationData(
         region="Stone Tower",
         address=0x205819,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     
     # Stone Tower Temple Pots
@@ -9671,157 +9694,157 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Stone Tower Temple Entrance Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201601,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Entrance Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201600,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201645,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201642,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201644,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201643,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (5)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201646,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (6)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201641,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (7)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201640,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Basement Armos Pots (8)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201647,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Near Locked Door Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201635,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Near Locked Door Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201636,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Underwater Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201633,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Underwater Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201634,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Underwater Pots (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201632,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Underwater Pots (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201630,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Right Side Underwater Pots (5)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201631,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Mirror Room Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201671,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Mirror Room Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201670,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Deku Updraft Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201693,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Deku Updraft Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201690,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Deku Updraft Pots (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201692,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Deku Updraft Pots (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201691,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201680,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (2)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201681,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (3)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201682,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (4)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201686,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (5)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201683,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (6)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201687,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (7)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201685,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Stone Tower Temple Lower Spike Roller Pots (8)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201684,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     
     # Inverted Stone Tower Temple Pots
@@ -9829,192 +9852,192 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Inverted Stone Tower Bean Pots (1)": MMRLocationData(
         region="Stone Tower",
         address=0x205903,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Inverted Stone Tower Bean Pots (2)": MMRLocationData(
         region="Stone Tower",
         address=0x205904,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Inverted Stone Tower Bean Pots (3)": MMRLocationData(
         region="Stone Tower",
         address=0x205900,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Inverted Stone Tower Bean Pots (4)": MMRLocationData(
         region="Stone Tower",
         address=0x205901,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Inverted Stone Tower Bean Pots (5)": MMRLocationData(
         region="Stone Tower",
         address=0x205902,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options)
     ),
     "Inverted Stone Tower Temple Updraft Pots (1)": MMRLocationData(
         region="Stone Tower Temple",
         address=0x201832,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Updraft Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201833,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Updraft Pots (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201835,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Updraft Pots (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201834,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Updraft Pots (5)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201831,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Updraft Pots (6)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201830,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Gomess Pots (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x2018B3,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Gomess Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x2018B0,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Gomess Pots (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x2018B1,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Gomess Pots (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x2018B2,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Lower Bridge Room Pots (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201811,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Lower Bridge Room Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201810,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201822,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201820,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201821,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Small Poe Room Pots (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201823,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201840,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201843,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201844,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201841,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Wizzrobe Room Pots (5)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201842,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x20188A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x20188B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201889,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (Flying) (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201888,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (1)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201883,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (2)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201881,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (3)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201885,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (4)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201887,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (5)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201884,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (6)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201886,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (7)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201880,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Inverted Stone Tower Temple Pre Boss Pots (8)": MMRLocationData(
         region="Stone Tower Temple (Inverted)",
         address=0x201882,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     
@@ -10023,127 +10046,127 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Moon Goron Trial Pots (1)": MMRLocationData(
         region="The Moon",
         address=0x203F08,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (2)": MMRLocationData(
         region="The Moon",
         address=0x203F07,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (3)": MMRLocationData(
         region="The Moon",
         address=0x203F09,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (4)": MMRLocationData(
         region="The Moon",
         address=0x203F0A,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (5)": MMRLocationData(
         region="The Moon",
         address=0x203F00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (6)": MMRLocationData(
         region="The Moon",
         address=0x203F01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (7)": MMRLocationData(
         region="The Moon",
         address=0x203F04,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (8)": MMRLocationData(
         region="The Moon",
         address=0x203F02,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (9)": MMRLocationData(
         region="The Moon",
         address=0x203F03,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (10)": MMRLocationData(
         region="The Moon",
         address=0x203F0E,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (11)": MMRLocationData(
         region="The Moon",
         address=0x203F0C,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (12)": MMRLocationData(
         region="The Moon",
         address=0x203F0B,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (13)": MMRLocationData(
         region="The Moon",
         address=0x203F0D,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (14)": MMRLocationData(
         region="The Moon",
         address=0x203F06,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Goron Trial Pots (15)": MMRLocationData(
         region="The Moon",
         address=0x203F05,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (1)": MMRLocationData(
         region="The Moon",
         address=0x206602,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (2)": MMRLocationData(
         region="The Moon",
         address=0x206603,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (3)": MMRLocationData(
         region="The Moon",
         address=0x206601,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (4)": MMRLocationData(
         region="The Moon",
         address=0x206600,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (5)": MMRLocationData(
         region="The Moon",
         address=0x206606,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (6)": MMRLocationData(
         region="The Moon",
         address=0x206604,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (7)": MMRLocationData(
         region="The Moon",
         address=0x206605,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Moon Link Trial Pots (8)": MMRLocationData(
         region="The Moon",
         address=0x206607,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Majora Lair Pots (1)": MMRLocationData(
         region="The Moon",
         address=0x200B00,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
     "Majora Lair Pots (2)": MMRLocationData(
         region="The Moon",
         address=0x200B01,
-        can_create=lambda options: options.potsanity.value
+        can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
 
     # Hitspots
@@ -15362,7 +15385,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x0B0024,
         can_create=lambda options: options.notebooksanity.value
     ),
-    "Notebook Event Received Bombers Notebook": MMRLocationData(
+    "Notebook Event Received Bombers NotebooK": MMRLocationData(
         region="Clock Town",
         address=0x0B0025,
         can_create=lambda options: options.notebooksanity.value
@@ -17328,6 +17351,11 @@ _grass_pool = {
     if "grass_enabled" in data.can_create.__code__.co_names
 }
 
+_pot_pool = {
+    name for name, data in location_data_table.items()
+    if "pot_enabled" in data.can_create.__code__.co_names
+}
+
 location_name_groups: Dict[str, set] = {
     "Grass": _grass_pool,
     "Termina Field Grass": {n for n in _grass_pool if location_data_table[n].region == "Termina Field"},
@@ -17339,4 +17367,7 @@ location_name_groups: Dict[str, set] = {
         or ("Bombable Rock Grass" in n and location_data_table[n].region == "Termina Field")
     },
     "Dungeon Grass": {n for n in _grass_pool if location_data_table[n].region in _DUNGEON_GRASS_REGIONS},
+    "Pots": _pot_pool,
+    "Dungeon Pots": {n for n in _pot_pool if location_data_table[n].region in POT_DUNGEON_REGIONS},
+    "Overworld Pots": {n for n in _pot_pool if location_data_table[n].region not in POT_DUNGEON_REGIONS},
 }

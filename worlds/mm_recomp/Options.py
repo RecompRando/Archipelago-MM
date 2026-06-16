@@ -347,9 +347,17 @@ class Grasssanity(Choice):
     option_dungeon_only = 4
 
 
-class Potsanity(Toggle):
-    """Choose whether pots are shuffled into the pool."""
+class Potsanity(Choice):
+    """Choose how pots are shuffled into the pool.
+    
+    all: All pots found throughout the game are shuffled.
+    overworld_only: Only pots found in the overworld.
+    dungeon_only: Only pots found in dungeons."""
     display_name = "Potsanity"
+    option_disabled = 0
+    option_all = 1
+    option_overworld_only = 2
+    option_dungeon_only = 3
 
 
 class Hitsanity(Toggle):
