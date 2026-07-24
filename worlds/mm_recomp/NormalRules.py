@@ -398,21 +398,25 @@ def get_location_rules(player, options, prices):
             lambda state: state.has("Progressive Bow", player),
         "East Clock Town Honey and Darling Any Day":
             lambda state: (
-                state.has("Progressive Bow", player) or 
+                has_bombchus(state, player) or
+                state.has("Progressive Bomb Bag", player) or
+                state.has("Progressive Bow", player) or
                 (
-                    state.has("Progressive Bomb Bag", player) or 
-                    has_bombchus(state, player)
-                ) or 
-                (
-                    state.has("Deku Mask", player) and 
+                    state.has("Deku Mask", player) and
                     state.has("Progressive Magic", player)
                 )
             ),
         "East Clock Town Honey and Darling All Days":
             lambda state: (
-                state.has("Progressive Bow", player) and 
-                state.has("Progressive Bomb Bag", player) and 
-                has_bombchus(state, player)
+                has_bombchus(state, player) and
+                state.has("Progressive Bomb Bag", player) and
+                (
+                    state.has("Progressive Bow", player) or
+                    (
+                        state.has("Deku Mask", player) and
+                        state.has("Progressive Magic", player)
+                    )
+                )
             ),
         "East Clock Town Treasure Game Chest (Human)":
             lambda state: True,
