@@ -251,6 +251,11 @@ class MMRWorld(World):
             if self.options.shuffle_picture_rewards.value == 2:
                 self.create_and_add_filler_items(4)
 
+        if self.options.infinite_magic_behavior. value == 2:
+            mw.itempool.append(self.create_item("Progressive Magic"))
+        else:
+            self.create_and_add_filler_items(1)
+
         if self.options.shuffle_maps_and_compasses.value == 0:
             self.create_and_add_filler_items(8)
 
@@ -730,7 +735,7 @@ class MMRWorld(World):
             "required_skull_tokens": self.options.required_skull_tokens.value,
             "required_stray_fairies": self.options.required_stray_fairies.value,
             "start_with_consumables": self.options.start_with_consumables.value,
-            "permanent_chateau_romani": self.options.permanent_chateau_romani.value,
+            "infinite_magic_behavior": self.options.infinite_magic_behavior.value,
             "start_with_inverted_time": self.options.start_with_inverted_time.value,
             "receive_filled_wallets": self.options.receive_filled_wallets.value,
             "remains_allow_boss_warps": self.options.remains_allow_boss_warps.value,

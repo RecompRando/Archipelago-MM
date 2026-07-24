@@ -346,9 +346,19 @@ class StartWithConsumables(DefaultOnToggle):
     display_name = "Start With Consumables"
 
 
-class PermanentChateauRomani(DefaultOnToggle):
-    """Choose whether the Chateau Romani stays even after a reset."""
+class InfiniteMagicBehavior(Choice):
+    """
+    Choose how infinite magic is handled.
+
+    vanilla: Vanilla behavior. Infinite magic will end after a cycle reset.
+    consume: Drinking Chateau Romani will give permanent infinite magic and will persist through cycle resets.
+    upgrade: Adds a third Progressive Magic in the pool that gives permanent infinite magic. Drinking Chateau Romani
+    before getting the third upgrade will still give infinite magic, but will end after a cycle reset.
+    """
     display_name = "Permanent Chateau Romani"
+    option_vanilla = 0
+    option_consume = 1
+    option_upgrade = 2
 
 
 class StartWithInvertedTime(Toggle):
@@ -435,7 +445,7 @@ class MMROptions(PerGameCommonOptions):
     shuffle_lottery: ShuffleLottery
     shuffle_picture_rewards: ShufflePictureRewards
     start_with_consumables: StartWithConsumables
-    permanent_chateau_romani: PermanentChateauRomani
+    infinite_magic_behavior: InfiniteMagicBehavior
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
     magic_is_a_trap: MagicIsATrap
