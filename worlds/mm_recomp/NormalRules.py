@@ -410,13 +410,7 @@ def get_location_rules(player, options, prices):
             lambda state: (
                 has_bombchus(state, player) and
                 state.has("Progressive Bomb Bag", player) and
-                (
-                    state.has("Progressive Bow", player) or
-                    (
-                        state.has("Deku Mask", player) and
-                        state.has("Progressive Magic", player)
-                    )
-                )
+                state.has("Progressive Bow", player)
             ),
         "East Clock Town Treasure Game Chest (Human)":
             lambda state: True,
