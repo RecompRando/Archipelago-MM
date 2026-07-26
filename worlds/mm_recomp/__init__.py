@@ -96,21 +96,12 @@ class MMRWorld(World):
         self.prices = ""
 
         if self.options.shopsanity.value != 0:
-            price_max = 0
-
-            if self.options.shop_prices.value == 2:
-                price_max = 99
-            elif self.options.shop_prices.value == 3:
-                price_max = 200
-            elif self.options.shop_prices.value == 4:
-                price_max = 500
-
             # There are 34 (+2 fake) shop locations that need prices
             for i in range(0, 36):
                 if self.options.shop_prices.value == 0:
                     price = default_shop_prices[i]
                 else:
-                    price = self.random.randint(0, price_max)
+                    price = self.random.randrange(0, self.options.max_shop_prices.value, 5)
                 self.prices_ints.append(price)
                 self.prices += str(price) + " "
 

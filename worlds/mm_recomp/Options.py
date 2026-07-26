@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from typing import Dict
 
-from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
+from Options import Choice, Option, DefaultOnToggle, Toggle, Range, NamedRange, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
 
 
 class LogicDifficulty(Choice):
@@ -151,22 +151,33 @@ class Scrubsanity(Toggle):
     display_name = "Shuffle Business Scrub Purchases"
 
 class ShopPrices(Choice):
-    """Choose how expensive shop items are.
-    These only apply to the main shops of the game.
-    This has no effect if shopsanity is disabled.
+    """
+    Choose whether prices for shop items are vanilla or random.
+    This only apply to the main shops of the game. This has no effect if shopsanity is disabled.
     
     vanilla: Shop items have their normal prices.
-    free: All shop items are free and cost 0 Rupees.
-    cheap: Shop items vary in price but can all be purchased with the starting wallet.
-    expensive: Shop items vary in price but may require the Adult's Wallet. No shop items will require the Giant's Wallet.
-    offensive: Shop items vary in price but may require the Adult's Wallet and sometimes even the Giant's Wallet."""
+    randomized: Shop items have their prices randomized. The maximum price can be configured in max_shop_prices.
+    """
     display_name = "Shop Prices"
     option_vanilla = 0
-    option_free = 1
-    option_cheap = 2
-    option_expensive = 3
-    option_offensive = 4
+    option_randomized = 1
     default = 0
+
+class MaxShopPrices(NamedRange):
+    """
+    Choose the maximum price shop items can be. This only has an effect if shop_prices is set to random.
+    """
+    display_name = "Maximum Shop Prices"
+    range_start = 0
+    range_end = 500
+    default = 300
+    special_range_names = {
+        "balanced": 300,
+        "free": 0,
+        "child": 99,
+        "adult": 200,
+        "giant": 500,
+    }
 
 
 class Cowsanity(Toggle):
@@ -430,6 +441,7 @@ class MMROptions(PerGameCommonOptions):
     shopsanity: Shopsanity
     scrubsanity: Scrubsanity
     shop_prices: ShopPrices
+    max_shop_prices: MaxShopPrices
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     required_stray_fairies: RequiredStrayFairies
