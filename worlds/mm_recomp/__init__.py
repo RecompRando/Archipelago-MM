@@ -2,16 +2,18 @@ from typing import List
 from typing import Dict
 from typing import TextIO
 
-from BaseClasses import Region, Tutorial, EntranceType
+from BaseClasses import Region, Location, Tutorial, EntranceType, ItemClassification
 from worlds.AutoWorld import WebWorld, World
 from entrance_rando import randomize_entrances, disconnect_entrance_for_randomization
 from .Items import MMRItem, item_data_table, item_table, code_to_item_table
-from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations
-from .Options import MMROptions
+from .Locations import MMRLocation, location_data_table, location_table, code_to_location_table, locked_locations, location_name_groups
+from .Options import MMROptions, mm_option_groups
 from .Regions import region_data_table, get_exit
 from .Rules import *
 from .NormalRules import *
 from .Constants import *
+
+import copy
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
@@ -27,6 +29,8 @@ class MMRWebWorld(WebWorld):
     
     tutorials = [setup_en]
 
+    option_groups = mm_option_groups
+
 
 class MMRWorld(World):
     """A Zelda game we're not completely burnt out on."""
@@ -37,6 +41,7 @@ class MMRWorld(World):
     options_dataclass = MMROptions
     options = MMROptions
     location_name_to_id = location_table
+    location_name_groups = location_name_groups
     item_name_to_id = item_table
     
     shop_prices = List[int]
@@ -44,11 +49,14 @@ class MMRWorld(World):
     entrance_rando_results: Dict[int, int]
     boss_regions: Dict[int, int] # what region a boss clears
 
+    hints: Dict[int, Dict[int, any]] # hints are up here to populate them easier
+
     def generate_early(self):
         # initialize empty data
         self.shop_prices = []
         self.entrance_rando_results = {}
         self.boss_regions = {}
+        self.hints = {}
         
         # Create shop prices.
         if self.options.shopsanity.value != 0:
@@ -153,14 +161,30 @@ class MMRWorld(World):
         if self.options.intro_checks.value:
             filler_amount += 1
     
-        if self.options.intro_checks.value and self.options.grasssanity.value:
-            filler_amount += 51
-        
-        if self.options.grasssanity.value != 0:
-            filler_amount += 1022
+        grass_mode = self.options.grasssanity.value
+        if grass_mode == 1:  # normal
+            grass_filler = 1022
+        elif grass_mode == 2:  # no_termina_field
+            grass_filler = 682
+        elif grass_mode == 3:  # grotto_and_cave_only
+            grass_filler = 415
+        elif grass_mode == 4:  # dungeon_only
+            grass_filler = 112
+        else:
+            grass_filler = 0
 
-        if self.options.potsanity.value != 0:
-            filler_amount += 542
+        if self.options.intro_checks.value and grass_mode in (1, 2):
+            filler_amount += 51
+
+        filler_amount += grass_filler
+
+        pot_mode = self.options.potsanity.value
+        if pot_mode == 1:  # all
+            filler_amount += 540
+        elif pot_mode == 2:  # overworld_only
+            filler_amount += 183
+        elif pot_mode == 3:  # dungeon_only
+            filler_amount += 357
         
         if self.options.rocksanity.value != 0:
             filler_amount += 129
@@ -627,18 +651,189 @@ class MMRWorld(World):
         # print(json.dumps(self.entrance_rando_results, indent=4))
         # print(json.dumps(self.boss_regions, indent=4))
 
-    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
-        if self.options.shopsanity.value:
-            spoiler_handle.write("\nShop Prices:\n")
-            for location, shop_id in shop_location_to_id.items():
-                spoiler_handle.write(f"\n{location}: {self.shop_prices[shop_id]} Rupees")
+    def location_to_slotdata(self, location: Location):
+        mw = self.multiworld
+        return {
+            "location_name": location.name,
+            "item_name": location.item.name,
+            "player": location.player,
+            "address": location.address,
+        }
+    
+    def locations_to_slotdata(self, locations: List[Location]):
+        formatted = []
+        for location in locations:
+            formatted.append(self.location_to_slotdata(location))
+        return formatted
+    
+    # Grab hints for gossip stones
+    def generate_hints(self):
+        mw = self.multiworld
+        player = self.player
+        hints = self.hints
+
+        # Fill moon gossip stones with their original mask hints
+        for gossip_stone, item in moon_gossip_lookup.items():
+            try:
+                location = mw.find_item(item, player)
+                hints[gossip_stone]["item"] = item
+                hints[gossip_stone]["item_type"] = ItemClassification.progression
+                hints[gossip_stone]["location"] = location.name
+                hints[gossip_stone]["location_id"] = location.address
+                hints[gossip_stone]["from_player"] = location.player
+                hints[gossip_stone]["to_player"] = location.item.player # redundant for moon gossips
+                hints[gossip_stone]["region"] = location.parent_region.name or "" # might not exist sometimes?
+                hints[gossip_stone]["type"] = HintEnum.MOON.value
+                hints[gossip_stone]["filled"] = True
+            except StopIteration:
+                continue # replaces hint with junk (starting item from pool)
+
+        hint_count = 0
+        hint_pool = []
+        fill_amount = len([text_id for text_id, hint in hints.items() if not hint["filled"]]) * self.options.hint_percentage.value / 100
+        important_hints_filled = False
+
+        # fill percentage of remaining unfilled locations
+        while hint_count < fill_amount:
+            # go through priority hints first, then the rest, and cycle back if both pools are empty
+            if not hint_pool:
+                if not important_hints_filled:
+                    hint_pool.extend(priority_hints)
+                    important_hints_filled = True
+                else:
+                    hint_pool.extend(other_hints)
+                    important_hints_filled = False # reset to false if we need to grab more hints
+            
+            fill_choice = self.random.choice([text_id for text_id, hint in hints.items() if not hint["filled"]])
+            hint_choice = self.random.choice(hint_pool)
+            hint_pool.remove(hint_choice)
+
+            hint_item = None
+            hint_location = None
+
+            # priority
+            if hint_choice == HintEnum.DEKU:
+                hint_item = "Deku Mask"
+            elif hint_choice == HintEnum.SONATA:
+                hint_item = "Sonata of Awakening"
+            elif hint_choice == HintEnum.GORON:
+                hint_item = "Goron Mask"
+            elif hint_choice == HintEnum.LULLABY:
+                hint_item = "Goron Lullaby"
+            elif hint_choice == HintEnum.ZORA:
+                hint_item = "Zora Mask"
+            elif hint_choice == HintEnum.NOVA:
+                hint_item = "New Wave Bossa Nova"
+            elif hint_choice == HintEnum.ELEGY:
+                hint_item = "Elegy of Emptiness"
+            elif hint_choice == HintEnum.OATH:
+                hint_item = "Oath to Order"
+            # other
+            elif hint_choice == HintEnum.FD:
+                hint_item = "Fierce Deity's Mask"
+            elif hint_choice == HintEnum.MAGIC:
+                hint_item = "Progressive Magic" # will only give a single magic
+            elif hint_choice == HintEnum.HD_3:
+                hint_location = "East Clock Town Honey and Darling All Days"
+            elif hint_choice == HintEnum.DP_3:
+                hint_location = "North Clock Town Deku Playground All Days"
+            elif hint_choice == HintEnum.BEAVERS:
+                hint_location = "Beaver Bros. Race 1"
+                extra_location = mw.get_location("Beaver Bros. Race 2 HP", player)
+                hints[fill_choice]["extra"] = {
+                    "item": extra_location.item.name,
+                    "item_type": extra_location.item.classification,
+                    "player": extra_location.item.player,
+                    "location_id": extra_location.address
+                }
+            elif hint_choice == HintEnum.ANJU_KAFEI:
+                hint_location = "Stock Pot Inn Anju and Kafei"
+
+            # hint revolves around an item
+            if hint_item:
+                try:
+                    location = mw.find_item(hint_item, player)
+                    hints[fill_choice]["item"] = hint_item
+                    hints[fill_choice]["location"] = location.name
+                    hints[fill_choice]["item_type"] = location.item.classification
+                    hints[fill_choice]["location_id"] = location.address
+                    hints[fill_choice]["from_player"] = location.player
+                    hints[fill_choice]["to_player"] = location.item.player # equal to current slot
+                    hints[fill_choice]["region"] = location.parent_region.name # might not exist sometimes?
+                    hints[fill_choice]["type"] = hint_choice.value
+                    hints[fill_choice]["filled"] = True
+                except StopIteration:
+                    continue # ignore hint where item isn't found (starting item from pool)
+            elif hint_location:
+                location = mw.get_location(hint_location, player)
+                hints[fill_choice]["item"] = location.item.name
+                hints[fill_choice]["item_type"] = location.item.classification
+                hints[fill_choice]["location"] = location.name
+                hints[fill_choice]["location_id"] = location.address
+                hints[fill_choice]["from_player"] = location.player # equal to current slot
+                hints[fill_choice]["to_player"] = location.item.player
+                hints[fill_choice]["region"] = location.parent_region.name
+                hints[fill_choice]["type"] = hint_choice.value
+                hints[fill_choice]["filled"] = True
+
+            hint_item = None
+            hint_location = None
+            
+            hint_count += 1
 
     def fill_slot_data(self):
+        mw = self.multiworld
+        self.hints = copy.deepcopy(gossip_stones) # create a copy of the base dictionary
+
         shp = self.options.starting_hearts.value
         starting_containers = int(shp/4) - 1
         starting_pieces = shp % 4
         shuffled_containers = int((12 - shp)/4)
         shuffled_pieces = (12 - shp) % 4
+
+        self.generate_hints()
+
+        fairy_locations = {
+            "Clock Town": self.location_to_slotdata(mw.find_item("Stray Fairy (Clock Town)", self.player)),
+            "Woodfall": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Woodfall)", self.player)),
+            "Snowhead": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Snowhead)", self.player)),
+            "Great Bay": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Great Bay)", self.player)),
+            "Stone Tower": self.locations_to_slotdata(mw.find_item_locations("Stray Fairy (Stone Tower)", self.player)),
+        }
+
+        skull_locations = {
+            "Swamp": self.locations_to_slotdata(mw.find_item_locations("Swamp Skulltula Token", self.player)),
+            "Ocean": self.locations_to_slotdata(mw.find_item_locations("Ocean Skulltula Token", self.player)),
+        }
+
+        remain_locations = [
+            self.location_to_slotdata(mw.find_item("Odolwa's Remains", self.player)),
+            self.location_to_slotdata(mw.find_item("Goht's Remains", self.player)),
+            self.location_to_slotdata(mw.find_item("Gyorg's Remains", self.player)),
+            self.location_to_slotdata(mw.find_item("Twinmold's Remains", self.player)),
+        ]
+        
+        # print()
+        # print(fairy_locations)
+        # print(skull_locations)
+        # import json
+        # print(json.dumps(fairy_locations, indent=4))
+        # print(json.dumps(skull_locations, indent=4))
+
+        # print()
+        # # print(list(mw.get_locations()))
+        # print()
+        # item_location = mw.find_item("Fierce Deity's Mask", self.player)
+        # print(item_location.name, mw.get_player_name(item_location.player))
+
+        # item_locations = mw.find_item_locations("Stray Fairy (Woodfall)", self.player)
+        # print(item_locations) # prints all 15 Locations
+
+        # mw.spoiler.create_playthrough()
+        # playthrough = mw.spoiler.playthrough
+
+        # import json
+        # print(json.dumps(playthrough, indent=4))
 
         return {
             "skullsanity": self.options.skullsanity.value,
@@ -716,5 +911,25 @@ class MMRWorld(World):
             "dungeon_chaining": self.options.dungeon_chaining.value,
             "entrance_rando_results": self.entrance_rando_results,
             "boss_regions": self.boss_regions,
+            "fairy_locations": fairy_locations,
+            "skull_locations": skull_locations,
+            "remain_locations": remain_locations,
+            "hints": self.hints,
             "logic_difficulty": self.options.logic_difficulty.value
         }
+
+    def write_spoiler(self, spoiler_handle: TextIO) -> None:
+        mw = self.multiworld
+        
+        # Shopsanity Spoilers
+        if self.options.shopsanity.value:
+            spoiler_handle.write("\n\nShop Prices:\n")
+            for location, shop_id in shop_location_to_id.items():
+                spoiler_handle.write(f"\n{location}: {self.shop_prices[shop_id]} Rupees")
+
+        spoiler_handle.write("\n\nIn-Game Hints:\n")
+        for text_id, hint in self.hints.items():
+            if hint["filled"]:
+                spoiler_handle.write(f"\n{hint["name"]}: {mw.get_player_name(hint["to_player"])}'s {hint["item"]} at {mw.get_player_name(hint["from_player"])}'s {hint["location"]}")
+            else:
+                spoiler_handle.write(f"\n{hint["name"]}: Filler")

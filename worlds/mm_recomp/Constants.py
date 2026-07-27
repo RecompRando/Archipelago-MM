@@ -1,3 +1,5 @@
+from enum import Enum, auto
+
 SHOP_ID_WITCH_POTION_3 = 0x00 # SI_POTION_RED_1
 SHOP_ID_WITCH_POTION_2 = 0x01 # SI_POTION_GREEN_1
 SHOP_ID_WITCH_POTION_1 = 0x02 # SI_POTION_BLUE
@@ -129,6 +131,703 @@ shop_location_to_id = {
 	"Zora Hall Shop Item 3": SHOP_ID_ZORA_SHOP_3,
 }
 
+# hint helpers
+class HintEnum(Enum):
+    NONE = 0
+    MOON = auto()
+    # priority
+    DEKU = auto()
+    SONATA = auto()
+    GORON = auto()
+    LULLABY = auto()
+    ZORA = auto()
+    NOVA = auto()
+    ELEGY = auto()
+    OATH = auto()
+    # etc
+    FD = auto()
+    MAGIC = auto()
+    HD_3 = auto() # honey and darling all days
+    DP_3 = auto() # deku playground all days
+    BEAVERS = auto() # both beaver rewards
+    ANJU_KAFEI = auto() # final anju and kafei reward
+
+priority_hints = [
+    HintEnum.DEKU,
+    HintEnum.SONATA,
+    HintEnum.GORON,
+    HintEnum.LULLABY,
+    HintEnum.ZORA,
+    HintEnum.NOVA,
+    HintEnum.ELEGY,
+    HintEnum.OATH,
+]
+
+other_hints = [
+    HintEnum.FD,
+    HintEnum.MAGIC,
+    HintEnum.HD_3,
+    HintEnum.DP_3,
+    HintEnum.BEAVERS,
+    HintEnum.ANJU_KAFEI,
+]
+
+gossip_stones = {
+    0x20B0: {
+        "name": "Termina Field Gossip Stone Behind Tree",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20B8: {
+        "name": "Termina Field Gossip Stone Near Takkuri",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20B9: {
+        "name": "Termina Field Gossip Stone Near Kamaro",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20BA: {
+        "name": "Termina Field Gossip Stone Near Songwall",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20BB: {
+        "name": "Termina Field Gossip Stone Near Road to Ikana",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20C1: {
+        "name": "Termina Field Gossip Stone Outside Observatory",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20F3: {
+        "name": "Termina Field Gossip Grotto Big Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20F7: {
+        "name": "Termina Field Gossip Grotto Small Gossip Stone 1", # New Wave Bossa Nova
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20F8: {
+        "name": "Termina Field Gossip Grotto Small Gossip Stone 2", # Sonata
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20F9: {
+        "name": "Termina Field Gossip Grotto Small Gossip Stone 3", # Lullaby
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Milk Road
+    0x20BE: {
+        "name": "Milk Road Keaton Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Romani Ranch
+    0x20C4: {
+        "name": "Romani Ranch Entrance Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20BC: {
+        "name": "Romani Ranch Tree Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20BD: {
+        "name": "Romani Ranch Ouside Barn Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20C2: {
+        "name": "Romani Ranch Cuccoo Shack Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20C3: {
+        "name": "Romani Ranch Doggy Race Track Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Road to Southern Swamp
+    0x20C0: {
+        "name": "Road to Southern Swamp Near Archery Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Southern Swamp
+    0x20B1: {
+        "name": "Southern Swamp Outside Woods of Mystery Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Road to Ikana
+    0x20B5: {
+        "name": "Road to Ikana Outside Graveyard Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Ikana Canyon
+    0x20B6: {
+        "name": "Ikana Canyon Dock Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20C5: {
+        "name": "Ikana Canyon Scrub Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20B7: {
+        "name": "Ikana Canyon Ledge Above Poe Hut Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Path to Mountain Village
+    0x20B3: {
+        "name": "Path to Mountain Village Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20C6: {
+        "name": "Mountain Village Spring Near Frog Choir Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x20B2: {
+        "name": "Mountain Village Spring Ramp to Goron Graveyard Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Great Bay Coast
+    0x20BF: {
+        "name": "Great Bay Coast Rock Wall Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Zora Cape
+    0x20B4: {
+        "name": "Zora Cape Near Logs Gossip Stone",
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Moon
+    # Deku Trial
+    0x2109: {
+        "name": "Deku Trial Front Right Gossip Stone", # Romani's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },    
+    0x2108: {
+        "name": "Deku Trial Front Left Gossip Stone", # Garo's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },    
+    0x210A: {
+        "name": "Deku Trial Back Left Gossip Stone", # Circus Leader's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },   
+    0x210B: {
+        "name": "Deku Trial Back Right Gossip Stone", # Postman's Hat
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },   
+    0x210C: {
+        "name": "Deku Trial Heart Piece Gossip Stone", # Couple's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },   
+    # Goron Trial
+    0x2111: {
+        "name": "Goron Trial 1st Gazebo Right Gossip Stone", # Captain's Hat
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2110: {
+        "name": "Goron Trial 1st Gazebo Left Gossip Stone", # Kamaro's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },    
+    0x210F: {
+        "name": "Goron Trial 2nd Gazebo Right Gossip Stone", # Don Gero's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },   
+    0x210E: {
+        "name": "Goron Trial 2nd Gazebo Left Gossip Stone", # Gibdo Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    }, 
+    0x210D: {
+        "name": "Goron Trial Heart Piece Gossip Stone", # Great Fairy's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Zora Trial
+    0x2112: {
+        "name": "Zora Trial LLL Gossip Stone", # Stone Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2113: {
+        "name": "Zora Trial LLRL Gossip Stone", # Bremen Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2114: {
+        "name": "Zora Trial RLR Gossip Stone", # Blast Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2115: {
+        "name": "Zora Trial RRL Gossip Stone", # Mask of Scents
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2116: {
+        "name": "Zora Trial RRR Gossip Stone", # Giant's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    # Link Trial
+    0x2103: {
+        "name": "Link Trial Dinolfos Gossip Stone", # Mask of Truth
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2104: {
+        "name": "Link Trial Garo Master Gossip Stone", # Kafei's Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2105: {
+        "name": "Link Trial Iron Knuckle Left Gossip Stone", # All-Night Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2106: {
+        "name": "Link Trial Iron Knuckle Right Gossip Stone", # Bunny Hood
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+    0x2107: {
+        "name": "Link Trial Heart Piece Gossip Stone", # Keaton Mask
+        "item": "",
+        "item_type": 0,
+        "location": "",
+        "location_id": "",
+        "from_player": "",
+        "to_player": "",
+        "region": "",
+        "type": HintEnum.NONE.value,
+        "extra": {},
+        "filled": False,
+    },
+}
+
+moon_gossip_lookup = {
+	# Moon
+    # Deku Trial
+    0x2109: "Romani's Mask",
+    0x2108: "Garo's Mask",
+    0x210A: "Circus Leader's Mask",
+    0x210B: "Postman's Hat",
+    0x210C: "Couple's Mask",
+    # Goron Trial
+    0x2111: "Captain's Hat",
+    0x2110: "Kamaro's Mask",
+    0x210F: "Don Gero's Mask",
+    0x210F: "Gibdo Mask",
+    0x210D: "Great Fairy's Mask",
+    # Zora Trial
+    0x2112: "Stone Mask",
+    0x2113: "Bremen Mask",
+    0x2114: "Blast Mask",
+    0x2115: "Mask of Scents",
+    0x2116: "Giant's Mask",
+    # Link Trial
+    0x2103: "Mask of Truth",
+    0x2104: "Kafei's Mask",
+    0x2105: "All-Night Mask",
+    0x2106: "Bunny Hood",
+    0x2107: "Keaton Mask",
+}
+
 # rough grouping for entrance rando
 DUNGEON_WOODFALL = 0
 DUNGEON_SNOWHEAD = 1
@@ -214,3 +913,14 @@ mm_bosses = [
 	"Gyorg's Lair",
 	"Twinmold's Lair",
 ]
+
+GRASS_OFF = 0
+GRASS_NORMAL = 1
+GRASS_NO_TERMINA_FIELD = 2
+GRASS_GROTTO_AND_CAVE_ONLY = 3
+GRASS_DUNGEON_ONLY = 4
+
+POT_OFF = 0
+POT_ALL = 1
+POT_OVERWORLD_ONLY = 2
+POT_DUNGEON_ONLY = 3

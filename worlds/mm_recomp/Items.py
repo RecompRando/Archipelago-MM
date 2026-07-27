@@ -172,11 +172,11 @@ item_data_table: Dict[str, MMRItemData] = {
         code=0x000080,
         type=ItemClassification.progression
     ),
-    "Garo Mask": MMRItemData(
+    "Garo's Mask": MMRItemData(
         code=0x000081,
         type=ItemClassification.progression
     ),
-    "Romani Mask": MMRItemData(
+    "Romani's Mask": MMRItemData(
         code=0x000082,
         type=ItemClassification.progression
     ),
@@ -192,7 +192,7 @@ item_data_table: Dict[str, MMRItemData] = {
         code=0x000085,
         type=ItemClassification.progression
     ),
-    "Great Fairy Mask": MMRItemData(
+    "Great Fairy's Mask": MMRItemData(
         code=0x000086,
         type=ItemClassification.progression,
         can_create=lambda options: options.shuffle_great_fairy_rewards.value
@@ -201,11 +201,11 @@ item_data_table: Dict[str, MMRItemData] = {
         code=0x000087,
         type=ItemClassification.progression
     ),
-    "Don Gero Mask": MMRItemData(
+    "Don Gero's Mask": MMRItemData(
         code=0x000088,
         type=ItemClassification.progression
     ),
-    "Kamaro Mask": MMRItemData(
+    "Kamaro's Mask": MMRItemData(
         code=0x000089,
         type=ItemClassification.progression
     ),

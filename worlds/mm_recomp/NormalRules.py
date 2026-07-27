@@ -83,7 +83,7 @@ def can_get_cow_milk(state, player, options):
             state.has("Hookshot", player) or
             (
                 has_soul_npc(state, player, options, "Barten") and 
-                state.has("Romani Mask", player)
+                state.has("Romani's Mask", player)
             ) or
             (
                 state.has("Gibdo Mask", player) and 
@@ -242,7 +242,7 @@ def can_purchase(state, player, prices, price_index):
     return True
 
 def can_get_frog_choir_hp(state, player, options, boss_placements):
-    if not state.has("Don Gero Mask", player):
+    if not state.has("Don Gero's Mask", player):
         return False
     if not can_clear_snowhead(state, player, boss_placements):
         return False
@@ -280,9 +280,9 @@ def has_enough_masks(state, player, need_count, exclude_transformation=False):
         mask_count += 1
     if state.has("Keaton Mask", player):
         mask_count += 1
-    if state.has("Garo Mask", player):
+    if state.has("Garo's Mask", player):
         mask_count += 1
-    if state.has("Romani Mask", player):
+    if state.has("Romani's Mask", player):
         mask_count += 1
     if state.has("Circus Leader's Mask", player):
         mask_count += 1
@@ -290,13 +290,13 @@ def has_enough_masks(state, player, need_count, exclude_transformation=False):
         mask_count += 1
     if state.has("Couple's Mask", player):
         mask_count += 1
-    if state.has("Great Fairy Mask", player):
+    if state.has("Great Fairy's Mask", player):
         mask_count += 1
     if state.has("Gibdo Mask", player):
         mask_count += 1
-    if state.has("Don Gero Mask", player):
+    if state.has("Don Gero's Mask", player):
         mask_count += 1
-    if state.has("Kamaro Mask", player):
+    if state.has("Kamaro's Mask", player):
         mask_count += 1
     if state.has("Mask of Truth", player):
         mask_count += 1
@@ -334,7 +334,7 @@ def has_star_fox(state, player, options, goal_type="majora"):
         state.has("Keaton Mask", player) and
         state.has("Bremen Mask", player) and
         state.has("Mask of Scents", player) and
-        state.has("Don Gero Mask", player) and
+        state.has("Don Gero's Mask", player) and
         state.has("Bunny Hood", player)
     )
 def has_all_scarecrows(state, player, options, goal_type="majora"):
@@ -771,7 +771,7 @@ def get_region_rules(player, options):
                         can_play_song("Epona's Song", state, player) and 
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or
@@ -1074,7 +1074,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "Milk Bar Show":
             lambda state: (
                 has_soul_npc(state, player, options, "Toto & Gorman") and
-                state.has("Romani Mask", player) and 
+                state.has("Romani's Mask", player) and 
                 state.has("Deku Mask", player) and 
                 state.has("Goron Mask", player) and 
                 state.has("Zora Mask", player) and 
@@ -1083,20 +1083,20 @@ def get_location_rules(player, options, prices, boss_placements):
         "Milk Bar Priority Mail to Aroma":
             lambda state: (
                 has_soul_npc(state, player, options, "Madame Aroma") and
-                state.has("Romani Mask", player) and 
+                state.has("Romani's Mask", player) and 
                 state.has("Kafei's Mask", player) and 
                 state.has("Priority Mail", player)
             ),
         "East Clock Town Milk Bar Milk Purchase":
             lambda state: (
                 has_soul_npc(state, player, options, "Barten") and
-                state.has("Romani Mask", player) and 
+                state.has("Romani's Mask", player) and 
                 can_afford_price(state, player, 40)
             ),
         "East Clock Town Milk Bar Chateau Romani Purchase":
             lambda state: (
                 has_soul_npc(state, player, options, "Barten") and
-                state.has("Romani Mask", player) and 
+                state.has("Romani's Mask", player) and 
                 can_afford_price(state, player, 200)
             ),
         "West Clock Town Lottery Any Day":
@@ -1114,7 +1114,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "West Clock Town Dancing Sisters":
             lambda state: (
                 has_soul_npc(state, player, options, "Rosa Sisters") and 
-                state.has("Kamaro Mask", player)
+                state.has("Kamaro's Mask", player)
             ),
         "West Clock Town Bank 200 Rupees":
             lambda state: has_soul_npc(state, player, options, "Banker"),
@@ -1272,7 +1272,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         )
                     ) or 
                     (
-                        state.has("Romani Mask", player) and 
+                        state.has("Romani's Mask", player) and 
                         can_afford_price(state, player, 200)
                     ) or 
                     state.can_reach("Goron Racetrack Prize", "Location", player)
@@ -1330,7 +1330,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Pendant of Memories", player) and 
                 state.has("Hookshot", player) and 
                 (
-                    state.has("Garo Mask", player) or 
+                    state.has("Garo's Mask", player) or 
                     state.has("Gibdo Mask", player)
                 )
             ),
@@ -1902,7 +1902,7 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 (
                     state.has("Progressive Bow", player) and 
-                    state.has("Great Fairy Mask", player)
+                    state.has("Great Fairy's Mask", player)
                 ) or 
                 can_use_fire_arrows(state, player)
             ),
@@ -1916,7 +1916,7 @@ def get_location_rules(player, options, prices, boss_placements):
                     )
                 ) or 
                 (
-                    state.has("Great Fairy Mask", player) and 
+                    state.has("Great Fairy's Mask", player) and 
                     (
                         state.has("Hookshot", player) or 
                         state.has("Zora Mask", player)
@@ -1936,7 +1936,7 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Woodfall Temple Bridge Room Bubble SF":
             lambda state: (
-                state.has("Great Fairy Mask", player) and 
+                state.has("Great Fairy's Mask", player) and 
                 (
                     (
                         state.has("Small Key (Woodfall)", player) and 
@@ -1947,7 +1947,7 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Woodfall Temple Bridge Room Hive SF":
             lambda state: (
-                state.has("Great Fairy Mask", player) and 
+                state.has("Great Fairy's Mask", player) and 
                 (
                     (
                         state.has("Small Key (Woodfall)", player) and 
@@ -2255,12 +2255,12 @@ def get_location_rules(player, options, prices, boss_placements):
         "Snowhead Temple Bridge Room Under Platform Bubble SF":
             lambda state: (
                 state.has("Progressive Bow", player) and 
-                state.has("Great Fairy Mask", player)
+                state.has("Great Fairy's Mask", player)
             ),
         "Snowhead Temple Bridge Room Pillar Bubble SF":
             lambda state: (
                 state.has("Progressive Bow", player) and 
-                state.has("Great Fairy Mask", player)
+                state.has("Great Fairy's Mask", player)
             ),
         "Snowhead Temple Bombable Stairs Crate SF":
             lambda state: (
@@ -2268,7 +2268,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 (
                     (
                         state.has("Small Key (Snowhead)", player, 1) and 
-                        state.has("Great Fairy Mask", player)
+                        state.has("Great Fairy's Mask", player)
                     ) or 
                     (
                         state.has("Hookshot", player) and 
@@ -2278,7 +2278,7 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Snowhead Temple Timed Switch Room Bubble SF":
             lambda state: (
-                state.has("Great Fairy Mask", player) and 
+                state.has("Great Fairy's Mask", player) and 
                 can_use_lens(state, player) and 
                 (
                     (
@@ -2299,7 +2299,7 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 1) and 
                 can_use_fire_arrows(state, player) and 
-                state.has("Great Fairy Mask", player)
+                state.has("Great Fairy's Mask", player)
             ),
         "Snowhead Temple Dinolfos Room First SF":
             lambda state: (
@@ -2948,7 +2948,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Zora Mask", player) or 
                 (
                     has_projectiles(state, player) and 
-                    state.has("Great Fairy Mask", player)
+                    state.has("Great Fairy's Mask", player)
                 )
             ),
         "Great Bay Temple Blender Room Barrel SF":
@@ -2964,7 +2964,7 @@ def get_location_rules(player, options, prices, boss_placements):
                     can_use_ice_arrows(state, player) or
                     (
                         has_projectiles(state, player) and 
-                        state.has("Great Fairy Mask", player)
+                        state.has("Great Fairy's Mask", player)
                     ) or 
                     state.has("Deku Mask", player)
                 )
@@ -16022,7 +16022,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16041,7 +16041,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16060,7 +16060,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16079,7 +16079,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16098,7 +16098,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16117,7 +16117,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -16136,7 +16136,7 @@ def get_location_rules(player, options, prices, boss_placements):
                         can_play_song("Epona's Song", state, player) and
                         state.has("Hookshot", player) and
                         (
-                            state.has("Garo Mask", player) or
+                            state.has("Garo's Mask", player) or
                             state.has("Gibdo Mask", player)
                         )
                     ) or 
@@ -18118,10 +18118,10 @@ def get_location_rules(player, options, prices, boss_placements):
         # Frogs
 
         "Laundry Pool Frog":
-            lambda state: state.has("Don Gero Mask", player),
+            lambda state: state.has("Don Gero's Mask", player),
 
         "Southern Swamp Frog":
-            lambda state: state.has("Don Gero Mask", player),
+            lambda state: state.has("Don Gero's Mask", player),
 
         "Woodfall Temple Miniboss Frog":
             lambda state: (
@@ -18130,7 +18130,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Deku Mask", player) and
                 state.has("Progressive Bow", player) and 
                 can_smack(state, player) and
-                state.has("Don Gero Mask", player)
+                state.has("Don Gero's Mask", player)
             ),
         "Great Bay Temple Miniboss Frog":
             lambda state: (
@@ -18138,7 +18138,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Zora Mask", player) and 
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player) and
-                state.has("Don Gero Mask", player)
+                state.has("Don Gero's Mask", player)
             ),
     # Owls
 
@@ -18313,7 +18313,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "Notebook Event Received Rosa Sisters HP":
             lambda state: (
                 has_soul_npc(state, player, options, "Rosa Sisters") and
-                state.has("Kamaro Mask", player)
+                state.has("Kamaro's Mask", player)
             ),
         "Notebook Event Received Stone Mask":
             lambda state: state.can_reach("Road to Ikana Invisible Soldier", "Location", player),

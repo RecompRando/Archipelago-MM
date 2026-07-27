@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from typing import Dict
 
-from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
+from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, StartInventoryPool, DeathLink, OptionGroup, PerGameCommonOptions
 
 
 class LogicDifficulty(Choice):
@@ -332,14 +332,32 @@ class IntroChecks(Toggle):
     display_name = "Enable Intro Checks"
 
 
-class Grasssanity(Toggle):
-    """Choose whether grass is shuffled into the pool."""
+class Grasssanity(Choice):
+    """Choose how grass is shuffled into the pool.
+    
+    normal: All grass found throughout the game is shuffled.
+    no_termina_field: All grass except Termina Field (including its grottos).
+    grotto_and_cave_only: Only grass found in grottos and caves.
+    dungeon_only: Only grass found in dungeons."""
     display_name = "Grasssanity"
+    option_disabled = 0
+    option_normal = 1
+    option_no_termina_field = 2
+    option_grotto_and_cave_only = 3
+    option_dungeon_only = 4
 
 
-class Potsanity(Toggle):
-    """Choose whether pots are shuffled into the pool."""
+class Potsanity(Choice):
+    """Choose how pots are shuffled into the pool.
+    
+    all: All pots found throughout the game are shuffled.
+    overworld_only: Only pots found in the overworld.
+    dungeon_only: Only pots found in dungeons."""
     display_name = "Potsanity"
+    option_disabled = 0
+    option_all = 1
+    option_overworld_only = 2
+    option_dungeon_only = 3
 
 
 class Hitsanity(Toggle):
@@ -507,6 +525,14 @@ class MagicIsATrap(Toggle):
     display_name = "Magic Is a Trap"
 
 
+class UsefulHints(Range):
+    """The percentage of gossip stones which provide useful hints for items placed within the multiworld."""
+    display_name = "Useful Hint Percentage"
+    range_start = 0
+    range_end = 100
+    default = 70
+
+
 class DamageMultiplier(Choice):
     """Adjust the amount of damage taken."""
     display_name = "Damage Multiplier"
@@ -535,6 +561,107 @@ class LinkTunicColor(OptionList):
     """Choose a color for Link's tunic."""
     display_name = "Link Tunic Color"
     default = [30, 105, 27]
+
+
+mm_option_groups = [
+    OptionGroup("Moon Requirements", [
+        MoonRemainsRequired,
+        MoonMasksRequired,
+        MoonStarFox,
+        MoonOwlsRequired,
+        MoonScarecrowsRequired,
+        MoonFrogsRequired,
+        MoonItemsRequired,
+    ]),
+    OptionGroup("Majora Requirements", [
+        MajoraRemainsRequired,
+        MajoraMasksRequired,
+        MajoraStarFox,
+        MajoraOwlsRequired,
+        MajoraScarecrowsRequired,
+        MajoraFrogsRequired,
+        MajoraItemsRequired,
+    ]),
+    OptionGroup("Starting Item Shuffle", [
+        Swordless,
+        Shieldless,
+        StartingHeartQuarters, # change to just hearts
+        StartingHeartsAreContainersOrPieces,
+        Ocarinaless,
+        Timeless
+    ]),
+    OptionGroup("Helpful Starting Items", [
+        StartWithSoaring,
+        StartWithInvertedTime, # remove option later
+        StartWithConsumables, # adjust option once we get capacity shuffles
+        PermanentChateauRomani,
+        ReceiveFilledWallets,
+        MagicIsATrap
+    ]),
+    OptionGroup("Dungeon Options", [
+        ShuffleBossRemains,
+        BossWarpsWithRemains,
+        Keysanity,
+        BossKeysanity,
+    ]),
+    OptionGroup("Sanities", [
+        Skullsanity,
+        RequiredSkullTokens,
+        ShuffleSpiderHouseReward,
+        Fairysanity,
+        RequiredStrayFairies,
+        ShuffleGreatFairyRewards,
+        Shopsanity,
+        ShopPrices,
+        Scrubsanity,
+        CuriosityShopTrades,
+        Cowsanity,
+        ShuffleRegionalMaps, # Tinglesanity
+        IntroChecks,
+        Grasssanity,
+        Potsanity,
+        Hitsanity,
+        Rocksanity,
+        Soilsanity,
+        Rupeesanity,
+        Invisisanity,
+        Snowsanity,
+        Woodsanity,
+        Realfairysanity,
+        Iciclesanity,
+        Scarecrowsanity,
+        Hivesanity,
+        Notebooksanity,
+        Owlsanity,
+        Frogsanity,
+        Treesanity,
+        Flowersanity,
+        Signsanity,
+        Websanity,
+        Oneoffs
+    ]),
+    OptionGroup("Souls", [
+        BossSouls,
+        NPCSouls,
+        EnemySouls,
+        MiscSouls,
+        UtilitySouls,
+        AbsurdSouls,
+    ]),
+    OptionGroup("Entrance Randomization", [
+        DungeonEntranceRando,
+        BossEntranceRando,
+        DungeonChaining,
+    ]),
+    OptionGroup("options I want to remove in the future and are down here to get out of the way", [
+        CompletionGoal,
+        CAMC,
+        DamageMultiplier,
+        DeathBehavior,
+        LinkTunicColor,
+        DeathLink,
+    ]),
+]
 
 
 @dataclass
@@ -616,6 +743,7 @@ class MMROptions(PerGameCommonOptions):
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
     magic_is_a_trap: MagicIsATrap
+    hint_percentage: UsefulHints
     damage_multiplier: DamageMultiplier
     death_behavior: DeathBehavior
     death_link: DeathLink
