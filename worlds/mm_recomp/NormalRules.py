@@ -897,7 +897,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Keaton Quiz":
             lambda state: (
                 state.has("Keaton Mask", player) and 
-                has_soul_misc(state, player, options, "Keaton")
+                has_soul_misc(state, player, options, "Keaton") and
+                has_soul_absurd(state, player, options, "Grass")
             ),
         "Clock Town Postbox":
             lambda state: (
