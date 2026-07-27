@@ -152,7 +152,8 @@ def can_plant_beans(state, player, options):
         (
             has_bottle(state, player) or
             can_play_song("Song of Storms", state, player)
-        )
+        ) and
+        state.has("Magic Bean", player)
     )
 
 def can_use_powder_keg(state, player, options):
@@ -706,16 +707,16 @@ def get_region_rules(player, options):
                 ),
         "Great Bay -> Ocean Spider House":
             lambda state: True,
-        "Great Bay -> Pirates' Fortress":
+        "Great Bay -> Pirates' ' Fortress":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress -> Pirates' Fortress (Interior)":
+        "Pirates' ' Fortress -> Pirates' ' Fortress (Interior)":
             lambda state: state.has("Hookshot", player),
-        "Pirates' Fortress -> Pirates' Fortress Sewers":
+        "Pirates' ' Fortress -> Pirates' ' Fortress Sewers":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and 
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers -> Pirates' Fortress (Interior)":
+        "Pirates' ' Fortress Sewers -> Pirates' ' Fortress (Interior)":
             lambda state: state.has("Zora Mask", player),
         "Great Bay -> Zora Cape":
             lambda state: True,
@@ -897,7 +898,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Keaton Quiz":
             lambda state: (
                 state.has("Keaton Mask", player) and 
-                has_soul_misc(state, player, options, "Keaton")
+                has_soul_misc(state, player, options, "Keaton") and
+                has_soul_absurd(state, player, options, "Grass")
             ),
         "Clock Town Postbox":
             lambda state: (
@@ -2573,7 +2575,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 has_bottle(state, player) and 
                 (
                     can_reach_seahorse(state, player, options) or
-                    state.can_reach("Pirates' Fortress Leader's Room Chest", "Location", player) and
+                    state.can_reach("Pirates' ' Fortress Leader's Room Chest", "Location", player) and
                     state.has("Hookshot", player)
                 )
             ),
@@ -2784,27 +2786,27 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Ocean Skulltula Token", player, options.required_skull_tokens.value) and
                 has_soul_npc(state, player, options, "Spider Man")
             ),
-        "Pirates' Fortress Exterior Underwater Log Chest":
+        "Pirates' ' Fortress Exterior Underwater Log Chest":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress Exterior Underwater Near Entrance Chest":
+        "Pirates' ' Fortress Exterior Underwater Near Entrance Chest":
             lambda state: state.has("Zora Mask", player),
-        "Pirates' Fortress Exterior Underwater Corner Chest":
+        "Pirates' ' Fortress Exterior Underwater Corner Chest":
             lambda state: state.has("Zora Mask", player),
         
-        "Pirates' Fortress Sewers Maze Chest":
+        "Pirates' ' Fortress Sewers Maze Chest":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Cage HP":
+        "Pirates' ' Fortress Sewers Cage HP":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Underwater Upper Chest":
+        "Pirates' ' Fortress Sewers Underwater Upper Chest":
             lambda state: state.has("Goron Mask", player),
-        "Pirates' Fortress Sewers Underwater Lower Chest":
+        "Pirates' ' Fortress Sewers Underwater Lower Chest":
             lambda state: state.has("Goron Mask", player),
         
-        "Pirates' Fortress Hub Lower Chest":
+        "Pirates' ' Fortress Hub Lower Chest":
             lambda state: True,
-        "Pirates' Fortress Hub Upper Chest":
+        "Pirates' ' Fortress Hub Upper Chest":
             lambda state: state.has("Hookshot", player),
-        "Pirates' Fortress Leader's Room Chest":
+        "Pirates' ' Fortress Leader's Room Chest":
             lambda state: (
                 (
                     state.has("Hookshot", player) or 
@@ -2818,13 +2820,13 @@ def get_location_rules(player, options, prices, boss_placements):
                     )
                 )
             ),
-        "Pirates' Fortress Interior Tank Chest":
+        "Pirates' ' Fortress Interior Tank Chest":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates' Fortress Interior Guarded Chest":
+        "Pirates' ' Fortress Interior Guarded Chest":
             lambda state: state.has("Hookshot", player),
             
         "Zora Cape Grotto Chest":
@@ -9448,6 +9450,12 @@ def get_location_rules(player, options, prices, boss_placements):
                 has_soul_absurd(state, player, options, "Pots") and
                 has_hard_projectiles(state, player)
             ),
+        "Mountain Village Spring Rooftop Pot":
+            lambda state: (
+                can_clear_snowhead(state, player) and
+                has_soul_absurd(state, player, options, "Pots") and
+                has_hard_projectiles(state, player)
+            ),
         "Mountain Village Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),
         "Mountain Village Pots (2)":
@@ -9463,272 +9471,152 @@ def get_location_rules(player, options, prices, boss_placements):
         "Goron Racetrack Pots (1)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (2)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (3)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (4)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (5)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (6)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (7)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (8)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (9)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (10)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (11)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (12)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (13)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (14)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (15)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (16)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (17)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (18)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (19)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (20)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (21)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (22)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (23)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (24)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (25)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (26)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (27)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (28)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (29)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         "Goron Racetrack Pots (30)":
             lambda state: (
                     has_soul_absurd(state, player, options, "Pots") and
-                    state.has("Goron Mask", player) and 
-                (
-                    state.has("Powder Keg", player) or
-                    can_use_fire_arrows(state, player)
-                )
+                    can_use_powder_keg(state, player, options)
             ),
         
         # Goron Shrine Pots 
@@ -10479,124 +10367,124 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Hookshot", player)
             ),  
 
-        "Great Bay Coast Beside Pirates Fortress Pots (1)":
+        "Great Bay Coast Beside Pirates'  Fortress Pots (1)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),                   
-        "Great Bay Coast Beside Pirates Fortress Pots (2)":
+        "Great Bay Coast Beside Pirates'  Fortress Pots (2)":
             lambda state: has_soul_absurd(state, player, options, "Pots"),           
         # Ocean Spider House Pots - All require region access, explosives, and hookshot
 
-        # Ocean Spiderhouse Bottom of Ramp Pots
-        "Ocean Spiderhouse Bottom of Ramp Pots (1)":
+        # Ocean Spider House Bottom of Ramp Pots
+        "Ocean Spider House Bottom of Ramp Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (2)":
+        "Ocean Spider House Bottom of Ramp Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (3)":
+        "Ocean Spider House Bottom of Ramp Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
-        "Ocean Spiderhouse Bottom of Ramp Pots (4)":
+        "Ocean Spider House Bottom of Ramp Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and 
                 has_explosives(state, player)
             ),
         
-        # Ocean Spiderhouse Main Room Lower Pots
-        "Ocean Spiderhouse Main Room Lower Pots (1)":
+        # Ocean Spider House Main Room Lower Pots
+        "Ocean Spider House Main Room Lower Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (2)":
+        "Ocean Spider House Main Room Lower Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (3)":
+        "Ocean Spider House Main Room Lower Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (4)":
+        "Ocean Spider House Main Room Lower Pots (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Main Room Lower Pots (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        
-        # Ocean Spiderhouse Crate Room Pots
-        "Ocean Spiderhouse Crate Room Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and 
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (3)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (4)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (5)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (6)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (7)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                has_explosives(state, player) and 
-                state.has("Hookshot", player)
-            ),
-        "Ocean Spiderhouse Crate Room Pots (8)":
+        "Ocean Spider House Main Room Lower Pots (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
         
-        # Ocean Spiderhouse Coloured Skulls Room Pots
-        "Ocean Spiderhouse Coloured Skulls Room Pots (1)":
+        # Ocean Spider House Crate Room Pots
+        "Ocean Spider House Crate Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Coloured Skulls Room Pots (2)":
+        "Ocean Spider House Crate Room Pots (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and 
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (4)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (5)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (6)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (7)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Crate Room Pots (8)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        
+        # Ocean Spider House Coloured Skulls Room Pots
+        "Ocean Spider House Coloured Skulls Room Pots (1)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                has_explosives(state, player) and 
+                state.has("Hookshot", player)
+            ),
+        "Ocean Spider House Coloured Skulls Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_explosives(state, player) and 
@@ -10694,24 +10582,24 @@ def get_location_rules(player, options, prices, boss_placements):
                 has_bottle(state, player) and 
                 state.has("Zora Mask", player)
             ),
-        # Pirates' Fortress Pots
+        # Pirates' ' Fortress Pots
         
-        # Pirates Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
-        "Pirates Fortress Sewers Cage Room Pots (1)":
+        # Pirates'  Fortress Sewers Cage Room Pots - Requires Goron to reach cage room
+        "Pirates'  Fortress Sewers Cage Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress Sewers Cage Room Pots (2)":
+        "Pirates'  Fortress Sewers Cage Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 has_soul_absurd(state, player, options, "Barrels") and
                 state.has("Goron Mask", player)
             ),
         
-        # Pirates Fortress Sewers After Gate Hidden Ladder Pots
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)":
+        # Pirates'  Fortress Sewers After Gate Hidden Ladder Pots
+        "Pirates'  Fortress Sewers After Gate Hidden Ladder Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 (
@@ -10720,36 +10608,7 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Hookshot", player)
                 )
             ),
-        "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        
-        # Pirates Fortress Sewers Exit Pots
-        "Pirates Fortress Sewers Exit Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        "Pirates Fortress Sewers Exit Pots (2)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                (
-                    state.has("Goron Mask", player) and
-                    has_soul_absurd(state, player, options, "Barrels") or 
-                    state.has("Hookshot", player)
-                )
-            ),
-        "Pirates Fortress Sewers Exit Pots (3)":
+        "Pirates'  Fortress Sewers After Gate Hidden Ladder Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 (
@@ -10759,74 +10618,103 @@ def get_location_rules(player, options, prices, boss_placements):
                 )
             ),
         
-        # Pirates Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
-        "Pirates Fortress Interior Underwater Chest Room Pots (1)":
+        # Pirates'  Fortress Sewers Exit Pots
+        "Pirates'  Fortress Sewers Exit Pots (1)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Pirates'  Fortress Sewers Exit Pots (2)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        "Pirates'  Fortress Sewers Exit Pots (3)":
+            lambda state: (
+                has_soul_absurd(state, player, options, "Pots") and
+                (
+                    state.has("Goron Mask", player) and
+                    has_soul_absurd(state, player, options, "Barrels") or 
+                    state.has("Hookshot", player)
+                )
+            ),
+        
+        # Pirates'  Fortress Interior Underwater Chest Room Pots - Requires Hookshot and can_smack_hard
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Underwater Chest Room Pots (2)":
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Underwater Chest Room Pots (3)":
+        "Pirates'  Fortress Interior Underwater Chest Room Pots (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         
-        # Pirates Fortress Interior Room Past Green Guard Pots
-        "Pirates Fortress Interior Room Past Green Guard Pots (1)":
+        # Pirates'  Fortress Interior Room Past Green Guard Pots
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (1)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Green Guard Pots (2)":
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (2)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Green Guard Pots (3)":
+        "Pirates'  Fortress Interior Room Past Green Guard Pots (3)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
-                has_soul_absurd(state, player, options, "Pots") and
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
-        
-        # Pirates Fortress Interior Upper Beehive Room Pots
-        "Pirates Fortress Interior Upper Beehive Room Pots (1)":
-            lambda state: (
-                has_soul_absurd(state, player, options, "Pots") and
-                state.has("Hookshot", player) and 
-                can_smack_hard(state, player)
-            ),
-        "Pirates Fortress Interior Upper Beehive Room Pots (2)":
-            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
         
-        # Pirates Fortress Interior Room Past Pink Guard Pots
-        "Pirates Fortress Interior Room Past Pink Guard Pots (1)":
+        # Pirates'  Fortress Interior Upper Beehive Room Pots
+        "Pirates'  Fortress Interior Upper Beehive Room Pots (1)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
             ),
-        "Pirates Fortress Interior Room Past Pink Guard Pots (2)":
+        "Pirates'  Fortress Interior Upper Beehive Room Pots (2)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        
+        # Pirates'  Fortress Interior Room Past Pink Guard Pots
+        "Pirates'  Fortress Interior Room Past Pink Guard Pots (1)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
+                has_soul_absurd(state, player, options, "Pots") and
+                state.has("Hookshot", player) and 
+                can_smack_hard(state, player)
+            ),
+        "Pirates'  Fortress Interior Room Past Pink Guard Pots (2)":
+            lambda state: (
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Pots") and
                 state.has("Hookshot", player) and 
                 can_smack_hard(state, player)
@@ -13340,168 +13228,168 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         
         # Swamp Spider House Hitspots
-        "Swamp Spiderhouse Totem Eye Hitspots (0)":
+        "Swamp Spider House Totem Eye Hitspots (0)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (1)":
+        "Swamp Spider House Totem Eye Hitspots (1)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (2)":
+        "Swamp Spider House Totem Eye Hitspots (2)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (3)":
+        "Swamp Spider House Totem Eye Hitspots (3)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (4)":
+        "Swamp Spider House Totem Eye Hitspots (4)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (5)":
+        "Swamp Spider House Totem Eye Hitspots (5)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (6)":
+        "Swamp Spider House Totem Eye Hitspots (6)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (7)":
+        "Swamp Spider House Totem Eye Hitspots (7)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (8)":
+        "Swamp Spider House Totem Eye Hitspots (8)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (9)":
+        "Swamp Spider House Totem Eye Hitspots (9)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (10)":
+        "Swamp Spider House Totem Eye Hitspots (10)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Swamp Spiderhouse Totem Eye Hitspots (11)":
+        "Swamp Spider House Totem Eye Hitspots (11)":
             lambda state: (
                 state.can_reach("Swamp Spider House", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
         # Ocean Spider House Hitspots
-        "Ocean Spiderhouse Mask Hitspots (0)":
+        "Ocean Spider House Mask Hitspots (0)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (1)":
+        "Ocean Spider House Mask Hitspots (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (2)":
+        "Ocean Spider House Mask Hitspots (2)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (3)":
+        "Ocean Spider House Mask Hitspots (3)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (4)":
+        "Ocean Spider House Mask Hitspots (4)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (5)":
+        "Ocean Spider House Mask Hitspots (5)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (6)":
+        "Ocean Spider House Mask Hitspots (6)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (7)":
+        "Ocean Spider House Mask Hitspots (7)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
-        "Ocean Spiderhouse Mask Hitspots (8)":
+        "Ocean Spider House Mask Hitspots (8)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
         
-        # Pirates Fortress Interior Hitspots
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)":
+        # Pirates'  Fortress Interior Hitspots
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)":
+        "Pirates'  Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (0)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (1)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
-        "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (2)":
+        "Pirates'  Fortress Interior Indoor Pirate Flag Eye Hitspot (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 has_projectiles(state, player)
             ),
         
@@ -14526,12 +14414,12 @@ def get_location_rules(player, options, prices, boss_placements):
         "Great Bay Temple Before Gekko Room Underwater Rupees (1)":
             lambda state: state.can_reach("Great Bay Temple", 'Region', player),
 
-        "Pirates' Fortress Sewers Rupees Under Barrel (0)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (0)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers Rupees Under Barrel (1)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (1)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
@@ -14546,39 +14434,39 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates' Fortress Sewers Rupees Under Barrel (4)":
+        "Pirates' ' Fortress Sewers Rupees Under Barrel (4)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (0)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (0)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (1)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (1)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Sewers Exit Barrel Rupee (2)":
+        "Pirates'  Fortress' Sewers Exit Barrel Rupee (2)":
             lambda state: (
                 state.has("Zora Mask", player) and
                 state.has("Goron Mask", player)
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (0)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (0)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (1)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (1)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
-        "Pirates Fortress' Interior Ledge Recovery Hearts (2)":
+        "Pirates'  Fortress' Interior Ledge Recovery Hearts (2)":
             lambda state: (
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player) 
             ),
 
@@ -14834,13 +14722,25 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Zora Mask", player)
             ),
         "Inverted Stone Tower Pre Boss Rupees (5)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (6)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (7)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (8)":
-            lambda state: state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player),
+            lambda state: (
+                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
+                state.has("Zora Mask", player)
+            ),
         "Inverted Stone Tower Pre Boss Rupees (9)":
             lambda state: (
                 state.can_reach("Stone Tower Temple Inverted Eyegore Chest", "Location", player) and
@@ -14910,16 +14810,16 @@ def get_location_rules(player, options, prices, boss_placements):
         "Romani Ranch Invisible Fence Rupees (5)":
             lambda state: state.can_reach("Romani Ranch", 'Region', player),
 
-        # Swamp Spiderhouse Invisible Rupees Above Giant Jars
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)":
+        # Swamp Spider House Invisible Rupees Above Giant Jars
+        "Swamp Spider House Invisible Rupees Above Giant Jars (0)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (1)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (2)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (3)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),
-        "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)":
+        "Swamp Spider House Invisible Rupees Above Giant Jars (4)":
             lambda state: state.can_reach("Swamp Spider House", 'Region', player),    
         
         # SOILS
@@ -16360,202 +16260,206 @@ def get_location_rules(player, options, prices, boss_placements):
         # Goron Village
 
         "Goron Village Keg Goron Crate (1)":
-            lambda state: can_use_fire_arrows(state,player),
+            lambda state: can_use_fire_arrows(state,player) and
+            (
+                state.has("Goron Mask", player) or
+                can_warp_out(state, player, options)
+            ),
         "Goron Village Keg Goron Crate (Spring) (1)":
             lambda state: can_clear_snowhead(state, player, boss_placements),
 
         # Ocean Spider House
 
-        "Ocean Spiderhouse Basement Crate (1)":
+        "Ocean Spider House Basement Crate (1)":
             lambda state: (
                 state.can_reach("Ocean Spider House", 'Region', player) and
                 has_explosives(state, player) and
                 state.has("Hookshot", player)
             ),
 
-        # Pirates' Fortress Related
+        # Pirates' ' Fortress Related
 
-        "Pirates Fortress Entrance Bonk Board (0)":
+        "Pirates'  Fortress Entrance Bonk Board (0)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (1)":
+        "Pirates'  Fortress Entrance Bonk Board (1)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (2)":
+        "Pirates'  Fortress Entrance Bonk Board (2)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Entrance Bonk Board (3)":
+        "Pirates'  Fortress Entrance Bonk Board (3)":
             lambda state: (
                 state.can_reach("Great Bay", 'Region', player) and
                 state.has("Zora Mask", player)
             ),
-        "Pirates Fortress Sewers Bonk Board (0)":
+        "Pirates'  Fortress Sewers Bonk Board (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates Fortress Sewers Bonk Board (1)":
+        "Pirates'  Fortress Sewers Bonk Board (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates Fortress Sewers Bonk Board (2)":
+        "Pirates'  Fortress Sewers Bonk Board (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
 
         # Pirate Fortress Sewers Barrels/Crates
 
-        "Pirates' Fortress Sewers Barrel (1)":
+        "Pirates' ' Fortress Sewers Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (2)":
+        "Pirates' ' Fortress Sewers Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (3)":
+        "Pirates' ' Fortress Sewers Barrel (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (4)":
+        "Pirates' ' Fortress Sewers Barrel (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (5)":
+        "Pirates' ' Fortress Sewers Barrel (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (6)":
+        "Pirates' ' Fortress Sewers Barrel (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (7)":
+        "Pirates' ' Fortress Sewers Barrel (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (8)":
+        "Pirates' ' Fortress Sewers Barrel (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (9)":
+        "Pirates' ' Fortress Sewers Barrel (9)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (10)":
+        "Pirates' ' Fortress Sewers Barrel (10)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (11)":
+        "Pirates' ' Fortress Sewers Barrel (11)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (12)":
+        "Pirates' ' Fortress Sewers Barrel (12)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (13)":
+        "Pirates' ' Fortress Sewers Barrel (13)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (14)":
+        "Pirates' ' Fortress Sewers Barrel (14)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (15)":
+        "Pirates' ' Fortress Sewers Barrel (15)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Barrel (16)":
+        "Pirates' ' Fortress Sewers Barrel (16)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (1)":
+        "Pirates' ' Fortress Sewers Exit Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (2)":
+        "Pirates' ' Fortress Sewers Exit Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (3)":
+        "Pirates' ' Fortress Sewers Exit Barrel (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (4)":
+        "Pirates' ' Fortress Sewers Exit Barrel (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
-        "Pirates' Fortress Sewers Exit Barrel (5)":
+        "Pirates' ' Fortress Sewers Exit Barrel (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress Sewers", 'Region', player)
+                state.can_reach("Pirates' ' Fortress Sewers", 'Region', player)
             ),
 
-        # Pirates' Fortress Interior Crates
+        # Pirates' ' Fortress Interior Crates
 
-        "Pirates Fortress' Interior Crates (0)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Interior Crates (1)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Interior Crates (2)":
-            lambda state: state.can_reach("Pirates' Fortress (Interior)", 'Region', player),
-        "Pirates Fortress' Exterior Balcony Barrel (1)":
+        "Pirates'  Fortress' Interior Crates (0)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Interior Crates (1)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Interior Crates (2)":
+            lambda state: state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player),
+        "Pirates'  Fortress' Exterior Balcony Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
-        "Pirates' Fortress Leader's Room Barrel (1)":
+        "Pirates' ' Fortress Leader's Room Barrel (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
-        "Pirates' Fortress Leader's Room Barrel (2)":
+        "Pirates' ' Fortress Leader's Room Barrel (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Progressive Bow", player)
             ),
-        "Pirates' Fortress Guarded Bridge Barrel (0)":
+        "Pirates' ' Fortress Guarded Bridge Barrel (0)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
-        "Pirates Fortress Interior Room Past Pink Guard Barrel (0)":
+        "Pirates'  Fortress Interior Room Past Pink Guard Barrel (0)":
             lambda state: (
-                has_soul_enemy(state, player, options, "Coloured Pirates") and
+                has_soul_enemy(state, player, options, "Coloured Pirates' ") and
                 has_soul_absurd(state, player, options, "Barrels") and
-                state.can_reach("Pirates' Fortress (Interior)", 'Region', player) and
+                state.can_reach("Pirates' ' Fortress (Interior)", 'Region', player) and
                 state.has("Hookshot", player)
             ),
 
@@ -17144,12 +17048,14 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "Snowhead Temple 4F Outside Wizzrobe Icicles (2)":
             lambda state: (
                 state.has("Small Key (Snowhead)", player, 3) and
                 can_use_fire_arrows(state, player) and
+                has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
 
@@ -17189,9 +17095,21 @@ def get_location_rules(player, options, prices, boss_placements):
         # Well
 
        "Bottom of the Well Icicle (1)":
-            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", "Location", player),
+            lambda state: (
+                can_use_light_arrows(state, player) or
+                (
+                    can_plant_beans(state, player, options) and
+                    state.has("Gibdo Mask", player)
+                )
+            ),
        "Bottom of the Well Icicle (2)":
-            lambda state: state.can_reach("Ikana Well Rightside Torch Chest", "Location", player),
+            lambda state: (
+                can_use_light_arrows(state, player) or
+                (
+                    can_plant_beans(state, player, options) and
+                    state.has("Gibdo Mask", player)
+                )
+            ),
 
         # Goron Trial
 
@@ -17284,7 +17202,12 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: has_projectiles(state, player),
 
         "Woodfall Temple Push Block Hive (1)":
-            lambda state: has_projectiles(state, player),
+            lambda state: (
+                    state.has("Small Key (Woodfall)", player) and 
+                    has_projectiles(state, player)
+                ) or 
+                state.has("Progressive Bow", player)
+            ),
 
         # Mountain Village Spring Hives
 
@@ -17295,7 +17218,7 @@ def get_location_rules(player, options, prices, boss_placements):
                 has_soul_absurd(state, player, options, "Grottos") and
                 state.has("Hookshot", player)
             ),
-        # "Pirates Fortress Interior Leaders Hive From Lower Barrels":
+        # "Pirates'  Fortress Interior Leaders Hive From Lower Barrels":
         #     lambda state: (
         #         state.has("Hookshot", player) and 
         #         state.has("Stone Mask", player)
@@ -17405,8 +17328,7 @@ def get_location_rules(player, options, prices, boss_placements):
                     ) or
                     (
                         state.has("Stone Tower Owl Statue", player) and
-                        can_play_song("Song of Soaring", state, player) and
-                        can_play_song("Elegy of Emptiness", state, player)
+                        can_play_song("Song of Soaring", state, player)
                     )
                 )
             ),
@@ -17424,8 +17346,7 @@ def get_location_rules(player, options, prices, boss_placements):
                     ) or
                     (
                         state.has("Stone Tower Owl Statue", player) and
-                        can_play_song("Song of Soaring", state, player) and
-                        can_play_song("Elegy of Emptiness", state, player)
+                        can_play_song("Song of Soaring", state, player)
                     )
                 )
             ),
@@ -17437,41 +17358,48 @@ def get_location_rules(player, options, prices, boss_placements):
         "Termina Field Southern Tree Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Near Thieving Bird Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Near Bombable Rock Grotto Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Gossip Grotto Gossip Fairy":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
         "Termina Field Near Songwall Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Eastern Corner Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Termina Field Observatory Gossip Fairy":
             lambda state: (
                 state.can_reach("Bomber's Hideout Astral Observatory", "Location", player) and
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Road to Southern Swamp Gossip Fairy
@@ -17479,7 +17407,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Road to Southern Swamp Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Southern Swamp Gossip Fairies
@@ -17487,7 +17416,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Southern Swamp Near Witch Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         
         "Southern Swamp Near Witch Post Dungeon Gossip Fairy":
@@ -17495,7 +17425,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 can_clear_woodfall(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17503,7 +17434,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Swamp Spider House Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Milk Road Gossip Fairy
@@ -17511,7 +17443,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Milk Road Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Romani Ranch Gossip Fairies
@@ -17519,27 +17452,32 @@ def get_location_rules(player, options, prices, boss_placements):
         "Romani Ranch Entry Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Tree Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Near Barn Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Baby Cuccoos Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
         "Romani Ranch Doggy Racetrack Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Path to Mountain Village Gossip Fairy
@@ -17547,7 +17485,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Path To Mountain Village Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Mountain Village Gossip Fairies
@@ -17557,7 +17496,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 can_clear_snowhead(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
         "Mountain Village Spring Ramps To Goron Graveyard Gossip Fairy":
@@ -17565,7 +17505,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 can_clear_snowhead(state, player, boss_placements) and
                 (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17574,7 +17515,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Great Bay Coast Rock Wall Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Zora Cape
@@ -17582,7 +17524,8 @@ def get_location_rules(player, options, prices, boss_placements):
         "Zora Cape Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Road to Ikana Gossip Fairy
@@ -17590,36 +17533,38 @@ def get_location_rules(player, options, prices, boss_placements):
         "Road To Ikana Gossip Fairy":
             lambda state: (
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Ikana Canyon Gossip Fairy
 
         "Ikana Canyon Near Octoroks Gossip Fairy":
-            lambda state: (
+            lambda state: 
+            (
+                can_play_song("Epona's Song", state, player) or
                 can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                can_play_song("Song of Storms", state, player
             ),
-
         "Ikana Canyon Across Ocean Deed Ravine Gossip Fairy":
             lambda state:
             (
                 state.has("Zora Mask", player) and
                 state.has("Ocean Title Deed", player) and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                   )
             ),
         "Ikana Canyon Near Ghost House Gossip Fairy":
-            lambda state:
-            (
-                (
-                        can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
-                )
+            lambda state: (
+                can_play_song("Song of Healing", state, player) or
+                can_play_song("Epona's Song", state, player) or
+                can_play_song("Song of Storms", state, player
             ),
 
         # Moon Gossip Fairies
@@ -17632,7 +17577,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Deku Mask", player) and
             (
                     can_play_song("Song of Healing", state, player) or
-                    can_play_song("Epona's Song", state, player)
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
             )
         ),
         "Deku Trial Back Left Gossip":
@@ -17643,7 +17589,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Front Right Gossip":
@@ -17654,7 +17601,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Back Right Gossip":
@@ -17665,7 +17613,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Deku Trial Furthest Back Gossip":
@@ -17676,7 +17625,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Deku Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17690,7 +17640,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Progressive Magic", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                 )
             ),
         "Goron Trial 1st Gazebo Gossip (1)":
@@ -17701,7 +17652,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial 2nd Gazebo Gossip (0)":
@@ -17712,7 +17664,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial 2nd Gazebo Gossip (1)":
@@ -17723,7 +17676,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Goron Trial Near Heart Piece Gossip (1)":
@@ -17734,7 +17688,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Progressive Magic", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17766,7 +17721,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Zora Trial LRLL Path Gossip":
@@ -17776,7 +17732,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Zora Trial LLL Path Gossip":
@@ -17786,7 +17743,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     state.has("Zora Mask", player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17795,8 +17753,11 @@ def get_location_rules(player, options, prices, boss_placements):
         "Link Trial Gossip (1)":
             lambda state: (
                 has_soul_npc(state, player, options, "Moon Kids") and
-                can_play_song("Song of Healing", state, player) or
-                can_play_song("Epona's Song", state, player)
+                (
+                    can_play_song("Song of Healing", state, player) or
+                    can_play_song("Epona's Song", state, player) or
+                    can_play_song("Song of Storms", state, player
+                 )
             ),
         "Link Trial Gossip (2)":
             lambda state:
@@ -17805,7 +17766,8 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Hookshot", player) and
                 (
                         can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                        can_play_song("Epona's Song", state, player) or
+                        can_play_song("Song of Storms", state, player
                 )
             ),
 
@@ -17814,21 +17776,25 @@ def get_location_rules(player, options, prices, boss_placements):
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
                     state.has("Hookshot", player) and
+                    has_bombchus(state, player) and
+                    state.has("Progressive Bow", player, 1)
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
         "Link Trial Gossip (4)":
             lambda state:
-            (       
+            (
                     has_soul_npc(state, player, options, "Moon Kids") and
-                    state.can_reach("Link Trial Gossip (3)", "Location", player) and
-                    can_use_fire_arrows(state, player) and
+                    state.has("Hookshot", player) and
                     has_bombchus(state, player) and
-                        (
-                        can_play_song("Song of Healing", state, player) or
-                        can_play_song("Epona's Song", state, player)
+                    state.has("Progressive Bow", player, 1)
+                    (
+                            can_play_song("Song of Healing", state, player) or
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -17837,11 +17803,10 @@ def get_location_rules(player, options, prices, boss_placements):
             (
                     has_soul_npc(state, player, options, "Moon Kids") and
                     state.can_reach("Link Trial Gossip (3)", "Location", player) and
-                    can_use_fire_arrows(state, player) and
-                    has_bombchus(state, player) and
                     (
                             can_play_song("Song of Healing", state, player) or
-                            can_play_song("Epona's Song", state, player)
+                            can_play_song("Epona's Song", state, player) or
+                            can_play_song("Song of Storms", state, player
                     )
             ),
 
@@ -18170,6 +18135,7 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Great Bay Temple Miniboss Frog":
             lambda state: (
+                has_soul_enemy(state, player, options, "Jellied Gekko") and
                 state.has("Zora Mask", player) and 
                 can_use_ice_arrows(state, player) and 
                 can_use_fire_arrows(state, player) and
@@ -18222,7 +18188,8 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 state.has("Priority Mail", player) and
                 has_soul_npc(state, player, options, "Madame Aroma") and
-                state.has("Kafei's Mask", player)
+                state.has("Kafei's Mask", player) and
+                state.has("Romani Mask", player)
             ),
         "Notebook Event Deposited Letter To Kafei":
             lambda state: (
@@ -18456,8 +18423,13 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Progressive Magic", player) and
                 (
                     can_play_song("Epona's Song", state, player) or
-                    options.owlsanity.value 
-                    and can_use_owl(state, player, options, "Ikana Canyon")
+                    (
+                        options.owlsanity.value and
+                        (
+                            can_use_owl(state, player, options, "Ikana Canyon") or
+                            can_use_owl(state, player, options, "Stone Tower")
+                        )
+                    )
                 )
             ),
                 
@@ -18610,15 +18582,20 @@ def get_location_rules(player, options, prices, boss_placements):
         "Path To Snowhead Tree (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.can_reach("Mountain Village", 'Region', player)
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path To Snowhead Tree (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
-                state.can_reach("Mountain Village", 'Region', player)
+                state.can_reach("Snowhead", 'Region', player)
             ),
         "Path To Snowhead Tree (3)":
             lambda state: (
+                has_soul_absurd(state, player, options, "Trees & Bushes") and
+                state.can_reach("Snowhead", 'Region', player)
+            ),
+        "Path To Snowhead Tree Near Ledge":
+            lambda.state: (
                 has_soul_absurd(state, player, options, "Trees & Bushes") and
                 state.can_reach("Mountain Village", 'Region', player)
             ),
@@ -19162,48 +19139,56 @@ def get_location_rules(player, options, prices, boss_placements):
         "North Clock Town Deku Playground Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (4)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (5)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (6)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (7)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         "North Clock Town Deku Playground Flower (8)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Grottos") and
+                has_soul_npc(state, player, options, "Deku Playground Employee") and
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
@@ -19382,30 +19367,30 @@ def get_location_rules(player, options, prices, boss_placements):
                 state.has("Deku Mask", player)
             ),
         # Swamp Spider Flowers
-        "Swamp Spiderhouse Main Room Flowers (1)":
+        "Swamp Spider House Main Room Flowers (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         
-        "Swamp Spiderhouse Main Room Flowers (2)":
+        "Swamp Spider House Main Room Flowers (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
-        "Swamp Spiderhouse Main Room Flower (3)":
+        "Swamp Spider House Main Room Flower (3)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
         
-        "Swamp Spiderhouse Giant Pot Room Flower (1)":
+        "Swamp Spider House Giant Pot Room Flower (1)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player)
             ),
             # Requires Sonata
-        "Swamp Spiderhouse Giant Pot Room Flower (2)":
+        "Swamp Spider House Giant Pot Room Flower (2)":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and
@@ -19767,23 +19752,37 @@ def get_location_rules(player, options, prices, boss_placements):
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                (can_use_fire_arrows(state, player) or
-                state.has("Small Key (Snowhead)", player, 2)) 
+                state.has("Hookshot", player) and
+                can_reach_scarecrow(state, player, options) and
+                state.has("Snowhead Temple Hidden Scarecrow", player) and
+                (
+                    has_explosives(state, player) and
+                    state.has("Small Key (Snowhead)", player, 2)
+                ) or
+                (
+                    can_use_fire_arrows(state, player)
+                ) or
+                (
+                    can_reach_scarecrow(state, player, options) and
+                    state.has("Snowhead Temple Lower Scarecrow", player)
+                ) 
             ),
+            # Is scarecrow needed below since fire arrows are already a hard requirement? It's not really adding anything alternative here. Suggested edit:
         "Snowhead Temple Flower Outside Goht":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
                 state.has("Deku Mask", player) and 
-                can_use_fire_arrows(state, player) and 
-                (
-                    state.has("Small Key (Snowhead)", player, 3) or 
-                    (
-                        state.has("Small Key (Snowhead)", player, 2) and 
-                        state.has("Hookshot", player) and 
-                        can_reach_scarecrow(state, player, options) and
-                        state.has("Snowhead Temple Lower Scarecrow", player)
-                    )
-                )
+                can_use_fire_arrows(state, player) and
+                state.has("Small Key (Snowhead)", player, 1)
+                #(
+                    #state.has("Small Key (Snowhead)", player, 3) or 
+                    #(
+                        #state.has("Small Key (Snowhead)", player, 2) and 
+                        #state.has("Hookshot", player) and 
+                        #can_reach_scarecrow(state, player, options) and
+                        #state.has("Snowhead Temple Lower Scarecrow", player)
+                    #)
+                #)
             ),
             #Great Bay Flowers
         "Zora Cape Lower Wall Flower Near Beavers":
@@ -19795,6 +19794,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "Zora Hall Business Scrub Flower":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
+                has_soul_npc(state, player, options, "Business Scrubs") and
                 state.has("Deku Mask", player) and 
                 state.has("Zora Mask", player) and 
                 state.has("Goron Mask", player) and
@@ -20130,7 +20130,8 @@ def get_location_rules(player, options, prices, boss_placements):
                     (
                         state.has("Goron Mask", player) or
                         has_explosives(state, player) or
-                        can_use_fire_arrows(state, player)
+                        can_use_fire_arrows(state, player) or
+                        can_use_owl("Mountain Village", player)
                     )
                 ),
         "Mountain Village Owl Statue Cut the Sign":
@@ -20259,7 +20260,11 @@ def get_location_rules(player, options, prices, boss_placements):
         "Woodfall Temple Web Leading to Dark Room":
             lambda state: (
                 has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player)
+                state.has("Deku Mask", player) and
+                (
+                    state.has("Small Key (Woodfall)", player, 1) or
+                    state.has("Progressive Bow", player)
+                )
             ),
         "Ocean Spider House Entrance Web (1)":
             lambda state: (
@@ -20276,8 +20281,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "Ocean Spider House Library Web":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Above Door 1st Floor Door":
             lambda state: (
@@ -20288,8 +20292,7 @@ def get_location_rules(player, options, prices, boss_placements):
         "Ocean Spider House Web Over 1st Floor Pot":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web 1st Floor Near Staircase":
             lambda state: (
@@ -20300,26 +20303,22 @@ def get_location_rules(player, options, prices, boss_placements):
         "Ocean Spider House Web Basement Near Staircase":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Crates":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Hole":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Basement Covering Door":
             lambda state: (
                 state.has("Hookshot", player) and
-                has_explosives(state, player) and
-                can_use_fire_arrows(state, player)
+                has_explosives(state, player)
             ),
         "Ocean Spider House Web Boat Room Covering Crate":
             lambda state: (
@@ -20385,20 +20384,15 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Beneath the Well Right Side Web Near Milk Gibdo":
             lambda state: (
-                has_soul_npc(state, player, options, "Gibdos") and
-                state.has("Gibdo Mask", player) and
-                has_soul_absurd(state, player, options, "Deku Flowers") and
-                state.has("Deku Mask", player) and
-                has_bottle(state, player) and
                 (
-                    (
-                        can_afford_price(state, player, 100) and
-                        has_soul_npc(state, player, options, "Business Scrubs")
-                    ) or
-                    (
-                        state.has("Mask of Scents", player) and
-                        has_soul_npc(state, player, options, "Kotake")
-                    )
+                    has_soul_npc(state, player, options, "Gibdos") and
+                    state.has("Gibdo Mask", player) and
+                    has_bottle(state, player) and
+                    can_plant_beans(state, player, options) and
+                    state.has("Progressive Bomb Bag", player)
+                ) or
+                (
+                    can_use_light_arrows(state, player)
                 ) and
                 can_use_fire_arrows(state, player)
             ),
@@ -20464,8 +20458,17 @@ def get_location_rules(player, options, prices, boss_placements):
             ),
         "Graveyard Day 2 Bombable Wall":
             lambda state: (
+                state.has("Captain's Hat", player) and
+                has_soul_npc(state, player, options, "Stalchilden") and
+                state.has("Lens of Truth", player) and
                 has_explosives(state, player)
             ),
+        # Has an associated address, but unsure if properly implemented.
+        #"Goron Trial Chests":
+        #    lambda state: (
+        #        state.has{"Goron Mask", player) and
+        #        state.has("Progressive Magic", player)
+        #    ),
         "Link Trial Bombable Wall Iron Knuckle":
             lambda state: (
                 has_bombchus(state, player)

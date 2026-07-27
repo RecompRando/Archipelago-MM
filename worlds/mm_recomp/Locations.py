@@ -1327,11 +1327,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         region="Pirates' Fortress Sewers",
         address=0x062301
     ),
-    "Pirates' Fortress Sewers Underwater Lower Chest": MMRLocationData(
+    "Pirates' Fortress Sewers Underwater Upper Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x062306
     ),
-    "Pirates' Fortress Sewers Underwater Upper Chest": MMRLocationData(
+    "Pirates' Fortress Sewers Underwater Lower Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x062304
     ),
@@ -6791,7 +6791,12 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
 
     # Ikana Castle Grass
-
+    
+    "Ikana Castle Grass (0)": MMRLocationData(
+        region="Ikana Castle",
+        address=0x3469420121D00,
+        can_create=lambda options: options.grasssanity.value
+    ),
     "Ikana Castle Grass (1)": MMRLocationData(
         region="Ikana Castle",
         address=0x121D0B,
@@ -7801,6 +7806,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x205000,
         can_create=lambda options: pot_enabled(options)
     ),
+    "Mountain Village Spring Rooftop Pot": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420205A00,
+        can_create=lambda options: options.potsanity.value
+    ),
     "Mountain Village Pots (1)": MMRLocationData(
         region="Mountain Village",
         address=0x2050F0,
@@ -8452,110 +8462,110 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x203700,
         can_create=lambda options: pot_enabled(options)
     ),
-    "Great Bay Coast Beside Pirates Fortress Pots (1)": MMRLocationData(
+    "Great Bay Coast Beside Pirates' Fortress Pots (1)": MMRLocationData(
         region="Great Bay",
         address=0x203703,
         can_create=lambda options: pot_enabled(options)
     ),
-    "Great Bay Coast Beside Pirates Fortress Pots (2)": MMRLocationData(
+    "Great Bay Coast Beside Pirates' Fortress Pots (2)": MMRLocationData(
         region="Great Bay",
         address=0x20370A,
         can_create=lambda options: pot_enabled(options)
     ),
     
-    # Ocean Spiderhouse Pots
+    # Ocean Spider House Pots
     
-    "Ocean Spiderhouse Bottom of Ramp Pots (1)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202803,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (2)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202800,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (3)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202801,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Bottom of Ramp Pots (4)": MMRLocationData(
+    "Ocean Spider House Bottom of Ramp Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202802,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (1)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202813,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (2)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202814,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (3)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202810,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (4)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202811,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Main Room Lower Pots (5)": MMRLocationData(
+    "Ocean Spider House Main Room Lower Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202812,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (1)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202857,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (2)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202851,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (3)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202856,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (4)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202855,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (5)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202850,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (6)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (6)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202854,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (7)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (7)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202852,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Crate Room Pots (8)": MMRLocationData(
+    "Ocean Spider House Crate Room Pots (8)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202853,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Coloured Skulls Room Pots (1)": MMRLocationData(
+    "Ocean Spider House Coloured Skulls Room Pots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202831,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Ocean Spiderhouse Coloured Skulls Room Pots (2)": MMRLocationData(
+    "Ocean Spider House Coloured Skulls Room Pots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x202830,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
@@ -8622,87 +8632,87 @@ location_data_table: Dict[str, MMRLocationData] = {
     
         # Pirates' Fortress Pots
     
-    "Pirates Fortress Sewers Cage Room Pots (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Cage Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023B0,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers Cage Room Pots (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Cage Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023B1,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers After Gate Hidden Ladder Pots (1)": MMRLocationData(
+    "Pirates' Fortress Sewers After Gate Hidden Ladder Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023A1,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers After Gate Hidden Ladder Pots (2)": MMRLocationData(
+    "Pirates' Fortress Sewers After Gate Hidden Ladder Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2023A0,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers Exit Pots (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Pots (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202391,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers Exit Pots (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Pots (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202390,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Sewers Exit Pots (3)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Pots (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x202392,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Underwater Chest Room Pots (1)": MMRLocationData(
+    "Pirates' Fortress Interior Underwater Chest Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202360,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Underwater Chest Room Pots (2)": MMRLocationData(
+    "Pirates' Fortress Interior Underwater Chest Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202361,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Underwater Chest Room Pots (3)": MMRLocationData(
+    "Pirates' Fortress Interior Underwater Chest Room Pots (3)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202362,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Room Past Green Guard Pots (1)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Green Guard Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202380,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Room Past Green Guard Pots (2)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Green Guard Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202381,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Room Past Green Guard Pots (3)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Green Guard Pots (3)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202382,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Upper Beehive Room Pots (1)": MMRLocationData(
+    "Pirates' Fortress Interior Upper Beehive Room Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202331,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Upper Beehive Room Pots (2)": MMRLocationData(
+    "Pirates' Fortress Interior Upper Beehive Room Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x202330,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Room Past Pink Guard Pots (1)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Pink Guard Pots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x2023D1,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
     ),
-    "Pirates Fortress Interior Room Past Pink Guard Pots (2)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Pink Guard Pots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x2023D0,
         can_create=lambda options: pot_enabled(options, is_dungeon=True)
@@ -10342,159 +10352,159 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Swamp Spiderhouse Totem Eye Hitspots
-    "Swamp Spiderhouse Totem Eye Hitspots (0)": MMRLocationData(
+    # Swamp Spider House Totem Eye Hitspots
+    "Swamp Spider House Totem Eye Hitspots (0)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152810,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (1)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152811,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (2)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152812,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (3)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152820,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (4)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152821,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (5)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (5)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152822,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (6)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (6)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152830,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (7)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (7)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152831,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (8)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (8)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152832,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (9)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (9)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152800,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (10)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (10)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152801,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Swamp Spiderhouse Totem Eye Hitspots (11)": MMRLocationData(
+    "Swamp Spider House Totem Eye Hitspots (11)": MMRLocationData(
         region="Swamp Spider House",
         address=0x152802,
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Ocean Spiderhouse Mask Hitspots
-    "Ocean Spiderhouse Mask Hitspots (0)": MMRLocationData(
+    # Ocean Spider House Mask Hitspots
+    "Ocean Spider House Mask Hitspots (0)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152900,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (1)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152901,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (2)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (2)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152902,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (3)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (3)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152910,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (4)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (4)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152911,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (5)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (5)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152912,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (6)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (6)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152920,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (7)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (7)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152921,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Ocean Spiderhouse Mask Hitspots (8)": MMRLocationData(
+    "Ocean Spider House Mask Hitspots (8)": MMRLocationData(
         region="Ocean Spider House",
         address=0x152922,
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)": MMRLocationData(
+    # Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (0)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151410,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)": MMRLocationData(
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151402,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)": MMRLocationData(
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151412,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)": MMRLocationData(
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (3)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151411,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)": MMRLocationData(
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (4)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151400,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)": MMRLocationData(
+    "Pirates' Fortress Interior Outdoor Pirate Flag Eye Hitspots (5)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x151401,
         can_create=lambda options: options.hitsanity.value
     ),
 
-    # Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot
-    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (0)": MMRLocationData(
+    # Pirates' Fortress Interior Indoor Pirate Flag Eye Hitspot
+    "Pirates' Fortress Interior Indoor Pirate Flag Eye Hitspot (0)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x152600,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (1)": MMRLocationData(
+    "Pirates' Fortress Interior Indoor Pirate Flag Eye Hitspot (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x152601,
         can_create=lambda options: options.hitsanity.value
     ),
-    "Pirates Fortress Interior Indoor Pirate Flag Eye Hitspot (2)": MMRLocationData(
+    "Pirates' Fortress Interior Indoor Pirate Flag Eye Hitspot (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x152602,
         can_create=lambda options: options.hitsanity.value
@@ -10664,28 +10674,28 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.invisisanity.value
     ),
 
-    # Swamp Spiderhouse Invisible Rupees Above Giant Jars
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (0)": MMRLocationData(
+    # Swamp Spider House Invisible Rupees Above Giant Jars
+    "Swamp Spider House Invisible Rupees Above Giant Jars (0)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162744,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (1)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162743,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (2)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162742,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (3)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162741,
         can_create=lambda options: options.invisisanity.value
     ),
-    "Swamp Spiderhouse Invisible Rupees Above Giant Jars (4)": MMRLocationData(
+    "Swamp Spider House Invisible Rupees Above Giant Jars (4)": MMRLocationData(
         region="Swamp Spider House",
         address=0x162740,
         can_create=lambda options: options.invisisanity.value
@@ -11735,32 +11745,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x1723B4,
         can_create=lambda options: options.rupeesanity.value
     ),    
-    "Pirates Fortress' Sewers Exit Barrel Rupee (0)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel Rupee (0)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x172390,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Pirates Fortress' Sewers Exit Barrel Rupee (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel Rupee (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x172391,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Pirates Fortress' Sewers Exit Barrel Rupee (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Exit Barrel Rupee (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x172392,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Pirates Fortress' Interior Ledge Recovery Hearts (0)": MMRLocationData(
+    "Pirates' Fortress Interior Ledge Recovery Hearts (0)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x171400,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Pirates Fortress' Interior Ledge Recovery Hearts (1)": MMRLocationData(
+    "Pirates' Fortress Interior Ledge Recovery Hearts (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x171401,
         can_create=lambda options: options.rupeesanity.value
     ),
-    "Pirates Fortress' Interior Ledge Recovery Hearts (2)": MMRLocationData(
+    "Pirates' Fortress Interior Ledge Recovery Hearts (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x171402,
         can_create=lambda options: options.rupeesanity.value
@@ -13695,44 +13705,44 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x274810,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Ocean Spiderhouse Basement Crate (1)": MMRLocationData(
+    "Ocean Spider House Basement Crate (1)": MMRLocationData(
         region="Ocean Spider House",
         address=0x272850,
         can_create=lambda options: options.woodsanity.value
     ),
-    # Pirates Fortress Entrance Wood Barrier
-    "Pirates Fortress Entrance Bonk Board (0)": MMRLocationData(
+    # Pirates' Fortress Entrance Wood Barrier
+    "Pirates' Fortress Entrance Bonk Board (0)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x223700,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress Entrance Bonk Board (1)": MMRLocationData(
+    "Pirates' Fortress Entrance Bonk Board (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x223701,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress Entrance Bonk Board (2)": MMRLocationData(
+    "Pirates' Fortress Entrance Bonk Board (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x223702,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress Entrance Bonk Board (3)": MMRLocationData(
+    "Pirates' Fortress Entrance Bonk Board (3)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x223703,
         can_create=lambda options: options.woodsanity.value
     ),
-    # Pirates Fortress Sewers Wooden Barriers
-    "Pirates Fortress Sewers Bonk Board (0)": MMRLocationData(
+    # Pirates' Fortress Sewers Wooden Barriers
+    "Pirates' Fortress Sewers Bonk Board (0)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2223C0,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress Sewers Bonk Board (1)": MMRLocationData(
+    "Pirates' Fortress Sewers Bonk Board (1)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2223C1,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress Sewers Bonk Board (2)": MMRLocationData(
+    "Pirates' Fortress Sewers Bonk Board (2)": MMRLocationData(
         region="Pirates' Fortress Sewers",
         address=0x2223C2,
         can_create=lambda options: options.woodsanity.value
@@ -13843,23 +13853,23 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x222394,
         can_create=lambda options: options.woodsanity.value
     ),                                                                
-    # Pirates Fortress Interior Crates
-    "Pirates Fortress' Interior Crates (0)": MMRLocationData(
+    # Pirates' Fortress Interior Crates
+    "Pirates' Fortress Interior Crates (0)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x271400,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress' Interior Crates (1)": MMRLocationData(
+    "Pirates' Fortress Interior Crates (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x271401,
         can_create=lambda options: options.woodsanity.value
     ),
-    "Pirates Fortress' Interior Crates (2)": MMRLocationData(
+    "Pirates' Fortress Interior Crates (2)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x271402,
         can_create=lambda options: options.woodsanity.value
     ), 
-    "Pirates Fortress' Exterior Balcony Barrel (1)": MMRLocationData(
+    "Pirates' Fortress Exterior Balcony Barrel (1)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x223B00,
         can_create=lambda options: options.woodsanity.value
@@ -13879,7 +13889,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x221400,
         can_create=lambda options: options.woodsanity.value        
     ),
-    "Pirates Fortress Interior Room Past Pink Guard Barrel (0)": MMRLocationData(
+    "Pirates' Fortress Interior Room Past Pink Guard Barrel (0)": MMRLocationData(
         region="Pirates' Fortress (Interior)",
         address=0x2223D0,
         can_create=lambda options: options.woodsanity.value        
@@ -14694,8 +14704,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     #People complained so its removed now.
 
-    # # Pirates Fortress Interior Guarded Hive From Barrel  
-    # "Pirates Fortress Interior Leaders Hive From Lower Barrels": MMRLocationData(
+    # # Pirates' Fortress Interior Guarded Hive From Barrel  
+    # "Pirates' Fortress Interior Leaders Hive From Lower Barrels": MMRLocationData(
     #     region="Pirates' Fortress (Interior)",
     #     address=0x242330,
     #     can_create=lambda options: options.hivesanity.value
@@ -16321,28 +16331,28 @@ location_data_table: Dict[str, MMRLocationData] = {
         can_create=lambda options: options.flowersanity.value
     ),
     # Swamp Spider Flowers
-    "Swamp Spiderhouse Main Room Flowers (1)": MMRLocationData(
+    "Swamp Spider House Main Room Flowers (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2710,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Main Room Flowers (2)": MMRLocationData(
+    "Swamp Spider House Main Room Flowers (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2711,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Main Room Flower (3)": MMRLocationData(
+    "Swamp Spider House Main Room Flower (3)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2712,
         can_create=lambda options: options.flowersanity.value
     ),
-    "Swamp Spiderhouse Giant Pot Room Flower (1)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Flower (1)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2740,
         can_create=lambda options: options.flowersanity.value
     ),
     # Requires Sonata 
-    "Swamp Spiderhouse Giant Pot Room Flower (2)": MMRLocationData(
+    "Swamp Spider House Giant Pot Room Flower (2)": MMRLocationData(
         region="Swamp Spider House",
         address=0x3F2741,
         can_create=lambda options: options.flowersanity.value
@@ -16984,6 +16994,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     "Mountain Village Pond Cut the Sign": MMRLocationData(
         region="Mountain Village",
         address=0x310315,
+        can_create=lambda options: options.signsanity.value
+    ),
+    "Mountain Village Pond Sring Cut the Sign": MMRLocationData(
+        region="Mountain Village",
+        address=0x3469420310318,
         can_create=lambda options: options.signsanity.value
     ),
     "Mountain Village Twin Island Entrance Cut the Sign": MMRLocationData(
