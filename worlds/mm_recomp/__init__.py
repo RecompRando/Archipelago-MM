@@ -26,8 +26,6 @@ class MMRWebWorld(WebWorld):
     
     tutorials = [setup_en]
 
-    #option_groups = mm_option_groups
-
 
 class MMRWorld(World):
     """A Zelda game we're not completely burnt out on."""
@@ -194,7 +192,7 @@ class MMRWorld(World):
             mw.push_precollected(self.create_item("Boss Key (Great Bay)"))
             mw.push_precollected(self.create_item("Boss Key (Stone Tower)"))
 
-        if self.options.curiosity_shop_trades.value:
+        if self.options.curiostity_shop_trades.value:
             mw.itempool.append(self.create_item("Blue Rupee"))
             mw.itempool.append(self.create_item("Red Rupee"))
             mw.itempool.append(self.create_item("Purple Rupee"))
@@ -717,7 +715,7 @@ class MMRWorld(World):
             "shuffle_small_keys": self.options.shuffle_small_keys.value,
             "shuffle_boss_keys": self.options.shuffle_boss_keys.value,
             "intro_checks": self.options.intro_checks.value,
-            "curiosity_shop_trades": self.options.curiosity_shop_trades.value,
+            "curiostity_shop_trades": self.options.curiostity_shop_trades.value,
             "damage_multiplier": self.options.damage_multiplier.value,
             "death_behavior": self.options.death_behavior.value,
             "death_link": self.options.death_link.value,
@@ -729,6 +727,7 @@ class MMRWorld(World):
             "required_stray_fairies": self.options.required_stray_fairies.value,
             "start_with_consumables": self.options.start_with_consumables.value,
             "infinite_magic_behavior": self.options.infinite_magic_behavior.value,
+            "skip_digging": self.options.skip_digging.value,
             "start_with_inverted_time": self.options.start_with_inverted_time.value,
             "receive_filled_wallets": self.options.receive_filled_wallets.value,
             "remains_allow_boss_warps": self.options.remains_allow_boss_warps.value,

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from typing import Dict
 
-from Options import Choice, Option, DefaultOnToggle, Toggle, Range, NamedRange, OptionList, StartInventoryPool, DeathLink, OptionGroup, PerGameCommonOptions
+from Options import Choice, DefaultOnToggle, Toggle, Range, NamedRange, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
 
 
 class LogicDifficulty(Choice):
@@ -283,7 +283,7 @@ class ShuffleBossKeys(DungeonItems):
     default = 4
 
 
-class CuriosityShopTrades(Toggle):
+class CuriostityShopTrades(Toggle):
     """Choose whether to shuffle the rupees given for trading bottled items at the Curiosity Shop."""
     display_name = "Curiosity Shop Trades"
 
@@ -372,6 +372,11 @@ class InfiniteMagicBehavior(Choice):
     option_upgrade = 2
 
 
+class SkipDigging(Toggle):
+    """Enabling this will skip the Graveyard night 3 grave digging section, immediately spawning the big poe."""
+    display_name = "Skip Digging"
+
+
 class StartWithInvertedTime(Toggle):
     """Choose whether time starts out inverted at Day 1, even after a reset."""
     display_name = "Reset With Inverted Time"
@@ -420,64 +425,6 @@ class LinkTunicColor(OptionList):
     default = [30, 105, 27]
 
 
-#mm_option_groups = [
-#    OptionGroup("Goal Requirements", [
-#        MajoraRemainsRequired,
-#        MoonRemainsRequired,
-#    ]),
-#    OptionGroup("Starting Item Shuffle", [
-#        Swordless,
-#        Shieldless,
-#        StartingHeartQuarters,
-#        StartingHeartsAreContainersOrPieces,
-#    ]),
-#    OptionGroup("Dungeon Options", [
-#        ShuffleBossRemains,
-#        BossWarpsWithRemains,
-#        ShuffleMapsAndCompasses,
-#        ShuffleSmallKeys,
-#        ShuffleBossKeys,
-#        ShuffleStrayFairies,
-#        RequiredStrayFairies,
-#        ShuffleGreatFairyRewards,
-#    ]),
-#    OptionGroup("Shuffles" [
-#        ShuffleRegionalMaps,
-#        ShuffleMinigames,
-#        ShuffleTreasureChestGame,
-#        ShuffleLottery,
-#        ShufflePictureRewards,
-#        ShuffleBeaverRace,
-#        IntroChecks,
-#    ]),
-#    OptionGroup("Sanities", [
-#        Skullsanity,
-#        RequiredSkullTokens,
-#        ShuffleSpiderHouseReward,
-#        Shopsanity,
-#        ShopPrices,
-#        MaxShopPrices,
-#        Scrubsanity,
-#        CuriosityShopTrades,
-#        Cowsanity,
-#    ]),
-#    OptionGroup("Quality of Life", [
-#        StartWithSoaring,
-#        StartWithInvertedTime,
-#        StartWithConsumables,
-#        ReceiveFilledWallets,
-#        InfiniteMagicBehavior,
-#        CAMC,
-#    ]),
-#    OptionGroup("Other", [
-#        MagicIsATrap,
-#        DamageMultiplier,
-#        DeathBehavior,
-#        LinkTunicColor,
-#    ]),
-#]
-
-
 @dataclass
 class MMROptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
@@ -507,7 +454,7 @@ class MMROptions(PerGameCommonOptions):
     shuffle_maps_and_compasses: ShuffleMapsAndCompasses
     shuffle_small_keys: ShuffleSmallKeys
     shuffle_boss_keys: ShuffleBossKeys
-    curiosity_shop_trades: CuriosityShopTrades
+    curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
     shuffle_minigames: ShuffleMinigames
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
@@ -516,6 +463,7 @@ class MMROptions(PerGameCommonOptions):
     shuffle_picture_rewards: ShufflePictureRewards
     start_with_consumables: StartWithConsumables
     infinite_magic_behavior: InfiniteMagicBehavior
+    skip_digging: SkipDigging
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
     magic_is_a_trap: MagicIsATrap
