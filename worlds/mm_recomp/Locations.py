@@ -1213,7 +1213,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Cape Pot Game": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420072806
+        address=0x3469420072806,
+        can_create=lambda options: options.shuffle_zora_pot_game.value
     ),
     "Zora Cape Deku Flower Chest": MMRLocationData(
         region="Zora Cape",

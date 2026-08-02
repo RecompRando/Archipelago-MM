@@ -322,6 +322,10 @@ class ShuffleTreasureChestGame(Choice):
     option_everything = 2
     default = 1
 
+class ShuffleZoraPotGame(Toggle):
+    """Enabling this will shuffle the Zora pot minigame at Zora Cape."""
+    display_name = "Shuffle Zora Pot Game"
+
 class ShuffleBeaverRace(Range):
     """
     Choose how many beaver race rewards are shuffled.
@@ -458,6 +462,7 @@ class MMROptions(PerGameCommonOptions):
     intro_checks: IntroChecks
     shuffle_minigames: ShuffleMinigames
     shuffle_treasure_chest_game: ShuffleTreasureChestGame
+    shuffle_zora_pot_game: ShuffleZoraPotGame
     shuffle_beaver_races: ShuffleBeaverRace
     shuffle_lottery: ShuffleLottery
     shuffle_picture_rewards: ShufflePictureRewards

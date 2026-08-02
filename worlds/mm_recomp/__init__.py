@@ -229,6 +229,9 @@ class MMRWorld(World):
         elif self.options.shuffle_treasure_chest_game.value == 2:
             self.create_and_add_filler_items(4)
 
+        if self.options.shuffle_zora_pot_game.value == 0:
+            self.create_and_add_filler_items(1)
+
         if self.options.shuffle_beaver_races.value:
             self.create_and_add_filler_items(1)
             if self.options.shuffle_beaver_races.value == 2:
@@ -737,6 +740,7 @@ class MMRWorld(World):
             "shuffle_great_fairy_rewards": self.options.shuffle_great_fairy_rewards.value,
             "shuffle_minigames": self.options.shuffle_minigames.value,
             "shuffle_treasure_chest_game": self.options.shuffle_treasure_chest_game.value,
+            "shuffle_zora_pot_game": self.options.shuffle_zora_pot_game.value,
             "shuffle_beaver_races": self.options.shuffle_beaver_races.value,
             "shuffle_picture_rewards": self.options.shuffle_picture_rewards.value,
             "shuffle_lottery": self.options.shuffle_lottery.value,
