@@ -527,20 +527,20 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942007024C
     ),
     "Road to Swamp Tree HP": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x3469420054001
     ),
     "Road to Swamp Grotto Chest": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x346942006071E
     ),
     "Swamp Shooting Gallery 2120 Points": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x3469420000024,
         can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "Swamp Shooting Gallery 2180 Points": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x346942008011D,
         can_create=lambda options: options.shuffle_minigames.value == 2
     ),
@@ -880,11 +880,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420011B2D
     ),
     "Woodfall Temple Heart Container": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420051F00
     ),
     "Woodfall Temple Odolwa's Remains": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420000055
     ),
     "Southern Swamp Boat Archery": MMRLocationData(
@@ -940,7 +940,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420060702
     ),
     "Goron Racetrack Prize": MMRLocationData(
-        region="Twin Islands",
+        region="Goron Racetrack",
         address=0x346942000006A
     ),
     "Goron Village Lens Cave Rock Chest": MMRLocationData(
@@ -956,36 +956,36 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420060701
     ),
     "Goron Village Baby Goron Lullaby": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x34694200000AD
     ),
     "Goron Village Shop Item 1": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x346942009001E,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop Item 2": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x346942009001F,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop Item 3": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090020,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop (Spring) Item 1": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090021,
         can_create=lambda options: options.shopsanity.value == 2
     ),
     "Goron Village Shop (Spring) Item 2": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090022,
         can_create=lambda options: options.shopsanity.value == 2
     ),
     "Goron Village Shop (Spring) Item 3": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090023,
         can_create=lambda options: options.shopsanity.value == 2
     ),    
@@ -1113,11 +1113,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420062117
     ),
     "Snowhead Temple Heart Container": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420054400
     ),
     "Snowhead Temple Goht's Remains": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420000056
     ),
     "Milk Road Gorman Ranch Race": MMRLocationData(
@@ -1589,11 +1589,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942001492F
     ),
     "Great Bay Temple Heart Container": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420055F00
     ),
     "Great Bay Temple Gyorg's Remains": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420000057
     ),
     "Road to Ikana Pillar Chest": MMRLocationData(
@@ -1657,32 +1657,32 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006600A
     ),
     "Ikana Canyon Grotto Chest": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420060714
     ),
     "Ikana Canyon Scrub Purchase": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942009015D,
         can_create=lambda options: options.scrubsanity.value
     ),
     "Ikana Canyon Zora Scrub Trade": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420001307
     ),
     "Ikana Canyon Zora Trade Freestanding HP": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942005131E
     ),
     "Ikana Canyon Healing Pamela's Father": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420000087
     ),
     "Ikana Canyon Spirit House": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x34694200701DE
     ),
     "Stone Tower Great Fairy Reward": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420030004,
         can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
@@ -1824,11 +1824,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006181A
     ),
     "Stone Tower Temple Inverted Heart Container": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420053600
     ),
     "Stone Tower Temple Inverted Twinmold's Remains": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420000058
     ),
     "Oath to Order": MMRLocationData(
