@@ -2201,8 +2201,13 @@ def get_location_rules(player, options, prices):
         "Graveyard Captain Keeta Chest":
             lambda state: (
                 can_play_song("Sonata of Awakening", state, player) and
-                can_smack_hard(state, player) and
-                has_hard_projectiles(state, player)
+                (
+                    state.has("Goron Mask", player) or
+                    (
+                        can_smack_hard(state, player) and
+                        state.has("Progressive Bow", player)
+                    )
+                )
             ),
         "Graveyard Day 1 Iron Knuckle Song":
             lambda state: (
