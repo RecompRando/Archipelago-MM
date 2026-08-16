@@ -506,11 +506,7 @@ def get_location_rules(player, options, prices):
                 has_projectiles(state, player) and
                 (
                     state.can_reach("Clock Town", 'Region', player) or
-                    (
-                        state.can_reach("Ikana Canyon", 'Region', player) and
-                        can_use_ice_arrows(state, player) and
-                        state.has("Hookshot", player)
-                    )
+                    state.can_reach("Upper Ikana Canyon", 'Region', player)
                 )
             ),
         
