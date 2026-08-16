@@ -419,18 +419,21 @@ def get_region_rules(player, options):
             lambda state: True,
         "Stone Tower Temple (Inverted) -> Twinmold's Lair":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                 (
                     state.has("Progressive Bow", player) or
-                    state.has("Fierce Deity's Mask", player) or
                     (
+                        state.has("Fierce Deity's Mask", player) and
+                        state.has("Progressive Magic", player)
+                    ) or (
                         state.has("Giant's Mask", player) and
                         state.has("Progressive Magic", player) and
                         state.has("Progressive Sword", player)
                     )
                 ) and (
-                    state.has("Small Key (Stone Tower)", player, 4) and
-                    state.has("Boss Key (Stone Tower)", player) or
+                    (
+                        state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
+                        state.has("Boss Key (Stone Tower)", player)
+                    )
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
@@ -2517,18 +2520,21 @@ def get_location_rules(player, options, prices):
             ),
         "Stone Tower Temple Inverted Heart Container":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                 (
                     state.has("Progressive Bow", player) or
-                    state.has("Fierce Deity's Mask", player) or
                     (
+                        state.has("Fierce Deity's Mask", player) and
+                        state.has("Progressive Magic", player)
+                    ) or (
                         state.has("Giant's Mask", player) and
                         state.has("Progressive Magic", player) and
                         state.has("Progressive Sword", player)
                     )
                 ) and (
-                    state.has("Small Key (Stone Tower)", player, 4) and
-                    state.has("Boss Key (Stone Tower)", player) or
+                    (
+                        state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
+                        state.has("Boss Key (Stone Tower)", player)
+                    )
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
@@ -2537,18 +2543,21 @@ def get_location_rules(player, options, prices):
             ),
         "Stone Tower Temple Inverted Twinmold's Remains":
             lambda state: (
-                state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                 (
                     state.has("Progressive Bow", player) or
-                    state.has("Fierce Deity's Mask", player) or
                     (
+                        state.has("Fierce Deity's Mask", player) and
+                        state.has("Progressive Magic", player)
+                    ) or (
                         state.has("Giant's Mask", player) and
                         state.has("Progressive Magic", player) and
                         state.has("Progressive Sword", player)
                     )
                 ) and (
-                    state.has("Small Key (Stone Tower)", player, 4) and
-                    state.has("Boss Key (Stone Tower)", player) or
+                    (
+                        state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
+                        state.has("Boss Key (Stone Tower)", player)
+                    )
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
