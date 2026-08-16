@@ -1308,15 +1308,14 @@ def get_location_rules(player, options, prices):
                     (
                         can_use_lens(state, player) and
                         has_bottle(state, player) and
-                        state.has("Goron Mask", player) and
-                        has_explosives(state, player)
+                        state.has("Goron Mask", player)
                     ) or 
                     (
-                        can_clear_snowhead(state, player) or
-                        (
-                            state.can_reach("Ikana Well Invisible Chest", 'Location', player) and
-                            can_play_song("Song of Soaring", state, player)
-                        )
+                        can_clear_snowhead(state, player)
+                    ) or
+                    (
+                        state.can_reach("Ikana Well Invisible Chest", 'Location', player) and
+                        can_play_song("Song of Soaring", state, player)
                     )
                 )
             ),
