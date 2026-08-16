@@ -390,12 +390,10 @@ def get_region_rules(player, options):
                     state.has("Gibdo Mask", player) and
                     has_bottle(state, player) and
                     can_plant_beans(state, player) and
-                    state.has("Progressive Bow", player)
+                    state.has("Progressive Bow", player) and
                     (
                         state.has("Progressive Bomb Bag", player) or
-                        (
-                            state.has("Captain's Hat", player)
-                        )
+                        state.has("Captain's Hat", player)
                     )
                 ) and (
                     can_use_light_arrows(state, player) or
@@ -408,11 +406,9 @@ def get_region_rules(player, options):
         "Stone Tower -> Stone Tower Temple":
             lambda state: (
                 can_play_song("Elegy of Emptiness", state, player) and
-                (
-                    state.has("Hookshot", player) and
-                    state.has("Goron Mask", player) and
-                    state.has("Zora Mask", player)
-                )
+                state.has("Hookshot", player) and
+                state.has("Goron Mask", player) and
+                state.has("Zora Mask", player)
             ),
         "Stone Tower -> Stone Tower (Inverted)":
             lambda state: (
