@@ -14,7 +14,7 @@ from .Constants import default_shop_prices
 
 class MMRWebWorld(WebWorld):
     # ~ theme = "partyTime"
-    
+
     setup_en = Tutorial(
         tutorial_name="Start Guide",
         description="A guide to playing Majora's Mask Recompiled in Archipelago.",
@@ -50,17 +50,6 @@ class MMRWorld(World):
     #    self.dungeon_specific_item_names: set[str] = set()
 
     def generate_early(self):
-
-        #for dungeon_item in ["shuffle_small_keys", "shuffle_boss_keys", "shuffle_maps_and_compasses", "shuffle_stray_fairies"]:
-        #    option = getattr(self.options, dungeon_item)
-        #    if option == "local":
-        #        self.options.local_items.value |= self.item_name_groups[option.item_name_group]
-        #    elif option.in_dungeon:
-        #        self.dungeon_local_item_names |= self.item_name_groups[option.item_name_group]
-        #        if option == "dungeon":
-        #            self.dungeon_specific_item_names |= self.item_name_groups[option.item_name_group]
-        #        else:
-        #            self.options.local_items.value |= self.dungeon_local_item_names
 
         if self.options.shuffle_stray_fairies.value == 4:
             self.options.local_items.value.add("Stray Fairy (Clock Town)")
@@ -218,7 +207,7 @@ class MMRWorld(World):
 
         if self.options.shuffle_spiderhouse_reward.value != 0:
             self.create_and_add_filler_items(2)
-        
+
         if self.options.shuffle_minigames.value == 1:
             self.create_and_add_filler_items(5)
         elif self.options.shuffle_minigames.value == 2:
@@ -272,19 +261,6 @@ class MMRWorld(World):
     def create_regions(self) -> None:
         player = self.player
         mw = self.multiworld
-        
-        available_dungeon_locations = [
-            "Woodfall Temple Dinolfos Chest",
-            "Snowhead Temple Lower Wizzrobe Chest",
-            "Great Bay Temple Behind Locked Door Chest",
-            "Stone Tower Temple Garo Master Chest",
-            "Stone Tower Temple Inverted Eyegore Chest"
-        ]
-        available_wft_locations = ["Woodfall Temple Dinolfos Chest"]
-        available_sht_locations = ["Snowhead Temple Lower Wizzrobe Chest"]
-        available_gbt_locations = ["Great Bay Temple Behind Locked Door Chest"]
-        available_stt_locations = ["Stone Tower Temple Garo Master Chest", "Stone Tower Temple Inverted Eyegore Chest"]
-        item_name_groups_to_shuffle = []
 
         # Create regions.
         for region_name in region_data_table.keys():
@@ -321,7 +297,7 @@ class MMRWorld(World):
             self.place("Snowhead Temple Goht's Remains", "Goht's Remains")
             self.place("Great Bay Temple Gyorg's Remains", "Gyorg's Remains")
             self.place("Stone Tower Temple Inverted Twinmold's Remains", "Twinmold's Remains")
-        
+
         if self.options.shuffle_boss_remains.value == 2:
             remains_list = ["Odolwa's Remains", "Goht's Remains", "Gyorg's Remains", "Twinmold's Remains"]
             
@@ -349,7 +325,9 @@ class MMRWorld(World):
             self.place("Great Bay Great Fairy Reward", "Double Defense")
             self.place("Stone Tower Great Fairy Reward", "Great Fairy Sword")
 
-        if self.options.shuffle_maps_and_compasses.value == "vanilla":
+        # Check if any of the dungeon related options are set to vanilla.
+        # This is to make sure that the generator doesn't try to place items in locations that are already occupied.
+        if self.options.shuffle_maps_and_compasses.value == 1:
             self.place("Woodfall Temple Turtle Chest", "Dungeon Map (Woodfall)")
             self.place("Woodfall Temple Dragonfly Chest", "Compass (Woodfall)")
             self.place("Snowhead Temple Elevator Room Lower Chest", "Dungeon Map (Snowhead)")
@@ -358,43 +336,6 @@ class MMRWorld(World):
             self.place("Great Bay Temple Caged Chest Room Upper Chest", "Compass (Great Bay)")
             self.place("Stone Tower Temple Armos Room Back Chest", "Dungeon Map (Stone Tower)")
             self.place("Stone Tower Temple Eastern Water Room Sun Block Chest", "Compass (Stone Tower)")
-#        elif self.options.shuffle_maps_and_compasses.value == "dungeon":
-#            available_wft_locations.append("Woodfall Temple Turtle Chest")
-#            available_wft_locations.append("Woodfall Temple Dragonfly Chest")
-#            available_sht_locations.append("Snowhead Temple Elevator Room Lower Chest")
-#            available_sht_locations.append("Snowhead Temple Frozen Block Chest")
-#            available_gbt_locations.append("Great Bay Temple Before Red Valve Room Chest")
-#            available_gbt_locations.append("Great Bay Temple Caged Chest Room Upper Chest")
-#            available_stt_locations.append("Stone Tower Temple Armos Room Back Chest")
-#            available_stt_locations.append("Stone Tower Temple Eastern Water Room Sun Block Chest")
-#
-#            available_wft_locations.append("Dungeon Map (Woodfall)")
-#            available_wft_locations.append("Compass (Woodfall)")
-#            available_sht_locations.append("Dungeon Map (Snowhead)")
-#            available_sht_locations.append("Compass (Snowhead)")
-#            available_gbt_locations.append("Dungeon Map (Great Bay)")
-#            available_gbt_locations.append("Compass (Great Bay)")
-#            available_stt_locations.append("Dungeon Map (Stone Tower)")
-#            available_stt_locations.append("Compass (Stone Tower)")
-#        elif self.options.shuffle_maps_and_compasses.value == "any_dungeon":
-#            available_dungeon_locations.append("Woodfall Temple Turtle Chest")
-#            available_dungeon_locations.append("Woodfall Temple Dragonfly Chest")
-#            available_dungeon_locations.append("Snowhead Temple Elevator Room Lower Chest")
-#            available_dungeon_locations.append("Snowhead Temple Frozen Block Chest")
-#            available_dungeon_locations.append("Great Bay Temple Before Red Valve Room Chest")
-#            available_dungeon_locations.append("Great Bay Temple Caged Chest Room Upper Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Armos Room Back Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Eastern Water Room Sun Block Chest")
-#
-#            item_name_groups_to_shuffle.append("Dungeon Map (Woodfall)")
-#            item_name_groups_to_shuffle.append("Compass (Woodfall)")
-#            item_name_groups_to_shuffle.append("Dungeon Map (Snowhead)")
-#            item_name_groups_to_shuffle.append("Compass (Snowhead)")
-#            item_name_groups_to_shuffle.append("Dungeon Map (Great Bay)")
-#            item_name_groups_to_shuffle.append("Compass (Great Bay)")
-#            item_name_groups_to_shuffle.append("Dungeon Map (Stone Tower)")
-#            item_name_groups_to_shuffle.append("Compass (Stone Tower)")
-
         if self.options.shuffle_small_keys.value == 1:
             self.place("Woodfall Temple Ledge Chest", "Small Key (Woodfall)")
 
@@ -408,76 +349,13 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest", "Small Key (Stone Tower)")
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Switch Chest", "Small Key (Stone Tower)")
             self.place("Stone Tower Temple Inverted Death Armos Maze Chest", "Small Key (Stone Tower)")
-#        elif self.options.shuffle_small_keys.value == "dungeon":
-#            available_wft_locations.append("Woodfall Temple Ledge Chest")
-#            available_sht_locations.append("Snowhead Temple Behind Stacked Block Chest")
-#            available_sht_locations.append("Snowhead Temple Icicle Room Snowball Chest")
-#            available_sht_locations.append("Snowhead Temple Bridge Room Freezard Chest")
-#            available_gbt_locations.append("Great Bay Temple Caged Chest Room Underwater Chest")
-#            available_stt_locations.append("Stone Tower Temple Armos Room Lava Chest")
-#            available_stt_locations.append("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest")
-#            available_stt_locations.append("Stone Tower Temple Inverted Eastern Air Gust Room Switch Chest")
-#            available_stt_locations.append("Stone Tower Temple Inverted Death Armos Maze Chest")
-#
-#            available_wft_locations.append("Small Key (Woodfall)")
-#            available_sht_locations.append("Small Key (Snowhead)")
-#            available_sht_locations.append("Small Key (Snowhead)")
-#            available_sht_locations.append("Small Key (Snowhead)")
-#            available_gbt_locations.append("Small Key (Great Bay)")
-#            available_sst_locations.append("Small Key (Stone Tower)")
-#            available_sst_locations.append("Small Key (Stone Tower)")
-#            available_sst_locations.append("Small Key (Stone Tower)")
-#            available_sst_locations.append("Small Key (Stone Tower)")
-#        elif self.options.shuffle_small_keys.value == "any_dungeon":
-#            available_dungeon_locations.append("Woodfall Temple Ledge Chest")
-#            available_dungeon_locations.append("Snowhead Temple Behind Stacked Block Chest")
-#            available_dungeon_locations.append("Snowhead Temple Icicle Room Snowball Chest")
-#            available_dungeon_locations.append("Snowhead Temple Bridge Room Freezard Chest")
-#            available_dungeon_locations.append("Great Bay Temple Caged Chest Room Underwater Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Armos Room Lava Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Eyegore Room Dexi Hand Ledge Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Eastern Air Gust Room Switch Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Death Armos Maze Chest")
-#
-#            item_name_groups_to_shuffle.append("Small Key (Woodfall)")
-#            item_name_groups_to_shuffle.append("Small Key (Snowhead)")
-#            item_name_groups_to_shuffle.append("Small Key (Snowhead)")
-#            item_name_groups_to_shuffle.append("Small Key (Snowhead)")
-#            item_name_groups_to_shuffle.append("Small Key (Great Bay)")
-#            item_name_groups_to_shuffle.append("Small Key (Stone Tower)")
-#            item_name_groups_to_shuffle.append("Small Key (Stone Tower)")
-#            item_name_groups_to_shuffle.append("Small Key (Stone Tower)")
-#            item_name_groups_to_shuffle.append("Small Key (Stone Tower)")
-        
-        if self.options.shuffle_boss_keys.value == "vanilla":
+        if self.options.shuffle_boss_keys.value == 1:
             self.place("Woodfall Temple Gekko Chest", "Boss Key (Woodfall)")
             self.place("Snowhead Temple Upper Wizzrobe Chest", "Boss Key (Snowhead)")
             self.place("Great Bay Temple Mad Jellied Gekko Chest", "Boss Key (Great Bay)")
             self.place("Stone Tower Temple Inverted Gomess Chest", "Boss Key (Stone Tower)")
-#        elif self.options.shuffle_boss_keys.value == "dungeon":
-#            available_wft_locations.append("Woodfall Temple Gekko Chest")
-#            available_sht_locations.append("Snowhead Temple Upper Wizzrobe Chest")
-#            available_gbt_locations.append("Great Bay Temple Mad Jellied Gekko Chest")
-#            available_stt_locations.append("Stone Tower Temple Inverted Gomess Chest")
-#
-#            available_wft_locations.append("Boss Key (Woodfall)")
-#            available_sht_locations.append("Boss Key (Snowhead)")
-#            available_gbt_locations.append("Boss Key (Great Bay)")
-#            available_stt_locations.append("Boss Key (Stone Tower)")
-#        elif self.options.shuffle_boss_keys.value == "any_dungeon":
-#            available_dungeon_locations.append("Woodfall Temple Gekko Chest")
-#            available_dungeon_locations.append("Snowhead Temple Upper Wizzrobe Chest")
-#            available_dungeon_locations.append("Great Bay Temple Mad Jellied Gekko Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Gomess Chest")
-#
-#            item_name_groups_to_shuffle.append("Boss Key (Woodfall)")
-#            item_name_groups_to_shuffle.append("Boss Key (Snowhead)")
-#            item_name_groups_to_shuffle.append("Boss Key (Great Bay)")
-#            item_name_groups_to_shuffle.append("Boss Key (Stone Tower)")
-
-        if self.options.shuffle_stray_fairies.value == "vanilla":
+        if self.options.shuffle_stray_fairies.value == 1:
             self.place("Laundry Pool Stray Fairy (Clock Town)", "Stray Fairy (Clock Town)")
-
             self.place("Woodfall Temple Entrance Chest SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Switch Chest SF", "Stray Fairy (Woodfall)")
             self.place("Woodfall Temple Dark Room Chest SF", "Stray Fairy (Woodfall)")
@@ -541,78 +419,136 @@ class MMRWorld(World):
             self.place("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple Entrance Room Lower Chest", "Stray Fairy (Stone Tower)")
             self.place("Stone Tower Temple After Garo Upside Down Chest", "Stray Fairy (Stone Tower)")
-#        else:
-#            available_dungeon_locations.append("Woodfall Temple Entrance Chest SF")
-#            available_dungeon_locations.append("Woodfall Temple Switch Chest SF")
-#            available_dungeon_locations.append("Woodfall Temple Dark Room Chest SF")
-#            available_dungeon_locations.append("Woodfall Temple Entrance Freestanding SF")
-#            available_dungeon_locations.append("Woodfall Temple Deku Baba SF")
-#            available_dungeon_locations.append("Woodfall Temple Pot SF")
-#            available_dungeon_locations.append("Woodfall Temple Platform Hive SF")
-#            available_dungeon_locations.append("Woodfall Temple Main Room Bubble SF")
-#            available_dungeon_locations.append("Woodfall Temple Skulltula SF")
-#            available_dungeon_locations.append("Woodfall Temple Bridge Room Bubble SF")
-#            available_dungeon_locations.append("Woodfall Temple Bridge Room Hive SF")
-#            available_dungeon_locations.append("Woodfall Temple Pre-Boss Lower Right Bubble SF")
-#            available_dungeon_locations.append("Woodfall Temple Pre-Boss Upper Right Bubble SF")
-#            available_dungeon_locations.append("Woodfall Temple Pre-Boss Upper Left Bubble SF")
-#            available_dungeon_locations.append("Woodfall Temple Pre-Boss Pillar Bubble SF")
-#
-#            available_dungeon_locations.append("Snowhead Temple Basement Switch Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Elevator Room Invisible Platform Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Stacked Block Upper Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Freezard Torch Room Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Frozen Block Upper Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Icicle Room Hidden Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Main Room Wall Chest SF")
-#            available_dungeon_locations.append("Snowhead Temple Bridge Room Pillar Bubble SF")
-#            available_dungeon_locations.append("Snowhead Temple Bridge Room Under Platform Bubble SF")
-#            available_dungeon_locations.append("Snowhead Temple Elevator Freestanding SF")
-#            available_dungeon_locations.append("Snowhead Temple Bombable Stairs Crate SF")
-#            available_dungeon_locations.append("Snowhead Temple Timed Switch Room Bubble SF")
-#            available_dungeon_locations.append("Snowhead Temple Snowmen Bubble SF")
-#            available_dungeon_locations.append("Snowhead Temple Dinolfos Room First SF")
-#            available_dungeon_locations.append("Snowhead Temple Dinolfos Room Second SF")
-#
-#            available_dungeon_locations.append("Great Bay Temple Entrance Torches Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Bio-Baba Hall Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Freezable Waterwheel Upper Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Freezable Waterwheel Lower Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Seesaw Room Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Room Behind Waterfall Ceiling Chest SF")
-#            available_dungeon_locations.append("Great Bay Temple Waterwheel Room Skulltula SF")
-#            available_dungeon_locations.append("Great Bay Temple Waterwheel Room Bubble SF")
-#            available_dungeon_locations.append("Great Bay Temple Blender Pot SF")
-#            available_dungeon_locations.append("Great Bay Temple Blender Room Barrel SF")
-#            available_dungeon_locations.append("Great Bay Temple Before Red Valve Room Pot SF")
-#            available_dungeon_locations.append("Great Bay Temple Caged Chest Room Pot SF")
-#            available_dungeon_locations.append("Great Bay Temple Seesaw Room Underwater Barrel SF")
-#            available_dungeon_locations.append("Great Bay Temple Pre-Boss Room Platform Bubble SF")
-#            available_dungeon_locations.append("Great Bay Temple Pre-Boss Room Tunnel Bubble SF")
-#
-#            available_dungeon_locations.append("Stone Tower Temple Entrance Room Eye Switch Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Armos Room Upper Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Eyegore Room Switch Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Mirror Room Sun Face Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Mirror Room Sun Block Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Air Gust Room Side Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Air Gust Room Goron Switch Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Eyegore Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Eastern Water Room Underwater Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Entrance Room Sun Face Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Eastern Air Gust Room Frozen Switch Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Wizzrobe Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Inverted Eastern Air Gust Room Fire Chest")
-#            available_dungeon_locations.append("Stone Tower Temple Entrance Room Lower Chest")
-#            available_dungeon_locations.append("Stone Tower Temple After Garo Upside Down Chest")
-#            for i in range(1, 15, 1):
-#                item_name_groups_to_shuffle.append("Stray Fairy (Woodfall)")
-#            for i in range(1, 15, 1):
-#                item_name_groups_to_shuffle.append("Stray Fairy (Snowhead)")
-#            for i in range(1, 15, 1):
-#                item_name_groups_to_shuffle.append("Stray Fairy (Great Bay)")
-#            for i in range(1, 15, 1):
-#                item_name_groups_to_shuffle.append("Stray Fairy (Stone Tower)")
+
+        if (self.options.shuffle_maps_and_compasses.value == 2 or self.options.shuffle_small_keys.value == 2 or
+        self.options.shuffle_boss_keys.value == 2 or self.options.shuffle_stray_fairies.value == 2):
+            unfilled_wft_locations = []
+            unfilled_sht_locations = []
+            unfilled_gbt_locations = []
+            unfilled_stt_locations = []
+            for unfilled_location_name in self.multiworld.get_unfilled_locations(self.player):
+                for location_name, location_data in location_data_table.items():
+                    if location_data.region == "Woodfall Temple":
+                        if self.multiworld.players > 1:
+                            updated_unfilled_location_name = str(unfilled_location_name).replace(
+                                                                 (f" ({self.player_name})"), "")
+                            if updated_unfilled_location_name == location_name:
+                                unfilled_wft_locations.append(updated_unfilled_location_name)
+                        else:
+                            if str(unfilled_location_name) == location_name:
+                                unfilled_wft_locations.append(str(unfilled_location_name))
+                    elif location_data.region == "Snowhead Temple":
+                        if self.multiworld.players > 1:
+                            updated_unfilled_location_name = str(unfilled_location_name).replace(
+                                                                 (f" ({self.player_name})"), "")
+                            if updated_unfilled_location_name == location_name:
+                                unfilled_sht_locations.append(updated_unfilled_location_name)
+                        else:
+                            if str(unfilled_location_name) == location_name:
+                                unfilled_sht_locations.append(str(unfilled_location_name))
+                    elif location_data.region == "Great Bay Temple":
+                        if self.multiworld.players > 1:
+                            updated_unfilled_location_name = str(unfilled_location_name).replace(
+                                                                 (f" ({self.player_name})"), "")
+                            if updated_unfilled_location_name == location_name:
+                                unfilled_gbt_locations.append(updated_unfilled_location_name)
+                        else:
+                            if str(unfilled_location_name) == location_name:
+                                unfilled_gbt_locations.append(str(unfilled_location_name))
+                    elif location_data.region in ["Stone Tower Temple", "Stone Tower Temple (Inverted)"]:
+                        if self.multiworld.players > 1:
+                            updated_unfilled_location_name = str(unfilled_location_name).replace(
+                                                                 (f" ({self.player_name})"), "")
+                            if updated_unfilled_location_name == location_name:
+                                unfilled_stt_locations.append(updated_unfilled_location_name)
+                        else:
+                            if str(unfilled_location_name) == location_name:
+                                unfilled_stt_locations.append(str(unfilled_location_name))
+            self.random.shuffle(unfilled_wft_locations)
+            self.random.shuffle(unfilled_sht_locations)
+            self.random.shuffle(unfilled_gbt_locations)
+            self.random.shuffle(unfilled_stt_locations)
+            if self.options.shuffle_maps_and_compasses.value == 2:
+                self.place(unfilled_wft_locations.pop(0), "Dungeon Map (Woodfall)")
+                self.place(unfilled_wft_locations.pop(0), "Compass (Woodfall)")
+                self.place(unfilled_sht_locations.pop(0), "Dungeon Map (Snowhead)")
+                self.place(unfilled_sht_locations.pop(0), "Compass (Snowhead)")
+                self.place(unfilled_gbt_locations.pop(0), "Dungeon Map (Great Bay)")
+                self.place(unfilled_gbt_locations.pop(0), "Compass (Great Bay)")
+                self.place(unfilled_stt_locations.pop(0), "Dungeon Map (Stone Tower)")
+                self.place(unfilled_stt_locations.pop(0), "Compass (Stone Tower)")
+            if self.options.shuffle_small_keys.value == 2:
+                self.place(unfilled_wft_locations.pop(0), "Small Key (Woodfall)")
+                self.place(unfilled_sht_locations.pop(0), "Small Key (Snowhead)")
+                self.place(unfilled_sht_locations.pop(0), "Small Key (Snowhead)")
+                self.place(unfilled_sht_locations.pop(0), "Small Key (Snowhead)")
+                self.place(unfilled_gbt_locations.pop(0), "Small Key (Great Bay)")
+                self.place(unfilled_stt_locations.pop(0), "Small Key (Stone Tower)")
+                self.place(unfilled_stt_locations.pop(0), "Small Key (Stone Tower)")
+                self.place(unfilled_stt_locations.pop(0), "Small Key (Stone Tower)")
+                self.place(unfilled_stt_locations.pop(0), "Small Key (Stone Tower)")
+            if self.options.shuffle_boss_keys.value == 2:
+                self.place(unfilled_wft_locations.pop(0), "Boss Key (Woodfall)")
+                self.place(unfilled_sht_locations.pop(0), "Boss Key (Snowhead)")
+                self.place(unfilled_gbt_locations.pop(0), "Boss Key (Great Bay)")
+                self.place(unfilled_stt_locations.pop(0), "Boss Key (Stone Tower)")
+            if self.options.shuffle_stray_fairies.value == 2:
+                count = 0
+                while count < 15:
+                    count = count + 1
+                    self.place(unfilled_wft_locations.pop(0), "Stray Fairy (Woodfall)")
+                    self.place(unfilled_sht_locations.pop(0), "Stray Fairy (Snowhead)")
+                    self.place(unfilled_gbt_locations.pop(0), "Stray Fairy (Great Bay)")
+                    self.place(unfilled_stt_locations.pop(0), "Stray Fairy (Stone Tower)")
+
+        if (self.options.shuffle_maps_and_compasses.value == 3 or self.options.shuffle_small_keys.value == 3 or
+        self.options.shuffle_boss_keys.value == 3 or self.options.shuffle_stray_fairies.value == 3):
+            unfilled_dungeon_locations = []
+            for unfilled_location_name in self.multiworld.get_unfilled_locations(self.player):
+                for location_name, location_data in location_data_table.items():
+                    if location_data.region in [
+                        "Woodfall Temple", "Snowhead Temple", "Great Bay Temple",
+                        "Stone Tower Temple", "Stone Tower Temple (Inverted)"
+                    ]:
+                        if self.multiworld.players > 1:
+                            updated_unfilled_location_name = str(unfilled_location_name).replace(
+                                                             (f" ({self.player_name})"), "")
+                            if updated_unfilled_location_name == location_name:
+                                unfilled_dungeon_locations.append(updated_unfilled_location_name)
+                        else:
+                            if str(unfilled_location_name) == location_name:
+                                unfilled_dungeon_locations.append(str(unfilled_location_name))
+            self.random.shuffle(unfilled_dungeon_locations)
+            if self.options.shuffle_maps_and_compasses.value == 3:
+                for item_to_place in [
+                    "Dungeon Map (Woodfall)",    "Compass (Woodfall)",
+                    "Dungeon Map (Snowhead)",    "Compass (Snowhead)",
+                    "Dungeon Map (Great Bay)",   "Compass (Great Bay)",
+                    "Dungeon Map (Stone Tower)", "Compass (Stone Tower)"
+                ]:
+                    self.place(unfilled_dungeon_locations.pop(0), item_to_place)
+            if self.options.shuffle_small_keys.value == 3:
+                for item_to_place in [
+                    "Small Key (Woodfall)",
+                    "Small Key (Snowhead)", "Small Key (Snowhead)", "Small Key (Snowhead)",
+                    "Small Key (Great Bay)",
+                    "Small Key (Stone Tower)", "Small Key (Stone Tower)",
+                    "Small Key (Stone Tower)", "Small Key (Stone Tower)"
+                ]:
+                    self.place(unfilled_dungeon_locations.pop(0), item_to_place)
+            if self.options.shuffle_boss_keys.value == 3:
+                self.place(unfilled_dungeon_locations.pop(0), "Boss Key (Woodfall)")
+                self.place(unfilled_dungeon_locations.pop(0), "Boss Key (Snowhead)")
+                self.place(unfilled_dungeon_locations.pop(0), "Boss Key (Great Bay)")
+                self.place(unfilled_dungeon_locations.pop(0), "Boss Key (Stone Tower)")
+            if self.options.shuffle_stray_fairies.value == 3:
+                count = 0
+                while count < 15:
+                    count = count + 1
+                    self.place(unfilled_dungeon_locations.pop(0), "Stray Fairy (Woodfall)")
+                    self.place(unfilled_dungeon_locations.pop(0), "Stray Fairy (Snowhead)")
+                    self.place(unfilled_dungeon_locations.pop(0), "Stray Fairy (Great Bay)")
+                    self.place(unfilled_dungeon_locations.pop(0), "Stray Fairy (Stone Tower)")
 
         sword_location = mw.get_location("Link's Inventory (Kokiri Sword)", player)
         if self.options.swordless.value:
@@ -689,8 +625,6 @@ class MMRWorld(World):
             if name not in location_rules:
                 print(f"Location '{name}' does not have any logic")
             
-            if self.options.skullsanity.value == 2 and (name == "Swamp Spider House Reward" or name == "Ocean Spider House Reward"):
-                continue
             if name in location_rules and location_data_table[name].can_create(self.options):
                 location.access_rule = location_rules[name]
 

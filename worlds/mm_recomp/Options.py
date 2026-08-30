@@ -211,8 +211,8 @@ class DungeonItems(Choice):
     """Base class for shuffle options for dungeon items (keys, maps, compasses)."""
     value: int
     option_vanilla = 1
-    #option_dungeon = 2
-    #option_any_dungeon = 3
+    option_own_dungeon = 2
+    option_any_dungeon = 3
     option_local = 4
     option_keysanity = 5
     default = 4
@@ -231,7 +231,9 @@ class ShuffleStrayFairies(DungeonItems):
     """
     Choose how stray fairies will be shuffled in the pool.
 
-    Vanilla: Stray fairies will be places where they can be found in vanilla.
+    Vanilla: Stray fairies will be placed where they can be found in vanilla.
+    Own Dungeon: Stray fairies will be placed in their respective dungeons.
+    Any Dungeon: Stray fairies will be placed in any of the four main dungeons.
     Local: Stray fairies will be placed anywhere in your own world.
     Fairysanity: Stray fairies will be placed in any world.
     """
@@ -246,6 +248,8 @@ class ShuffleMapsAndCompasses(DungeonItems):
 
     Start With: Start the seed with dungeon maps and compasses.
     Vanilla: Dungeon maps and compasses will be placed where they can be found in vanilla.
+    Own Dungeon: Dungeon maps and compasses will be placed in their respective dungeons.
+    Any Dungeon: Dungeon maps and compasses will be placed in any of the four main dungeons.
     Local: Dungeon maps and compasses will be placed anywhere in your own world.
     Keysanity: Dungeon maps and compasses will be placed in any world.
     """
@@ -260,6 +264,8 @@ class ShuffleSmallKeys(DungeonItems):
 
     Start With: Start the seed with small keys.
     Vanilla: Small keys will be placed where they can be found in vanilla.
+    Own Dungeon: Small keys will be placed in their respective dungeons.
+    Any Dungeon: Small keys will be placed in any of the four main dungeons.
     Local: Small keys will be placed anywhere in your own world.
     Keysanity: Small keys will be placed in any world.
     """
@@ -274,6 +280,8 @@ class ShuffleBossKeys(DungeonItems):
 
     Start With: Start the seed with boss keys.
     Vanilla: Boss keys will be placed where they can be found in vanilla.
+    Own Dungeon: Boss keys will be placed in their respective dungeons.
+    Any Dungeon: Boss keys will be placed in any of the four main dungeons.
     Local: Boss keys will be placed anywhere in your own world.
     Keysanity: Boss keys will be placed in any world.
     """

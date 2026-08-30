@@ -1020,7 +1020,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420055B08
     ),
     "Snowhead Great Fairy Reward": MMRLocationData(
-        region="Snowhead Temple",
+        region="Snowhead",
         address=0x3469420030002,
         can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),

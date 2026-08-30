@@ -433,7 +433,7 @@ def get_region_rules(player, options):
                     (
                         state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                         state.has("Boss Key (Stone Tower)", player)
-                    )
+                    ) or
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
@@ -2534,7 +2534,7 @@ def get_location_rules(player, options, prices):
                     (
                         state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                         state.has("Boss Key (Stone Tower)", player)
-                    )
+                    ) or
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
@@ -2557,7 +2557,7 @@ def get_location_rules(player, options, prices):
                     (
                         state.can_reach("Stone Tower Temple Inverted Eyegore Chest", 'Location', player) and
                         state.has("Boss Key (Stone Tower)", player)
-                    )
+                    ) or
                     (
                         state.has("Twinmold's Remains", player) and
                         options.remains_allow_boss_warps.value
