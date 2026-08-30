@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from typing import Dict
 
-from Options import Choice, Option, DefaultOnToggle, Toggle, Range, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
+from Options import Choice, DefaultOnToggle, Toggle, Range, NamedRange, OptionList, StartInventoryPool, DeathLink, PerGameCommonOptions
 
 
 class LogicDifficulty(Choice):
@@ -98,9 +98,16 @@ class BossWarpsWithRemains(DefaultOnToggle):
     display_name = "Warp to Bosses Using Remains"
 
 
-class ShuffleSpiderHouseReward(Toggle):
-    """Choose whether to shuffle the Mask of Truth given at the end of the Southern Spider House and the Wallet Upgrade at the end of the Ocean Spider House."""
+class ShuffleSpiderHouseReward(Choice):
+    """Choose how Swamp Spider House and Ocean Spider House rewards are shuffled.
+    
+    disabled: Spider House rewards won't be shuffled into the pool.
+    vanilla: Spider House rewards will be vanilla. Mask of Truth will be in Swamp and a wallet upgrade in Ocean.
+    enabled: Spider House rewards will be shuffled. Any item can be shuffled at their locations."""
     display_name = "Shuffle Spider House Rewards"
+    option_disabled = 0
+    option_vanilla = 1
+    option_enabled = 2
 
 
 class RequiredSkullTokens(Range):
@@ -144,22 +151,33 @@ class Scrubsanity(Toggle):
     display_name = "Shuffle Business Scrub Purchases"
 
 class ShopPrices(Choice):
-    """Choose how expensive shop items are.
-    These only apply to the main shops of the game.
-    This has no effect if shopsanity is disabled.
+    """
+    Choose whether prices for shop items are vanilla or random.
+    This only apply to the main shops of the game. This has no effect if shopsanity is disabled.
     
     vanilla: Shop items have their normal prices.
-    free: All shop items are free and cost 0 Rupees.
-    cheap: Shop items vary in price but can all be purchased with the starting wallet.
-    expensive: Shop items vary in price but may require the Adult's Wallet. No shop items will require the Giant's Wallet.
-    offensive: Shop items vary in price but may require the Adult's Wallet and sometimes even the Giant's Wallet."""
+    randomized: Shop items have their prices randomized. The maximum price can be configured in max_shop_prices.
+    """
     display_name = "Shop Prices"
     option_vanilla = 0
-    option_free = 1
-    option_cheap = 2
-    option_expensive = 3
-    option_offensive = 4
+    option_randomized = 1
     default = 0
+
+class MaxShopPrices(NamedRange):
+    """
+    Choose the maximum price shop items can be. This only has an effect if shop_prices is set to random.
+    """
+    display_name = "Maximum Shop Prices"
+    range_start = 0
+    range_end = 500
+    default = 300
+    special_range_names = {
+        "balanced": 300,
+        "free": 0,
+        "child": 99,
+        "adult": 200,
+        "giant": 500,
+    }
 
 
 class Cowsanity(Toggle):
@@ -167,9 +185,17 @@ class Cowsanity(Toggle):
     display_name = "Shuffle Cows"
 
 
-class ShuffleGreatFairyRewards(Toggle):
-    """Choose whether to shuffle Great Fairy rewards."""
+class ShuffleGreatFairyRewards(Choice):
+    """Choose how Great Fairy rewards are shuffled.
+    
+    disabled: Great Fairy rewards won't be shuffled into the pool.
+    vanilla: Great Fairy rewards will be vanilla. For example, Magic will be behind Clock Town and Snowhead rewards.
+    enabled: Great Fairy rewards will be shuffled. Any item can be shuffled at their locations."""
     display_name = "Shuffle Great Fairy Rewards"
+    option_disabled = 0
+    option_vanilla = 1
+    option_enabled = 2
+    default = 0
 
 
 class RequiredStrayFairies(Range):
@@ -181,24 +207,93 @@ class RequiredStrayFairies(Range):
     range_end = 15
     default = 15
 
+class DungeonItems(Choice):
+    """Base class for shuffle options for dungeon items (keys, maps, compasses)."""
+    value: int
+    option_vanilla = 1
+    option_own_dungeon = 2
+    option_any_dungeon = 3
+    option_local = 4
+    option_keysanity = 5
+    default = 4
 
-class Fairysanity(Toggle):
-    """Choose whether Stray Fairies are shuffled into the pool."""
-    display_name = "Fairysanity"
+    @property
+    def in_dungeon(self) -> bool:
+        """
+        Return whether the item should be shuffled into a dungeon.
+
+        :return: Whether the item is shuffled into a dungeon.
+        """
+        return self.value in (2, 3)
 
 
-class Keysanity(Toggle):
-    """Choose whether Small Keys are shuffled into the pool or placed in their vanilla locations."""
-    display_name = "Keysanity"
+class ShuffleStrayFairies(DungeonItems):
+    """
+    Choose how stray fairies will be shuffled in the pool.
 
-class BossKeysanity(Toggle):
-    """Choose whether Boss Keys are shuffled into the pool or placed in their vanilla locations."""
-    display_name = "BossKeysanity"    
+    Vanilla: Stray fairies will be placed where they can be found in vanilla.
+    Own Dungeon: Stray fairies will be placed in their respective dungeons.
+    Any Dungeon: Stray fairies will be placed in any of the four main dungeons.
+    Local: Stray fairies will be placed anywhere in your own world.
+    Fairysanity: Stray fairies will be placed in any world.
+    """
+    item_name_group = "Stray Fairies"
+    display_name = "Shuffle Stray Fairies"
+    option_fairysanity = 5
+    default = 4
+
+class ShuffleMapsAndCompasses(DungeonItems):
+    """
+    Choose how dungeon maps and compasses will be shuffled in the pool.
+
+    Start With: Start the seed with dungeon maps and compasses.
+    Vanilla: Dungeon maps and compasses will be placed where they can be found in vanilla.
+    Own Dungeon: Dungeon maps and compasses will be placed in their respective dungeons.
+    Any Dungeon: Dungeon maps and compasses will be placed in any of the four main dungeons.
+    Local: Dungeon maps and compasses will be placed anywhere in your own world.
+    Keysanity: Dungeon maps and compasses will be placed in any world.
+    """
+    item_name_group = "Maps and Compasses"
+    display_name = "Shuffle Maps and Compasses"
+    option_start_with = 0
+    default = 4
+
+class ShuffleSmallKeys(DungeonItems):
+    """
+    Choose how small keys will be shuffled in the pool.
+
+    Start With: Start the seed with small keys.
+    Vanilla: Small keys will be placed where they can be found in vanilla.
+    Own Dungeon: Small keys will be placed in their respective dungeons.
+    Any Dungeon: Small keys will be placed in any of the four main dungeons.
+    Local: Small keys will be placed anywhere in your own world.
+    Keysanity: Small keys will be placed in any world.
+    """
+    item_name_group = "Small Keys"
+    display_name = "Shuffle Small Keys"
+    option_start_with = 0
+    default = 4
+
+class ShuffleBossKeys(DungeonItems):
+    """
+    Choose how boss keys will be shuffled in the pool.
+
+    Start With: Start the seed with boss keys.
+    Vanilla: Boss keys will be placed where they can be found in vanilla.
+    Own Dungeon: Boss keys will be placed in their respective dungeons.
+    Any Dungeon: Boss keys will be placed in any of the four main dungeons.
+    Local: Boss keys will be placed anywhere in your own world.
+    Keysanity: Boss keys will be placed in any world.
+    """
+    item_name_group = "Boss Keys"
+    display_name = "Shuffle Boss Keys"
+    option_start_with = 0
+    default = 4
 
 
 class CuriostityShopTrades(Toggle):
-    """Choose whether to shuffle the rupees given for trading bottled items at the Curiostity Shop."""
-    display_name = "Curiostity Shop Trades"
+    """Choose whether to shuffle the rupees given for trading bottled items at the Curiosity Shop."""
+    display_name = "Curiosity Shop Trades"
 
 
 class IntroChecks(Toggle):
@@ -207,15 +302,91 @@ class IntroChecks(Toggle):
     A way backwards through these areas has been added through the stone door at the bottom of the Clock Tower Interior."""
     display_name = "Enable Intro Checks"
 
+class ShuffleMinigames(Choice):
+    """Choose whether the minigames are shuffled or not. The minigames affected are:
+    - Town and Swamp Shooting Galleries;
+    - Honey & Darling;
+    - Deku Playground;
+    - Great Bay Fisherman Game.
+    
+    disabled: Listed minigames are not shuffled.
+    single: Listed minigames only have one location. Where applicable, the easier locations (any day/lowest points requirements) are shuffled.
+    everything: Listed minigames are fully shuffled."""
+    display_name = "Shuffle Minigames"
+    option_disabled = 0
+    option_single = 1
+    option_everything = 2
+    default = 1
+
+class ShuffleTreasureChestGame(Choice):
+    """Choose which chests in the Treasure Chest minigame are shuffled.
+    
+    disabled: Chests are not shuffled.
+    goron_only: Only the reward as Goron is shuffled.
+    everything: Rewards for human, Deku, Goron, and Zora are shuffled."""
+    display_name = "Treasure Chest Minigame Shuffle"
+    option_disabled = 0
+    option_goron_only = 1
+    option_everything = 2
+    default = 1
+
+class ShuffleZoraPotGame(Toggle):
+    """Enabling this will shuffle the Zora pot minigame at Zora Cape."""
+    display_name = "Shuffle Zora Pot Game"
+
+class ShuffleBeaverRace(Range):
+    """
+    Choose how many beaver race rewards are shuffled.
+    
+    Valid amounts are within the range 0-2.
+    """
+    display_name = "Shuffle Beaver Race"
+    range_start = 0
+    range_end = 2
+    default = 0
+
+class ShuffleLottery(Toggle):
+    """Choose whether to shuffle lottery reward or not."""
+    display_name = "Shuffle Lottery"
+
+class ShufflePictureRewards(Choice):
+    """
+    Choose whether the rewards for the Tourist Center picture contest and the Lulu fan are shuffled or not.
+
+    disabled: Picture rewards will be disabled.
+    winning_only: Only the winning picture for the Tourist Center reward will be shuffled.
+    all_pictures: All picture rewards will be shuffled.
+    """
+    display_name = "Shuffle Picture Rewards"
+    option_disabled = 0
+    option_winning_only = 1
+    option_all_pictures = 2
+    default = 1
+
 
 class StartWithConsumables(DefaultOnToggle):
     """Choose whether to start with basic consumables (99 rupees, 10 deku sticks, 20 deku nuts)."""
     display_name = "Start With Consumables"
 
 
-class PermanentChateauRomani(DefaultOnToggle):
-    """Choose whether the Chateau Romani stays even after a reset."""
+class InfiniteMagicBehavior(Choice):
+    """
+    Choose how infinite magic is handled.
+
+    vanilla: Vanilla behavior. Infinite magic will end after a cycle reset.
+    consume: Drinking Chateau Romani will give permanent infinite magic and will persist through cycle resets.
+    upgrade: Adds a third Progressive Magic in the pool that gives permanent infinite magic. Drinking Chateau Romani
+    before getting the third upgrade will still give infinite magic, but will end after a cycle reset.
+    """
     display_name = "Permanent Chateau Romani"
+    option_vanilla = 0
+    option_consume = 1
+    option_upgrade = 2
+
+
+class SkipDigging(Toggle):
+    """Enabling this will skip the Graveyard night 3 grave digging section, immediately spawning the big poe."""
+    display_name = "Skip Digging"
 
 
 class StartWithInvertedTime(Toggle):
@@ -287,16 +458,25 @@ class MMROptions(PerGameCommonOptions):
     shopsanity: Shopsanity
     scrubsanity: Scrubsanity
     shop_prices: ShopPrices
+    max_shop_prices: MaxShopPrices
     cowsanity: Cowsanity
     shuffle_great_fairy_rewards: ShuffleGreatFairyRewards
     required_stray_fairies: RequiredStrayFairies
-    fairysanity: Fairysanity
-    keysanity: Keysanity
-    bosskeysanity: BossKeysanity
+    shuffle_stray_fairies: ShuffleStrayFairies
+    shuffle_maps_and_compasses: ShuffleMapsAndCompasses
+    shuffle_small_keys: ShuffleSmallKeys
+    shuffle_boss_keys: ShuffleBossKeys
     curiostity_shop_trades: CuriostityShopTrades
     intro_checks: IntroChecks
+    shuffle_minigames: ShuffleMinigames
+    shuffle_treasure_chest_game: ShuffleTreasureChestGame
+    shuffle_zora_pot_game: ShuffleZoraPotGame
+    shuffle_beaver_races: ShuffleBeaverRace
+    shuffle_lottery: ShuffleLottery
+    shuffle_picture_rewards: ShufflePictureRewards
     start_with_consumables: StartWithConsumables
-    permanent_chateau_romani: PermanentChateauRomani
+    infinite_magic_behavior: InfiniteMagicBehavior
+    skip_digging: SkipDigging
     start_with_inverted_time: StartWithInvertedTime
     receive_filled_wallets: ReceiveFilledWallets
     magic_is_a_trap: MagicIsATrap

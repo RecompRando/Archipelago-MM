@@ -283,35 +283,43 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "East Clock Town Shooting Gallery 40-49 Points": MMRLocationData(
         region="Clock Town",
-        address=0x3469420000023
+        address=0x3469420000023,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "East Clock Town Shooting Gallery Perfect 50 Points": MMRLocationData(
         region="Clock Town",
-        address=0x346942007011D
+        address=0x346942007011D,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "East Clock Town Honey and Darling Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x34694200800B5
+        address=0x34694200800B5,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "East Clock Town Honey and Darling All Days": MMRLocationData(
         region="Clock Town",
-        address=0x34694200700B5
+        address=0x34694200700B5,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "East Clock Town Treasure Game Chest (Human)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420061705
+        address=0x3469420061705,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "East Clock Town Treasure Game Chest (Deku)": MMRLocationData(
         region="Clock Town",
-        address=0x346942006172A
+        address=0x346942006172A,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "East Clock Town Treasure Game Chest (Goron)": MMRLocationData(
         region="Clock Town",
-        address=0x346942006170C
+        address=0x346942006170C,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value != 0
     ),
     "East Clock Town Treasure Game Chest (Zora)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420061704
+        address=0x3469420061704,
+        can_create=lambda options: options.shuffle_treasure_chest_game.value == 2
     ),
     "Bomber's Hideout Chest": MMRLocationData(
         region="Clock Town",
@@ -327,11 +335,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "North Clock Town Deku Playground Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x34694200801C9
+        address=0x34694200801C9,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "North Clock Town Deku Playground All Days": MMRLocationData(
         region="Clock Town",
-        address=0x34694200701C9
+        address=0x34694200701C9,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "North Clock Town Save Old Lady": MMRLocationData(
         region="Clock Town",
@@ -339,15 +349,18 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "North Clock Town Great Fairy Reward": MMRLocationData(
         region="Clock Town",
-        address=0x3469420030000
+        address=0x3469420030000,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "North Clock Town Great Fairy Reward (Has Transformation Mask)": MMRLocationData(
         region="Clock Town",
-        address=0x3469420000086
+        address=0x3469420000086,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "West Clock Town Lottery Any Day": MMRLocationData(
         region="Clock Town",
-        address=0x3469420080239
+        address=0x3469420080239,
+        can_create=lambda options: options.shuffle_lottery.value
     ),
     "West Clock Town Swordsman Expert Course": MMRLocationData(
         region="Clock Town",
@@ -514,20 +527,22 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942007024C
     ),
     "Road to Swamp Tree HP": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x3469420054001
     ),
     "Road to Swamp Grotto Chest": MMRLocationData(
-        region="Southern Swamp",
+        region="Road to Southern Swamp",
         address=0x346942006071E
     ),
     "Swamp Shooting Gallery 2120 Points": MMRLocationData(
-        region="Southern Swamp",
-        address=0x3469420000024
+        region="Road to Southern Swamp",
+        address=0x3469420000024,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "Swamp Shooting Gallery 2180 Points": MMRLocationData(
-        region="Southern Swamp",
-        address=0x346942008011D
+        region="Road to Southern Swamp",
+        address=0x346942008011D,
+        can_create=lambda options: options.shuffle_minigames.value == 2
     ),
     "Southern Swamp Deku Trade": MMRLocationData(
         region="Southern Swamp",
@@ -556,15 +571,18 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Southern Swamp Winning Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x34694200701C5
+        address=0x34694200701C5,
+        can_create=lambda options: options.shuffle_picture_rewards
     ),
     "Southern Swamp Good Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420071C54
+        address=0x3469420071C54,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Southern Swamp Okay Picture": MMRLocationData(
         region="Southern Swamp",
-        address=0x3469420071C52
+        address=0x3469420071C52,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Southern Swamp Witch Shop Item 1": MMRLocationData(
         region="Southern Swamp",
@@ -733,7 +751,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Swamp Spider House Reward": MMRLocationData(
         region="Swamp Spider House",
-        address=0x346942000008A
+        address=0x346942000008A,
+        can_create=lambda options: options.shuffle_spiderhouse_reward.value != 0
     ),
     "Southern Swamp Grotto Chest": MMRLocationData(
         region="Southern Swamp (Deku Palace)",
@@ -777,7 +796,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Woodfall Great Fairy Reward": MMRLocationData(
         region="Woodfall",
-        address=0x3469420030001
+        address=0x3469420030001,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Woodfall Temple Entrance Chest SF": MMRLocationData(
         region="Woodfall Temple",
@@ -860,11 +880,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420011B2D
     ),
     "Woodfall Temple Heart Container": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420051F00
     ),
     "Woodfall Temple Odolwa's Remains": MMRLocationData(
-        region="Woodfall Temple",
+        region="Odolwa's Lair",
         address=0x3469420000055
     ),
     "Southern Swamp Boat Archery": MMRLocationData(
@@ -920,7 +940,7 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420060702
     ),
     "Goron Racetrack Prize": MMRLocationData(
-        region="Twin Islands",
+        region="Goron Racetrack",
         address=0x346942000006A
     ),
     "Goron Village Lens Cave Rock Chest": MMRLocationData(
@@ -936,36 +956,36 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420060701
     ),
     "Goron Village Baby Goron Lullaby": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x34694200000AD
     ),
     "Goron Village Shop Item 1": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x346942009001E,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop Item 2": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x346942009001F,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop Item 3": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090020,
         can_create=lambda options: options.shopsanity.value != 0
     ),
     "Goron Village Shop (Spring) Item 1": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090021,
         can_create=lambda options: options.shopsanity.value == 2
     ),
     "Goron Village Shop (Spring) Item 2": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090022,
         can_create=lambda options: options.shopsanity.value == 2
     ),
     "Goron Village Shop (Spring) Item 3": MMRLocationData(
-        region="Goron Village",
+        region="Goron Shrine",
         address=0x3469420090023,
         can_create=lambda options: options.shopsanity.value == 2
     ),    
@@ -1000,8 +1020,9 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420055B08
     ),
     "Snowhead Great Fairy Reward": MMRLocationData(
-        region="Snowhead Temple",
-        address=0x3469420030002
+        region="Snowhead",
+        address=0x3469420030002,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Snowhead Temple Elevator Room Invisible Platform Chest SF": MMRLocationData(
         region="Snowhead Temple",
@@ -1092,11 +1113,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x3469420062117
     ),
     "Snowhead Temple Heart Container": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420054400
     ),
     "Snowhead Temple Goht's Remains": MMRLocationData(
-        region="Snowhead Temple",
+        region="Goht's Lair",
         address=0x3469420000056
     ),
     "Milk Road Gorman Ranch Race": MMRLocationData(
@@ -1179,7 +1200,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Great Bay Fisherman Game": MMRLocationData(
         region="Great Bay",
-        address=0x3469420070292
+        address=0x3469420070292,
+        can_create=lambda options: options.shuffle_minigames.value != 0
     ),
     "Zora Cape Underwater Like-Like HP": MMRLocationData(
         region="Zora Cape",
@@ -1191,7 +1213,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Cape Pot Game": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420072806
+        address=0x3469420072806,
+        can_create=lambda options: options.shuffle_zora_pot_game.value
     ),
     "Zora Cape Deku Flower Chest": MMRLocationData(
         region="Zora Cape",
@@ -1207,15 +1230,18 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Beaver Bros. Race 1": MMRLocationData(
         region="Zora Cape",
-        address=0x346942009018D
+        address=0x346942009018D,
+        can_create=lambda options: options.shuffle_beaver_races.value
     ),
     "Beaver Bros. Race 2 HP": MMRLocationData(
         region="Zora Cape",
-        address=0x346942007018D
+        address=0x346942007018D,
+        can_create=lambda options: options.shuffle_beaver_races.value == 2
     ),
     "Great Bay Great Fairy Reward": MMRLocationData(
         region="Zora Cape",
-        address=0x3469420030003
+        address=0x3469420030003,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Zora Hall Shop Item 1": MMRLocationData(
         region="Zora Hall",
@@ -1255,11 +1281,13 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Zora Hall Good Picture of Lulu": MMRLocationData(
         region="Zora Hall",
-        address=0x3469420082284
+        address=0x3469420082284,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Zora Hall Bad Picture of Lulu": MMRLocationData(
         region="Zora Hall",
-        address=0x3469420082282
+        address=0x3469420082282,
+        can_create=lambda options: options.shuffle_picture_rewards == 2
     ),
     "Pirates' Fortress Sewers Cage HP": MMRLocationData(
         region="Pirates' Fortress Sewers",
@@ -1271,11 +1299,11 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Pirates' Fortress Sewers Underwater Lower Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062304
+        address=0x3469420062306
     ),
     "Pirates' Fortress Sewers Underwater Upper Chest": MMRLocationData(
         region="Pirates' Fortress Sewers",
-        address=0x3469420062306
+        address=0x3469420062304
     ),
     "Pirates' Fortress Exterior Underwater Log Chest": MMRLocationData(
         region="Pirates' Fortress",
@@ -1477,7 +1505,8 @@ location_data_table: Dict[str, MMRLocationData] = {
     ),
     "Ocean Spider House Reward": MMRLocationData(
         region="Ocean Spider House",
-        address=0x3469420000009
+        address=0x3469420000009,
+        can_create=lambda options: options.shuffle_spiderhouse_reward.value != 0
     ),
     "Great Bay Temple Blender Pot SF": MMRLocationData(
         region="Great Bay Temple",
@@ -1560,11 +1589,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942001492F
     ),
     "Great Bay Temple Heart Container": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420055F00
     ),
     "Great Bay Temple Gyorg's Remains": MMRLocationData(
-        region="Great Bay Temple",
+        region="Gyorg's Lair",
         address=0x3469420000057
     ),
     "Road to Ikana Pillar Chest": MMRLocationData(
@@ -1628,33 +1657,34 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006600A
     ),
     "Ikana Canyon Grotto Chest": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420060714
     ),
     "Ikana Canyon Scrub Purchase": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942009015D,
         can_create=lambda options: options.scrubsanity.value
     ),
     "Ikana Canyon Zora Scrub Trade": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x3469420001307
     ),
     "Ikana Canyon Zora Trade Freestanding HP": MMRLocationData(
-        region="Ikana Canyon",
+        region="Lower Ikana Canyon",
         address=0x346942005131E
     ),
     "Ikana Canyon Healing Pamela's Father": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x3469420000087
     ),
     "Ikana Canyon Spirit House": MMRLocationData(
-        region="Ikana Canyon",
+        region="Upper Ikana Canyon",
         address=0x34694200701DE
     ),
     "Stone Tower Great Fairy Reward": MMRLocationData(
-        region="Ikana Canyon",
-        address=0x3469420030004
+        region="Upper Ikana Canyon",
+        address=0x3469420030004,
+        can_create=lambda options: options.shuffle_great_fairy_rewards.value != 0
     ),
     "Ikana Well Final Chest": MMRLocationData(
         region="Beneath the Well",
@@ -1794,11 +1824,11 @@ location_data_table: Dict[str, MMRLocationData] = {
         address=0x346942006181A
     ),
     "Stone Tower Temple Inverted Heart Container": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420053600
     ),
     "Stone Tower Temple Inverted Twinmold's Remains": MMRLocationData(
-        region="Stone Tower Temple (Inverted)",
+        region="Twinmold's Lair",
         address=0x3469420000058
     ),
     "Oath to Order": MMRLocationData(
